@@ -1,0 +1,32 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python files
+*.py text diff=python
+*.pyw text diff=python
+
+# JavaScript/TypeScript files
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+
+# Config files
+*.json text
+*.yml text
+*.yaml text
+*.toml text
+
+# Documentation
+*.md text diff=markdown
+*.txt text
+
+# XML files
+*.xml text
+
+# Force batch scripts to always use CRLF line endings
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Force bash scripts to always use LF line endings
+*.sh text eol=lf

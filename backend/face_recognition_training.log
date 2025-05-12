@@ -1,0 +1,78 @@
+2025-05-12 14:32:42,471 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 14:32:42,472 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-12 14:32:42,475 - INFO -  * Restarting with stat
+2025-05-12 14:32:47,223 - WARNING -  * Debugger is active!
+2025-05-12 14:32:47,237 - INFO -  * Debugger PIN: 132-663-522
+2025-05-12 14:35:30,350 - INFO - 127.0.0.1 - - [12/May/2025 14:35:30] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-05-12 14:35:30,983 - INFO - 127.0.0.1 - - [12/May/2025 14:35:30] "POST /api/auth/login HTTP/1.1" 200 -
+2025-05-12 14:35:52,829 - INFO - 127.0.0.1 - - [12/May/2025 14:35:52] "[35m[1mPOST /api/image/train HTTP/1.1[0m" 500 -
+2025-05-12 14:51:33,441 - WARNING - No images found for soldier 100000001
+2025-05-12 14:51:33,441 - WARNING - No images found for soldier 100000002
+2025-05-12 14:51:33,442 - WARNING - No images found for soldier 100000003
+2025-05-12 14:51:34,336 - INFO - Processed image 100000005_Look_straight_at_camera_0.jpg for soldier 100000005
+2025-05-12 14:51:35,086 - INFO - Processed image 100000005_Look_straight_at_camera_1.jpg for soldier 100000005
+2025-05-12 14:51:35,803 - INFO - Processed image 100000005_Look_straight_at_camera_2.jpg for soldier 100000005
+2025-05-12 14:51:36,604 - INFO - Processed image 100000005_Look_straight_at_camera_3.jpg for soldier 100000005
+2025-05-12 14:51:37,432 - INFO - Processed image 100000005_Look_straight_at_camera_4.jpg for soldier 100000005
+2025-05-12 14:51:38,218 - INFO - Processed image 100000005_Look_straight_at_camera_5.jpg for soldier 100000005
+2025-05-12 14:51:39,107 - INFO - Processed image 100000005_Look_straight_at_camera_6.jpg for soldier 100000005
+2025-05-12 14:51:39,845 - INFO - Processed image 100000005_Look_straight_at_camera_7.jpg for soldier 100000005
+2025-05-12 14:51:40,837 - INFO - Processed image 100000005_Look_straight_at_camera_8.jpg for soldier 100000005
+2025-05-12 14:51:41,623 - INFO - Processed image 100000005_Look_straight_at_camera_9.jpg for soldier 100000005
+2025-05-12 14:51:42,454 - INFO - Processed image 100000005_Smile_0.jpg for soldier 100000005
+2025-05-12 14:51:43,267 - INFO - Processed image 100000005_Smile_1.jpg for soldier 100000005
+2025-05-12 14:51:44,028 - INFO - Processed image 100000005_Smile_2.jpg for soldier 100000005
+2025-05-12 14:51:44,901 - INFO - Processed image 100000005_Smile_3.jpg for soldier 100000005
+2025-05-12 14:51:45,728 - INFO - Processed image 100000005_Smile_4.jpg for soldier 100000005
+2025-05-12 14:51:46,710 - INFO - Processed image 100000005_Smile_5.jpg for soldier 100000005
+2025-05-12 14:51:47,465 - INFO - Processed image 100000005_Smile_6.jpg for soldier 100000005
+2025-05-12 14:51:48,210 - INFO - Processed image 100000005_Smile_7.jpg for soldier 100000005
+2025-05-12 14:51:48,943 - INFO - Processed image 100000005_Smile_8.jpg for soldier 100000005
+2025-05-12 14:51:49,730 - INFO - Processed image 100000005_Smile_9.jpg for soldier 100000005
+2025-05-12 14:51:50,634 - INFO - Processed image 100000005_Stand_a_little_away_0.jpg for soldier 100000005
+2025-05-12 14:51:51,435 - INFO - Processed image 100000005_Stand_a_little_away_1.jpg for soldier 100000005
+2025-05-12 14:51:52,152 - INFO - Processed image 100000005_Stand_a_little_away_2.jpg for soldier 100000005
+2025-05-12 14:51:52,933 - INFO - Processed image 100000005_Stand_a_little_away_3.jpg for soldier 100000005
+2025-05-12 14:51:53,868 - INFO - Processed image 100000005_Stand_a_little_away_4.jpg for soldier 100000005
+2025-05-12 14:51:54,775 - INFO - Processed image 100000005_Stand_a_little_away_5.jpg for soldier 100000005
+2025-05-12 14:51:55,504 - INFO - Processed image 100000005_Stand_a_little_away_6.jpg for soldier 100000005
+2025-05-12 14:51:56,314 - INFO - Processed image 100000005_Stand_a_little_away_7.jpg for soldier 100000005
+2025-05-12 14:51:57,237 - INFO - Processed image 100000005_Stand_a_little_away_8.jpg for soldier 100000005
+2025-05-12 14:51:57,983 - INFO - Processed image 100000005_Stand_a_little_away_9.jpg for soldier 100000005
+2025-05-12 14:51:58,778 - INFO - Processed image 100000005_Tilt_your_face_down_0.jpg for soldier 100000005
+2025-05-12 14:51:59,634 - INFO - Processed image 100000005_Tilt_your_face_down_1.jpg for soldier 100000005
+2025-05-12 14:52:00,402 - INFO - Processed image 100000005_Tilt_your_face_down_2.jpg for soldier 100000005
+2025-05-12 14:52:01,330 - INFO - Processed image 100000005_Tilt_your_face_down_3.jpg for soldier 100000005
+2025-05-12 14:52:02,147 - INFO - Processed image 100000005_Tilt_your_face_down_4.jpg for soldier 100000005
+2025-05-12 14:52:02,918 - INFO - Processed image 100000005_Tilt_your_face_down_5.jpg for soldier 100000005
+2025-05-12 14:52:03,715 - INFO - Processed image 100000005_Tilt_your_face_down_6.jpg for soldier 100000005
+2025-05-12 14:52:04,497 - INFO - Processed image 100000005_Tilt_your_face_down_7.jpg for soldier 100000005
+2025-05-12 14:52:05,286 - INFO - Processed image 100000005_Tilt_your_face_down_8.jpg for soldier 100000005
+2025-05-12 14:52:06,070 - INFO - Processed image 100000005_Tilt_your_face_down_9.jpg for soldier 100000005
+2025-05-12 14:52:07,281 - INFO - Processed image 100000005_Turn_your_face_left_1.jpg for soldier 100000005
+2025-05-12 14:52:08,088 - INFO - Processed image 100000005_Turn_your_face_left_2.jpg for soldier 100000005
+2025-05-12 14:52:08,955 - INFO - Processed image 100000005_Turn_your_face_left_3.jpg for soldier 100000005
+2025-05-12 14:52:09,770 - INFO - Processed image 100000005_Turn_your_face_left_4.jpg for soldier 100000005
+2025-05-12 14:52:10,840 - INFO - Processed image 100000005_Turn_your_face_left_5.jpg for soldier 100000005
+2025-05-12 14:52:11,636 - INFO - Processed image 100000005_Turn_your_face_left_6.jpg for soldier 100000005
+2025-05-12 14:52:12,446 - INFO - Processed image 100000005_Turn_your_face_left_7.jpg for soldier 100000005
+2025-05-12 14:52:13,397 - INFO - Processed image 100000005_Turn_your_face_left_8.jpg for soldier 100000005
+2025-05-12 14:52:14,223 - INFO - Processed image 100000005_Turn_your_face_left_9.jpg for soldier 100000005
+2025-05-12 14:52:15,044 - INFO - Processed image 100000005_Turn_your_face_right_0.jpg for soldier 100000005
+2025-05-12 14:52:16,029 - INFO - Processed image 100000005_Turn_your_face_right_1.jpg for soldier 100000005
+2025-05-12 14:52:17,041 - INFO - Processed image 100000005_Turn_your_face_right_2.jpg for soldier 100000005
+2025-05-12 14:52:18,008 - INFO - Processed image 100000005_Turn_your_face_right_3.jpg for soldier 100000005
+2025-05-12 14:52:18,929 - INFO - Processed image 100000005_Turn_your_face_right_4.jpg for soldier 100000005
+2025-05-12 14:52:20,309 - INFO - Processed image 100000005_Turn_your_face_right_5.jpg for soldier 100000005
+2025-05-12 14:52:21,473 - INFO - Processed image 100000005_Turn_your_face_right_6.jpg for soldier 100000005
+2025-05-12 14:52:22,466 - INFO - Processed image 100000005_Turn_your_face_right_7.jpg for soldier 100000005
+2025-05-12 14:52:23,442 - INFO - Processed image 100000005_Turn_your_face_right_8.jpg for soldier 100000005
+2025-05-12 14:52:24,592 - INFO - Processed image 100000005_Turn_your_face_right_9.jpg for soldier 100000005
+2025-05-12 14:52:24,616 - INFO - Deleted images for soldier 100000005
+2025-05-12 14:52:24,617 - INFO - Saved model with 59 total soldiers
+2025-05-12 14:52:24,639 - INFO - 127.0.0.1 - - [12/May/2025 14:52:24] "POST /api/image/train HTTP/1.1" 200 -
+2025-05-12 15:11:04,478 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\tests\\test_face_recognition.py', reloading
+2025-05-12 15:11:04,915 - INFO -  * Restarting with stat
+2025-05-12 15:11:09,744 - WARNING -  * Debugger is active!
+2025-05-12 15:11:09,751 - INFO -  * Debugger PIN: 132-663-522

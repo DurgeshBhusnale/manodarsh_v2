@@ -1,8 +1,10 @@
 from flask import Blueprint, jsonify, request
 from services.image_collection import ImageCollectionService
+from services.face_recognition_service import FaceRecognitionService
 
 image_bp = Blueprint('image', __name__)
 image_collection_service = ImageCollectionService()
+face_recognition_service = FaceRecognitionService()
 
 @image_bp.route('/collect', methods=['POST'])
 def collect_images():
@@ -32,3 +34,12 @@ def collect_images():
         return jsonify({
             'error': str(e)
         }), 500
+
+@image_bp.route('/train', methods=['POST'])
+def train_model():
+    """Train the face recognition model on new soldiers"""
+    try:
+        result = face_recognition_service.train_model()
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

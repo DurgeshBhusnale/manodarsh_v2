@@ -1,5 +1,5 @@
 -- Users Table
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     force_id CHAR(9) UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE users (
 );
 
 -- Questionnaires Table
-CREATE TABLE questionnaires (
+CREATE TABLE IF NOT EXISTS questionnaires (
     questionnaire_id INT AUTO_INCREMENT PRIMARY KEY,
     title TEXT NOT NULL,
     description TEXT,
@@ -18,7 +18,7 @@ CREATE TABLE questionnaires (
 );
 
 -- Questions Table
-CREATE TABLE questions (
+CREATE TABLE IF NOT EXISTS questions (
     question_id INT AUTO_INCREMENT PRIMARY KEY,
     questionnaire_id INT NOT NULL,
     question_text TEXT NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE questions (
 );
 
 -- Weekly Sessions Table
-CREATE TABLE weekly_sessions (
+CREATE TABLE IF NOT EXISTS weekly_sessions (
     session_id INT AUTO_INCREMENT PRIMARY KEY,
     force_id CHAR(9) NOT NULL,
     questionnaire_id INT,
@@ -43,7 +43,7 @@ CREATE TABLE weekly_sessions (
 );
 
 -- Question Responses Table
-CREATE TABLE question_responses (
+CREATE TABLE IF NOT EXISTS question_responses (
     response_id INT AUTO_INCREMENT PRIMARY KEY,
     session_id INT NOT NULL,
     question_id INT NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE question_responses (
 );
 
 -- CCTV Daily Monitoring Table
-CREATE TABLE cctv_daily_monitoring (
+CREATE TABLE IF NOT EXISTS cctv_daily_monitoring (
     monitoring_id INT AUTO_INCREMENT PRIMARY KEY,
     date DATE NOT NULL,
     start_time TIME NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE cctv_daily_monitoring (
 );
 
 -- CCTV Detections Table
-CREATE TABLE cctv_detections (
+CREATE TABLE IF NOT EXISTS cctv_detections (
     detection_id INT AUTO_INCREMENT PRIMARY KEY,
     monitoring_id INT NOT NULL,
     force_id CHAR(9),
@@ -77,7 +77,7 @@ CREATE TABLE cctv_detections (
 );
 
 -- Daily Depression Scores Table
-CREATE TABLE daily_depression_scores (
+CREATE TABLE IF NOT EXISTS daily_depression_scores (
     score_id INT AUTO_INCREMENT PRIMARY KEY,
     force_id CHAR(9) NOT NULL,
     date DATE NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE daily_depression_scores (
 );
 
 -- Weekly Aggregated Scores Table
-CREATE TABLE weekly_aggregated_scores (
+CREATE TABLE IF NOT EXISTS weekly_aggregated_scores (
     aggregation_id INT AUTO_INCREMENT PRIMARY KEY,
     force_id CHAR(9) NOT NULL,
     year INT NOT NULL,
@@ -98,8 +98,17 @@ CREATE TABLE weekly_aggregated_scores (
     FOREIGN KEY (force_id) REFERENCES users(force_id) ON DELETE CASCADE
 );
 
+-- Trained Soldiers Table
+CREATE TABLE IF NOT EXISTS trained_soldiers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    force_id CHAR(9) NOT NULL,
+    trained_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    model_version VARCHAR(50),
+    FOREIGN KEY (force_id) REFERENCES users(force_id) ON DELETE CASCADE
+);
+
 -- System Settings Table
-CREATE TABLE system_settings (
+CREATE TABLE IF NOT EXISTS system_settings (
     setting_id INT AUTO_INCREMENT PRIMARY KEY,
     setting_name VARCHAR(255) UNIQUE NOT NULL,
     setting_value TEXT NOT NULL,

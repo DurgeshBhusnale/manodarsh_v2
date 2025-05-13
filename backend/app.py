@@ -1,6 +1,9 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from api import api_bp
+from api.auth.routes import auth_bp
+from api.image.routes import image_bp
+from services.scheduler_service import MonitoringScheduler
 
 def create_app():
     app = Flask(__name__)
@@ -16,6 +19,20 @@ def create_app():
 
     # Register the main API blueprint
     app.register_blueprint(api_bp)
+    app.register_blueprint(auth_bp, url_prefix='/api/auth')
+    app.register_blueprint(image_bp, url_prefix='/api/image')
+
+    # Initialize scheduler
+    scheduler = MonitoringScheduler()
+    
+    # Start scheduler within app context
+    with app.app_context():
+        scheduler.start()
+
+    # Cleanup on app shutdown
+    @app.teardown_appcontext
+    def cleanup(error):
+        scheduler.stop()
     
     return app
 

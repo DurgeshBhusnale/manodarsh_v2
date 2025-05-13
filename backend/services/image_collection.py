@@ -15,6 +15,32 @@ class ImageCollectionService:
         ]
         self.images_per_pose = 10
 
+    def _find_available_camera(self):
+        """Try different camera indices to find an available camera"""
+        # Try external webcam first (usually index 1)
+        print("Trying external webcam (index 1)...")
+        cap = cv2.VideoCapture(1)
+        if cap.isOpened():
+            ret, frame = cap.read()
+            if ret:  # Make sure we can actually read from the camera
+                print("Successfully connected to external webcam")
+                return cap
+            cap.release()
+        
+        # If external webcam not available, try built-in camera (index 0)
+        print("External webcam not found, trying built-in camera (index 0)...")
+        cap = cv2.VideoCapture(0)
+        if cap.isOpened():
+            ret, frame = cap.read()
+            if ret:  # Make sure we can actually read from the camera
+                print("Successfully connected to built-in camera")
+                return cap
+            cap.release()
+            
+        # If no camera is available, return None
+        print("No cameras available")
+        return None
+
     def collect_images(self, force_id):
         """
         Collects images for a soldier with different poses
@@ -28,12 +54,10 @@ class ImageCollectionService:
             soldier_dir = os.path.join(self.base_storage_path, force_id)
             os.makedirs(soldier_dir, exist_ok=True)
 
-            # Initialize camera
-            cap = cv2.VideoCapture(0)  # Try 0 first, fallback to 1 if needed
-            if not cap.isOpened():
-                cap = cv2.VideoCapture(1)  # Try alternative camera
-                if not cap.isOpened():
-                    raise Exception("Could not access camera")
+            # Initialize camera using robust selection system
+            cap = self._find_available_camera()
+            if not cap:
+                raise Exception("Could not find any available camera - please connect a camera")
 
             representative_image_path = None
 

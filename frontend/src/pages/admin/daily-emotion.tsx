@@ -6,6 +6,7 @@ const DailyEmotionPage: React.FC = () => {
     const [selectedDate, setSelectedDate] = useState('');
     const [isMonitoring, setIsMonitoring] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleStartMonitoring = async () => {
         if (!selectedDate) return;
@@ -13,8 +14,11 @@ const DailyEmotionPage: React.FC = () => {
         try {
             await apiService.startDailyMonitoring(selectedDate);
             setIsMonitoring(true);
-        } catch (error) {
+            setError('');
+        } catch (error: any) {
             console.error('Failed to start monitoring:', error);
+            setError(error.response?.data?.error || 'Failed to start monitoring');
+            setIsMonitoring(false);
         } finally {
             setLoading(false);
         }
@@ -42,6 +46,12 @@ const DailyEmotionPage: React.FC = () => {
                 </h1>
 
                 <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
+                    {error && (
+                        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                            {error}
+                        </div>
+                    )}
+
                     <div className="mb-6">
                         <label className="block text-gray-700 mb-2">
                             Select Date
@@ -49,7 +59,10 @@ const DailyEmotionPage: React.FC = () => {
                         <input
                             type="date"
                             value={selectedDate}
-                            onChange={(e) => setSelectedDate(e.target.value)}
+                            onChange={(e) => {
+                                setSelectedDate(e.target.value);
+                                setError(''); // Clear error when date changes
+                            }}
                             className="w-full p-2 border rounded"
                         />
                     </div>

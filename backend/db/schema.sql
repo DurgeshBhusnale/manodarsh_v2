@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS cctv_daily_monitoring (
     monitoring_id INT AUTO_INCREMENT PRIMARY KEY,
     date DATE NOT NULL,
     start_time TIME NOT NULL,
-    end_time TIME NOT NULL,
+    end_time TIME NULL,
     status ENUM('completed', 'partial', 'failed') NOT NULL
 );
 

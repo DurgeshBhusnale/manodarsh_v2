@@ -5,6 +5,7 @@ import logging
 from datetime import datetime
 from db.connection import get_connection
 import shutil
+import cv2
 
 # Configure logging
 logging.basicConfig(
@@ -17,12 +18,14 @@ class FaceRecognitionService:
     def __init__(self):
         self.uploads_dir = os.path.join('storage', 'uploads')
         self.model_dir = os.path.join('storage', 'models')
+        self.profile_pics_dir = os.path.join('storage', 'profile_pics')
         self.model_filename = os.path.join(self.model_dir, 'face_recognition_model.pkl')
         
-        # Ensure model directory exists
-        if not os.path.exists(self.model_dir):
-            os.makedirs(self.model_dir)
-
+        # Ensure required directories exist
+        for directory in [self.model_dir, self.profile_pics_dir]:
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+                
     def get_untrained_soldiers(self):
         """Get list of soldiers who haven't been trained yet"""
         conn = None
@@ -74,6 +77,24 @@ class FaceRecognitionService:
             if conn:
                 conn.close()
 
+    def save_profile_picture(self, force_id: str, source_path: str) -> bool:
+        """Save a profile picture for a soldier"""
+        try:
+            # Read the source image
+            image = cv2.imread(source_path)
+            if image is None:
+                logging.error(f"Could not read image {source_path}")
+                return False
+                
+            # Save as PNG for better quality
+            profile_pic_path = os.path.join(self.profile_pics_dir, f"{force_id}.png")
+            cv2.imwrite(profile_pic_path, image)
+            logging.info(f"Saved profile picture for soldier {force_id}")
+            return True
+        except Exception as e:
+            logging.error(f"Error saving profile picture for soldier {force_id}: {e}")
+            return False
+                
     def train_model(self):
         """Train the face recognition model on new soldiers"""
         # Get untrained soldiers
@@ -106,6 +127,8 @@ class FaceRecognitionService:
                 continue
 
             processed = False
+            first_valid_image = None
+            
             for filename in os.listdir(soldier_dir):
                 if filename.lower().endswith(('.jpg', '.jpeg', '.png')):
                     image_path = os.path.join(soldier_dir, filename)
@@ -113,6 +136,10 @@ class FaceRecognitionService:
                         image = face_recognition.load_image_file(image_path)
                         face_encodings = face_recognition.face_encodings(image)
                         if face_encodings:
+                            # Store first valid image path for profile picture
+                            if not first_valid_image:
+                                first_valid_image = image_path
+                                
                             known_face_encodings.append(face_encodings[0])
                             known_force_ids.append(force_id)
                             processed = True
@@ -122,6 +149,11 @@ class FaceRecognitionService:
 
             if processed:
                 trained_force_ids.append(force_id)
+                
+                # Save profile picture before deleting training images
+                if first_valid_image:
+                    self.save_profile_picture(force_id, first_valid_image)
+                
                 # Delete the soldier's image folder after successful processing
                 try:
                     shutil.rmtree(soldier_dir)

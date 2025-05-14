@@ -3,6 +3,8 @@ from flask_cors import CORS
 from api import api_bp
 from api.auth.routes import auth_bp
 from api.image.routes import image_bp
+from api.admin.routes import admin_bp
+from api.survey.routes import survey_bp
 from services.scheduler_service import MonitoringScheduler
 
 def create_app():
@@ -21,6 +23,8 @@ def create_app():
     app.register_blueprint(api_bp)
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(image_bp, url_prefix='/api/image')
+    app.register_blueprint(admin_bp, url_prefix='/api/admin')
+    app.register_blueprint(survey_bp, url_prefix='/api/survey')
 
     # Initialize scheduler
     scheduler = MonitoringScheduler()

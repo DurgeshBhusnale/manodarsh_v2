@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS questionnaires (
     title TEXT NOT NULL,
     description TEXT,
     status ENUM('Active', 'Inactive') NOT NULL,
+    total_questions INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

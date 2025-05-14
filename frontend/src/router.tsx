@@ -6,6 +6,7 @@ import AddSoldier from './pages/admin/add-soldier';
 import SoldiersData from './pages/admin/soldiers-data';
 import QuestionnairePage from './pages/admin/questionnaire';
 import DailyEmotionPage from './pages/admin/daily-emotion';
+import SurveyPage from './pages/soldier/survey';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
   {
     path: '/soldier/dashboard',
     element: <SoldierDashboard />,
+  },
+  {
+    path: '/survey',
+    element: <SurveyPage />,
   },
   {
     path: '/admin/dashboard',

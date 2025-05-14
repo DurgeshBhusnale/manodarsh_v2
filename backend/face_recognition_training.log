@@ -6434,3 +6434,307 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-05-12 22:35:16,263 - INFO - Calculated daily scores for 1 soldiers on 2025-05-12
 2025-05-12 22:35:16,265 - ERROR - Error stopping scheduler: Scheduler is not running
 2025-05-12 22:35:16,266 - INFO - 127.0.0.1 - - [12/May/2025 22:35:16] "POST /api/image/end-monitoring HTTP/1.1" 200 -
+2025-05-14 15:53:02,769 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 15:53:15,659 - INFO - All models loaded successfully
+2025-05-14 15:56:35,920 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 15:56:40,996 - INFO - All models loaded successfully
+2025-05-14 15:56:41,939 - DEBUG - Looking up time zone info from registry
+2025-05-14 15:56:42,276 - INFO - All models loaded successfully
+2025-05-14 15:56:42,277 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 15:56:42,278 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 15:56:42,294 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 15:56:42,295 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 15:56:42,295 - INFO - Scheduler started
+2025-05-14 15:56:42,297 - DEBUG - Looking for jobs to run
+2025-05-14 15:56:42,297 - INFO - Monitoring scheduler started
+2025-05-14 15:56:42,298 - DEBUG - Next wakeup is due at 2025-05-14 17:00:00+05:30 (in 3797.701704 seconds)
+2025-05-14 15:56:42,417 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 15:56:42,417 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 15:56:42,424 - INFO -  * Restarting with stat
+2025-05-14 15:56:50,436 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 15:56:54,917 - INFO - All models loaded successfully
+2025-05-14 15:56:55,423 - DEBUG - Looking up time zone info from registry
+2025-05-14 15:56:55,709 - INFO - All models loaded successfully
+2025-05-14 15:56:55,710 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 15:56:55,710 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 15:56:55,714 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 15:56:55,715 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 15:56:55,715 - INFO - Scheduler started
+2025-05-14 15:56:55,716 - DEBUG - Looking for jobs to run
+2025-05-14 15:56:55,717 - INFO - Monitoring scheduler started
+2025-05-14 15:56:55,717 - DEBUG - Next wakeup is due at 2025-05-14 17:00:00+05:30 (in 3784.282319 seconds)
+2025-05-14 15:56:55,745 - WARNING -  * Debugger is active!
+2025-05-14 15:56:55,785 - INFO -  * Debugger PIN: 132-663-522
+2025-05-14 15:57:27,402 - INFO - Scheduler has been shut down
+2025-05-14 15:57:27,403 - DEBUG - Looking for jobs to run
+2025-05-14 15:57:27,403 - DEBUG - No jobs; waiting until a job is added
+2025-05-14 15:57:27,404 - INFO - Monitoring scheduler stopped
+2025-05-14 15:57:27,404 - INFO - 127.0.0.1 - - [14/May/2025 15:57:27] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-05-14 15:57:28,178 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:57:28,179 - INFO - 127.0.0.1 - - [14/May/2025 15:57:28] "POST /api/auth/login HTTP/1.1" 200 -
+2025-05-14 15:58:34,642 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:58:34,643 - INFO - 127.0.0.1 - - [14/May/2025 15:58:34] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-05-14 15:58:34,937 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:58:34,937 - INFO - 127.0.0.1 - - [14/May/2025 15:58:34] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-05-14 15:58:57,480 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:58:57,481 - INFO - 127.0.0.1 - - [14/May/2025 15:58:57] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 15:58:57,864 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:58:57,865 - INFO - 127.0.0.1 - - [14/May/2025 15:58:57] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 15:59:03,574 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:03,575 - INFO - 127.0.0.1 - - [14/May/2025 15:59:03] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 15:59:03,932 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:03,933 - INFO - 127.0.0.1 - - [14/May/2025 15:59:03] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 15:59:12,035 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:12,038 - INFO - 127.0.0.1 - - [14/May/2025 15:59:12] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 15:59:12,393 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:12,394 - INFO - 127.0.0.1 - - [14/May/2025 15:59:12] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 15:59:17,908 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:17,909 - INFO - 127.0.0.1 - - [14/May/2025 15:59:17] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 15:59:18,250 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:18,251 - INFO - 127.0.0.1 - - [14/May/2025 15:59:18] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 15:59:24,138 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:24,138 - INFO - 127.0.0.1 - - [14/May/2025 15:59:24] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 15:59:24,503 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 15:59:24,503 - INFO - 127.0.0.1 - - [14/May/2025 15:59:24] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 15:59:37,459 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\admin\\routes.py', reloading
+2025-05-14 15:59:38,525 - INFO -  * Restarting with stat
+2025-05-14 15:59:47,521 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 15:59:53,315 - INFO - All models loaded successfully
+2025-05-14 15:59:53,807 - DEBUG - Looking up time zone info from registry
+2025-05-14 15:59:54,167 - INFO - All models loaded successfully
+2025-05-14 15:59:54,168 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 15:59:54,169 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 15:59:54,173 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 15:59:54,175 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 15:59:54,175 - INFO - Scheduler started
+2025-05-14 15:59:54,176 - DEBUG - Looking for jobs to run
+2025-05-14 15:59:54,177 - INFO - Monitoring scheduler started
+2025-05-14 15:59:54,177 - DEBUG - Next wakeup is due at 2025-05-14 17:00:00+05:30 (in 3605.822991 seconds)
+2025-05-14 15:59:54,213 - WARNING -  * Debugger is active!
+2025-05-14 15:59:54,231 - INFO -  * Debugger PIN: 132-663-522
+2025-05-14 16:00:14,282 - INFO - Scheduler has been shut down
+2025-05-14 16:00:14,282 - DEBUG - Looking for jobs to run
+2025-05-14 16:00:14,283 - DEBUG - No jobs; waiting until a job is added
+2025-05-14 16:00:14,283 - INFO - Monitoring scheduler stopped
+2025-05-14 16:00:14,284 - INFO - 127.0.0.1 - - [14/May/2025 16:00:14] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:00:14,593 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:00:14,594 - INFO - 127.0.0.1 - - [14/May/2025 16:00:14] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:11:06,739 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:06,739 - INFO - 127.0.0.1 - - [14/May/2025 16:11:06] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-05-14 16:11:07,026 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:07,026 - INFO - 127.0.0.1 - - [14/May/2025 16:11:07] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-05-14 16:11:29,343 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:29,344 - INFO - 127.0.0.1 - - [14/May/2025 16:11:29] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:11:29,691 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:29,691 - INFO - 127.0.0.1 - - [14/May/2025 16:11:29] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:11:40,544 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:40,545 - INFO - 127.0.0.1 - - [14/May/2025 16:11:40] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:11:40,889 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:40,890 - INFO - 127.0.0.1 - - [14/May/2025 16:11:40] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:11:54,772 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:54,773 - INFO - 127.0.0.1 - - [14/May/2025 16:11:54] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:11:55,134 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:55,135 - INFO - 127.0.0.1 - - [14/May/2025 16:11:55] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:11:57,951 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:11:57,952 - INFO - 127.0.0.1 - - [14/May/2025 16:11:57] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:12:26,540 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:12:26,540 - INFO - 127.0.0.1 - - [14/May/2025 16:12:26] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:12:26,855 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:12:26,855 - INFO - 127.0.0.1 - - [14/May/2025 16:12:26] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:12:34,832 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:12:34,833 - INFO - 127.0.0.1 - - [14/May/2025 16:12:34] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:12:35,182 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:12:35,182 - INFO - 127.0.0.1 - - [14/May/2025 16:12:35] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:22:20,050 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:22:20,051 - INFO - 127.0.0.1 - - [14/May/2025 16:22:20] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-05-14 16:22:20,356 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:22:20,356 - INFO - 127.0.0.1 - - [14/May/2025 16:22:20] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-05-14 16:22:20,368 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:22:20,368 - INFO - 127.0.0.1 - - [14/May/2025 16:22:20] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:22:20,731 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:22:20,732 - INFO - 127.0.0.1 - - [14/May/2025 16:22:20] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:22:20,969 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:22:20,970 - INFO - 127.0.0.1 - - [14/May/2025 16:22:20] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:22:21,083 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:22:21,084 - INFO - 127.0.0.1 - - [14/May/2025 16:22:21] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:25:34,859 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\admin\\routes.py', reloading
+2025-05-14 16:25:35,931 - INFO -  * Restarting with stat
+2025-05-14 16:25:45,734 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 16:25:52,101 - INFO - All models loaded successfully
+2025-05-14 16:25:52,509 - DEBUG - Looking up time zone info from registry
+2025-05-14 16:25:52,899 - INFO - All models loaded successfully
+2025-05-14 16:25:52,901 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:25:52,903 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:25:52,909 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 16:25:52,911 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 16:25:52,911 - INFO - Scheduler started
+2025-05-14 16:25:52,915 - DEBUG - Looking for jobs to run
+2025-05-14 16:25:52,915 - INFO - Monitoring scheduler started
+2025-05-14 16:25:52,915 - DEBUG - Next wakeup is due at 2025-05-14 17:00:00+05:30 (in 2047.084890 seconds)
+2025-05-14 16:25:52,952 - WARNING -  * Debugger is active!
+2025-05-14 16:25:52,968 - INFO -  * Debugger PIN: 132-663-522
+2025-05-14 16:28:22,555 - INFO - Scheduler has been shut down
+2025-05-14 16:28:22,555 - DEBUG - Looking for jobs to run
+2025-05-14 16:28:22,555 - DEBUG - No jobs; waiting until a job is added
+2025-05-14 16:28:22,556 - INFO - Monitoring scheduler stopped
+2025-05-14 16:28:22,556 - INFO - 127.0.0.1 - - [14/May/2025 16:28:22] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-05-14 16:28:22,892 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:28:22,892 - INFO - 127.0.0.1 - - [14/May/2025 16:28:22] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-05-14 16:28:22,901 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:28:22,902 - INFO - 127.0.0.1 - - [14/May/2025 16:28:22] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 16:28:23,256 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:28:23,257 - INFO - 127.0.0.1 - - [14/May/2025 16:28:23] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:28:23,507 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:28:23,507 - INFO - 127.0.0.1 - - [14/May/2025 16:28:23] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:28:23,610 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:28:23,610 - INFO - 127.0.0.1 - - [14/May/2025 16:28:23] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 16:33:50,176 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\admin\\routes.py', reloading
+2025-05-14 16:33:51,351 - INFO -  * Restarting with stat
+2025-05-14 16:34:01,477 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 16:34:06,926 - INFO - All models loaded successfully
+2025-05-14 16:34:07,644 - DEBUG - Looking up time zone info from registry
+2025-05-14 16:34:07,900 - INFO - All models loaded successfully
+2025-05-14 16:34:07,901 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:34:07,902 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:34:07,906 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 16:34:07,906 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 16:34:07,906 - INFO - Scheduler started
+2025-05-14 16:34:07,907 - DEBUG - Looking for jobs to run
+2025-05-14 16:34:07,907 - INFO - Monitoring scheduler started
+2025-05-14 16:34:07,908 - DEBUG - Next wakeup is due at 2025-05-14 17:00:00+05:30 (in 1552.092498 seconds)
+2025-05-14 16:34:07,932 - WARNING -  * Debugger is active!
+2025-05-14 16:34:07,945 - INFO -  * Debugger PIN: 132-663-522
+2025-05-14 16:39:17,666 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\app.py', reloading
+2025-05-14 16:39:18,844 - INFO -  * Restarting with stat
+2025-05-14 16:39:31,328 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 16:39:38,373 - INFO - All models loaded successfully
+2025-05-14 16:39:39,175 - DEBUG - Looking up time zone info from registry
+2025-05-14 16:39:39,614 - INFO - All models loaded successfully
+2025-05-14 16:39:39,615 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:39:39,617 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:39:39,620 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 16:39:39,621 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 16:39:39,621 - INFO - Scheduler started
+2025-05-14 16:39:39,621 - DEBUG - Looking for jobs to run
+2025-05-14 16:39:39,623 - INFO - Monitoring scheduler started
+2025-05-14 16:39:39,623 - DEBUG - Next wakeup is due at 2025-05-14 17:00:00+05:30 (in 1220.376969 seconds)
+2025-05-14 16:39:39,650 - WARNING -  * Debugger is active!
+2025-05-14 16:39:39,660 - INFO -  * Debugger PIN: 132-663-522
+2025-05-14 16:43:10,174 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\app.py', reloading
+2025-05-14 16:43:11,173 - INFO -  * Restarting with stat
+2025-05-14 16:43:21,937 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 16:43:27,025 - INFO - All models loaded successfully
+2025-05-14 16:43:27,541 - DEBUG - Looking up time zone info from registry
+2025-05-14 16:43:27,892 - INFO - All models loaded successfully
+2025-05-14 16:43:27,894 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:43:27,895 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 16:43:27,900 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 16:43:27,900 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 16:43:27,900 - INFO - Scheduler started
+2025-05-14 16:43:27,902 - DEBUG - Looking for jobs to run
+2025-05-14 16:43:27,902 - INFO - Monitoring scheduler started
+2025-05-14 16:43:27,902 - DEBUG - Next wakeup is due at 2025-05-14 17:00:00+05:30 (in 992.097907 seconds)
+2025-05-14 16:43:27,933 - WARNING -  * Debugger is active!
+2025-05-14 16:43:27,946 - INFO -  * Debugger PIN: 132-663-522
+2025-05-14 16:43:59,536 - INFO - Scheduler has been shut down
+2025-05-14 16:43:59,537 - DEBUG - Looking for jobs to run
+2025-05-14 16:43:59,537 - DEBUG - No jobs; waiting until a job is added
+2025-05-14 16:43:59,538 - INFO - Monitoring scheduler stopped
+2025-05-14 16:43:59,538 - INFO - 127.0.0.1 - - [14/May/2025 16:43:59] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-05-14 16:44:00,336 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:44:00,336 - INFO - 127.0.0.1 - - [14/May/2025 16:44:00] "POST /api/auth/login HTTP/1.1" 200 -
+2025-05-14 16:59:33,945 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:59:33,945 - INFO - 127.0.0.1 - - [14/May/2025 16:59:33] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 16:59:34,197 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 16:59:34,198 - INFO - 127.0.0.1 - - [14/May/2025 16:59:34] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 17:00:00,004 - DEBUG - Looking for jobs to run
+2025-05-14 17:00:00,015 - INFO - Running job "MonitoringScheduler._end_daily_monitoring (trigger: cron[hour='17', minute='0'], next run at: 2025-05-14 17:00:00 IST)" (scheduled at 2025-05-14 17:00:00+05:30)
+2025-05-14 17:00:00,018 - DEBUG - Next wakeup is due at 2025-05-15 09:00:00+05:30 (in 57599.982713 seconds)
+2025-05-14 17:00:00,018 - ERROR - Failed to stop monitoring for 2025-05-14
+2025-05-14 17:00:00,019 - INFO - Job "MonitoringScheduler._end_daily_monitoring (trigger: cron[hour='17', minute='0'], next run at: 2025-05-15 17:00:00 IST)" executed successfully
+2025-05-14 17:00:06,426 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:00:06,427 - INFO - 127.0.0.1 - - [14/May/2025 17:00:06] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-05-14 17:00:06,765 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:00:06,767 - INFO - 127.0.0.1 - - [14/May/2025 17:00:06] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 500 -
+2025-05-14 17:00:25,287 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:00:25,288 - INFO - 127.0.0.1 - - [14/May/2025 17:00:25] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-05-14 17:00:25,643 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:00:25,644 - INFO - 127.0.0.1 - - [14/May/2025 17:00:25] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 500 -
+2025-05-14 17:04:38,650 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:04:38,652 - INFO - 127.0.0.1 - - [14/May/2025 17:04:38] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 17:04:38,907 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:04:38,908 - INFO - 127.0.0.1 - - [14/May/2025 17:04:38] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 17:05:21,612 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:05:21,613 - INFO - 127.0.0.1 - - [14/May/2025 17:05:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 17:05:21,951 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 17:05:21,952 - INFO - 127.0.0.1 - - [14/May/2025 17:05:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 19:47:35,104 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 19:47:41,990 - INFO - All models loaded successfully
+2025-05-14 19:47:42,540 - DEBUG - Looking up time zone info from registry
+2025-05-14 19:47:42,928 - INFO - All models loaded successfully
+2025-05-14 19:47:42,930 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 19:47:42,930 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 19:47:42,934 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 19:47:42,935 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 19:47:42,935 - INFO - Scheduler started
+2025-05-14 19:47:42,937 - DEBUG - Looking for jobs to run
+2025-05-14 19:47:42,937 - INFO - Monitoring scheduler started
+2025-05-14 19:47:42,937 - DEBUG - Next wakeup is due at 2025-05-15 09:00:00+05:30 (in 47537.062898 seconds)
+2025-05-14 19:47:42,984 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 19:47:42,984 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 19:47:42,991 - INFO -  * Restarting with stat
+2025-05-14 19:47:55,299 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-14 19:48:02,479 - INFO - All models loaded successfully
+2025-05-14 19:48:03,265 - DEBUG - Looking up time zone info from registry
+2025-05-14 19:48:04,414 - INFO - All models loaded successfully
+2025-05-14 19:48:04,415 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 19:48:04,416 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-14 19:48:04,427 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-14 19:48:04,430 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-14 19:48:04,431 - INFO - Scheduler started
+2025-05-14 19:48:04,446 - DEBUG - Looking for jobs to run
+2025-05-14 19:48:04,446 - INFO - Monitoring scheduler started
+2025-05-14 19:48:04,446 - DEBUG - Next wakeup is due at 2025-05-15 09:00:00+05:30 (in 47515.553060 seconds)
+2025-05-14 19:48:04,528 - WARNING -  * Debugger is active!
+2025-05-14 19:48:04,563 - INFO -  * Debugger PIN: 132-663-522
+2025-05-14 19:51:40,080 - INFO - Scheduler has been shut down
+2025-05-14 19:51:40,080 - DEBUG - Looking for jobs to run
+2025-05-14 19:51:40,081 - DEBUG - No jobs; waiting until a job is added
+2025-05-14 19:51:40,081 - INFO - Monitoring scheduler stopped
+2025-05-14 19:51:40,082 - INFO - 127.0.0.1 - - [14/May/2025 19:51:40] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-05-14 19:51:40,802 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:51:40,803 - INFO - 127.0.0.1 - - [14/May/2025 19:51:40] "POST /api/auth/login HTTP/1.1" 200 -
+2025-05-14 19:55:53,865 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:55:53,866 - INFO - 127.0.0.1 - - [14/May/2025 19:55:53] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-05-14 19:55:54,153 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:55:54,153 - INFO - 127.0.0.1 - - [14/May/2025 19:55:54] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-05-14 19:55:54,174 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:55:54,175 - INFO - 127.0.0.1 - - [14/May/2025 19:55:54] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-05-14 19:55:54,550 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:55:54,551 - INFO - 127.0.0.1 - - [14/May/2025 19:55:54] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 19:55:54,623 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:55:54,629 - INFO - 127.0.0.1 - - [14/May/2025 19:55:54] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 19:55:54,988 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:55:54,989 - INFO - 127.0.0.1 - - [14/May/2025 19:55:54] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-05-14 19:57:52,754 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:57:52,755 - INFO - 127.0.0.1 - - [14/May/2025 19:57:52] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-05-14 19:57:53,580 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:57:53,582 - INFO - 127.0.0.1 - - [14/May/2025 19:57:53] "POST /api/auth/login HTTP/1.1" 200 -
+2025-05-14 19:58:13,751 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:58:13,752 - INFO - 127.0.0.1 - - [14/May/2025 19:58:13] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 19:58:14,110 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 19:58:14,111 - INFO - 127.0.0.1 - - [14/May/2025 19:58:14] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 20:06:32,586 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 20:06:32,588 - INFO - 127.0.0.1 - - [14/May/2025 20:06:32] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-05-14 20:06:34,338 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 20:06:34,339 - INFO - 127.0.0.1 - - [14/May/2025 20:06:34] "POST /api/auth/login HTTP/1.1" 200 -
+2025-05-14 20:12:13,346 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 20:12:13,346 - INFO - 127.0.0.1 - - [14/May/2025 20:12:13] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 20:12:13,686 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 20:12:13,686 - INFO - 127.0.0.1 - - [14/May/2025 20:12:13] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 20:15:15,647 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 20:15:15,659 - INFO - 127.0.0.1 - - [14/May/2025 20:15:15] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-14 20:15:15,897 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-14 20:15:15,898 - INFO - 127.0.0.1 - - [14/May/2025 20:15:15] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -

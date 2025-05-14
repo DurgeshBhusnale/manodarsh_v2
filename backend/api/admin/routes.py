@@ -1,0 +1,76 @@
+from flask import Blueprint, request, jsonify
+from db.connection import get_connection
+
+admin_bp = Blueprint('admin', __name__)
+
+@admin_bp.route('/create-questionnaire', methods=['POST'])
+def create_questionnaire():
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        data = request.json
+        title = data['title']
+        description = data['description']
+        is_active = data['isActive']
+        number_of_questions = data['numberOfQuestions']
+
+        # If the new questionnaire is active, mark all other questionnaires as inactive
+        if is_active:
+            cursor.execute("""
+                UPDATE questionnaires
+                SET status = 'Inactive'
+                WHERE status = 'Active'
+            """)
+
+        # Insert the questionnaire
+        cursor.execute("""
+            INSERT INTO questionnaires (title, description, status, total_questions, created_at)
+            VALUES (%s, %s, %s, %s, NOW())
+        """, (title, description, 'Active' if is_active else 'Inactive', number_of_questions))
+        
+        questionnaire_id = cursor.lastrowid
+        db.commit()
+
+        return jsonify({
+            "message": "Questionnaire created successfully",
+            "id": questionnaire_id
+        }), 201
+
+    except Exception as e:
+        db.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+@admin_bp.route('/add-question', methods=['POST'])
+def add_question():
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        data = request.json
+        questionnaire_id = data['questionnaire_id']
+        question_text = data['question_text']
+
+        # Insert the question
+        cursor.execute("""
+            INSERT INTO questions (questionnaire_id, question_text, created_at)
+            VALUES (%s, %s, NOW())
+        """, (questionnaire_id, question_text))
+        
+        question_id = cursor.lastrowid
+        db.commit()
+
+        return jsonify({
+            "message": "Question added successfully",
+            "id": question_id
+        }), 201
+
+    except Exception as e:
+        db.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()

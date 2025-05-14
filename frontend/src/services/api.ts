@@ -17,6 +17,8 @@ export interface SoldierData {
 export interface QuestionnaireData {
     title: string;
     description: string;
+    isActive: boolean;
+    numberOfQuestions: number;
 }
 
 export interface QuestionData {
@@ -61,7 +63,14 @@ export const apiService = {
         api.post('/image/start-monitoring', { date }),
 
     endDailyMonitoring: (date: string) =>
-        api.post('/image/end-monitoring', { date })
+        api.post('/image/end-monitoring', { date }),
+
+    // Survey endpoints
+    getActiveQuestionnaire: () =>
+        api.get('/survey/active-questionnaire'),
+    
+    submitSurvey: (data: { questionnaire_id: number, responses: { question_id: number, answer_text: string }[] }) =>
+        api.post('/survey/submit', data)
 };
 
 export default apiService;

@@ -6738,3 +6738,250 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-05-14 20:15:15,659 - INFO - 127.0.0.1 - - [14/May/2025 20:15:15] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
 2025-05-14 20:15:15,897 - ERROR - Error stopping scheduler: Scheduler is not running
 2025-05-14 20:15:15,898 - INFO - 127.0.0.1 - - [14/May/2025 20:15:15] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-05-15 15:31:50,632 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-15 15:31:57,147 - INFO - All models loaded successfully
+2025-05-15 15:31:57,560 - DEBUG - Looking up time zone info from registry
+2025-05-15 15:31:57,922 - INFO - All models loaded successfully
+2025-05-15 15:31:57,923 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 15:31:57,924 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 15:31:57,927 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-15 15:31:57,928 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-15 15:31:57,928 - INFO - Scheduler started
+2025-05-15 15:31:57,929 - DEBUG - Looking for jobs to run
+2025-05-15 15:31:57,930 - INFO - Monitoring scheduler started
+2025-05-15 15:31:57,930 - DEBUG - Next wakeup is due at 2025-05-15 17:00:00+05:30 (in 5282.069937 seconds)
+2025-05-15 15:31:57,982 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-15 15:31:57,982 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 15:31:57,986 - INFO -  * Restarting with stat
+2025-05-15 15:32:08,538 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-15 15:32:13,438 - INFO - All models loaded successfully
+2025-05-15 15:32:13,776 - DEBUG - Looking up time zone info from registry
+2025-05-15 15:32:14,083 - INFO - All models loaded successfully
+2025-05-15 15:32:14,084 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 15:32:14,084 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 15:32:14,088 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-05-15 15:32:14,088 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-05-15 15:32:14,089 - INFO - Scheduler started
+2025-05-15 15:32:14,090 - DEBUG - Looking for jobs to run
+2025-05-15 15:32:14,091 - INFO - Monitoring scheduler started
+2025-05-15 15:32:14,091 - DEBUG - Next wakeup is due at 2025-05-15 17:00:00+05:30 (in 5265.908349 seconds)
+2025-05-15 15:32:14,116 - WARNING -  * Debugger is active!
+2025-05-15 15:32:14,128 - INFO -  * Debugger PIN: 132-663-522
+2025-05-15 15:32:14,647 - INFO - Scheduler has been shut down
+2025-05-15 15:32:14,648 - DEBUG - Looking for jobs to run
+2025-05-15 15:32:14,648 - DEBUG - No jobs; waiting until a job is added
+2025-05-15 15:32:14,649 - INFO - Monitoring scheduler stopped
+2025-05-15 15:32:14,650 - INFO - 127.0.0.1 - - [15/May/2025 15:32:14] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-05-15 15:32:15,108 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:32:15,108 - INFO - 127.0.0.1 - - [15/May/2025 15:32:15] "POST /api/auth/login HTTP/1.1" 200 -
+2025-05-15 15:32:38,238 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:32:38,239 - INFO - 127.0.0.1 - - [15/May/2025 15:32:38] "OPTIONS /api/image/collect HTTP/1.1" 200 -
+2025-05-15 15:34:19,938 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:34:19,939 - INFO - 127.0.0.1 - - [15/May/2025 15:34:19] "POST /api/image/collect HTTP/1.1" 200 -
+2025-05-15 15:34:27,614 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:34:27,615 - INFO - 127.0.0.1 - - [15/May/2025 15:34:27] "OPTIONS /api/auth/register HTTP/1.1" 200 -
+2025-05-15 15:34:28,309 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:34:28,309 - INFO - 127.0.0.1 - - [15/May/2025 15:34:28] "[35m[1mPOST /api/auth/register HTTP/1.1[0m" 201 -
+2025-05-15 15:34:54,747 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:34:54,748 - INFO - 127.0.0.1 - - [15/May/2025 15:34:54] "OPTIONS /api/image/collect HTTP/1.1" 200 -
+2025-05-15 15:35:57,812 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:35:57,813 - INFO - 127.0.0.1 - - [15/May/2025 15:35:57] "POST /api/image/collect HTTP/1.1" 200 -
+2025-05-15 15:36:01,099 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:36:01,099 - INFO - 127.0.0.1 - - [15/May/2025 15:36:01] "OPTIONS /api/auth/register HTTP/1.1" 200 -
+2025-05-15 15:36:01,761 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:36:01,762 - INFO - 127.0.0.1 - - [15/May/2025 15:36:01] "[35m[1mPOST /api/auth/register HTTP/1.1[0m" 201 -
+2025-05-15 15:36:14,940 - INFO - Loaded existing model with 59 soldiers
+2025-05-15 15:36:16,188 - INFO - Processed image 100000001_Look_straight_at_camera_0.jpg for soldier 100000001
+2025-05-15 15:36:17,267 - INFO - Processed image 100000001_Look_straight_at_camera_1.jpg for soldier 100000001
+2025-05-15 15:36:18,712 - INFO - Processed image 100000001_Look_straight_at_camera_2.jpg for soldier 100000001
+2025-05-15 15:36:19,883 - INFO - Processed image 100000001_Look_straight_at_camera_3.jpg for soldier 100000001
+2025-05-15 15:36:20,995 - INFO - Processed image 100000001_Look_straight_at_camera_4.jpg for soldier 100000001
+2025-05-15 15:36:22,183 - INFO - Processed image 100000001_Look_straight_at_camera_5.jpg for soldier 100000001
+2025-05-15 15:36:23,405 - INFO - Processed image 100000001_Look_straight_at_camera_6.jpg for soldier 100000001
+2025-05-15 15:36:24,644 - INFO - Processed image 100000001_Look_straight_at_camera_7.jpg for soldier 100000001
+2025-05-15 15:36:25,996 - INFO - Processed image 100000001_Look_straight_at_camera_8.jpg for soldier 100000001
+2025-05-15 15:36:27,060 - INFO - Processed image 100000001_Look_straight_at_camera_9.jpg for soldier 100000001
+2025-05-15 15:36:28,115 - INFO - Processed image 100000001_Smile_0.jpg for soldier 100000001
+2025-05-15 15:36:29,146 - INFO - Processed image 100000001_Smile_1.jpg for soldier 100000001
+2025-05-15 15:36:30,157 - INFO - Processed image 100000001_Smile_2.jpg for soldier 100000001
+2025-05-15 15:36:31,147 - INFO - Processed image 100000001_Smile_3.jpg for soldier 100000001
+2025-05-15 15:36:32,276 - INFO - Processed image 100000001_Smile_4.jpg for soldier 100000001
+2025-05-15 15:36:33,606 - INFO - Processed image 100000001_Smile_5.jpg for soldier 100000001
+2025-05-15 15:36:34,682 - INFO - Processed image 100000001_Smile_6.jpg for soldier 100000001
+2025-05-15 15:36:35,934 - INFO - Processed image 100000001_Smile_7.jpg for soldier 100000001
+2025-05-15 15:36:36,962 - INFO - Processed image 100000001_Smile_8.jpg for soldier 100000001
+2025-05-15 15:36:38,060 - INFO - Processed image 100000001_Smile_9.jpg for soldier 100000001
+2025-05-15 15:36:39,099 - INFO - Processed image 100000001_Stand_a_little_away_0.jpg for soldier 100000001
+2025-05-15 15:36:40,178 - INFO - Processed image 100000001_Stand_a_little_away_1.jpg for soldier 100000001
+2025-05-15 15:36:41,218 - INFO - Processed image 100000001_Stand_a_little_away_2.jpg for soldier 100000001
+2025-05-15 15:36:42,230 - INFO - Processed image 100000001_Stand_a_little_away_3.jpg for soldier 100000001
+2025-05-15 15:36:43,302 - INFO - Processed image 100000001_Stand_a_little_away_4.jpg for soldier 100000001
+2025-05-15 15:36:44,180 - INFO - Processed image 100000001_Stand_a_little_away_5.jpg for soldier 100000001
+2025-05-15 15:36:45,181 - INFO - Processed image 100000001_Stand_a_little_away_6.jpg for soldier 100000001
+2025-05-15 15:36:46,192 - INFO - Processed image 100000001_Stand_a_little_away_7.jpg for soldier 100000001
+2025-05-15 15:36:47,256 - INFO - Processed image 100000001_Stand_a_little_away_8.jpg for soldier 100000001
+2025-05-15 15:36:48,274 - INFO - Processed image 100000001_Stand_a_little_away_9.jpg for soldier 100000001
+2025-05-15 15:36:52,371 - INFO - Processed image 100000001_Tilt_your_face_down_9.jpg for soldier 100000001
+2025-05-15 15:36:57,269 - INFO - Processed image 100000001_Turn_your_face_right_1.jpg for soldier 100000001
+2025-05-15 15:36:58,310 - INFO - Processed image 100000001_Turn_your_face_right_2.jpg for soldier 100000001
+2025-05-15 15:36:59,847 - INFO - Processed image 100000001_Turn_your_face_right_4.jpg for soldier 100000001
+2025-05-15 15:37:00,751 - INFO - Processed image 100000001_Turn_your_face_right_5.jpg for soldier 100000001
+2025-05-15 15:37:01,741 - INFO - Processed image 100000001_Turn_your_face_right_7.jpg for soldier 100000001
+2025-05-15 15:37:02,720 - INFO - Processed image 100000001_Turn_your_face_right_8.jpg for soldier 100000001
+2025-05-15 15:37:03,757 - INFO - Processed image 100000001_Turn_your_face_right_9.jpg for soldier 100000001
+2025-05-15 15:37:03,799 - INFO - Saved profile picture for soldier 100000001
+2025-05-15 15:37:03,827 - INFO - Deleted images for soldier 100000001
+2025-05-15 15:37:04,787 - INFO - Processed image 100000002_Look_straight_at_camera_0.jpg for soldier 100000002
+2025-05-15 15:37:06,065 - INFO - Processed image 100000002_Look_straight_at_camera_1.jpg for soldier 100000002
+2025-05-15 15:37:07,082 - INFO - Processed image 100000002_Look_straight_at_camera_2.jpg for soldier 100000002
+2025-05-15 15:37:08,100 - INFO - Processed image 100000002_Look_straight_at_camera_3.jpg for soldier 100000002
+2025-05-15 15:37:09,314 - INFO - Processed image 100000002_Look_straight_at_camera_4.jpg for soldier 100000002
+2025-05-15 15:37:10,487 - INFO - Processed image 100000002_Look_straight_at_camera_5.jpg for soldier 100000002
+2025-05-15 15:37:11,499 - INFO - Processed image 100000002_Look_straight_at_camera_6.jpg for soldier 100000002
+2025-05-15 15:37:12,568 - INFO - Processed image 100000002_Look_straight_at_camera_7.jpg for soldier 100000002
+2025-05-15 15:37:13,525 - INFO - Processed image 100000002_Look_straight_at_camera_8.jpg for soldier 100000002
+2025-05-15 15:37:14,577 - INFO - Processed image 100000002_Look_straight_at_camera_9.jpg for soldier 100000002
+2025-05-15 15:37:15,573 - INFO - Processed image 100000002_Smile_0.jpg for soldier 100000002
+2025-05-15 15:37:17,087 - INFO - Processed image 100000002_Smile_1.jpg for soldier 100000002
+2025-05-15 15:37:18,153 - INFO - Processed image 100000002_Smile_2.jpg for soldier 100000002
+2025-05-15 15:37:19,225 - INFO - Processed image 100000002_Smile_3.jpg for soldier 100000002
+2025-05-15 15:37:20,611 - INFO - Processed image 100000002_Smile_4.jpg for soldier 100000002
+2025-05-15 15:37:21,630 - INFO - Processed image 100000002_Smile_5.jpg for soldier 100000002
+2025-05-15 15:37:22,627 - INFO - Processed image 100000002_Smile_6.jpg for soldier 100000002
+2025-05-15 15:37:23,601 - INFO - Processed image 100000002_Smile_7.jpg for soldier 100000002
+2025-05-15 15:37:24,629 - INFO - Processed image 100000002_Smile_8.jpg for soldier 100000002
+2025-05-15 15:37:25,707 - INFO - Processed image 100000002_Smile_9.jpg for soldier 100000002
+2025-05-15 15:37:26,695 - INFO - Processed image 100000002_Stand_a_little_away_0.jpg for soldier 100000002
+2025-05-15 15:37:27,699 - INFO - Processed image 100000002_Stand_a_little_away_1.jpg for soldier 100000002
+2025-05-15 15:37:28,571 - INFO - Processed image 100000002_Stand_a_little_away_2.jpg for soldier 100000002
+2025-05-15 15:37:29,463 - INFO - Processed image 100000002_Stand_a_little_away_3.jpg for soldier 100000002
+2025-05-15 15:37:30,402 - INFO - Processed image 100000002_Stand_a_little_away_4.jpg for soldier 100000002
+2025-05-15 15:37:31,433 - INFO - Processed image 100000002_Stand_a_little_away_5.jpg for soldier 100000002
+2025-05-15 15:37:32,457 - INFO - Processed image 100000002_Stand_a_little_away_6.jpg for soldier 100000002
+2025-05-15 15:37:33,473 - INFO - Processed image 100000002_Stand_a_little_away_7.jpg for soldier 100000002
+2025-05-15 15:37:34,429 - INFO - Processed image 100000002_Stand_a_little_away_8.jpg for soldier 100000002
+2025-05-15 15:37:35,446 - INFO - Processed image 100000002_Stand_a_little_away_9.jpg for soldier 100000002
+2025-05-15 15:37:36,469 - INFO - Processed image 100000002_Tilt_your_face_down_0.jpg for soldier 100000002
+2025-05-15 15:37:37,472 - INFO - Processed image 100000002_Tilt_your_face_down_1.jpg for soldier 100000002
+2025-05-15 15:37:38,501 - INFO - Processed image 100000002_Tilt_your_face_down_2.jpg for soldier 100000002
+2025-05-15 15:37:39,449 - INFO - Processed image 100000002_Tilt_your_face_down_3.jpg for soldier 100000002
+2025-05-15 15:37:40,420 - INFO - Processed image 100000002_Tilt_your_face_down_4.jpg for soldier 100000002
+2025-05-15 15:37:41,489 - INFO - Processed image 100000002_Tilt_your_face_down_5.jpg for soldier 100000002
+2025-05-15 15:37:42,614 - INFO - Processed image 100000002_Tilt_your_face_down_6.jpg for soldier 100000002
+2025-05-15 15:37:43,632 - INFO - Processed image 100000002_Tilt_your_face_down_7.jpg for soldier 100000002
+2025-05-15 15:37:44,533 - INFO - Processed image 100000002_Tilt_your_face_down_8.jpg for soldier 100000002
+2025-05-15 15:37:45,626 - INFO - Processed image 100000002_Tilt_your_face_down_9.jpg for soldier 100000002
+2025-05-15 15:37:49,623 - INFO - Processed image 100000002_Turn_your_face_left_7.jpg for soldier 100000002
+2025-05-15 15:37:50,581 - INFO - Processed image 100000002_Turn_your_face_left_8.jpg for soldier 100000002
+2025-05-15 15:37:51,582 - INFO - Processed image 100000002_Turn_your_face_left_9.jpg for soldier 100000002
+2025-05-15 15:37:52,578 - INFO - Processed image 100000002_Turn_your_face_right_0.jpg for soldier 100000002
+2025-05-15 15:37:53,610 - INFO - Processed image 100000002_Turn_your_face_right_1.jpg for soldier 100000002
+2025-05-15 15:37:54,776 - INFO - Processed image 100000002_Turn_your_face_right_2.jpg for soldier 100000002
+2025-05-15 15:37:55,752 - INFO - Processed image 100000002_Turn_your_face_right_3.jpg for soldier 100000002
+2025-05-15 15:37:56,788 - INFO - Processed image 100000002_Turn_your_face_right_4.jpg for soldier 100000002
+2025-05-15 15:37:57,724 - INFO - Processed image 100000002_Turn_your_face_right_5.jpg for soldier 100000002
+2025-05-15 15:37:58,667 - INFO - Processed image 100000002_Turn_your_face_right_6.jpg for soldier 100000002
+2025-05-15 15:37:59,600 - INFO - Processed image 100000002_Turn_your_face_right_7.jpg for soldier 100000002
+2025-05-15 15:38:00,722 - INFO - Processed image 100000002_Turn_your_face_right_8.jpg for soldier 100000002
+2025-05-15 15:38:01,750 - INFO - Processed image 100000002_Turn_your_face_right_9.jpg for soldier 100000002
+2025-05-15 15:38:01,775 - INFO - Saved profile picture for soldier 100000002
+2025-05-15 15:38:01,801 - INFO - Deleted images for soldier 100000002
+2025-05-15 15:38:01,805 - INFO - Saved model with 150 total soldiers
+2025-05-15 15:38:01,839 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-05-15 15:38:01,839 - INFO - 127.0.0.1 - - [15/May/2025 15:38:01] "POST /api/image/train HTTP/1.1" 200 -
+2025-05-15 15:49:18,369 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\admin\\routes.py', reloading
+2025-05-15 15:49:20,149 - INFO -  * Restarting with stat
+2025-05-15 15:49:31,291 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-05-15 15:49:37,004 - INFO - All models loaded successfully
+2025-06-25 16:36:37,763 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-06-25 16:36:45,932 - INFO - All models loaded successfully
+2025-06-25 16:36:46,608 - DEBUG - Looking up time zone info from registry
+2025-06-25 16:36:46,814 - INFO - All models loaded successfully
+2025-06-25 16:36:46,814 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 16:36:46,814 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 16:36:46,818 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-06-25 16:36:46,819 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-06-25 16:36:46,819 - INFO - Scheduler started
+2025-06-25 16:36:46,819 - DEBUG - Looking for jobs to run
+2025-06-25 16:36:46,820 - INFO - Monitoring scheduler started
+2025-06-25 16:36:46,820 - DEBUG - Next wakeup is due at 2025-06-25 17:00:00+05:30 (in 1393.179360 seconds)
+2025-06-25 16:36:46,883 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-25 16:36:46,884 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-25 16:36:46,889 - INFO -  * Restarting with stat
+2025-06-25 16:36:52,712 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-06-25 16:36:55,370 - INFO - All models loaded successfully
+2025-06-25 16:36:55,571 - DEBUG - Looking up time zone info from registry
+2025-06-25 16:36:55,750 - INFO - All models loaded successfully
+2025-06-25 16:36:55,751 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 16:36:55,751 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 16:36:55,755 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-06-25 16:36:55,755 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-06-25 16:36:55,755 - INFO - Scheduler started
+2025-06-25 16:36:55,756 - DEBUG - Looking for jobs to run
+2025-06-25 16:36:55,756 - INFO - Monitoring scheduler started
+2025-06-25 16:36:55,756 - DEBUG - Next wakeup is due at 2025-06-25 17:00:00+05:30 (in 1384.243891 seconds)
+2025-06-25 16:36:55,773 - WARNING -  * Debugger is active!
+2025-06-25 16:36:55,786 - INFO -  * Debugger PIN: 116-430-886
+2025-06-25 16:38:49,154 - INFO - Scheduler has been shut down
+2025-06-25 16:38:49,155 - DEBUG - Looking for jobs to run
+2025-06-25 16:38:49,155 - DEBUG - No jobs; waiting until a job is added
+2025-06-25 16:38:49,155 - INFO - Monitoring scheduler stopped
+2025-06-25 16:38:49,155 - INFO - 127.0.0.1 - - [25/Jun/2025 16:38:49] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-06-25 16:38:49,812 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-06-25 16:38:49,812 - INFO - 127.0.0.1 - - [25/Jun/2025 16:38:49] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 401 -
+2025-06-25 16:38:57,468 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-06-25 16:38:57,468 - INFO - 127.0.0.1 - - [25/Jun/2025 16:38:57] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-06-25 16:38:58,109 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-06-25 16:38:58,109 - INFO - 127.0.0.1 - - [25/Jun/2025 16:38:58] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 401 -
+2025-06-25 16:39:56,915 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-06-25 16:39:56,916 - INFO - 127.0.0.1 - - [25/Jun/2025 16:39:56] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-06-25 16:39:57,519 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-06-25 16:39:57,520 - INFO - 127.0.0.1 - - [25/Jun/2025 16:39:57] "POST /api/auth/login HTTP/1.1" 200 -
+2025-06-25 17:00:00,019 - DEBUG - Looking for jobs to run
+2025-06-25 17:00:00,022 - INFO - Running job "MonitoringScheduler._end_daily_monitoring (trigger: cron[hour='17', minute='0'], next run at: 2025-06-25 17:00:00 IST)" (scheduled at 2025-06-25 17:00:00+05:30)
+2025-06-25 17:00:00,023 - DEBUG - Next wakeup is due at 2025-06-26 09:00:00+05:30 (in 57599.976082 seconds)
+2025-06-25 17:00:00,023 - ERROR - Failed to stop monitoring for 2025-06-25
+2025-06-25 17:00:00,024 - INFO - Job "MonitoringScheduler._end_daily_monitoring (trigger: cron[hour='17', minute='0'], next run at: 2025-06-26 17:00:00 IST)" executed successfully
+2025-07-03 12:45:02,469 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-03 12:45:09,708 - INFO - All models loaded successfully
+2025-07-03 12:45:10,324 - DEBUG - Looking up time zone info from registry
+2025-07-03 12:45:10,522 - INFO - All models loaded successfully
+2025-07-03 12:45:10,523 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-03 12:45:10,523 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-03 12:45:10,525 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-03 12:45:10,525 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-03 12:45:10,526 - INFO - Scheduler started
+2025-07-03 12:45:10,526 - DEBUG - Looking for jobs to run
+2025-07-03 12:45:10,527 - INFO - Monitoring scheduler started
+2025-07-03 12:45:10,527 - DEBUG - Next wakeup is due at 2025-07-03 17:00:00+05:30 (in 15289.472519 seconds)
+2025-07-03 12:45:10,584 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-03 12:45:10,584 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-03 12:45:10,589 - INFO -  * Restarting with stat
+2025-07-03 12:45:16,180 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-03 12:45:18,844 - INFO - All models loaded successfully
+2025-07-03 12:45:19,049 - DEBUG - Looking up time zone info from registry
+2025-07-03 12:45:19,217 - INFO - All models loaded successfully
+2025-07-03 12:45:19,217 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-03 12:45:19,218 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-03 12:45:19,220 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-03 12:45:19,220 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-03 12:45:19,220 - INFO - Scheduler started
+2025-07-03 12:45:19,221 - DEBUG - Looking for jobs to run
+2025-07-03 12:45:19,221 - INFO - Monitoring scheduler started
+2025-07-03 12:45:19,221 - DEBUG - Next wakeup is due at 2025-07-03 17:00:00+05:30 (in 15280.778557 seconds)
+2025-07-03 12:45:19,234 - WARNING -  * Debugger is active!
+2025-07-03 12:45:19,242 - INFO -  * Debugger PIN: 116-430-886
+2025-07-03 12:45:33,652 - INFO - Scheduler has been shut down
+2025-07-03 12:45:33,653 - DEBUG - Looking for jobs to run
+2025-07-03 12:45:33,653 - DEBUG - No jobs; waiting until a job is added
+2025-07-03 12:45:33,653 - INFO - Monitoring scheduler stopped
+2025-07-03 12:45:33,653 - INFO - 127.0.0.1 - - [03/Jul/2025 12:45:33] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-03 12:45:34,375 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-03 12:45:34,375 - INFO - 127.0.0.1 - - [03/Jul/2025 12:45:34] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-03 12:46:42,763 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-03 12:46:42,763 - INFO - 127.0.0.1 - - [03/Jul/2025 12:46:42] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-03 12:46:43,285 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-03 12:46:43,285 - INFO - 127.0.0.1 - - [03/Jul/2025 12:46:43] "POST /api/auth/login HTTP/1.1" 200 -

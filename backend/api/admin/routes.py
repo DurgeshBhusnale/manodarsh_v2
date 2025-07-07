@@ -1,7 +1,25 @@
 from flask import Blueprint, request, jsonify
 from db.connection import get_connection
+from services.translation_service import translate_to_hindi
 
 admin_bp = Blueprint('admin', __name__)
+
+# Translation endpoint for question
+@admin_bp.route('/translate-question', methods=['POST'])
+def translate_question():
+    try:
+        data = request.json
+        english_text = data.get('question_text', '')
+        if not english_text:
+            return jsonify({'error': 'No question_text provided'}), 400
+        hindi_text = translate_to_hindi(english_text)
+        return jsonify({'hindi_text': hindi_text}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+from flask import Blueprint, request, jsonify
+from db.connection import get_connection
+
+# admin_bp = Blueprint('admin', __name__)
 
 @admin_bp.route('/create-questionnaire', methods=['POST'])
 def create_questionnaire():
@@ -53,12 +71,16 @@ def add_question():
         data = request.json
         questionnaire_id = data['questionnaire_id']
         question_text = data['question_text']
+        # Accept question_text_hindi if provided, else default to empty string or duplicate English
+        question_text_hindi = data.get('question_text_hindi', '')
+        if not question_text_hindi:
+            question_text_hindi = question_text  # fallback to English if Hindi not provided
 
         # Insert the question
         cursor.execute("""
-            INSERT INTO questions (questionnaire_id, question_text, created_at)
-            VALUES (%s, %s, NOW())
-        """, (questionnaire_id, question_text))
+            INSERT INTO questions (questionnaire_id, question_text, question_text_hindi, created_at)
+            VALUES (%s, %s, %s, NOW())
+        """, (questionnaire_id, question_text, question_text_hindi))
         
         question_id = cursor.lastrowid
         db.commit()

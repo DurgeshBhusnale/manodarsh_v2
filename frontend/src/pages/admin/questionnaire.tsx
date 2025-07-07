@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
-import { apiService } from '../../services/api';
+import { apiService} from '../../services/api';
 
 const QuestionnairePage: React.FC = () => {
     const [step, setStep] = useState(1);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [questions, setQuestions] = useState<string[]>([]);
+    // Each question is { english: string, hindi: string }
+    const [questions, setQuestions] = useState<{ english: string; hindi: string }[]>([]);
     const [loading, setLoading] = useState(false);
     const [isActive, setIsActive] = useState(true);
     const [numberOfQuestions, setNumberOfQuestions] = useState<number>(0);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [questionText, setQuestionText] = useState('');
+    const [questionTextHindi, setQuestionTextHindi] = useState('');
+    const [translating, setTranslating] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [allQuestionsEntered, setAllQuestionsEntered] = useState(false);
 
@@ -22,26 +25,35 @@ const QuestionnairePage: React.FC = () => {
             return;
         }
         try {
-            // Initialize questions array with empty strings
-            setQuestions(Array(numberOfQuestions).fill(''));
+            // Initialize questions array with empty objects
+            setQuestions(Array(numberOfQuestions).fill({ english: '', hindi: '' }));
             setStep(2);
         } catch (error) {
             console.error('Failed to initialize questionnaire:', error);
         }
     };
 
+    // Translate and add question
     const handleAddQuestion = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!questionText.trim()) return;
 
+        setTranslating(true);
         try {
+            // Translate to Hindi
+            const res = await apiService.translateQuestion(questionText);
+            const hindi = res.data.hindi_text;
+            setQuestionTextHindi(hindi);
+
+            // Save both English and Hindi in questions array
             const updatedQuestions = [...questions];
-            updatedQuestions[currentQuestionIndex] = questionText;
+            updatedQuestions[currentQuestionIndex] = { english: questionText, hindi };
             setQuestions(updatedQuestions);
 
             if (!isEditMode && currentQuestionIndex < numberOfQuestions - 1) {
                 setCurrentQuestionIndex(currentQuestionIndex + 1);
-                setQuestionText(questions[currentQuestionIndex + 1] || '');
+                setQuestionText(questions[currentQuestionIndex + 1]?.english || '');
+                setQuestionTextHindi(questions[currentQuestionIndex + 1]?.hindi || '');
             } else {
                 setIsEditMode(false);
             }
@@ -52,6 +64,8 @@ const QuestionnairePage: React.FC = () => {
             }
         } catch (error) {
             console.error('Failed to add question:', error);
+        } finally {
+            setTranslating(false);
         }
     };
 
@@ -69,10 +83,11 @@ const QuestionnairePage: React.FC = () => {
             const questionnaireId = questionnaireResponse.data.id;
 
             // Then add all questions
-            for (const questionText of questions) {
+            for (const q of questions) {
                 await apiService.addQuestion({
                     questionnaire_id: questionnaireId,
-                    question_text: questionText
+                    question_text: q.english,
+                    question_text_hindi: q.hindi
                 });
             }
 
@@ -89,7 +104,8 @@ const QuestionnairePage: React.FC = () => {
     const handlePreviousQuestion = () => {
         if (currentQuestionIndex > 0) {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
-            setQuestionText(questions[currentQuestionIndex - 1]);
+            setQuestionText(questions[currentQuestionIndex - 1]?.english || '');
+            setQuestionTextHindi(questions[currentQuestionIndex - 1]?.hindi || '');
             setIsEditMode(true);
         }
     };
@@ -97,7 +113,8 @@ const QuestionnairePage: React.FC = () => {
     const handleNextQuestion = () => {
         if (currentQuestionIndex < numberOfQuestions - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
-            setQuestionText(questions[currentQuestionIndex + 1] || '');
+            setQuestionText(questions[currentQuestionIndex + 1]?.english || '');
+            setQuestionTextHindi(questions[currentQuestionIndex + 1]?.hindi || '');
             setIsEditMode(false);
         }
     };
@@ -110,6 +127,7 @@ const QuestionnairePage: React.FC = () => {
         setNumberOfQuestions(0);
         setCurrentQuestionIndex(0);
         setQuestionText('');
+        setQuestionTextHindi('');
         setIsEditMode(false);
         setAllQuestionsEntered(false);
     };
@@ -247,8 +265,8 @@ const QuestionnairePage: React.FC = () => {
                                                         <span className="font-medium text-gray-600">Q{index + 1}:</span>
                                                     </td>
                                                     <td className="py-2 px-3 text-sm text-gray-600">
-                                                        {q ? (
-                                                            <div className="line-clamp-1">{q}</div>
+                                                        {q && q.english ? (
+                                                            <div className="line-clamp-1">{q.english}</div>
                                                         ) : (
                                                             <span className="text-gray-400">(Not added yet)</span>
                                                         )}
@@ -258,7 +276,8 @@ const QuestionnairePage: React.FC = () => {
                                                             <button
                                                                 onClick={() => {
                                                                     setCurrentQuestionIndex(index);
-                                                                    setQuestionText(q);
+                                                                    setQuestionText(q.english);
+                                                                    setQuestionTextHindi(q.hindi);
                                                                     setIsEditMode(true);
                                                                 }}
                                                                 className="text-xs text-blue-600 hover:text-blue-800"
@@ -279,7 +298,7 @@ const QuestionnairePage: React.FC = () => {
                             <form onSubmit={handleAddQuestion}>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 mb-2">
-                                        Question Text
+                                        Question Text (English)
                                     </label>
                                     <textarea
                                         value={questionText}
@@ -290,14 +309,19 @@ const QuestionnairePage: React.FC = () => {
                                         required
                                     />
                                 </div>
-
+                                {questionTextHindi && (
+                                    <div className="mb-4">
+                                        <label className="block text-gray-700 mb-2">Hindi Translation</label>
+                                        <div className="p-3 border rounded-lg bg-gray-50 text-gray-800 min-h-[48px]">{questionTextHindi}</div>
+                                    </div>
+                                )}
                                 <div className="flex space-x-4">
                                     <button
                                         type="submit"
-                                        disabled={loading}
+                                        disabled={loading || translating}
                                         className="flex-1 bg-green-600 text-white p-3 rounded-lg hover:bg-green-700"
                                     >
-                                        {loading ? 'Saving...' : isEditMode ? 'Update Question' : `Add Question ${currentQuestionIndex + 1}`}
+                                        {loading || translating ? 'Translating...' : isEditMode ? 'Update Question' : `Add Question ${currentQuestionIndex + 1}`}
                                     </button>
                                 </div>
                             </form>

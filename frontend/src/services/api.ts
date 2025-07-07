@@ -1,4 +1,13 @@
+
 import axios from 'axios';
+
+// Translate question to Hindi
+export interface TranslateQuestionResponse {
+    hindi_text: string;
+}
+
+export const translateQuestion = (question_text: string) =>
+    api.post<TranslateQuestionResponse>('/admin/translate-question', { question_text });
 
 const BASE_URL = 'http://localhost:5000/api';
 
@@ -24,6 +33,7 @@ export interface QuestionnaireData {
 export interface QuestionData {
     questionnaire_id: number;
     question_text: string;
+    question_text_hindi: string;
 }
 
 export const apiService = {
@@ -57,6 +67,7 @@ export const apiService = {
 
     addQuestion: (data: QuestionData) =>
         api.post('/admin/add-question', data),
+    translateQuestion,
 
     // Daily Emotion Detection endpoints
     startDailyMonitoring: (date: string) =>

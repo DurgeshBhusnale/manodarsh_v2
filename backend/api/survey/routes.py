@@ -23,9 +23,9 @@ def get_active_questionnaire():
 
         questionnaire_id, title, description, total_questions = questionnaire
 
-        # Get the questions for this questionnaire
+        # Get the questions for this questionnaire (include Hindi text)
         cursor.execute("""
-            SELECT question_id, question_text
+            SELECT question_id, question_text, question_text_hindi
             FROM questions
             WHERE questionnaire_id = %s
             ORDER BY created_at ASC
@@ -34,7 +34,8 @@ def get_active_questionnaire():
         questions = [
             {
                 "id": row[0],
-                "question_text": row[1]
+                "question_text": row[1],
+                "question_text_hindi": row[2]
             }
             for row in cursor.fetchall()
         ]
@@ -64,24 +65,36 @@ def submit_survey():
         data = request.json
         questionnaire_id = data['questionnaire_id']
         responses = data['responses']
-        force_id = request.user_id  # You'll need to implement authentication
+        # Use a dummy force_id for now (replace with real authentication later)
+        # Try to get force_id from data, or fallback to dummy for now
+        force_id = data.get('force_id')
+        if not force_id:
+            force_id = '100000001'
 
         # Create a new weekly session
         cursor.execute("""
             INSERT INTO weekly_sessions 
-            (force_id, questionnaire_id, year, start_timestamp, completion_timestamp, status)
-            VALUES (%s, %s, YEAR(NOW()), NOW(), NOW(), 'completed')
-        """, (force_id, questionnaire_id))
-        
+            (force_id, questionnaire_id, year, start_timestamp, completion_timestamp, status, nlp_avg_score, image_avg_score, combined_avg_score)
+            VALUES (%s, %s, YEAR(NOW()), NOW(), NOW(), 'completed', %s, %s, %s)
+        """, (force_id, questionnaire_id, 0, 0, 0))
         session_id = cursor.lastrowid
 
         # Insert responses
         for response in responses:
+            # Fill all NOT NULL columns with defaults if not provided
+            # nlp_depression_score, image_depression_score, combined_depression_score are nullable, so pass None
             cursor.execute("""
                 INSERT INTO question_responses 
-                (session_id, question_id, answer_text)
-                VALUES (%s, %s, %s)
-            """, (session_id, response['question_id'], response['answer_text']))
+                (session_id, question_id, answer_text, nlp_depression_score, image_depression_score, combined_depression_score)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            """, (
+                session_id,
+                response['question_id'],
+                response['answer_text'],
+                None,  # nlp_depression_score
+                None,  # image_depression_score
+                None   # combined_depression_score
+            ))
 
         db.commit()
         return jsonify({"message": "Survey submitted successfully"}), 201

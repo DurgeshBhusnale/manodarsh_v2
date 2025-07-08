@@ -1,5 +1,12 @@
-
 import axios from 'axios';
+
+// Translate Hindi answer to English
+export interface TranslateAnswerResponse {
+    english_text: string;
+}
+
+export const translateAnswer = (data: { answer_text: string }) =>
+    api.post<TranslateAnswerResponse>('/admin/translate-answer', data);
 
 // Translate question to Hindi
 export interface TranslateQuestionResponse {
@@ -80,8 +87,10 @@ export const apiService = {
     getActiveQuestionnaire: () =>
         api.get('/survey/active-questionnaire'),
     
-    submitSurvey: (data: { questionnaire_id: number, responses: { question_id: number, answer_text: string }[] }) =>
+    submitSurvey: (data: { questionnaire_id: number, responses: { question_id: number, answer_text: string }[], force_id?: string }) =>
         api.post('/survey/submit', data)
+    ,
+    translateAnswer
 };
 
 export default apiService;

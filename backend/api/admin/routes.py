@@ -4,7 +4,8 @@ from services.translation_service import translate_to_hindi
 
 admin_bp = Blueprint('admin', __name__)
 
-# Translation endpoint for question
+
+# Translation endpoint for question (English to Hindi)
 @admin_bp.route('/translate-question', methods=['POST'])
 def translate_question():
     try:
@@ -16,10 +17,23 @@ def translate_question():
         return jsonify({'hindi_text': hindi_text}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+# Translation endpoint for answer (Hindi to English)
+@admin_bp.route('/translate-answer', methods=['POST'])
+def translate_answer():
+    try:
+        data = request.json
+        hindi_text = data.get('answer_text', '')
+        if not hindi_text:
+            return jsonify({'error': 'No answer_text provided'}), 400
+        from services.translation_service import translate_to_english
+        english_text = translate_to_english(hindi_text)
+        return jsonify({'english_text': english_text}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 from flask import Blueprint, request, jsonify
 from db.connection import get_connection
 
-# admin_bp = Blueprint('admin', __name__)
 
 @admin_bp.route('/create-questionnaire', methods=['POST'])
 def create_questionnaire():

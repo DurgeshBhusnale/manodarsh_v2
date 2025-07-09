@@ -1,0 +1,337 @@
+from flask import Flask, request, jsonify
+import base64
+import os
+from dotenv import load_dotenv
+import whisper
+import tempfile
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import torch
+from transformers import pipeline
+import logging
+from flask_cors import CORS
+from functools import wraps
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize Flask app
+app = Flask(__name__)
+
+# Enable CORS
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://localhost:3000"]}})
+
+# Initialize sentiment analyzers
+vader_analyzer = SentimentIntensityAnalyzer()  # For English text using VADER
+huggingface_analyzer = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english",
+    device=0 if torch.cuda.is_available() else -1  # Use GPU if available
+)
+
+# Load OpenAI Whisper model - using 'base' for better accuracy with multiple languages
+whisper_model = whisper.load_model("base")  # Can be 'tiny', 'base', 'small', or 'medium'
+
+# Load translation pipeline (Hindi -> English)
+translator = pipeline(
+    "translation", 
+    model="Helsinki-NLP/opus-mt-hi-en",
+    device=0 if torch.cuda.is_available() else -1  # Use GPU if available
+)
+
+# Create a pool of temp files to avoid frequent creation and deletion
+temp_files = []
+MAX_TEMP_FILES = 5
+
+def cleanup_temp_files():
+    """Clean up temporary files that are no longer needed"""
+    global temp_files
+    if len(temp_files) > MAX_TEMP_FILES:
+        for file_path in temp_files[:-MAX_TEMP_FILES]:
+            try:
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                    logger.info(f"Cleaned up temporary file: {file_path}")
+            except Exception as e:
+                logger.error(f"Failed to clean up temporary file {file_path}: {str(e)}")
+        temp_files = temp_files[-MAX_TEMP_FILES:]
+
+# Error handling decorator
+def handle_errors(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except Exception as e:
+            logger.error(f"Error in {f.__name__}: {str(e)}")
+            return jsonify({"error": str(e)}), 500
+    return decorated_function
+
+# Process audio helpers
+def decode_audio(audio_base64):
+    """Decode base64 audio data"""
+    if not audio_base64.startswith("data:"):
+        return jsonify({"error": "Invalid audio format. Expected base64-encoded audio data."}), 400
+
+    try:
+        content_type = audio_base64.split(";")[0].split(":")[1]
+        audio_content = base64.b64decode(audio_base64.split(",")[1])
+        logger.info(f"Decoded audio content: {len(audio_content)} bytes, type: {content_type}")
+        return audio_content
+    except Exception as e:
+        logger.error(f"Failed to decode base64 audio data: {str(e)}")
+        return None, f"Failed to decode base64 audio data: {str(e)}"
+
+def save_audio_to_temp(audio_content):
+    """Save audio content to a temporary file"""
+    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_file:
+        temp_file_path = temp_file.name
+        temp_file.write(audio_content)
+        temp_files.append(temp_file_path)
+        logger.info(f"Saved audio to temporary file: {temp_file_path}")
+        return temp_file_path
+
+# Sentiment analysis endpoint using VADER
+@app.route("/analyze-sentiment", methods=["POST"])
+@handle_errors
+def analyze_sentiment():
+    data = request.get_json()
+    
+    if not data or "text" not in data:
+        return jsonify({"error": "Missing 'text' parameter"}), 400
+        
+    text = data["text"]
+    
+    if not text.strip():
+        return jsonify({"result": [{"label": "NEUTRAL", "score": 0}]})
+        
+    # Analyze sentiment using VADER
+    sentiment_scores = vader_analyzer.polarity_scores(text)
+    logger.info(f"Sentiment scores: {sentiment_scores}")
+
+    # Determine sentiment label based on compound score
+    compound_score = sentiment_scores["compound"]
+    if compound_score >= 0.05:
+        sentiment_label = "POSITIVE"
+    elif compound_score <= -0.05:
+        sentiment_label = "NEGATIVE"
+    else:
+        sentiment_label = "NEUTRAL"
+
+    # Return sentiment scores and label
+    return jsonify({
+        "result": [
+            {
+                "label": sentiment_label,
+                "score": compound_score,
+                "details": {
+                    "pos": sentiment_scores["pos"],
+                    "neg": sentiment_scores["neg"],
+                    "neu": sentiment_scores["neu"],
+                }
+            }
+        ]
+    })
+
+# HuggingFace sentiment analysis endpoint
+@app.route("/analyze-sentiment-huggingface", methods=["POST"])
+@handle_errors
+def analyze_sentiment_huggingface():
+    data = request.get_json()
+    
+    if not data or "text" not in data:
+        return jsonify({"error": "Missing 'text' parameter"}), 400
+        
+    text = data["text"]
+    
+    if not text.strip():
+        return jsonify({"result": [{"label": "NEUTRAL", "score": 0.5}]})
+        
+    # Analyze sentiment using HuggingFace pipeline
+    sentiment = huggingface_analyzer(text)[0]
+    logger.info(f"HuggingFace sentiment: {sentiment}")
+
+    return jsonify({"result": [sentiment]})
+
+# English speech transcription endpoint
+@app.route("/transcribe-audio", methods=["POST"])
+@handle_errors
+def transcribe_audio():
+    data = request.get_json()
+    
+    if not data or "audio_file" not in data:
+        return jsonify({"error": "Missing 'audio_file' parameter"}), 400
+        
+    # Decode base64 audio data
+    audio_content = decode_audio(data["audio_file"])
+    if not isinstance(audio_content, bytes):
+        return jsonify({"error": audio_content[1]}), 400
+    
+    # Save to temporary file
+    temp_file_path = save_audio_to_temp(audio_content)
+    
+    # Schedule cleanup of temporary files
+    cleanup_temp_files()
+
+    # Process audio with Whisper
+    try:
+        result = whisper_model.transcribe(
+            temp_file_path,
+            fp16=torch.cuda.is_available(),  # Use FP16 if CUDA is available
+            language="en",  # Force English input
+        )
+        transcript = result["text"].strip()
+        logger.info(f"Transcribed text: {transcript}")
+    except Exception as e:
+        logger.error(f"Transcription failed: {str(e)}")
+        return jsonify({"error": f"Audio transcription failed: {str(e)}"}), 500
+
+    # Analyze sentiment using VADER
+    sentiment_scores = vader_analyzer.polarity_scores(transcript)
+    
+    # Determine sentiment label based on compound score
+    compound_score = sentiment_scores["compound"]
+    if compound_score >= 0.05:
+        sentiment_label = "POSITIVE"
+    elif compound_score <= -0.05:
+        sentiment_label = "NEGATIVE"
+    else:
+        sentiment_label = "NEUTRAL"
+        
+    sentiment_result = {
+        "label": sentiment_label,
+        "score": compound_score,
+        "details": {
+            "pos": sentiment_scores["pos"],
+            "neg": sentiment_scores["neg"],
+            "neu": sentiment_scores["neu"],
+        }
+    }
+
+    return jsonify({
+        "transcript": transcript,
+        "sentiment": sentiment_result
+    })
+
+# Hindi speech transcription, translation, and sentiment analysis endpoint
+@app.route("/transcribe-and-analyze-hindi", methods=["POST"])
+@handle_errors
+def transcribe_and_analyze_hindi():
+    data = request.get_json()
+    
+    if not data or "audio_file" not in data:
+        return jsonify({"error": "Missing 'audio_file' parameter"}), 400
+        
+    # Decode base64 audio data
+    audio_content = decode_audio(data["audio_file"])
+    if not isinstance(audio_content, bytes):
+        return jsonify({"error": audio_content[1]}), 400
+    
+    # Save to temporary file
+    temp_file_path = save_audio_to_temp(audio_content)
+    
+    # Schedule cleanup of temporary files
+    cleanup_temp_files()
+
+    # 1. Transcribe Hindi audio to Hindi text
+    try:
+        result = whisper_model.transcribe(
+            temp_file_path,
+            fp16=torch.cuda.is_available(),
+            language="hi"  # Force Hindi input
+        )
+        hindi_text = result["text"].strip()
+        logger.info(f"Hindi Transcription: {hindi_text}")
+    except Exception as e:
+        logger.error(f"Hindi transcription failed: {str(e)}")
+        return jsonify({"error": f"Hindi transcription failed: {str(e)}"}), 500
+
+    # 2. Translate Hindi text to English
+    try:
+        translated_result = translator(hindi_text)
+        english_text = translated_result[0]["translation_text"]
+        logger.info(f"English Translation: {english_text}")
+    except Exception as e:
+        logger.error(f"Translation failed: {str(e)}")
+        return jsonify({"error": f"Translation failed: {str(e)}"}), 500
+
+    # 3. Sentiment Analysis on English text
+    # Using both analyzers for comparison
+    try:
+        # VADER analysis
+        vader_scores = vader_analyzer.polarity_scores(english_text)
+        compound_score = vader_scores["compound"]
+        if compound_score >= 0.05:
+            vader_label = "POSITIVE"
+        elif compound_score <= -0.05:
+            vader_label = "NEGATIVE"
+        else:
+            vader_label = "NEUTRAL"
+            
+        vader_result = {
+            "label": vader_label,
+            "score": compound_score,
+            "details": {
+                "pos": vader_scores["pos"],
+                "neg": vader_scores["neg"],
+                "neu": vader_scores["neu"],
+            }
+        }
+        
+        # HuggingFace analysis
+        huggingface_result = huggingface_analyzer(english_text)[0]
+        
+        logger.info(f"VADER Sentiment: {vader_result}")
+        logger.info(f"HuggingFace Sentiment: {huggingface_result}")
+    except Exception as e:
+        logger.error(f"Sentiment analysis failed: {str(e)}")
+        return jsonify({"error": f"Sentiment analysis failed: {str(e)}"}), 500
+
+    return jsonify({
+        "hindi_transcription": hindi_text,
+        "english_translation": english_text,
+        "sentiment": {
+            "vader": vader_result,
+            "huggingface": huggingface_result
+        }
+    })
+
+# Unified endpoint that can handle both English and Hindi
+@app.route("/process-speech", methods=["POST"])
+@handle_errors
+def process_speech():
+    data = request.get_json()
+    
+    if not data or "audio_file" not in data:
+        return jsonify({"error": "Missing 'audio_file' parameter"}), 400
+        
+    language = data.get("language", "en").lower()
+    
+    if language == "en":
+        return transcribe_audio()
+    elif language == "hi":
+        return transcribe_and_analyze_hindi()
+    else:
+        return jsonify({
+            "error": f"Unsupported language: {language}. Currently supporting 'en' and 'hi'."
+        }), 400
+
+
+# Health check endpoint
+@app.route("/", methods=["GET"])
+def health_check():
+    return jsonify({
+        "status": "ok", 
+        "services": {
+            "whisper": "running", 
+            "vader_sentiment": "running",
+            "huggingface_sentiment": "running",
+            "translation": "running"
+        }
+    })
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)

@@ -1,5 +1,10 @@
 from flask import Blueprint, request, jsonify
 from db.connection import get_connection
+from services.sentiment_analysis_service import analyze_sentiment, calculate_average_score
+import logging
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 survey_bp = Blueprint('survey', __name__)
 
@@ -79,10 +84,22 @@ def submit_survey():
         """, (force_id, questionnaire_id, 0, 0, 0))
         session_id = cursor.lastrowid
 
-        # Insert responses
+        # Process responses and analyze sentiment
+        nlp_scores = []
+        
+        # Insert responses and analyze sentiment
         for response in responses:
-            # Fill all NOT NULL columns with defaults if not provided
-            # nlp_depression_score, image_depression_score, combined_depression_score are nullable, so pass None
+            answer_text = response['answer_text']
+            
+            # Calculate depression score using sentiment analysis
+            nlp_depression_score = None
+            if answer_text and answer_text.strip():
+                depression_score, sentiment_label = analyze_sentiment(answer_text)
+                nlp_depression_score = depression_score
+                nlp_scores.append(depression_score)
+                logger.info(f"Question {response['question_id']} - Sentiment: {sentiment_label}, Score: {depression_score:.2f}")
+            
+            # Insert response with sentiment score
             cursor.execute("""
                 INSERT INTO question_responses 
                 (session_id, question_id, answer_text, nlp_depression_score, image_depression_score, combined_depression_score)
@@ -90,14 +107,31 @@ def submit_survey():
             """, (
                 session_id,
                 response['question_id'],
-                response['answer_text'],
-                None,  # nlp_depression_score
-                None,  # image_depression_score
-                None   # combined_depression_score
+                answer_text,
+                nlp_depression_score,
+                None,  # image_depression_score (to be implemented later)
+                nlp_depression_score  # For now, combined score is same as NLP score
             ))
-
+        
+        # Calculate and update average NLP score in the session
+        avg_nlp_score = 0
+        if nlp_scores:
+            avg_nlp_score = calculate_average_score(nlp_scores)
+            logger.info(f"Session {session_id} - Average Depression Score: {avg_nlp_score:.2f}")
+            
+            # Update the weekly session with the calculated average scores
+            cursor.execute("""
+                UPDATE weekly_sessions
+                SET nlp_avg_score = %s, combined_avg_score = %s
+                WHERE session_id = %s
+            """, (avg_nlp_score, avg_nlp_score, session_id))  # For now, combined score is same as NLP score
+        
         db.commit()
-        return jsonify({"message": "Survey submitted successfully"}), 201
+        return jsonify({
+            "message": "Survey submitted successfully with sentiment analysis",
+            "session_id": session_id,
+            "avg_depression_score": avg_nlp_score
+        }), 201
 
     except Exception as e:
         db.rollback()

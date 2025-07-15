@@ -9915,3 +9915,58 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-15 08:40:34,038 - INFO - 127.0.0.1 - - [15/Jul/2025 08:40:34] "OPTIONS /api/auth/login HTTP/1.1" 200 -
 2025-07-15 08:40:34,556 - ERROR - Error stopping scheduler: Scheduler is not running
 2025-07-15 08:40:34,556 - INFO - 127.0.0.1 - - [15/Jul/2025 08:40:34] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:43:42,573 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:43:45,194 - INFO - All models loaded successfully
+2025-07-15 08:43:45,565 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:43:45,810 - INFO - All models loaded successfully
+2025-07-15 08:43:45,810 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:43:45,810 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:43:45,812 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:43:45,814 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:43:45,814 - INFO - Scheduler started
+2025-07-15 08:43:45,814 - DEBUG - Looking for jobs to run
+2025-07-15 08:43:45,814 - INFO - Monitoring scheduler started
+2025-07-15 08:43:45,814 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 974.185378 seconds)
+2025-07-15 08:43:45,859 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 08:43:45,859 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 08:43:45,863 - INFO -  * Restarting with stat
+2025-07-15 08:43:50,688 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:43:52,772 - INFO - All models loaded successfully
+2025-07-15 08:43:52,987 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:43:53,114 - INFO - All models loaded successfully
+2025-07-15 08:43:53,114 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:43:53,114 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:43:53,114 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:43:53,114 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:43:53,114 - INFO - Scheduler started
+2025-07-15 08:43:53,114 - DEBUG - Looking for jobs to run
+2025-07-15 08:43:53,114 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 966.885411 seconds)
+2025-07-15 08:43:53,114 - INFO - Monitoring scheduler started
+2025-07-15 08:43:53,130 - WARNING -  * Debugger is active!
+2025-07-15 08:43:53,130 - INFO -  * Debugger PIN: 490-147-572
+2025-07-15 08:44:00,088 - INFO - Scheduler has been shut down
+2025-07-15 08:44:00,088 - DEBUG - Looking for jobs to run
+2025-07-15 08:44:00,088 - DEBUG - No jobs; waiting until a job is added
+2025-07-15 08:44:00,088 - INFO - Monitoring scheduler stopped
+2025-07-15 08:44:00,088 - INFO - 127.0.0.1 - - [15/Jul/2025 08:44:00] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:44:00,554 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:44:00,554 - INFO - 127.0.0.1 - - [15/Jul/2025 08:44:00] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:44:26,744 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:44:26,744 - INFO - 127.0.0.1 - - [15/Jul/2025 08:44:26] "OPTIONS /api/admin/translate-question HTTP/1.1" 200 -
+2025-07-15 08:44:27,197 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:44:27,197 - INFO - 127.0.0.1 - - [15/Jul/2025 08:44:27] "[35m[1mPOST /api/admin/translate-question HTTP/1.1[0m" 500 -
+2025-07-15 08:44:30,644 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:44:30,644 - INFO - 127.0.0.1 - - [15/Jul/2025 08:44:30] "[35m[1mPOST /api/admin/translate-question HTTP/1.1[0m" 500 -
+2025-07-15 08:44:34,555 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:44:34,557 - INFO - 127.0.0.1 - - [15/Jul/2025 08:44:34] "OPTIONS /api/admin/translate-question HTTP/1.1" 200 -
+2025-07-15 08:44:34,809 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:44:34,809 - INFO - 127.0.0.1 - - [15/Jul/2025 08:44:34] "[35m[1mPOST /api/admin/translate-question HTTP/1.1[0m" 500 -
+2025-07-15 08:48:31,646 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:48:31,646 - INFO - 127.0.0.1 - - [15/Jul/2025 08:48:31] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:48:32,130 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:48:32,130 - INFO - 127.0.0.1 - - [15/Jul/2025 08:48:32] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:49:03,040 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:49:03,040 - INFO - 127.0.0.1 - - [15/Jul/2025 08:49:03] "OPTIONS /api/admin/translate-question HTTP/1.1" 200 -
+2025-07-15 08:49:03,362 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:49:03,362 - INFO - 127.0.0.1 - - [15/Jul/2025 08:49:03] "[35m[1mPOST /api/admin/translate-question HTTP/1.1[0m" 500 -

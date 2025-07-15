@@ -1,12 +1,12 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import LoginPage from './pages/login';
-import SoldierDashboard from './pages/soldier/dashboard';
 import AdminDashboard from './pages/admin/dashboard';
 import AddSoldier from './pages/admin/add-soldier';
 import SoldiersData from './pages/admin/soldiers-data';
 import QuestionnairePage from './pages/admin/questionnaire';
 import DailyEmotionPage from './pages/admin/daily-emotion';
-import SurveyPage from './pages/soldier/survey';
+import AdminSurveyPage from './pages/admin/survey';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export const router = createBrowserRouter([
   {
@@ -17,32 +17,53 @@ export const router = createBrowserRouter([
     path: '/login',
     element: <LoginPage />,
   },
-  {
-    path: '/soldier/dashboard',
-    element: <SoldierDashboard />,
-  },
-  {
-    path: '/survey',
-    element: <SurveyPage />,
-  },
+  // PROTECTED ADMIN ROUTES
   {
     path: '/admin/dashboard',
-    element: <AdminDashboard />,
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <AdminDashboard />
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/admin/add-soldier',
-    element: <AddSoldier />,
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <AddSoldier />
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/admin/soldiers-data',
-    element: <SoldiersData />,
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <SoldiersData />
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/admin/questionnaire',
-    element: <QuestionnairePage />,
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <QuestionnairePage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/admin/daily-emotion',
-    element: <DailyEmotionPage />,
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <DailyEmotionPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/survey',
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <AdminSurveyPage />
+      </ProtectedRoute>
+    ),
   },
 ]);

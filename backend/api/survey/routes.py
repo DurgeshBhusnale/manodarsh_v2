@@ -70,11 +70,25 @@ def submit_survey():
         data = request.json
         questionnaire_id = data['questionnaire_id']
         responses = data['responses']
-        # Use a dummy force_id for now (replace with real authentication later)
-        # Try to get force_id from data, or fallback to dummy for now
+        
+        # REQUIRE soldier credentials for survey submission
         force_id = data.get('force_id')
-        if not force_id:
-            force_id = '100000001'
+        password = data.get('password')
+        
+        if not force_id or not password:
+            return jsonify({
+                "error": "Soldier force_id and password are required for survey submission"
+            }), 400
+        
+        # Verify soldier credentials
+        from services.auth_service import AuthService
+        auth_service = AuthService()
+        user = auth_service.verify_login(force_id, password)
+        
+        if not user or user['role'] != 'soldier':
+            return jsonify({
+                "error": "Invalid soldier credentials"
+            }), 401
 
         # Create a new weekly session
         cursor.execute("""

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { authService } from './authService';
 
 // Translate Hindi answer to English
 export interface TranslateAnswerResponse {
@@ -46,7 +47,11 @@ export interface QuestionData {
 export const apiService = {
     // Authentication
     login: (force_id: string, password: string) => 
-        api.post('/auth/login', { force_id, password }),
+        authService.login(force_id, password),
+
+    // Soldier credential verification (for questionnaires)
+    verifySoldier: (force_id: string, password: string) =>
+        authService.verifySoldier(force_id, password),
 
     // Soldier endpoints
     startSurvey: () => 
@@ -87,7 +92,12 @@ export const apiService = {
     getActiveQuestionnaire: () =>
         api.get('/survey/active-questionnaire'),
     
-    submitSurvey: (data: { questionnaire_id: number, responses: { question_id: number, answer_text: string }[], force_id?: string }) =>
+    submitSurvey: (data: { 
+        questionnaire_id: number, 
+        responses: { question_id: number, answer_text: string }[], 
+        force_id: string,
+        password: string 
+    }) =>
         api.post('/survey/submit', data)
     ,
     translateAnswer

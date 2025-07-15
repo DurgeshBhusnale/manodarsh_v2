@@ -6,7 +6,7 @@ auth_service = AuthService()
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
-    """Handle user login for both soldiers and admins"""
+    """Handle login - ONLY ADMINS ALLOWED"""
     data = request.get_json()
     
     if not data or 'force_id' not in data or 'password' not in data:
@@ -26,8 +26,14 @@ def login():
     try:
         user = auth_service.verify_login(force_id, password)
         if user:
+            # ONLY ALLOW ADMIN LOGIN
+            if user['role'] != 'admin':
+                return jsonify({
+                    'error': 'Access denied. Only administrators can login.'
+                }), 403
+                
             return jsonify({
-                'message': 'Login successful',
+                'message': 'Admin login successful',
                 'user': {
                     'force_id': user['force_id'],
                     'role': user['role']
@@ -74,4 +80,42 @@ def register():
     except Exception as e:
         return jsonify({
             'error': str(e)
+        }), 500
+
+@auth_bp.route('/verify-soldier', methods=['POST'])
+def verify_soldier():
+    """Verify soldier credentials for questionnaire purposes - NO LOGIN ACCESS"""
+    data = request.get_json()
+    
+    if not data or 'force_id' not in data or 'password' not in data:
+        return jsonify({
+            'error': 'Missing required fields: force_id and password'
+        }), 400
+        
+    force_id = data['force_id']
+    password = data['password']
+    
+    # Validate force_id format
+    if not force_id.isdigit() or len(force_id) != 9:
+        return jsonify({
+            'error': 'Invalid force ID format. Must be 9 digits.'
+        }), 400
+    
+    try:
+        user = auth_service.verify_login(force_id, password)
+        if user and user['role'] == 'soldier':
+            return jsonify({
+                'message': 'Soldier credentials verified',
+                'verified': True,
+                'force_id': user['force_id']
+            }), 200
+        else:
+            return jsonify({
+                'error': 'Invalid soldier credentials',
+                'verified': False
+            }), 401
+    except Exception as e:
+        return jsonify({
+            'error': str(e),
+            'verified': False
         }), 500

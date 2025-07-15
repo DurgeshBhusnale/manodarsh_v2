@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { authService } from '../services/authService';
+import { apiService } from '../services/api';
 
 export const LoginPage: React.FC = () => {
     const navigate = useNavigate();
-    const { login } = useAuth(); // Using the hook instead of useContext
+    const { login, isAuthenticated, user } = useAuth();
     const [forceId, setForceId] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
+    // Redirect if already authenticated
+    useEffect(() => {
+        if (isAuthenticated && user?.role === 'admin') {
+            navigate('/admin/dashboard');
+        }
+    }, [isAuthenticated, user, navigate]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -23,18 +30,24 @@ export const LoginPage: React.FC = () => {
                 return;
             }
 
-            const response = await authService.login(forceId, password);
+            const response = await apiService.login(forceId, password);
             
             if (response.user) {
-                login(response.user);
-                navigate(
-                    response.user.role === 'admin' 
-                        ? '/admin/dashboard' 
-                        : '/soldier/dashboard'
-                );
+                // Only admins can login - this should always be admin now
+                if (response.user.role === 'admin') {
+                    login(response.user);
+                    navigate('/admin/dashboard');
+                } else {
+                    setError('Access denied. Only administrators can login to this system.');
+                }
             }
-        } catch (err) {
-            setError('Invalid credentials');
+        } catch (err: any) {
+            // Handle the specific 403 error for soldier login attempts
+            if (err.response?.status === 403) {
+                setError('Access denied. Only administrators can login to this system.');
+            } else {
+                setError('Invalid credentials');
+            }
         } finally {
             setIsLoading(false);
         }
@@ -44,8 +57,13 @@ export const LoginPage: React.FC = () => {
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-md w-96">
                 <h1 className="text-2xl font-bold mb-6 text-center">
-                    CRPF Login
+                    CRPF Admin Login
                 </h1>
+                
+                <div className="bg-blue-100 text-blue-800 p-3 rounded mb-4 text-sm">
+                    <strong>Note:</strong> This system is for administrators only. 
+                    Soldiers can access questionnaires directly via the survey page.
+                </div>
                 
                 {error && (
                     <div className="bg-red-100 text-red-700 p-3 rounded mb-4">

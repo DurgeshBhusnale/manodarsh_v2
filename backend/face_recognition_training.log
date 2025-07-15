@@ -9486,3 +9486,432 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-09 18:51:48,373 - INFO - Session 5 - Average Depression Score: 0.18
 2025-07-09 18:51:48,386 - ERROR - Error stopping scheduler: Scheduler is not running
 2025-07-09 18:51:48,386 - INFO - 127.0.0.1 - - [09/Jul/2025 18:51:48] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-15 06:52:34,493 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 06:52:40,857 - INFO - All models loaded successfully
+2025-07-15 06:53:11,933 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 06:53:15,707 - INFO - All models loaded successfully
+2025-07-15 06:53:16,155 - DEBUG - Looking up time zone info from registry
+2025-07-15 06:53:16,589 - INFO - All models loaded successfully
+2025-07-15 06:53:16,589 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 06:53:16,591 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 06:53:16,591 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 06:53:16,591 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 06:53:16,591 - INFO - Scheduler started
+2025-07-15 06:53:16,591 - DEBUG - Looking for jobs to run
+2025-07-15 06:53:16,591 - INFO - Monitoring scheduler started
+2025-07-15 06:53:16,591 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 7603.408961 seconds)
+2025-07-15 06:53:16,660 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 06:53:16,660 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 06:53:16,662 - INFO -  * Restarting with stat
+2025-07-15 06:53:25,622 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 06:53:30,308 - INFO - All models loaded successfully
+2025-07-15 06:53:30,728 - DEBUG - Looking up time zone info from registry
+2025-07-15 06:53:30,912 - INFO - All models loaded successfully
+2025-07-15 06:53:30,912 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 06:53:30,912 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 06:53:30,912 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 06:53:30,912 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 06:53:30,912 - INFO - Scheduler started
+2025-07-15 06:53:30,912 - DEBUG - Looking for jobs to run
+2025-07-15 06:53:30,912 - INFO - Monitoring scheduler started
+2025-07-15 06:53:30,912 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 7589.087600 seconds)
+2025-07-15 06:53:30,924 - WARNING -  * Debugger is active!
+2025-07-15 06:53:30,936 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 06:53:59,103 - INFO - Scheduler has been shut down
+2025-07-15 06:53:59,103 - DEBUG - Looking for jobs to run
+2025-07-15 06:53:59,103 - DEBUG - No jobs; waiting until a job is added
+2025-07-15 06:53:59,103 - INFO - Monitoring scheduler stopped
+2025-07-15 06:53:59,103 - INFO - 127.0.0.1 - - [15/Jul/2025 06:53:59] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 06:53:59,692 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 06:53:59,692 - INFO - 127.0.0.1 - - [15/Jul/2025 06:53:59] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 401 -
+2025-07-15 06:54:03,888 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 06:54:03,888 - INFO - 127.0.0.1 - - [15/Jul/2025 06:54:03] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 06:54:48,974 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 06:54:48,974 - INFO - 127.0.0.1 - - [15/Jul/2025 06:54:48] "OPTIONS /api/image/collect HTTP/1.1" 200 -
+2025-07-15 06:55:57,465 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 06:55:57,465 - INFO - 127.0.0.1 - - [15/Jul/2025 06:55:57] "POST /api/image/collect HTTP/1.1" 200 -
+2025-07-15 07:14:35,368 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\auth\\routes.py', reloading
+2025-07-15 07:14:37,106 - INFO -  * Restarting with stat
+2025-07-15 07:14:41,298 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:14:44,144 - INFO - All models loaded successfully
+2025-07-15 07:14:44,444 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:14:44,582 - INFO - All models loaded successfully
+2025-07-15 07:14:44,582 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:14:44,582 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:14:44,582 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:14:44,582 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:14:44,582 - INFO - Scheduler started
+2025-07-15 07:14:44,582 - DEBUG - Looking for jobs to run
+2025-07-15 07:14:44,582 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 6315.417839 seconds)
+2025-07-15 07:14:44,582 - INFO - Monitoring scheduler started
+2025-07-15 07:14:44,598 - WARNING -  * Debugger is active!
+2025-07-15 07:14:44,598 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:15:06,190 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\auth\\routes.py', reloading
+2025-07-15 07:15:07,849 - INFO -  * Restarting with stat
+2025-07-15 07:15:11,552 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:15:14,000 - INFO - All models loaded successfully
+2025-07-15 07:15:14,317 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:15:14,483 - INFO - All models loaded successfully
+2025-07-15 07:15:14,483 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:15:14,483 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:15:14,493 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:15:14,493 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:15:14,493 - INFO - Scheduler started
+2025-07-15 07:15:14,493 - DEBUG - Looking for jobs to run
+2025-07-15 07:15:14,493 - INFO - Monitoring scheduler started
+2025-07-15 07:15:14,493 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 6285.506017 seconds)
+2025-07-15 07:15:14,501 - WARNING -  * Debugger is active!
+2025-07-15 07:15:14,518 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:15:42,487 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\survey\\routes.py', reloading
+2025-07-15 07:15:43,861 - INFO -  * Restarting with stat
+2025-07-15 07:15:48,548 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:15:51,133 - INFO - All models loaded successfully
+2025-07-15 07:15:51,422 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:15:51,554 - INFO - All models loaded successfully
+2025-07-15 07:15:51,570 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:15:51,570 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:15:51,572 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:15:51,574 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:15:51,574 - INFO - Scheduler started
+2025-07-15 07:15:51,574 - DEBUG - Looking for jobs to run
+2025-07-15 07:15:51,574 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 6248.425785 seconds)
+2025-07-15 07:15:51,574 - INFO - Monitoring scheduler started
+2025-07-15 07:15:51,577 - WARNING -  * Debugger is active!
+2025-07-15 07:15:51,593 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:20:40,852 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\auth\\routes.py', reloading
+2025-07-15 07:20:42,247 - INFO -  * Restarting with stat
+2025-07-15 07:20:46,349 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:20:49,450 - INFO - All models loaded successfully
+2025-07-15 07:20:49,720 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:20:49,856 - INFO - All models loaded successfully
+2025-07-15 07:20:49,857 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:20:49,857 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:20:49,857 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:20:49,857 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:20:49,857 - INFO - Scheduler started
+2025-07-15 07:20:49,857 - DEBUG - Looking for jobs to run
+2025-07-15 07:20:49,857 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 5950.142937 seconds)
+2025-07-15 07:20:49,857 - INFO - Monitoring scheduler started
+2025-07-15 07:20:49,870 - WARNING -  * Debugger is active!
+2025-07-15 07:20:49,870 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:21:53,385 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\survey\\routes.py', reloading
+2025-07-15 07:21:54,770 - INFO -  * Restarting with stat
+2025-07-15 07:21:58,637 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:22:01,354 - INFO - All models loaded successfully
+2025-07-15 07:22:01,637 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:22:01,766 - INFO - All models loaded successfully
+2025-07-15 07:22:01,766 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:22:01,766 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:22:01,766 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:22:01,766 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:22:01,766 - INFO - Scheduler started
+2025-07-15 07:22:01,766 - DEBUG - Looking for jobs to run
+2025-07-15 07:22:01,766 - INFO - Monitoring scheduler started
+2025-07-15 07:22:01,766 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 5878.233167 seconds)
+2025-07-15 07:22:01,782 - WARNING -  * Debugger is active!
+2025-07-15 07:22:01,782 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:33:42,479 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\survey\\routes.py', reloading
+2025-07-15 07:33:44,071 - INFO -  * Restarting with stat
+2025-07-15 07:33:48,164 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:33:50,953 - INFO - All models loaded successfully
+2025-07-15 07:33:51,241 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:33:51,392 - INFO - All models loaded successfully
+2025-07-15 07:33:51,392 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:33:51,392 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:33:51,392 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:33:51,392 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:33:51,392 - INFO - Scheduler started
+2025-07-15 07:33:51,392 - DEBUG - Looking for jobs to run
+2025-07-15 07:33:51,392 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 5168.607411 seconds)
+2025-07-15 07:33:51,392 - INFO - Monitoring scheduler started
+2025-07-15 07:33:51,408 - WARNING -  * Debugger is active!
+2025-07-15 07:33:51,408 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:34:31,377 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:34:34,321 - INFO - All models loaded successfully
+2025-07-15 07:34:34,633 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:34:34,780 - INFO - All models loaded successfully
+2025-07-15 07:34:34,780 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:34:34,780 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:34:34,780 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:34:34,780 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:34:34,780 - INFO - Scheduler started
+2025-07-15 07:34:34,780 - DEBUG - Looking for jobs to run
+2025-07-15 07:34:34,780 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 5125.219429 seconds)
+2025-07-15 07:34:34,780 - INFO - Monitoring scheduler started
+2025-07-15 07:34:34,812 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 07:34:34,812 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 07:34:34,812 - INFO -  * Restarting with stat
+2025-07-15 07:34:38,890 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:34:41,414 - INFO - All models loaded successfully
+2025-07-15 07:34:41,668 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:34:41,795 - INFO - All models loaded successfully
+2025-07-15 07:34:41,795 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:34:41,795 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:34:41,795 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:34:41,811 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:34:41,811 - INFO - Scheduler started
+2025-07-15 07:34:41,811 - DEBUG - Looking for jobs to run
+2025-07-15 07:34:41,811 - INFO - Monitoring scheduler started
+2025-07-15 07:34:41,811 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 5118.188430 seconds)
+2025-07-15 07:34:41,811 - WARNING -  * Debugger is active!
+2025-07-15 07:34:41,827 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:37:22,322 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:37:25,476 - INFO - All models loaded successfully
+2025-07-15 07:37:25,770 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:37:25,951 - INFO - All models loaded successfully
+2025-07-15 07:37:25,951 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:37:25,951 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:37:25,951 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:37:25,951 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:37:25,951 - INFO - Scheduler started
+2025-07-15 07:37:25,951 - DEBUG - Looking for jobs to run
+2025-07-15 07:37:25,951 - INFO - Monitoring scheduler started
+2025-07-15 07:37:25,951 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 4954.048876 seconds)
+2025-07-15 07:37:25,982 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 07:37:25,982 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 07:37:25,982 - INFO -  * Restarting with stat
+2025-07-15 07:37:30,358 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 07:37:33,351 - INFO - All models loaded successfully
+2025-07-15 07:37:33,664 - DEBUG - Looking up time zone info from registry
+2025-07-15 07:37:33,856 - INFO - All models loaded successfully
+2025-07-15 07:37:33,856 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:37:33,856 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 07:37:33,856 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 07:37:33,856 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 07:37:33,856 - INFO - Scheduler started
+2025-07-15 07:37:33,856 - DEBUG - Looking for jobs to run
+2025-07-15 07:37:33,872 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 4946.127693 seconds)
+2025-07-15 07:37:33,872 - INFO - Monitoring scheduler started
+2025-07-15 07:37:33,888 - WARNING -  * Debugger is active!
+2025-07-15 07:37:33,888 - INFO -  * Debugger PIN: 375-560-622
+2025-07-15 07:38:01,781 - INFO - Scheduler has been shut down
+2025-07-15 07:38:01,781 - DEBUG - Looking for jobs to run
+2025-07-15 07:38:01,781 - DEBUG - No jobs; waiting until a job is added
+2025-07-15 07:38:01,781 - INFO - Monitoring scheduler stopped
+2025-07-15 07:38:01,781 - INFO - 127.0.0.1 - - [15/Jul/2025 07:38:01] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 07:38:02,468 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 07:38:02,468 - INFO - 127.0.0.1 - - [15/Jul/2025 07:38:02] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 07:38:31,702 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 07:38:31,702 - INFO - 127.0.0.1 - - [15/Jul/2025 07:38:31] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-15 07:38:32,355 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 07:38:32,355 - INFO - 127.0.0.1 - - [15/Jul/2025 07:38:32] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-15 07:38:32,390 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 07:38:32,390 - INFO - 127.0.0.1 - - [15/Jul/2025 07:38:32] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-15 08:06:39,361 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:06:45,657 - INFO - All models loaded successfully
+2025-07-15 08:06:46,074 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:06:46,183 - INFO - All models loaded successfully
+2025-07-15 08:06:46,183 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:06:46,183 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:06:46,183 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:06:46,183 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:06:46,183 - INFO - Scheduler started
+2025-07-15 08:06:46,183 - DEBUG - Looking for jobs to run
+2025-07-15 08:06:46,183 - INFO - Monitoring scheduler started
+2025-07-15 08:06:46,183 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 3193.816038 seconds)
+2025-07-15 08:06:46,233 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 08:06:46,233 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 08:06:46,233 - INFO -  * Restarting with stat
+2025-07-15 08:06:49,273 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:06:51,127 - INFO - All models loaded successfully
+2025-07-15 08:06:51,316 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:06:51,427 - INFO - All models loaded successfully
+2025-07-15 08:06:51,427 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:06:51,443 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:06:51,443 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:06:51,443 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:06:51,443 - INFO - Scheduler started
+2025-07-15 08:06:51,443 - DEBUG - Looking for jobs to run
+2025-07-15 08:06:51,443 - INFO - Monitoring scheduler started
+2025-07-15 08:06:51,443 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 3188.556701 seconds)
+2025-07-15 08:06:51,453 - WARNING -  * Debugger is active!
+2025-07-15 08:06:51,462 - INFO -  * Debugger PIN: 490-147-572
+2025-07-15 08:07:19,389 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:07:21,720 - INFO - All models loaded successfully
+2025-07-15 08:07:21,931 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:07:22,042 - INFO - All models loaded successfully
+2025-07-15 08:07:22,042 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:07:22,042 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:07:22,042 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:07:22,042 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:07:22,042 - INFO - Scheduler started
+2025-07-15 08:07:22,042 - DEBUG - Looking for jobs to run
+2025-07-15 08:07:22,042 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 3157.957991 seconds)
+2025-07-15 08:07:22,042 - INFO - Monitoring scheduler started
+2025-07-15 08:07:22,074 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 08:07:22,074 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 08:07:22,074 - INFO -  * Restarting with stat
+2025-07-15 08:07:25,567 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:07:27,541 - INFO - All models loaded successfully
+2025-07-15 08:07:27,762 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:07:27,889 - INFO - All models loaded successfully
+2025-07-15 08:07:27,889 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:07:27,889 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:07:27,889 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:07:27,889 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:07:27,889 - INFO - Scheduler started
+2025-07-15 08:07:27,889 - DEBUG - Looking for jobs to run
+2025-07-15 08:07:27,889 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 3152.110452 seconds)
+2025-07-15 08:07:27,889 - INFO - Monitoring scheduler started
+2025-07-15 08:07:27,889 - WARNING -  * Debugger is active!
+2025-07-15 08:07:27,905 - INFO -  * Debugger PIN: 490-147-572
+2025-07-15 08:08:58,397 - INFO - Scheduler has been shut down
+2025-07-15 08:08:58,397 - DEBUG - Looking for jobs to run
+2025-07-15 08:08:58,397 - DEBUG - No jobs; waiting until a job is added
+2025-07-15 08:08:58,397 - INFO - Monitoring scheduler stopped
+2025-07-15 08:08:58,397 - INFO - 127.0.0.1 - - [15/Jul/2025 08:08:58] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:08:59,036 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:08:59,036 - INFO - 127.0.0.1 - - [15/Jul/2025 08:08:59] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:09:18,914 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:09:18,914 - INFO - 127.0.0.1 - - [15/Jul/2025 08:09:18] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:09:19,392 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:09:19,392 - INFO - 127.0.0.1 - - [15/Jul/2025 08:09:19] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 403 -
+2025-07-15 08:09:25,916 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:09:25,916 - INFO - 127.0.0.1 - - [15/Jul/2025 08:09:25] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:09:26,402 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:09:26,402 - INFO - 127.0.0.1 - - [15/Jul/2025 08:09:26] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 401 -
+2025-07-15 08:09:31,003 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:09:31,003 - INFO - 127.0.0.1 - - [15/Jul/2025 08:09:31] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:14:45,751 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:14:45,751 - INFO - 127.0.0.1 - - [15/Jul/2025 08:14:45] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:14:46,237 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:14:46,237 - INFO - 127.0.0.1 - - [15/Jul/2025 08:14:46] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:15:09,403 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:15:12,994 - INFO - All models loaded successfully
+2025-07-15 08:15:13,238 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:15:13,368 - INFO - All models loaded successfully
+2025-07-15 08:15:13,368 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:13,368 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:13,375 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:15:13,375 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:15:13,375 - INFO - Scheduler started
+2025-07-15 08:15:13,375 - DEBUG - Looking for jobs to run
+2025-07-15 08:15:13,375 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 2686.624257 seconds)
+2025-07-15 08:15:13,375 - INFO - Monitoring scheduler started
+2025-07-15 08:15:13,400 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 08:15:13,400 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 08:15:13,404 - INFO -  * Restarting with stat
+2025-07-15 08:15:16,656 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:15:18,611 - INFO - All models loaded successfully
+2025-07-15 08:15:18,846 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:15:18,978 - INFO - All models loaded successfully
+2025-07-15 08:15:18,978 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:18,978 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:18,978 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:15:18,978 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:15:18,978 - INFO - Scheduler started
+2025-07-15 08:15:18,978 - DEBUG - Looking for jobs to run
+2025-07-15 08:15:18,978 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 2681.021711 seconds)
+2025-07-15 08:15:18,978 - INFO - Monitoring scheduler started
+2025-07-15 08:15:18,978 - WARNING -  * Debugger is active!
+2025-07-15 08:15:18,998 - INFO -  * Debugger PIN: 490-147-572
+2025-07-15 08:15:31,455 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:15:34,030 - INFO - All models loaded successfully
+2025-07-15 08:15:34,268 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:15:34,403 - INFO - All models loaded successfully
+2025-07-15 08:15:34,410 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:34,410 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:34,410 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:15:34,410 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:15:34,410 - INFO - Scheduler started
+2025-07-15 08:15:34,410 - DEBUG - Looking for jobs to run
+2025-07-15 08:15:34,410 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 2665.589183 seconds)
+2025-07-15 08:15:34,410 - INFO - Monitoring scheduler started
+2025-07-15 08:15:34,435 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 08:15:34,435 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 08:15:34,437 - INFO -  * Restarting with stat
+2025-07-15 08:15:38,039 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:15:39,951 - INFO - All models loaded successfully
+2025-07-15 08:15:40,156 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:15:40,292 - INFO - All models loaded successfully
+2025-07-15 08:15:40,292 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:40,292 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:15:40,292 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:15:40,292 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:15:40,292 - INFO - Scheduler started
+2025-07-15 08:15:40,292 - DEBUG - Looking for jobs to run
+2025-07-15 08:15:40,292 - INFO - Monitoring scheduler started
+2025-07-15 08:15:40,292 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 2659.707133 seconds)
+2025-07-15 08:15:40,292 - WARNING -  * Debugger is active!
+2025-07-15 08:15:40,308 - INFO -  * Debugger PIN: 490-147-572
+2025-07-15 08:39:14,777 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:39:18,541 - INFO - All models loaded successfully
+2025-07-15 08:39:18,783 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:39:18,888 - INFO - All models loaded successfully
+2025-07-15 08:39:18,888 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:39:18,888 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:39:18,904 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:39:18,904 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:39:18,904 - INFO - Scheduler started
+2025-07-15 08:39:18,905 - DEBUG - Looking for jobs to run
+2025-07-15 08:39:18,905 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 1241.094486 seconds)
+2025-07-15 08:39:18,905 - INFO - Monitoring scheduler started
+2025-07-15 08:39:18,932 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 08:39:18,932 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 08:39:18,932 - INFO -  * Restarting with stat
+2025-07-15 08:39:22,047 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:39:24,017 - INFO - All models loaded successfully
+2025-07-15 08:39:24,244 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:39:24,361 - INFO - All models loaded successfully
+2025-07-15 08:39:24,361 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:39:24,361 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:39:24,361 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:39:24,361 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:39:24,361 - INFO - Scheduler started
+2025-07-15 08:39:24,361 - DEBUG - Looking for jobs to run
+2025-07-15 08:39:24,361 - INFO - Monitoring scheduler started
+2025-07-15 08:39:24,361 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 1235.638156 seconds)
+2025-07-15 08:39:24,377 - WARNING -  * Debugger is active!
+2025-07-15 08:39:24,378 - INFO -  * Debugger PIN: 490-147-572
+2025-07-15 08:39:28,882 - INFO - Scheduler has been shut down
+2025-07-15 08:39:28,882 - DEBUG - Looking for jobs to run
+2025-07-15 08:39:28,882 - DEBUG - No jobs; waiting until a job is added
+2025-07-15 08:39:28,882 - INFO - Monitoring scheduler stopped
+2025-07-15 08:39:28,882 - INFO - 127.0.0.1 - - [15/Jul/2025 08:39:28] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:39:29,441 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:39:29,442 - INFO - 127.0.0.1 - - [15/Jul/2025 08:39:29] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:40:24,508 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:40:26,906 - INFO - All models loaded successfully
+2025-07-15 08:40:27,112 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:40:27,212 - INFO - All models loaded successfully
+2025-07-15 08:40:27,212 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:40:27,212 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:40:27,212 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:40:27,212 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:40:27,212 - INFO - Scheduler started
+2025-07-15 08:40:27,212 - DEBUG - Looking for jobs to run
+2025-07-15 08:40:27,212 - INFO - Monitoring scheduler started
+2025-07-15 08:40:27,212 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 1172.787151 seconds)
+2025-07-15 08:40:27,246 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-15 08:40:27,246 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-15 08:40:27,248 - INFO -  * Restarting with stat
+2025-07-15 08:40:30,368 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-15 08:40:32,270 - INFO - All models loaded successfully
+2025-07-15 08:40:32,481 - DEBUG - Looking up time zone info from registry
+2025-07-15 08:40:32,592 - INFO - All models loaded successfully
+2025-07-15 08:40:32,592 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:40:32,592 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-15 08:40:32,592 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-15 08:40:32,592 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-15 08:40:32,592 - INFO - Scheduler started
+2025-07-15 08:40:32,592 - DEBUG - Looking for jobs to run
+2025-07-15 08:40:32,592 - DEBUG - Next wakeup is due at 2025-07-15 09:00:00+05:30 (in 1167.407907 seconds)
+2025-07-15 08:40:32,592 - INFO - Monitoring scheduler started
+2025-07-15 08:40:32,607 - WARNING -  * Debugger is active!
+2025-07-15 08:40:32,617 - INFO -  * Debugger PIN: 490-147-572
+2025-07-15 08:40:34,038 - INFO - Scheduler has been shut down
+2025-07-15 08:40:34,038 - DEBUG - Looking for jobs to run
+2025-07-15 08:40:34,038 - DEBUG - No jobs; waiting until a job is added
+2025-07-15 08:40:34,038 - INFO - Monitoring scheduler stopped
+2025-07-15 08:40:34,038 - INFO - 127.0.0.1 - - [15/Jul/2025 08:40:34] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-15 08:40:34,556 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-15 08:40:34,556 - INFO - 127.0.0.1 - - [15/Jul/2025 08:40:34] "POST /api/auth/login HTTP/1.1" 200 -

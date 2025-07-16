@@ -13297,3 +13297,57 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-16 11:27:12,240 - INFO - Session 15 - Average Depression Score: 0.29
 2025-07-16 11:27:12,243 - ERROR - Error stopping scheduler: Scheduler is not running
 2025-07-16 11:27:12,243 - INFO - 127.0.0.1 - - [16/Jul/2025 11:27:12] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 11:34:03,263 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 11:34:06,709 - INFO - All models loaded successfully
+2025-07-16 11:34:07,035 - DEBUG - Looking up time zone info from registry
+2025-07-16 11:34:07,162 - INFO - All models loaded successfully
+2025-07-16 11:34:07,162 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 11:34:07,162 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 11:34:07,164 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 11:34:07,164 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 11:34:07,164 - INFO - Scheduler started
+2025-07-16 11:34:07,166 - DEBUG - Looking for jobs to run
+2025-07-16 11:34:07,166 - INFO - Monitoring scheduler started
+2025-07-16 11:34:07,166 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 19552.833186 seconds)
+2025-07-16 11:34:07,189 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-16 11:34:07,189 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-16 11:34:07,191 - INFO -  * Restarting with stat
+2025-07-16 11:34:10,317 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 11:34:12,207 - INFO - All models loaded successfully
+2025-07-16 11:34:12,499 - DEBUG - Looking up time zone info from registry
+2025-07-16 11:34:12,610 - INFO - All models loaded successfully
+2025-07-16 11:34:12,610 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 11:34:12,610 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 11:34:12,610 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 11:34:12,610 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 11:34:12,610 - INFO - Scheduler started
+2025-07-16 11:34:12,610 - DEBUG - Looking for jobs to run
+2025-07-16 11:34:12,610 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 19547.389125 seconds)
+2025-07-16 11:34:12,610 - INFO - Monitoring scheduler started
+2025-07-16 11:34:12,610 - WARNING -  * Debugger is active!
+2025-07-16 11:34:12,626 - INFO -  * Debugger PIN: 490-147-572
+2025-07-16 11:34:14,994 - INFO - Scheduler has been shut down
+2025-07-16 11:34:14,994 - DEBUG - Looking for jobs to run
+2025-07-16 11:34:14,994 - DEBUG - No jobs; waiting until a job is added
+2025-07-16 11:34:14,994 - INFO - Monitoring scheduler stopped
+2025-07-16 11:34:14,994 - INFO - 127.0.0.1 - - [16/Jul/2025 11:34:14] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-16 11:34:15,504 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 11:34:15,504 - INFO - 127.0.0.1 - - [16/Jul/2025 11:34:15] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-16 11:34:26,045 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 11:34:26,045 - INFO - 127.0.0.1 - - [16/Jul/2025 11:34:26] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 11:34:26,533 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 11:34:26,533 - INFO - 127.0.0.1 - - [16/Jul/2025 11:34:26] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 11:34:26,549 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 11:34:26,550 - INFO - 127.0.0.1 - - [16/Jul/2025 11:34:26] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 11:34:34,460 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 11:34:34,460 - INFO - 127.0.0.1 - - [16/Jul/2025 11:34:34] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-16 11:34:34,946 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 11:34:34,946 - INFO - Text: 'sdfgh...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 11:34:34,946 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 11:34:34,946 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 11:34:34,946 - INFO - Text: 'sdfghjk...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 11:34:34,946 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 11:34:34,946 - INFO - Session 16 - Average Depression Score: 0.50
+2025-07-16 11:34:34,946 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 11:34:34,946 - INFO - 127.0.0.1 - - [16/Jul/2025 11:34:34] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -

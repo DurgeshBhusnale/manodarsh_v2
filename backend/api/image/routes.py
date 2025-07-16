@@ -120,3 +120,60 @@ def process_frame():
         return jsonify({
             'error': str(e)
         }), 500
+
+@image_bp.route('/start-survey-monitoring', methods=['POST'])
+def start_survey_monitoring():
+    """Start emotion detection during survey for a specific soldier"""
+    data = request.get_json()
+    if not data or 'force_id' not in data:
+        return jsonify({
+            'error': 'Missing required field: force_id'
+        }), 400
+        
+    force_id = data['force_id']
+    try:
+        # Start monitoring for this specific soldier
+        if monitoring_service.start_survey_monitoring(force_id):
+            return jsonify({
+                'message': 'Survey emotion monitoring started successfully',
+                'force_id': force_id
+            }), 200
+        else:
+            return jsonify({
+                'error': 'Failed to start survey monitoring: Could not initialize camera'
+            }), 500
+    except Exception as e:
+        logging.error(f"Error in start_survey_monitoring: {str(e)}")
+        return jsonify({
+            'error': str(e)
+        }), 500
+
+@image_bp.route('/end-survey-monitoring', methods=['POST'])
+def end_survey_monitoring():
+    """End emotion detection during survey and store results"""
+    data = request.get_json()
+    if not data or 'force_id' not in data:
+        return jsonify({
+            'error': 'Missing required field: force_id'
+        }), 400
+        
+    force_id = data['force_id']
+    session_id = data.get('session_id')
+    
+    try:
+        # Stop monitoring and get results
+        results = monitoring_service.stop_survey_monitoring(force_id, session_id)
+        if results:
+            return jsonify({
+                'message': 'Survey emotion monitoring ended successfully',
+                'emotion_data': results
+            }), 200
+        else:
+            return jsonify({
+                'error': 'Failed to end survey monitoring or no data collected'
+            }), 500
+    except Exception as e:
+        logging.error(f"Error in end_survey_monitoring: {str(e)}")
+        return jsonify({
+            'error': str(e)
+        }), 500

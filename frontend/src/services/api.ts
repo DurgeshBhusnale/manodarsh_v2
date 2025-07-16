@@ -98,8 +98,15 @@ export const apiService = {
         force_id: string,
         password: string 
     }) =>
-        api.post('/survey/submit', data)
-    ,
+        api.post('/survey/submit', data),
+
+    // Survey emotion monitoring endpoints
+    startSurveyEmotionMonitoring: (force_id: string) =>
+        api.post('/image/start-survey-monitoring', { force_id }),
+
+    endSurveyEmotionMonitoring: (force_id: string, session_id?: number) =>
+        api.post('/image/end-survey-monitoring', { force_id, session_id }),
+
     translateAnswer
 };
 

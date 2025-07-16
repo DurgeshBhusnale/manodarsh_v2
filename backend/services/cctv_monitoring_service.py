@@ -348,3 +348,213 @@ class CCTVMonitoringService:
         except Exception as e:
             logging.error(f"Error calculating daily scores: {e}")
             return False
+
+    def start_survey_monitoring(self, force_id: str) -> bool:
+        """Start emotion detection monitoring during survey for a specific soldier"""
+        try:
+            # Initialize camera if not already done
+            if not self.cap:
+                self.cap = self._find_available_camera()
+                if not self.cap:
+                    raise Exception("No camera available")
+                    
+            # Set camera properties for better performance
+            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+            self.cap.set(cv2.CAP_PROP_FPS, 10)
+            
+            # Initialize survey monitoring state
+            self.survey_force_id = force_id
+            self.survey_detections = []
+            self.survey_monitoring = True
+            self.survey_thread_active = True
+            
+            # Start background monitoring thread
+            self.survey_thread = threading.Thread(
+                target=self._process_survey_frames_continuously,
+                args=(force_id,),
+                daemon=True
+            )
+            self.survey_thread.start()
+            
+            logging.info(f"Started survey emotion monitoring for soldier {force_id}")
+            return True
+            
+        except Exception as e:
+            logging.error(f"Failed to start survey monitoring: {e}")
+            self.survey_monitoring = False
+            return False
+
+    def _process_survey_frames_continuously(self, force_id: str):
+        """Continuously process frames during survey in background thread"""
+        logging.info(f"Starting continuous survey frame processing for soldier {force_id}")
+        
+        frame_count = 0
+        detection_interval = 30  # Process every 30th frame (about 3 seconds at 10 FPS)
+        
+        while self.survey_thread_active and self.survey_monitoring:
+            try:
+                if not self.cap or not self.cap.isOpened():
+                    logging.warning("Camera not available during survey monitoring")
+                    time.sleep(1)
+                    continue
+                    
+                ret, frame = self.cap.read()
+                if not ret:
+                    logging.warning("Failed to read frame during survey")
+                    time.sleep(0.1)
+                    continue
+                
+                frame_count += 1
+                
+                # Process only every Nth frame to reduce computational load
+                if frame_count % detection_interval == 0:
+                    result = self.emotion_service.detect_face_and_emotion(frame)
+                    if result:
+                        detected_force_id, emotion, score, face_coords = result
+                        
+                        # Only process if it matches the soldier taking the survey
+                        if detected_force_id == force_id:
+                            detection_data = {
+                                'timestamp': datetime.now().isoformat(),
+                                'emotion': emotion,
+                                'score': score,
+                                'force_id': force_id
+                            }
+                            
+                            # Store in survey detections buffer
+                            if not hasattr(self, 'survey_detections'):
+                                self.survey_detections = []
+                            self.survey_detections.append(detection_data)
+                            
+                            logging.info(f"Survey detection: {force_id} - {emotion} ({score:.2f})")
+                
+                # Small delay to prevent excessive CPU usage
+                time.sleep(0.1)
+                
+            except Exception as e:
+                logging.error(f"Error in survey frame processing: {e}")
+                time.sleep(1)
+                
+        logging.info(f"Stopped continuous survey frame processing for soldier {force_id}")
+
+    def stop_survey_monitoring(self, force_id: str, session_id: Optional[int] = None) -> Dict:
+        """Stop survey emotion detection and return average results"""
+        try:
+            if not hasattr(self, 'survey_monitoring') or not self.survey_monitoring:
+                logging.warning(f"No monitoring session active for soldier {force_id}")
+                return {'force_id': force_id, 'message': 'No monitoring session active'}
+                
+            # Stop the monitoring thread
+            self.survey_monitoring = False
+            self.survey_thread_active = False
+            
+            # Wait for thread to finish
+            if hasattr(self, 'survey_thread') and self.survey_thread.is_alive():
+                self.survey_thread.join(timeout=2)
+            
+            # Process any remaining detections
+            if hasattr(self, 'survey_detections') and self.survey_detections:
+                logging.info(f"Processing {len(self.survey_detections)} emotion detections for soldier {force_id}")
+                
+                # Calculate average depression score
+                scores = [d['score'] for d in self.survey_detections]
+                avg_score = sum(scores) / len(scores)
+                
+                # Get most common emotion
+                emotions = [d['emotion'] for d in self.survey_detections]
+                most_common_emotion = max(set(emotions), key=emotions.count) if emotions else "Neutral"
+                
+                logging.info(f"Calculated avg depression score: {avg_score:.2f}, dominant emotion: {most_common_emotion}")
+                
+                # Store in database if session_id provided
+                if session_id:
+                    logging.info(f"Storing emotion data for session_id: {session_id}")
+                    self._store_survey_emotion_data(session_id, force_id, avg_score)
+                else:
+                    logging.warning("No session_id provided, emotion data will not be stored in database")
+                
+                results = {
+                    'force_id': force_id,
+                    'session_id': session_id,
+                    'avg_depression_score': avg_score,
+                    'dominant_emotion': most_common_emotion,
+                    'detection_count': len(self.survey_detections),
+                    'detections': self.survey_detections[:5]  # Return only first 5 detections to avoid large response
+                }
+                
+                logging.info(f"Survey monitoring ended for {force_id}: avg_score={avg_score:.2f}, emotion={most_common_emotion}, detections={len(self.survey_detections)}")
+                return results
+            else:
+                logging.warning(f"No emotion data collected during survey for soldier {force_id}")
+                return {'force_id': force_id, 'message': 'No emotion data collected', 'detection_count': 0}
+                
+        except Exception as e:
+            logging.error(f"Error stopping survey monitoring: {e}")
+            return {'force_id': force_id, 'error': str(e)}
+        finally:
+            # Clean up
+            if hasattr(self, 'survey_detections'):
+                delattr(self, 'survey_detections')
+            if hasattr(self, 'survey_force_id'):
+                delattr(self, 'survey_force_id')
+            if hasattr(self, 'survey_thread'):
+                delattr(self, 'survey_thread')
+
+    def _store_survey_emotion_data(self, session_id: int, force_id: str, avg_score: float):
+        """Store survey emotion data in the weekly_sessions table"""
+        conn = None
+        try:
+            conn = get_connection()
+            cursor = conn.cursor()
+            
+            logging.info(f"Storing emotion data - session_id: {session_id}, force_id: {force_id}, avg_score: {avg_score:.2f}")
+            
+            # Update the weekly session with image emotion score
+            cursor.execute("""
+                UPDATE weekly_sessions 
+                SET image_avg_score = %s,
+                    combined_avg_score = COALESCE((nlp_avg_score + %s) / 2, %s)
+                WHERE session_id = %s AND force_id = %s
+            """, (avg_score, avg_score, avg_score, session_id, force_id))
+            
+            session_rows_affected = cursor.rowcount
+            logging.info(f"Updated {session_rows_affected} weekly session record(s)")
+            
+            # Also update individual question responses with image scores
+            cursor.execute("""
+                UPDATE question_responses 
+                SET image_depression_score = %s,
+                    combined_depression_score = COALESCE((nlp_depression_score + %s) / 2, %s)
+                WHERE session_id = %s
+            """, (avg_score, avg_score, avg_score, session_id))
+            
+            response_rows_affected = cursor.rowcount
+            logging.info(f"Updated {response_rows_affected} question response record(s)")
+            
+            conn.commit()
+            logging.info(f"Successfully stored survey emotion data for session {session_id}: avg_score={avg_score:.2f}")
+            
+        except Exception as e:
+            logging.error(f"Error storing survey emotion data: {e}")
+            if conn:
+                conn.rollback()
+            raise e
+        finally:
+            if conn:
+                conn.close()
+
+    def cleanup_camera(self):
+        """Clean up camera resources"""
+        try:
+            if hasattr(self, 'survey_monitoring') and self.survey_monitoring:
+                self.survey_monitoring = False
+                self.survey_thread_active = False
+                
+            if self.cap and self.cap.isOpened():
+                self.cap.release()
+                self.cap = None
+                cv2.destroyAllWindows()
+                logging.info("Camera resources cleaned up")
+        except Exception as e:
+            logging.error(f"Error cleaning up camera: {e}")

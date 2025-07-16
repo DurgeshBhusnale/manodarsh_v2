@@ -13479,3 +13479,496 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-16 12:07:33,665 - INFO - 127.0.0.1 - - [16/Jul/2025 12:07:33] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
 2025-07-16 12:07:33,977 - ERROR - Error stopping scheduler: Scheduler is not running
 2025-07-16 12:07:33,977 - INFO - 127.0.0.1 - - [16/Jul/2025 12:07:33] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 12:17:58,324 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 12:18:01,961 - INFO - All models loaded successfully
+2025-07-16 12:18:02,266 - DEBUG - Looking up time zone info from registry
+2025-07-16 12:18:02,405 - INFO - All models loaded successfully
+2025-07-16 12:18:02,412 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:18:02,412 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:18:02,412 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 12:18:02,412 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 12:18:02,412 - INFO - Scheduler started
+2025-07-16 12:18:02,412 - DEBUG - Looking for jobs to run
+2025-07-16 12:18:02,412 - INFO - Monitoring scheduler started
+2025-07-16 12:18:02,412 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 16917.587037 seconds)
+2025-07-16 12:18:02,436 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-16 12:18:02,436 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-16 12:18:02,438 - INFO -  * Restarting with stat
+2025-07-16 12:18:05,986 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 12:18:09,907 - INFO - All models loaded successfully
+2025-07-16 12:18:10,289 - DEBUG - Looking up time zone info from registry
+2025-07-16 12:18:10,477 - INFO - All models loaded successfully
+2025-07-16 12:18:10,477 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:18:10,477 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:18:10,477 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 12:18:10,477 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 12:18:10,482 - INFO - Scheduler started
+2025-07-16 12:18:10,483 - DEBUG - Looking for jobs to run
+2025-07-16 12:18:10,483 - INFO - Monitoring scheduler started
+2025-07-16 12:18:10,483 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 16909.516898 seconds)
+2025-07-16 12:18:10,496 - WARNING -  * Debugger is active!
+2025-07-16 12:18:10,504 - INFO -  * Debugger PIN: 490-147-572
+2025-07-16 12:19:34,772 - INFO - Scheduler has been shut down
+2025-07-16 12:19:34,772 - DEBUG - Looking for jobs to run
+2025-07-16 12:19:34,772 - DEBUG - No jobs; waiting until a job is added
+2025-07-16 12:19:34,772 - INFO - Monitoring scheduler stopped
+2025-07-16 12:19:34,772 - INFO - 127.0.0.1 - - [16/Jul/2025 12:19:34] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-16 12:19:35,330 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:19:35,330 - INFO - 127.0.0.1 - - [16/Jul/2025 12:19:35] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-16 12:38:52,758 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 12:38:59,756 - INFO - All models loaded successfully
+2025-07-16 12:39:00,229 - DEBUG - Looking up time zone info from registry
+2025-07-16 12:39:00,358 - INFO - All models loaded successfully
+2025-07-16 12:39:00,358 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:39:00,374 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:39:00,374 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 12:39:00,374 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 12:39:00,374 - INFO - Scheduler started
+2025-07-16 12:39:00,374 - DEBUG - Looking for jobs to run
+2025-07-16 12:39:00,374 - INFO - Monitoring scheduler started
+2025-07-16 12:39:00,374 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 15659.625891 seconds)
+2025-07-16 12:39:00,398 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-16 12:39:00,398 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-16 12:39:00,398 - INFO -  * Restarting with stat
+2025-07-16 12:39:04,326 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 12:39:07,201 - INFO - All models loaded successfully
+2025-07-16 12:39:07,557 - DEBUG - Looking up time zone info from registry
+2025-07-16 12:39:07,693 - INFO - All models loaded successfully
+2025-07-16 12:39:07,693 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:39:07,693 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:39:07,693 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 12:39:07,693 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 12:39:07,693 - INFO - Scheduler started
+2025-07-16 12:39:07,693 - DEBUG - Looking for jobs to run
+2025-07-16 12:39:07,693 - INFO - Monitoring scheduler started
+2025-07-16 12:39:07,693 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 15652.306932 seconds)
+2025-07-16 12:39:07,708 - WARNING -  * Debugger is active!
+2025-07-16 12:39:07,724 - INFO -  * Debugger PIN: 490-147-572
+2025-07-16 14:11:52,895 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:12:00,265 - INFO - All models loaded successfully
+2025-07-16 14:12:00,999 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:12:01,157 - INFO - All models loaded successfully
+2025-07-16 14:12:01,157 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:12:01,157 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:12:01,157 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:12:01,157 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:12:01,157 - INFO - Scheduler started
+2025-07-16 14:12:01,157 - DEBUG - Looking for jobs to run
+2025-07-16 14:12:01,157 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 10078.842515 seconds)
+2025-07-16 14:12:01,157 - INFO - Monitoring scheduler started
+2025-07-16 14:12:01,205 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-16 14:12:01,205 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-16 14:12:01,205 - INFO -  * Restarting with stat
+2025-07-16 14:12:05,676 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:12:10,046 - INFO - All models loaded successfully
+2025-07-16 14:12:10,428 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:12:10,617 - INFO - All models loaded successfully
+2025-07-16 14:12:10,617 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:12:10,617 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:12:10,617 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:12:10,617 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:12:10,617 - INFO - Scheduler started
+2025-07-16 14:12:10,617 - DEBUG - Looking for jobs to run
+2025-07-16 14:12:10,617 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 10069.382320 seconds)
+2025-07-16 14:12:10,617 - INFO - Monitoring scheduler started
+2025-07-16 14:12:10,633 - WARNING -  * Debugger is active!
+2025-07-16 14:12:10,633 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:12:11,250 - INFO - Scheduler has been shut down
+2025-07-16 14:12:11,250 - DEBUG - Looking for jobs to run
+2025-07-16 14:12:11,250 - DEBUG - No jobs; waiting until a job is added
+2025-07-16 14:12:11,250 - INFO - Monitoring scheduler stopped
+2025-07-16 14:12:11,250 - INFO - 127.0.0.1 - - [16/Jul/2025 14:12:11] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-16 14:12:14,121 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:12:14,121 - INFO - 127.0.0.1 - - [16/Jul/2025 14:12:14] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-16 14:12:29,530 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:12:29,530 - INFO - 127.0.0.1 - - [16/Jul/2025 14:12:29] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:12:32,127 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:12:32,127 - INFO - 127.0.0.1 - - [16/Jul/2025 14:12:32] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:12:34,220 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:12:34,220 - INFO - 127.0.0.1 - - [16/Jul/2025 14:12:34] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:12:36,568 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:12:36,568 - INFO - 127.0.0.1 - - [16/Jul/2025 14:12:36] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:13:11,429 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:13:11,429 - INFO - 127.0.0.1 - - [16/Jul/2025 14:13:11] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-16 14:13:16,143 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:13:16,143 - INFO - 127.0.0.1 - - [16/Jul/2025 14:13:16] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:13:17,778 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:13:17,778 - INFO - 127.0.0.1 - - [16/Jul/2025 14:13:17] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:13:18,388 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:13:18,388 - INFO - 127.0.0.1 - - [16/Jul/2025 14:13:18] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:13:18,604 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:13:18,604 - INFO - 127.0.0.1 - - [16/Jul/2025 14:13:18] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:18:39,671 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\image\\routes.py', reloading
+2025-07-16 14:18:41,291 - INFO -  * Restarting with stat
+2025-07-16 14:18:48,421 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:18:55,500 - INFO - All models loaded successfully
+2025-07-16 14:18:56,167 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:18:56,321 - INFO - All models loaded successfully
+2025-07-16 14:18:56,321 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:18:56,321 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:18:56,321 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:18:56,321 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:18:56,321 - INFO - Scheduler started
+2025-07-16 14:18:56,321 - DEBUG - Looking for jobs to run
+2025-07-16 14:18:56,321 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 9663.678035 seconds)
+2025-07-16 14:18:56,321 - INFO - Monitoring scheduler started
+2025-07-16 14:18:56,337 - WARNING -  * Debugger is active!
+2025-07-16 14:18:56,357 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:19:00,143 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-07-16 14:19:01,060 - INFO -  * Restarting with stat
+2025-07-16 14:19:05,338 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:19:07,982 - INFO - All models loaded successfully
+2025-07-16 14:19:08,301 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:19:08,443 - INFO - All models loaded successfully
+2025-07-16 14:19:08,443 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:19:08,443 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:19:08,443 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:19:08,443 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:19:08,443 - INFO - Scheduler started
+2025-07-16 14:19:08,443 - DEBUG - Looking for jobs to run
+2025-07-16 14:19:08,443 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 9651.556014 seconds)
+2025-07-16 14:19:08,443 - INFO - Monitoring scheduler started
+2025-07-16 14:19:08,459 - WARNING -  * Debugger is active!
+2025-07-16 14:19:08,475 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:19:47,039 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-07-16 14:19:48,421 - INFO -  * Restarting with stat
+2025-07-16 14:19:52,467 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:19:56,043 - INFO - All models loaded successfully
+2025-07-16 14:19:57,183 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:19:57,551 - INFO - All models loaded successfully
+2025-07-16 14:19:57,551 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:19:57,551 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:19:57,557 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:19:57,557 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:19:57,557 - INFO - Scheduler started
+2025-07-16 14:19:57,558 - DEBUG - Looking for jobs to run
+2025-07-16 14:19:57,558 - INFO - Monitoring scheduler started
+2025-07-16 14:19:57,558 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 9602.441782 seconds)
+2025-07-16 14:19:57,574 - WARNING -  * Debugger is active!
+2025-07-16 14:19:57,585 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:20:09,454 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-07-16 14:20:10,836 - INFO -  * Restarting with stat
+2025-07-16 14:20:14,605 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:20:17,402 - INFO - All models loaded successfully
+2025-07-16 14:20:17,870 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:20:18,049 - INFO - All models loaded successfully
+2025-07-16 14:20:18,050 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:20:18,050 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:20:18,050 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:20:18,050 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:20:18,050 - INFO - Scheduler started
+2025-07-16 14:20:18,050 - DEBUG - Looking for jobs to run
+2025-07-16 14:20:18,050 - INFO - Monitoring scheduler started
+2025-07-16 14:20:18,050 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 9581.949029 seconds)
+2025-07-16 14:20:18,065 - WARNING -  * Debugger is active!
+2025-07-16 14:20:18,075 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:22:29,584 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-07-16 14:22:31,403 - INFO -  * Restarting with stat
+2025-07-16 14:22:35,213 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:22:37,640 - INFO - All models loaded successfully
+2025-07-16 14:22:38,017 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:22:38,145 - INFO - All models loaded successfully
+2025-07-16 14:22:38,145 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:22:38,145 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:22:38,145 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:22:38,145 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:22:38,145 - INFO - Scheduler started
+2025-07-16 14:22:38,145 - DEBUG - Looking for jobs to run
+2025-07-16 14:22:38,145 - INFO - Monitoring scheduler started
+2025-07-16 14:22:38,145 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 9441.854629 seconds)
+2025-07-16 14:22:38,162 - WARNING -  * Debugger is active!
+2025-07-16 14:22:38,177 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:23:35,594 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\image\\routes.py', reloading
+2025-07-16 14:23:36,988 - INFO -  * Restarting with stat
+2025-07-16 14:23:40,619 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:23:42,661 - INFO - All models loaded successfully
+2025-07-16 14:23:42,972 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:23:43,099 - INFO - All models loaded successfully
+2025-07-16 14:23:43,099 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:23:43,099 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:23:43,099 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:23:43,099 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:23:43,099 - INFO - Scheduler started
+2025-07-16 14:23:43,099 - DEBUG - Looking for jobs to run
+2025-07-16 14:23:43,099 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 9376.900424 seconds)
+2025-07-16 14:23:43,099 - INFO - Monitoring scheduler started
+2025-07-16 14:23:43,123 - WARNING -  * Debugger is active!
+2025-07-16 14:23:43,130 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:24:44,824 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-07-16 14:24:46,405 - INFO -  * Restarting with stat
+2025-07-16 14:24:50,164 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:24:53,218 - INFO - All models loaded successfully
+2025-07-16 14:24:53,831 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:24:54,054 - INFO - All models loaded successfully
+2025-07-16 14:24:54,054 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:24:54,054 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:24:54,054 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:24:54,054 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:24:54,054 - INFO - Scheduler started
+2025-07-16 14:24:54,059 - DEBUG - Looking for jobs to run
+2025-07-16 14:24:54,059 - INFO - Monitoring scheduler started
+2025-07-16 14:24:54,059 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 9305.940577 seconds)
+2025-07-16 14:24:54,075 - WARNING -  * Debugger is active!
+2025-07-16 14:24:54,090 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:30:12,472 - INFO - Scheduler has been shut down
+2025-07-16 14:30:12,472 - DEBUG - Looking for jobs to run
+2025-07-16 14:30:12,472 - DEBUG - No jobs; waiting until a job is added
+2025-07-16 14:30:12,472 - INFO - Monitoring scheduler stopped
+2025-07-16 14:30:12,472 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:12] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-16 14:30:15,190 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:15,190 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:15] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-16 14:30:22,402 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:22,402 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:22] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:30:24,949 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:24,949 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:24] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:30:27,011 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:27,011 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:27] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:30:27,323 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:27,323 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:27] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:30:27,578 - INFO - Trying external webcam (index 1)...
+2025-07-16 14:30:27,610 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-16 14:30:29,365 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:29,365 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:29] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:30:29,365 - INFO - Trying external webcam (index 1)...
+2025-07-16 14:30:29,380 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-16 14:30:37,188 - INFO - Successfully connected to built-in camera
+2025-07-16 14:30:37,188 - INFO - Started survey emotion monitoring for soldier 100000006
+2025-07-16 14:30:37,188 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:37,188 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:37] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:30:37,188 - INFO - Successfully connected to built-in camera
+2025-07-16 14:30:37,206 - INFO - Started survey emotion monitoring for soldier 100000006
+2025-07-16 14:30:37,208 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:30:37,210 - INFO - 127.0.0.1 - - [16/Jul/2025 14:30:37] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:31:08,272 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:31:08,272 - INFO - 127.0.0.1 - - [16/Jul/2025 14:31:08] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-16 14:31:12,821 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.39, 'pos': 0.61, 'compound': 0.5709}
+2025-07-16 14:31:12,821 - INFO - Text: 'I am feeling very good...' - Label: POSITIVE, Depression score: 0.21
+2025-07-16 14:31:12,821 - INFO - Question 16 - Sentiment: POSITIVE, Score: 0.21
+2025-07-16 14:31:12,821 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.4215}
+2025-07-16 14:31:12,821 - INFO - Text: 'nice...' - Label: POSITIVE, Depression score: 0.29
+2025-07-16 14:31:12,821 - INFO - Question 17 - Sentiment: POSITIVE, Score: 0.29
+2025-07-16 14:31:12,821 - INFO - Session 22 - Average Depression Score: 0.25
+2025-07-16 14:31:12,847 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:31:12,847 - INFO - 127.0.0.1 - - [16/Jul/2025 14:31:12] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:31:12,858 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:31:12,858 - INFO - 127.0.0.1 - - [16/Jul/2025 14:31:12] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:31:13,162 - WARNING - No emotion data collected during survey for soldier 100000006
+2025-07-16 14:31:13,162 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:31:13,162 - INFO - 127.0.0.1 - - [16/Jul/2025 14:31:13] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:33:12,213 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:12,216 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:12] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:33:14,748 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:14,748 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:14] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:33:16,791 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:16,791 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:16] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:33:17,113 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:17,113 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:17] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:33:17,371 - INFO - Started survey emotion monitoring for soldier 100000006
+2025-07-16 14:33:17,371 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:17,371 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:17] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:33:19,141 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:19,141 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:19] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:33:19,141 - INFO - Started survey emotion monitoring for soldier 100000006
+2025-07-16 14:33:19,151 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:19,151 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:19] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:33:25,356 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:25,356 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:25] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-16 14:33:29,903 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:29,903 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:29,903 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:29,903 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:29,903 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:29,903 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:29,903 - INFO - Session 23 - Average Depression Score: 0.50
+2025-07-16 14:33:29,903 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:29,903 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:29] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:33:30,225 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:30,225 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:30] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:33:30,396 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:30,396 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:30,396 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:30,396 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:30,396 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:30,396 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:30,396 - INFO - Session 24 - Average Depression Score: 0.50
+2025-07-16 14:33:30,396 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:30,396 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:30] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:33:30,529 - WARNING - No emotion data collected during survey for soldier 100000006
+2025-07-16 14:33:30,529 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:30,529 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:30] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:33:30,713 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:30,713 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:30] "[35m[1mPOST /api/image/end-survey-monitoring HTTP/1.1[0m" 500 -
+2025-07-16 14:33:30,786 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:30,786 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:30] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-16 14:33:33,213 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:33,213 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:33,213 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:33,213 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:33,213 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:33,213 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:33,213 - INFO - Session 25 - Average Depression Score: 0.50
+2025-07-16 14:33:33,213 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:33,213 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:33] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:33:33,544 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:33,544 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:33] "[35m[1mPOST /api/image/end-survey-monitoring HTTP/1.1[0m" 500 -
+2025-07-16 14:33:34,521 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:34,521 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:34,521 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:34,521 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:34,521 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:34,521 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:34,521 - INFO - Session 26 - Average Depression Score: 0.50
+2025-07-16 14:33:34,537 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:34,537 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:34] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:33:34,844 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:34,844 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:34] "[35m[1mPOST /api/image/end-survey-monitoring HTTP/1.1[0m" 500 -
+2025-07-16 14:33:35,410 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:35,410 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:35,410 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:35,410 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-16 14:33:35,410 - INFO - Text: 'asd...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-16 14:33:35,410 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-16 14:33:35,410 - INFO - Session 27 - Average Depression Score: 0.50
+2025-07-16 14:33:35,416 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:35,416 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:35] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:33:35,739 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:35,739 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:35] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:33:35,992 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:33:35,992 - INFO - 127.0.0.1 - - [16/Jul/2025 14:33:35] "[35m[1mPOST /api/image/end-survey-monitoring HTTP/1.1[0m" 500 -
+2025-07-16 14:37:23,344 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-07-16 14:37:25,002 - INFO -  * Restarting with stat
+2025-07-16 14:37:29,013 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:37:31,966 - INFO - All models loaded successfully
+2025-07-16 14:37:32,689 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:37:32,894 - INFO - All models loaded successfully
+2025-07-16 14:37:32,894 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:37:32,894 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:37:32,894 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:37:32,894 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:37:32,894 - INFO - Scheduler started
+2025-07-16 14:37:32,899 - DEBUG - Looking for jobs to run
+2025-07-16 14:37:32,899 - INFO - Monitoring scheduler started
+2025-07-16 14:37:32,899 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 8547.100497 seconds)
+2025-07-16 14:37:32,915 - WARNING -  * Debugger is active!
+2025-07-16 14:37:32,921 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:37:55,146 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-07-16 14:37:56,447 - INFO -  * Restarting with stat
+2025-07-16 14:38:00,040 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:38:02,081 - INFO - All models loaded successfully
+2025-07-16 14:38:02,431 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:38:02,605 - INFO - All models loaded successfully
+2025-07-16 14:38:02,605 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:38:02,605 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:38:02,605 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:38:02,605 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:38:02,605 - INFO - Scheduler started
+2025-07-16 14:38:02,605 - DEBUG - Looking for jobs to run
+2025-07-16 14:38:02,605 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 8517.394942 seconds)
+2025-07-16 14:38:02,605 - INFO - Monitoring scheduler started
+2025-07-16 14:38:02,605 - WARNING -  * Debugger is active!
+2025-07-16 14:38:02,623 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:41:15,868 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:41:18,400 - INFO - All models loaded successfully
+2025-07-16 14:41:18,692 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:41:18,840 - INFO - All models loaded successfully
+2025-07-16 14:41:18,840 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:41:18,840 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:41:18,840 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:41:18,840 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:41:18,840 - INFO - Scheduler started
+2025-07-16 14:41:18,840 - DEBUG - Looking for jobs to run
+2025-07-16 14:41:18,840 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 8321.159930 seconds)
+2025-07-16 14:41:18,840 - INFO - Monitoring scheduler started
+2025-07-16 14:41:18,855 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-16 14:41:18,855 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-16 14:41:18,855 - INFO -  * Restarting with stat
+2025-07-16 14:41:22,261 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 14:41:24,378 - INFO - All models loaded successfully
+2025-07-16 14:41:24,687 - DEBUG - Looking up time zone info from registry
+2025-07-16 14:41:24,823 - INFO - All models loaded successfully
+2025-07-16 14:41:24,823 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:41:24,823 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 14:41:24,838 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 14:41:24,838 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 14:41:24,838 - INFO - Scheduler started
+2025-07-16 14:41:24,838 - DEBUG - Looking for jobs to run
+2025-07-16 14:41:24,838 - INFO - Monitoring scheduler started
+2025-07-16 14:41:24,838 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 8315.161177 seconds)
+2025-07-16 14:41:24,843 - WARNING -  * Debugger is active!
+2025-07-16 14:41:24,843 - INFO -  * Debugger PIN: 238-529-038
+2025-07-16 14:41:54,899 - INFO - Scheduler has been shut down
+2025-07-16 14:41:54,899 - DEBUG - Looking for jobs to run
+2025-07-16 14:41:54,899 - DEBUG - No jobs; waiting until a job is added
+2025-07-16 14:41:54,899 - INFO - Monitoring scheduler stopped
+2025-07-16 14:41:54,899 - INFO - 127.0.0.1 - - [16/Jul/2025 14:41:54] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-16 14:41:57,511 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:41:57,511 - INFO - 127.0.0.1 - - [16/Jul/2025 14:41:57] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-16 14:42:03,218 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:03,218 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:03] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:42:05,745 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:05,745 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:05] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 14:42:07,814 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:07,814 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:07] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:42:08,142 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:08,142 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:08] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:42:08,383 - INFO - Trying external webcam (index 1)...
+2025-07-16 14:42:08,417 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-16 14:42:10,231 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:10,231 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:10] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 14:42:10,231 - INFO - Trying external webcam (index 1)...
+2025-07-16 14:42:10,252 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-16 14:42:18,993 - INFO - Successfully connected to built-in camera
+2025-07-16 14:42:18,993 - INFO - Successfully connected to built-in camera
+2025-07-16 14:42:24,405 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:24,405 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:24] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-16 14:42:29,055 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.2023}
+2025-07-16 14:42:29,055 - INFO - Text: 'fine...' - Label: POSITIVE, Depression score: 0.40
+2025-07-16 14:42:29,055 - INFO - Question 16 - Sentiment: POSITIVE, Score: 0.40
+2025-07-16 14:42:29,055 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.4215}
+2025-07-16 14:42:29,055 - INFO - Text: 'nice...' - Label: POSITIVE, Depression score: 0.29
+2025-07-16 14:42:29,055 - INFO - Question 17 - Sentiment: POSITIVE, Score: 0.29
+2025-07-16 14:42:29,055 - INFO - Session 28 - Average Depression Score: 0.34
+2025-07-16 14:42:29,070 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:29,070 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:29] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:42:30,469 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.2023}
+2025-07-16 14:42:30,469 - INFO - Text: 'fine...' - Label: POSITIVE, Depression score: 0.40
+2025-07-16 14:42:30,469 - INFO - Question 16 - Sentiment: POSITIVE, Score: 0.40
+2025-07-16 14:42:30,469 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.4215}
+2025-07-16 14:42:30,469 - INFO - Text: 'nice...' - Label: POSITIVE, Depression score: 0.29
+2025-07-16 14:42:30,469 - INFO - Question 17 - Sentiment: POSITIVE, Score: 0.29
+2025-07-16 14:42:30,469 - INFO - Session 29 - Average Depression Score: 0.34
+2025-07-16 14:42:30,469 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:30,469 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:30] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:42:33,712 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.2023}
+2025-07-16 14:42:33,712 - INFO - Text: 'fine...' - Label: POSITIVE, Depression score: 0.40
+2025-07-16 14:42:33,712 - INFO - Question 16 - Sentiment: POSITIVE, Score: 0.40
+2025-07-16 14:42:33,712 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.4215}
+2025-07-16 14:42:33,712 - INFO - Text: 'nice...' - Label: POSITIVE, Depression score: 0.29
+2025-07-16 14:42:33,712 - INFO - Question 17 - Sentiment: POSITIVE, Score: 0.29
+2025-07-16 14:42:33,712 - INFO - Session 30 - Average Depression Score: 0.34
+2025-07-16 14:42:33,725 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:33,725 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:33] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 14:42:43,315 - INFO - Starting continuous survey frame processing for soldier 100000006
+2025-07-16 14:42:43,315 - INFO - Started survey emotion monitoring for soldier 100000006
+2025-07-16 14:42:43,315 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:43,315 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:43] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:42:48,241 - INFO - Starting continuous survey frame processing for soldier 100000006
+2025-07-16 14:42:48,241 - INFO - Started survey emotion monitoring for soldier 100000006
+2025-07-16 14:42:48,241 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 14:42:48,241 - INFO - 127.0.0.1 - - [16/Jul/2025 14:42:48] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-16 14:42:53,263 - DEBUG - Emotion probabilities: {'Angry': '0.41', 'Disgusted': '0.00', 'Fearful': '0.05', 'Happy': '0.00', 'Neutral': '0.37', 'Sad': '0.15', 'Surprised': '0.02'}
+2025-07-16 14:42:53,263 - INFO - Detected soldier 100000005 with Angry emotion (score: 2)
+2025-07-16 14:42:54,515 - DEBUG - Emotion probabilities: {'Angry': '0.09', 'Disgusted': '0.00', 'Fearful': '0.16', 'Happy': '0.06', 'Neutral': '0.61', 'Sad': '0.04', 'Surprised': '0.03'}
+2025-07-16 14:42:54,515 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-16 14:42:58,131 - DEBUG - Emotion probabilities: {'Angry': '0.60', 'Disgusted': '0.00', 'Fearful': '0.14', 'Happy': '0.00', 'Neutral': '0.25', 'Sad': '0.00', 'Surprised': '0.01'}
+2025-07-16 14:42:58,131 - INFO - Detected soldier 100000005 with Angry emotion (score: 2)
+2025-07-16 14:42:59,069 - DEBUG - Emotion probabilities: {'Angry': '0.28', 'Disgusted': '0.00', 'Fearful': '0.40', 'Happy': '0.01', 'Neutral': '0.24', 'Sad': '0.01', 'Surprised': '0.05'}
+2025-07-16 14:42:59,069 - INFO - Detected soldier 100000005 with Fearful emotion (score: 2)
+2025-07-16 14:43:02,424 - DEBUG - Emotion probabilities: {'Angry': '0.39', 'Disgusted': '0.00', 'Fearful': '0.06', 'Happy': '0.02', 'Neutral': '0.50', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-16 14:43:02,424 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-16 14:43:03,332 - DEBUG - Emotion probabilities: {'Angry': '0.15', 'Disgusted': '0.00', 'Fearful': '0.06', 'Happy': '0.02', 'Neutral': '0.72', 'Sad': '0.04', 'Surprised': '0.01'}
+2025-07-16 14:43:03,332 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)

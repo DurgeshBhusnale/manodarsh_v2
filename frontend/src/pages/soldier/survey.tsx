@@ -44,6 +44,8 @@ const SurveyPage: React.FC = () => {
     const [language, setLanguage] = useState<'en' | 'hi'>('en');
     const [recordedText, setRecordedText] = useState('');
     const [capturedText, setCapturedText] = useState('');
+    const [textInput, setTextInput] = useState(''); // New text input state
+    const [emotionMonitoringStarted, setEmotionMonitoringStarted] = useState(false);
     const recognitionRef = useRef<any>(null);
 
     // Modal states
@@ -65,6 +67,9 @@ const SurveyPage: React.FC = () => {
                 setQuestions(response.data.questions);
                 setQuestionnaireId(response.data.questionnaire.id);
                 setIsLoading(false);
+                
+                // Start emotion monitoring when survey loads
+                startEmotionMonitoring();
             } catch (error) {
                 console.error('Failed to fetch questionnaire:', error);
                 setModalTitle('Loading Error');
@@ -76,6 +81,39 @@ const SurveyPage: React.FC = () => {
 
         fetchActiveQuestionnaire();
     }, [soldierData, navigate]);
+
+    const startEmotionMonitoring = async () => {
+        if (!soldierData?.force_id || emotionMonitoringStarted) return;
+        
+        try {
+            console.log('Starting emotion monitoring for:', soldierData.force_id);
+            await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
+            setEmotionMonitoringStarted(true);
+            console.log('Emotion monitoring started successfully for survey');
+        } catch (error) {
+            console.error('Failed to start emotion monitoring:', error);
+            // Don't block survey if emotion monitoring fails
+            setModalTitle('Emotion Monitoring Warning');
+            setModalMessage('Failed to start emotion monitoring. The survey will continue without emotion detection.');
+            setShowErrorModal(true);
+        }
+    };
+
+    const stopEmotionMonitoring = async (sessionId?: number) => {
+        if (!soldierData?.force_id || !emotionMonitoringStarted) return null;
+        
+        try {
+            console.log('Stopping emotion monitoring for:', soldierData.force_id, 'session:', sessionId);
+            const response = await apiService.endSurveyEmotionMonitoring(soldierData.force_id, sessionId);
+            setEmotionMonitoringStarted(false);
+            console.log('Emotion monitoring stopped successfully:', response.data);
+            return response.data;
+        } catch (error) {
+            console.error('Failed to stop emotion monitoring:', error);
+            setEmotionMonitoringStarted(false);
+            return null;
+        }
+    };
 
     const handleStartAnswer = () => {
         setIsAnswering(true);
@@ -130,15 +168,19 @@ const SurveyPage: React.FC = () => {
     };
 
     const handleNextQuestion = () => {
+        // Combine captured text (voice) and text input
+        const finalAnswer = textInput.trim() || capturedText || recordedText || '';
+        
         setResponses([
             ...responses,
             {
                 question_id: questions[currentQuestionIndex].id,
-                answer_text: capturedText || recordedText || ''
+                answer_text: finalAnswer
             }
         ]);
         setCapturedText('');
         setRecordedText('');
+        setTextInput('');
         setHasEndedAnswering(false);
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -147,11 +189,14 @@ const SurveyPage: React.FC = () => {
     };
 
     const handleSubmitSurvey = async () => {
+        // Combine captured text (voice) and text input for final question
+        const finalAnswer = textInput.trim() || capturedText || recordedText || '';
+        
         const allResponses = [
             ...responses,
             {
                 question_id: questions[currentQuestionIndex].id,
-                answer_text: capturedText || recordedText || ''
+                answer_text: finalAnswer
             }
         ];
 
@@ -178,30 +223,47 @@ const SurveyPage: React.FC = () => {
         }
 
         try {
-            await apiService.submitSurvey({
+            const response = await apiService.submitSurvey({
                 questionnaire_id: questionnaireId,
                 responses: translatedResponses,
                 force_id: soldierData?.force_id || '',
                 password: soldierData?.password || ''
             });
             
+            console.log('Survey submitted successfully:', response.data);
+            
+            // Stop emotion monitoring and get results
+            const emotionData = await stopEmotionMonitoring(response.data?.session_id);
+            
+            if (emotionData) {
+                console.log('Emotion monitoring data collected:', emotionData);
+            }
+            
             setModalTitle('Survey Submitted Successfully');
             setModalMessage('Thank you for completing the mental health survey. Your responses have been recorded successfully.');
             setShowSuccessModal(true);
-        } catch (err) {
+        } catch (err: any) {
+            console.error('Survey submission error:', err);
             setModalTitle('Submission Failed');
-            setModalMessage('Failed to submit survey. Please try again.');
+            setModalMessage(err.response?.data?.error || 'Failed to submit survey. Please try again.');
             setShowErrorModal(true);
         }
     };
 
-    const handleSuccessModalClose = () => {
+    const handleSuccessModalClose = async () => {
         setShowSuccessModal(false);
+        
+        // Stop emotion monitoring if still running
+        if (emotionMonitoringStarted) {
+            await stopEmotionMonitoring();
+        }
+        
         // Reset the survey for next soldier
         setCurrentQuestionIndex(0);
         setResponses([]);
         setCapturedText('');
         setRecordedText('');
+        setTextInput('');
         setHasEndedAnswering(false);
         setIsAnswering(false);
         // Navigate back to survey page (same page, but reset)
@@ -245,6 +307,15 @@ const SurveyPage: React.FC = () => {
                     {/* Header with progress */}
                     <div className="mb-8">
                         <h1 className="text-2xl font-bold mb-4">Weekly Mental Health Survey</h1>
+                        
+                        {/* Emotion Monitoring Indicator */}
+                        {emotionMonitoringStarted && (
+                            <div className="flex items-center justify-center text-blue-600 mb-4 bg-blue-50 p-2 rounded-lg">
+                                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse" />
+                                <span className="text-sm">Emotion monitoring active during survey</span>
+                            </div>
+                        )}
+                        
                         <div className="flex items-center justify-between mb-2">
                             <span className="text-sm text-gray-600">
                                 Question {currentQuestionIndex + 1} of {questions.length}
@@ -280,15 +351,36 @@ const SurveyPage: React.FC = () => {
                         {/* Captured Answer Textbox */}
                         {capturedText && !isAnswering && (
                             <div className="mt-4">
-                                <label className="block text-gray-700 mb-2">Captured Answer</label>
+                                <label className="block text-gray-700 mb-2">Captured Voice Answer</label>
                                 <textarea
-                                    className="w-full p-3 border rounded-lg"
+                                    className="w-full p-3 border rounded-lg bg-gray-50"
                                     rows={3}
                                     value={capturedText}
                                     onChange={e => setCapturedText(e.target.value)}
                                 />
                             </div>
                         )}
+
+                        {/* Text Input for Manual Answer */}
+                        <div className="mt-4">
+                            <label className="block text-gray-700 mb-2">
+                                Your Answer (Type here or use voice recording above)
+                            </label>
+                            <textarea
+                                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                rows={4}
+                                value={textInput}
+                                onChange={e => setTextInput(e.target.value)}
+                                placeholder={language === 'hi' 
+                                    ? "अपना उत्तर यहाँ टाइप करें..." 
+                                    : "Type your answer here..."}
+                            />
+                            <div className="text-sm text-gray-500 mt-1">
+                                {language === 'hi' 
+                                    ? "आप अपना उत्तर टाइप कर सकते हैं या ऊपर वॉयस रिकॉर्डिंग का उपयोग कर सकते हैं"
+                                    : "You can type your answer or use voice recording above"}
+                            </div>
+                        </div>
                     </div>
 
                     {/* Button Controls */}
@@ -320,16 +412,24 @@ const SurveyPage: React.FC = () => {
                         {currentQuestionIndex === questions.length - 1 ? (
                             <button
                                 onClick={handleSubmitSurvey}
-                                className={`flex-1 py-3 px-6 rounded-lg transition-colors ${hasEndedAnswering ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-400 text-gray-200 cursor-not-allowed'}`}
-                                disabled={!hasEndedAnswering}
+                                className={`flex-1 py-3 px-6 rounded-lg transition-colors ${
+                                    (hasEndedAnswering || textInput.trim()) 
+                                        ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                                        : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                                }`}
+                                disabled={!hasEndedAnswering && !textInput.trim()}
                             >
                                 Submit Survey
                             </button>
                         ) : (
                             <button
                                 onClick={handleNextQuestion}
-                                className={`flex-1 py-3 px-6 rounded-lg transition-colors ${hasEndedAnswering ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-400 text-gray-200 cursor-not-allowed'}`}
-                                disabled={!hasEndedAnswering}
+                                className={`flex-1 py-3 px-6 rounded-lg transition-colors ${
+                                    (hasEndedAnswering || textInput.trim()) 
+                                        ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                                        : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                                }`}
+                                disabled={!hasEndedAnswering && !textInput.trim()}
                             >
                                 Next Question
                             </button>

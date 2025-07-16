@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
+import Modal from '../../components/Modal';
+import InfoModal from '../../components/InfoModal';
+import LoadingModal from '../../components/LoadingModal';
+import ErrorModal from '../../components/ErrorModal';
 import axios from 'axios';
 
 const AddSoldier: React.FC = () => {
@@ -8,32 +12,34 @@ const AddSoldier: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isCollecting, setIsCollecting] = useState(false);
     const [isTraining, setIsTraining] = useState(false);
-    const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' | 'info' | '' }>({
-        text: '',
-        type: '',
-    });
+    
+    // Modal states
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showErrorModal, setShowErrorModal] = useState(false);
+    const [showInfoModal, setShowInfoModal] = useState(false);
+    const [showLoadingModal, setShowLoadingModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
 
     const handleCollectImages = async () => {
         if (!forceId) {
-            setMessage({
-                text: 'Please enter a Force ID first',
-                type: 'error',
-            });
+            setModalTitle('Force ID Required');
+            setModalMessage('Please enter a Force ID first');
+            setShowErrorModal(true);
             return;
         }
 
         // Validate force ID format
         if (!/^\d{9}$/.test(forceId)) {
-            setMessage({
-                text: 'Force ID must be 9 digits',
-                type: 'error',
-            });
+            setModalTitle('Invalid Force ID');
+            setModalMessage('Force ID must be 9 digits');
+            setShowErrorModal(true);
             return;
         }
 
         setIsCollecting(true);
-        setMessage({
-            text: `Starting image collection...
+        setModalTitle('Image Collection Started');
+        setModalMessage(`Starting image collection...
 
 Instructions:
 1. A window will open with your camera feed
@@ -41,9 +47,8 @@ Instructions:
 3. Press 'S' key when ready to capture images for each pose
 4. Press 'Q' key to quit the process
 
-Please keep the window focused for key controls to work.`,
-            type: 'info',
-        });
+Please keep the window focused for key controls to work.`);
+        setShowInfoModal(true);
 
         try {
             const response = await axios.post('http://localhost:5000/api/image/collect', {
@@ -51,21 +56,18 @@ Please keep the window focused for key controls to work.`,
             });
 
             if (response.data.folder_path) {
-                setMessage({
-                    text: 'Images collected successfully! You can now proceed with adding the soldier.',
-                    type: 'success',
-                });
+                setModalTitle('Images Collected Successfully');
+                setModalMessage('Images collected successfully! You can now proceed with adding the soldier.');
+                setShowSuccessModal(true);
             } else {
-                setMessage({
-                    text: 'Image collection was cancelled. Please try again.',
-                    type: 'error',
-                });
+                setModalTitle('Collection Cancelled');
+                setModalMessage('Image collection was cancelled. Please try again.');
+                setShowErrorModal(true);
             }
         } catch (error: any) {
-            setMessage({
-                text: error.response?.data?.error || 'Failed to collect images. Please try again.',
-                type: 'error',
-            });
+            setModalTitle('Collection Error');
+            setModalMessage(error.response?.data?.error || 'Failed to collect images. Please try again.');
+            setShowErrorModal(true);
         } finally {
             setIsCollecting(false);
         }
@@ -75,15 +77,13 @@ Please keep the window focused for key controls to work.`,
         setIsTraining(true);
         try {
             const response = await axios.post('http://localhost:5000/api/image/train');
-            setMessage({
-                text: 'Model training completed successfully!',
-                type: 'success',
-            });
+            setModalTitle('Training Complete');
+            setModalMessage('Model training completed successfully!');
+            setShowSuccessModal(true);
         } catch (error: any) {
-            setMessage({
-                text: error.response?.data?.error || 'Failed to train model. Please try again.',
-                type: 'error',
-            });
+            setModalTitle('Training Error');
+            setModalMessage(error.response?.data?.error || 'Failed to train model. Please try again.');
+            setShowErrorModal(true);
         } finally {
             setIsTraining(false);
         }
@@ -99,19 +99,17 @@ Please keep the window focused for key controls to work.`,
                 user_type: 'soldier'
             });
 
-            setMessage({
-                text: 'Soldier added successfully!',
-                type: 'success'
-            });
+            setModalTitle('Soldier Added');
+            setModalMessage('Soldier added successfully!');
+            setShowSuccessModal(true);
 
             // Clear form
             setForceId('');
             setPassword('');
         } catch (error: any) {
-            setMessage({
-                text: error.response?.data?.error || 'Failed to add soldier. Please try again.',
-                type: 'error'
-            });
+            setModalTitle('Registration Error');
+            setModalMessage(error.response?.data?.error || 'Failed to add soldier. Please try again.');
+            setShowErrorModal(true);
         } finally {
             setIsLoading(false);
         }
@@ -156,17 +154,7 @@ Please keep the window focused for key controls to work.`,
                             />
                         </div>
 
-                        {message.text && (
-                            <div className={`p-4 mb-4 rounded whitespace-pre-line ${
-                                message.type === 'error' 
-                                    ? 'bg-red-100 text-red-700' 
-                                    : message.type === 'info'
-                                    ? 'bg-blue-100 text-blue-700'
-                                    : 'bg-green-100 text-green-700'
-                            }`}>
-                                {message.text}
-                            </div>
-                        )}
+
 
                         <div className="space-y-4">
                             <button
@@ -214,6 +202,37 @@ Please keep the window focused for key controls to work.`,
                 </div>
             </div>  {/* Missing closing bracket for space-y-6 div */}
         </div>
+
+        {/* Modal Components */}
+        <Modal
+            isOpen={showSuccessModal}
+            onClose={() => setShowSuccessModal(false)}
+            title={modalTitle}
+            type="success"
+        >
+            <p className="text-gray-600">{modalMessage}</p>
+        </Modal>
+
+        <ErrorModal
+            isOpen={showErrorModal}
+            onClose={() => setShowErrorModal(false)}
+            title={modalTitle}
+            message={modalMessage}
+            onRetry={() => setShowErrorModal(false)}
+        />
+
+        <InfoModal
+            isOpen={showInfoModal}
+            onClose={() => setShowInfoModal(false)}
+            title={modalTitle}
+            message={modalMessage}
+        />
+
+        <LoadingModal
+            isOpen={showLoadingModal}
+            title={modalTitle}
+            message={modalMessage}
+        />
     </div>
 );
 };

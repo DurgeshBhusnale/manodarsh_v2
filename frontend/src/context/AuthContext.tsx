@@ -102,7 +102,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                     
                     if (now - loginTime > SESSION_TIMEOUT) {
                         logout();
-                        alert('Session expired after 15 minutes of inactivity. Please login again.');
+                        // Redirect to login with session expired message
+                        window.location.href = '/login?expired=timeout';
                     }
                 }
             };
@@ -134,7 +135,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                     
                     if (now - loginTime > SESSION_TIMEOUT) {
                         logout();
-                        alert('Session expired while away. Please login again.');
+                        // Redirect to login with session expired message
+                        window.location.href = '/login?expired=away';
                     }
                 }
             }

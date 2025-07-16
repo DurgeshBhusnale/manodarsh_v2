@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
+import SuccessModal from '../../components/SuccessModal';
+import ErrorModal from '../../components/ErrorModal';
+import LoadingModal from '../../components/LoadingModal';
 import { apiService} from '../../services/api';
 
 const QuestionnairePage: React.FC = () => {
+    const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -17,11 +22,15 @@ const QuestionnairePage: React.FC = () => {
     const [translating, setTranslating] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [allQuestionsEntered, setAllQuestionsEntered] = useState(false);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showErrorModal, setShowErrorModal] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleCreateQuestionnaire = async (e: React.FormEvent) => {
         e.preventDefault();
         if (numberOfQuestions <= 0) {
-            alert('Please enter the number of questions');
+            setErrorMessage('Please enter the number of questions');
+            setShowErrorModal(true);
             return;
         }
         try {
@@ -91,11 +100,12 @@ const QuestionnairePage: React.FC = () => {
                 });
             }
 
-            // Reset and go back to first step
-            handleReset();
+            // Show custom success modal instead of alert
+            setShowSuccessModal(true);
         } catch (error) {
             console.error('Failed to save questionnaire:', error);
-            alert('Failed to save questionnaire. Please try again.');
+            setErrorMessage('Failed to save questionnaire. Please check your connection and try again.');
+            setShowErrorModal(true);
         } finally {
             setLoading(false);
         }
@@ -130,6 +140,30 @@ const QuestionnairePage: React.FC = () => {
         setQuestionTextHindi('');
         setIsEditMode(false);
         setAllQuestionsEntered(false);
+        setShowSuccessModal(false);
+        setShowErrorModal(false);
+        setErrorMessage('');
+    };
+
+    const handleModalClose = () => {
+        setShowSuccessModal(false);
+    };
+
+    const handleModalContinue = () => {
+        setShowSuccessModal(false);
+        handleReset();
+        navigate('/admin/dashboard');
+    };
+
+    const handleErrorModalClose = () => {
+        setShowErrorModal(false);
+        setErrorMessage('');
+    };
+
+    const handleRetryQuestionnaire = () => {
+        setShowErrorModal(false);
+        setErrorMessage('');
+        handleSaveQuestionnaire();
     };
 
     return (
@@ -348,6 +382,33 @@ const QuestionnairePage: React.FC = () => {
                     </div>
                 )}
             </div>
+            
+            {/* Loading Modal */}
+            <LoadingModal
+                isOpen={loading}
+                title="Creating Questionnaire"
+                message="Saving your questionnaire and translating questions..."
+            />
+            
+            {/* Success Modal */}
+            <SuccessModal
+                isOpen={showSuccessModal}
+                onClose={handleModalClose}
+                title="Questionnaire Created Successfully!"
+                questionnaireName={title}
+                questionCount={questions.length}
+                isActive={isActive}
+                onContinue={handleModalContinue}
+            />
+            
+            {/* Error Modal */}
+            <ErrorModal
+                isOpen={showErrorModal}
+                onClose={handleErrorModalClose}
+                title="Error Creating Questionnaire"
+                message={errorMessage}
+                onRetry={handleRetryQuestionnaire}
+            />
         </div>
     );
 };

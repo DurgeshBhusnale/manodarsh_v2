@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { apiService } from '../../services/api';
 import Sidebar from '../../components/Sidebar';
+import Modal from '../../components/Modal';
 
 interface Question {
     id: number;
@@ -39,6 +40,11 @@ const AdminSurveyPage: React.FC = () => {
     const [questions, setQuestions] = useState<Question[]>([]);
     const [responses, setResponses] = useState<{ [key: number]: string }>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Modal states
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalMessage, setModalMessage] = useState('');
 
     const handleSoldierVerification = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -107,15 +113,9 @@ const AdminSurveyPage: React.FC = () => {
 
             await apiService.submitSurvey(surveyData);
             
-            alert('Survey submitted successfully!');
-            
-            // Reset form
-            setStep('credentials');
-            setSoldierForceId('');
-            setSoldierPassword('');
-            setResponses({});
-            setQuestionnaire(null);
-            setQuestions([]);
+            setModalTitle('Survey Submitted Successfully');
+            setModalMessage('The survey has been submitted successfully! The responses have been recorded.');
+            setShowSuccessModal(true);
             
         } catch (err: any) {
             setError('Error submitting survey. Please try again.');
@@ -270,6 +270,25 @@ const AdminSurveyPage: React.FC = () => {
                     </div>
                 </main>
             </div>
+
+            {/* Modal Components */}
+            <Modal
+                isOpen={showSuccessModal}
+                onClose={() => {
+                    setShowSuccessModal(false);
+                    // Reset form after modal is closed
+                    setStep('credentials');
+                    setSoldierForceId('');
+                    setSoldierPassword('');
+                    setResponses({});
+                    setQuestionnaire(null);
+                    setQuestions([]);
+                }}
+                title={modalTitle}
+                type="success"
+            >
+                <p className="text-gray-600">{modalMessage}</p>
+            </Modal>
         </div>
     );
 };

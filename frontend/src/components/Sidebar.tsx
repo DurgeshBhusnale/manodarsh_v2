@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ConfirmModal from './ConfirmModal';
 
 export const Sidebar: React.FC = () => {
     const location = useLocation();
     const { logout, user } = useAuth();
     const [timeRemaining, setTimeRemaining] = useState<string>('');
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     const isActive = (path: string) => location.pathname === path;
 
@@ -38,9 +40,16 @@ export const Sidebar: React.FC = () => {
     }, [user]);
 
     const handleLogout = () => {
-        if (window.confirm('Are you sure you want to logout? This will end your session immediately.')) {
-            logout();
-        }
+        setShowLogoutModal(true);
+    };
+
+    const confirmLogout = () => {
+        setShowLogoutModal(false);
+        logout();
+    };
+
+    const cancelLogout = () => {
+        setShowLogoutModal(false);
     };
 
     const links = [
@@ -93,6 +102,19 @@ export const Sidebar: React.FC = () => {
                     🔒 Secure Logout
                 </button>
             </div>
+
+            {/* Logout Confirmation Modal */}
+            <ConfirmModal
+                isOpen={showLogoutModal}
+                onClose={cancelLogout}
+                onConfirm={confirmLogout}
+                title="Confirm Logout"
+                message="Are you sure you want to logout? This will end your current session and you'll need to log in again to access the admin panel."
+                confirmText="Yes, Logout"
+                cancelText="Stay Logged In"
+                type="warning"
+                icon="🔐"
+            />
         </div>
     );
 };

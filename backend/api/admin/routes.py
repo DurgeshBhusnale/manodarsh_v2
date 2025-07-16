@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from db.connection import get_connection
-from services.translation_service import translate_to_hindi
+from services.translation_service import translate_to_hindi, translate_to_english
 
 admin_bp = Blueprint('admin', __name__)
 
@@ -13,6 +13,7 @@ def translate_question():
         english_text = data.get('question_text', '')
         if not english_text:
             return jsonify({'error': 'No question_text provided'}), 400
+        
         hindi_text = translate_to_hindi(english_text)
         return jsonify({'hindi_text': hindi_text}), 200
     except Exception as e:
@@ -26,13 +27,11 @@ def translate_answer():
         hindi_text = data.get('answer_text', '')
         if not hindi_text:
             return jsonify({'error': 'No answer_text provided'}), 400
-        from services.translation_service import translate_to_english
+        
         english_text = translate_to_english(hindi_text)
         return jsonify({'english_text': english_text}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-from flask import Blueprint, request, jsonify
-from db.connection import get_connection
 
 
 @admin_bp.route('/create-questionnaire', methods=['POST'])
@@ -85,12 +84,14 @@ def add_question():
         data = request.json
         questionnaire_id = data['questionnaire_id']
         question_text = data['question_text']
-        # Accept question_text_hindi if provided, else default to empty string or duplicate English
+        
+        # Get Hindi translation if not provided
         question_text_hindi = data.get('question_text_hindi', '')
         if not question_text_hindi:
-            question_text_hindi = question_text  # fallback to English if Hindi not provided
+            # Automatically translate English to Hindi
+            question_text_hindi = translate_to_hindi(question_text)
 
-        # Insert the question
+        # Insert the question with both English and Hindi versions
         cursor.execute("""
             INSERT INTO questions (questionnaire_id, question_text, question_text_hindi, created_at)
             VALUES (%s, %s, %s, NOW())
@@ -101,7 +102,9 @@ def add_question():
 
         return jsonify({
             "message": "Question added successfully",
-            "id": question_id
+            "id": question_id,
+            "question_text": question_text,
+            "question_text_hindi": question_text_hindi
         }), 201
 
     except Exception as e:

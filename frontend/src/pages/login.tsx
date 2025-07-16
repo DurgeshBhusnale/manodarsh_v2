@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { apiService } from '../services/api';
+import InfoModal from '../components/InfoModal';
 
 export const LoginPage: React.FC = () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
     const { login, isAuthenticated, user } = useAuth();
     const [forceId, setForceId] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
+    // Modal states
+    const [showInfoModal, setShowInfoModal] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalMessage, setModalMessage] = useState('');
 
     // Redirect if already authenticated
     useEffect(() => {
@@ -17,6 +24,20 @@ export const LoginPage: React.FC = () => {
             navigate('/admin/dashboard');
         }
     }, [isAuthenticated, user, navigate]);
+
+    // Handle session expiry messages
+    useEffect(() => {
+        const expired = searchParams.get('expired');
+        if (expired === 'timeout') {
+            setModalTitle('Session Expired');
+            setModalMessage('Your session expired after 15 minutes of inactivity. Please login again.');
+            setShowInfoModal(true);
+        } else if (expired === 'away') {
+            setModalTitle('Session Expired');
+            setModalMessage('Your session expired while you were away. Please login again.');
+            setShowInfoModal(true);
+        }
+    }, [searchParams]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -110,6 +131,14 @@ export const LoginPage: React.FC = () => {
                     </button>
                 </form>
             </div>
+
+            {/* Modal Components */}
+            <InfoModal
+                isOpen={showInfoModal}
+                onClose={() => setShowInfoModal(false)}
+                title={modalTitle}
+                message={modalMessage}
+            />
         </div>
     );
 };

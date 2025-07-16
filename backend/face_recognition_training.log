@@ -13418,3 +13418,64 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-16 11:41:24,616 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 19115.383061 seconds)
 2025-07-16 11:41:24,625 - WARNING -  * Debugger is active!
 2025-07-16 11:41:24,632 - INFO -  * Debugger PIN: 490-147-572
+2025-07-16 12:02:34,505 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 12:02:38,547 - INFO - All models loaded successfully
+2025-07-16 12:02:38,984 - DEBUG - Looking up time zone info from registry
+2025-07-16 12:02:39,158 - INFO - All models loaded successfully
+2025-07-16 12:02:39,158 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:02:39,158 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:02:39,158 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 12:02:39,158 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 12:02:39,158 - INFO - Scheduler started
+2025-07-16 12:02:39,158 - DEBUG - Looking for jobs to run
+2025-07-16 12:02:39,158 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 17840.841191 seconds)
+2025-07-16 12:02:39,158 - INFO - Monitoring scheduler started
+2025-07-16 12:02:39,199 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-16 12:02:39,199 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-16 12:02:39,204 - INFO -  * Restarting with stat
+2025-07-16 12:02:42,919 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-16 12:02:45,033 - INFO - All models loaded successfully
+2025-07-16 12:02:45,306 - DEBUG - Looking up time zone info from registry
+2025-07-16 12:02:45,443 - INFO - All models loaded successfully
+2025-07-16 12:02:45,443 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:02:45,443 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-16 12:02:45,443 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-16 12:02:45,443 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-16 12:02:45,443 - INFO - Scheduler started
+2025-07-16 12:02:45,443 - DEBUG - Looking for jobs to run
+2025-07-16 12:02:45,443 - INFO - Monitoring scheduler started
+2025-07-16 12:02:45,443 - DEBUG - Next wakeup is due at 2025-07-16 17:00:00+05:30 (in 17834.556922 seconds)
+2025-07-16 12:02:45,456 - WARNING -  * Debugger is active!
+2025-07-16 12:02:45,464 - INFO -  * Debugger PIN: 490-147-572
+2025-07-16 12:03:32,214 - INFO - Scheduler has been shut down
+2025-07-16 12:03:32,214 - DEBUG - Looking for jobs to run
+2025-07-16 12:03:32,214 - DEBUG - No jobs; waiting until a job is added
+2025-07-16 12:03:32,214 - INFO - Monitoring scheduler stopped
+2025-07-16 12:03:32,214 - INFO - 127.0.0.1 - - [16/Jul/2025 12:03:32] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-16 12:03:32,763 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:03:32,763 - INFO - 127.0.0.1 - - [16/Jul/2025 12:03:32] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-16 12:03:56,396 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:03:56,396 - INFO - 127.0.0.1 - - [16/Jul/2025 12:03:56] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 12:03:56,937 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:03:56,937 - INFO - 127.0.0.1 - - [16/Jul/2025 12:03:56] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 12:03:56,983 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:03:56,983 - INFO - 127.0.0.1 - - [16/Jul/2025 12:03:56] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 12:03:57,265 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:03:57,265 - INFO - 127.0.0.1 - - [16/Jul/2025 12:03:57] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 12:04:08,763 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:04:08,764 - INFO - 127.0.0.1 - - [16/Jul/2025 12:04:08] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 12:04:09,083 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:04:09,083 - INFO - 127.0.0.1 - - [16/Jul/2025 12:04:09] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 12:04:35,336 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:04:35,336 - INFO - 127.0.0.1 - - [16/Jul/2025 12:04:35] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-16 12:04:35,904 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:04:35,904 - INFO - 127.0.0.1 - - [16/Jul/2025 12:04:35] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-16 12:07:33,146 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:07:33,146 - INFO - 127.0.0.1 - - [16/Jul/2025 12:07:33] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 12:07:33,643 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:07:33,643 - INFO - 127.0.0.1 - - [16/Jul/2025 12:07:33] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-16 12:07:33,665 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:07:33,665 - INFO - 127.0.0.1 - - [16/Jul/2025 12:07:33] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-16 12:07:33,977 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-16 12:07:33,977 - INFO - 127.0.0.1 - - [16/Jul/2025 12:07:33] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -

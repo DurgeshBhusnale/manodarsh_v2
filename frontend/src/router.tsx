@@ -6,6 +6,7 @@ import SoldiersData from './pages/admin/soldiers-data';
 import QuestionnairePage from './pages/admin/questionnaire';
 import DailyEmotionPage from './pages/admin/daily-emotion';
 import AdminSurveyPage from './pages/admin/survey';
+import SoldierSurveyPage from './pages/soldier/survey';
 import ProtectedRoute from './components/ProtectedRoute';
 
 export const router = createBrowserRouter([
@@ -65,5 +66,10 @@ export const router = createBrowserRouter([
         <AdminSurveyPage />
       </ProtectedRoute>
     ),
+  },
+  // SOLDIER SURVEY ROUTE (No authentication required as it uses navigation state)
+  {
+    path: '/soldier/survey',
+    element: <SoldierSurveyPage />,
   },
 ]);

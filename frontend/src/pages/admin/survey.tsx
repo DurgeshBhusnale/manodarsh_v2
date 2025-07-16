@@ -61,19 +61,13 @@ const AdminSurveyPage: React.FC = () => {
             // Verify soldier credentials
             await apiService.verifySoldier(soldierForceId, soldierPassword);
             
-            // Load active questionnaire
-            const questionnaireResponse = await apiService.getActiveQuestionnaire();
-            setQuestionnaire(questionnaireResponse.data.questionnaire);
-            setQuestions(questionnaireResponse.data.questions);
-            
-            // Initialize responses
-            const initialResponses: { [key: number]: string } = {};
-            questionnaireResponse.data.questions.forEach((q: Question) => {
-                initialResponses[q.id] = '';
+            // Redirect to soldier survey page with credentials
+            navigate('/soldier/survey', {
+                state: {
+                    force_id: soldierForceId,
+                    password: soldierPassword
+                }
             });
-            setResponses(initialResponses);
-            
-            setStep('survey');
         } catch (err: any) {
             if (err.response?.status === 401) {
                 setError('Invalid soldier credentials');

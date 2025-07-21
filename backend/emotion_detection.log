@@ -1,0 +1,286 @@
+2025-07-21 10:05:45,992 - INFO - All models loaded successfully
+2025-07-21 10:05:46,249 - INFO - All models loaded successfully
+2025-07-21 10:05:46,249 - INFO - Trying external webcam (index 1)...
+2025-07-21 10:05:46,273 - INFO - external webcam not available (index 1)
+2025-07-21 10:05:46,273 - INFO - Trying built-in camera (index 0)...
+2025-07-21 10:05:50,105 - INFO - Successfully connected to built-in camera (index 0)
+2025-07-21 10:07:34,582 - INFO - All models loaded successfully
+2025-07-21 10:07:34,583 - INFO - Trying external webcam (index 1)...
+2025-07-21 10:07:34,601 - INFO - external webcam not available (index 1)
+2025-07-21 10:07:34,601 - INFO - Trying built-in camera (index 0)...
+2025-07-21 10:07:37,993 - INFO - Successfully connected to built-in camera (index 0)
+2025-07-21 10:07:40,851 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.04', 'Happy': '0.00', 'Neutral': '0.82', 'Sad': '0.12', 'Surprised': '0.00'}
+2025-07-21 10:07:40,851 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:41,870 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.03', 'Happy': '0.00', 'Neutral': '0.73', 'Sad': '0.22', 'Surprised': '0.00'}
+2025-07-21 10:07:41,870 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:42,909 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.85', 'Sad': '0.12', 'Surprised': '0.00'}
+2025-07-21 10:07:42,910 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:44,219 - DEBUG - Emotion probabilities: {'Angry': '0.09', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.81', 'Sad': '0.08', 'Surprised': '0.00'}
+2025-07-21 10:07:44,219 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:45,317 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.84', 'Sad': '0.14', 'Surprised': '0.00'}
+2025-07-21 10:07:45,317 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:46,407 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.69', 'Sad': '0.26', 'Surprised': '0.00'}
+2025-07-21 10:07:46,408 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:47,423 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.86', 'Sad': '0.13', 'Surprised': '0.00'}
+2025-07-21 10:07:47,423 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:48,633 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.92', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:07:48,634 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:49,749 - DEBUG - Emotion probabilities: {'Angry': '0.28', 'Disgusted': '0.00', 'Fearful': '0.09', 'Happy': '0.00', 'Neutral': '0.44', 'Sad': '0.19', 'Surprised': '0.00'}
+2025-07-21 10:07:49,749 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:50,792 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.02', 'Neutral': '0.90', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-21 10:07:50,792 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:51,835 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:07:51,835 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:52,945 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.04', 'Happy': '0.00', 'Neutral': '0.88', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-21 10:07:52,945 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:54,171 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.64', 'Sad': '0.34', 'Surprised': '0.00'}
+2025-07-21 10:07:54,171 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:55,352 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:07:55,353 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:57,125 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.56', 'Sad': '0.42', 'Surprised': '0.00'}
+2025-07-21 10:07:57,125 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:07:58,352 - DEBUG - Emotion probabilities: {'Angry': '0.07', 'Disgusted': '0.00', 'Fearful': '0.15', 'Happy': '0.01', 'Neutral': '0.62', 'Sad': '0.14', 'Surprised': '0.01'}
+2025-07-21 10:07:58,352 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:00,342 - DEBUG - Emotion probabilities: {'Angry': '0.12', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.83', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:08:00,342 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:01,615 - DEBUG - Emotion probabilities: {'Angry': '0.09', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.90', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:08:01,615 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:02,761 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:02,761 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:03,917 - DEBUG - Emotion probabilities: {'Angry': '0.03', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.96', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:08:03,917 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:04,973 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.05', 'Surprised': '0.00'}
+2025-07-21 10:08:04,973 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:06,113 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:08:06,113 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:07,278 - DEBUG - Emotion probabilities: {'Angry': '0.08', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.06', 'Neutral': '0.81', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-07-21 10:08:07,278 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:08,584 - WARNING - Face detected but not recognized as any known soldier
+2025-07-21 10:08:19,943 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:19,943 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:21,042 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:21,042 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:22,159 - DEBUG - Emotion probabilities: {'Angry': '0.36', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.55', 'Sad': '0.08', 'Surprised': '0.00'}
+2025-07-21 10:08:22,160 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:23,334 - DEBUG - Emotion probabilities: {'Angry': '0.11', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.82', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:08:23,335 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:24,781 - DEBUG - Emotion probabilities: {'Angry': '0.06', 'Disgusted': '0.00', 'Fearful': '0.26', 'Happy': '0.00', 'Neutral': '0.52', 'Sad': '0.16', 'Surprised': '0.00'}
+2025-07-21 10:08:24,781 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:26,947 - DEBUG - Emotion probabilities: {'Angry': '0.08', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.88', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:08:26,947 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:28,256 - DEBUG - Emotion probabilities: {'Angry': '0.10', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.84', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-07-21 10:08:28,256 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:29,561 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:29,562 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:30,886 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:30,886 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:32,429 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:32,430 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:51,392 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:51,392 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:52,944 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:08:52,945 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:54,486 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.15', 'Neutral': '0.85', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:54,487 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:55,771 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.44', 'Neutral': '0.56', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:55,771 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:08:57,015 - DEBUG - Emotion probabilities: {'Angry': '0.03', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.95', 'Neutral': '0.01', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:57,015 - INFO - Detected soldier 100000005 with Happy emotion (score: -1)
+2025-07-21 10:08:58,371 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.81', 'Neutral': '0.18', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:58,372 - INFO - Detected soldier 100000005 with Happy emotion (score: -1)
+2025-07-21 10:08:59,526 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.95', 'Neutral': '0.05', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:08:59,526 - INFO - Detected soldier 100000005 with Happy emotion (score: -1)
+2025-07-21 10:09:00,728 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.82', 'Neutral': '0.18', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:09:00,728 - INFO - Detected soldier 100000005 with Happy emotion (score: -1)
+2025-07-21 10:09:01,977 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.72', 'Neutral': '0.28', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:09:01,977 - INFO - Detected soldier 100000005 with Happy emotion (score: -1)
+2025-07-21 10:09:03,245 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.85', 'Sad': '0.14', 'Surprised': '0.00'}
+2025-07-21 10:09:03,245 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:04,529 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:09:04,529 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:05,734 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:09:05,734 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:06,825 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:09:06,825 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:08,038 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.96', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-21 10:09:08,038 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:09,245 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.94', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:09:09,246 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:10,406 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.95', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-07-21 10:09:10,406 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:11,683 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.87', 'Sad': '0.13', 'Surprised': '0.00'}
+2025-07-21 10:09:11,683 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:12,870 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.85', 'Sad': '0.15', 'Surprised': '0.00'}
+2025-07-21 10:09:12,870 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:13,833 - DEBUG - Emotion probabilities: {'Angry': '0.22', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.67', 'Sad': '0.11', 'Surprised': '0.00'}
+2025-07-21 10:09:13,833 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:14,936 - DEBUG - Emotion probabilities: {'Angry': '0.32', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.61', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:09:14,937 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:16,020 - DEBUG - Emotion probabilities: {'Angry': '0.12', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.77', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:09:16,020 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:17,095 - DEBUG - Emotion probabilities: {'Angry': '0.12', 'Disgusted': '0.01', 'Fearful': '0.01', 'Happy': '0.01', 'Neutral': '0.66', 'Sad': '0.18', 'Surprised': '0.01'}
+2025-07-21 10:09:17,095 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:18,211 - DEBUG - Emotion probabilities: {'Angry': '0.19', 'Disgusted': '0.07', 'Fearful': '0.00', 'Happy': '0.01', 'Neutral': '0.44', 'Sad': '0.28', 'Surprised': '0.00'}
+2025-07-21 10:09:18,212 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:19,439 - DEBUG - Emotion probabilities: {'Angry': '0.34', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.27', 'Neutral': '0.24', 'Sad': '0.15', 'Surprised': '0.00'}
+2025-07-21 10:09:19,439 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:20,617 - DEBUG - Emotion probabilities: {'Angry': '0.21', 'Disgusted': '0.07', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.25', 'Sad': '0.45', 'Surprised': '0.00'}
+2025-07-21 10:09:20,617 - INFO - Detected soldier 100000005 with Sad emotion (score: 3)
+2025-07-21 10:09:21,740 - DEBUG - Emotion probabilities: {'Angry': '0.14', 'Disgusted': '0.04', 'Fearful': '0.01', 'Happy': '0.01', 'Neutral': '0.43', 'Sad': '0.36', 'Surprised': '0.00'}
+2025-07-21 10:09:21,740 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:22,840 - DEBUG - Emotion probabilities: {'Angry': '0.20', 'Disgusted': '0.10', 'Fearful': '0.01', 'Happy': '0.01', 'Neutral': '0.30', 'Sad': '0.37', 'Surprised': '0.00'}
+2025-07-21 10:09:22,840 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:24,002 - DEBUG - Emotion probabilities: {'Angry': '0.06', 'Disgusted': '0.01', 'Fearful': '0.02', 'Happy': '0.01', 'Neutral': '0.49', 'Sad': '0.41', 'Surprised': '0.00'}
+2025-07-21 10:09:24,002 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:25,160 - DEBUG - Emotion probabilities: {'Angry': '0.17', 'Disgusted': '0.00', 'Fearful': '0.15', 'Happy': '0.01', 'Neutral': '0.12', 'Sad': '0.55', 'Surprised': '0.00'}
+2025-07-21 10:09:25,161 - INFO - Detected soldier 100000005 with Sad emotion (score: 3)
+2025-07-21 10:09:26,321 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.76', 'Sad': '0.21', 'Surprised': '0.00'}
+2025-07-21 10:09:26,321 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:27,408 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.89', 'Sad': '0.09', 'Surprised': '0.00'}
+2025-07-21 10:09:27,408 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:28,432 - DEBUG - Emotion probabilities: {'Angry': '0.03', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.83', 'Sad': '0.12', 'Surprised': '0.00'}
+2025-07-21 10:09:28,432 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:29,668 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.85', 'Sad': '0.12', 'Surprised': '0.00'}
+2025-07-21 10:09:29,668 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:30,930 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.82', 'Sad': '0.14', 'Surprised': '0.00'}
+2025-07-21 10:09:30,930 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:31,968 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.75', 'Sad': '0.21', 'Surprised': '0.00'}
+2025-07-21 10:09:31,969 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:32,957 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.73', 'Sad': '0.25', 'Surprised': '0.00'}
+2025-07-21 10:09:32,958 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:34,112 - DEBUG - Emotion probabilities: {'Angry': '0.07', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.01', 'Neutral': '0.91', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:09:34,112 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:35,277 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:09:35,277 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:36,291 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.03', 'Happy': '0.00', 'Neutral': '0.82', 'Sad': '0.13', 'Surprised': '0.00'}
+2025-07-21 10:09:36,291 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:37,316 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.94', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:09:37,316 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:38,565 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:09:38,566 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:39,811 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:09:39,812 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:40,873 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.95', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-07-21 10:09:40,873 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:41,900 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.92', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:09:41,901 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:42,938 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.73', 'Sad': '0.25', 'Surprised': '0.00'}
+2025-07-21 10:09:42,938 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:44,066 - DEBUG - Emotion probabilities: {'Angry': '0.07', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.84', 'Sad': '0.09', 'Surprised': '0.00'}
+2025-07-21 10:09:44,066 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:45,299 - DEBUG - Emotion probabilities: {'Angry': '0.09', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.85', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:09:45,299 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:46,435 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.91', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:09:46,436 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:47,520 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.91', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:09:47,520 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:48,752 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.90', 'Sad': '0.08', 'Surprised': '0.00'}
+2025-07-21 10:09:48,752 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:49,938 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.84', 'Sad': '0.14', 'Surprised': '0.00'}
+2025-07-21 10:09:49,938 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:51,029 - DEBUG - Emotion probabilities: {'Angry': '0.03', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.66', 'Sad': '0.31', 'Surprised': '0.00'}
+2025-07-21 10:09:51,029 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:52,098 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.81', 'Sad': '0.18', 'Surprised': '0.00'}
+2025-07-21 10:09:52,098 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:53,264 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.88', 'Sad': '0.10', 'Surprised': '0.00'}
+2025-07-21 10:09:53,264 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:54,491 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '1.00', 'Neutral': '0.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:09:54,491 - INFO - Detected soldier 100000005 with Happy emotion (score: -1)
+2025-07-21 10:09:55,643 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '1.00', 'Neutral': '0.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:09:55,643 - INFO - Detected soldier 100000005 with Happy emotion (score: -1)
+2025-07-21 10:09:56,757 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.83', 'Sad': '0.17', 'Surprised': '0.00'}
+2025-07-21 10:09:56,758 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:57,778 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:09:57,778 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:09:58,855 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.88', 'Sad': '0.12', 'Surprised': '0.00'}
+2025-07-21 10:09:58,856 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:00,074 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.76', 'Sad': '0.22', 'Surprised': '0.00'}
+2025-07-21 10:10:00,074 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:01,158 - DEBUG - Emotion probabilities: {'Angry': '0.05', 'Disgusted': '0.00', 'Fearful': '0.84', 'Happy': '0.01', 'Neutral': '0.02', 'Sad': '0.08', 'Surprised': '0.00'}
+2025-07-21 10:10:01,158 - INFO - Detected soldier 100000005 with Fearful emotion (score: 2)
+2025-07-21 10:10:02,215 - DEBUG - Emotion probabilities: {'Angry': '0.07', 'Disgusted': '0.00', 'Fearful': '0.70', 'Happy': '0.01', 'Neutral': '0.04', 'Sad': '0.17', 'Surprised': '0.00'}
+2025-07-21 10:10:02,216 - INFO - Detected soldier 100000005 with Fearful emotion (score: 2)
+2025-07-21 10:10:03,417 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.60', 'Happy': '0.06', 'Neutral': '0.18', 'Sad': '0.14', 'Surprised': '0.00'}
+2025-07-21 10:10:03,418 - INFO - Detected soldier 100000005 with Fearful emotion (score: 2)
+2025-07-21 10:10:04,682 - DEBUG - Emotion probabilities: {'Angry': '0.11', 'Disgusted': '0.00', 'Fearful': '0.11', 'Happy': '0.01', 'Neutral': '0.45', 'Sad': '0.32', 'Surprised': '0.00'}
+2025-07-21 10:10:04,682 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:05,899 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.92', 'Sad': '0.05', 'Surprised': '0.00'}
+2025-07-21 10:10:05,899 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:07,014 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.96', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-07-21 10:10:07,014 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:08,241 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:10:08,241 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:09,407 - DEBUG - Emotion probabilities: {'Angry': '0.09', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.01', 'Neutral': '0.79', 'Sad': '0.10', 'Surprised': '0.00'}
+2025-07-21 10:10:09,408 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:10,579 - DEBUG - Emotion probabilities: {'Angry': '0.05', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.92', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:10:10,579 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:11,711 - DEBUG - Emotion probabilities: {'Angry': '0.16', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.01', 'Neutral': '0.81', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:11,711 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:12,740 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:10:12,740 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:13,944 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:13,944 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:15,108 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:15,108 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:16,324 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:16,325 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:17,547 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:17,548 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:18,620 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.91', 'Sad': '0.09', 'Surprised': '0.00'}
+2025-07-21 10:10:18,621 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:19,874 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:19,874 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:21,090 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:10:21,090 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:22,369 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-21 10:10:22,369 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:23,787 - DEBUG - Emotion probabilities: {'Angry': '0.13', 'Disgusted': '0.00', 'Fearful': '0.46', 'Happy': '0.00', 'Neutral': '0.12', 'Sad': '0.29', 'Surprised': '0.00'}
+2025-07-21 10:10:23,787 - INFO - Detected soldier 100000005 with Fearful emotion (score: 2)
+2025-07-21 10:10:24,947 - DEBUG - Emotion probabilities: {'Angry': '0.63', 'Disgusted': '0.00', 'Fearful': '0.08', 'Happy': '0.00', 'Neutral': '0.15', 'Sad': '0.14', 'Surprised': '0.00'}
+2025-07-21 10:10:24,948 - INFO - Detected soldier 100000005 with Angry emotion (score: 2)
+2025-07-21 10:10:25,984 - DEBUG - Emotion probabilities: {'Angry': '0.27', 'Disgusted': '0.00', 'Fearful': '0.23', 'Happy': '0.00', 'Neutral': '0.22', 'Sad': '0.28', 'Surprised': '0.00'}
+2025-07-21 10:10:25,984 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:27,123 - DEBUG - Emotion probabilities: {'Angry': '0.57', 'Disgusted': '0.00', 'Fearful': '0.11', 'Happy': '0.00', 'Neutral': '0.21', 'Sad': '0.11', 'Surprised': '0.00'}
+2025-07-21 10:10:27,123 - INFO - Detected soldier 100000005 with Angry emotion (score: 2)
+2025-07-21 10:10:28,376 - DEBUG - Emotion probabilities: {'Angry': '0.08', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.01', 'Neutral': '0.83', 'Sad': '0.08', 'Surprised': '0.00'}
+2025-07-21 10:10:28,376 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:29,848 - DEBUG - Emotion probabilities: {'Angry': '0.10', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.85', 'Sad': '0.05', 'Surprised': '0.00'}
+2025-07-21 10:10:29,849 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:31,123 - DEBUG - Emotion probabilities: {'Angry': '0.06', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.92', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-21 10:10:31,123 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:32,378 - DEBUG - Emotion probabilities: {'Angry': '0.05', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.89', 'Sad': '0.05', 'Surprised': '0.00'}
+2025-07-21 10:10:32,379 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:33,621 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.89', 'Sad': '0.05', 'Surprised': '0.01'}
+2025-07-21 10:10:33,621 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:34,807 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.78', 'Sad': '0.19', 'Surprised': '0.01'}
+2025-07-21 10:10:34,808 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:35,943 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.94', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:10:35,943 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:37,212 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:10:37,213 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:38,549 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-21 10:10:38,549 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:39,710 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.81', 'Sad': '0.16', 'Surprised': '0.00'}
+2025-07-21 10:10:39,711 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:40,736 - DEBUG - Emotion probabilities: {'Angry': '0.22', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.72', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-07-21 10:10:40,736 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:42,030 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-21 10:10:42,030 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:43,162 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.78', 'Sad': '0.20', 'Surprised': '0.00'}
+2025-07-21 10:10:43,163 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:44,325 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.70', 'Sad': '0.28', 'Surprised': '0.00'}
+2025-07-21 10:10:44,325 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:45,418 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.90', 'Sad': '0.08', 'Surprised': '0.00'}
+2025-07-21 10:10:45,418 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:47,741 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.01', 'Neutral': '0.97', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:47,741 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:48,967 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:10:48,967 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:50,091 - DEBUG - Emotion probabilities: {'Angry': '0.03', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-21 10:10:50,091 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:51,279 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:10:51,279 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:52,649 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-21 10:10:52,649 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
+2025-07-21 10:10:53,979 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-21 10:10:53,979 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)

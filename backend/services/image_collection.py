@@ -19,7 +19,7 @@ class ImageCollectionService:
         """Try different camera indices to find an available camera"""
         # Try external webcam first (usually index 1)
         print("Trying external webcam (index 1)...")
-        cap = cv2.VideoCapture(1)
+        cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)  # Force DirectShow backend
         if cap.isOpened():
             ret, frame = cap.read()
             if ret:  # Make sure we can actually read from the camera
@@ -29,7 +29,7 @@ class ImageCollectionService:
         
         # If external webcam not available, try built-in camera (index 0)
         print("External webcam not found, trying built-in camera (index 0)...")
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)  # Force DirectShow backend
         if cap.isOpened():
             ret, frame = cap.read()
             if ret:  # Make sure we can actually read from the camera

@@ -1,0 +1,14 @@
+2025-07-21 11:53:03,478 - INFO - Testing backend: DirectShow
+2025-07-21 11:53:06,864 - INFO - DirectShow: 10/10 continuous frames
+2025-07-21 11:53:07,363 - INFO - Testing backend: Microsoft Media Foundation
+2025-07-21 11:53:13,818 - INFO - Microsoft Media Foundation: 10/10 continuous frames
+2025-07-21 11:53:14,335 - INFO - Testing backend: Video4Linux2
+2025-07-21 11:53:14,336 - WARNING - Video4Linux2: Cannot open camera
+2025-07-21 11:53:14,337 - INFO - Testing backend: GStreamer
+2025-07-21 11:53:14,341 - WARNING - GStreamer: Cannot open camera
+2025-07-21 11:53:15,278 - INFO - Camera property Frame Width: 640.0
+2025-07-21 11:53:15,279 - INFO - Camera property Frame Height: 480.0
+2025-07-21 11:53:15,280 - INFO - Camera property FPS: 0.0
+2025-07-21 11:53:15,281 - INFO - Camera property Buffer Size: -1.0
+2025-07-21 11:53:15,293 - INFO - Camera property Auto Focus: -1.0
+2025-07-21 11:53:15,301 - INFO - Camera property Focus: -1.0

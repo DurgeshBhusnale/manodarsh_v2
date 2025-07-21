@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { apiService } from '../../services/api';
 import Modal from '../../components/Modal';
@@ -54,6 +54,48 @@ const SurveyPage: React.FC = () => {
     const [modalTitle, setModalTitle] = useState('');
     const [modalMessage, setModalMessage] = useState('');
 
+    const startEmotionMonitoring = useCallback(async () => {
+        if (!soldierData?.force_id || emotionMonitoringStarted) return;
+        
+        try {
+            console.log('Starting emotion monitoring for:', soldierData.force_id);
+            await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
+            setEmotionMonitoringStarted(true);
+            console.log('Emotion monitoring started successfully for survey');
+        } catch (error: any) {
+            console.error('Failed to start emotion monitoring:', error);
+            
+            // Handle specific error types
+            const errorType = error.response?.data?.error_type;
+            const errorMessage = error.response?.data?.error || 'Unknown error occurred';
+            
+            let userFriendlyMessage = '';
+            let modalTitleText = 'Emotion Monitoring Warning';
+            
+            switch (errorType) {
+                case 'face_recognition_missing':
+                    userFriendlyMessage = `Face recognition training not found for soldier ${soldierData.force_id}. Please complete face recognition training first. The survey will continue without emotion detection.`;
+                    modalTitleText = 'Face Recognition Required';
+                    break;
+                case 'camera_not_found':
+                    userFriendlyMessage = 'No camera detected on this system. Please connect a camera or check if another application is using the camera. The survey will continue without emotion detection.';
+                    modalTitleText = 'Camera Not Found';
+                    break;
+                case 'camera_malfunction':
+                    userFriendlyMessage = 'Camera detected but not functioning properly. Please check camera drivers or restart the application. The survey will continue without emotion detection.';
+                    modalTitleText = 'Camera Malfunction';
+                    break;
+                default:
+                    userFriendlyMessage = `Failed to start emotion monitoring: ${errorMessage}. The survey will continue without emotion detection.`;
+                    break;
+            }
+            
+            setModalTitle(modalTitleText);
+            setModalMessage(userFriendlyMessage);
+            setShowErrorModal(true);
+        }
+    }, [soldierData?.force_id, emotionMonitoringStarted]);
+
     useEffect(() => {
         // Redirect if no soldier data provided
         if (!soldierData) {
@@ -80,24 +122,7 @@ const SurveyPage: React.FC = () => {
         };
 
         fetchActiveQuestionnaire();
-    }, [soldierData, navigate]);
-
-    const startEmotionMonitoring = async () => {
-        if (!soldierData?.force_id || emotionMonitoringStarted) return;
-        
-        try {
-            console.log('Starting emotion monitoring for:', soldierData.force_id);
-            await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
-            setEmotionMonitoringStarted(true);
-            console.log('Emotion monitoring started successfully for survey');
-        } catch (error) {
-            console.error('Failed to start emotion monitoring:', error);
-            // Don't block survey if emotion monitoring fails
-            setModalTitle('Emotion Monitoring Warning');
-            setModalMessage('Failed to start emotion monitoring. The survey will continue without emotion detection.');
-            setShowErrorModal(true);
-        }
-    };
+    }, [soldierData, navigate, startEmotionMonitoring]);
 
     const stopEmotionMonitoring = async (sessionId?: number) => {
         if (!soldierData?.force_id || !emotionMonitoringStarted) return null;

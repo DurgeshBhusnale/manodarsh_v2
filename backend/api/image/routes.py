@@ -9,7 +9,18 @@ from datetime import datetime
 image_bp = Blueprint('image', __name__)
 image_collection_service = ImageCollectionService()
 face_recognition_service = FaceRecognitionService()
-monitoring_service = CCTVMonitoringService()
+
+# Create a single global monitoring service instance to prevent concurrent camera access
+_monitoring_service_instance = None
+
+def get_monitoring_service():
+    """Get singleton monitoring service instance"""
+    global _monitoring_service_instance
+    if _monitoring_service_instance is None:
+        _monitoring_service_instance = CCTVMonitoringService()
+    return _monitoring_service_instance
+
+monitoring_service = get_monitoring_service()
 
 @image_bp.route('/collect', methods=['POST'])
 def collect_images():
@@ -121,6 +132,38 @@ def process_frame():
             'error': str(e)
         }), 500
 
+@image_bp.route('/check-soldier-recognition', methods=['POST'])
+def check_soldier_recognition():
+    """Check if a soldier exists in the face recognition model"""
+    data = request.get_json()
+    if not data or 'force_id' not in data:
+        return jsonify({
+            'error': 'Missing required field: force_id'
+        }), 400
+        
+    force_id = data['force_id']
+    
+    try:
+        # Initialize emotion detection service to access face recognition model
+        from services.emotion_detection_service import EmotionDetectionService
+        emotion_service = EmotionDetectionService()
+        
+        # Check if force_id exists in known soldiers
+        is_trained = force_id in emotion_service.known_force_ids
+        
+        return jsonify({
+            'force_id': force_id,
+            'is_trained': is_trained,
+            'total_trained_soldiers': len(emotion_service.known_force_ids),
+            'trained_soldiers': emotion_service.known_force_ids if len(emotion_service.known_force_ids) <= 10 else emotion_service.known_force_ids[:10]
+        }), 200
+        
+    except Exception as e:
+        logging.error(f"Error checking soldier recognition: {str(e)}")
+        return jsonify({
+            'error': f'Failed to check soldier recognition: {str(e)}'
+        }), 500
+
 @image_bp.route('/start-survey-monitoring', methods=['POST'])
 def start_survey_monitoring():
     """Start emotion detection during survey for a specific soldier"""
@@ -131,22 +174,60 @@ def start_survey_monitoring():
         }), 400
         
     force_id = data['force_id']
+    
+    # Validate force_id format
+    if not force_id.isdigit() or len(force_id) != 9:
+        return jsonify({
+            'error': 'Invalid force ID format. Must be 9 digits.'
+        }), 400
+    
     try:
+        # Add debug logging
+        print(f"DEBUG: Starting survey monitoring for force_id: {force_id}")
+        print(f"DEBUG: monitoring_service type: {type(monitoring_service)}")
+        
+        # Add small delay to prevent rapid successive requests
+        import time
+        time.sleep(0.2)
+        
         # Start monitoring for this specific soldier
-        if monitoring_service.start_survey_monitoring(force_id):
+        result = monitoring_service.start_survey_monitoring(force_id)
+        print(f"DEBUG: start_survey_monitoring result: {result}")
+        
+        return jsonify({
+            'message': 'Survey emotion monitoring started successfully',
+            'force_id': force_id
+        }), 200
+    except Exception as e:
+        error_message = str(e)
+        print(f"DEBUG: Exception in start_survey_monitoring: {error_message}")
+        print(f"DEBUG: Exception type: {type(e)}")
+        import traceback
+        print(f"DEBUG: Full traceback:\n{traceback.format_exc()}")
+        
+        logging.error(f"Error in start_survey_monitoring: {error_message}")
+        
+        # Return specific error messages to frontend
+        if "not found in face recognition model" in error_message:
             return jsonify({
-                'message': 'Survey emotion monitoring started successfully',
-                'force_id': force_id
-            }), 200
+                'error': error_message,
+                'error_type': 'face_recognition_missing'
+            }), 404
+        elif "No camera available" in error_message:
+            return jsonify({
+                'error': error_message,
+                'error_type': 'camera_not_found'
+            }), 503
+        elif "cannot read frames" in error_message:
+            return jsonify({
+                'error': error_message,
+                'error_type': 'camera_malfunction'
+            }), 503
         else:
             return jsonify({
-                'error': 'Failed to start survey monitoring: Could not initialize camera'
+                'error': error_message,
+                'error_type': 'unknown'
             }), 500
-    except Exception as e:
-        logging.error(f"Error in start_survey_monitoring: {str(e)}")
-        return jsonify({
-            'error': str(e)
-        }), 500
 
 @image_bp.route('/end-survey-monitoring', methods=['POST'])
 def end_survey_monitoring():

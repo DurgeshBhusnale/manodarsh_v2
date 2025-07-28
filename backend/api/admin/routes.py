@@ -315,6 +315,7 @@ def get_soldiers_report():
         # Get query parameters for filtering
         risk_level = request.args.get('risk_level', 'all')  # all, low, mid, high, critical
         days_filter = request.args.get('days', '7')  # 3, 7, 30, 180
+        force_id_filter = request.args.get('force_id', '')  # specific force ID filter
         page = int(request.args.get('page', 1))
         per_page = int(request.args.get('per_page', 20))
         
@@ -341,14 +342,21 @@ def get_soldiers_report():
         # Simplified and more robust query approach
         # First, let's get all soldiers and then join with their latest sessions
         
-        # Get all soldiers first
-        soldiers_query = """
-        SELECT force_id, user_type, created_at 
-        FROM users 
-        WHERE user_type = 'soldier'
-        """
-        
-        cursor.execute(soldiers_query)
+        # Get all soldiers first (with optional force_id filter)
+        if force_id_filter.strip():
+            soldiers_query = """
+            SELECT force_id, user_type, created_at 
+            FROM users 
+            WHERE user_type = 'soldier' AND force_id LIKE %s
+            """
+            cursor.execute(soldiers_query, (f'%{force_id_filter}%',))
+        else:
+            soldiers_query = """
+            SELECT force_id, user_type, created_at 
+            FROM users 
+            WHERE user_type = 'soldier'
+            """
+            cursor.execute(soldiers_query)
         all_soldiers = cursor.fetchall()
         
         soldiers_report = []
@@ -448,7 +456,8 @@ def get_soldiers_report():
             },
             "filters": {
                 "risk_level": risk_level,
-                "days": days_filter
+                "days": days_filter,
+                "force_id": force_id_filter
             },
             "message": "Real soldiers data fetched successfully"
         }), 200

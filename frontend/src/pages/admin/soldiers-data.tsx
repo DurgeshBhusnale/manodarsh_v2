@@ -39,6 +39,7 @@ interface SoldiersResponse {
 const SoldiersData: React.FC = () => {
     const [filter, setFilter] = useState('all');
     const [daysFilter, setDaysFilter] = useState('7');
+    const [forceIdFilter, setForceIdFilter] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [soldiersData, setSoldiersData] = useState<Soldier[]>([]);
     const [pagination, setPagination] = useState<any>(null);
@@ -52,6 +53,7 @@ const SoldiersData: React.FC = () => {
             const response = await apiService.getSoldiersData({
                 risk_level: filter,
                 days: daysFilter,
+                force_id: forceIdFilter.trim() || undefined,
                 page: currentPage,
                 per_page: 20
             });
@@ -69,7 +71,7 @@ const SoldiersData: React.FC = () => {
 
     useEffect(() => {
         fetchSoldiersData();
-    }, [filter, daysFilter, currentPage]);
+    }, [filter, daysFilter, forceIdFilter, currentPage]);
 
     const handleFilterChange = (newFilter: string) => {
         setFilter(newFilter);
@@ -78,6 +80,11 @@ const SoldiersData: React.FC = () => {
 
     const handleDaysFilterChange = (newDaysFilter: string) => {
         setDaysFilter(newDaysFilter);
+        setCurrentPage(1); // Reset to first page when filter changes
+    };
+
+    const handleForceIdFilterChange = (newForceId: string) => {
+        setForceIdFilter(newForceId);
         setCurrentPage(1); // Reset to first page when filter changes
     };
 
@@ -141,6 +148,18 @@ const SoldiersData: React.FC = () => {
                                 <option value="30">Last 30 Days</option>
                                 <option value="180">Last 6 Months</option>
                             </select>
+                        </div>
+
+                        {/* Force ID Filter */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Force ID</label>
+                            <input
+                                type="text"
+                                value={forceIdFilter}
+                                onChange={(e) => handleForceIdFilterChange(e.target.value)}
+                                placeholder="Enter Force ID..."
+                                className="p-2 border rounded w-40"
+                            />
                         </div>
 
                         {/* Refresh Button */}

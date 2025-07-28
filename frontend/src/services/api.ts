@@ -71,12 +71,14 @@ export const apiService = {
     getSoldiersData: (params?: {
         risk_level?: string;
         days?: string;
+        force_id?: string;
         page?: number;
         per_page?: number;
     }) => {
         const queryParams = new URLSearchParams();
         if (params?.risk_level) queryParams.append('risk_level', params.risk_level);
         if (params?.days) queryParams.append('days', params.days);
+        if (params?.force_id) queryParams.append('force_id', params.force_id);
         if (params?.page) queryParams.append('page', params.page.toString());
         if (params?.per_page) queryParams.append('per_page', params.per_page.toString());
         

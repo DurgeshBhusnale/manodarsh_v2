@@ -15,6 +15,15 @@ interface Questionnaire {
     created_at: string;
 }
 
+interface QuestionnaireDetails extends Questionnaire {
+    questions: Array<{
+        id: number;
+        question_text: string;
+        question_text_hindi: string;
+        created_at: string;
+    }>;
+}
+
 const QuestionnairePage: React.FC = () => {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
@@ -36,11 +45,42 @@ const QuestionnairePage: React.FC = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [questionnaires, setQuestionnaires] = useState<Questionnaire[]>([]);
     const [loadingQuestionnaires, setLoadingQuestionnaires] = useState(false);
+    const [selectedQuestionnaire, setSelectedQuestionnaire] = useState<QuestionnaireDetails | null>(null);
+    const [showQuestionnaireDetails, setShowQuestionnaireDetails] = useState(false);
+    const [loadingDetails, setLoadingDetails] = useState(false);
 
     // Fetch questionnaires on component mount
     useEffect(() => {
         fetchQuestionnaires();
     }, []);
+
+    // Handle keyboard shortcuts
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape' && showQuestionnaireDetails) {
+                handleBackToList();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [showQuestionnaireDetails]);
+
+    // Handle keyboard shortcuts
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape' && showQuestionnaireDetails) {
+                handleBackToList();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [showQuestionnaireDetails]);
 
     const fetchQuestionnaires = async () => {
         setLoadingQuestionnaires(true);
@@ -60,6 +100,33 @@ const QuestionnairePage: React.FC = () => {
             setLoadingQuestionnaires(false);
         }
     };
+
+    const handleQuestionnaireClick = async (questionnaireId: number) => {
+        setLoadingDetails(true);
+        try {
+            const response = await apiService.getQuestionnaireDetails(questionnaireId);
+            setSelectedQuestionnaire(response.data.questionnaire);
+            setShowQuestionnaireDetails(true);
+        } catch (error) {
+            console.error('Failed to fetch questionnaire details:', error);
+            setErrorMessage('Failed to load questionnaire details. Please try again.');
+            setShowErrorModal(true);
+        } finally {
+            setLoadingDetails(false);
+        }
+    };
+
+    const handleBackToList = () => {
+        setShowQuestionnaireDetails(false);
+        setSelectedQuestionnaire(null);
+    };
+
+    // Sort questionnaires to show active ones first
+    const sortedQuestionnaires = [...questionnaires].sort((a, b) => {
+        if (a.status === 'Active' && b.status !== 'Active') return -1;
+        if (a.status !== 'Active' && b.status === 'Active') return 1;
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    });
 
     const handleCreateQuestionnaire = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -116,6 +183,13 @@ const QuestionnairePage: React.FC = () => {
     const handleSaveQuestionnaire = async () => {
         setLoading(true);
         try {
+            console.log('Creating questionnaire with data:', {
+                title,
+                description,
+                isActive,
+                numberOfQuestions
+            });
+            
             // First create the questionnaire
             const questionnaireResponse = await apiService.createQuestionnaire({
                 title,
@@ -124,23 +198,34 @@ const QuestionnairePage: React.FC = () => {
                 numberOfQuestions
             });
 
+            console.log('Questionnaire creation response:', questionnaireResponse);
+            console.log('Response data:', questionnaireResponse.data);
+
             const questionnaireId = questionnaireResponse.data.id;
+            console.log('Extracted questionnaire ID:', questionnaireId);
+
+            if (!questionnaireId) {
+                throw new Error('No questionnaire ID returned from server');
+            }
 
             // Then add all questions
+            console.log('Adding questions:', questions);
             for (const q of questions) {
-                await apiService.addQuestion({
+                const questionResponse = await apiService.addQuestion({
                     questionnaire_id: questionnaireId,
                     question_text: q.english,
                     question_text_hindi: q.hindi
                 });
+                console.log('Question added:', questionResponse);
             }
 
             // Show custom success modal instead of alert
             setShowSuccessModal(true);
             // Refresh questionnaires list
             fetchQuestionnaires();
-        } catch (error) {
+        } catch (error: any) {
             console.error('Failed to save questionnaire:', error);
+            console.error('Error details:', error.response?.data);
             setErrorMessage('Failed to save questionnaire. Please check your connection and try again.');
             setShowErrorModal(true);
         } finally {
@@ -190,7 +275,7 @@ const QuestionnairePage: React.FC = () => {
         setShowSuccessModal(false);
         handleReset();
         fetchQuestionnaires(); // Refresh the questionnaires list
-        navigate('/admin/dashboard');
+        // Stay on the questionnaire page to show the updated list
     };
 
     const handleErrorModalClose = () => {
@@ -281,7 +366,14 @@ const QuestionnairePage: React.FC = () => {
                     
                     {/* Questionnaires List */}
                     <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-                        <h2 className="text-xl font-semibold mb-4">Existing Questionnaires</h2>
+                        <div className="flex items-center justify-between mb-4">
+                            <h2 className="text-xl font-semibold">Existing Questionnaires</h2>
+                            <p className="text-sm text-gray-600">
+                                💡 Click on any questionnaire to view details
+                            </p>
+                        </div>
+                        
+                                                                <p className="text-gray-500 text-sm mb-4">💡 Click on any questionnaire row to view detailed information</p>
                         
                         {loadingQuestionnaires ? (
                             <div className="flex justify-center py-4">
@@ -302,10 +394,23 @@ const QuestionnairePage: React.FC = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {questionnaires.map((questionnaire) => (
-                                            <tr key={questionnaire.id} className="hover:bg-gray-50">
+                                        {sortedQuestionnaires.map((questionnaire) => (
+                                            <tr 
+                                                key={questionnaire.id} 
+                                                className={`cursor-pointer transition-colors duration-200 ${
+                                                    questionnaire.status === 'Active' 
+                                                        ? 'bg-green-50 hover:bg-green-100 border-green-200' 
+                                                        : 'hover:bg-gray-50'
+                                                }`}
+                                                onClick={() => handleQuestionnaireClick(questionnaire.id)}
+                                            >
                                                 <td className="border border-gray-300 px-4 py-2 font-medium">
-                                                    {questionnaire.title}
+                                                    <div className="flex items-center">
+                                                        {questionnaire.status === 'Active' && (
+                                                            <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                                        )}
+                                                        {questionnaire.title}
+                                                    </div>
                                                 </td>
                                                 <td className="border border-gray-300 px-4 py-2">
                                                     <div className="max-w-xs truncate" title={questionnaire.description}>
@@ -478,6 +583,157 @@ const QuestionnairePage: React.FC = () => {
                     </div>
                 )}
             </div>
+            
+            {/* Questionnaire Details Modal */}
+            {showQuestionnaireDetails && (
+                <div 
+                    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+                    onClick={(e) => {
+                        // Close modal when clicking on backdrop
+                        if (e.target === e.currentTarget) {
+                            handleBackToList();
+                        }
+                    }}
+                >
+                    <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col"
+                         onClick={(e) => e.stopPropagation()}>
+                        {/* Modal Header */}
+                        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                            <h2 className="text-2xl font-bold text-gray-800">
+                                Questionnaire Details
+                            </h2>
+                            <div className="flex items-center gap-3">
+                                {selectedQuestionnaire && (
+                                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                                        selectedQuestionnaire.status === 'Active' 
+                                            ? 'bg-green-100 text-green-800' 
+                                            : 'bg-gray-100 text-gray-800'
+                                    }`}>
+                                        {selectedQuestionnaire.status}
+                                    </span>
+                                )}
+                                <button
+                                    onClick={handleBackToList}
+                                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                                    title="Close (Press Esc)"
+                                >
+                                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Modal Content - Scrollable */}
+                        <div className="flex-1 overflow-y-auto p-6">
+                            {loadingDetails ? (
+                                <div className="text-center py-12">
+                                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                                    <p className="mt-4 text-gray-600 text-lg">Loading questionnaire details...</p>
+                                </div>
+                            ) : selectedQuestionnaire ? (
+                                <div>
+                                    {/* Questionnaire Info */}
+                                    <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                                        <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                                            <svg className="w-8 h-8 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                            {selectedQuestionnaire.title}
+                                        </h3>
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
+                                            <div className="bg-white p-4 rounded-lg shadow-sm">
+                                                <p className="text-sm font-semibold text-gray-600 mb-2">Description</p>
+                                                <p className="text-gray-800 leading-relaxed">{selectedQuestionnaire.description}</p>
+                                            </div>
+                                            <div className="bg-white p-4 rounded-lg shadow-sm">
+                                                <p className="text-sm font-semibold text-gray-600 mb-2">Created Date</p>
+                                                <p className="text-gray-800">
+                                                    {new Date(selectedQuestionnaire.created_at).toLocaleDateString('en-US', {
+                                                        year: 'numeric',
+                                                        month: 'long',
+                                                        day: 'numeric',
+                                                        hour: '2-digit',
+                                                        minute: '2-digit'
+                                                    })}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="bg-white p-4 rounded-lg shadow-sm inline-block">
+                                            <span className="text-sm font-semibold text-gray-600">Total Questions: </span>
+                                            <span className="text-lg font-bold text-blue-600">{selectedQuestionnaire.total_questions}</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Questions List */}
+                                    <div>
+                                        <h3 className="text-xl font-semibold mb-6 flex items-center">
+                                            <svg className="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Questions & Translations
+                                        </h3>
+                                        {selectedQuestionnaire.questions && selectedQuestionnaire.questions.length > 0 ? (
+                                            <div className="space-y-4">
+                                                {selectedQuestionnaire.questions.map((question, index) => (
+                                                    <div key={question.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                                        <div className="flex items-start justify-between mb-4">
+                                                            <span className="bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                                                                Question {index + 1}
+                                                            </span>
+                                                            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                                                                ID: {question.id}
+                                                            </span>
+                                                        </div>
+                                                        <div className="space-y-4">
+                                                            <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                                                <p className="text-sm font-semibold text-blue-700 mb-2 flex items-center">
+                                                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                                                                    </svg>
+                                                                    English
+                                                                </p>
+                                                                <p className="text-gray-800 leading-relaxed">{question.question_text}</p>
+                                                            </div>
+                                                            <div className="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                                                <p className="text-sm font-semibold text-orange-700 mb-2 flex items-center">
+                                                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                                                                    </svg>
+                                                                    Hindi (हिंदी)
+                                                                </p>
+                                                                <p className="text-gray-800 leading-relaxed font-medium" dir="auto">{question.question_text_hindi}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <div className="text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
+                                                <svg className="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <p className="text-gray-500 text-lg">No questions found for this questionnaire.</p>
+                                                <p className="text-gray-400 text-sm mt-2">Questions may not have been added yet.</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ) : null}
+                        </div>
+
+                        {/* Modal Footer */}
+                        <div className="border-t border-gray-200 p-6 bg-gray-50">
+                            <button
+                                onClick={handleBackToList}
+                                className="w-full sm:w-auto px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
+                            >
+                                Close & Return to List
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             
             {/* Loading Modal */}
             <LoadingModal

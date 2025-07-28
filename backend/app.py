@@ -26,7 +26,7 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(image_bp, url_prefix='/api/image')
     app.register_blueprint(admin_bp, url_prefix='/api/admin')
-    app.register_blueprint(settings_bp, url_prefix='/api/admin')
+    app.register_blueprint(settings_bp, url_prefix='/api/admin/settings')
     app.register_blueprint(survey_bp, url_prefix='/api/survey')
 
     # DISABLED: Initialize scheduler for CCTV monitoring

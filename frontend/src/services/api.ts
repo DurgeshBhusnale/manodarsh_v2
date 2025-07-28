@@ -151,6 +151,9 @@ export const apiService = {
     getQuestionnaires: () =>
         api.get('/admin/questionnaires'),
     
+    getQuestionnaireDetails: (id: number) =>
+        api.get(`/admin/questionnaires/${id}`),
+    
     translateQuestion,
 
     // Daily Emotion Detection endpoints

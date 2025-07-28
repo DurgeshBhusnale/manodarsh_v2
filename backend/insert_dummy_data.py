@@ -32,27 +32,33 @@ def insert_dummy_data():
 
         # Questionnaires
         cursor.execute("""
-            INSERT INTO questionnaires (title, description, status, created_at)
-            VALUES ('Weekly Mental Health Check', 'Standard weekly assessment for emotional well-being.', 'Active', NOW())
+            INSERT INTO questionnaires (title, description, status, total_questions, created_at)
+            VALUES ('Weekly Mental Health Check', 'Standard weekly assessment for emotional well-being.', 'Active', 4, NOW())
         """)
 
         cursor.execute("SELECT LAST_INSERT_ID()")
         questionnaire_id = cursor.fetchone()[0]
 
-        # Questions
+        # Add a second questionnaire for testing
+        cursor.execute("""
+            INSERT INTO questionnaires (title, description, status, total_questions, created_at)
+            VALUES ('Monthly Stress Assessment', 'Comprehensive monthly mental health evaluation.', 'Inactive', 6, NOW())
+        """)
+
+        # Questions with Hindi translations
         questions = [
-            "How do you feel today?",
-            "Did you experience any stress this week?",
-            "Are you sleeping well?",
-            "Do you feel emotionally supported?"
+            ("How do you feel today?", "आज आप कैसा महसूस कर रहे हैं?"),
+            ("Did you experience any stress this week?", "क्या इस सप्ताह आपने कोई तनाव महसूस किया?"),
+            ("Are you sleeping well?", "क्या आप अच्छी नींद ले रहे हैं?"),
+            ("Do you feel emotionally supported?", "क्या आप भावनात्मक रूप से सहारा महसूस करते हैं?")
         ]
 
         question_ids = []
-        for q in questions:
+        for q_en, q_hi in questions:
             cursor.execute("""
-                INSERT INTO questions (questionnaire_id, question_text, created_at)
-                VALUES (%s, %s, NOW())
-            """, (questionnaire_id, q))
+                INSERT INTO questions (questionnaire_id, question_text, question_text_hindi, created_at)
+                VALUES (%s, %s, %s, NOW())
+            """, (questionnaire_id, q_en, q_hi))
             cursor.execute("SELECT LAST_INSERT_ID()")
             question_ids.append(cursor.fetchone()[0])
 

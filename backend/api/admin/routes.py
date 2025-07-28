@@ -3,6 +3,8 @@ from db.connection import get_connection
 from services.translation_service import translate_to_hindi, translate_to_english
 from fpdf import FPDF
 import logging
+from datetime import datetime
+import io
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -66,7 +68,7 @@ def create_questionnaire():
 
         return jsonify({
             'message': 'Questionnaire created successfully',
-            'questionnaire_id': questionnaire_id
+            'id': questionnaire_id
         }), 201
 
     except Exception as e:
@@ -110,6 +112,64 @@ def get_questionnaires():
         db.close()
 
 
+@admin_bp.route('/questionnaires/<int:questionnaire_id>', methods=['GET'])
+def get_questionnaire_details(questionnaire_id):
+    """Get detailed information about a specific questionnaire including its questions"""
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        # Get questionnaire details
+        cursor.execute("""
+            SELECT questionnaire_id, title, description, status, total_questions, created_at
+            FROM questionnaires
+            WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+        
+        questionnaire_data = cursor.fetchone()
+        
+        if not questionnaire_data:
+            return jsonify({"error": "Questionnaire not found"}), 404
+        
+        questionnaire = {
+            "id": questionnaire_data[0],
+            "title": questionnaire_data[1],
+            "description": questionnaire_data[2],
+            "status": questionnaire_data[3],
+            "total_questions": questionnaire_data[4],
+            "created_at": questionnaire_data[5].strftime("%Y-%m-%d %H:%M:%S") if questionnaire_data[5] else None
+        }
+        
+        # Get questions for this questionnaire
+        cursor.execute("""
+            SELECT question_id, question_text, question_text_hindi, created_at
+            FROM questions
+            WHERE questionnaire_id = %s
+            ORDER BY question_id ASC
+        """, (questionnaire_id,))
+        
+        questions_data = cursor.fetchall()
+        questions = []
+        
+        for q_data in questions_data:
+            questions.append({
+                "id": q_data[0],
+                "question_text": q_data[1],
+                "question_text_hindi": q_data[2],
+                "created_at": q_data[3].strftime("%Y-%m-%d %H:%M:%S") if q_data[3] else None
+            })
+        
+        questionnaire["questions"] = questions
+        
+        return jsonify({"questionnaire": questionnaire}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
 @admin_bp.route('/create-question', methods=['POST'])
 def create_question():
     db = get_connection()
@@ -141,14 +201,6 @@ def create_question():
     finally:
         cursor.close()
         db.close()
-import logging
-from datetime import datetime
-import io
-
-# Set up logging
-logger = logging.getLogger(__name__)
-
-admin_bp = Blueprint('admin', __name__)
 
 def get_mental_state_analysis(score):
     """Determine mental state based on combined depression score (0-3 scale)"""
@@ -195,76 +247,6 @@ def get_mental_state_analysis(score):
             'recommendation': 'URGENT: Immediate professional intervention required'
         }
 
-
-# Translation endpoint for question (English to Hindi)
-@admin_bp.route('/translate-question', methods=['POST'])
-def translate_question():
-    try:
-        data = request.json
-        english_text = data.get('question_text', '')
-        if not english_text:
-            return jsonify({'error': 'No question_text provided'}), 400
-        
-        hindi_text = translate_to_hindi(english_text)
-        return jsonify({'hindi_text': hindi_text}), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-# Translation endpoint for answer (Hindi to English)
-@admin_bp.route('/translate-answer', methods=['POST'])
-def translate_answer():
-    try:
-        data = request.json
-        hindi_text = data.get('answer_text', '')
-        if not hindi_text:
-            return jsonify({'error': 'No answer_text provided'}), 400
-        
-        english_text = translate_to_english(hindi_text)
-        return jsonify({'english_text': english_text}), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-
-@admin_bp.route('/create-questionnaire', methods=['POST'])
-def create_questionnaire():
-    db = get_connection()
-    cursor = db.cursor()
-
-    try:
-        data = request.json
-        title = data['title']
-        description = data['description']
-        is_active = data['isActive']
-        number_of_questions = data['numberOfQuestions']
-
-        # If the new questionnaire is active, mark all other questionnaires as inactive
-        if is_active:
-            cursor.execute("""
-                UPDATE questionnaires
-                SET status = 'Inactive'
-                WHERE status = 'Active'
-            """)
-
-        # Insert the questionnaire
-        cursor.execute("""
-            INSERT INTO questionnaires (title, description, status, total_questions, created_at)
-            VALUES (%s, %s, %s, %s, NOW())
-        """, (title, description, 'Active' if is_active else 'Inactive', number_of_questions))
-        
-        questionnaire_id = cursor.lastrowid
-        db.commit()
-
-        return jsonify({
-            "message": "Questionnaire created successfully",
-            "id": questionnaire_id
-        }), 201
-
-    except Exception as e:
-        db.rollback()
-        return jsonify({"error": str(e)}), 500
-    finally:
-        cursor.close()
-        db.close()
 
 @admin_bp.route('/add-question', methods=['POST'])
 def add_question():

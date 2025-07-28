@@ -13972,6 +13972,7 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-16 14:43:02,424 - INFO - Detected soldier 100000005 with Neutral emotion (score: 0)
 2025-07-16 14:43:03,332 - DEBUG - Emotion probabilities: {'Angry': '0.15', 'Disgusted': '0.00', 'Fearful': '0.06', 'Happy': '0.02', 'Neutral': '0.72', 'Sad': '0.04', 'Surprised': '0.01'}
 2025-07-16 14:43:03,332 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+<<<<<<< HEAD
 2025-07-17 10:24:36,574 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
 2025-07-17 10:24:44,422 - INFO - All models loaded successfully
 2025-07-17 10:24:45,120 - DEBUG - Looking up time zone info from registry
@@ -16134,3 +16135,905 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-28 10:00:20,296 - INFO - All models loaded successfully
 2025-07-28 10:00:20,688 - WARNING -  * Debugger is active!
 2025-07-28 10:00:20,700 - INFO -  * Debugger PIN: 119-607-349
+=======
+2025-07-21 13:36:19,430 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-21 13:36:27,031 - ERROR - Error loading models: [Errno 2] No such file or directory: 'storage\\models\\face_recognition_model.pkl'
+2025-07-21 13:45:41,504 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-21 13:45:45,998 - ERROR - Error loading models: [Errno 2] No such file or directory: 'storage\\models\\face_recognition_model.pkl'
+2025-07-21 13:46:30,346 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-21 13:46:34,733 - INFO - All models loaded successfully
+2025-07-21 13:46:35,455 - DEBUG - Looking up time zone info from registry
+2025-07-21 13:46:35,708 - INFO - All models loaded successfully
+2025-07-21 13:46:35,709 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-21 13:46:35,709 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-21 13:46:35,713 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-21 13:46:35,713 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-21 13:46:35,713 - INFO - Scheduler started
+2025-07-21 13:46:35,715 - DEBUG - Looking for jobs to run
+2025-07-21 13:46:35,715 - INFO - Monitoring scheduler started
+2025-07-21 13:46:35,715 - DEBUG - Next wakeup is due at 2025-07-21 17:00:00+05:30 (in 11604.284500 seconds)
+2025-07-21 13:46:35,752 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 13:46:35,753 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 13:46:35,758 - INFO -  * Restarting with stat
+2025-07-21 13:46:43,585 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-21 13:46:48,176 - INFO - All models loaded successfully
+2025-07-21 13:46:48,920 - DEBUG - Looking up time zone info from registry
+2025-07-21 13:46:49,203 - INFO - All models loaded successfully
+2025-07-21 13:46:49,204 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-21 13:46:49,205 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-07-21 13:46:49,208 - INFO - Added job "MonitoringScheduler._start_daily_monitoring" to job store "default"
+2025-07-21 13:46:49,208 - INFO - Added job "MonitoringScheduler._end_daily_monitoring" to job store "default"
+2025-07-21 13:46:49,209 - INFO - Scheduler started
+2025-07-21 13:46:49,210 - DEBUG - Looking for jobs to run
+2025-07-21 13:46:49,210 - INFO - Monitoring scheduler started
+2025-07-21 13:46:49,210 - DEBUG - Next wakeup is due at 2025-07-21 17:00:00+05:30 (in 11590.789073 seconds)
+2025-07-21 13:46:49,234 - WARNING -  * Debugger is active!
+2025-07-21 13:46:49,246 - INFO -  * Debugger PIN: 132-663-522
+2025-07-21 13:47:08,173 - INFO - Scheduler has been shut down
+2025-07-21 13:47:08,173 - DEBUG - Looking for jobs to run
+2025-07-21 13:47:08,174 - DEBUG - No jobs; waiting until a job is added
+2025-07-21 13:47:08,174 - INFO - Monitoring scheduler stopped
+2025-07-21 13:47:08,175 - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:08] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-21 13:47:08,803 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:47:08,803 - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:08] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-21 13:47:23,216 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:47:23,217 - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:23] "OPTIONS /api/image/collect HTTP/1.1" 200 -
+2025-07-21 13:50:15,157 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:50:15,159 - INFO - 127.0.0.1 - - [21/Jul/2025 13:50:15] "POST /api/image/collect HTTP/1.1" 200 -
+2025-07-21 13:50:25,049 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:50:25,049 - INFO - 127.0.0.1 - - [21/Jul/2025 13:50:25] "OPTIONS /api/auth/register HTTP/1.1" 200 -
+2025-07-21 13:50:25,696 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:50:25,696 - INFO - 127.0.0.1 - - [21/Jul/2025 13:50:25] "[31m[1mPOST /api/auth/register HTTP/1.1[0m" 400 -
+2025-07-21 13:50:35,404 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:50:35,405 - INFO - 127.0.0.1 - - [21/Jul/2025 13:50:35] "OPTIONS /api/auth/register HTTP/1.1" 200 -
+2025-07-21 13:50:36,133 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:50:36,134 - INFO - 127.0.0.1 - - [21/Jul/2025 13:50:36] "[35m[1mPOST /api/auth/register HTTP/1.1[0m" 201 -
+2025-07-21 13:50:56,353 - INFO - Loaded existing model with 209 soldiers
+2025-07-21 13:50:57,716 - INFO - Processed image 100000001_Look_straight_at_camera_0.jpg for soldier 100000001
+2025-07-21 13:50:58,919 - INFO - Processed image 100000001_Look_straight_at_camera_1.jpg for soldier 100000001
+2025-07-21 13:51:00,293 - INFO - Processed image 100000001_Look_straight_at_camera_2.jpg for soldier 100000001
+2025-07-21 13:51:01,430 - INFO - Processed image 100000001_Look_straight_at_camera_3.jpg for soldier 100000001
+2025-07-21 13:51:02,641 - INFO - Processed image 100000001_Look_straight_at_camera_4.jpg for soldier 100000001
+2025-07-21 13:51:03,700 - INFO - Processed image 100000001_Look_straight_at_camera_5.jpg for soldier 100000001
+2025-07-21 13:51:04,839 - INFO - Processed image 100000001_Look_straight_at_camera_6.jpg for soldier 100000001
+2025-07-21 13:51:05,942 - INFO - Processed image 100000001_Look_straight_at_camera_7.jpg for soldier 100000001
+2025-07-21 13:51:07,154 - INFO - Processed image 100000001_Look_straight_at_camera_8.jpg for soldier 100000001
+2025-07-21 13:51:08,275 - INFO - Processed image 100000001_Look_straight_at_camera_9.jpg for soldier 100000001
+2025-07-21 13:51:09,694 - INFO - Processed image 100000001_Smile_0.jpg for soldier 100000001
+2025-07-21 13:51:11,176 - INFO - Processed image 100000001_Smile_1.jpg for soldier 100000001
+2025-07-21 13:51:12,259 - INFO - Processed image 100000001_Smile_2.jpg for soldier 100000001
+2025-07-21 13:51:13,623 - INFO - Processed image 100000001_Smile_3.jpg for soldier 100000001
+2025-07-21 13:51:15,211 - INFO - Processed image 100000001_Smile_4.jpg for soldier 100000001
+2025-07-21 13:51:16,297 - INFO - Processed image 100000001_Smile_5.jpg for soldier 100000001
+2025-07-21 13:51:17,402 - INFO - Processed image 100000001_Smile_6.jpg for soldier 100000001
+2025-07-21 13:51:18,413 - INFO - Processed image 100000001_Smile_7.jpg for soldier 100000001
+2025-07-21 13:51:19,514 - INFO - Processed image 100000001_Smile_8.jpg for soldier 100000001
+2025-07-21 13:51:20,585 - INFO - Processed image 100000001_Smile_9.jpg for soldier 100000001
+2025-07-21 13:51:21,801 - INFO - Processed image 100000001_Stand_a_little_away_0.jpg for soldier 100000001
+2025-07-21 13:51:23,049 - INFO - Processed image 100000001_Stand_a_little_away_1.jpg for soldier 100000001
+2025-07-21 13:51:24,413 - INFO - Processed image 100000001_Stand_a_little_away_2.jpg for soldier 100000001
+2025-07-21 13:51:25,649 - INFO - Processed image 100000001_Stand_a_little_away_3.jpg for soldier 100000001
+2025-07-21 13:51:26,766 - INFO - Processed image 100000001_Stand_a_little_away_4.jpg for soldier 100000001
+2025-07-21 13:51:28,059 - INFO - Processed image 100000001_Stand_a_little_away_5.jpg for soldier 100000001
+2025-07-21 13:51:29,478 - INFO - Processed image 100000001_Stand_a_little_away_6.jpg for soldier 100000001
+2025-07-21 13:51:30,739 - INFO - Processed image 100000001_Stand_a_little_away_7.jpg for soldier 100000001
+2025-07-21 13:51:31,826 - INFO - Processed image 100000001_Stand_a_little_away_8.jpg for soldier 100000001
+2025-07-21 13:51:33,088 - INFO - Processed image 100000001_Stand_a_little_away_9.jpg for soldier 100000001
+2025-07-21 13:51:34,175 - INFO - Processed image 100000001_Tilt_your_face_down_0.jpg for soldier 100000001
+2025-07-21 13:51:35,294 - INFO - Processed image 100000001_Tilt_your_face_down_1.jpg for soldier 100000001
+2025-07-21 13:51:36,423 - INFO - Processed image 100000001_Tilt_your_face_down_2.jpg for soldier 100000001
+2025-07-21 13:51:38,144 - INFO - Processed image 100000001_Tilt_your_face_down_3.jpg for soldier 100000001
+2025-07-21 13:51:39,333 - INFO - Processed image 100000001_Tilt_your_face_down_4.jpg for soldier 100000001
+2025-07-21 13:51:40,765 - INFO - Processed image 100000001_Tilt_your_face_down_5.jpg for soldier 100000001
+2025-07-21 13:51:41,883 - INFO - Processed image 100000001_Tilt_your_face_down_6.jpg for soldier 100000001
+2025-07-21 13:51:43,042 - INFO - Processed image 100000001_Tilt_your_face_down_7.jpg for soldier 100000001
+2025-07-21 13:51:44,157 - INFO - Processed image 100000001_Tilt_your_face_down_8.jpg for soldier 100000001
+2025-07-21 13:51:45,410 - INFO - Processed image 100000001_Tilt_your_face_down_9.jpg for soldier 100000001
+2025-07-21 13:51:46,568 - INFO - Processed image 100000001_Turn_your_face_left_0.jpg for soldier 100000001
+2025-07-21 13:51:47,781 - INFO - Processed image 100000001_Turn_your_face_left_1.jpg for soldier 100000001
+2025-07-21 13:51:49,191 - INFO - Processed image 100000001_Turn_your_face_left_2.jpg for soldier 100000001
+2025-07-21 13:51:50,160 - INFO - Processed image 100000001_Turn_your_face_left_3.jpg for soldier 100000001
+2025-07-21 13:51:51,409 - INFO - Processed image 100000001_Turn_your_face_left_4.jpg for soldier 100000001
+2025-07-21 13:51:52,687 - INFO - Processed image 100000001_Turn_your_face_left_5.jpg for soldier 100000001
+2025-07-21 13:51:53,831 - INFO - Processed image 100000001_Turn_your_face_left_6.jpg for soldier 100000001
+2025-07-21 13:51:55,009 - INFO - Processed image 100000001_Turn_your_face_left_7.jpg for soldier 100000001
+2025-07-21 13:51:56,212 - INFO - Processed image 100000001_Turn_your_face_left_8.jpg for soldier 100000001
+2025-07-21 13:51:57,355 - INFO - Processed image 100000001_Turn_your_face_left_9.jpg for soldier 100000001
+2025-07-21 13:51:58,860 - INFO - Processed image 100000001_Turn_your_face_right_0.jpg for soldier 100000001
+2025-07-21 13:52:00,101 - INFO - Processed image 100000001_Turn_your_face_right_1.jpg for soldier 100000001
+2025-07-21 13:52:01,525 - INFO - Processed image 100000001_Turn_your_face_right_2.jpg for soldier 100000001
+2025-07-21 13:52:02,595 - INFO - Processed image 100000001_Turn_your_face_right_3.jpg for soldier 100000001
+2025-07-21 13:52:03,679 - INFO - Processed image 100000001_Turn_your_face_right_4.jpg for soldier 100000001
+2025-07-21 13:52:04,655 - INFO - Processed image 100000001_Turn_your_face_right_5.jpg for soldier 100000001
+2025-07-21 13:52:05,544 - INFO - Processed image 100000001_Turn_your_face_right_6.jpg for soldier 100000001
+2025-07-21 13:52:06,456 - INFO - Processed image 100000001_Turn_your_face_right_7.jpg for soldier 100000001
+2025-07-21 13:52:07,310 - INFO - Processed image 100000001_Turn_your_face_right_8.jpg for soldier 100000001
+2025-07-21 13:52:08,403 - INFO - Processed image 100000001_Turn_your_face_right_9.jpg for soldier 100000001
+2025-07-21 13:52:08,432 - INFO - Saved profile picture for soldier 100000001
+2025-07-21 13:52:08,453 - INFO - Deleted images for soldier 100000001
+2025-07-21 13:52:08,456 - INFO - Saved model with 269 total soldiers
+2025-07-21 13:52:08,480 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:52:08,480 - INFO - 127.0.0.1 - - [21/Jul/2025 13:52:08] "POST /api/image/train HTTP/1.1" 200 -
+2025-07-21 13:52:58,359 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:52:58,360 - INFO - 127.0.0.1 - - [21/Jul/2025 13:52:58] "OPTIONS /api/admin/translate-question HTTP/1.1" 200 -
+2025-07-21 13:52:58,992 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000002350DC55900>
+2025-07-21 13:52:58,992 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-21 13:52:58,993 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:52:58,993 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-21 13:52:58,993 - DEBUG - Encoding 1 with 6 bits
+2025-07-21 13:52:58,993 - DEBUG - Encoding 14 with 7 bits
+2025-07-21 13:52:58,994 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-21 13:52:58,994 - DEBUG - Encoding 7 with 7 bits
+2025-07-21 13:52:58,994 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-21 13:52:58,994 - DEBUG - Encoding 4 with 6 bits
+2025-07-21 13:52:58,995 - DEBUG - Encoding 101 with 7 bits
+2025-07-21 13:52:58,995 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-21 13:52:58,995 - DEBUG - Encoding 19 with 6 bits
+2025-07-21 13:52:58,995 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:52:58,996 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-21 13:52:58,996 - DEBUG - Encoding 16 with 7 bits
+2025-07-21 13:52:58,996 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-21 13:52:58,996 - DEBUG - Encoding 58 with 6 bits
+2025-07-21 13:52:58,996 - DEBUG - Encoding 32 with 7 bits
+2025-07-21 13:52:58,997 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-21 13:52:58,997 - DEBUG - Encoding 51 with 6 bits
+2025-07-21 13:52:58,997 - DEBUG - Encoding 20 with 7 bits
+2025-07-21 13:52:58,997 - DEBUG - Adding (b'content-length', b'166') to the header table
+2025-07-21 13:52:58,998 - DEBUG - Encoding 28 with 6 bits
+2025-07-21 13:52:58,998 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:52:58,998 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-21 13:52:58,998 - DEBUG - Encoding 31 with 6 bits
+2025-07-21 13:52:58,999 - DEBUG - Encoding 24 with 7 bits
+2025-07-21 13:52:58,999 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83\x0b\x8e\x7f_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-21 13:52:59,497 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xd0z\xbe\x94\x10T\xcbm\n\x08\x02m@=pB\xb8\xdb\xcab\xd1\xbfY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xafv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff[\xd3\x92\xfc\r\x89\xb8\t\xb7\x97Pgw\xa2if\xb0n\xc3\xdb\xb6\x06q\xa7\xacY}9OOrwF\x85\xb8d/\xe2a\xc9\x83\xbe\xecSq\xdb\xa7\xf3\'\x1fG\x8b&\xe4\xcc\xd7\x91\xdd(\x91\xe3\xf48\xfc\xd1\x7f.L\x18\xb8^\xba\xfd\x19}\xd9\x93p[\x93\xd7aQH;K:\xdb\xdd\x88\xd8\x9b\x86\xad=\xe6\xc4\xfel\x9f\x99V\xcfT3\xf8\xbf\x8b`\xb4E\x1f\'O\x8b3MI$8:te\xd5\xba\xfe\xb8\x14\xe4\xe5\x0e\x0b\x1c\x0es[\x90\x95\x08\xdcy\x90\x80\xfd\xf0\xb37\xfa\xfe\t\x9e\x81\x86\\\x13s\xa82m\x87\x7f\x8f\xb5\x0b\xe6\xb3XTA\xbe\xd2\xfd( -\x94u, \t\xc5\x00\xf5\xc1\n\xe3o)\x8bF\xff\xb5+\x1ag\x81\x8f\xb5$=#5P/1\xcf5\x05\\\x87\xa7\xedLiMz\xaa\xa3\xd7@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-21 13:52:59,498 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-21 13:52:59,498 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-21 13:52:59,498 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-21 13:52:59,498 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:52:59,499 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-21 13:52:59,499 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-21 13:52:59,499 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-21 13:52:59,499 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-21 13:52:59,500 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:52:59,500 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:52:59,500 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-21 13:52:59,500 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:52:59,501 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:52:59,501 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-21 13:52:59,501 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-21 13:52:59,501 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:52:59,502 - DEBUG - Decoded (b'date', b'Mon, 21 Jul 2025 08:22:58 GMT'), total consumed 25 bytes, indexed False
+2025-07-21 13:52:59,502 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-21 13:52:59,502 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-21 13:52:59,502 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-21 13:52:59,503 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:52:59,503 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:52:59,503 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-21 13:52:59,503 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:52:59,503 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-21 13:52:59,504 - DEBUG - Decoded (<memory at 0x000002350DC39400>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-21 13:52:59,504 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-21 13:52:59,504 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-21 13:52:59,505 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-21 13:52:59,505 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:52:59,505 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-21 13:52:59,505 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-21 13:52:59,506 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-21 13:52:59,506 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:52:59,506 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-21 13:52:59,506 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:52:59,507 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-21 13:52:59,507 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-21 13:52:59,507 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:52:59,507 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-21 13:52:59,508 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-21 13:52:59,511 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-21 13:52:59,511 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:52:59,512 - DEBUG - Decoded (b'server', <memory at 0x000002350DC394C0>), total consumed 5 bytes, indexed True
+2025-07-21 13:52:59,512 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-21 13:52:59,512 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-21 13:52:59,512 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002350DC39340>), total consumed 16 bytes, indexed True
+2025-07-21 13:52:59,513 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-21 13:52:59,513 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-21 13:52:59,513 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-21 13:52:59,513 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-21 13:52:59,513 - DEBUG - Decoded 218, consumed 2 bytes
+2025-07-21 13:52:59,514 - DEBUG - Decoded (b'set-cookie', b'NID=525=cRWk0L7jtm3p0SFqqE3Htk_Jy6mjzdvsM-UIeXtAIEvSGgVRNXIVyo_IStg4xaBe2swZ1HxlDJIEGUCB9lJzrIS15dyq2lm0qfh-T7_iG5AnNvgG9KIXJ-LnAhwDGQ2M_bW7oGK44ddAEjj37-kZ61tIWAEr61LiuIcn2iVYcc0Zw-3DkX23j1AfEgYn1dRATw; expires=Tue, 20-Jan-2026 08:22:58 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 222 bytes, indexed False
+2025-07-21 13:52:59,514 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:52:59,515 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:52:59,515 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-21 13:52:59,515 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:52:59,515 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:52:59,516 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-21 13:52:59,516 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-21 13:52:59,516 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-21 13:52:59,516 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-21 13:52:59,519 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-21 13:52:59,551 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:52:59,552 - INFO - 127.0.0.1 - - [21/Jul/2025 13:52:59] "POST /api/admin/translate-question HTTP/1.1" 200 -
+2025-07-21 13:53:11,569 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:11,571 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:11] "OPTIONS /api/admin/translate-question HTTP/1.1" 200 -
+2025-07-21 13:53:12,143 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000002350DC55970>
+2025-07-21 13:53:12,144 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-21 13:53:12,144 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:53:12,144 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-21 13:53:12,144 - DEBUG - Encoding 1 with 6 bits
+2025-07-21 13:53:12,144 - DEBUG - Encoding 14 with 7 bits
+2025-07-21 13:53:12,145 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-21 13:53:12,145 - DEBUG - Encoding 7 with 7 bits
+2025-07-21 13:53:12,145 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-21 13:53:12,145 - DEBUG - Encoding 4 with 6 bits
+2025-07-21 13:53:12,146 - DEBUG - Encoding 101 with 7 bits
+2025-07-21 13:53:12,146 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-21 13:53:12,146 - DEBUG - Encoding 19 with 6 bits
+2025-07-21 13:53:12,146 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:53:12,146 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-21 13:53:12,147 - DEBUG - Encoding 16 with 7 bits
+2025-07-21 13:53:12,147 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-21 13:53:12,147 - DEBUG - Encoding 58 with 6 bits
+2025-07-21 13:53:12,147 - DEBUG - Encoding 32 with 7 bits
+2025-07-21 13:53:12,147 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-21 13:53:12,148 - DEBUG - Encoding 51 with 6 bits
+2025-07-21 13:53:12,148 - DEBUG - Encoding 20 with 7 bits
+2025-07-21 13:53:12,148 - DEBUG - Adding (b'content-length', b'172') to the header table
+2025-07-21 13:53:12,148 - DEBUG - Encoding 28 with 6 bits
+2025-07-21 13:53:12,148 - DEBUG - Encoding 2 with 7 bits
+2025-07-21 13:53:12,149 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-21 13:53:12,149 - DEBUG - Encoding 31 with 6 bits
+2025-07-21 13:53:12,149 - DEBUG - Encoding 24 with 7 bits
+2025-07-21 13:53:12,149 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x82\x0b\xa2_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-21 13:53:13,424 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xd0z\xbe\x94\x10T\xcbm\n\x08\x02m@=pL\xdc\x08T\xc5\xa3\x7fY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9fv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff\\\xd3\x92\xfc\r\x89\xb8:C\xfb/\x08\xee\xees\x106\xf2\xc4|\x19\xe6\xf6\xd6\xbb\xdc&\xd3\x81\xd9t\xad\xcbU\xbb4\xecZ\xef\x94\x9f\x0ffqf\xeb\x11r\xf2\xa1\x04\xe5v]\x96\xe4\x9d\xe6\xf3C\x85\x12\xde\xaeo;\xdf\xa8r\xe3\x87\xf76_qz\xc3[]\xd9\xf0{\xf9\xafwzK?3Y\x8fNV}\xe2\xcb\r\x17\xb7\xecsGwr-\xd7dzB\x03\xe6\xbf\xfbF\xfer\xdf~\xed\xdaxs\xb5\x9d\\p\xc9\x9b\xf55\x81\xab\xd8\xcb\xaf\x86]\xbb?q\xb7\xd3\r\xde}g\xb1\xcc\xbe(\xb6\x8b\xb9\xfb%\x92\x97B6^\xea\xb1\xe3\xfbP\xbek5\x85D\x1b\xed/\xd2\x82\x02\xd9GR\xc2\x00\x9cP\x0f\\\x137\x02\x151h\xdf\xf6\xa5cL\xf01\xf6\xa4\x87\xa4f\xaa\x05\xe69\xe6\xa0\xab\x90\xf4\xfd\xa9\x8d)\xafUTz@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-21 13:53:13,425 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-21 13:53:13,425 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-21 13:53:13,425 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-21 13:53:13,425 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:53:13,426 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-21 13:53:13,426 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-21 13:53:13,426 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-21 13:53:13,426 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-21 13:53:13,426 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:53:13,426 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:53:13,427 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-21 13:53:13,427 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:53:13,427 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:53:13,427 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-21 13:53:13,427 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-21 13:53:13,427 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:53:13,427 - DEBUG - Decoded (b'date', b'Mon, 21 Jul 2025 08:23:11 GMT'), total consumed 25 bytes, indexed False
+2025-07-21 13:53:13,427 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-21 13:53:13,428 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-21 13:53:13,428 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-21 13:53:13,428 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:53:13,428 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:53:13,428 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-21 13:53:13,428 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:53:13,428 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-21 13:53:13,429 - DEBUG - Decoded (<memory at 0x000002350DC39280>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-21 13:53:13,429 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:53:13,429 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-21 13:53:13,429 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-21 13:53:13,429 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-21 13:53:13,430 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:53:13,430 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-21 13:53:13,430 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:53:13,430 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-21 13:53:13,430 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-21 13:53:13,430 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:53:13,431 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-21 13:53:13,431 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-21 13:53:13,431 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-21 13:53:13,431 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-21 13:53:13,432 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-21 13:53:13,432 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-21 13:53:13,432 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:53:13,432 - DEBUG - Decoded (b'server', <memory at 0x000002350DC39700>), total consumed 5 bytes, indexed True
+2025-07-21 13:53:13,432 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-21 13:53:13,432 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-21 13:53:13,432 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002350DC39640>), total consumed 16 bytes, indexed True
+2025-07-21 13:53:13,433 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-21 13:53:13,433 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-21 13:53:13,433 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-21 13:53:13,433 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-21 13:53:13,433 - DEBUG - Decoded 219, consumed 2 bytes
+2025-07-21 13:53:13,434 - DEBUG - Decoded (b'set-cookie', b'NID=525=jAZfUbBS6G0RWGoELgz4PCUgNE7fN-WOuQNQ-BxtoFq3GKk_eJWlscWBfQuIh85KAFsfCpgxT9nafHAZKJz_yFp4v3woDKCv8drXKrHNJ3zGJAlCTQ6Mv7I-kQbN10oKDZlTYfD9BBmUYu3OVFdKZtp04CHePUJRQZH5jFBYkhr6JwlulBLqt3eeMsQCk-ob; expires=Tue, 20-Jan-2026 08:23:11 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 223 bytes, indexed False
+2025-07-21 13:53:13,434 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:53:13,434 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:53:13,434 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-21 13:53:13,434 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:53:13,435 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:53:13,435 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-21 13:53:13,435 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-21 13:53:13,435 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-21 13:53:13,435 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-21 13:53:13,436 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-21 13:53:13,450 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:13,451 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:13] "POST /api/admin/translate-question HTTP/1.1" 200 -
+2025-07-21 13:53:15,642 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:15,644 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:15] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-07-21 13:53:15,995 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:15,995 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:15] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-07-21 13:53:16,213 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:16,214 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:16] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-07-21 13:53:16,342 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:16,343 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:16] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-07-21 13:53:16,553 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:16,553 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:16] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-07-21 13:53:36,379 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:36,380 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:36] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-21 13:53:37,098 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:37,099 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:37] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-21 13:53:37,153 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:37,154 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:37] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-21 13:53:37,491 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:37,492 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:37] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:53:37,501 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:37,501 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:37] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-21 13:53:37,728 - INFO - Trying external webcam (index 1)...
+2025-07-21 13:53:37,762 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-21 13:53:37,807 - INFO - Trying external webcam (index 1)...
+2025-07-21 13:53:37,839 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-21 13:53:42,469 - INFO - Successfully connected to built-in camera
+2025-07-21 13:53:42,534 - INFO - Successfully connected to built-in camera
+2025-07-21 13:53:57,339 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-21 13:53:57,340 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-21 13:53:57,341 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:53:57,342 - INFO - 127.0.0.1 - - [21/Jul/2025 13:53:57] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:54:00,271 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:00,272 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:00] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-21 13:54:00,905 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-21 13:54:00,905 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-21 13:54:00,906 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:00,907 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:00] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:54:00,994 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:00,995 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:00] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 403 -
+2025-07-21 13:54:05,717 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:05,718 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:05] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-21 13:54:06,376 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:06,377 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:06] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-21 13:54:13,682 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:13,683 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:13] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-21 13:54:14,435 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:14,436 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:14] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-21 13:54:14,522 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:14,523 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:14] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-21 13:54:14,849 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:14,850 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:14] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:54:14,873 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:14,874 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:14] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-21 13:54:15,216 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-21 13:54:15,217 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-21 13:54:15,219 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:15,219 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:15] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:54:15,348 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-21 13:54:15,348 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-21 13:54:15,349 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:15,349 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:15] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:54:50,957 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:50,958 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:50] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-21 13:54:51,268 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:51,269 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:51] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-21 13:54:51,486 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000002350E86F0B0>
+2025-07-21 13:54:51,486 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-21 13:54:51,487 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:54:51,487 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-21 13:54:51,487 - DEBUG - Encoding 1 with 6 bits
+2025-07-21 13:54:51,487 - DEBUG - Encoding 14 with 7 bits
+2025-07-21 13:54:51,487 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-21 13:54:51,487 - DEBUG - Encoding 7 with 7 bits
+2025-07-21 13:54:51,487 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-21 13:54:51,488 - DEBUG - Encoding 4 with 6 bits
+2025-07-21 13:54:51,488 - DEBUG - Encoding 101 with 7 bits
+2025-07-21 13:54:51,488 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-21 13:54:51,488 - DEBUG - Encoding 19 with 6 bits
+2025-07-21 13:54:51,488 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:54:51,488 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-21 13:54:51,488 - DEBUG - Encoding 16 with 7 bits
+2025-07-21 13:54:51,489 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-21 13:54:51,489 - DEBUG - Encoding 58 with 6 bits
+2025-07-21 13:54:51,489 - DEBUG - Encoding 32 with 7 bits
+2025-07-21 13:54:51,489 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-21 13:54:51,489 - DEBUG - Encoding 51 with 6 bits
+2025-07-21 13:54:51,489 - DEBUG - Encoding 20 with 7 bits
+2025-07-21 13:54:51,489 - DEBUG - Adding (b'content-length', b'162') to the header table
+2025-07-21 13:54:51,489 - DEBUG - Encoding 28 with 6 bits
+2025-07-21 13:54:51,489 - DEBUG - Encoding 2 with 7 bits
+2025-07-21 13:54:51,490 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-21 13:54:51,490 - DEBUG - Encoding 31 with 6 bits
+2025-07-21 13:54:51,490 - DEBUG - Encoding 24 with 7 bits
+2025-07-21 13:54:51,490 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x82\x0b\x82_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-21 13:54:51,727 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000002350E86F120>
+2025-07-21 13:54:51,728 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-21 13:54:51,728 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:54:51,728 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-21 13:54:51,728 - DEBUG - Encoding 1 with 6 bits
+2025-07-21 13:54:51,728 - DEBUG - Encoding 14 with 7 bits
+2025-07-21 13:54:51,728 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-21 13:54:51,728 - DEBUG - Encoding 7 with 7 bits
+2025-07-21 13:54:51,729 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-21 13:54:51,729 - DEBUG - Encoding 4 with 6 bits
+2025-07-21 13:54:51,730 - DEBUG - Encoding 101 with 7 bits
+2025-07-21 13:54:51,730 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-21 13:54:51,730 - DEBUG - Encoding 19 with 6 bits
+2025-07-21 13:54:51,730 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:54:51,730 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-21 13:54:51,731 - DEBUG - Encoding 16 with 7 bits
+2025-07-21 13:54:51,731 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-21 13:54:51,731 - DEBUG - Encoding 58 with 6 bits
+2025-07-21 13:54:51,731 - DEBUG - Encoding 32 with 7 bits
+2025-07-21 13:54:51,731 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-21 13:54:51,731 - DEBUG - Encoding 51 with 6 bits
+2025-07-21 13:54:51,731 - DEBUG - Encoding 20 with 7 bits
+2025-07-21 13:54:51,731 - DEBUG - Adding (b'content-length', b'395') to the header table
+2025-07-21 13:54:51,732 - DEBUG - Encoding 28 with 6 bits
+2025-07-21 13:54:51,732 - DEBUG - Encoding 3 with 7 bits
+2025-07-21 13:54:51,732 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-21 13:54:51,732 - DEBUG - Encoding 31 with 6 bits
+2025-07-21 13:54:51,732 - DEBUG - Encoding 24 with 7 bits
+2025-07-21 13:54:51,732 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83e\xf6\xff_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-21 13:54:52,757 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xd0z\xbe\x94\x10T\xcbm\n\x08\x02m@=pM\\l*b\xd1\xbfY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82Kv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xffX\xd3\x92\xfc\r\x89\xb86Y3\xd7\x9b\x85\x18\x9e\xfc\xf1\x7f1\x11\xef\x8aF\xeb\xff\xa0h\x1f\x997\xd3\xce\x19s9\x85\x06\xbc\x8d5C\xd8\xde5X\x9b\xd3L\xb6C\x06m\xd5\xd6k3\x17\x07Dgh9j\xe1\xd4\xfb\xba&\x1b\x07\xf9=i\x91\x18\x84\xff\x0f\xdc=\xf9h\xe3\xbb\x9e\x9c\xb5\xe0\x8b\x7f\xe9\xb3\x9e\xc3~\xe6{W\xe6N\xef]\xca\xdeL\x1a\xad\x8c\x10\xcf\x93\xc3\xa1\xa64\xd1\x8e)\x89\x0e1\xd7e\xee\x8c\xb8\x87\t{\x123\xe031K\x1e\x06\xf2\x13c-\x048\xe4\xdb\xda?\xd8\xb9C\xc2\xbe\xe2\xc6\xfc~5\xf1\xfbP\xbek5\x85D\x1b\xed/\xd2\x82\x02\xd9GR\xc2\x00\x9cP\x0f\\\x13W\x1b\n\x98\xb4o\xfbR\xb1\xa6x\x18\xfbRC\xd23U\x02\xf3\x1c\xf3PU\xc8z~\xd4\xc6\x94\xd7\xaa\xaa=\x7f@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-21 13:54:52,758 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-21 13:54:52,759 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xd0z\xbe\x94\x10T\xcbm\n\x08\x02m@=pM\\l*b\xd1\xbfY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82Kv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xffX\xd3\x92\xfc\r\x89\xb86\x17bd\xaa\xf5\xf1p\x14D\xcd\xcd\x99\xe1\xbd\x14\x96\xe9\x04\xa0\x9f\x8e\xfd\xc7\xb4\xc0\xb3\x06\xa4\xd1%\xbd\x9e\r\x94\xbf\x97\x87p\x83\xab\xb3{\xee\x8d\xbe\x9e\xcb\xe5\xaef\x86\xcc\xd8a\x9b\xc7w\x11\x9b}\x96\nN\x98&\x8f\x87\xaf\xc9\x96\x9a\xf7MV\x1f\xf7\x17}\xbeo\x96\xfb\xa0\xd4b\xd6\xd0r\xf7\xc1/\xecx\xcb\xf9\x84\xe7\xe0\xf7\x0cw\xcf\xfb\x1e\x97\xb63\x9f\x9b]\xf6\xd8:&\xe4\xfe\xfc\xb7d\xab{}\xb0l\xc0\x8d;\xe8\xd1\xd8w\xf0";\xa3\xd8\x0ex<^p\xfeM\xa1\xa7-\xf0\xf1\xb0p\xcf\xf6\xa1|\xd6k\n\x887\xda_\xa5\x04\x05\xb2\x8e\xa5\x84\x018\xa0\x1e\xb8&\xae6\x151h\xdf\xf6\xa5cL\xf01\xf6\xa4\x87\xa4f\xaa\x05\xe69\xe6\xa0\xab\x90\xf4\xfd\xa9\x8d)\xafUTz@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-21 13:54:52,759 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-21 13:54:52,759 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-21 13:54:52,759 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-21 13:54:52,759 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-21 13:54:52,760 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:54:52,760 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-21 13:54:52,760 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-21 13:54:52,760 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:54:52,760 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-21 13:54:52,761 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-21 13:54:52,761 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-21 13:54:52,761 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-21 13:54:52,761 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-21 13:54:52,761 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-21 13:54:52,762 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:54:52,762 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-21 13:54:52,763 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:54:52,763 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:54:52,763 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-21 13:54:52,763 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:54:52,763 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:54:52,764 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-21 13:54:52,764 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:54:52,764 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:54:52,764 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-21 13:54:52,764 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:54:52,765 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-21 13:54:52,765 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-21 13:54:52,765 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:54:52,765 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-21 13:54:52,765 - DEBUG - Decoded (b'date', b'Mon, 21 Jul 2025 08:24:51 GMT'), total consumed 25 bytes, indexed False
+2025-07-21 13:54:52,765 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-21 13:54:52,766 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-21 13:54:52,766 - DEBUG - Decoded (b'date', b'Mon, 21 Jul 2025 08:24:51 GMT'), total consumed 25 bytes, indexed False
+2025-07-21 13:54:52,766 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-21 13:54:52,766 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-21 13:54:52,767 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-21 13:54:52,767 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-21 13:54:52,766 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-21 13:54:52,767 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:54:52,767 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:54:52,767 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:54:52,768 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:54:52,768 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-21 13:54:52,768 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-21 13:54:52,768 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:54:52,768 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:54:52,768 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-21 13:54:52,769 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-21 13:54:52,769 - DEBUG - Decoded (<memory at 0x000002350DC39AC0>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-21 13:54:52,769 - DEBUG - Decoded (<memory at 0x000002350DC39B80>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-21 13:54:52,769 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:54:52,770 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-21 13:54:52,770 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-21 13:54:52,770 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-21 13:54:52,770 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-21 13:54:52,771 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-21 13:54:52,771 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-21 13:54:52,771 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:54:52,771 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-21 13:54:52,771 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-21 13:54:52,772 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-21 13:54:52,772 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-21 13:54:52,772 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:54:52,772 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:54:52,772 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-21 13:54:52,773 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-21 13:54:52,773 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-21 13:54:52,773 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-21 13:54:52,774 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-21 13:54:52,774 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:54:52,774 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-21 13:54:52,774 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-21 13:54:52,775 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-21 13:54:52,775 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-21 13:54:52,776 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-21 13:54:52,776 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-21 13:54:52,776 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:54:52,777 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-21 13:54:52,777 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-21 13:54:52,777 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-21 13:54:52,777 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-21 13:54:52,778 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-21 13:54:52,778 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:54:52,778 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:54:52,779 - DEBUG - Decoded (b'server', <memory at 0x000002350DC39C40>), total consumed 5 bytes, indexed True
+2025-07-21 13:54:52,779 - DEBUG - Decoded (b'server', <memory at 0x000002350DC39DC0>), total consumed 5 bytes, indexed True
+2025-07-21 13:54:52,779 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-21 13:54:52,779 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-21 13:54:52,780 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-21 13:54:52,780 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-21 13:54:52,780 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002350DC39D00>), total consumed 16 bytes, indexed True
+2025-07-21 13:54:52,781 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002350DC39F40>), total consumed 16 bytes, indexed True
+2025-07-21 13:54:52,781 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-21 13:54:52,781 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-21 13:54:52,782 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-21 13:54:52,782 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-21 13:54:52,782 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-21 13:54:52,782 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-21 13:54:52,783 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-21 13:54:52,783 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-21 13:54:52,783 - DEBUG - Decoded 215, consumed 2 bytes
+2025-07-21 13:54:52,783 - DEBUG - Decoded 215, consumed 2 bytes
+2025-07-21 13:54:52,784 - DEBUG - Decoded (b'set-cookie', b'NID=525=QeQtdnCD2U2_cKY3hAC_duN0f0hVTSoui0rEOtlduq81rm9JUv10k7gzvsRy8Jx4YiArKFAgwv6sKTrr2djEgbUyXg-gCjOroZGvRxDeD70Oiep41JvEfZbHeXFooU8UHDoZbN8Q3LY4vRralgW9TJBdnT5qEQEsNTlMqaDEsbBaQ0YEwC6oxiM46uw8iEUL; expires=Tue, 20-Jan-2026 08:24:51 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 219 bytes, indexed False
+2025-07-21 13:54:52,784 - DEBUG - Decoded (b'set-cookie', b'NID=525=Qrg8C5AsG8XwDKcszVta79Z040XITmYAfK6FsiCsNnAqiwOrtCgg-Ii1gSppirKeEjsL41JnUkoSjtAraXhptdsG29UZFvWMVSYNJpE_TZiLoriZK8OXIv8BJ5IEOub0AhIw71mbtlH_gcAHaprCj36s6cCGsLEi3_fbE5IcQ3411HdRqbZ_WAUpv2H9bwPV; expires=Tue, 20-Jan-2026 08:24:51 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 219 bytes, indexed False
+2025-07-21 13:54:52,784 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:54:52,785 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-21 13:54:52,785 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:54:52,785 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-21 13:54:52,786 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-21 13:54:52,786 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-21 13:54:52,786 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:54:52,786 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-21 13:54:52,786 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:54:52,786 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-21 13:54:52,787 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-21 13:54:52,787 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-21 13:54:52,787 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-21 13:54:52,787 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-21 13:54:52,787 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-21 13:54:52,788 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-21 13:54:52,788 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-21 13:54:52,788 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-21 13:54:52,789 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-21 13:54:52,790 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-21 13:54:52,793 - INFO - Translated 'my week was good' to 'My Week was Good'
+2025-07-21 13:54:52,806 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:52,813 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:52,813 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:52] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-21 13:54:52,814 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:52] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-21 13:54:53,144 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:53,145 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:53] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-21 13:54:53,891 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.508, 'pos': 0.492, 'compound': 0.4404}
+2025-07-21 13:54:53,891 - INFO - Text: 'My Week was Good...' - Label: POSITIVE, Depression score: 0.28
+2025-07-21 13:54:53,891 - INFO - Question 10 - Sentiment: POSITIVE, Score: 0.28
+2025-07-21 13:54:53,894 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.417, 'pos': 0.583, 'compound': 0.6808}
+2025-07-21 13:54:53,894 - INFO - Text: 'Yes, everything is good at home...' - Label: POSITIVE, Depression score: 0.16
+2025-07-21 13:54:53,894 - INFO - Question 11 - Sentiment: POSITIVE, Score: 0.16
+2025-07-21 13:54:53,896 - INFO - Session 41 - Average Depression Score: 0.22
+2025-07-21 13:54:53,914 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:53,915 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:53] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-21 13:54:53,931 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:53,932 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:53] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:54:54,260 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-07-21 13:54:54,292 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-07-21 13:54:54,292 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-07-21 13:54:54,293 - ERROR - Error stopping scheduler: Scheduler is not running
+2025-07-21 13:54:54,294 - INFO - 127.0.0.1 - - [21/Jul/2025 13:54:54] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-21 13:54:54,324 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-07-21 13:54:54,371 - INFO - Stopped continuous survey frame processing for soldier 100000001
+>>>>>>> 955e6bc06c097a762d87bc7d3ebcf409ecf6e058
+2025-07-28 10:05:57,719 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:06:00,628 - INFO - All models loaded successfully
+2025-07-28 10:06:00,901 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 10:06:00,901 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 10:06:00,904 - INFO -  * Restarting with stat
+2025-07-28 10:06:05,954 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:06:09,892 - INFO - All models loaded successfully
+2025-07-28 10:06:10,576 - WARNING -  * Debugger is active!
+2025-07-28 10:06:10,650 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:08:19,441 - INFO - 127.0.0.1 - - [28/Jul/2025 10:08:19] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:08:22,073 - INFO - 127.0.0.1 - - [28/Jul/2025 10:08:22] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:08:24,167 - INFO - 127.0.0.1 - - [28/Jul/2025 10:08:24] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:08:26,525 - INFO - 127.0.0.1 - - [28/Jul/2025 10:08:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:18:28,101 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:18:34,080 - INFO - All models loaded successfully
+2025-07-28 10:18:34,351 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 10:18:34,351 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 10:18:34,351 - INFO -  * Restarting with stat
+2025-07-28 10:18:37,560 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:18:39,668 - INFO - All models loaded successfully
+2025-07-28 10:18:39,890 - WARNING -  * Debugger is active!
+2025-07-28 10:18:39,905 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:18:43,155 - INFO - 127.0.0.1 - - [28/Jul/2025 10:18:43] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:18:45,859 - INFO - 127.0.0.1 - - [28/Jul/2025 10:18:45] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:18:47,908 - INFO - 127.0.0.1 - - [28/Jul/2025 10:18:47] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:18:50,238 - INFO - 127.0.0.1 - - [28/Jul/2025 10:18:50] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:19:12,227 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:12] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:14,254 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:14] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:17,698 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:17] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=1&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:17,874 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:17] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=10&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:17,985 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:17] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=100&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:18,588 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:18] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=1000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:18,961 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:18] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=10000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:19,421 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:19] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=100000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:20,316 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=1000000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:20,818 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=10000000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:21,608 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:21] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=100000001&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:29,004 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:29] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=10000000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:29,258 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:29] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=1000000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:29,520 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:29] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=100000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:29,552 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:29] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=10000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:29,584 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:29] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=1000&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:29,600 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:29] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=100&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:31,361 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=10&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:31,607 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=1&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:31,868 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:31,897 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=0&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:31,968 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=01&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:19:32,674 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:32] "[33mGET /main.f47eb7b42d87159f49ba.hot-update.json HTTP/1.1[0m" 404 -
+2025-07-28 10:19:35,470 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:35] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:19:37,520 - INFO - 127.0.0.1 - - [28/Jul/2025 10:19:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:20:10,394 - INFO - 127.0.0.1 - - [28/Jul/2025 10:20:10] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=01&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:20:20,071 - INFO - 127.0.0.1 - - [28/Jul/2025 10:20:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:20:22,409 - INFO - 127.0.0.1 - - [28/Jul/2025 10:20:22] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:20:31,392 - INFO - 127.0.0.1 - - [28/Jul/2025 10:20:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:20:33,433 - INFO - 127.0.0.1 - - [28/Jul/2025 10:20:33] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:20:39,384 - INFO - 127.0.0.1 - - [28/Jul/2025 10:20:39] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:20:47,363 - INFO - 127.0.0.1 - - [28/Jul/2025 10:20:47] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:21:08,384 - INFO - 127.0.0.1 - - [28/Jul/2025 10:21:08] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:21:19,377 - INFO - 127.0.0.1 - - [28/Jul/2025 10:21:19] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:21:50,954 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 10:21:52,498 - INFO -  * Restarting with stat
+2025-07-28 10:21:56,335 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:21:58,927 - INFO - All models loaded successfully
+2025-07-28 10:21:59,206 - WARNING -  * Debugger is active!
+2025-07-28 10:21:59,215 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:22:29,405 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:22:29,405 - INFO - 127.0.0.1 - - [28/Jul/2025 10:22:29] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:22:31,452 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:22:31,452 - INFO - 127.0.0.1 - - [28/Jul/2025 10:22:31] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:22:44,392 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:22:44,392 - INFO - 127.0.0.1 - - [28/Jul/2025 10:22:44] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:22:52,077 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:22:52,078 - INFO - 127.0.0.1 - - [28/Jul/2025 10:22:52] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:23:00,381 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:23:00,381 - INFO - 127.0.0.1 - - [28/Jul/2025 10:23:00] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:24:36,399 - INFO - 127.0.0.1 - - [28/Jul/2025 10:24:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:29:33,819 - INFO - 127.0.0.1 - - [28/Jul/2025 10:29:33] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:29:36,170 - INFO - 127.0.0.1 - - [28/Jul/2025 10:29:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:29:36,361 - INFO - 127.0.0.1 - - [28/Jul/2025 10:29:36] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:29:38,416 - INFO - 127.0.0.1 - - [28/Jul/2025 10:29:38] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:29:40,758 - INFO - 127.0.0.1 - - [28/Jul/2025 10:29:40] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:30:00,714 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:30:00,715 - INFO - 127.0.0.1 - - [28/Jul/2025 10:30:00] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:30:03,055 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:30:03,062 - INFO - 127.0.0.1 - - [28/Jul/2025 10:30:03] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:30:04,375 - ERROR - Error fetching soldiers report: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+        ) latest_session ON u.force_id = latest_session.force_id AND latest_se' at line 26
+2025-07-28 10:30:04,375 - INFO - 127.0.0.1 - - [28/Jul/2025 10:30:04] "[35m[1mGET /api/admin/soldiers-report?risk_level=all&days=7&force_id=01&page=1&per_page=20 HTTP/1.1[0m" 500 -
+2025-07-28 10:30:48,203 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 10:30:49,569 - INFO -  * Restarting with stat
+2025-07-28 10:30:53,051 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:30:55,054 - INFO - All models loaded successfully
+2025-07-28 10:30:55,283 - WARNING -  * Debugger is active!
+2025-07-28 10:30:55,297 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:31:04,664 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 10:31:05,646 - INFO -  * Restarting with stat
+2025-07-28 10:31:09,354 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:31:11,754 - INFO - All models loaded successfully
+2025-07-28 10:31:11,983 - WARNING -  * Debugger is active!
+2025-07-28 10:31:11,999 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:31:25,848 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 10:31:27,171 - INFO -  * Restarting with stat
+2025-07-28 10:31:30,543 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:31:32,528 - INFO - All models loaded successfully
+2025-07-28 10:31:32,742 - WARNING -  * Debugger is active!
+2025-07-28 10:31:32,747 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:31:55,870 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 10:31:57,301 - INFO -  * Restarting with stat
+2025-07-28 10:32:00,667 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:32:02,743 - INFO - All models loaded successfully
+2025-07-28 10:32:02,962 - WARNING -  * Debugger is active!
+2025-07-28 10:32:02,968 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:32:28,578 - INFO - 127.0.0.1 - - [28/Jul/2025 10:32:28] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=01&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:32:33,975 - INFO - 127.0.0.1 - - [28/Jul/2025 10:32:33] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=02&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 10:33:22,929 - INFO - 127.0.0.1 - - [28/Jul/2025 10:33:22] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:33:24,973 - INFO - 127.0.0.1 - - [28/Jul/2025 10:33:24] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:34:36,405 - INFO - 127.0.0.1 - - [28/Jul/2025 10:34:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:39:36,408 - INFO - 127.0.0.1 - - [28/Jul/2025 10:39:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:42:08,036 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 10:42:09,518 - INFO -  * Restarting with stat
+2025-07-28 10:42:13,148 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:42:15,203 - INFO - All models loaded successfully
+2025-07-28 10:42:15,429 - WARNING -  * Debugger is active!
+2025-07-28 10:42:15,429 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:42:22,482 - INFO - 127.0.0.1 - - [28/Jul/2025 10:42:22] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:46:43,995 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:43] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:46:46,540 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:46] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:46:48,577 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:48] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:46:50,920 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:50] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:46:53,468 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:53] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:46:53,732 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:53] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:46:55,835 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:55] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-07-28 10:46:58,198 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:58] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-07-28 10:46:58,198 - INFO - 127.0.0.1 - - [28/Jul/2025 10:46:58] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:49:03,367 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:03] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:49:05,891 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:05] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:49:07,918 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:07] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:49:10,258 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:10] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:49:10,599 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:10] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:49:10,910 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:10] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:49:13,190 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:13] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-07-28 10:49:15,529 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:15] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-07-28 10:49:15,536 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:15] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:50:23,355 - INFO - 127.0.0.1 - - [28/Jul/2025 10:50:23] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:50:38,041 - INFO - 127.0.0.1 - - [28/Jul/2025 10:50:38] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:50:48,363 - INFO - 127.0.0.1 - - [28/Jul/2025 10:50:48] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:50:55,044 - INFO - 127.0.0.1 - - [28/Jul/2025 10:50:55] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:50:55,362 - INFO - 127.0.0.1 - - [28/Jul/2025 10:50:55] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:51:04,040 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:04] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:51:11,363 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:11] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:51:19,053 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:19] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:51:26,351 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:26] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:51:38,055 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:38] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:51:46,374 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:46] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:51:56,047 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:56] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:52:19,761 - INFO - 127.0.0.1 - - [28/Jul/2025 10:52:19] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:52:20,006 - INFO - 127.0.0.1 - - [28/Jul/2025 10:52:20] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:52:21,906 - INFO - 127.0.0.1 - - [28/Jul/2025 10:52:21] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:52:22,219 - INFO - 127.0.0.1 - - [28/Jul/2025 10:52:22] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:52:57,443 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:53:03,250 - INFO - All models loaded successfully
+2025-07-28 10:53:03,516 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 10:53:03,516 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 10:53:03,517 - INFO -  * Restarting with stat
+2025-07-28 10:53:06,948 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:53:08,851 - INFO - All models loaded successfully
+2025-07-28 10:53:09,042 - WARNING -  * Debugger is active!
+2025-07-28 10:53:09,058 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:53:19,252 - INFO - 127.0.0.1 - - [28/Jul/2025 10:53:19] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:53:21,799 - INFO - 127.0.0.1 - - [28/Jul/2025 10:53:21] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:53:23,849 - INFO - 127.0.0.1 - - [28/Jul/2025 10:53:23] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:53:24,518 - INFO - 127.0.0.1 - - [28/Jul/2025 10:53:24] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:53:24,827 - INFO - 127.0.0.1 - - [28/Jul/2025 10:53:24] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:53:26,204 - INFO - 127.0.0.1 - - [28/Jul/2025 10:53:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:54:08,127 - INFO - 127.0.0.1 - - [28/Jul/2025 10:54:08] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:54:10,662 - INFO - 127.0.0.1 - - [28/Jul/2025 10:54:10] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:54:12,694 - INFO - 127.0.0.1 - - [28/Jul/2025 10:54:12] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:54:15,038 - INFO - 127.0.0.1 - - [28/Jul/2025 10:54:15] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:54:15,566 - INFO - 127.0.0.1 - - [28/Jul/2025 10:54:15] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:54:15,881 - INFO - 127.0.0.1 - - [28/Jul/2025 10:54:15] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:55:18,204 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:55:21,045 - INFO - All models loaded successfully
+2025-07-28 10:55:21,260 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 10:55:21,260 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 10:55:21,260 - INFO -  * Restarting with stat
+2025-07-28 10:55:24,605 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:55:26,615 - INFO - All models loaded successfully
+2025-07-28 10:55:26,827 - WARNING -  * Debugger is active!
+2025-07-28 10:55:26,847 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:56:19,955 - INFO - 127.0.0.1 - - [28/Jul/2025 10:56:19] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:56:20,218 - INFO - 127.0.0.1 - - [28/Jul/2025 10:56:20] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:56:53,452 - INFO - 127.0.0.1 - - [28/Jul/2025 10:56:53] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:58:12,464 - INFO - 127.0.0.1 - - [28/Jul/2025 10:58:12] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:58:15,004 - INFO - 127.0.0.1 - - [28/Jul/2025 10:58:15] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:58:17,027 - INFO - 127.0.0.1 - - [28/Jul/2025 10:58:17] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:58:19,383 - INFO - 127.0.0.1 - - [28/Jul/2025 10:58:19] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:58:22,273 - INFO - 127.0.0.1 - - [28/Jul/2025 10:58:22] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:58:22,591 - INFO - 127.0.0.1 - - [28/Jul/2025 10:58:22] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:58:34,107 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:58:36,445 - INFO - All models loaded successfully
+2025-07-28 10:58:36,651 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 10:58:36,651 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 10:58:36,653 - INFO -  * Restarting with stat
+2025-07-28 10:58:40,074 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 10:58:42,135 - INFO - All models loaded successfully
+2025-07-28 10:58:42,315 - WARNING -  * Debugger is active!
+2025-07-28 10:58:42,326 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 10:59:30,570 - INFO - 127.0.0.1 - - [28/Jul/2025 10:59:30] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:59:33,073 - INFO - 127.0.0.1 - - [28/Jul/2025 10:59:33] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 10:59:35,111 - INFO - 127.0.0.1 - - [28/Jul/2025 10:59:35] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:59:37,445 - INFO - 127.0.0.1 - - [28/Jul/2025 10:59:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 10:59:37,640 - INFO - 127.0.0.1 - - [28/Jul/2025 10:59:37] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 10:59:37,946 - INFO - 127.0.0.1 - - [28/Jul/2025 10:59:37] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:00:25,066 - INFO - 127.0.0.1 - - [28/Jul/2025 11:00:25] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:00:25,323 - INFO - 127.0.0.1 - - [28/Jul/2025 11:00:25] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:02:51,664 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\__init__.py', reloading
+2025-07-28 11:02:51,664 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\__init__.py', reloading
+2025-07-28 11:02:53,612 - INFO -  * Restarting with stat
+2025-07-28 11:02:53,612 - INFO -  * Restarting with stat
+2025-07-28 11:02:58,290 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:03:01,722 - INFO - All models loaded successfully
+2025-07-28 11:03:01,729 - INFO - All models loaded successfully
+2025-07-28 11:03:02,207 - WARNING -  * Debugger is active!
+2025-07-28 11:03:02,220 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:03:02,221 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:03:43,014 - INFO - 127.0.0.1 - - [28/Jul/2025 11:03:43] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:03:45,551 - INFO - 127.0.0.1 - - [28/Jul/2025 11:03:45] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:03:47,584 - INFO - 127.0.0.1 - - [28/Jul/2025 11:03:47] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:03:48,898 - INFO - 127.0.0.1 - - [28/Jul/2025 11:03:48] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:03:49,211 - INFO - 127.0.0.1 - - [28/Jul/2025 11:03:49] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:03:49,926 - INFO - 127.0.0.1 - - [28/Jul/2025 11:03:49] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:04:44,349 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:04:46,967 - INFO - All models loaded successfully
+2025-07-28 11:04:47,208 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 11:04:47,208 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 11:04:47,208 - INFO -  * Restarting with stat
+2025-07-28 11:04:50,702 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:04:52,797 - INFO - All models loaded successfully
+2025-07-28 11:04:53,014 - WARNING -  * Debugger is active!
+2025-07-28 11:04:53,014 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:05:09,048 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:09] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:05:09,351 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:09] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:05:10,737 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:10] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:05:13,074 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:13] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:05:16,646 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:16] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:05:18,687 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:18] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:05:18,783 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:18] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:05:19,096 - INFO - 127.0.0.1 - - [28/Jul/2025 11:05:19] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:07:06,950 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:07:07,579 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:07:07,697 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:07:10,218 - INFO -  * Restarting with stat
+2025-07-28 11:07:10,224 - INFO -  * Restarting with stat
+2025-07-28 11:07:10,228 - INFO -  * Restarting with stat
+2025-07-28 11:07:17,699 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:07:24,188 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:07:26,569 - INFO - All models loaded successfully
+2025-07-28 11:07:26,812 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 11:07:26,812 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 11:07:26,829 - INFO -  * Restarting with stat
+2025-07-28 11:07:32,617 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:07:35,464 - INFO - All models loaded successfully
+2025-07-28 11:07:35,679 - WARNING -  * Debugger is active!
+2025-07-28 11:07:35,686 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:07:35,839 - INFO - 127.0.0.1 - - [28/Jul/2025 11:07:35] "[33mGET /main.7dce5b529a7ffa6c43b1.hot-update.json HTTP/1.1[0m" 404 -
+2025-07-28 11:07:37,881 - INFO - 127.0.0.1 - - [28/Jul/2025 11:07:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:07:39,930 - INFO - 127.0.0.1 - - [28/Jul/2025 11:07:39] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:07:48,389 - INFO - 127.0.0.1 - - [28/Jul/2025 11:07:48] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:07:50,420 - INFO - 127.0.0.1 - - [28/Jul/2025 11:07:50] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:09:07,383 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:07] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:09:13,087 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:13] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:09:15,450 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:15] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:09:20,407 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:09:27,079 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:27] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:09:35,398 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:35] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:09:47,075 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:47] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:10:12,115 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:10:13,601 - INFO -  * Restarting with stat
+2025-07-28 11:10:17,093 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:10:19,114 - INFO - All models loaded successfully
+2025-07-28 11:10:19,328 - WARNING -  * Debugger is active!
+2025-07-28 11:10:19,342 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:10:22,991 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:10:23,843 - INFO -  * Restarting with stat
+2025-07-28 11:10:27,107 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:10:29,263 - INFO - All models loaded successfully
+2025-07-28 11:10:29,506 - WARNING -  * Debugger is active!
+2025-07-28 11:10:29,513 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:10:42,266 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:10:43,619 - INFO -  * Restarting with stat
+2025-07-28 11:10:46,845 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:10:49,101 - INFO - All models loaded successfully
+2025-07-28 11:10:49,337 - WARNING -  * Debugger is active!
+2025-07-28 11:10:49,337 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:11:01,421 - INFO - 127.0.0.1 - - [28/Jul/2025 11:11:01] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=0&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:11:01,445 - INFO - 127.0.0.1 - - [28/Jul/2025 11:11:01] "GET /api/admin/soldiers-report?risk_level=all&days=7&force_id=01&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:11:19,197 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading

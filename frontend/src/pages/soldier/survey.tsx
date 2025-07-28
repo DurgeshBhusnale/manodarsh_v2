@@ -46,6 +46,7 @@ const SurveyPage: React.FC = () => {
     const [capturedText, setCapturedText] = useState('');
     const [textInput, setTextInput] = useState(''); // New text input state
     const [emotionMonitoringStarted, setEmotionMonitoringStarted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false); // Prevent multiple submissions
     const recognitionRef = useRef<any>(null);
 
     // Modal states
@@ -63,13 +64,15 @@ const SurveyPage: React.FC = () => {
         
         const fetchActiveQuestionnaire = async () => {
             try {
+                // Start emotion monitoring BEFORE fetching questionnaire
+                // This ensures camera is ready when user sees first question
+                await startEmotionMonitoring();
+                
                 const response = await apiService.getActiveQuestionnaire();
                 setQuestions(response.data.questions);
                 setQuestionnaireId(response.data.questionnaire.id);
                 setIsLoading(false);
                 
-                // Start emotion monitoring when survey loads
-                startEmotionMonitoring();
             } catch (error) {
                 console.error('Failed to fetch questionnaire:', error);
                 setModalTitle('Loading Error');
@@ -90,6 +93,11 @@ const SurveyPage: React.FC = () => {
             await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
             setEmotionMonitoringStarted(true);
             console.log('Emotion monitoring started successfully for survey');
+            
+            // Add a small delay to ensure camera is fully initialized
+            // This prevents users from answering questions before camera is ready
+            await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
+            
         } catch (error) {
             console.error('Failed to start emotion monitoring:', error);
             // Don't block survey if emotion monitoring fails
@@ -100,8 +108,13 @@ const SurveyPage: React.FC = () => {
     };
 
     const stopEmotionMonitoring = async (sessionId?: number) => {
-        if (!soldierData?.force_id || !emotionMonitoringStarted) return null;
+        if (!soldierData?.force_id) {
+            console.log('No soldier data available for stopping emotion monitoring');
+            return null;
+        }
         
+        // Always try to stop monitoring, even if state says it's not started
+        // This ensures cleanup in case of state inconsistencies
         try {
             console.log('Stopping emotion monitoring for:', soldierData.force_id, 'session:', sessionId);
             const response = await apiService.endSurveyEmotionMonitoring(soldierData.force_id, sessionId);
@@ -110,7 +123,7 @@ const SurveyPage: React.FC = () => {
             return response.data;
         } catch (error) {
             console.error('Failed to stop emotion monitoring:', error);
-            setEmotionMonitoringStarted(false);
+            setEmotionMonitoringStarted(false); // Reset state even on error
             return null;
         }
     };
@@ -189,6 +202,10 @@ const SurveyPage: React.FC = () => {
     };
 
     const handleSubmitSurvey = async () => {
+        // Prevent multiple submissions
+        if (isSubmitting) return;
+        setIsSubmitting(true);
+        
         // Combine captured text (voice) and text input for final question
         const finalAnswer = textInput.trim() || capturedText || recordedText || '';
         
@@ -219,6 +236,7 @@ const SurveyPage: React.FC = () => {
             setModalTitle('Submission Error');
             setModalMessage('Questionnaire ID is missing. Cannot submit survey.');
             setShowErrorModal(true);
+            setIsSubmitting(false); // Reset on error
             return;
         }
 
@@ -247,6 +265,12 @@ const SurveyPage: React.FC = () => {
             setModalTitle('Submission Failed');
             setModalMessage(err.response?.data?.error || 'Failed to submit survey. Please try again.');
             setShowErrorModal(true);
+            setIsSubmitting(false); // Reset on error
+            
+            // IMPORTANT: Stop emotion monitoring even on error
+            if (emotionMonitoringStarted) {
+                await stopEmotionMonitoring();
+            }
         }
     };
 
@@ -266,6 +290,7 @@ const SurveyPage: React.FC = () => {
         setTextInput('');
         setHasEndedAnswering(false);
         setIsAnswering(false);
+        setIsSubmitting(false); // Reset submission state
         // Navigate back to survey page (same page, but reset)
         navigate('/admin/survey');
     };
@@ -274,7 +299,10 @@ const SurveyPage: React.FC = () => {
         return (
             <div className="flex h-screen bg-gray-100">
                 <div className="flex-1 flex items-center justify-center">
-                    <div className="text-lg text-gray-600">Loading survey...</div>
+                    <div className="text-center">
+                        <div className="text-lg text-gray-600 mb-2">Loading survey...</div>
+                        <div className="text-sm text-gray-500">Preparing camera for emotion monitoring</div>
+                    </div>
                 </div>
             </div>
         );
@@ -413,13 +441,25 @@ const SurveyPage: React.FC = () => {
                             <button
                                 onClick={handleSubmitSurvey}
                                 className={`flex-1 py-3 px-6 rounded-lg transition-colors ${
-                                    (hasEndedAnswering || textInput.trim()) 
-                                        ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                                        : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                                    isSubmitting 
+                                        ? 'bg-blue-800 text-white cursor-not-allowed' 
+                                        : (hasEndedAnswering || textInput.trim()) 
+                                            ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                                            : 'bg-gray-400 text-gray-200 cursor-not-allowed'
                                 }`}
-                                disabled={!hasEndedAnswering && !textInput.trim()}
+                                disabled={isSubmitting || (!hasEndedAnswering && !textInput.trim())}
                             >
-                                Submit Survey
+                                {isSubmitting ? (
+                                    <span className="flex items-center justify-center">
+                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        Submitting...
+                                    </span>
+                                ) : (
+                                    'Submit Survey'
+                                )}
                             </button>
                         ) : (
                             <button

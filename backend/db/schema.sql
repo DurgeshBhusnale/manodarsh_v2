@@ -115,7 +115,70 @@ CREATE TABLE IF NOT EXISTS system_settings (
     setting_name VARCHAR(255) UNIQUE NOT NULL,
     setting_value TEXT NOT NULL,
     description TEXT,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    category VARCHAR(100) DEFAULT 'general',
+    data_type ENUM('string', 'number', 'boolean', 'json') DEFAULT 'string',
+    is_sensitive BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     updated_by INT,
     FOREIGN KEY (updated_by) REFERENCES users(user_id) ON DELETE SET NULL
+);
+
+-- Notification Settings Table
+CREATE TABLE IF NOT EXISTS notification_settings (
+    notification_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    notification_type ENUM('email', 'sms', 'in_app') NOT NULL,
+    event_type ENUM('critical_alert', 'high_risk', 'survey_completed', 'system_update') NOT NULL,
+    enabled BOOLEAN DEFAULT TRUE,
+    settings JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+-- User Preferences Table
+CREATE TABLE IF NOT EXISTS user_preferences (
+    preference_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    preference_key VARCHAR(255) NOT NULL,
+    preference_value TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_preference (user_id, preference_key)
+);
+
+-- Audit Log Table
+CREATE TABLE IF NOT EXISTS audit_logs (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    action VARCHAR(255) NOT NULL,
+    table_name VARCHAR(100),
+    record_id INT,
+    old_values JSON,
+    new_values JSON,
+    ip_address VARCHAR(45),
+    user_agent TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL
+);
+
+-- Notifications Table
+CREATE TABLE IF NOT EXISTS notifications (
+    notification_id INT AUTO_INCREMENT PRIMARY KEY,
+    force_id CHAR(9),
+    notification_type ENUM('CRITICAL_ALERT', 'HIGH_RISK', 'SURVEY_COMPLETED', 'SYSTEM_UPDATE', 'REMINDER') NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    priority ENUM('LOW', 'MEDIUM', 'HIGH', 'CRITICAL') DEFAULT 'MEDIUM',
+    is_read BOOLEAN DEFAULT FALSE,
+    read_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP NULL,
+    metadata JSON,
+    FOREIGN KEY (force_id) REFERENCES users(force_id) ON DELETE CASCADE,
+    INDEX idx_notifications_read (is_read),
+    INDEX idx_notifications_priority (priority),
+    INDEX idx_notifications_created (created_at)
 );

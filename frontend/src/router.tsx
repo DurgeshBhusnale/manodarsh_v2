@@ -4,6 +4,7 @@ import AdminDashboard from './pages/admin/dashboard';
 import AddSoldier from './pages/admin/add-soldier';
 import SoldiersData from './pages/admin/soldiers-data';
 import QuestionnairePage from './pages/admin/questionnaire';
+import AdminSettings from './pages/admin/settings';
 import DailyEmotionPage from './pages/admin/daily-emotion';
 import AdminSurveyPage from './pages/admin/survey';
 import SoldierSurveyPage from './pages/soldier/survey';
@@ -48,6 +49,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute requiredRole="admin">
         <QuestionnairePage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/settings',
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <AdminSettings />
       </ProtectedRoute>
     ),
   },

@@ -1,42 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Sidebar from '../../components/Sidebar';
-import { apiService } from '../../services/api';
 
 const DailyEmotionPage: React.FC = () => {
-    const [selectedDate, setSelectedDate] = useState('');
-    const [isMonitoring, setIsMonitoring] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-
-    const handleStartMonitoring = async () => {
-        if (!selectedDate) return;
-        setLoading(true);
-        try {
-            await apiService.startDailyMonitoring(selectedDate);
-            setIsMonitoring(true);
-            setError('');
-        } catch (error: any) {
-            console.error('Failed to start monitoring:', error);
-            setError(error.response?.data?.error || 'Failed to start monitoring');
-            setIsMonitoring(false);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleEndMonitoring = async () => {
-        if (!selectedDate) return;
-        setLoading(true);
-        try {
-            await apiService.endDailyMonitoring(selectedDate);
-            setIsMonitoring(false);
-        } catch (error) {
-            console.error('Failed to end monitoring:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     return (
         <div className="flex h-screen">
             <Sidebar />
@@ -45,61 +10,40 @@ const DailyEmotionPage: React.FC = () => {
                     Daily Emotion Detection
                 </h1>
 
-                <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
-                    {error && (
-                        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-                            {error}
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md max-w-2xl">
+                    <div className="flex">
+                        <div className="flex-shrink-0">
+                            <svg className="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                            </svg>
                         </div>
-                    )}
-
-                    <div className="mb-6">
-                        <label className="block text-gray-700 mb-2">
-                            Select Date
-                        </label>
-                        <input
-                            type="date"
-                            value={selectedDate}
-                            onChange={(e) => {
-                                setSelectedDate(e.target.value);
-                                setError(''); // Clear error when date changes
-                            }}
-                            className="w-full p-2 border rounded"
-                        />
-                    </div>
-
-                    <div className="space-y-4">
-                        <button
-                            onClick={handleStartMonitoring}
-                            disabled={!selectedDate || isMonitoring || loading}
-                            className={`w-full p-2 rounded text-white
-                                ${
-                                    !selectedDate || isMonitoring
-                                        ? 'bg-gray-400 cursor-not-allowed'
-                                        : 'bg-green-600 hover:bg-green-700'
-                                }`}
-                        >
-                            {loading ? 'Processing...' : 'Start Day'}
-                        </button>
-
-                        <button
-                            onClick={handleEndMonitoring}
-                            disabled={!selectedDate || !isMonitoring || loading}
-                            className={`w-full p-2 rounded text-white
-                                ${
-                                    !selectedDate || !isMonitoring
-                                        ? 'bg-gray-400 cursor-not-allowed'
-                                        : 'bg-red-600 hover:bg-red-700'
-                                }`}
-                        >
-                            {loading ? 'Processing...' : 'End Day'}
-                        </button>
-                    </div>
-
-                    {isMonitoring && (
-                        <div className="mt-6 p-4 bg-green-100 text-green-700 rounded">
-                            Monitoring active for {selectedDate}
+                        <div className="ml-3">
+                            <h3 className="text-sm font-medium text-yellow-800">
+                                Feature Temporarily Disabled
+                            </h3>
+                            <div className="mt-2 text-sm text-yellow-700">
+                                <p>
+                                    Daily CCTV emotion monitoring has been temporarily disabled to prevent camera access conflicts.
+                                </p>
+                                <p className="mt-2">
+                                    <strong>Currently Active:</strong> Survey emotion monitoring only
+                                </p>
+                                <p className="mt-2">
+                                    <strong>Reason:</strong> To ensure stable camera access for survey functionality while we optimize the system.
+                                </p>
+                            </div>
                         </div>
-                    )}
+                    </div>
+                </div>
+
+                <div className="mt-6 bg-blue-50 border border-blue-200 p-4 rounded-lg max-w-2xl">
+                    <h4 className="text-sm font-medium text-blue-800 mb-2">Available Features:</h4>
+                    <ul className="text-sm text-blue-700 list-disc list-inside space-y-1">
+                        <li>Survey emotion monitoring (active during soldier surveys)</li>
+                        <li>Face recognition training</li>
+                        <li>Image collection for soldiers</li>
+                        <li>Questionnaire management</li>
+                    </ul>
                 </div>
             </div>
         </div>

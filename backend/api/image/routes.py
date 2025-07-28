@@ -51,75 +51,24 @@ def train_model():
 
 @image_bp.route('/start-monitoring', methods=['POST'])
 def start_monitoring():
-    """Start CCTV emotion monitoring for a day"""
-    data = request.get_json()
-    if not data or 'date' not in data:
-        return jsonify({
-            'error': 'Missing required field: date'
-        }), 400
-        
-    date = data['date']
-    try:
-        if monitoring_service.start_monitoring(date):
-            return jsonify({
-                'message': 'Monitoring started successfully'
-            }), 200
-        else:
-            return jsonify({
-                'error': 'Failed to start monitoring: Could not initialize camera or database'
-            }), 500
-    except Exception as e:
-        logging.error(f"Error in start_monitoring: {str(e)}")
-        return jsonify({
-            'error': str(e)
-        }), 500
+    """DISABLED: Start CCTV emotion monitoring for a day"""
+    return jsonify({
+        'error': 'Daily CCTV monitoring is temporarily disabled. Only survey emotion monitoring is active.'
+    }), 503
 
 @image_bp.route('/end-monitoring', methods=['POST'])
 def end_monitoring():
-    """End CCTV emotion monitoring for a day"""
-    data = request.get_json()
-    if not data or 'date' not in data:
-        return jsonify({
-            'error': 'Missing required field: date'
-        }), 400
-        
-    date = data['date']
-    try:
-        # Stop monitoring
-        if monitoring_service.stop_monitoring():
-            # Calculate daily scores
-            if monitoring_service.calculate_daily_scores(date):
-                return jsonify({
-                    'message': 'Monitoring ended and scores calculated successfully'
-                }), 200
-            else:
-                return jsonify({
-                    'error': 'Failed to calculate daily scores'
-                }), 500
-        else:
-            return jsonify({
-                'error': 'Failed to stop monitoring'
-            }), 500
-    except Exception as e:
-        return jsonify({
-            'error': str(e)
-        }), 500
+    """DISABLED: End CCTV emotion monitoring for a day"""
+    return jsonify({
+        'error': 'Daily CCTV monitoring is temporarily disabled. Only survey emotion monitoring is active.'
+    }), 503
 
 @image_bp.route('/process-frame', methods=['POST'])
 def process_frame():
-    """Process a single frame from CCTV feed"""
-    try:
-        result = monitoring_service.process_frame()
-        if result:
-            return jsonify(result), 200
-        else:
-            return jsonify({
-                'message': 'No face detected or not recognized'
-            }), 200
-    except Exception as e:
-        return jsonify({
-            'error': str(e)
-        }), 500
+    """DISABLED: Process a single frame from CCTV feed"""
+    return jsonify({
+        'error': 'Daily CCTV monitoring is temporarily disabled. Only survey emotion monitoring is active.'
+    }), 503
 
 @image_bp.route('/start-survey-monitoring', methods=['POST'])
 def start_survey_monitoring():

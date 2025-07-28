@@ -64,6 +64,35 @@ class CCTVMonitoringService:
         logging.info("Stopped continuous frame processing")
         self.is_monitoring = False
 
+    def get_emotion_data_for_timerange(self, start_seconds: float, end_seconds: float) -> float:
+        """Get average emotion score for a specific time range relative to survey start"""
+        if not hasattr(self, 'survey_detections') or not self.survey_detections:
+            return 0.0
+            
+        if not hasattr(self, 'survey_start_time'):
+            return 0.0
+            
+        # Convert relative seconds to actual timestamps
+        start_time = self.survey_start_time + timedelta(seconds=start_seconds)
+        end_time = self.survey_start_time + timedelta(seconds=end_seconds)
+        
+        # Filter detections in this time range
+        relevant_detections = []
+        for detection in self.survey_detections:
+            detection_time = datetime.fromisoformat(detection['timestamp'])
+            if start_time <= detection_time <= end_time:
+                relevant_detections.append(detection)
+        
+        if not relevant_detections:
+            return 0.0
+            
+        # Calculate average score for this time range
+        scores = [d['score'] for d in relevant_detections]
+        avg_score = sum(scores) / len(scores)
+        
+        logging.info(f"Time range {start_seconds}-{end_seconds}s: {len(relevant_detections)} detections, avg_score={avg_score:.2f}")
+        return avg_score
+
     def start_monitoring(self, date: str) -> bool:
         """Start a new monitoring session"""
         conn = None
@@ -368,6 +397,7 @@ class CCTVMonitoringService:
             self.survey_detections = []
             self.survey_monitoring = True
             self.survey_thread_active = True
+            self.survey_start_time = datetime.now()  # Track survey start time for question correlation
             
             # Start background monitoring thread
             self.survey_thread = threading.Thread(
@@ -457,15 +487,25 @@ class CCTVMonitoringService:
             if hasattr(self, 'survey_detections') and self.survey_detections:
                 logging.info(f"Processing {len(self.survey_detections)} emotion detections for soldier {force_id}")
                 
-                # Calculate average depression score
-                scores = [d['score'] for d in self.survey_detections]
-                avg_score = sum(scores) / len(scores)
+                # Filter out only actual emotion detections (not markers)
+                actual_detections = [d for d in self.survey_detections if 'score' in d and 'emotion' in d]
+                logging.info(f"Found {len(actual_detections)} actual emotion detections (filtered from {len(self.survey_detections)} total entries)")
                 
-                # Get most common emotion
-                emotions = [d['emotion'] for d in self.survey_detections]
-                most_common_emotion = max(set(emotions), key=emotions.count) if emotions else "Neutral"
-                
-                logging.info(f"Calculated avg depression score: {avg_score:.2f}, dominant emotion: {most_common_emotion}")
+                if actual_detections:
+                    # Calculate average depression score
+                    scores = [d['score'] for d in actual_detections]
+                    avg_score = sum(scores) / len(scores)
+                    
+                    # Get most common emotion
+                    emotions = [d['emotion'] for d in actual_detections]
+                    most_common_emotion = max(set(emotions), key=emotions.count) if emotions else "Neutral"
+                    
+                    logging.info(f"Calculated avg depression score: {avg_score:.2f}, dominant emotion: {most_common_emotion}")
+                else:
+                    # No actual detections found
+                    avg_score = 0
+                    most_common_emotion = "No Detection"
+                    logging.warning(f"No actual emotion detections found for soldier {force_id}")
                 
                 # Store in database if session_id provided
                 if session_id:
@@ -480,26 +520,54 @@ class CCTVMonitoringService:
                     'avg_depression_score': avg_score,
                     'dominant_emotion': most_common_emotion,
                     'detection_count': len(self.survey_detections),
-                    'detections': self.survey_detections[:5]  # Return only first 5 detections to avoid large response
+                    'detections': self.survey_detections  # Return ALL detections for per-question analysis
                 }
                 
                 logging.info(f"Survey monitoring ended for {force_id}: avg_score={avg_score:.2f}, emotion={most_common_emotion}, detections={len(self.survey_detections)}")
                 return results
             else:
                 logging.warning(f"No emotion data collected during survey for soldier {force_id}")
-                return {'force_id': force_id, 'message': 'No emotion data collected', 'detection_count': 0}
+                # Still return a valid structure with 0 score
+                return {
+                    'force_id': force_id, 
+                    'session_id': session_id,
+                    'avg_depression_score': 0,
+                    'dominant_emotion': 'No Detection',
+                    'detection_count': 0,
+                    'message': 'No emotion data collected'
+                }
                 
         except Exception as e:
             logging.error(f"Error stopping survey monitoring: {e}")
             return {'force_id': force_id, 'error': str(e)}
         finally:
-            # Clean up
-            if hasattr(self, 'survey_detections'):
-                delattr(self, 'survey_detections')
-            if hasattr(self, 'survey_force_id'):
-                delattr(self, 'survey_force_id')
-            if hasattr(self, 'survey_thread'):
-                delattr(self, 'survey_thread')
+            # Clean up camera and monitoring resources
+            try:
+                # Stop any ongoing threads
+                self.survey_monitoring = False
+                self.survey_thread_active = False
+                
+                # Wait for thread to finish
+                if hasattr(self, 'survey_thread') and self.survey_thread.is_alive():
+                    self.survey_thread.join(timeout=2)
+                
+                # IMPORTANT: Release camera resources
+                if self.cap and self.cap.isOpened():
+                    self.cap.release()
+                    self.cap = None
+                    cv2.destroyAllWindows()
+                    logging.info("Camera resources released after survey monitoring")
+                
+                # Clean up survey-specific attributes
+                if hasattr(self, 'survey_detections'):
+                    delattr(self, 'survey_detections')
+                if hasattr(self, 'survey_force_id'):
+                    delattr(self, 'survey_force_id')
+                if hasattr(self, 'survey_thread'):
+                    delattr(self, 'survey_thread')
+                    
+            except Exception as cleanup_error:
+                logging.error(f"Error during cleanup: {cleanup_error}")
 
     def _store_survey_emotion_data(self, session_id: int, force_id: str, avg_score: float):
         """Store survey emotion data in the weekly_sessions table"""

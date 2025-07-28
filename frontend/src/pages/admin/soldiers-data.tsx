@@ -42,14 +42,18 @@ const SoldiersData: React.FC = () => {
     const [forceIdFilter, setForceIdFilter] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [soldiersData, setSoldiersData] = useState<Soldier[]>([]);
+    const [allFilteredData, setAllFilteredData] = useState<Soldier[]>([]);  // Store all filtered data
     const [pagination, setPagination] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [downloadingPDF, setDownloadingPDF] = useState(false);
+    const [downloadingCSV, setDownloadingCSV] = useState(false);
 
     const fetchSoldiersData = async () => {
         setLoading(true);
         setError(null);
         try {
+            // Fetch paginated data for display
             const response = await apiService.getSoldiersData({
                 risk_level: filter,
                 days: daysFilter,
@@ -61,6 +65,17 @@ const SoldiersData: React.FC = () => {
             const data: SoldiersResponse = response.data;
             setSoldiersData(data.soldiers);
             setPagination(data.pagination);
+
+            // Fetch all data for downloads (without pagination)
+            const allDataResponse = await apiService.getSoldiersData({
+                risk_level: filter,
+                days: daysFilter,
+                force_id: forceIdFilter.trim() || undefined,
+                page: 1,
+                per_page: 10000  // Large number to get all data
+            });
+            
+            setAllFilteredData(allDataResponse.data.soldiers);
         } catch (err: any) {
             setError(err.response?.data?.error || 'Failed to fetch soldiers data');
             console.error('Error fetching soldiers data:', err);
@@ -106,6 +121,73 @@ const SoldiersData: React.FC = () => {
             case 'RED': return 'bg-red-100 text-red-800';
             case 'CRITICAL': return 'bg-red-200 text-red-900';
             default: return 'bg-gray-100 text-gray-800';
+        }
+    };
+
+    const downloadFile = (blob: Blob, filename: string) => {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+    };
+
+    const handleDownloadPDF = async () => {
+        if (allFilteredData.length === 0) {
+            alert('No data available to download');
+            return;
+        }
+
+        setDownloadingPDF(true);
+        try {
+            const currentFilters = {
+                risk_level: filter,
+                days: daysFilter,
+                force_id: forceIdFilter
+            };
+
+            const response = await apiService.downloadSoldiersPDF(allFilteredData, currentFilters);
+            
+            const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+            const filename = `soldiers_report_${timestamp}.pdf`;
+            
+            downloadFile(response.data, filename);
+        } catch (error: any) {
+            console.error('Error downloading PDF:', error);
+            alert('Failed to download PDF report. Please try again.');
+        } finally {
+            setDownloadingPDF(false);
+        }
+    };
+
+    const handleDownloadCSV = async () => {
+        if (allFilteredData.length === 0) {
+            alert('No data available to download');
+            return;
+        }
+
+        setDownloadingCSV(true);
+        try {
+            const currentFilters = {
+                risk_level: filter,
+                days: daysFilter,
+                force_id: forceIdFilter
+            };
+
+            const response = await apiService.downloadSoldiersCSV(allFilteredData, currentFilters);
+            
+            const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+            const filename = `soldiers_report_${timestamp}.csv`;
+            
+            downloadFile(response.data, filename);
+        } catch (error: any) {
+            console.error('Error downloading CSV:', error);
+            alert('Failed to download CSV report. Please try again.');
+        } finally {
+            setDownloadingCSV(false);
         }
     };
 
@@ -173,6 +255,48 @@ const SoldiersData: React.FC = () => {
                                 {loading ? 'Loading...' : 'Refresh'}
                             </button>
                         </div>
+
+                        {/* Download PDF Button */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">&nbsp;</label>
+                            <button
+                                onClick={handleDownloadPDF}
+                                disabled={downloadingPDF || loading || allFilteredData.length === 0}
+                                className="p-2 bg-red-600 text-white rounded hover:bg-red-700 disabled:bg-gray-400 flex items-center gap-2"
+                            >
+                                {downloadingPDF ? (
+                                    <>
+                                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                        Generating...
+                                    </>
+                                ) : (
+                                    <>
+                                        📄 Download PDF
+                                    </>
+                                )}
+                            </button>
+                        </div>
+
+                        {/* Download CSV Button */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">&nbsp;</label>
+                            <button
+                                onClick={handleDownloadCSV}
+                                disabled={downloadingCSV || loading || allFilteredData.length === 0}
+                                className="p-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-400 flex items-center gap-2"
+                            >
+                                {downloadingCSV ? (
+                                    <>
+                                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                        Generating...
+                                    </>
+                                ) : (
+                                    <>
+                                        📊 Download CSV
+                                    </>
+                                )}
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -180,6 +304,28 @@ const SoldiersData: React.FC = () => {
                 {error && (
                     <div className="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
                         <strong>Error:</strong> {error}
+                    </div>
+                )}
+
+                {/* Data Summary */}
+                {!loading && allFilteredData.length > 0 && (
+                    <div className="mb-4 bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded flex justify-between items-center">
+                        <div>
+                            <strong>Total Records Available for Download:</strong> {allFilteredData.length} soldiers
+                            {pagination && (
+                                <span className="ml-4 text-sm">
+                                    (Showing {soldiersData.length} of {pagination.total_count} on this page)
+                                </span>
+                            )}
+                        </div>
+                        <div className="flex gap-2">
+                            <span className="text-xs bg-blue-100 px-2 py-1 rounded">
+                                Filters Applied: 
+                                {filter !== 'all' && ` Risk: ${filter.toUpperCase()}`}
+                                {daysFilter && ` | Period: ${daysFilter} days`}
+                                {forceIdFilter && ` | Force ID: ${forceIdFilter}`}
+                            </span>
+                        </div>
                     </div>
                 )}
 

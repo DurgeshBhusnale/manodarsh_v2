@@ -26,6 +26,33 @@ const api = axios.create({
     },
 });
 
+// Add request interceptor to include authentication
+api.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
+// Add response interceptor to handle authentication errors
+api.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response?.status === 401) {
+            localStorage.removeItem('authToken');
+            // Redirect to login if unauthorized
+            window.location.href = '/login';
+        }
+        return Promise.reject(error);
+    }
+);
+
 export interface SoldierData {
     force_id: string;
     password: string;
@@ -120,6 +147,10 @@ export const apiService = {
 
     addQuestion: (data: QuestionData) =>
         api.post('/admin/add-question', data),
+    
+    getQuestionnaires: () =>
+        api.get('/admin/questionnaires'),
+    
     translateQuestion,
 
     // Daily Emotion Detection endpoints
@@ -151,6 +182,26 @@ export const apiService = {
     // Advanced search functionality
     searchSoldiers: (searchTerm: string, filters: any) =>
         api.post('/admin/search-soldiers', { searchTerm, filters }),
+
+    // Download reports (no DB access - uses provided data)
+    downloadSoldiersPDF: (soldiers: any[], filters: any, reportTitle?: string) => {
+        return api.post('/admin/download-soldiers-pdf', {
+            soldiers,
+            filters,
+            report_title: reportTitle || 'Soldiers Mental Health Report'
+        }, {
+            responseType: 'blob'  // Important for file download
+        });
+    },
+
+    downloadSoldiersCSV: (soldiers: any[], filters: any) => {
+        return api.post('/admin/download-soldiers-csv', {
+            soldiers,
+            filters
+        }, {
+            responseType: 'blob'  // Important for file download
+        });
+    },
 
     translateAnswer
 };

@@ -17042,3 +17042,141 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-28 11:11:26,045 - INFO - All models loaded successfully
 2025-07-28 11:11:26,211 - WARNING -  * Debugger is active!
 2025-07-28 11:11:26,227 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:20:26,591 - INFO - 127.0.0.1 - - [28/Jul/2025 11:20:26] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:20:29,248 - INFO - 127.0.0.1 - - [28/Jul/2025 11:20:29] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:20:31,297 - INFO - 127.0.0.1 - - [28/Jul/2025 11:20:31] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:20:33,515 - INFO - 127.0.0.1 - - [28/Jul/2025 11:20:33] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:20:33,641 - INFO - 127.0.0.1 - - [28/Jul/2025 11:20:33] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:20:33,836 - INFO - 127.0.0.1 - - [28/Jul/2025 11:20:33] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:21:36,583 - INFO - 127.0.0.1 - - [28/Jul/2025 11:21:36] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:21:39,093 - INFO - 127.0.0.1 - - [28/Jul/2025 11:21:39] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:21:41,153 - INFO - 127.0.0.1 - - [28/Jul/2025 11:21:41] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:21:41,990 - INFO - 127.0.0.1 - - [28/Jul/2025 11:21:41] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:21:42,302 - INFO - 127.0.0.1 - - [28/Jul/2025 11:21:42] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:21:43,511 - INFO - 127.0.0.1 - - [28/Jul/2025 11:21:43] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:23:36,846 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:23:40,020 - INFO - All models loaded successfully
+2025-07-28 11:23:40,293 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 11:23:40,293 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 11:23:40,296 - INFO -  * Restarting with stat
+2025-07-28 11:23:44,239 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:23:46,596 - INFO - All models loaded successfully
+2025-07-28 11:23:46,783 - WARNING -  * Debugger is active!
+2025-07-28 11:23:46,799 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:23:47,260 - INFO - 127.0.0.1 - - [28/Jul/2025 11:23:47] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:23:49,765 - INFO - 127.0.0.1 - - [28/Jul/2025 11:23:49] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:23:51,793 - INFO - 127.0.0.1 - - [28/Jul/2025 11:23:51] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:23:52,367 - INFO - 127.0.0.1 - - [28/Jul/2025 11:23:52] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:23:52,476 - INFO - 127.0.0.1 - - [28/Jul/2025 11:23:52] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:23:54,147 - INFO - 127.0.0.1 - - [28/Jul/2025 11:23:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:26:37,385 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:26:40,328 - INFO - All models loaded successfully
+2025-07-28 11:26:40,632 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 11:26:40,633 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 11:26:40,635 - INFO -  * Restarting with stat
+2025-07-28 11:26:46,335 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:26:50,676 - INFO - All models loaded successfully
+2025-07-28 11:26:51,499 - WARNING -  * Debugger is active!
+2025-07-28 11:26:51,524 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:26:54,022 - INFO - 127.0.0.1 - - [28/Jul/2025 11:26:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:26:56,053 - INFO - 127.0.0.1 - - [28/Jul/2025 11:26:56] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:27:08,536 - INFO - 127.0.0.1 - - [28/Jul/2025 11:27:08] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:27:11,058 - INFO - 127.0.0.1 - - [28/Jul/2025 11:27:11] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:27:13,106 - INFO - 127.0.0.1 - - [28/Jul/2025 11:27:13] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:27:15,449 - INFO - 127.0.0.1 - - [28/Jul/2025 11:27:15] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:27:17,910 - INFO - 127.0.0.1 - - [28/Jul/2025 11:27:17] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:27:18,217 - INFO - 127.0.0.1 - - [28/Jul/2025 11:27:18] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:31:47,457 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:31:50,234 - INFO - All models loaded successfully
+2025-07-28 11:31:50,469 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 11:31:50,469 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 11:31:50,471 - INFO -  * Restarting with stat
+2025-07-28 11:31:53,849 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:31:56,190 - INFO - All models loaded successfully
+2025-07-28 11:31:56,414 - WARNING -  * Debugger is active!
+2025-07-28 11:31:56,421 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:31:57,165 - INFO - 127.0.0.1 - - [28/Jul/2025 11:31:57] "GET / HTTP/1.1" 200 -
+2025-07-28 11:32:05,114 - INFO - 127.0.0.1 - - [28/Jul/2025 11:32:05] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:32:13,259 - INFO - 127.0.0.1 - - [28/Jul/2025 11:32:13] "[33mGET /api/admin/ HTTP/1.1[0m" 404 -
+2025-07-28 11:33:13,640 - INFO - 127.0.0.1 - - [28/Jul/2025 11:33:13] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:33:16,151 - INFO - 127.0.0.1 - - [28/Jul/2025 11:33:16] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:33:17,824 - INFO - 127.0.0.1 - - [28/Jul/2025 11:33:17] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:33:18,135 - INFO - 127.0.0.1 - - [28/Jul/2025 11:33:18] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:33:18,214 - INFO - 127.0.0.1 - - [28/Jul/2025 11:33:18] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:33:20,551 - INFO - 127.0.0.1 - - [28/Jul/2025 11:33:20] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:34:21,384 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:34:24,730 - INFO - All models loaded successfully
+2025-07-28 11:34:24,924 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 11:34:24,924 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 11:34:24,931 - INFO -  * Restarting with stat
+2025-07-28 11:34:28,278 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:34:30,299 - INFO - All models loaded successfully
+2025-07-28 11:34:30,494 - WARNING -  * Debugger is active!
+2025-07-28 11:34:30,494 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:34:30,639 - INFO - 127.0.0.1 - - [28/Jul/2025 11:34:30] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:34:30,639 - INFO - 127.0.0.1 - - [28/Jul/2025 11:34:30] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:34:48,879 - INFO - 127.0.0.1 - - [28/Jul/2025 11:34:48] "[33mGET /api/admin/questionnaires HTTP/1.1[0m" 404 -
+2025-07-28 11:34:55,955 - INFO - 127.0.0.1 - - [28/Jul/2025 11:34:55] "[33mGET /api/admin/ HTTP/1.1[0m" 404 -
+2025-07-28 11:34:58,755 - INFO - 127.0.0.1 - - [28/Jul/2025 11:34:58] "[33mGET /api/ HTTP/1.1[0m" 404 -
+2025-07-28 11:35:00,891 - INFO - 127.0.0.1 - - [28/Jul/2025 11:35:00] "GET / HTTP/1.1" 200 -
+2025-07-28 11:35:47,854 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:35:49,448 - INFO -  * Restarting with stat
+2025-07-28 11:35:53,042 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:35:55,324 - INFO - All models loaded successfully
+2025-07-28 11:35:55,596 - WARNING -  * Debugger is active!
+2025-07-28 11:35:55,605 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:36:04,839 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:36:06,894 - INFO -  * Restarting with stat
+2025-07-28 11:36:14,292 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:36:17,426 - INFO - All models loaded successfully
+2025-07-28 11:36:17,757 - WARNING -  * Debugger is active!
+2025-07-28 11:36:17,769 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:36:35,835 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\test_questionnaires_api.py', reloading
+2025-07-28 11:36:37,563 - INFO -  * Restarting with stat
+2025-07-28 11:36:42,696 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:36:45,241 - INFO - All models loaded successfully
+2025-07-28 11:36:45,481 - WARNING -  * Debugger is active!
+2025-07-28 11:36:45,492 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:37:18,264 - INFO - 127.0.0.1 - - [28/Jul/2025 11:37:18] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:37:20,290 - INFO - 127.0.0.1 - - [28/Jul/2025 11:37:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:38:35,293 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:38:36,882 - INFO -  * Restarting with stat
+2025-07-28 11:38:41,049 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:38:44,417 - INFO - All models loaded successfully
+2025-07-28 11:38:45,155 - WARNING -  * Debugger is active!
+2025-07-28 11:38:45,172 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:38:50,172 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:38:51,460 - INFO -  * Restarting with stat
+2025-07-28 11:38:55,417 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:38:58,243 - INFO - All models loaded successfully
+2025-07-28 11:38:58,764 - WARNING -  * Debugger is active!
+2025-07-28 11:38:58,778 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:39:37,816 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 11:39:39,417 - INFO -  * Restarting with stat
+2025-07-28 11:39:43,465 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 11:39:46,496 - INFO - All models loaded successfully
+2025-07-28 11:39:47,116 - WARNING -  * Debugger is active!
+2025-07-28 11:39:47,116 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 11:43:22,144 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:22] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:43:24,696 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:24] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 11:43:26,768 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:43:29,120 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:29] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 11:43:29,944 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:29] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:43:32,305 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:32] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:43:32,305 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:32] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-28 11:43:34,351 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:34] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-28 11:43:37,013 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:37] "GET /api/admin/soldiers-report?risk_level=all&days=3&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:43:39,075 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:39] "GET /api/admin/soldiers-report?risk_level=all&days=3&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-28 11:43:42,033 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:42] "GET /api/admin/soldiers-report?risk_level=all&days=3&force_id=0&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:43:42,116 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:42] "GET /api/admin/soldiers-report?risk_level=all&days=3&force_id=02&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-28 11:43:44,066 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:44] "GET /api/admin/soldiers-report?risk_level=all&days=3&force_id=0&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-28 11:43:44,488 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:44] "GET /api/admin/soldiers-report?risk_level=all&days=3&force_id=02&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-28 11:43:46,217 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:46] "OPTIONS /api/admin/download-soldiers-pdf HTTP/1.1" 200 -
+2025-07-28 11:43:46,489 - DEBUG - Final size summary of the biggest document sections:
+2025-07-28 11:43:46,489 - DEBUG - - pages: 942.0B
+2025-07-28 11:43:46,489 - DEBUG - - fonts: 304.0B
+2025-07-28 11:43:46,489 - INFO - 127.0.0.1 - - [28/Jul/2025 11:43:46] "POST /api/admin/download-soldiers-pdf HTTP/1.1" 200 -

@@ -1,6 +1,7 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, send_file
 from db.connection import get_connection
 from services.translation_service import translate_to_hindi, translate_to_english
+from fpdf import FPDF
 import logging
 
 # Set up logging
@@ -817,3 +818,218 @@ def search_soldiers():
     finally:
         cursor.close()
         db.close()
+
+
+@admin_bp.route('/download-soldiers-pdf', methods=['POST'])
+def download_soldiers_pdf():
+    """Generate and download PDF report from provided soldiers data (no DB access)"""
+    try:
+        data = request.json
+        soldiers_data = data.get('soldiers', [])
+        filters = data.get('filters', {})
+        report_title = data.get('report_title', 'Soldiers Mental Health Report')
+        
+        if not soldiers_data:
+            return jsonify({'error': 'No soldiers data provided'}), 400
+        
+        # Create PDF
+        pdf = FPDF()
+        pdf.add_page()
+        
+        # Set fonts
+        pdf.set_font('Arial', 'B', 16)
+        
+        # Title
+        pdf.cell(0, 10, report_title, 0, 1, 'C')
+        pdf.ln(5)
+        
+        # Report metadata
+        pdf.set_font('Arial', '', 10)
+        pdf.cell(0, 5, f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", 0, 1)
+        pdf.cell(0, 5, f"Total Records: {len(soldiers_data)}", 0, 1)
+        
+        # Applied filters
+        if filters:
+            pdf.ln(2)
+            pdf.set_font('Arial', 'B', 12)
+            pdf.cell(0, 8, "Applied Filters:", 0, 1)
+            pdf.set_font('Arial', '', 10)
+            
+            if filters.get('risk_level') and filters.get('risk_level') != 'all':
+                pdf.cell(0, 5, f"Risk Level: {filters.get('risk_level', '').upper()}", 0, 1)
+            if filters.get('days'):
+                pdf.cell(0, 5, f"Time Period: Last {filters.get('days')} days", 0, 1)
+            if filters.get('force_id'):
+                pdf.cell(0, 5, f"Force ID Filter: {filters.get('force_id')}", 0, 1)
+        
+        pdf.ln(5)
+        
+        # Table headers
+        pdf.set_font('Arial', 'B', 8)
+        
+        # Header row
+        col_widths = [25, 30, 20, 20, 20, 25, 30, 20]  # Column widths
+        headers = ['Force ID', 'Name', 'Risk Level', 'Combined Score', 'NLP Score', 'Image Score', 'Last Survey', 'Mental State']
+        
+        for i, header in enumerate(headers):
+            pdf.cell(col_widths[i], 8, header, 1, 0, 'C')
+        pdf.ln()
+        
+        # Data rows
+        pdf.set_font('Arial', '', 7)
+        
+        for soldier in soldiers_data:
+            # Handle potential None values and format data
+            force_id = str(soldier.get('force_id', 'N/A'))[:12]  # Truncate if too long
+            name = str(soldier.get('name', 'N/A'))[:15]
+            risk_level = str(soldier.get('risk_level', 'N/A'))
+            combined_score = f"{soldier.get('combined_score', 0):.3f}"
+            nlp_score = f"{soldier.get('nlp_score', 0):.3f}"
+            image_score = f"{soldier.get('image_score', 0):.3f}"
+            last_survey = str(soldier.get('last_survey_date', 'N/A'))[:12] if soldier.get('last_survey_date') else 'N/A'
+            mental_state = str(soldier.get('mental_state', 'N/A'))[:15]
+            
+            # Set row color based on risk level
+            if risk_level == 'CRITICAL':
+                pdf.set_fill_color(255, 200, 200)  # Light red
+            elif risk_level == 'HIGH':
+                pdf.set_fill_color(255, 230, 200)  # Light orange
+            elif risk_level == 'MID':
+                pdf.set_fill_color(255, 255, 200)  # Light yellow
+            else:
+                pdf.set_fill_color(200, 255, 200)  # Light green
+            
+            # Add row data
+            row_data = [force_id, name, risk_level, combined_score, nlp_score, image_score, last_survey, mental_state]
+            
+            for i, cell_data in enumerate(row_data):
+                pdf.cell(col_widths[i], 6, cell_data, 1, 0, 'C', fill=True)
+            pdf.ln()
+        
+        # Summary statistics
+        pdf.ln(10)
+        pdf.set_font('Arial', 'B', 12)
+        pdf.cell(0, 8, "Summary Statistics:", 0, 1)
+        pdf.set_font('Arial', '', 10)
+        
+        # Calculate statistics
+        total_soldiers = len(soldiers_data)
+        risk_counts = {'LOW': 0, 'MID': 0, 'HIGH': 0, 'CRITICAL': 0}
+        total_combined_score = 0
+        valid_scores = 0
+        
+        for soldier in soldiers_data:
+            risk_level = soldier.get('risk_level', 'LOW')
+            if risk_level in risk_counts:
+                risk_counts[risk_level] += 1
+            
+            combined_score = soldier.get('combined_score', 0)
+            if combined_score > 0:
+                total_combined_score += combined_score
+                valid_scores += 1
+        
+        avg_score = total_combined_score / valid_scores if valid_scores > 0 else 0
+        
+        # Display statistics
+        pdf.cell(0, 5, f"Total Soldiers: {total_soldiers}", 0, 1)
+        pdf.cell(0, 5, f"Low Risk: {risk_counts['LOW']} ({risk_counts['LOW']/total_soldiers*100:.1f}%)", 0, 1)
+        pdf.cell(0, 5, f"Medium Risk: {risk_counts['MID']} ({risk_counts['MID']/total_soldiers*100:.1f}%)", 0, 1)
+        pdf.cell(0, 5, f"High Risk: {risk_counts['HIGH']} ({risk_counts['HIGH']/total_soldiers*100:.1f}%)", 0, 1)
+        pdf.cell(0, 5, f"Critical Risk: {risk_counts['CRITICAL']} ({risk_counts['CRITICAL']/total_soldiers*100:.1f}%)", 0, 1)
+        pdf.cell(0, 5, f"Average Combined Score: {avg_score:.3f}", 0, 1)
+        
+        # Footer
+        pdf.ln(10)
+        pdf.set_font('Arial', 'I', 8)
+        pdf.cell(0, 5, "This report contains sensitive mental health information. Handle with appropriate confidentiality.", 0, 1, 'C')
+        
+        # Create in-memory file
+        pdf_output = io.BytesIO()
+        pdf_content = pdf.output(dest='S')
+        if isinstance(pdf_content, str):
+            pdf_content = pdf_content.encode('latin-1')
+        pdf_output.write(pdf_content)
+        pdf_output.seek(0)
+        
+        # Generate filename with timestamp
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f"soldiers_report_{timestamp}.pdf"
+        
+        return send_file(
+            pdf_output,
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=filename
+        )
+        
+    except Exception as e:
+        logger.error(f"Error generating PDF report: {e}")
+        return jsonify({"error": f"Failed to generate PDF: {str(e)}"}), 500
+
+
+@admin_bp.route('/download-soldiers-csv', methods=['POST'])
+def download_soldiers_csv():
+    """Generate and download CSV report from provided soldiers data (no DB access)"""
+    try:
+        import csv
+        
+        data = request.json
+        soldiers_data = data.get('soldiers', [])
+        filters = data.get('filters', {})
+        
+        if not soldiers_data:
+            return jsonify({'error': 'No soldiers data provided'}), 400
+        
+        # Create CSV content
+        csv_output = io.StringIO()
+        fieldnames = [
+            'force_id', 'name', 'risk_level', 'combined_score', 'nlp_score', 
+            'image_score', 'last_survey_date', 'questionnaire_title', 
+            'total_cctv_detections', 'avg_cctv_score', 'mental_state', 
+            'alert_level', 'recommendation'
+        ]
+        
+        writer = csv.DictWriter(csv_output, fieldnames=fieldnames)
+        
+        # Write header
+        writer.writeheader()
+        
+        # Write data rows
+        for soldier in soldiers_data:
+            # Create a clean row with all required fields
+            row = {
+                'force_id': soldier.get('force_id', ''),
+                'name': soldier.get('name', ''),
+                'risk_level': soldier.get('risk_level', ''),
+                'combined_score': soldier.get('combined_score', 0),
+                'nlp_score': soldier.get('nlp_score', 0),
+                'image_score': soldier.get('image_score', 0),
+                'last_survey_date': soldier.get('last_survey_date', ''),
+                'questionnaire_title': soldier.get('questionnaire_title', ''),
+                'total_cctv_detections': soldier.get('total_cctv_detections', 0),
+                'avg_cctv_score': soldier.get('avg_cctv_score', 0),
+                'mental_state': soldier.get('mental_state', ''),
+                'alert_level': soldier.get('alert_level', ''),
+                'recommendation': soldier.get('recommendation', '')
+            }
+            writer.writerow(row)
+        
+        # Convert to bytes for download
+        csv_bytes = io.BytesIO()
+        csv_bytes.write(csv_output.getvalue().encode('utf-8'))
+        csv_bytes.seek(0)
+        
+        # Generate filename with timestamp
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f"soldiers_report_{timestamp}.csv"
+        
+        return send_file(
+            csv_bytes,
+            mimetype='text/csv',
+            as_attachment=True,
+            download_name=filename
+        )
+        
+    except Exception as e:
+        logger.error(f"Error generating CSV report: {e}")
+        return jsonify({"error": f"Failed to generate CSV: {str(e)}"}), 500

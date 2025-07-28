@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
 import SuccessModal from '../../components/SuccessModal';
 import ErrorModal from '../../components/ErrorModal';
 import LoadingModal from '../../components/LoadingModal';
 import { apiService} from '../../services/api';
+
+interface Questionnaire {
+    id: number;
+    title: string;
+    description: string;
+    status: string;
+    total_questions: number;
+    created_at: string;
+}
 
 const QuestionnairePage: React.FC = () => {
     const navigate = useNavigate();
@@ -25,6 +34,32 @@ const QuestionnairePage: React.FC = () => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showErrorModal, setShowErrorModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [questionnaires, setQuestionnaires] = useState<Questionnaire[]>([]);
+    const [loadingQuestionnaires, setLoadingQuestionnaires] = useState(false);
+
+    // Fetch questionnaires on component mount
+    useEffect(() => {
+        fetchQuestionnaires();
+    }, []);
+
+    const fetchQuestionnaires = async () => {
+        setLoadingQuestionnaires(true);
+        try {
+            console.log('Fetching questionnaires...');
+            const response = await apiService.getQuestionnaires();
+            console.log('API Response:', response);
+            console.log('Questionnaires data:', response.data);
+            setQuestionnaires(response.data.questionnaires);
+            console.log('Set questionnaires:', response.data.questionnaires);
+        } catch (error) {
+            console.error('Failed to fetch questionnaires:', error);
+            // Show error message to user
+            setErrorMessage('Failed to load questionnaires. Please try again.');
+            setShowErrorModal(true);
+        } finally {
+            setLoadingQuestionnaires(false);
+        }
+    };
 
     const handleCreateQuestionnaire = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -102,6 +137,8 @@ const QuestionnairePage: React.FC = () => {
 
             // Show custom success modal instead of alert
             setShowSuccessModal(true);
+            // Refresh questionnaires list
+            fetchQuestionnaires();
         } catch (error) {
             console.error('Failed to save questionnaire:', error);
             setErrorMessage('Failed to save questionnaire. Please check your connection and try again.');
@@ -152,6 +189,7 @@ const QuestionnairePage: React.FC = () => {
     const handleModalContinue = () => {
         setShowSuccessModal(false);
         handleReset();
+        fetchQuestionnaires(); // Refresh the questionnaires list
         navigate('/admin/dashboard');
     };
 
@@ -175,8 +213,9 @@ const QuestionnairePage: React.FC = () => {
                 </h1>
 
                 {step === 1 ? (
-                    <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
-                        <h2 className="text-xl mb-4">Create New Questionnaire</h2>
+                    <>
+                        <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
+                            <h2 className="text-xl mb-4">Create New Questionnaire</h2>
                         <form onSubmit={handleCreateQuestionnaire}>
                             <div className="mb-4">
                                 <label className="block text-gray-700 mb-2">
@@ -239,6 +278,63 @@ const QuestionnairePage: React.FC = () => {
                             </button>
                         </form>
                     </div>
+                    
+                    {/* Questionnaires List */}
+                    <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-xl font-semibold mb-4">Existing Questionnaires</h2>
+                        
+                        {loadingQuestionnaires ? (
+                            <div className="flex justify-center py-4">
+                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                            </div>
+                        ) : questionnaires.length === 0 ? (
+                            <p className="text-gray-500 text-center py-4">No questionnaires found</p>
+                        ) : (
+                            <div className="overflow-x-auto">
+                                <table className="w-full border-collapse border border-gray-300">
+                                    <thead>
+                                        <tr className="bg-gray-50">
+                                            <th className="border border-gray-300 px-4 py-2 text-left">Title</th>
+                                            <th className="border border-gray-300 px-4 py-2 text-left">Description</th>
+                                            <th className="border border-gray-300 px-4 py-2 text-center">Status</th>
+                                            <th className="border border-gray-300 px-4 py-2 text-center">Questions</th>
+                                            <th className="border border-gray-300 px-4 py-2 text-center">Created</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {questionnaires.map((questionnaire) => (
+                                            <tr key={questionnaire.id} className="hover:bg-gray-50">
+                                                <td className="border border-gray-300 px-4 py-2 font-medium">
+                                                    {questionnaire.title}
+                                                </td>
+                                                <td className="border border-gray-300 px-4 py-2">
+                                                    <div className="max-w-xs truncate" title={questionnaire.description}>
+                                                        {questionnaire.description}
+                                                    </div>
+                                                </td>
+                                                <td className="border border-gray-300 px-4 py-2 text-center">
+                                                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                                        questionnaire.status === 'Active' 
+                                                            ? 'bg-green-100 text-green-800' 
+                                                            : 'bg-gray-100 text-gray-800'
+                                                    }`}>
+                                                        {questionnaire.status}
+                                                    </span>
+                                                </td>
+                                                <td className="border border-gray-300 px-4 py-2 text-center">
+                                                    {questionnaire.total_questions}
+                                                </td>
+                                                <td className="border border-gray-300 px-4 py-2 text-center text-sm text-gray-600">
+                                                    {new Date(questionnaire.created_at).toLocaleDateString()}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        )}
+                    </div>
+                    </>
                 ) : (
                     <div className="bg-white p-6 rounded-lg shadow-md max-w-2xl">
                         <div className="mb-6">

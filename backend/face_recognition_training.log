@@ -18933,3 +18933,8 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-29 23:55:11,585 - INFO - 127.0.0.1 - - [29/Jul/2025 23:55:11] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-07-29 23:55:24,265 - INFO - 127.0.0.1 - - [29/Jul/2025 23:55:24] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
 2025-07-29 23:55:41,579 - INFO - 127.0.0.1 - - [29/Jul/2025 23:55:41] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 23:56:22,217 - INFO - 127.0.0.1 - - [29/Jul/2025 23:56:22] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 23:56:22,521 - INFO - 127.0.0.1 - - [29/Jul/2025 23:56:22] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 23:56:26,000 - INFO - 127.0.0.1 - - [29/Jul/2025 23:56:26] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 23:56:28,074 - INFO - 127.0.0.1 - - [29/Jul/2025 23:56:28] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 23:56:41,574 - INFO - 127.0.0.1 - - [29/Jul/2025 23:56:41] "GET /api/auth/session-status HTTP/1.1" 200 -

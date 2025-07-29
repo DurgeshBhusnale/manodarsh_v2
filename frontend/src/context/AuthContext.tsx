@@ -8,6 +8,8 @@ export interface User {
 
 export interface AuthContextType {
     user: User | null;
+    isSidebarOpen: boolean;
+    toggleSidebar: () => void;
     login: (user: User) => void;
     logout: () => void;
     isAuthenticated: boolean;
@@ -16,6 +18,8 @@ export interface AuthContextType {
 // Create the context with proper type
 export const AuthContext = createContext<AuthContextType>({
     user: null,
+    isSidebarOpen: false,
+    toggleSidebar: () => {},
     login: () => {},
     logout: () => {},
     isAuthenticated: false
@@ -40,6 +44,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         const savedUser = localStorage.getItem('user');
         return savedUser ? JSON.parse(savedUser) : null;
     });
+    
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
 
     const login = (userData: User) => {
         setUser(userData);
@@ -48,6 +58,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     const logout = () => {
         setUser(null);
+        setIsSidebarOpen(false);
         localStorage.removeItem('user');
         // Additional cleanup if needed
     };
@@ -55,6 +66,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     return (
         <AuthContext.Provider value={{
             user,
+            isSidebarOpen,
+            toggleSidebar,
             login,
             logout,
             isAuthenticated: !!user

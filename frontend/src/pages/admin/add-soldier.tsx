@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
+import { useAuth } from '../../context/AuthContext';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 import axios from 'axios';
 
 const AddSoldier: React.FC = () => {
+    const { isSidebarOpen, toggleSidebar } = useAuth();
     const [forceId, setForceId] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -118,104 +121,156 @@ Please keep the window focused for key controls to work.`,
     };
 
     return (
-    <div className="flex h-screen">
-        <Sidebar />
-        <div className="flex-1 p-8 bg-gray-100">
-            <h1 className="text-2xl font-bold mb-6">Add New Soldier</h1>
-            
-            <div className="space-y-6">
-                {/* Add Soldier Form */}
-                <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
-                    <form onSubmit={handleAddSoldier}>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">
-                                Force ID
-                            </label>
-                            <input
-                                type="text"
-                                value={forceId}
-                                onChange={(e) => setForceId(e.target.value)}
-                                className="w-full p-2 border rounded"
-                                required
-                                pattern="[0-9]{9}"
-                                title="Force ID must be 9 digits"
-                            />
-                        </div>
-
-                        <div className="mb-6">
-                            <label className="block text-gray-700 mb-2">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="w-full p-2 border rounded"
-                                required
-                                disabled={isCollecting}
-                            />
-                        </div>
-
-                        {message.text && (
-                            <div className={`p-4 mb-4 rounded whitespace-pre-line ${
-                                message.type === 'error' 
-                                    ? 'bg-red-100 text-red-700' 
-                                    : message.type === 'info'
-                                    ? 'bg-blue-100 text-blue-700'
-                                    : 'bg-green-100 text-green-700'
-                            }`}>
-                                {message.text}
-                            </div>
-                        )}
-
-                        <div className="space-y-4">
-                            <button
-                                type="button"
-                                onClick={handleCollectImages}
-                                disabled={isCollecting}
-                                className={`w-full ${
-                                    isCollecting 
-                                        ? 'bg-gray-400' 
-                                        : 'bg-green-600 hover:bg-green-700'
-                                } text-white p-2 rounded transition-colors`}
-                            >
-                                {isCollecting ? 'Collecting Images...' : 'Collect Images'}
-                            </button>
-
-                            <button
-                                type="submit"
-                                disabled={isLoading || isCollecting}
-                                className={`w-full ${
-                                    isLoading || isCollecting
-                                        ? 'bg-gray-400' 
-                                        : 'bg-blue-600 hover:bg-blue-700'
-                                } text-white p-2 rounded transition-colors`}
-                            >
-                                {isLoading ? 'Adding...' : 'Add Soldier'}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                {/* Train Model Button (Outside Form) */}
-                <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
-                    <h2 className="text-lg font-semibold mb-4">Model Training</h2>
+    <div className="flex h-screen bg-gray-50">
+        <Sidebar isOpen={isSidebarOpen} onClose={() => toggleSidebar()} />
+        
+        <div className="flex-1 flex flex-col overflow-hidden">
+            {/* Mobile header */}
+            <div className="md:hidden bg-white shadow-sm border-b border-gray-200 px-4 py-3">
+                <div className="flex items-center justify-between">
                     <button
-                        onClick={handleTrainModel}
-                        disabled={isTraining}
-                        className={`w-full ${
-                            isTraining
-                                ? 'bg-gray-400'
-                                : 'bg-yellow-600 hover:bg-yellow-700'
-                        } text-white p-2 rounded transition-colors`}
+                        onClick={toggleSidebar}
+                        className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+                        aria-label="Open navigation menu"
                     >
-                        {isTraining ? 'Training Model...' : 'Train Model'}
+                        <Bars3Icon className="w-6 h-6" />
                     </button>
+                    <h1 className="text-lg font-semibold text-gray-900">Add Personnel</h1>
+                    <div className="w-10"></div>
                 </div>
-            </div>  {/* Missing closing bracket for space-y-6 div */}
+            </div>
+
+            {/* Main content */}
+            <div className="flex-1 overflow-auto p-4 md:p-8">
+                <div className="max-w-4xl mx-auto">
+                    <div className="hidden md:block mb-8">
+                        <h1 className="text-3xl font-bold text-gray-900 mb-2">Add New Personnel</h1>
+                        <p className="text-gray-600">Register new soldier and collect biometric data</p>
+                    </div>
+            
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Add Soldier Form */}
+                        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                            <h2 className="text-xl font-semibold text-gray-900 mb-6">Personnel Registration</h2>
+                            <form onSubmit={handleAddSoldier}>
+                                <div className="mb-6">
+                                    <label className="block text-gray-700 mb-2 font-medium">
+                                        Force ID
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={forceId}
+                                        onChange={(e) => setForceId(e.target.value)}
+                                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                        required
+                                        pattern="[0-9]{9}"
+                                        title="Force ID must be 9 digits"
+                                        placeholder="Enter 9-digit Force ID"
+                                    />
+                                </div>
+
+                                <div className="mb-6">
+                                    <label className="block text-gray-700 mb-2 font-medium">
+                                        Password
+                                    </label>
+                                    <input
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                        required
+                                        disabled={isCollecting}
+                                        placeholder="Create secure password"
+                                    />
+                                </div>
+
+                                <div className="space-y-4">
+                                    <button
+                                        type="button"
+                                        onClick={handleCollectImages}
+                                        disabled={isCollecting}
+                                        className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                                            isCollecting 
+                                                ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
+                                                : 'bg-green-600 text-white hover:bg-green-700 shadow-lg hover:shadow-xl'
+                                        }`}
+                                    >
+                                        {isCollecting ? (
+                                            <>
+                                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                                                Collecting Images...
+                                            </>
+                                        ) : (
+                                            'Collect Biometric Data'
+                                        )}
+                                    </button>
+
+                                    <button
+                                        type="submit"
+                                        disabled={isLoading || isCollecting}
+                                        className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                                            isLoading || isCollecting
+                                                ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
+                                                : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl'
+                                        }`}
+                                    >
+                                        {isLoading ? (
+                                            <>
+                                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                                                Registering...
+                                            </>
+                                        ) : (
+                                            'Register Personnel'
+                                        )}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        {/* Model Training Section */}
+                        <div className="space-y-6">
+                            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                                <h2 className="text-xl font-semibold text-gray-900 mb-4">Model Training</h2>
+                                <p className="text-gray-600 mb-6">Train the recognition model with new personnel data</p>
+                                <button
+                                    onClick={handleTrainModel}
+                                    disabled={isTraining}
+                                    className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                                        isTraining
+                                            ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                                            : 'bg-yellow-600 text-white hover:bg-yellow-700 shadow-lg hover:shadow-xl'
+                                    }`}
+                                >
+                                    {isTraining ? (
+                                        <>
+                                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                                            Training Model...
+                                        </>
+                                    ) : (
+                                        'Train Recognition Model'
+                                    )}
+                                </button>
+                            </div>
+
+                            {/* Status Messages */}
+                            {message.text && (
+                                <div className={`p-4 rounded-xl whitespace-pre-line border ${
+                                    message.type === 'error' 
+                                        ? 'bg-red-50 text-red-700 border-red-200' 
+                                        : message.type === 'info'
+                                        ? 'bg-blue-50 text-blue-700 border-blue-200'
+                                        : 'bg-green-50 text-green-700 border-green-200'
+                                }`}>
+                                    {message.text}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-);
+    );
 };
 
 export default AddSoldier;

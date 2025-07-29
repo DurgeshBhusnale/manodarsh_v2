@@ -34,7 +34,7 @@ export const Sidebar: React.FC = () => {
     ];
 
     return (
-        <div className="w-64 h-screen bg-gray-800 text-white flex flex-col">
+        <div className="w-64 h-screen bg-gray-800 text-white flex-col hidden md:flex fixed md:static z-30">
             <div className="p-4">
                 <div className="mb-8">
                     <h2 className="text-xl font-bold">CRPF Admin</h2>

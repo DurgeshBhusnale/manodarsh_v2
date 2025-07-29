@@ -4,7 +4,8 @@ import Modal from '../../components/Modal';
 import InfoModal from '../../components/InfoModal';
 import LoadingModal from '../../components/LoadingModal';
 import ErrorModal from '../../components/ErrorModal';
-import axios from 'axios';
+import { apiService } from '../../services/api';
+import { Box, Button, Input, Stack, Heading, Text } from '@chakra-ui/react';
 
 const AddSoldier: React.FC = () => {
     const [forceId, setForceId] = useState('');
@@ -51,10 +52,7 @@ Please keep the window focused for key controls to work.`);
         setShowInfoModal(true);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/image/collect', {
-                force_id: forceId
-            });
-
+            const response = await apiService.collectImages(forceId);
             if (response.data.folder_path) {
                 setModalTitle('Images Collected Successfully');
                 setModalMessage('Images collected successfully! You can now proceed with adding the soldier.');
@@ -76,7 +74,7 @@ Please keep the window focused for key controls to work.`);
     const handleTrainModel = async () => {
         setIsTraining(true);
         try {
-            const response = await axios.post('http://localhost:5000/api/image/train');
+            const response = await apiService.trainModel(forceId);
             setModalTitle('Training Complete');
             setModalMessage('Model training completed successfully!');
             setShowSuccessModal(true);
@@ -93,10 +91,9 @@ Please keep the window focused for key controls to work.`);
         e.preventDefault();
         setIsLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', {
+            const response = await apiService.addSoldier({
                 force_id: forceId,
-                password: password,
-                user_type: 'soldier'
+                password: password
             });
 
             setModalTitle('Soldier Added');
@@ -116,93 +113,76 @@ Please keep the window focused for key controls to work.`);
     };
 
     return (
-    <div className="flex h-screen">
-        <Sidebar />
-        <div className="flex-1 p-8 bg-gray-100">
-            <h1 className="text-2xl font-bold mb-6">Add New Soldier</h1>
-            
-            <div className="space-y-6">
-                {/* Add Soldier Form */}
-                <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
-                    <form onSubmit={handleAddSoldier}>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">
-                                Force ID
-                            </label>
-                            <input
-                                type="text"
-                                value={forceId}
-                                onChange={(e) => setForceId(e.target.value)}
-                                className="w-full p-2 border rounded"
-                                required
-                                pattern="[0-9]{9}"
-                                title="Force ID must be 9 digits"
-                            />
-                        </div>
-
-                        <div className="mb-6">
-                            <label className="block text-gray-700 mb-2">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="w-full p-2 border rounded"
-                                required
-                                disabled={isCollecting}
-                            />
-                        </div>
-
-
-
-                        <div className="space-y-4">
-                            <button
-                                type="button"
-                                onClick={handleCollectImages}
-                                disabled={isCollecting}
-                                className={`w-full ${
-                                    isCollecting 
-                                        ? 'bg-gray-400' 
-                                        : 'bg-green-600 hover:bg-green-700'
-                                } text-white p-2 rounded transition-colors`}
-                            >
-                                {isCollecting ? 'Collecting Images...' : 'Collect Images'}
-                            </button>
-
-                            <button
-                                type="submit"
-                                disabled={isLoading || isCollecting}
-                                className={`w-full ${
-                                    isLoading || isCollecting
-                                        ? 'bg-gray-400' 
-                                        : 'bg-blue-600 hover:bg-blue-700'
-                                } text-white p-2 rounded transition-colors`}
-                            >
-                                {isLoading ? 'Adding...' : 'Add Soldier'}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                {/* Train Model Button (Outside Form) */}
-                <div className="bg-white p-6 rounded-lg shadow-md max-w-md">
-                    <h2 className="text-lg font-semibold mb-4">Model Training</h2>
-                    <button
-                        onClick={handleTrainModel}
-                        disabled={isTraining}
-                        className={`w-full ${
-                            isTraining
-                                ? 'bg-gray-400'
-                                : 'bg-yellow-600 hover:bg-yellow-700'
-                        } text-white p-2 rounded transition-colors`}
-                    >
-                        {isTraining ? 'Training Model...' : 'Train Model'}
-                    </button>
-                </div>
-            </div>  {/* Missing closing bracket for space-y-6 div */}
-        </div>
-
+    <div style={{ display: 'flex', height: '100vh' }}>
+      <Sidebar />
+      <Box flex="1" p={8} bg={'gray.100'}>
+        <Heading as="h1" size="lg" mb={6}>Add New Soldier</Heading>
+        <Stack spacing={6}>
+          {/* Add Soldier Form */}
+          <Box bg={'white'} p={6} rounded="lg" shadow="md" maxW="md">
+            <form onSubmit={handleAddSoldier}>
+              <Stack spacing={4}>
+                <Box>
+                  <Text as="label" color={'gray.700'} fontWeight="semibold" mb={1}>Force ID</Text>
+                  <Input
+                    type="text"
+                    value={forceId}
+                    onChange={(e) => setForceId(e.target.value)}
+                    required
+                    pattern="[0-9]{9}"
+                    title="Force ID must be 9 digits"
+                    isDisabled={isCollecting}
+                  />
+                </Box>
+                <Box>
+                  <Text as="label" color={'gray.700'} fontWeight="semibold" mb={1}>Password</Text>
+                  <Input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    isDisabled={isCollecting}
+                  />
+                </Box>
+                <Stack spacing={4}>
+                  <Button
+                    type="button"
+                    onClick={handleCollectImages}
+                    isLoading={isCollecting}
+                    isDisabled={isCollecting}
+                    colorScheme="green"
+                    w="full"
+                  >
+                    {isCollecting ? 'Collecting Images...' : 'Collect Images'}
+                  </Button>
+                  <Button
+                    type="submit"
+                    isLoading={isLoading}
+                    isDisabled={isLoading || isCollecting}
+                    colorScheme="blue"
+                    w="full"
+                  >
+                    {isLoading ? 'Adding...' : 'Add Soldier'}
+                  </Button>
+                </Stack>
+              </Stack>
+            </form>
+          </Box>
+          {/* Train Model Button (Outside Form) */}
+          <Box bg={'white'} p={6} rounded="lg" shadow="md" maxW="md">
+            <Heading as="h2" size="md" mb={4}>Model Training</Heading>
+            <Button
+              onClick={handleTrainModel}
+              isLoading={isTraining}
+              isDisabled={isTraining}
+              colorScheme="yellow"
+              w="full"
+            >
+              {isTraining ? 'Training Model...' : 'Train Model'}
+            </Button>
+          </Box>
+        </Stack>
+      </Box>
         {/* Modal Components */}
         <Modal
             isOpen={showSuccessModal}

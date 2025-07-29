@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, Text, Flex, IconButton } from '@chakra-ui/react';
 
 interface ModalProps {
     isOpen: boolean;
@@ -17,73 +18,58 @@ const Modal: React.FC<ModalProps> = ({
     type = 'info',
     showCloseButton = true
 }) => {
-    if (!isOpen) return null;
-
     const getTypeStyles = () => {
         switch (type) {
             case 'success':
                 return {
-                    bg: 'bg-green-50',
-                    border: 'border-green-200',
-                    titleColor: 'text-green-800',
-                    icon: '✅'
+                    color: 'green.600',
+                    icon: '✅',
+                    bg: 'green.50'
                 };
             case 'error':
                 return {
-                    bg: 'bg-red-50',
-                    border: 'border-red-200',
-                    titleColor: 'text-red-800',
-                    icon: '❌'
+                    color: 'red.600',
+                    icon: '❌',
+                    bg: 'red.50'
                 };
             case 'warning':
                 return {
-                    bg: 'bg-yellow-50',
-                    border: 'border-yellow-200',
-                    titleColor: 'text-yellow-800',
-                    icon: '⚠️'
+                    color: 'yellow.600',
+                    icon: '⚠️',
+                    bg: 'yellow.50'
                 };
             default:
                 return {
-                    bg: 'bg-blue-50',
-                    border: 'border-blue-200',
-                    titleColor: 'text-blue-800',
-                    icon: 'ℹ️'
+                    color: 'blue.600',
+                    icon: 'ℹ️',
+                    bg: 'blue.50'
                 };
         }
     };
 
     const styles = getTypeStyles();
 
+    if (!isOpen) return null;
+
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 transform transition-all">
-                <div className={`${styles.bg} ${styles.border} border rounded-t-lg px-6 py-4`}>
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                            <span className="text-2xl">{styles.icon}</span>
-                            <h2 className={`text-lg font-semibold ${styles.titleColor}`}>
-                                {title}
-                            </h2>
-                        </div>
+        <Box position="fixed" top={0} left={0} w="100vw" h="100vh" bg="blackAlpha.600" zIndex={1400} display="flex" alignItems="center" justifyContent="center">
+            <Box bg={styles.bg} maxW="md" w="100%" borderRadius="lg" boxShadow="lg" p={0}>
+                <Box px={6} py={4} borderTopRadius="lg" borderBottom="1px" borderColor="gray.200">
+                    <Flex align="center" justify="space-between">
+                        <Flex align="center" gap={3}>
+                            <Text fontSize="2xl" color={styles.color}>{styles.icon}</Text>
+                            <Text as="span" fontWeight="semibold" fontSize="lg" color={styles.color}>{title}</Text>
+                        </Flex>
                         {showCloseButton && (
-                            <button
-                                onClick={onClose}
-                                className="text-gray-400 hover:text-gray-600 transition-colors"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
+                            <IconButton aria-label="Close modal" icon={<span>&times;</span>} size="sm" variant="ghost" color="gray.400" onClick={onClose} />
                         )}
-                    </div>
-                </div>
-                <div className="px-6 py-4">
-                    <div className="text-gray-700">
-                        {children}
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </Flex>
+                </Box>
+                <Box px={6} py={4} color={'gray.700'}>
+                    {children}
+                </Box>
+            </Box>
+        </Box>
     );
 };
 

@@ -3,6 +3,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { apiService } from '../services/api';
 import InfoModal from '../components/InfoModal';
+import { Box, Button, Input, Stack, Heading, Flex, Alert, AlertTitle, AlertDescription, Text } from '@chakra-ui/react';
+import { InfoIcon, WarningIcon } from '@chakra-ui/icons';
 
 export const LoginPage: React.FC = () => {
     const navigate = useNavigate();
@@ -75,71 +77,65 @@ export const LoginPage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-md w-96">
-                <h1 className="text-2xl font-bold mb-6 text-center">
-                    CRPF Admin Login
-                </h1>
-                
-                <div className="bg-blue-100 text-blue-800 p-3 rounded mb-4 text-sm">
-                    <strong>Note:</strong> This system is for administrators only. 
-                    Soldiers can access questionnaires directly via the survey page.
-                </div>
-                
-                {error && (
-                    <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
-                        {error}
-                    </div>
-                )}
-
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 mb-2">
-                            Force ID
-                        </label>
-                        <input
-                            type="text"
-                            value={forceId}
-                            onChange={(e) => setForceId(e.target.value)}
-                            className="w-full p-2 border rounded"
-                            placeholder="Enter 9-digit Force ID"
-                            required
-                        />
-                    </div>
-
-                    <div className="mb-6">
-                        <label className="block text-gray-700 mb-2">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full p-2 border rounded"
-                            placeholder="Enter your password"
-                            required
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={isLoading}
-                        className={`w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 
-                            ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    >
-                        {isLoading ? 'Logging in...' : 'Login'}
-                    </button>
-                </form>
-            </div>
-
-            {/* Modal Components */}
-            <InfoModal
-                isOpen={showInfoModal}
-                onClose={() => setShowInfoModal(false)}
-                title={modalTitle}
-                message={modalMessage}
-            />
-        </div>
+      <Flex minH="100vh" align="center" justify="center" bg={'gray.100'}>
+        <Box bg={'white'} p={8} rounded="lg" shadow="md" w={{ base: '100%', sm: '400px' }}>
+          <Heading as="h1" size="lg" mb={6} textAlign="center">CRPF Admin Login</Heading>
+          <Alert status="info" mb={4} rounded="md">
+            <InfoIcon boxSize={5} mr={2} color="blue.400" />
+            <Box flex="1">
+              <AlertTitle fontSize="md">Note:</AlertTitle>
+              <AlertDescription fontSize="sm">
+                This system is for administrators only. Soldiers can access questionnaires directly via the survey page.
+              </AlertDescription>
+            </Box>
+          </Alert>
+          {error && (
+            <Alert status="error" mb={4} rounded="md">
+              <WarningIcon boxSize={5} mr={2} color="red.400" />
+              <Text>{error}</Text>
+            </Alert>
+          )}
+          <form onSubmit={handleSubmit}>
+            <Stack spacing={4}>
+              <Box>
+                <Text as="label" color={'gray.700'} fontWeight="semibold" mb={1}>Force ID</Text>
+                <Input
+                  type="text"
+                  value={forceId}
+                  onChange={(e) => setForceId(e.target.value)}
+                  placeholder="Enter 9-digit Force ID"
+                  required
+                />
+              </Box>
+              <Box>
+                <Text as="label" color={'gray.700'} fontWeight="semibold" mb={1}>Password</Text>
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  required
+                />
+              </Box>
+              <Button
+                type="submit"
+                isLoading={isLoading}
+                colorScheme="blue"
+                w="full"
+              >
+                {isLoading ? 'Logging in...' : 'Login'}
+              </Button>
+            </Stack>
+          </form>
+        </Box>
+        {/* Modal Components */}
+        <InfoModal
+          isOpen={showInfoModal}
+          onClose={() => setShowInfoModal(false)}
+          title={modalTitle}
+          message={modalMessage}
+        />
+      </Flex>
     );
 };
 

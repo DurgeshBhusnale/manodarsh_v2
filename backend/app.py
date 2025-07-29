@@ -7,17 +7,24 @@ from api.admin.routes import admin_bp
 from api.admin.settings import settings_bp
 from api.survey.routes import survey_bp
 from config.settings import settings
+from datetime import timedelta
+import os
 # DISABLED: from services.scheduler_service import MonitoringScheduler
 
 def create_app():
     app = Flask(__name__)
+    
+    # Configure Flask sessions
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'crpf-mental-health-secret-key-change-in-production')
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=settings.SESSION_TIMEOUT)
     
     # Update CORS configuration using settings
     CORS(app, resources={
         r"/api/*": {
             "origins": [settings.FRONTEND_URL],
             "methods": ["GET", "POST", "PUT", "DELETE"],
-            "allow_headers": ["Content-Type"]
+            "allow_headers": ["Content-Type"],
+            "supports_credentials": True  # Enable credentials for session cookies
         }
     })
 

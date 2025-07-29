@@ -292,10 +292,13 @@ const QuestionnairePage: React.FC = () => {
     return (
         <div className="flex h-screen">
             <Sidebar />
-            <div className="flex-1 p-8 bg-gray-100">
-                <h1 className="text-2xl font-bold mb-6">
-                    Questionnaire Management
-                </h1>
+            <div className="flex-1 flex flex-col bg-gray-100 overflow-hidden">
+                <div className="p-8 pb-4 flex-shrink-0">
+                    <h1 className="text-2xl font-bold mb-6">
+                        Questionnaire Management
+                    </h1>
+                </div>
+                <div className="flex-1 px-8 pb-8 overflow-y-auto">
 
                 {step === 1 ? (
                     <>
@@ -373,7 +376,7 @@ const QuestionnairePage: React.FC = () => {
                             </p>
                         </div>
                         
-                                                                <p className="text-gray-500 text-sm mb-4">💡 Click on any questionnaire row to view detailed information</p>
+                        <p className="text-gray-500 text-sm mb-4">💡 Click on any questionnaire row to view detailed information</p>
                         
                         {loadingQuestionnaires ? (
                             <div className="flex justify-center py-4">
@@ -382,7 +385,7 @@ const QuestionnairePage: React.FC = () => {
                         ) : questionnaires.length === 0 ? (
                             <p className="text-gray-500 text-center py-4">No questionnaires found</p>
                         ) : (
-                            <div className="overflow-x-auto">
+                            <div className="overflow-x-auto max-h-96 overflow-y-auto">
                                 <table className="w-full border-collapse border border-gray-300">
                                     <thead>
                                         <tr className="bg-gray-50">
@@ -582,7 +585,7 @@ const QuestionnairePage: React.FC = () => {
                         )}
                     </div>
                 )}
-            </div>
+                </div>
             
             {/* Questionnaire Details Modal */}
             {showQuestionnaireDetails && (
@@ -734,6 +737,7 @@ const QuestionnairePage: React.FC = () => {
                     </div>
                 </div>
             )}
+                </div>
             
             {/* Loading Modal */}
             <LoadingModal

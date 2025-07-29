@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { authService } from '../services/authService';
 
 // Define types
 export interface User {
@@ -232,16 +233,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         localStorage.setItem(WINDOW_ID_KEY, windowId);
     };
 
-    const logout = () => {
-        setUser(null);
-        // Clear all session data immediately
-        localStorage.removeItem(SESSION_KEY);
-        localStorage.removeItem(TIMESTAMP_KEY);
-        localStorage.removeItem(WINDOW_ID_KEY);
-        // Also clear any other potential sensitive data
-        localStorage.clear();
-        // Force redirect to login
-        window.location.replace('/login');
+    const logout = async () => {
+        try {
+            await authService.logout();
+        } catch (error) {
+            console.error('Logout error:', error);
+        } finally {
+            setUser(null);
+            // Clear all session data immediately
+            localStorage.removeItem(SESSION_KEY);
+            localStorage.removeItem(TIMESTAMP_KEY);
+            localStorage.removeItem(WINDOW_ID_KEY);
+            // Also clear any other potential sensitive data
+            localStorage.clear();
+            // Force redirect to login
+            window.location.replace('/login');
+        }
     };
 
     return (

@@ -506,6 +506,15 @@ def get_dashboard_stats():
         total_score = 0
         scored_soldiers = 0
         
+        # Initialize risk distribution counters
+        risk_distribution = {
+            'low': 0,
+            'medium': 0,
+            'high': 0,
+            'critical': 0,
+            'noData': 0
+        }
+        
         for soldier in soldiers_data:
             score = float(soldier[1])
             if score > 0:  # Only count soldiers with actual scores
@@ -515,9 +524,18 @@ def get_dashboard_stats():
                 risk_level = settings.get_risk_level(score)
                 if risk_level == 'HIGH':
                     high_risk_count += 1
+                    risk_distribution['high'] += 1
                 elif risk_level == 'CRITICAL':
                     critical_alerts += 1
                     high_risk_count += 1  # Critical is also high risk
+                    risk_distribution['critical'] += 1
+                elif risk_level == 'MEDIUM':
+                    risk_distribution['medium'] += 1
+                elif risk_level == 'LOW':
+                    risk_distribution['low'] += 1
+            else:
+                # Soldier has no score data
+                risk_distribution['noData'] += 1
         
         # 4. Survey completion rate (within timeframe)
         cursor.execute("""
@@ -597,6 +615,7 @@ def get_dashboard_stats():
             'criticalAlerts': critical_alerts,
             'surveyCompletionRate': round(completion_rate, 1),
             'averageMentalHealthScore': round(avg_mental_health_score, 3),
+            'riskDistribution': risk_distribution,
             'trendsData': {
                 'labels': labels,
                 'riskLevels': {

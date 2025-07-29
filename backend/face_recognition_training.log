@@ -19087,3 +19087,9 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-30 00:21:38,268 - INFO - 127.0.0.1 - - [30/Jul/2025 00:21:38] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-07-30 00:22:08,574 - INFO - 127.0.0.1 - - [30/Jul/2025 00:22:08] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-07-30 00:23:09,564 - INFO - 127.0.0.1 - - [30/Jul/2025 00:23:09] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 00:36:11,113 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\survey\\routes.py', reloading
+2025-07-30 00:36:14,115 - INFO -  * Restarting with stat
+2025-07-30 00:36:19,190 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 00:36:23,016 - INFO - All models loaded successfully
+2025-07-30 00:36:23,716 - WARNING -  * Debugger is active!
+2025-07-30 00:36:23,723 - INFO -  * Debugger PIN: 119-607-349

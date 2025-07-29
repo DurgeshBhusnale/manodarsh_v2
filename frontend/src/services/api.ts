@@ -209,6 +209,12 @@ export const apiService = {
     // Real-time alerts and monitoring
     getRealtimeAlerts: () => api.get('/admin/realtime-alerts'),
 
+    // Webcam Toggle Management
+    getWebcamToggle: () => api.get('/admin/settings/webcam-toggle'),
+    
+    setWebcamToggle: (webcam_enabled: boolean) => 
+        api.post('/admin/settings/webcam-toggle', { webcam_enabled }),
+
     translateAnswer
 };
 

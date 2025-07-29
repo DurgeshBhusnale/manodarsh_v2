@@ -18283,3 +18283,361 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-29 11:18:05,608 - INFO - 127.0.0.1 - - [29/Jul/2025 11:18:05] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-07-29 11:19:06,627 - INFO - 127.0.0.1 - - [29/Jul/2025 11:19:06] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-07-29 11:19:14,646 - INFO - 127.0.0.1 - - [29/Jul/2025 11:19:14] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-29 11:59:00,828 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 11:59:09,148 - INFO - All models loaded successfully
+2025-07-29 11:59:09,906 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-29 11:59:09,906 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 11:59:09,906 - INFO -  * Restarting with stat
+2025-07-29 11:59:14,608 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 11:59:17,669 - INFO - All models loaded successfully
+2025-07-29 11:59:18,209 - WARNING -  * Debugger is active!
+2025-07-29 11:59:18,209 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 11:59:18,463 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:18] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 11:59:21,314 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:21] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 11:59:21,699 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:21] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 11:59:22,013 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:22] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 11:59:23,496 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:23] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 11:59:25,892 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:25] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 11:59:52,621 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:52] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 11:59:52,621 - INFO - 127.0.0.1 - - [29/Jul/2025 11:59:52] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:00:22,307 - INFO - 127.0.0.1 - - [29/Jul/2025 12:00:22] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:00:22,618 - INFO - 127.0.0.1 - - [29/Jul/2025 12:00:22] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:00:52,617 - INFO - 127.0.0.1 - - [29/Jul/2025 12:00:52] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:00:52,617 - INFO - 127.0.0.1 - - [29/Jul/2025 12:00:52] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:01:22,304 - INFO - 127.0.0.1 - - [29/Jul/2025 12:01:22] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:01:22,608 - INFO - 127.0.0.1 - - [29/Jul/2025 12:01:22] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:01:52,624 - INFO - 127.0.0.1 - - [29/Jul/2025 12:01:52] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:01:52,624 - INFO - 127.0.0.1 - - [29/Jul/2025 12:01:52] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:02:22,303 - INFO - 127.0.0.1 - - [29/Jul/2025 12:02:22] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:02:22,613 - INFO - 127.0.0.1 - - [29/Jul/2025 12:02:22] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:02:52,607 - INFO - 127.0.0.1 - - [29/Jul/2025 12:02:52] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:02:52,611 - INFO - 127.0.0.1 - - [29/Jul/2025 12:02:52] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:03:30,301 - INFO - 127.0.0.1 - - [29/Jul/2025 12:03:30] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:03:30,608 - INFO - 127.0.0.1 - - [29/Jul/2025 12:03:30] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:04:24,697 - INFO - 127.0.0.1 - - [29/Jul/2025 12:04:24] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 12:04:26,301 - INFO - 127.0.0.1 - - [29/Jul/2025 12:04:26] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-29 12:05:14,357 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:14] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 12:05:16,986 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:16] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 12:05:17,334 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:17] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:05:17,641 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:17] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:05:19,094 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:19] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 12:05:21,454 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:21] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 12:05:25,424 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:25] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 12:05:27,746 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:27] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 12:05:47,300 - INFO - 127.0.0.1 - - [29/Jul/2025 12:05:47] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:06:17,619 - INFO - 127.0.0.1 - - [29/Jul/2025 12:06:17] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:06:47,628 - INFO - 127.0.0.1 - - [29/Jul/2025 12:06:47] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:07:17,634 - INFO - 127.0.0.1 - - [29/Jul/2025 12:07:17] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:07:47,311 - INFO - 127.0.0.1 - - [29/Jul/2025 12:07:47] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:08:17,630 - INFO - 127.0.0.1 - - [29/Jul/2025 12:08:17] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:08:47,317 - INFO - 127.0.0.1 - - [29/Jul/2025 12:08:47] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:09:30,615 - INFO - 127.0.0.1 - - [29/Jul/2025 12:09:30] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:10:19,321 - INFO - 127.0.0.1 - - [29/Jul/2025 12:10:19] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-29 12:14:20,496 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:20] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 12:14:23,148 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:23] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 12:14:23,472 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:14:23,788 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:14:25,234 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:25] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 12:14:27,573 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:27] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 12:14:53,305 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:14:53,614 - INFO - 127.0.0.1 - - [29/Jul/2025 12:14:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:15:23,618 - INFO - 127.0.0.1 - - [29/Jul/2025 12:15:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:15:23,618 - INFO - 127.0.0.1 - - [29/Jul/2025 12:15:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:15:53,310 - INFO - 127.0.0.1 - - [29/Jul/2025 12:15:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:15:53,627 - INFO - 127.0.0.1 - - [29/Jul/2025 12:15:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:16:23,619 - INFO - 127.0.0.1 - - [29/Jul/2025 12:16:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:16:23,625 - INFO - 127.0.0.1 - - [29/Jul/2025 12:16:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:16:53,317 - INFO - 127.0.0.1 - - [29/Jul/2025 12:16:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:16:53,628 - INFO - 127.0.0.1 - - [29/Jul/2025 12:16:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:17:23,619 - INFO - 127.0.0.1 - - [29/Jul/2025 12:17:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:17:23,622 - INFO - 127.0.0.1 - - [29/Jul/2025 12:17:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:17:53,304 - INFO - 127.0.0.1 - - [29/Jul/2025 12:17:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:17:53,605 - INFO - 127.0.0.1 - - [29/Jul/2025 12:17:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:18:30,620 - INFO - 127.0.0.1 - - [29/Jul/2025 12:18:30] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:18:30,620 - INFO - 127.0.0.1 - - [29/Jul/2025 12:18:30] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:19:25,386 - INFO - 127.0.0.1 - - [29/Jul/2025 12:19:25] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 12:19:30,614 - INFO - 127.0.0.1 - - [29/Jul/2025 12:19:30] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 12:19:30,614 - INFO - 127.0.0.1 - - [29/Jul/2025 12:19:30] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 12:19:44,330 - INFO - 127.0.0.1 - - [29/Jul/2025 12:19:44] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-29 12:58:09,275 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 12:58:13,340 - INFO - All models loaded successfully
+2025-07-29 12:58:14,070 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-29 12:58:14,071 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 12:58:14,073 - INFO -  * Restarting with stat
+2025-07-29 12:58:23,080 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 12:58:27,974 - INFO - All models loaded successfully
+2025-07-29 12:58:29,451 - WARNING -  * Debugger is active!
+2025-07-29 12:58:29,477 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 13:20:00,869 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 13:20:08,329 - INFO - All models loaded successfully
+2025-07-29 13:20:09,078 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-29 13:20:09,078 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 13:20:09,079 - INFO -  * Restarting with stat
+2025-07-29 13:20:12,442 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 13:20:14,575 - INFO - All models loaded successfully
+2025-07-29 13:20:14,981 - WARNING -  * Debugger is active!
+2025-07-29 13:20:14,990 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 13:32:49,677 - INFO - 127.0.0.1 - - [29/Jul/2025 13:32:49] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:32:52,620 - INFO - 127.0.0.1 - - [29/Jul/2025 13:32:52] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:32:53,014 - INFO - 127.0.0.1 - - [29/Jul/2025 13:32:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:32:53,263 - INFO - 127.0.0.1 - - [29/Jul/2025 13:32:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:32:55,067 - INFO - 127.0.0.1 - - [29/Jul/2025 13:32:55] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:32:57,119 - INFO - 127.0.0.1 - - [29/Jul/2025 13:32:57] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:33:23,624 - INFO - 127.0.0.1 - - [29/Jul/2025 13:33:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:33:23,630 - INFO - 127.0.0.1 - - [29/Jul/2025 13:33:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:33:53,309 - INFO - 127.0.0.1 - - [29/Jul/2025 13:33:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:33:53,622 - INFO - 127.0.0.1 - - [29/Jul/2025 13:33:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:34:23,617 - INFO - 127.0.0.1 - - [29/Jul/2025 13:34:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:34:23,624 - INFO - 127.0.0.1 - - [29/Jul/2025 13:34:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:34:53,306 - INFO - 127.0.0.1 - - [29/Jul/2025 13:34:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:34:53,621 - INFO - 127.0.0.1 - - [29/Jul/2025 13:34:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:35:23,622 - INFO - 127.0.0.1 - - [29/Jul/2025 13:35:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:35:23,622 - INFO - 127.0.0.1 - - [29/Jul/2025 13:35:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:35:53,306 - INFO - 127.0.0.1 - - [29/Jul/2025 13:35:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:35:53,619 - INFO - 127.0.0.1 - - [29/Jul/2025 13:35:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:36:23,625 - INFO - 127.0.0.1 - - [29/Jul/2025 13:36:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:36:23,628 - INFO - 127.0.0.1 - - [29/Jul/2025 13:36:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:37:24,623 - INFO - 127.0.0.1 - - [29/Jul/2025 13:37:24] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 13:37:24,623 - INFO - 127.0.0.1 - - [29/Jul/2025 13:37:24] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:37:55,640 - INFO - 127.0.0.1 - - [29/Jul/2025 13:37:55] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:37:56,606 - INFO - 127.0.0.1 - - [29/Jul/2025 13:37:56] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-29 13:39:37,607 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:37] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:39:40,364 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:40] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:39:40,736 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:40] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:39:41,044 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:41] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:39:42,482 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:42] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:39:44,840 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:44] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:39:49,398 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:49] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 13:39:50,094 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:50] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 13:39:50,399 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:50] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 13:39:50,851 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:50] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 13:39:51,754 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:51] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 13:39:51,758 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:51] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 13:39:52,114 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:52] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 13:39:53,189 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:53] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 13:39:54,112 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:54] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 13:39:54,477 - INFO - 127.0.0.1 - - [29/Jul/2025 13:39:54] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 13:51:10,746 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:10] "[33mGET /main.a3b93b39cd7e372bd515.hot-update.json HTTP/1.1[0m" 404 -
+2025-07-29 13:51:14,126 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:14] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:51:16,939 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:16] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:51:17,302 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:17] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:51:17,619 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:17] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:51:19,061 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:19] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:51:21,399 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:21] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:51:25,755 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:25] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 13:51:26,982 - INFO - 127.0.0.1 - - [29/Jul/2025 13:51:26] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 13:58:36,272 - INFO - 127.0.0.1 - - [29/Jul/2025 13:58:36] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:58:39,049 - INFO - 127.0.0.1 - - [29/Jul/2025 13:58:39] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 13:58:39,413 - INFO - 127.0.0.1 - - [29/Jul/2025 13:58:39] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:58:39,676 - INFO - 127.0.0.1 - - [29/Jul/2025 13:58:39] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 13:58:41,473 - INFO - 127.0.0.1 - - [29/Jul/2025 13:58:41] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 13:58:43,527 - INFO - 127.0.0.1 - - [29/Jul/2025 13:58:43] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:01:22,901 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:22] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 14:01:25,850 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:25] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 14:01:26,238 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:26] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:01:26,544 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:26] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:01:28,014 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:28] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:01:30,688 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:30] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:01:36,055 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:36] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 14:01:37,965 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:37] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 14:01:38,437 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:38] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 14:01:38,453 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:38] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 14:01:40,334 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:40] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 14:01:40,827 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:40] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 14:01:43,121 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:43] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 14:01:43,372 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:43] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 14:01:45,142 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:45] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 14:01:47,192 - INFO - 127.0.0.1 - - [29/Jul/2025 14:01:47] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 14:19:01,569 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\settings.py', reloading
+2025-07-29 14:19:04,612 - INFO -  * Restarting with stat
+2025-07-29 14:19:09,144 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 14:19:12,160 - INFO - All models loaded successfully
+2025-07-29 14:19:12,714 - WARNING -  * Debugger is active!
+2025-07-29 14:19:12,730 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 14:20:02,183 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\settings.py', reloading
+2025-07-29 14:20:03,577 - INFO -  * Restarting with stat
+2025-07-29 14:20:07,486 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 14:20:09,608 - INFO - All models loaded successfully
+2025-07-29 14:20:10,049 - WARNING -  * Debugger is active!
+2025-07-29 14:20:10,065 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 14:20:26,541 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\image\\routes.py', reloading
+2025-07-29 14:20:28,082 - INFO -  * Restarting with stat
+2025-07-29 14:20:32,028 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 14:20:34,953 - INFO - All models loaded successfully
+2025-07-29 14:20:35,556 - WARNING -  * Debugger is active!
+2025-07-29 14:20:35,568 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 14:32:06,938 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 14:32:09,393 - INFO - All models loaded successfully
+2025-07-29 14:32:09,797 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-29 14:32:09,797 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 14:32:09,797 - INFO -  * Restarting with stat
+2025-07-29 14:32:13,444 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 14:32:15,853 - INFO - All models loaded successfully
+2025-07-29 14:32:16,347 - WARNING -  * Debugger is active!
+2025-07-29 14:32:16,362 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 14:32:54,312 - INFO - 127.0.0.1 - - [29/Jul/2025 14:32:54] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 14:32:56,977 - INFO - 127.0.0.1 - - [29/Jul/2025 14:32:56] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 14:32:57,364 - INFO - 127.0.0.1 - - [29/Jul/2025 14:32:57] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:32:57,670 - INFO - 127.0.0.1 - - [29/Jul/2025 14:32:57] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:32:59,107 - INFO - 127.0.0.1 - - [29/Jul/2025 14:32:59] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:32:59,392 - INFO - 127.0.0.1 - - [29/Jul/2025 14:32:59] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:01,466 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:01] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:33:01,733 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:01] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:05,986 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:05] "OPTIONS /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:08,347 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:08] "POST /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:17,203 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:17] "OPTIONS /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:19,534 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:19] "POST /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:24,709 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:24] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:26,765 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:26] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:33:26,797 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:26] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-29 14:33:27,315 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:27] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 14:33:29,389 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:29] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-29 14:33:29,400 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:29] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:33:29,708 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:29] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:33:31,456 - INFO - Trying external webcam (index 1)...
+2025-07-29 14:33:31,504 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-29 14:33:32,059 - INFO - Trying external webcam (index 1)...
+2025-07-29 14:33:32,075 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-29 14:33:41,460 - INFO - Successfully connected to built-in camera
+2025-07-29 14:33:41,460 - INFO - Successfully connected to built-in camera
+2025-07-29 14:33:57,309 - INFO - 127.0.0.1 - - [29/Jul/2025 14:33:57] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 14:34:04,451 - INFO - Starting continuous survey frame processing for soldier 100000003
+2025-07-29 14:34:04,451 - INFO - Started survey emotion monitoring for soldier 100000003
+2025-07-29 14:34:04,451 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:04] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:34:08,822 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:08] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-29 14:34:10,068 - INFO - Starting continuous survey frame processing for soldier 100000003
+2025-07-29 14:34:10,068 - INFO - Started survey emotion monitoring for soldier 100000003
+2025-07-29 14:34:10,068 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:10] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:34:14,448 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:14] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-29 14:34:14,634 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-29 14:34:14,634 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:15,780 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-29 14:34:15,780 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:18,839 - DEBUG - Emotion probabilities: {'Angry': '0.18', 'Disgusted': '0.00', 'Fearful': '0.05', 'Happy': '0.13', 'Neutral': '0.63', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-29 14:34:18,839 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:19,915 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.04', 'Neutral': '0.92', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-29 14:34:19,915 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:22,891 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.21', 'Happy': '0.08', 'Neutral': '0.65', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-29 14:34:22,891 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:23,957 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:23] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-29 14:34:23,999 - DEBUG - Emotion probabilities: {'Angry': '0.05', 'Disgusted': '0.00', 'Fearful': '0.03', 'Happy': '0.01', 'Neutral': '0.90', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-29 14:34:23,999 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:26,866 - DEBUG - Emotion probabilities: {'Angry': '0.08', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.01', 'Neutral': '0.91', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-29 14:34:26,866 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:26,999 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:26] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 14:34:28,076 - DEBUG - Emotion probabilities: {'Angry': '0.07', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.02', 'Neutral': '0.89', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-29 14:34:28,076 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-29 14:34:28,741 - INFO - All models loaded successfully
+2025-07-29 14:34:28,741 - WARNING - No monitoring session active for soldier 100000003
+2025-07-29 14:34:28,741 - INFO - Emotion monitoring results: {'force_id': '100000003', 'message': 'No monitoring session active'}
+2025-07-29 14:34:28,741 - WARNING - No emotion data retrieved from monitoring service
+2025-07-29 14:34:28,741 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-07-29 14:34:28,741 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.526, 'pos': 0.474, 'compound': 0.2023}
+2025-07-29 14:34:28,741 - INFO - Text: 'i am fine...' - Label: POSITIVE, Depression score: 0.40
+2025-07-29 14:34:28,741 - INFO - Question 19 - Sentiment: POSITIVE, Score: 0.40
+2025-07-29 14:34:28,741 - INFO - Question 19: Weighted Combined = (0.40 * 0.7) + (0.00 * 0.3) = 0.279
+2025-07-29 14:34:28,741 - INFO - Question 19: NLP=0.39885, Emotion=0.00, Weighted Combined=0.279
+2025-07-29 14:34:28,748 - INFO - Session 47 - Average NLP Depression Score: 0.40
+2025-07-29 14:34:28,748 - INFO - Session 47 - Using NLP score only: 0.40
+2025-07-29 14:34:28,748 - INFO - ================================================================================
+2025-07-29 14:34:28,963 - INFO - ================================================================================
+2025-07-29 14:34:28,972 - INFO - 
+2025-07-29 14:34:28,974 - INFO -    State:          GOOD MENTAL HEALTH
+2025-07-29 14:34:28,974 - INFO -    Alert Level:    GREEN
+2025-07-29 14:34:28,974 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-07-29 14:34:28,974 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-07-29 14:34:28,974 - INFO - 
+2025-07-29 14:34:28,976 - INFO -    Total Detections: 0
+2025-07-29 14:34:28,976 - INFO -    Dominant Emotion: Unknown
+2025-07-29 14:34:28,976 - INFO - ================================================================================
+2025-07-29 14:34:28,976 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:28] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-29 14:34:28,988 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:28] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:34:29,314 - INFO - Stopped continuous survey frame processing for soldier 100000003
+2025-07-29 14:34:29,375 - INFO - Stopped continuous survey frame processing for soldier 100000003
+2025-07-29 14:34:29,375 - WARNING - No emotion data collected during survey for soldier 100000003
+2025-07-29 14:34:29,807 - INFO - Camera resources released after survey monitoring
+2025-07-29 14:34:29,821 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:29] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:34:33,630 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:33] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:34:35,991 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:35] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:34:57,611 - INFO - 127.0.0.1 - - [29/Jul/2025 14:34:57] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 14:38:42,814 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:42] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 14:38:45,390 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:45] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 403 -
+2025-07-29 14:38:49,912 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:49] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 403 -
+2025-07-29 14:38:51,233 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:51] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 14:38:53,804 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:53] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 14:38:54,134 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:54] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:38:54,440 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:54] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:38:55,856 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:55] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:38:56,157 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:56] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:38:57,662 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:57] "OPTIONS /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:38:58,188 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:58] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:38:58,506 - INFO - 127.0.0.1 - - [29/Jul/2025 14:38:58] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:00,006 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:00] "POST /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:03,021 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:03] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:03,676 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:03] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:39:03,982 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:03] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:39:05,059 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:05] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:05,704 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:05] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:39:07,381 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:07] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:08,035 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:08] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:39:09,746 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:09] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:11,173 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:11] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 14:39:11,430 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:11] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 14:39:13,194 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:13] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 14:39:15,219 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:15] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 14:39:23,840 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:39:24,089 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:24] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 14:39:24,132 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:24] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 14:39:25,854 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:25] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:25,860 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:25] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:39:27,891 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:27] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:28,201 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:28] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 14:39:30,250 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:30] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:32,576 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:32] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:39:35,582 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:35] "OPTIONS /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-29 14:39:37,864 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:37] "POST /api/auth/verify-soldier HTTP/1.1" 200 -
+2025-07-29 14:39:38,180 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:38] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:39:38,180 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:38] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:39:40,528 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:40] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:39:40,528 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:40] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:39:42,563 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:42] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-29 14:39:44,922 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:44] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-29 14:39:53,827 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 14:39:55,963 - INFO - 127.0.0.1 - - [29/Jul/2025 14:39:55] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-29 14:40:00,675 - INFO - All models loaded successfully
+2025-07-29 14:40:00,675 - WARNING - No monitoring session active for soldier 100000003
+2025-07-29 14:40:00,675 - INFO - Emotion monitoring results: {'force_id': '100000003', 'message': 'No monitoring session active'}
+2025-07-29 14:40:00,675 - WARNING - No emotion data retrieved from monitoring service
+2025-07-29 14:40:00,675 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-07-29 14:40:00,675 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.2023}
+2025-07-29 14:40:00,675 - INFO - Text: 'fine...' - Label: POSITIVE, Depression score: 0.40
+2025-07-29 14:40:00,675 - INFO - Question 19 - Sentiment: POSITIVE, Score: 0.40
+2025-07-29 14:40:00,675 - INFO - Question 19: Weighted Combined = (0.40 * 0.7) + (0.00 * 0.3) = 0.279
+2025-07-29 14:40:00,675 - INFO - Question 19: NLP=0.39885, Emotion=0.00, Weighted Combined=0.279
+2025-07-29 14:40:00,682 - INFO - Session 48 - Average NLP Depression Score: 0.40
+2025-07-29 14:40:00,682 - INFO - Session 48 - Using NLP score only: 0.40
+2025-07-29 14:40:00,682 - INFO - ================================================================================
+2025-07-29 14:40:00,682 - INFO - ================================================================================
+2025-07-29 14:40:00,695 - INFO - 
+2025-07-29 14:40:00,697 - INFO -    State:          GOOD MENTAL HEALTH
+2025-07-29 14:40:00,697 - INFO -    Alert Level:    GREEN
+2025-07-29 14:40:00,697 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-07-29 14:40:00,697 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-07-29 14:40:00,697 - INFO - 
+2025-07-29 14:40:00,697 - INFO -    Total Detections: 0
+2025-07-29 14:40:00,697 - INFO -    Dominant Emotion: Unknown
+2025-07-29 14:40:00,697 - INFO - ================================================================================
+2025-07-29 14:40:00,703 - INFO - 127.0.0.1 - - [29/Jul/2025 14:40:00] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-29 14:40:01,016 - INFO - 127.0.0.1 - - [29/Jul/2025 14:40:01] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:40:01,016 - WARNING - No monitoring session active for soldier 100000003
+2025-07-29 14:40:01,016 - INFO - 127.0.0.1 - - [29/Jul/2025 14:40:01] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-29 14:40:05,148 - INFO - 127.0.0.1 - - [29/Jul/2025 14:40:05] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:40:07,194 - INFO - 127.0.0.1 - - [29/Jul/2025 14:40:07] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-29 14:40:24,618 - INFO - 127.0.0.1 - - [29/Jul/2025 14:40:24] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-29 17:14:35,280 - INFO - 127.0.0.1 - - [29/Jul/2025 17:14:35] "[31m[1mGET /api/auth/session-status HTTP/1.1[0m" 401 -
+2025-07-29 17:14:35,325 - INFO - 127.0.0.1 - - [29/Jul/2025 17:14:35] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-29 17:14:35,353 - INFO - 127.0.0.1 - - [29/Jul/2025 17:14:35] "POST /api/auth/logout HTTP/1.1" 200 -

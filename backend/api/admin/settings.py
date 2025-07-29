@@ -82,6 +82,11 @@ def get_system_settings():
                 'value': str(settings.DEFAULT_PAGE_SIZE),
                 'description': 'Default number of items per page',
                 'category': 'performance'
+            },
+            'webcam_enabled': {
+                'value': 'true',
+                'description': 'Enable/disable webcam feed for survey emotion monitoring (for setup/testing purposes)',
+                'category': 'camera'
             }
         }
         
@@ -275,6 +280,78 @@ def restore_settings():
         
     except Exception as e:
         logger.error(f"Error restoring settings: {e}")
+        if conn:
+            conn.rollback()
+        return jsonify({'error': str(e)}), 500
+    finally:
+        if conn:
+            conn.close()
+
+@settings_bp.route('/webcam-toggle', methods=['GET'])
+def get_webcam_toggle():
+    """Get current webcam toggle state"""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        # Get webcam setting from database
+        cursor.execute("SELECT setting_value FROM system_settings WHERE setting_name = 'webcam_enabled'")
+        result = cursor.fetchone()
+        
+        if result:
+            webcam_enabled = result['setting_value'].lower() == 'true'
+        else:
+            # Default to enabled if not set
+            webcam_enabled = True
+            # Insert default setting
+            cursor.execute("""
+                INSERT INTO system_settings (setting_name, setting_value, description)
+                VALUES ('webcam_enabled', 'true', 'Enable/disable webcam feed for survey emotion monitoring (for setup/testing purposes)')
+                ON DUPLICATE KEY UPDATE setting_value = 'true'
+            """)
+            conn.commit()
+        
+        return jsonify({
+            'success': True,
+            'webcam_enabled': webcam_enabled
+        })
+        
+    except Exception as e:
+        logger.error(f"Error getting webcam toggle: {e}")
+        return jsonify({'error': str(e)}), 500
+    finally:
+        if conn:
+            conn.close()
+
+@settings_bp.route('/webcam-toggle', methods=['POST'])
+def set_webcam_toggle():
+    """Set webcam toggle state"""
+    try:
+        data = request.json
+        webcam_enabled = data.get('webcam_enabled', True)
+        
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        # Update or insert webcam setting
+        cursor.execute("""
+            INSERT INTO system_settings (setting_name, setting_value, description, updated_at)
+            VALUES ('webcam_enabled', %s, 'Enable/disable webcam feed for survey emotion monitoring (for setup/testing purposes)', NOW())
+            ON DUPLICATE KEY UPDATE 
+                setting_value = VALUES(setting_value),
+                updated_at = NOW()
+        """, (str(webcam_enabled).lower(),))
+        
+        conn.commit()
+        
+        return jsonify({
+            'success': True,
+            'message': f'Webcam {"enabled" if webcam_enabled else "disabled"} successfully',
+            'webcam_enabled': webcam_enabled
+        })
+        
+    except Exception as e:
+        logger.error(f"Error setting webcam toggle: {e}")
         if conn:
             conn.rollback()
         return jsonify({'error': str(e)}), 500

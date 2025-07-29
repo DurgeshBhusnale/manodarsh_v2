@@ -107,10 +107,13 @@ const AdminDashboard: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [timeframe, setTimeframe] = useState('7d');
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
+    const [webcamEnabled, setWebcamEnabled] = useState(true);
+    const [webcamLoading, setWebcamLoading] = useState(false);
 
     useEffect(() => {
         fetchDashboardStats();
         fetchRealtimeAlerts();
+        fetchWebcamToggle();
         
         // Set up auto-refresh every 30 seconds for alerts, 5 minutes for stats
         const alertsInterval = setInterval(() => {
@@ -265,6 +268,30 @@ const AdminDashboard: React.FC = () => {
         }
     };
 
+    const fetchWebcamToggle = async () => {
+        try {
+            const response = await apiService.getWebcamToggle();
+            setWebcamEnabled(response.data.webcam_enabled);
+        } catch (error) {
+            console.error('Error fetching webcam toggle:', error);
+            // Default to enabled if API fails
+            setWebcamEnabled(true);
+        }
+    };
+
+    const handleWebcamToggle = async () => {
+        try {
+            setWebcamLoading(true);
+            const newState = !webcamEnabled;
+            await apiService.setWebcamToggle(newState);
+            setWebcamEnabled(newState);
+        } catch (error) {
+            console.error('Error toggling webcam:', error);
+        } finally {
+            setWebcamLoading(false);
+        }
+    };
+
     const handleRefresh = () => {
         fetchDashboardStats();
         fetchRealtimeAlerts();
@@ -346,11 +373,38 @@ const AdminDashboard: React.FC = () => {
                         </div>
                         
                         <div className="flex items-center space-x-4">
+                            {/* Webcam Toggle */}
+                            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm border">
+                                <span className="text-sm font-medium text-gray-700">
+                                    Webcam Feed:
+                                </span>
+                                <button
+                                    onClick={handleWebcamToggle}
+                                    disabled={webcamLoading}
+                                    aria-label={`Toggle webcam feed ${webcamEnabled ? 'off' : 'on'}`}
+                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                                        webcamEnabled ? 'bg-blue-600' : 'bg-gray-300'
+                                    } ${webcamLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                >
+                                    <span
+                                        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                                            webcamEnabled ? 'translate-x-6' : 'translate-x-1'
+                                        }`}
+                                    />
+                                </button>
+                                <span className={`text-sm font-medium ${
+                                    webcamEnabled ? 'text-green-600' : 'text-red-600'
+                                }`}>
+                                    {webcamEnabled ? 'ON' : 'OFF'}
+                                </span>
+                            </div>
+                            
                             {/* Timeframe Selector */}
                             <select
                                 value={timeframe}
                                 onChange={(e) => setTimeframe(e.target.value)}
                                 className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                aria-label="Select timeframe"
                             >
                                 <option value="24h">Last 24 Hours</option>
                                 <option value="7d">Last 7 Days</option>
@@ -378,6 +432,23 @@ const AdminDashboard: React.FC = () => {
                             Last updated: {lastUpdated.toLocaleString()}
                         </p>
                     </div>
+
+                    {/* Webcam Toggle Info */}
+                    {!webcamEnabled && (
+                        <div className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg">
+                            <div className="flex items-center">
+                                <span className="text-yellow-600 mr-2">⚠️</span>
+                                <div>
+                                    <h3 className="text-sm font-medium text-yellow-800">
+                                        Webcam Feed Disabled
+                                    </h3>
+                                    <p className="text-sm text-yellow-700 mt-1">
+                                        Survey emotion monitoring is currently disabled. Soldiers will not be prompted for webcam access during surveys. This setting is for setup/testing purposes only.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* System Health Status */}
                     {realtimeData?.systemHealth && (

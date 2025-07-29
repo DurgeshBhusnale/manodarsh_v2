@@ -29,6 +29,20 @@ const AdminSurveyPage: React.FC = () => {
         }
     }, [isAuthenticated, user, navigate]);
 
+    // Fetch webcam status
+    React.useEffect(() => {
+        const fetchWebcamStatus = async () => {
+            try {
+                const response = await apiService.getWebcamToggle();
+                setWebcamEnabled(response.data.webcam_enabled);
+            } catch (error) {
+                console.error('Error fetching webcam status:', error);
+                setWebcamEnabled(true); // Default to enabled
+            }
+        };
+        fetchWebcamStatus();
+    }, []);
+
     const [step, setStep] = useState<'credentials' | 'survey'>('credentials');
     const [soldierForceId, setSoldierForceId] = useState('');
     const [soldierPassword, setSoldierPassword] = useState('');
@@ -40,6 +54,7 @@ const AdminSurveyPage: React.FC = () => {
     const [questions, setQuestions] = useState<Question[]>([]);
     const [responses, setResponses] = useState<{ [key: number]: string }>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [webcamEnabled, setWebcamEnabled] = useState(true);
 
     // Modal states
     const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -157,6 +172,29 @@ const AdminSurveyPage: React.FC = () => {
                                 
                                 <div className="bg-blue-100 text-blue-800 p-3 rounded mb-4 text-sm">
                                     <strong>Instructions:</strong> Enter the soldier's credentials to start their survey session.
+                                </div>
+
+                                {/* Webcam Status Indicator */}
+                                <div className={`p-3 rounded mb-4 text-sm ${
+                                    webcamEnabled 
+                                        ? 'bg-green-100 text-green-800' 
+                                        : 'bg-yellow-100 text-yellow-800'
+                                }`}>
+                                    <div className="flex items-center">
+                                        <span className="mr-2">
+                                            {webcamEnabled ? '📹' : '📹🚫'}
+                                        </span>
+                                        <div>
+                                            <strong>Webcam Status:</strong> {webcamEnabled ? 'Enabled' : 'Disabled'}
+                                            <br />
+                                            <span className="text-xs">
+                                                {webcamEnabled 
+                                                    ? 'Emotion monitoring will be active during the survey.' 
+                                                    : 'Survey will proceed without emotion monitoring.'
+                                                }
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 {error && (

@@ -90,7 +90,17 @@ const SurveyPage: React.FC = () => {
         
         try {
             console.log('Starting emotion monitoring for:', soldierData.force_id);
-            await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
+            const response = await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
+            
+            // Check if webcam is disabled by admin
+            if (response.data.webcam_enabled === false) {
+                console.log('Webcam is disabled by administrator');
+                setModalTitle('Webcam Disabled');
+                setModalMessage('Webcam monitoring is currently disabled by the administrator. The survey will continue without emotion detection.');
+                setShowErrorModal(true);
+                return; // Exit without setting emotionMonitoringStarted
+            }
+            
             setEmotionMonitoringStarted(true);
             console.log('Emotion monitoring started successfully for survey');
             

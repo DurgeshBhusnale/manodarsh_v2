@@ -80,11 +80,33 @@ def start_survey_monitoring():
         }), 400
         
     force_id = data['force_id']
+    
     try:
+        # Check if webcam is enabled before starting monitoring
+        from db.connection import get_connection
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        cursor.execute("SELECT setting_value FROM system_settings WHERE setting_name = 'webcam_enabled'")
+        result = cursor.fetchone()
+        conn.close()
+        
+        webcam_enabled = True  # Default to enabled
+        if result:
+            webcam_enabled = result['setting_value'].lower() == 'true'
+        
+        if not webcam_enabled:
+            return jsonify({
+                'message': 'Survey emotion monitoring is disabled by administrator',
+                'webcam_enabled': False,
+                'force_id': force_id
+            }), 200
+        
         # Start monitoring for this specific soldier
         if monitoring_service.start_survey_monitoring(force_id):
             return jsonify({
                 'message': 'Survey emotion monitoring started successfully',
+                'webcam_enabled': True,
                 'force_id': force_id
             }), 200
         else:

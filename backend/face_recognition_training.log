@@ -17808,3 +17808,216 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-28 23:00:03,701 - INFO - 127.0.0.1 - - [28/Jul/2025 23:00:03] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
 2025-07-28 23:00:05,744 - INFO - 127.0.0.1 - - [28/Jul/2025 23:00:05] "GET /api/admin/questionnaires HTTP/1.1" 200 -
 2025-07-28 23:01:35,070 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 23:01:37,043 - INFO -  * Restarting with stat
+2025-07-28 23:01:40,491 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 23:01:42,428 - INFO - All models loaded successfully
+2025-07-28 23:01:42,845 - WARNING -  * Debugger is active!
+2025-07-28 23:01:42,852 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 23:03:30,030 - INFO - 127.0.0.1 - - [28/Jul/2025 23:03:30] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 23:03:32,069 - INFO - 127.0.0.1 - - [28/Jul/2025 23:03:32] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-28 23:10:57,496 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 23:10:59,213 - INFO -  * Restarting with stat
+2025-07-28 23:11:02,933 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 23:11:05,393 - INFO - All models loaded successfully
+2025-07-28 23:11:05,909 - WARNING -  * Debugger is active!
+2025-07-28 23:11:05,924 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 23:11:39,224 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 23:11:40,718 - INFO -  * Restarting with stat
+2025-07-28 23:11:44,105 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 23:11:46,283 - INFO - All models loaded successfully
+2025-07-28 23:11:46,730 - WARNING -  * Debugger is active!
+2025-07-28 23:11:46,738 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 23:11:51,588 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 23:11:52,628 - INFO -  * Restarting with stat
+2025-07-28 23:11:56,363 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 23:11:59,384 - INFO - All models loaded successfully
+2025-07-28 23:11:59,884 - WARNING -  * Debugger is active!
+2025-07-28 23:11:59,898 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 23:38:54,419 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-28 23:38:57,481 - INFO -  * Restarting with stat
+2025-07-28 23:39:03,183 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 23:39:09,128 - INFO - All models loaded successfully
+2025-07-28 23:39:09,658 - WARNING -  * Debugger is active!
+2025-07-28 23:39:09,671 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 23:53:15,430 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 23:53:18,019 - INFO - All models loaded successfully
+2025-07-28 23:53:18,474 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-28 23:53:18,475 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 23:53:18,476 - INFO -  * Restarting with stat
+2025-07-28 23:53:21,572 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-28 23:53:23,587 - INFO - All models loaded successfully
+2025-07-28 23:53:23,983 - WARNING -  * Debugger is active!
+2025-07-28 23:53:23,999 - INFO -  * Debugger PIN: 119-607-349
+2025-07-28 23:53:36,351 - INFO - 127.0.0.1 - - [28/Jul/2025 23:53:36] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-28 23:53:39,124 - INFO - 127.0.0.1 - - [28/Jul/2025 23:53:39] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-28 23:53:41,150 - ERROR - Error fetching real-time alerts: 1054 (42S22): Unknown column 'u.name' in 'field list'
+2025-07-28 23:53:41,150 - INFO - 127.0.0.1 - - [28/Jul/2025 23:53:41] "[35m[1mGET /api/admin/real-time-alerts HTTP/1.1[0m" 500 -
+2025-07-28 23:53:41,485 - ERROR - Error fetching dashboard stats: 1054 (42S22): Unknown column 'unit' in 'field list'
+2025-07-28 23:53:41,485 - INFO - 127.0.0.1 - - [28/Jul/2025 23:53:41] "[35m[1mGET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1[0m" 500 -
+2025-07-28 23:53:43,521 - ERROR - Error fetching real-time alerts: 1054 (42S22): Unknown column 'u.name' in 'field list'
+2025-07-28 23:53:43,521 - INFO - 127.0.0.1 - - [28/Jul/2025 23:53:43] "[35m[1mGET /api/admin/real-time-alerts HTTP/1.1[0m" 500 -
+2025-07-28 23:53:43,847 - ERROR - Error fetching dashboard stats: 1054 (42S22): Unknown column 'unit' in 'field list'
+2025-07-28 23:53:43,847 - INFO - 127.0.0.1 - - [28/Jul/2025 23:53:43] "[35m[1mGET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1[0m" 500 -
+2025-07-29 08:36:37,469 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 08:36:45,373 - INFO - All models loaded successfully
+2025-07-29 08:36:46,174 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-29 08:36:46,174 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 08:36:46,181 - INFO -  * Restarting with stat
+2025-07-29 08:36:50,551 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 08:36:53,565 - INFO - All models loaded successfully
+2025-07-29 08:36:54,050 - WARNING -  * Debugger is active!
+2025-07-29 08:36:54,066 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 08:36:54,256 - INFO - 127.0.0.1 - - [29/Jul/2025 08:36:54] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 08:36:56,833 - INFO - 127.0.0.1 - - [29/Jul/2025 08:36:56] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 08:36:59,045 - ERROR - Error fetching dashboard stats: 1054 (42S22): Unknown column 'unit' in 'field list'
+2025-07-29 08:36:59,045 - INFO - 127.0.0.1 - - [29/Jul/2025 08:36:59] "[35m[1mGET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1[0m" 500 -
+2025-07-29 08:36:59,301 - ERROR - Error fetching real-time alerts: 1054 (42S22): Unknown column 'u.name' in 'field list'
+2025-07-29 08:36:59,301 - INFO - 127.0.0.1 - - [29/Jul/2025 08:36:59] "[35m[1mGET /api/admin/real-time-alerts HTTP/1.1[0m" 500 -
+2025-07-29 08:37:01,390 - ERROR - Error fetching dashboard stats: 1054 (42S22): Unknown column 'unit' in 'field list'
+2025-07-29 08:37:01,390 - INFO - 127.0.0.1 - - [29/Jul/2025 08:37:01] "[35m[1mGET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1[0m" 500 -
+2025-07-29 08:37:01,665 - ERROR - Error fetching real-time alerts: 1054 (42S22): Unknown column 'u.name' in 'field list'
+2025-07-29 08:37:01,665 - INFO - 127.0.0.1 - - [29/Jul/2025 08:37:01] "[35m[1mGET /api/admin/real-time-alerts HTTP/1.1[0m" 500 -
+2025-07-29 08:37:08,703 - INFO - 127.0.0.1 - - [29/Jul/2025 08:37:08] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 08:37:09,976 - ERROR - Error fetching dashboard stats: 1054 (42S22): Unknown column 'unit' in 'field list'
+2025-07-29 08:37:09,976 - INFO - 127.0.0.1 - - [29/Jul/2025 08:37:09] "[35m[1mGET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1[0m" 500 -
+2025-07-29 08:37:10,290 - ERROR - Error fetching real-time alerts: 1054 (42S22): Unknown column 'u.name' in 'field list'
+2025-07-29 08:37:10,290 - INFO - 127.0.0.1 - - [29/Jul/2025 08:37:10] "[35m[1mGET /api/admin/real-time-alerts HTTP/1.1[0m" 500 -
+2025-07-29 08:37:11,178 - INFO - 127.0.0.1 - - [29/Jul/2025 08:37:11] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 08:37:11,189 - INFO - 127.0.0.1 - - [29/Jul/2025 08:37:11] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 08:37:44,789 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-29 08:37:46,833 - INFO -  * Restarting with stat
+2025-07-29 08:37:51,705 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 08:37:55,683 - INFO - All models loaded successfully
+2025-07-29 08:37:56,301 - WARNING -  * Debugger is active!
+2025-07-29 08:37:56,321 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 08:38:22,948 - INFO - 127.0.0.1 - - [29/Jul/2025 08:38:22] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 08:38:25,718 - INFO - 127.0.0.1 - - [29/Jul/2025 08:38:25] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 08:38:27,834 - INFO - 127.0.0.1 - - [29/Jul/2025 08:38:27] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 08:38:30,181 - INFO - 127.0.0.1 - - [29/Jul/2025 08:38:30] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:06:24,028 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 09:06:30,897 - INFO - All models loaded successfully
+2025-07-29 09:06:31,874 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-29 09:06:31,874 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 09:06:31,874 - INFO -  * Restarting with stat
+2025-07-29 09:06:36,951 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-29 09:06:40,468 - INFO - All models loaded successfully
+2025-07-29 09:06:42,195 - WARNING -  * Debugger is active!
+2025-07-29 09:06:42,217 - INFO -  * Debugger PIN: 119-607-349
+2025-07-29 09:06:49,832 - INFO - 127.0.0.1 - - [29/Jul/2025 09:06:49] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:06:52,694 - INFO - 127.0.0.1 - - [29/Jul/2025 09:06:52] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:06:54,861 - INFO - 127.0.0.1 - - [29/Jul/2025 09:06:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:06:57,242 - INFO - 127.0.0.1 - - [29/Jul/2025 09:06:57] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:08:15,682 - INFO - 127.0.0.1 - - [29/Jul/2025 09:08:15] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:08:36,675 - INFO - 127.0.0.1 - - [29/Jul/2025 09:08:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:08:50,376 - INFO - 127.0.0.1 - - [29/Jul/2025 09:08:50] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:09:19,671 - INFO - 127.0.0.1 - - [29/Jul/2025 09:09:19] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:09:22,021 - INFO - 127.0.0.1 - - [29/Jul/2025 09:09:22] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:09:37,669 - INFO - 127.0.0.1 - - [29/Jul/2025 09:09:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:10:22,691 - INFO - 127.0.0.1 - - [29/Jul/2025 09:10:22] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:10:24,745 - INFO - 127.0.0.1 - - [29/Jul/2025 09:10:24] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:10:42,634 - INFO - 127.0.0.1 - - [29/Jul/2025 09:10:42] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:10:44,676 - INFO - 127.0.0.1 - - [29/Jul/2025 09:10:44] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:11:13,321 - INFO - 127.0.0.1 - - [29/Jul/2025 09:11:13] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:11:43,631 - INFO - 127.0.0.1 - - [29/Jul/2025 09:11:43] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:18:16,096 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:16] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:18:18,655 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:18] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:18:18,996 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:18] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:18:19,311 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:19] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:18:20,732 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:20] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:18:23,071 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:23] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:18:45,536 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:45] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 09:18:47,899 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:47] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 09:18:47,902 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:47] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 09:18:49,943 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:49] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 09:18:53,081 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:18:53,327 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:18:55,114 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:55] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:18:57,164 - INFO - 127.0.0.1 - - [29/Jul/2025 09:18:57] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:19:23,626 - INFO - 127.0.0.1 - - [29/Jul/2025 09:19:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:19:53,315 - INFO - 127.0.0.1 - - [29/Jul/2025 09:19:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:20:23,618 - INFO - 127.0.0.1 - - [29/Jul/2025 09:20:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:20:53,318 - INFO - 127.0.0.1 - - [29/Jul/2025 09:20:53] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:21:23,624 - INFO - 127.0.0.1 - - [29/Jul/2025 09:21:23] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:21:35,639 - INFO - 127.0.0.1 - - [29/Jul/2025 09:21:35] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:21:37,363 - INFO - 127.0.0.1 - - [29/Jul/2025 09:21:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:21:44,853 - INFO - 127.0.0.1 - - [29/Jul/2025 09:21:44] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:21:46,884 - INFO - 127.0.0.1 - - [29/Jul/2025 09:21:46] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:21:55,369 - INFO - 127.0.0.1 - - [29/Jul/2025 09:21:55] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:21:57,721 - INFO - 127.0.0.1 - - [29/Jul/2025 09:21:57] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:22:13,639 - INFO - 127.0.0.1 - - [29/Jul/2025 09:22:13] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:22:15,351 - INFO - 127.0.0.1 - - [29/Jul/2025 09:22:15] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:22:44,632 - INFO - 127.0.0.1 - - [29/Jul/2025 09:22:44] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:23:14,313 - INFO - 127.0.0.1 - - [29/Jul/2025 09:23:14] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:23:44,627 - INFO - 127.0.0.1 - - [29/Jul/2025 09:23:44] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:25:30,563 - INFO - 127.0.0.1 - - [29/Jul/2025 09:25:30] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:25:33,224 - INFO - 127.0.0.1 - - [29/Jul/2025 09:25:33] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:25:33,559 - INFO - 127.0.0.1 - - [29/Jul/2025 09:25:33] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:25:33,879 - INFO - 127.0.0.1 - - [29/Jul/2025 09:25:33] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:25:35,296 - INFO - 127.0.0.1 - - [29/Jul/2025 09:25:35] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:25:37,673 - INFO - 127.0.0.1 - - [29/Jul/2025 09:25:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:26:03,311 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:03] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:26:31,054 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 09:26:33,088 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:33] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 09:26:33,404 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:33] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 09:26:35,765 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:35] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 09:26:41,056 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:41] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 09:26:43,419 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:43] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 09:26:46,044 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:46] "GET /api/admin/questionnaires/9 HTTP/1.1" 200 -
+2025-07-29 09:26:54,735 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:54] "GET /api/admin/questionnaires/2 HTTP/1.1" 200 -
+2025-07-29 09:26:56,668 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:56] "GET /api/admin/questionnaires/1 HTTP/1.1" 200 -
+2025-07-29 09:26:57,089 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:57] "GET /api/admin/questionnaires/2 HTTP/1.1" 200 -
+2025-07-29 09:26:59,427 - INFO - 127.0.0.1 - - [29/Jul/2025 09:26:59] "GET /api/admin/questionnaires/2 HTTP/1.1" 200 -
+2025-07-29 09:27:04,991 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:04] "GET /api/admin/questionnaires/2 HTTP/1.1" 200 -
+2025-07-29 09:27:07,060 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:07] "GET /api/admin/questionnaires/3 HTTP/1.1" 200 -
+2025-07-29 09:27:07,345 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:07] "GET /api/admin/questionnaires/2 HTTP/1.1" 200 -
+2025-07-29 09:27:09,697 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:09] "GET /api/admin/questionnaires/2 HTTP/1.1" 200 -
+2025-07-29 09:27:11,747 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:11] "GET /api/admin/questionnaires/2 HTTP/1.1" 200 -
+2025-07-29 09:27:16,937 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:16] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:27:16,940 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:16] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:27:17,197 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:17] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:27:17,245 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:17] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:27:24,511 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:24] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:27:24,825 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:24] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:27:24,825 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:24] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:27:25,133 - INFO - 127.0.0.1 - - [29/Jul/2025 09:27:25] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:28:31,741 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:31] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:28:34,319 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:34] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:28:34,660 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:34] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:28:34,982 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:34] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:28:36,399 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:28:38,730 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:38] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:28:38,757 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:38] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:28:39,037 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:39] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:28:39,037 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:39] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:28:39,343 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:39] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:28:44,726 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:44] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:28:44,981 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:44] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:28:46,765 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:46] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:28:48,820 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:48] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:28:53,598 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:53] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 09:28:55,643 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:55] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-29 09:28:55,959 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:55] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 09:28:57,017 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:57] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 09:28:58,313 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:58] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-29 09:28:59,357 - INFO - 127.0.0.1 - - [29/Jul/2025 09:28:59] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-29 09:30:05,645 - INFO - 127.0.0.1 - - [29/Jul/2025 09:30:05] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:30:05,645 - INFO - 127.0.0.1 - - [29/Jul/2025 09:30:05] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:30:05,918 - INFO - 127.0.0.1 - - [29/Jul/2025 09:30:05] "[33mGET /api/admin/system-settings HTTP/1.1[0m" 404 -
+2025-07-29 09:30:05,966 - INFO - 127.0.0.1 - - [29/Jul/2025 09:30:05] "[33mGET /api/admin/settings-categories HTTP/1.1[0m" 404 -
+2025-07-29 09:31:09,620 - INFO - 127.0.0.1 - - [29/Jul/2025 09:31:09] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 09:31:11,657 - INFO - 127.0.0.1 - - [29/Jul/2025 09:31:11] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 09:32:00,255 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:00] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 09:32:13,478 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:13] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 09:32:28,320 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:28] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:32:30,866 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:30] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-29 09:32:31,194 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:31] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:32:31,498 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:31] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-29 09:32:32,894 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:32] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 09:32:32,921 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:32] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:32:33,206 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:33] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-07-29 09:32:34,925 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:34] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-07-29 09:32:35,274 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:35] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-29 09:32:37,275 - INFO - 127.0.0.1 - - [29/Jul/2025 09:32:37] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -

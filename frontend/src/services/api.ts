@@ -117,22 +117,22 @@ export const apiService = {
 
     // System Settings Management
     getSystemSettings: () =>
-        api.get('/admin/system-settings'),
+        api.get('/admin/settings/system-settings'),
     
     updateSystemSettings: (data: { settings: any }) =>
-        api.post('/admin/system-settings', data),
+        api.post('/admin/settings/system-settings', data),
     
     getSettingsCategories: () =>
-        api.get('/admin/settings-categories'),
+        api.get('/admin/settings/settings-categories'),
     
     resetSystemSettings: () =>
-        api.post('/admin/reset-settings'),
+        api.post('/admin/settings/reset-settings'),
     
     backupSystemSettings: () =>
-        api.get('/admin/backup-settings'),
+        api.get('/admin/settings/backup-settings'),
     
     restoreSystemSettings: (data: { backup: any }) =>
-        api.post('/admin/restore-settings', data),
+        api.post('/admin/settings/restore-settings', data),
 
     // Enhanced Dashboard Analytics
     getDashboardStats: (timeframe?: string) =>
@@ -205,6 +205,9 @@ export const apiService = {
             responseType: 'blob'  // Important for file download
         });
     },
+
+    // Real-time alerts and monitoring
+    getRealtimeAlerts: () => api.get('/admin/realtime-alerts'),
 
     translateAnswer
 };

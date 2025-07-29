@@ -9,6 +9,28 @@ interface DashboardStats {
     criticalAlerts?: number;
     surveyCompletionRate?: number;
     averageMentalHealthScore?: number;
+    recentSessions?: number;
+    trends?: {
+        totalSoldiersChange: number;
+        activeSurveysChange: number;
+        highRiskChange: number;
+        criticalChange: number;
+        completionRateChange: number;
+        scoreChange: number;
+    };
+    riskDistribution?: {
+        low: number;
+        medium: number;
+        high: number;
+        critical: number;
+        noData: number;
+    };
+    cctvMonitoring?: {
+        totalDetections: number;
+        monitoredSoldiers: number;
+        averageEmotionScore: number;
+    };
+    unitDistribution?: Array<{unit: string; count: number}>;
     trendsData?: {
         labels: string[];
         riskLevels: {
@@ -18,13 +40,39 @@ interface DashboardStats {
             critical: number[];
         };
     };
+    timeframe?: string;
+    lastUpdated?: string;
+}
+
+interface Alert {
+    force_id: string;
+    name: string;
+    unit: string;
+    rank?: string;
+    score: number;
+    timestamp: string;
+    severity: string;
+    recommendation: string;
+    alert_type: string;
+}
+
+interface RealtimeData {
+    criticalAlerts: Alert[];
+    emotionAlerts: Alert[];
+    systemHealth: {
+        todaySessions: number;
+        activeUsersToday: number;
+        inactiveSoldiers: number;
+        systemStatus: string;
+        lastDataUpdate: string;
+    };
+    totalAlerts: number;
+    timestamp: string;
 }
 
 interface StatCard {
     title: string;
     value: string | number;
-    change: number;
-    changeType: 'increase' | 'decrease' | 'neutral';
     icon: string;
     color: string;
 }
@@ -32,46 +80,15 @@ interface StatCard {
 const StatCardComponent: React.FC<StatCard> = ({
     title,
     value,
-    change,
-    changeType,
     icon,
     color
 }) => {
-    const getChangeIcon = (changeType: string) => {
-        switch (changeType) {
-            case 'increase':
-                return '↗️';
-            case 'decrease':
-                return '↘️';
-            default:
-                return '➡️';
-        }
-    };
-
-    const getChangeColor = (changeType: string) => {
-        switch (changeType) {
-            case 'increase':
-                return 'text-green-600';
-            case 'decrease':
-                return 'text-red-600';
-            default:
-                return 'text-gray-600';
-        }
-    };
-
     return (
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
             <div className="flex items-center justify-between">
                 <div>
                     <p className="text-sm font-medium text-gray-600">{title}</p>
                     <p className="text-3xl font-bold text-gray-900 mt-2">{value}</p>
-                    
-                    <div className="flex items-center mt-2">
-                        <span className={`text-sm font-medium ${getChangeColor(changeType)}`}>
-                            {getChangeIcon(changeType)} {Math.abs(change)}%
-                        </span>
-                        <span className="text-sm text-gray-500 ml-2">vs last period</span>
-                    </div>
                 </div>
                 
                 <div className={`w-16 h-16 ${color} rounded-full flex items-center justify-center text-white text-2xl`}>
@@ -82,21 +99,32 @@ const StatCardComponent: React.FC<StatCard> = ({
     );
 };
 
+
+
 const AdminDashboard: React.FC = () => {
     const [stats, setStats] = useState<DashboardStats | null>(null);
+    const [realtimeData, setRealtimeData] = useState<RealtimeData | null>(null);
     const [loading, setLoading] = useState(true);
     const [timeframe, setTimeframe] = useState('7d');
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
 
     useEffect(() => {
         fetchDashboardStats();
+        fetchRealtimeAlerts();
         
-        // Set up auto-refresh every 5 minutes
-        const interval = setInterval(() => {
+        // Set up auto-refresh every 30 seconds for alerts, 5 minutes for stats
+        const alertsInterval = setInterval(() => {
+            fetchRealtimeAlerts();
+        }, 30 * 1000);
+        
+        const statsInterval = setInterval(() => {
             fetchDashboardStats();
         }, 5 * 60 * 1000);
         
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(alertsInterval);
+            clearInterval(statsInterval);
+        };
     }, [timeframe]);
 
     const fetchDashboardStats = async () => {
@@ -113,6 +141,22 @@ const AdminDashboard: React.FC = () => {
                 criticalAlerts: response.data.criticalAlerts || 0,
                 surveyCompletionRate: response.data.surveyCompletionRate || 0,
                 averageMentalHealthScore: response.data.averageMentalHealthScore || 0,
+                recentSessions: response.data.recentSessions || 0,
+                trends: response.data.trends || {
+                    totalSoldiersChange: 0,
+                    activeSurveysChange: 0,
+                    highRiskChange: 0,
+                    criticalChange: 0,
+                    completionRateChange: 0,
+                    scoreChange: 0
+                },
+                riskDistribution: response.data.riskDistribution || {
+                    low: 0, medium: 0, high: 0, critical: 0, noData: 0
+                },
+                cctvMonitoring: response.data.cctvMonitoring || {
+                    totalDetections: 0, monitoredSoldiers: 0, averageEmotionScore: 0
+                },
+                unitDistribution: response.data.unitDistribution || [],
                 trendsData: response.data.trendsData || {
                     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                     riskLevels: {
@@ -128,7 +172,7 @@ const AdminDashboard: React.FC = () => {
             setLastUpdated(new Date());
         } catch (error) {
             console.error('Error fetching dashboard stats:', error);
-            // Fallback to mock data if API fails
+            // Enhanced fallback to mock data if API fails
             const mockStats: DashboardStats = {
                 totalSoldiers: 150,
                 activeSurveys: 12,
@@ -136,6 +180,26 @@ const AdminDashboard: React.FC = () => {
                 criticalAlerts: 2,
                 surveyCompletionRate: 85.5,
                 averageMentalHealthScore: 0.35,
+                recentSessions: 24,
+                trends: {
+                    totalSoldiersChange: 2.5,
+                    activeSurveysChange: 12.3,
+                    highRiskChange: -5.2,
+                    criticalChange: 0,
+                    completionRateChange: 8.7,
+                    scoreChange: -2.1
+                },
+                riskDistribution: {
+                    low: 120, medium: 20, high: 8, critical: 2, noData: 0
+                },
+                cctvMonitoring: {
+                    totalDetections: 145, monitoredSoldiers: 98, averageEmotionScore: 0.72
+                },
+                unitDistribution: [
+                    {unit: 'Alpha Battalion', count: 45},
+                    {unit: 'Bravo Company', count: 38},
+                    {unit: 'Charlie Squadron', count: 32}
+                ],
                 trendsData: {
                     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                     riskLevels: {
@@ -153,8 +217,57 @@ const AdminDashboard: React.FC = () => {
         }
     };
 
+    const fetchRealtimeAlerts = async () => {
+        try {
+            const response = await apiService.getRealtimeAlerts();
+            setRealtimeData(response.data);
+        } catch (error) {
+            console.error('Error fetching real-time alerts:', error);
+            // Mock data for demonstration
+            const mockRealtimeData: RealtimeData = {
+                criticalAlerts: [
+                    {
+                        force_id: 'CRPF001',
+                        name: 'John Doe',
+                        unit: 'Alpha Battalion',
+                        rank: 'Constable',
+                        score: 0.15,
+                        timestamp: new Date().toISOString(),
+                        severity: 'CRITICAL',
+                        recommendation: 'Immediate counseling required',
+                        alert_type: 'mental_health'
+                    }
+                ],
+                emotionAlerts: [
+                    {
+                        force_id: 'CRPF002',
+                        name: 'Jane Smith',
+                        unit: 'Bravo Company',
+                        rank: 'Head Constable',
+                        score: 0.25,
+                        timestamp: new Date().toISOString(),
+                        severity: 'ORANGE',
+                        recommendation: 'Monitor emotional state',
+                        alert_type: 'emotion_detection'
+                    }
+                ],
+                systemHealth: {
+                    todaySessions: 24,
+                    activeUsersToday: 89,
+                    inactiveSoldiers: 12,
+                    systemStatus: 'HEALTHY',
+                    lastDataUpdate: new Date().toISOString()
+                },
+                totalAlerts: 2,
+                timestamp: new Date().toISOString()
+            };
+            setRealtimeData(mockRealtimeData);
+        }
+    };
+
     const handleRefresh = () => {
         fetchDashboardStats();
+        fetchRealtimeAlerts();
     };
 
     const getStatCards = (): StatCard[] => {
@@ -170,48 +283,36 @@ const AdminDashboard: React.FC = () => {
             {
                 title: 'Total Soldiers',
                 value: stats.totalSoldiers || 0,
-                change: 2.5,
-                changeType: 'increase',
                 icon: '👥',
                 color: 'bg-blue-500'
             },
             {
                 title: 'Active Surveys',
                 value: stats.activeSurveys || 0,
-                change: 12.3,
-                changeType: 'increase',
                 icon: '📋',
                 color: 'bg-green-500'
             },
             {
                 title: 'High Risk Soldiers',
                 value: stats.highRiskSoldiers || 0,
-                change: -5.2,
-                changeType: 'decrease',
                 icon: '⚠️',
                 color: 'bg-orange-500'
             },
             {
                 title: 'Critical Alerts',
                 value: stats.criticalAlerts || 0,
-                change: 0,
-                changeType: 'neutral',
                 icon: '🚨',
                 color: 'bg-red-500'
             },
             {
                 title: 'Survey Completion',
                 value: `${safeToFixed(stats.surveyCompletionRate)}%`,
-                change: 8.7,
-                changeType: 'increase',
                 icon: '✅',
                 color: 'bg-purple-500'
             },
             {
                 title: 'Avg Mental Health Score',
                 value: safeToFixed(stats.averageMentalHealthScore, 2),
-                change: -2.1,
-                changeType: 'decrease',
                 icon: '🧠',
                 color: 'bg-indigo-500'
             }
@@ -278,6 +379,31 @@ const AdminDashboard: React.FC = () => {
                         </p>
                     </div>
 
+                    {/* System Health Status */}
+                    {realtimeData?.systemHealth && (
+                        <div className="mb-6">
+                            <div className={`p-4 rounded-lg border-l-4 ${
+                                realtimeData.systemHealth.systemStatus === 'HEALTHY' 
+                                    ? 'bg-green-50 border-green-500' 
+                                    : 'bg-yellow-50 border-yellow-500'
+                            }`}>
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <h3 className="font-semibold">System Status: {realtimeData.systemHealth.systemStatus}</h3>
+                                        <p className="text-sm text-gray-600">
+                                            Active today: {realtimeData.systemHealth.activeUsersToday} users • 
+                                            Sessions: {realtimeData.systemHealth.todaySessions} • 
+                                            Inactive: {realtimeData.systemHealth.inactiveSoldiers} soldiers
+                                        </p>
+                                    </div>
+                                    <div className="text-sm text-gray-500">
+                                        Last updated: {lastUpdated.toLocaleString()}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {/* Stats Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                         {getStatCards().map((card, index) => (
@@ -285,113 +411,114 @@ const AdminDashboard: React.FC = () => {
                         ))}
                     </div>
 
-                    {/* Charts and Additional Info */}
+                    {/* Enhanced Analytics */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                        {/* Risk Levels Chart */}
+                        {/* Risk Distribution */}
                         <div className="bg-white rounded-lg shadow-md p-6">
                             <h3 className="text-lg font-semibold mb-4">Risk Level Distribution</h3>
-                            {stats && stats.trendsData && (
+                            {stats?.riskDistribution && (
                                 <div className="space-y-4">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <div className="w-4 h-4 bg-green-500 rounded mr-2"></div>
-                                            <span>Low Risk</span>
-                                        </div>
-                                        <span className="font-semibold">
-                                            {stats.trendsData.riskLevels.low[stats.trendsData.riskLevels.low.length - 1] || 0}
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <div className="w-4 h-4 bg-yellow-500 rounded mr-2"></div>
-                                            <span>Medium Risk</span>
-                                        </div>
-                                        <span className="font-semibold">
-                                            {stats.trendsData.riskLevels.medium[stats.trendsData.riskLevels.medium.length - 1] || 0}
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <div className="w-4 h-4 bg-orange-500 rounded mr-2"></div>
-                                            <span>High Risk</span>
-                                        </div>
-                                        <span className="font-semibold">
-                                            {stats.trendsData.riskLevels.high[stats.trendsData.riskLevels.high.length - 1] || 0}
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <div className="w-4 h-4 bg-red-500 rounded mr-2"></div>
-                                            <span>Critical Risk</span>
-                                        </div>
-                                        <span className="font-semibold">
-                                            {stats.trendsData.riskLevels.critical[stats.trendsData.riskLevels.critical.length - 1] || 0}
-                                        </span>
-                                    </div>
+                                    {Object.entries(stats.riskDistribution).map(([level, count]) => {
+                                        const total = Object.values(stats.riskDistribution!).reduce((a, b) => a + b, 0);
+                                        const percentage = total > 0 ? (count / total * 100).toFixed(1) : '0';
+                                        const colors = {
+                                            low: 'bg-green-500',
+                                            medium: 'bg-yellow-500',
+                                            high: 'bg-orange-500',
+                                            critical: 'bg-red-500',
+                                            noData: 'bg-gray-500'
+                                        };
+                                        
+                                        return (
+                                            <div key={level} className="flex items-center justify-between">
+                                                <div className="flex items-center">
+                                                    <div className={`w-4 h-4 ${colors[level as keyof typeof colors]} rounded mr-3`}></div>
+                                                    <span className="capitalize">{level.replace('noData', 'No Data')}</span>
+                                                </div>
+                                                <div className="flex items-center space-x-2">
+                                                    <span className="font-semibold">{count}</span>
+                                                    <span className="text-sm text-gray-500">({percentage}%)</span>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             )}
-                            {(!stats || !stats.trendsData) && (
+                            {(!stats?.riskDistribution) && (
                                 <div className="text-center text-gray-500">
-                                    <p>No trend data available</p>
+                                    <p>No risk distribution data available</p>
                                 </div>
                             )}
                         </div>
 
-                        {/* Quick Actions */}
+                        {/* CCTV Monitoring Stats */}
                         <div className="bg-white rounded-lg shadow-md p-6">
-                            <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
-                            <div className="space-y-3">
-                                <a href="/admin/soldiers-data" className="block w-full text-left p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors">
-                                    <div className="font-medium text-blue-900">📊 View Soldiers Data</div>
-                                    <div className="text-sm text-blue-700">Detailed soldier mental health reports</div>
-                                </a>
-                                
-                                <a href="/admin/add-soldier" className="block w-full text-left p-3 rounded-lg bg-green-50 hover:bg-green-100 transition-colors">
-                                    <div className="font-medium text-green-900">👥 Manage Soldiers</div>
-                                    <div className="text-sm text-green-700">Add or update soldier profiles</div>
-                                </a>
-                                
-                                <a href="/admin/questionnaire" className="block w-full text-left p-3 rounded-lg bg-purple-50 hover:bg-purple-100 transition-colors">
-                                    <div className="font-medium text-purple-900">❓ Create Questionnaire</div>
-                                    <div className="text-sm text-purple-700">Design new mental health surveys</div>
-                                </a>
-                                
-                                <a href="/admin/settings" className="block w-full text-left p-3 rounded-lg bg-orange-50 hover:bg-orange-100 transition-colors">
-                                    <div className="font-medium text-orange-900">⚙️ System Settings</div>
-                                    <div className="text-sm text-orange-700">Configure system parameters</div>
-                                </a>
-                            </div>
+                            <h3 className="text-lg font-semibold mb-4">CCTV Monitoring</h3>
+                            {stats?.cctvMonitoring && (
+                                <div className="space-y-4">
+                                    <div className="flex justify-between">
+                                        <span>Total Detections</span>
+                                        <span className="font-semibold">{stats.cctvMonitoring.totalDetections}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span>Monitored Soldiers</span>
+                                        <span className="font-semibold">{stats.cctvMonitoring.monitoredSoldiers}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span>Avg Emotion Score</span>
+                                        <span className="font-semibold">{stats.cctvMonitoring.averageEmotionScore}</span>
+                                    </div>
+                                    <div className="mt-4 pt-4 border-t">
+                                        <p className="text-sm text-gray-600">
+                                            Recent sessions: {stats.recentSessions || 0} in last 24h
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+                            {(!stats?.cctvMonitoring) && (
+                                <div className="text-center text-gray-500">
+                                    <p>No CCTV monitoring data available</p>
+                                </div>
+                            )}
                         </div>
                     </div>
 
-                    {/* Recent Activities */}
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h3 className="text-lg font-semibold mb-4">Recent Activities</h3>
-                        <div className="space-y-3">
-                            <div className="flex items-center p-3 bg-gray-50 rounded-lg">
-                                <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                                <div className="flex-1">
-                                    <p className="text-sm font-medium">Survey completed by Soldier #100000001</p>
-                                    <p className="text-xs text-gray-500">2 minutes ago</p>
-                                </div>
-                            </div>
-                            
-                            <div className="flex items-center p-3 bg-gray-50 rounded-lg">
-                                <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
-                                <div className="flex-1">
-                                    <p className="text-sm font-medium">Medium risk alert triggered</p>
-                                    <p className="text-xs text-gray-500">15 minutes ago</p>
-                                </div>
-                            </div>
-                            
-                            <div className="flex items-center p-3 bg-gray-50 rounded-lg">
-                                <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                                <div className="flex-1">
-                                    <p className="text-sm font-medium">New questionnaire created</p>
-                                    <p className="text-xs text-gray-500">1 hour ago</p>
-                                </div>
+                    {/* Unit Distribution */}
+                    {stats?.unitDistribution && stats.unitDistribution.length > 0 && (
+                        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+                            <h3 className="text-lg font-semibold mb-4">Unit Distribution (Top 10)</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {stats.unitDistribution.slice(0, 10).map((unit, index) => (
+                                    <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                        <span className="text-sm font-medium">{unit.unit}</span>
+                                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                                            {unit.count}
+                                        </span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
+                    )}
+
+                    {/* Trends Chart Placeholder */}
+                    <div className="bg-white rounded-lg shadow-md p-6">
+                        <h3 className="text-lg font-semibold mb-4">Risk Level Trends</h3>
+                        {stats?.trendsData && (
+                            <div className="text-center py-8 text-gray-500">
+                                <p>📊 Advanced Chart Component</p>
+                                <p className="text-sm mt-2">
+                                    Data available: {stats.trendsData.labels.join(', ')}
+                                </p>
+                                <p className="text-xs mt-1">
+                                    Total data points: {stats.trendsData.riskLevels.low.reduce((a, b) => a + b, 0)} sessions
+                                </p>
+                            </div>
+                        )}
+                        {(!stats?.trendsData) && (
+                            <div className="text-center py-8 text-gray-500">
+                                <p>No trends data available</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

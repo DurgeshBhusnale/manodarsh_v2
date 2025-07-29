@@ -177,7 +177,6 @@ const AdminDashboard: React.FC = () => {
             setStats(dashboardData);
             setLastUpdated(new Date());
         } catch (error) {
-            console.error('Error fetching dashboard stats:', error);
             // Enhanced fallback to mock data if API fails
             const mockStats: DashboardStats = {
                 totalSoldiers: 150,
@@ -228,7 +227,6 @@ const AdminDashboard: React.FC = () => {
             const response = await apiService.getRealtimeAlerts();
             setRealtimeData(response.data);
         } catch (error) {
-            console.error('Error fetching real-time alerts:', error);
             // Mock data for demonstration
             const mockRealtimeData: RealtimeData = {
                 criticalAlerts: [
@@ -276,7 +274,6 @@ const AdminDashboard: React.FC = () => {
             const response = await apiService.getWebcamToggle();
             setWebcamEnabled(response.data.webcam_enabled);
         } catch (error) {
-            console.error('Error fetching webcam toggle:', error);
             // Default to enabled if API fails
             setWebcamEnabled(true);
         }
@@ -289,7 +286,6 @@ const AdminDashboard: React.FC = () => {
             await apiService.setWebcamToggle(newState);
             setWebcamEnabled(newState);
         } catch (error) {
-            console.error('Error toggling webcam:', error);
         } finally {
             setWebcamLoading(false);
         }

@@ -607,13 +607,29 @@ const QuestionnairePage: React.FC = () => {
                             </h2>
                             <div className="flex items-center gap-3">
                                 {selectedQuestionnaire && (
-                                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                                        selectedQuestionnaire.status === 'Active' 
-                                            ? 'bg-green-100 text-green-800' 
-                                            : 'bg-gray-100 text-gray-800'
-                                    }`}>
-                                        {selectedQuestionnaire.status}
-                                    </span>
+                                    selectedQuestionnaire.status === 'Active' ? (
+                                        <button
+                                            className="px-4 py-2 bg-green-600 text-white rounded font-semibold cursor-not-allowed opacity-70"
+                                            disabled
+                                        >
+                                            Active
+                                        </button>
+                                    ) : (
+                                        <button
+                                            className="px-4 py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700"
+                                            onClick={async () => {
+                                                await apiService.activateQuestionnaire(selectedQuestionnaire.id.toString());
+                                                // Wait for backend to update before refreshing
+                                                setTimeout(async () => {
+                                                    const response = await apiService.getQuestionnaireDetails(selectedQuestionnaire.id);
+                                                    setSelectedQuestionnaire(response.data.questionnaire);
+                                                    fetchQuestionnaires();
+                                                }, 500);
+                                            }}
+                                        >
+                                            Activate
+                                        </button>
+                                    )
                                 )}
                                 <button
                                     onClick={handleBackToList}

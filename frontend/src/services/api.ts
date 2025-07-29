@@ -156,6 +156,10 @@ export const apiService = {
     
     translateQuestion,
 
+    // Activate questionnaire (only one active at a time)
+    activateQuestionnaire: (id: string) =>
+        api.post(`/survey/admin/questionnaires/${id}/activate`),
+
     // Daily Emotion Detection endpoints
     startDailyMonitoring: (date: string) =>
         api.post('/image/start-monitoring', { date }),

@@ -307,3 +307,21 @@ def submit_survey():
     finally:
         cursor.close()
         db.close()
+
+@survey_bp.route('/admin/questionnaires/<int:questionnaire_id>/activate', methods=['POST'])
+def activate_questionnaire(questionnaire_id):
+    db = get_connection()
+    cursor = db.cursor()
+    try:
+        # Set all questionnaires to inactive
+        cursor.execute("UPDATE questionnaires SET status = 'Inactive'")
+        # Set the selected questionnaire to active
+        cursor.execute("UPDATE questionnaires SET status = 'Active' WHERE questionnaire_id = %s", (questionnaire_id,))
+        db.commit()
+        return jsonify({"success": True, "activated_id": questionnaire_id}), 200
+    except Exception as e:
+        db.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()

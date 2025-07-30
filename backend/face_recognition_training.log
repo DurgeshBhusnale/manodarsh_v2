@@ -21226,3 +21226,42 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-30 19:56:26,297 - INFO - Survey monitoring ended for 100000001: avg_score=0.00, emotion=Neutral, detections=8
 2025-07-30 19:56:26,744 - INFO - Camera resources released after survey monitoring
 2025-07-30 19:56:26,744 - INFO - 127.0.0.1 - - [30/Jul/2025 19:56:26] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-30 20:14:54,695 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 20:14:57,460 - INFO - All models loaded successfully
+2025-07-30 20:14:57,918 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-30 20:14:57,918 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-30 20:14:57,918 - INFO -  * Restarting with stat
+2025-07-30 20:15:00,993 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 20:15:03,126 - INFO - All models loaded successfully
+2025-07-30 20:15:03,523 - WARNING -  * Debugger is active!
+2025-07-30 20:15:03,530 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 20:15:20,944 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:20] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-30 20:15:23,685 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:23] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 403 -
+2025-07-30 20:15:29,708 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:29] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-30 20:15:31,972 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:31] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-30 20:15:32,319 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:32] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:15:32,593 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:32] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:15:34,386 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:34] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 20:15:36,431 - INFO - 127.0.0.1 - - [30/Jul/2025 20:15:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 20:16:02,301 - INFO - 127.0.0.1 - - [30/Jul/2025 20:16:02] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:16:02,316 - INFO - 127.0.0.1 - - [30/Jul/2025 20:16:02] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:16:31,997 - INFO - 127.0.0.1 - - [30/Jul/2025 20:16:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:16:32,315 - INFO - 127.0.0.1 - - [30/Jul/2025 20:16:32] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:17:01,983 - INFO - 127.0.0.1 - - [30/Jul/2025 20:17:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:17:02,333 - INFO - 127.0.0.1 - - [30/Jul/2025 20:17:02] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:17:31,983 - INFO - 127.0.0.1 - - [30/Jul/2025 20:17:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:17:32,318 - INFO - 127.0.0.1 - - [30/Jul/2025 20:17:32] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:18:01,991 - INFO - 127.0.0.1 - - [30/Jul/2025 20:18:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:18:02,336 - INFO - 127.0.0.1 - - [30/Jul/2025 20:18:02] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:18:31,984 - INFO - 127.0.0.1 - - [30/Jul/2025 20:18:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:18:32,319 - INFO - 127.0.0.1 - - [30/Jul/2025 20:18:32] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:19:01,991 - INFO - 127.0.0.1 - - [30/Jul/2025 20:19:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:19:02,328 - INFO - 127.0.0.1 - - [30/Jul/2025 20:19:02] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:19:31,987 - INFO - 127.0.0.1 - - [30/Jul/2025 20:19:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:19:32,332 - INFO - 127.0.0.1 - - [30/Jul/2025 20:19:32] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:20:02,263 - INFO - 127.0.0.1 - - [30/Jul/2025 20:20:02] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:20:02,566 - INFO - 127.0.0.1 - - [30/Jul/2025 20:20:02] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:20:32,570 - INFO - 127.0.0.1 - - [30/Jul/2025 20:20:32] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 20:20:32,570 - INFO - 127.0.0.1 - - [30/Jul/2025 20:20:32] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 20:20:34,609 - INFO - 127.0.0.1 - - [30/Jul/2025 20:20:34] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -

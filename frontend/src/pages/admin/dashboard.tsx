@@ -111,12 +111,12 @@ const AdminDashboard: React.FC = () => {
     const [timeframe, setTimeframe] = useState('7d');
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
     const [webcamEnabled, setWebcamEnabled] = useState(true);
-    const [webcamLoading, setWebcamLoading] = useState(false);
+    // Webcam toggle removed
 
     useEffect(() => {
         fetchDashboardStats();
         fetchRealtimeAlerts();
-        fetchWebcamToggle();
+        // Webcam toggle fetch removed
         
         // Set up auto-refresh every 30 seconds for alerts, 5 minutes for stats
         const alertsInterval = setInterval(() => {
@@ -270,25 +270,11 @@ const AdminDashboard: React.FC = () => {
     };
 
     const fetchWebcamToggle = async () => {
-        try {
-            const response = await apiService.getWebcamToggle();
-            setWebcamEnabled(response.data.webcam_enabled);
-        } catch (error) {
-            // Default to enabled if API fails
-            setWebcamEnabled(true);
-        }
+        // Webcam toggle fetch removed
     };
 
     const handleWebcamToggle = async () => {
-        try {
-            setWebcamLoading(true);
-            const newState = !webcamEnabled;
-            await apiService.setWebcamToggle(newState);
-            setWebcamEnabled(newState);
-        } catch (error) {
-        } finally {
-            setWebcamLoading(false);
-        }
+        // Webcam toggle handler removed
     };
 
     const handleRefresh = () => {
@@ -373,18 +359,7 @@ const AdminDashboard: React.FC = () => {
                             </div>
                             <div className="flex items-center space-x-4">
                                 {/* Webcam Toggle - now leftmost */}
-                                <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm border">
-                                    <span className="text-sm font-medium text-gray-700">Webcam Feed:</span>
-                                    <button
-                                        onClick={handleWebcamToggle}
-                                        disabled={webcamLoading}
-                                        aria-label={`Toggle webcam feed ${webcamEnabled ? 'off' : 'on'}`}
-                                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${webcamEnabled ? 'bg-blue-600' : 'bg-gray-300'} ${webcamLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                    >
-                                        <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${webcamEnabled ? 'translate-x-6' : 'translate-x-1'}`} />
-                                    </button>
-                                    <span className={`text-sm font-medium ${webcamEnabled ? 'text-green-600' : 'text-red-600'}`}>{webcamEnabled ? 'ON' : 'OFF'}</span>
-                                </div>
+                                {/* Webcam Toggle removed as per user request */}
                                 {/* Timeframe Selector */}
                                 <select
                                     value={timeframe}

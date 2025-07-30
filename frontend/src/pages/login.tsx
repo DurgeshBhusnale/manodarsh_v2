@@ -20,7 +20,9 @@ export const LoginPage: React.FC = () => {
     const [modalTitle, setModalTitle] = useState('');
     const [modalMessage, setModalMessage] = useState('');
 
-    // Redirect if already authenticated
+    // ...existing code...
+
+    // Redirect if already authenticated (admin)
     useEffect(() => {
         if (isAuthenticated && user?.role === 'admin') {
             navigate('/admin/dashboard');
@@ -41,6 +43,7 @@ export const LoginPage: React.FC = () => {
         }
     }, [searchParams]);
 
+    // Admin login submit
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
@@ -50,13 +53,12 @@ export const LoginPage: React.FC = () => {
             // Validate force ID format
             if (!/^\d{9}$/.test(forceId)) {
                 setError('Force ID must be exactly 9 digits');
+                setIsLoading(false);
                 return;
             }
 
             const response = await apiService.login(forceId, password);
-            
             if (response.user) {
-                // Only admins can login - this should always be admin now
                 if (response.user.role === 'admin') {
                     login(response.user);
                     navigate('/admin/dashboard');
@@ -65,7 +67,6 @@ export const LoginPage: React.FC = () => {
                 }
             }
         } catch (err: any) {
-            // Handle the specific 403 error for soldier login attempts
             if (err.response?.status === 403) {
                 setError('Access denied. Only administrators can login to this system.');
             } else {
@@ -76,6 +77,8 @@ export const LoginPage: React.FC = () => {
         }
     };
 
+    // ...existing code...
+
     return (
       <Flex minH="100vh" align="center" justify="center" bg={'gray.100'}>
         <Box bg={'white'} p={8} rounded="lg" shadow="md" w={{ base: '100%', sm: '400px' }}>
@@ -85,10 +88,20 @@ export const LoginPage: React.FC = () => {
             <Box flex="1">
               <AlertTitle fontSize="md">Note:</AlertTitle>
               <AlertDescription fontSize="sm">
-                This system is for administrators only. Soldiers can access questionnaires directly via the survey page.
+                This system is for administrators only.<br />
+                <b>Soldiers:</b> Please use the button below to login and start your survey.
               </AlertDescription>
             </Box>
           </Alert>
+          <Button
+            mb={4}
+            colorScheme="teal"
+            variant="outline"
+            w="full"
+            onClick={() => navigate('/soldier/login')}
+          >
+            Soldier Login (for Survey)
+          </Button>
           {error && (
             <Alert status="error" mb={4} rounded="md">
               <WarningIcon boxSize={5} mr={2} color="red.400" />

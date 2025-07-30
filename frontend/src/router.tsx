@@ -8,6 +8,7 @@ import AdminSettings from './pages/admin/settings';
 import DailyEmotionPage from './pages/admin/daily-emotion';
 import AdminSurveyPage from './pages/admin/survey';
 import SoldierSurveyPage from './pages/soldier/survey';
+import SoldierLoginPage from './pages/soldier/login';
 import ProtectedRoute from './components/ProtectedRoute';
 
 export const router = createBrowserRouter([
@@ -76,7 +77,11 @@ export const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-  // SOLDIER SURVEY ROUTE (No authentication required as it uses navigation state)
+  // SOLDIER LOGIN & SURVEY ROUTES (No authentication required)
+  {
+    path: '/soldier/login',
+    element: <SoldierLoginPage />,
+  },
   {
     path: '/soldier/survey',
     element: <SoldierSurveyPage />,

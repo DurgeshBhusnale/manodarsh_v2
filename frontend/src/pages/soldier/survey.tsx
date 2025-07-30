@@ -33,6 +33,7 @@ const SurveyPage: React.FC = () => {
     
     // Get soldier data from navigation state
     const soldierData = location.state as { force_id: string; password: string } | null;
+    const [showStartNote, setShowStartNote] = useState(true);
     
     const [questions, setQuestions] = useState<Question[]>([]);
     const [questionnaireId, setQuestionnaireId] = useState<number | null>(null);
@@ -58,31 +59,31 @@ const SurveyPage: React.FC = () => {
     useEffect(() => {
         // Redirect if no soldier data provided
         if (!soldierData) {
-            navigate('/admin/survey');
+            navigate('/soldier/login');
             return;
         }
-        
-        const fetchActiveQuestionnaire = async () => {
+        setShowStartNote(true);
+        // Parallelize emotion monitoring and questionnaire fetch
+        const fetchAll = async () => {
             try {
-                // Start emotion monitoring BEFORE fetching questionnaire
-                // This ensures camera is ready when user sees first question
-                await startEmotionMonitoring();
-                
-                const response = await apiService.getActiveQuestionnaire();
-                setQuestions(response.data.questions);
-                setQuestionnaireId(response.data.questionnaire.id);
+                const [emotionResult, questionnaireResult] = await Promise.all([
+                    startEmotionMonitoring(),
+                    apiService.getActiveQuestionnaire()
+                ]);
+                setQuestions(questionnaireResult.data.questions);
+                setQuestionnaireId(questionnaireResult.data.questionnaire.id);
                 setIsLoading(false);
-                
             } catch (error) {
-                console.error('Failed to fetch questionnaire:', error);
+                console.error('Failed to start survey:', error);
                 setModalTitle('Loading Error');
-                setModalMessage('Failed to load questionnaire. Please try again.');
+                setModalMessage('Failed to load survey. Please try again.');
                 setShowErrorModal(true);
                 setIsLoading(false);
+            } finally {
+                setShowStartNote(false);
             }
         };
-
-        fetchActiveQuestionnaire();
+        fetchAll();
     }, [soldierData, navigate]);
 
     const startEmotionMonitoring = async () => {
@@ -103,10 +104,6 @@ const SurveyPage: React.FC = () => {
             
             setEmotionMonitoringStarted(true);
             console.log('Emotion monitoring started successfully for survey');
-            
-            // Add a small delay to ensure camera is fully initialized
-            // This prevents users from answering questions before camera is ready
-            await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
             
         } catch (error) {
             console.error('Failed to start emotion monitoring:', error);
@@ -286,12 +283,10 @@ const SurveyPage: React.FC = () => {
 
     const handleSuccessModalClose = async () => {
         setShowSuccessModal(false);
-        
         // Stop emotion monitoring if still running
         if (emotionMonitoringStarted) {
             await stopEmotionMonitoring();
         }
-        
         // Reset the survey for next soldier
         setCurrentQuestionIndex(0);
         setResponses([]);
@@ -301,10 +296,22 @@ const SurveyPage: React.FC = () => {
         setHasEndedAnswering(false);
         setIsAnswering(false);
         setIsSubmitting(false); // Reset submission state
-        // Navigate back to survey page (same page, but reset)
-        navigate('/admin/survey');
+        // Redirect to soldier login page
+        navigate('/soldier/login');
     };
 
+    if (showStartNote) {
+        return (
+            <div className="flex h-screen bg-gray-100">
+                <div className="flex-1 flex items-center justify-center">
+                    <div className="text-center">
+                        <div className="text-lg text-blue-600 mb-2 font-semibold">Login successful!</div>
+                        <div className="text-md text-gray-700">Starting survey...</div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
     if (isLoading) {
         return (
             <div className="flex h-screen bg-gray-100">

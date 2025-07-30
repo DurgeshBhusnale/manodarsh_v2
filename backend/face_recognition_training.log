@@ -19093,3 +19093,284 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-30 00:36:23,016 - INFO - All models loaded successfully
 2025-07-30 00:36:23,716 - WARNING -  * Debugger is active!
 2025-07-30 00:36:23,723 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 12:54:29,141 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 12:54:32,490 - INFO - All models loaded successfully
+2025-07-30 12:55:14,120 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 12:55:17,007 - INFO - All models loaded successfully
+2025-07-30 12:55:17,461 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-30 12:55:17,461 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-30 12:55:17,462 - INFO -  * Restarting with stat
+2025-07-30 12:55:20,599 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 12:55:22,195 - INFO - All models loaded successfully
+2025-07-30 12:55:22,496 - WARNING -  * Debugger is active!
+2025-07-30 12:55:22,512 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 12:55:51,251 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:51] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-30 12:55:54,031 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:54] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-30 12:55:54,389 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:54] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 12:55:54,705 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:54] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 12:55:56,166 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:56] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 12:55:56,423 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:56] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 12:55:58,514 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:58] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 12:55:58,787 - INFO - 127.0.0.1 - - [30/Jul/2025 12:55:58] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 12:56:08,035 - INFO - 127.0.0.1 - - [30/Jul/2025 12:56:08] "[33mOPTIONS /api/image/capture HTTP/1.1[0m" 404 -
+2025-07-30 12:56:24,358 - INFO - 127.0.0.1 - - [30/Jul/2025 12:56:24] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 12:56:54,359 - INFO - 127.0.0.1 - - [30/Jul/2025 12:56:54] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 12:57:24,657 - INFO - 127.0.0.1 - - [30/Jul/2025 12:57:24] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 12:57:54,671 - INFO - 127.0.0.1 - - [30/Jul/2025 12:57:54] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 12:58:24,365 - INFO - 127.0.0.1 - - [30/Jul/2025 12:58:24] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 12:58:54,671 - INFO - 127.0.0.1 - - [30/Jul/2025 12:58:54] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 12:59:24,365 - INFO - 127.0.0.1 - - [30/Jul/2025 12:59:24] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:00:25,664 - INFO - 127.0.0.1 - - [30/Jul/2025 13:00:25] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:01:10,754 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:10] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:01:16,672 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:16] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-30 13:01:30,832 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:30] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-30 13:01:33,102 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:33] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-30 13:01:33,429 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:33] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:01:33,686 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:33] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:01:35,447 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:35] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:01:35,463 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:35] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:01:37,508 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:37] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:01:37,803 - INFO - 127.0.0.1 - - [30/Jul/2025 13:01:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:02:03,666 - INFO - 127.0.0.1 - - [30/Jul/2025 13:02:03] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:02:33,370 - INFO - 127.0.0.1 - - [30/Jul/2025 13:02:33] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:03:03,656 - INFO - 127.0.0.1 - - [30/Jul/2025 13:03:03] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:03:33,363 - INFO - 127.0.0.1 - - [30/Jul/2025 13:03:33] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:04:03,661 - INFO - 127.0.0.1 - - [30/Jul/2025 13:04:03] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:04:33,364 - INFO - 127.0.0.1 - - [30/Jul/2025 13:04:33] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:05:03,673 - INFO - 127.0.0.1 - - [30/Jul/2025 13:05:03] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:06:04,670 - INFO - 127.0.0.1 - - [30/Jul/2025 13:06:04] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:06:35,360 - INFO - 127.0.0.1 - - [30/Jul/2025 13:06:35] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-30 13:09:19,438 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\image\\routes.py', reloading
+2025-07-30 13:09:21,070 - INFO -  * Restarting with stat
+2025-07-30 13:09:24,248 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:09:26,036 - INFO - All models loaded successfully
+2025-07-30 13:09:26,401 - WARNING -  * Debugger is active!
+2025-07-30 13:09:26,401 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:09:50,947 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\image\\routes.py', reloading
+2025-07-30 13:09:52,375 - INFO -  * Restarting with stat
+2025-07-30 13:09:55,541 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:09:57,373 - INFO - All models loaded successfully
+2025-07-30 13:09:57,719 - WARNING -  * Debugger is active!
+2025-07-30 13:09:57,719 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:10:28,195 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:28] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-30 13:10:30,776 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:30] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-30 13:10:31,104 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:31] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:10:31,423 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:31] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:10:32,822 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:32] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:10:33,159 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:33] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:10:35,173 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:35] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:10:35,498 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:35] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:10:41,950 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:41] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-30 13:10:43,988 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:43] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-07-30 13:10:44,296 - INFO - 127.0.0.1 - - [30/Jul/2025 13:10:44] "OPTIONS /api/image/capture HTTP/1.1" 200 -
+2025-07-30 13:11:00,780 - INFO - 127.0.0.1 - - [30/Jul/2025 13:11:00] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:11:31,087 - INFO - 127.0.0.1 - - [30/Jul/2025 13:11:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:11:45,688 - INFO - 127.0.0.1 - - [30/Jul/2025 13:11:45] "POST /api/image/capture HTTP/1.1" 200 -
+2025-07-30 13:11:49,802 - INFO - 127.0.0.1 - - [30/Jul/2025 13:11:49] "OPTIONS /api/admin/add-soldier HTTP/1.1" 200 -
+2025-07-30 13:11:52,141 - INFO - 127.0.0.1 - - [30/Jul/2025 13:11:52] "[35m[1mPOST /api/admin/add-soldier HTTP/1.1[0m" 500 -
+2025-07-30 13:12:00,794 - INFO - 127.0.0.1 - - [30/Jul/2025 13:12:00] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:12:31,675 - INFO - 127.0.0.1 - - [30/Jul/2025 13:12:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:13:01,364 - INFO - 127.0.0.1 - - [30/Jul/2025 13:13:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:13:31,662 - INFO - 127.0.0.1 - - [30/Jul/2025 13:13:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:14:01,364 - INFO - 127.0.0.1 - - [30/Jul/2025 13:14:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:15:02,660 - INFO - 127.0.0.1 - - [30/Jul/2025 13:15:02] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:15:10,845 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-30 13:15:12,875 - INFO -  * Restarting with stat
+2025-07-30 13:15:16,034 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:15:18,207 - INFO - All models loaded successfully
+2025-07-30 13:15:18,659 - WARNING -  * Debugger is active!
+2025-07-30 13:15:18,666 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:16:03,654 - INFO - 127.0.0.1 - - [30/Jul/2025 13:16:03] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:16:54,390 - INFO - 127.0.0.1 - - [30/Jul/2025 13:16:54] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:16:56,391 - INFO - 127.0.0.1 - - [30/Jul/2025 13:16:56] "OPTIONS /api/image/capture HTTP/1.1" 200 -
+2025-07-30 13:17:00,787 - INFO - 127.0.0.1 - - [30/Jul/2025 13:17:00] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:17:13,652 - INFO - 127.0.0.1 - - [30/Jul/2025 13:17:13] "POST /api/image/capture HTTP/1.1" 200 -
+2025-07-30 13:17:16,615 - INFO - 127.0.0.1 - - [30/Jul/2025 13:17:16] "OPTIONS /api/admin/add-soldier HTTP/1.1" 200 -
+2025-07-30 13:17:18,973 - INFO - 127.0.0.1 - - [30/Jul/2025 13:17:18] "[35m[1mPOST /api/admin/add-soldier HTTP/1.1[0m" 201 -
+2025-07-30 13:17:22,731 - INFO - 127.0.0.1 - - [30/Jul/2025 13:17:22] "OPTIONS /api/image/train HTTP/1.1" 200 -
+2025-07-30 13:17:24,751 - INFO - Loaded existing model with 361 soldiers
+2025-07-30 13:17:25,355 - INFO - Processed image 100000001_Look_straight_at_camera_0.jpg for soldier 100000001
+2025-07-30 13:17:25,925 - INFO - Processed image 100000001_Look_straight_at_camera_1.jpg for soldier 100000001
+2025-07-30 13:17:26,460 - INFO - Processed image 100000001_Look_straight_at_camera_2.jpg for soldier 100000001
+2025-07-30 13:17:27,008 - INFO - Processed image 100000001_Look_straight_at_camera_3.jpg for soldier 100000001
+2025-07-30 13:17:27,571 - INFO - Processed image 100000001_Look_straight_at_camera_4.jpg for soldier 100000001
+2025-07-30 13:17:28,119 - INFO - Processed image 100000001_Look_straight_at_camera_5.jpg for soldier 100000001
+2025-07-30 13:17:28,675 - INFO - Processed image 100000001_Look_straight_at_camera_6.jpg for soldier 100000001
+2025-07-30 13:17:29,230 - INFO - Processed image 100000001_Look_straight_at_camera_7.jpg for soldier 100000001
+2025-07-30 13:17:29,779 - INFO - Processed image 100000001_Look_straight_at_camera_8.jpg for soldier 100000001
+2025-07-30 13:17:30,334 - INFO - Processed image 100000001_Look_straight_at_camera_9.jpg for soldier 100000001
+2025-07-30 13:17:30,883 - INFO - Processed image 100000001_Smile_0.jpg for soldier 100000001
+2025-07-30 13:17:31,570 - INFO - Processed image 100000001_Smile_1.jpg for soldier 100000001
+2025-07-30 13:17:31,571 - INFO - 127.0.0.1 - - [30/Jul/2025 13:17:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:17:32,293 - INFO - Processed image 100000001_Smile_2.jpg for soldier 100000001
+2025-07-30 13:17:33,242 - INFO - Processed image 100000001_Smile_3.jpg for soldier 100000001
+2025-07-30 13:17:34,077 - INFO - Processed image 100000001_Smile_4.jpg for soldier 100000001
+2025-07-30 13:17:34,814 - INFO - Processed image 100000001_Smile_5.jpg for soldier 100000001
+2025-07-30 13:17:35,397 - INFO - Processed image 100000001_Smile_6.jpg for soldier 100000001
+2025-07-30 13:17:36,023 - INFO - Processed image 100000001_Smile_7.jpg for soldier 100000001
+2025-07-30 13:17:36,635 - INFO - Processed image 100000001_Smile_8.jpg for soldier 100000001
+2025-07-30 13:17:37,362 - INFO - Processed image 100000001_Smile_9.jpg for soldier 100000001
+2025-07-30 13:17:37,966 - INFO - Processed image 100000001_Stand_a_little_away_0.jpg for soldier 100000001
+2025-07-30 13:17:38,605 - INFO - Processed image 100000001_Stand_a_little_away_1.jpg for soldier 100000001
+2025-07-30 13:17:39,147 - INFO - Processed image 100000001_Stand_a_little_away_2.jpg for soldier 100000001
+2025-07-30 13:17:39,681 - INFO - Processed image 100000001_Stand_a_little_away_3.jpg for soldier 100000001
+2025-07-30 13:17:40,244 - INFO - Processed image 100000001_Stand_a_little_away_4.jpg for soldier 100000001
+2025-07-30 13:17:40,785 - INFO - Processed image 100000001_Stand_a_little_away_5.jpg for soldier 100000001
+2025-07-30 13:17:41,320 - INFO - Processed image 100000001_Stand_a_little_away_6.jpg for soldier 100000001
+2025-07-30 13:17:41,862 - INFO - Processed image 100000001_Stand_a_little_away_7.jpg for soldier 100000001
+2025-07-30 13:17:42,407 - INFO - Processed image 100000001_Stand_a_little_away_8.jpg for soldier 100000001
+2025-07-30 13:17:42,952 - INFO - Processed image 100000001_Stand_a_little_away_9.jpg for soldier 100000001
+2025-07-30 13:17:43,493 - INFO - Processed image 100000001_Tilt_your_face_down_0.jpg for soldier 100000001
+2025-07-30 13:17:44,056 - INFO - Processed image 100000001_Tilt_your_face_down_1.jpg for soldier 100000001
+2025-07-30 13:17:44,605 - INFO - Processed image 100000001_Tilt_your_face_down_2.jpg for soldier 100000001
+2025-07-30 13:17:45,167 - INFO - Processed image 100000001_Tilt_your_face_down_3.jpg for soldier 100000001
+2025-07-30 13:17:45,723 - INFO - Processed image 100000001_Tilt_your_face_down_4.jpg for soldier 100000001
+2025-07-30 13:17:46,278 - INFO - Processed image 100000001_Tilt_your_face_down_5.jpg for soldier 100000001
+2025-07-30 13:17:46,896 - INFO - Processed image 100000001_Tilt_your_face_down_6.jpg for soldier 100000001
+2025-07-30 13:17:47,528 - INFO - Processed image 100000001_Tilt_your_face_down_7.jpg for soldier 100000001
+2025-07-30 13:17:48,070 - INFO - Processed image 100000001_Tilt_your_face_down_8.jpg for soldier 100000001
+2025-07-30 13:17:48,632 - INFO - Processed image 100000001_Tilt_your_face_down_9.jpg for soldier 100000001
+2025-07-30 13:17:49,174 - INFO - Processed image 100000001_Turn_your_face_left_0.jpg for soldier 100000001
+2025-07-30 13:17:49,722 - INFO - Processed image 100000001_Turn_your_face_left_1.jpg for soldier 100000001
+2025-07-30 13:17:50,264 - INFO - Processed image 100000001_Turn_your_face_left_2.jpg for soldier 100000001
+2025-07-30 13:17:50,827 - INFO - Processed image 100000001_Turn_your_face_left_3.jpg for soldier 100000001
+2025-07-30 13:17:51,396 - INFO - Processed image 100000001_Turn_your_face_left_4.jpg for soldier 100000001
+2025-07-30 13:17:51,938 - INFO - Processed image 100000001_Turn_your_face_left_5.jpg for soldier 100000001
+2025-07-30 13:17:52,500 - INFO - Processed image 100000001_Turn_your_face_left_6.jpg for soldier 100000001
+2025-07-30 13:17:53,035 - INFO - Processed image 100000001_Turn_your_face_left_7.jpg for soldier 100000001
+2025-07-30 13:17:53,583 - INFO - Processed image 100000001_Turn_your_face_left_8.jpg for soldier 100000001
+2025-07-30 13:17:54,132 - INFO - Processed image 100000001_Turn_your_face_left_9.jpg for soldier 100000001
+2025-07-30 13:17:55,354 - INFO - Processed image 100000001_Turn_your_face_right_4.jpg for soldier 100000001
+2025-07-30 13:17:55,903 - INFO - Processed image 100000001_Turn_your_face_right_5.jpg for soldier 100000001
+2025-07-30 13:17:56,458 - INFO - Processed image 100000001_Turn_your_face_right_6.jpg for soldier 100000001
+2025-07-30 13:17:57,007 - INFO - Processed image 100000001_Turn_your_face_right_7.jpg for soldier 100000001
+2025-07-30 13:17:57,569 - INFO - Processed image 100000001_Turn_your_face_right_8.jpg for soldier 100000001
+2025-07-30 13:17:58,139 - INFO - Processed image 100000001_Turn_your_face_right_9.jpg for soldier 100000001
+2025-07-30 13:17:58,167 - INFO - Saved profile picture for soldier 100000001
+2025-07-30 13:17:58,174 - INFO - Deleted images for soldier 100000001
+2025-07-30 13:17:58,178 - INFO - Saved model with 417 total soldiers
+2025-07-30 13:18:00,202 - INFO - 127.0.0.1 - - [30/Jul/2025 13:18:00] "POST /api/image/train HTTP/1.1" 200 -
+2025-07-30 13:18:01,090 - INFO - 127.0.0.1 - - [30/Jul/2025 13:18:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:18:31,357 - INFO - 127.0.0.1 - - [30/Jul/2025 13:18:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:19:01,659 - INFO - 127.0.0.1 - - [30/Jul/2025 13:19:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:19:43,975 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-30 13:19:45,460 - INFO -  * Restarting with stat
+2025-07-30 13:19:48,694 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:19:50,392 - INFO - All models loaded successfully
+2025-07-30 13:19:50,744 - WARNING -  * Debugger is active!
+2025-07-30 13:19:50,744 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:20:02,669 - INFO - 127.0.0.1 - - [30/Jul/2025 13:20:02] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:21:03,668 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:03] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:21:30,785 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:30] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:21:30,896 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:30] "OPTIONS /api/admin/add-soldier HTTP/1.1" 200 -
+2025-07-30 13:21:33,500 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:33] "[35m[1mPOST /api/admin/add-soldier HTTP/1.1[0m" 500 -
+2025-07-30 13:21:37,856 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:37] "OPTIONS /api/admin/add-soldier HTTP/1.1" 200 -
+2025-07-30 13:21:40,132 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:40] "[35m[1mPOST /api/admin/add-soldier HTTP/1.1[0m" 201 -
+2025-07-30 13:21:46,555 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:46] "OPTIONS /api/image/train HTTP/1.1" 200 -
+2025-07-30 13:21:48,881 - INFO - Loaded existing model with 417 soldiers
+2025-07-30 13:21:48,881 - WARNING - No images found for soldier 100000002
+2025-07-30 13:21:48,881 - INFO - 127.0.0.1 - - [30/Jul/2025 13:21:48] "POST /api/image/train HTTP/1.1" 200 -
+2025-07-30 13:22:01,353 - INFO - 127.0.0.1 - - [30/Jul/2025 13:22:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:22:31,658 - INFO - 127.0.0.1 - - [30/Jul/2025 13:22:31] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:23:01,370 - INFO - 127.0.0.1 - - [30/Jul/2025 13:23:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:23:10,678 - INFO - 127.0.0.1 - - [30/Jul/2025 13:23:10] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-30 13:23:54,989 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\services\\image_collection.py', reloading
+2025-07-30 13:23:56,378 - INFO -  * Restarting with stat
+2025-07-30 13:23:59,223 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:24:00,996 - INFO - All models loaded successfully
+2025-07-30 13:24:01,420 - WARNING -  * Debugger is active!
+2025-07-30 13:24:01,435 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:24:33,216 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:33] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-30 13:24:35,784 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:35] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-30 13:24:36,104 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:36] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:24:36,410 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:36] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:24:37,826 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:24:38,134 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:38] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:24:40,168 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:40] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:24:40,472 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:40] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:24:48,444 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:48] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-30 13:24:50,478 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:50] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-30 13:24:50,791 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:50] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-30 13:24:51,979 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:51] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:24:52,284 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:52] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-30 13:24:53,131 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:53] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-30 13:24:53,693 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:53] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:24:54,000 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:54] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:24:56,034 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:56] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-30 13:24:56,332 - INFO - 127.0.0.1 - - [30/Jul/2025 13:24:56] "GET /api/admin/settings/webcam-toggle HTTP/1.1" 200 -
+2025-07-30 13:25:06,670 - INFO - 127.0.0.1 - - [30/Jul/2025 13:25:06] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:25:36,352 - INFO - 127.0.0.1 - - [30/Jul/2025 13:25:36] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:26:06,668 - INFO - 127.0.0.1 - - [30/Jul/2025 13:26:06] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-30 13:26:20,553 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:26:21,983 - INFO -  * Restarting with stat
+2025-07-30 13:26:24,844 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:26:26,649 - INFO - All models loaded successfully
+2025-07-30 13:26:27,018 - WARNING -  * Debugger is active!
+2025-07-30 13:26:27,034 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:26:31,870 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:26:32,768 - INFO -  * Restarting with stat
+2025-07-30 13:27:30,764 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:27:33,204 - INFO - All models loaded successfully
+2025-07-30 13:27:33,520 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-30 13:27:33,520 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-30 13:27:33,521 - INFO -  * Restarting with stat
+2025-07-30 13:27:36,472 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:27:38,127 - INFO - All models loaded successfully
+2025-07-30 13:27:38,606 - WARNING -  * Debugger is active!
+2025-07-30 13:27:38,615 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:28:59,960 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:29:01,904 - INFO -  * Restarting with stat
+2025-07-30 13:29:06,020 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:29:08,228 - INFO - All models loaded successfully
+2025-07-30 13:29:08,616 - WARNING -  * Debugger is active!
+2025-07-30 13:29:08,627 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:29:10,081 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:29:11,109 - INFO -  * Restarting with stat
+2025-07-30 13:29:14,293 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:29:15,916 - INFO - All models loaded successfully
+2025-07-30 13:29:16,272 - WARNING -  * Debugger is active!
+2025-07-30 13:29:16,280 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:29:41,920 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:29:43,297 - INFO -  * Restarting with stat
+2025-07-30 13:29:46,156 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:29:47,852 - INFO - All models loaded successfully
+2025-07-30 13:29:48,149 - WARNING -  * Debugger is active!
+2025-07-30 13:29:48,149 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:30:40,661 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:30:42,011 - INFO -  * Restarting with stat
+2025-07-30 13:30:45,059 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:30:46,717 - INFO - All models loaded successfully
+2025-07-30 13:30:47,027 - WARNING -  * Debugger is active!
+2025-07-30 13:30:47,027 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:31:03,338 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:31:04,782 - INFO -  * Restarting with stat
+2025-07-30 13:31:07,868 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:31:09,483 - INFO - All models loaded successfully
+2025-07-30 13:31:09,789 - WARNING -  * Debugger is active!
+2025-07-30 13:31:09,804 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:32:37,995 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:32:39,712 - INFO -  * Restarting with stat
+2025-07-30 13:32:42,712 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:32:44,394 - INFO - All models loaded successfully
+2025-07-30 13:32:44,778 - WARNING -  * Debugger is active!
+2025-07-30 13:32:44,830 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:37:45,563 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:37:47,057 - INFO -  * Restarting with stat
+2025-07-30 13:37:50,941 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:37:52,997 - INFO - All models loaded successfully
+2025-07-30 13:37:53,378 - WARNING -  * Debugger is active!
+2025-07-30 13:37:53,386 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:38:24,592 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\managepkl.py', reloading
+2025-07-30 13:38:26,073 - INFO -  * Restarting with stat
+2025-07-30 13:38:29,438 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:38:31,225 - INFO - All models loaded successfully
+2025-07-30 13:38:31,680 - WARNING -  * Debugger is active!
+2025-07-30 13:38:31,694 - INFO -  * Debugger PIN: 119-607-349
+2025-07-30 13:40:18,899 - INFO -  * Detected change in 'D:\\manodarsh_v2\\backend\\api\\admin\\routes.py', reloading
+2025-07-30 13:40:20,753 - INFO -  * Restarting with stat
+2025-07-30 13:40:23,565 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-30 13:40:25,102 - INFO - All models loaded successfully
+2025-07-30 13:40:25,401 - WARNING -  * Debugger is active!
+2025-07-30 13:40:25,417 - INFO -  * Debugger PIN: 119-607-349

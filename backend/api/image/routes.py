@@ -15,35 +15,31 @@ monitoring_service = CCTVMonitoringService()
 def collect_images():
     """Handle image collection for a soldier"""
     data = request.get_json()
-    
     if not data or 'force_id' not in data:
-        return jsonify({
-            'error': 'Missing required field: force_id'
-        }), 400
-        
+        return jsonify({'error': 'Missing required field: force_id'}), 400
     force_id = data['force_id']
-    
     # Validate force_id format
     if not force_id.isdigit() or len(force_id) != 9:
-        return jsonify({
-            'error': 'Invalid force ID format. Must be 9 digits.'
-        }), 400
-    
+        return jsonify({'error': 'Invalid force ID format. Must be 9 digits.'}), 400
     try:
         folder_path = image_collection_service.collect_images(force_id)
-        return jsonify({
-            'message': 'Image collection successful',
-            'folder_path': folder_path
-        }), 200
+        return jsonify({'message': 'Image collection successful', 'folder_path': folder_path}), 200
     except Exception as e:
-        return jsonify({
-            'error': str(e)
-        }), 500
+        return jsonify({'error': str(e)}), 500
+
+# Alias endpoint for frontend compatibility
+@image_bp.route('/capture', methods=['POST'])
+def capture_images():
+    """Alias for /collect to support frontend endpoint"""
+    return collect_images()
 
 @image_bp.route('/train', methods=['POST'])
 def train_model():
     """Train the face recognition model on new soldiers"""
+    data = request.get_json(silent=True) or {}
+    force_id = data.get('force_id')
     try:
+        # Currently, train_model does not accept force_id; train all untrained soldiers
         result = face_recognition_service.train_model()
         return jsonify(result)
     except Exception as e:

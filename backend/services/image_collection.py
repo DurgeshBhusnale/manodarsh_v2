@@ -13,7 +13,7 @@ class ImageCollectionService:
             "Stand a little away",
             "Smile"
         ]
-        self.images_per_pose = 10
+        self.images_per_pose = 5
 
     def _find_available_camera(self):
         """Try different camera indices to find an available camera"""

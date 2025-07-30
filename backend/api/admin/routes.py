@@ -1,3 +1,4 @@
+
 from flask import Blueprint, request, jsonify, send_file
 from db.connection import get_connection
 from services.translation_service import translate_to_hindi, translate_to_english
@@ -169,6 +170,32 @@ def get_questionnaire_details(questionnaire_id):
         cursor.close()
         db.close()
 
+
+# Add soldier endpoint for admin
+@admin_bp.route('/add-soldier', methods=['POST'])
+def add_soldier():
+    import bcrypt
+    data = request.get_json()
+    force_id = data.get('force_id')
+    password = data.get('password')
+    if not force_id or not password:
+        return jsonify({'error': 'Force ID and password required'}), 400
+    # Hash the password using bcrypt
+    password_bytes = password.encode('utf-8')
+    salt = bcrypt.gensalt()
+    password_hash = bcrypt.hashpw(password_bytes, salt)
+    db = get_connection()
+    cursor = db.cursor()
+    try:
+        cursor.execute("INSERT INTO users (force_id, password_hash, user_type) VALUES (%s, %s, 'soldier')", (force_id, password_hash))
+        db.commit()
+        return jsonify({'message': 'Soldier added successfully!'}), 201
+    except Exception as e:
+        db.rollback()
+        return jsonify({'error': str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
 
 @admin_bp.route('/create-question', methods=['POST'])
 def create_question():

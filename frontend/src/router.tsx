@@ -3,7 +3,8 @@ import LoginPage from './pages/login';
 import AdminDashboard from './pages/admin/dashboard';
 import AddSoldier from './pages/admin/add-soldier';
 import SoldiersData from './pages/admin/soldiers-data';
-import QuestionnairePage from './pages/admin/questionnaire';
+import QuestionnairePage from './pages/admin/create_questionnaire';
+import AdminQuestionnaires from './pages/admin/questionnaires';
 import AdminSettings from './pages/admin/settings';
 import DailyEmotionPage from './pages/admin/daily-emotion';
 import AdminSurveyPage from './pages/admin/survey';
@@ -12,6 +13,14 @@ import SoldierLoginPage from './pages/soldier/login';
 import ProtectedRoute from './components/ProtectedRoute';
 
 export const router = createBrowserRouter([
+  {
+    path: '/admin/create-questionnaire',
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <QuestionnairePage />
+      </ProtectedRoute>
+    ),
+  },
   {
     path: '/',
     element: <Navigate to="/login" replace />,
@@ -34,6 +43,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute requiredRole="admin">
         <AddSoldier />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/questionnaires',
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <AdminQuestionnaires />
       </ProtectedRoute>
     ),
   },

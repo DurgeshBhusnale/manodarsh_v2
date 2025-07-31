@@ -43,15 +43,6 @@ const SoldierLoginPage: React.FC = () => {
           <Text mb={4} color="gray.600" fontSize="md" textAlign="center">
             Please enter your Force ID and password to start the survey.
           </Text>
-          <Button
-            mb={4}
-            colorScheme="blue"
-            variant="outline"
-            w="full"
-            onClick={() => navigate('/login')}
-          >
-            Admin Login
-          </Button>
           {soldierError && (
             <Alert status="error" mb={4} rounded="md">
               <WarningIcon boxSize={5} mr={2} color="red.400" />
@@ -90,6 +81,22 @@ const SoldierLoginPage: React.FC = () => {
               </Button>
             </Stack>
           </form>
+          <Button
+            mt={6}
+            colorScheme="blue"
+            variant="outline"
+            w="full"
+            onClick={() => navigate('/login')}
+          >
+            For Admin Login, Click Here
+          </Button>
+          <Box mt={4} textAlign="center">
+            <Text>
+              <a href="/" style={{ color: '#2563eb', textDecoration: 'underline', fontWeight: 600 }}>
+                &larr; Back to Home
+              </a>
+            </Text>
+          </Box>
         </Box>
       </Flex>
     );

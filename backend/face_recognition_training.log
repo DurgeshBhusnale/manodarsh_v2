@@ -22284,3 +22284,783 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-31 09:40:20,775 - INFO - 127.0.0.1 - - [31/Jul/2025 09:40:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
 2025-07-31 09:40:25,093 - INFO - 127.0.0.1 - - [31/Jul/2025 09:40:25] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-07-31 09:40:55,992 - INFO - 127.0.0.1 - - [31/Jul/2025 09:40:55] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:20:08,371 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-31 11:20:13,312 - INFO - All models loaded successfully
+2025-07-31 11:20:14,333 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-31 11:20:14,333 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-31 11:20:14,337 - INFO -  * Restarting with stat
+2025-07-31 11:20:20,008 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-31 11:20:22,862 - INFO - All models loaded successfully
+2025-07-31 11:20:23,384 - WARNING -  * Debugger is active!
+2025-07-31 11:20:23,391 - INFO -  * Debugger PIN: 119-607-349
+2025-07-31 11:20:23,617 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:23] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-31 11:20:26,302 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:26] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-31 11:20:26,613 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:26] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-31 11:20:26,877 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:26] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-31 11:20:28,668 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:28] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-31 11:20:30,710 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:30] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-31 11:20:31,094 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-31 11:20:33,418 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:33] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-31 11:20:33,418 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:33] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-07-31 11:20:35,460 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:35] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-07-31 11:20:56,614 - INFO - 127.0.0.1 - - [31/Jul/2025 11:20:56] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:21:26,988 - INFO - 127.0.0.1 - - [31/Jul/2025 11:21:26] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:21:56,994 - INFO - 127.0.0.1 - - [31/Jul/2025 11:21:56] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:22:26,701 - INFO - 127.0.0.1 - - [31/Jul/2025 11:22:26] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:22:56,995 - INFO - 127.0.0.1 - - [31/Jul/2025 11:22:56] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:23:26,679 - INFO - 127.0.0.1 - - [31/Jul/2025 11:23:26] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:23:56,990 - INFO - 127.0.0.1 - - [31/Jul/2025 11:23:56] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:24:12,656 - INFO - 127.0.0.1 - - [31/Jul/2025 11:24:12] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-07-31 11:27:49,400 - INFO - 127.0.0.1 - - [31/Jul/2025 11:27:49] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:27:49,400 - INFO - 127.0.0.1 - - [31/Jul/2025 11:27:49] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:27:51,463 - INFO - 127.0.0.1 - - [31/Jul/2025 11:27:51] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-31 11:27:51,701 - INFO - Trying external webcam (index 1)...
+2025-07-31 11:27:51,748 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-31 11:27:51,748 - INFO - Trying external webcam (index 1)...
+2025-07-31 11:27:51,764 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-31 11:27:53,512 - INFO - 127.0.0.1 - - [31/Jul/2025 11:27:53] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-31 11:28:02,021 - INFO - Successfully connected to built-in camera
+2025-07-31 11:28:02,037 - INFO - Successfully connected to built-in camera
+2025-07-31 11:28:19,646 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:19] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:28:19,949 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:19] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:28:21,424 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-31 11:28:21,424 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-31 11:28:21,456 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:21] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:28:22,043 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:22] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-31 11:28:24,302 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:24] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-31 11:28:27,726 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-31 11:28:27,726 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-31 11:28:27,726 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:27] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:28:27,895 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-31 11:28:27,895 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-31 11:28:27,895 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:27] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:28:27,905 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-07-31 11:28:27,905 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-07-31 11:28:27,906 - INFO - 127.0.0.1 - - [31/Jul/2025 11:28:27] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:28:36,537 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:28:36,988 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:28:37,814 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-31 11:28:37,814 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:28:39,377 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-31 11:28:39,377 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:28:39,377 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:28:42,475 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:28:42,510 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-31 11:28:42,510 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:28:42,510 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:28:43,273 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-31 11:28:43,273 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:28:43,273 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:00,982 - DEBUG - Emotion probabilities: {'Angry': '0.12', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.74', 'Sad': '0.13', 'Surprised': '0.00'}
+2025-07-31 11:29:00,982 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:29:03,946 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.96', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-31 11:29:03,946 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:03,947 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:03,988 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-31 11:29:04,023 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:04,023 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:06,231 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:29:10,619 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:29:13,471 - DEBUG - Emotion probabilities: {'Angry': '0.37', 'Disgusted': '0.10', 'Fearful': '0.10', 'Happy': '0.00', 'Neutral': '0.04', 'Sad': '0.38', 'Surprised': '0.00'}
+2025-07-31 11:29:13,471 - INFO - Detected soldier 100000001 with Sad emotion (score: 3)
+2025-07-31 11:29:13,473 - INFO - Survey detection: 100000001 - Sad (3.00)
+2025-07-31 11:29:13,911 - DEBUG - Emotion probabilities: {'Angry': '0.42', 'Disgusted': '0.11', 'Fearful': '0.19', 'Happy': '0.00', 'Neutral': '0.02', 'Sad': '0.26', 'Surprised': '0.00'}
+2025-07-31 11:29:13,918 - INFO - Detected soldier 100000001 with Angry emotion (score: 2)
+2025-07-31 11:29:13,918 - INFO - Survey detection: 100000001 - Angry (2.00)
+2025-07-31 11:29:13,953 - DEBUG - Emotion probabilities: {'Angry': '0.17', 'Disgusted': '0.11', 'Fearful': '0.14', 'Happy': '0.00', 'Neutral': '0.18', 'Sad': '0.39', 'Surprised': '0.00'}
+2025-07-31 11:29:13,953 - INFO - Detected soldier 100000001 with Sad emotion (score: 3)
+2025-07-31 11:29:13,953 - INFO - Survey detection: 100000001 - Sad (3.00)
+2025-07-31 11:29:16,197 - DEBUG - Emotion probabilities: {'Angry': '0.05', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.73', 'Sad': '0.22', 'Surprised': '0.00'}
+2025-07-31 11:29:16,197 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:16,197 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:19,570 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-07-31 11:29:19,570 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:19,570 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:19,570 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-31 11:29:19,570 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:19,570 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:19,599 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-31 11:29:19,599 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:19,599 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:21,696 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-31 11:29:21,696 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:21,696 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:23,148 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:23] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:29:23,148 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:23] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:29:23,801 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x0000020362B40350>
+2025-07-31 11:29:23,801 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 1 with 6 bits
+2025-07-31 11:29:23,801 - DEBUG - Encoding 14 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 7 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 4 with 6 bits
+2025-07-31 11:29:23,801 - DEBUG - Encoding 101 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 19 with 6 bits
+2025-07-31 11:29:23,801 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 16 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 58 with 6 bits
+2025-07-31 11:29:23,801 - DEBUG - Encoding 32 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-31 11:29:23,801 - DEBUG - Encoding 51 with 6 bits
+2025-07-31 11:29:23,801 - DEBUG - Encoding 20 with 7 bits
+2025-07-31 11:29:23,801 - DEBUG - Adding (b'content-length', b'148') to the header table
+2025-07-31 11:29:23,806 - DEBUG - Encoding 28 with 6 bits
+2025-07-31 11:29:23,806 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:29:23,806 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-31 11:29:23,806 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x0000020362B40B30>
+2025-07-31 11:29:23,807 - DEBUG - Encoding 31 with 6 bits
+2025-07-31 11:29:23,807 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-31 11:29:23,807 - DEBUG - Encoding 24 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83\x0bO\x7f_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-31 11:29:23,808 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 1 with 6 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 14 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 7 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 4 with 6 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 101 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 19 with 6 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 16 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 58 with 6 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 32 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 51 with 6 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 20 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b'content-length', b'157') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 28 with 6 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-31 11:29:23,808 - DEBUG - Encoding 31 with 6 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoding 24 with 7 bits
+2025-07-31 11:29:23,808 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83\x0bn\xff_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-31 11:29:24,231 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x97\xdf=\xbfJ2\x152\xdbB\x82\x00\x9bP\r\xdcm\xfb\x82iLZ7\xffY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82Kv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xffZ\xd3\x92\xfc\r\x89\xb8\t\xcb\xd14\xfej\xcdu\xd6\x8d(:\xee\xd01\xad\xe3N|\xfcbs\xf7\xb2.\x9b\x1e9\xfc\x9b\xf5\xe8\xfa\xf5\xfd\x7f\xf74\xdb\xe5\t\x01\x0e\x0e\x8c\xe3\xbda:\xdd=b\xd7\xf9Yf\xad\xe2\xd5V]\xda\x93\xf9\xb3\x19j\x1c\xb7\xa8s\xd1\x8b\x93\xd6\xab\xd6\xac\x07\xc5\x1e|\xba\xe1\xdd\x9e-\xda\xae\xf6\xf3\x8a\xfa\xda=\xef\xf4\xfe\xdc\xee&\xd927\x0b\xda\xde+\xdctR\xed\xfa\xfbVK\xe8\xd5\xdf\xb6\x16\xf6\x97\x01\xf1h\xbdf\xab\xda\xa8\xd5\x1cX\x16\x9a\xf6,:\xbf8Gt4z5hf\xde\x99\xcf\xc3+_j\x17\xcdf\xb0\xa8\x83\r\x86\xfaQ\x90-\x94u, \t\xc5\x00\xdd\xc6\xdf\xb8&\x94\xc5\xa3\x7f\xda\x95\x8d3\xc0\xc7\xda\x92\x1e\x91\x9a\xa8\x17\x98\xe7\x9a\x82\xaeC\xd3\xf6\xa64\xa6\xbdUQ\xeb@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-31 11:29:24,231 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-31 11:29:24,231 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-31 11:29:24,231 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-31 11:29:24,231 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:29:24,231 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-31 11:29:24,237 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-31 11:29:24,238 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-31 11:29:24,239 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-31 11:29:24,239 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:29:24,239 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:29:24,239 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-31 11:29:24,239 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:29:24,239 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:29:24,239 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-31 11:29:24,244 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-31 11:29:24,244 - DEBUG - Decoded 23, consumed 1 bytes
+2025-07-31 11:29:24,244 - DEBUG - Decoded (b'date', b'Thu, 31 Jul 2025 05:59:24 GMT'), total consumed 26 bytes, indexed False
+2025-07-31 11:29:24,245 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-31 11:29:24,245 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-31 11:29:24,249 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-31 11:29:24,249 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:29:24,249 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:29:24,249 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-31 11:29:24,251 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:29:24,251 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-31 11:29:24,252 - DEBUG - Decoded (<memory at 0x000002036285C040>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-31 11:29:24,252 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-31 11:29:24,252 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-31 11:29:24,252 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-31 11:29:24,252 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:29:24,252 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-31 11:29:24,252 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-31 11:29:24,252 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:29:24,252 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-31 11:29:24,254 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-31 11:29:24,254 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:29:24,254 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-31 11:29:24,254 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-31 11:29:24,254 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-31 11:29:24,256 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:29:24,256 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-31 11:29:24,256 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-31 11:29:24,256 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:29:24,258 - DEBUG - Decoded (b'server', <memory at 0x000002036285C400>), total consumed 5 bytes, indexed True
+2025-07-31 11:29:24,258 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-31 11:29:24,259 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-31 11:29:24,259 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002036285C4C0>), total consumed 16 bytes, indexed True
+2025-07-31 11:29:24,259 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-31 11:29:24,259 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-31 11:29:24,259 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-31 11:29:24,261 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-31 11:29:24,261 - DEBUG - Decoded 217, consumed 2 bytes
+2025-07-31 11:29:24,261 - DEBUG - Decoded (b'set-cookie', b'NID=525=cWycNXOKB74if0kSMaa-wNLLV_6ZqsBiHHhxiZ8bkkZ9ZKgTf1c0AEj3HCrckBop2PXpegp8ennJSOtXQHenafCl6yieIyOCu-092bLJPASL_SOBqxGD-MzTy9RL6tudI5A8P8e8VMm7DpqpcDsOvqF5ReEoGMCrOCOlOb_E-gCGFOXUbB1lyips3ujLoUJ4; expires=Fri, 30-Jan-2026 05:59:24 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 221 bytes, indexed False
+2025-07-31 11:29:24,261 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:29:24,263 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:29:24,263 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-31 11:29:24,263 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:29:24,263 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:29:24,263 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-31 11:29:24,263 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-31 11:29:24,263 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-31 11:29:24,263 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-31 11:29:24,265 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-31 11:29:24,268 - INFO - Translated 'ha' to 'Is'
+2025-07-31 11:29:24,270 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:24] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:29:25,099 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x97\xdf=\xbfJ2\x152\xdbB\x82\x00\x9bP\r\xdcm\xfb\x82iLZ7\xffY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1v\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff]\xd3\x92\xfc\r\x89\xb8:\xdf\x15\xf6\xd9{\x1d9|\xd8L:u\xec\x9b@\xed\xf4=G>\x0b\xb3\x17\x9e~<v\xfeE\xb9\xa9\xee\xe2\xc1\xdb)"\x87\xbeOx}?\x88^o\xe8\xf4[?\x11\x11\x81\x7f\xa8\x83\xcf\x96m8\xe9\xd7\xbf\xcfKO\xe354s\x8a\xae\xec\xee\xe9\xea\xd4ko\xf7\x16G\xa3\xd3wM\x91H|+~\xb3\xa4\xdc5\xd1\xa3x\xb5\x8f^\xe9\xf82)\x11\xcfV\ty\xde\xd0\xe0\x1a\xad\x15!\xbd7\xf3E\xdbCY5\xe6t\xb9fIf\xf1\x87o\x8e\x93\x03\x96\x1a\x7f;\xe9\x8b\xdb\xec\xfa\xe7\xef\x9foMg@\x85\xe3\xedB\xf9\xac\xd6\x15\x10a\xb0\xdfJ2\x05\xb2\x8e\xa5\x84\x018\xa0\x1b\xb8\xdb\xf7\x04\xd2\x98\xb4o\xfbR\xb1\xa6x\x18\xfbRC\xd23U\x02\xf3\x1c\xf3PU\xc8z~\xd4\xc6\x94\xd7\xaa\xaa=\x7f@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-31 11:29:25,099 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-31 11:29:25,099 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-31 11:29:25,099 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-31 11:29:25,099 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-31 11:29:25,099 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-31 11:29:25,099 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded 23, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b'date', b'Thu, 31 Jul 2025 05:59:24 GMT'), total consumed 26 bytes, indexed False
+2025-07-31 11:29:25,099 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-31 11:29:25,099 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:29:25,099 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-31 11:29:25,099 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:29:25,099 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-31 11:29:25,099 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:29:25,105 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-31 11:29:25,105 - DEBUG - Decoded (<memory at 0x000002036285CAC0>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-31 11:29:25,105 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:29:25,105 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-31 11:29:25,106 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-31 11:29:25,106 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-31 11:29:25,106 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-31 11:29:25,106 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-31 11:29:25,106 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-31 11:29:25,106 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:29:25,106 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-31 11:29:25,106 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:29:25,106 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-31 11:29:25,106 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-31 11:29:25,113 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-31 11:29:25,113 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Decoded (b'server', <memory at 0x000002036285CA00>), total consumed 5 bytes, indexed True
+2025-07-31 11:29:25,113 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002036285C880>), total consumed 16 bytes, indexed True
+2025-07-31 11:29:25,113 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-31 11:29:25,113 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-31 11:29:25,113 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-31 11:29:25,113 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:25,113 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-31 11:29:25,113 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:25,113 - DEBUG - Decoded 220, consumed 2 bytes
+2025-07-31 11:29:25,120 - DEBUG - Decoded (b'set-cookie', b'NID=525=kD2D538HmJxrcFNPQgMauyaOooEBgeYLVVRX_S4hBGEqJc_AvIzFy9G2xDMyerXs_i0Dk21YWKNHmPTxjuowKmlY_nv3SjyusP5ZGI8bNBNr_doF-Z3NiUPlMT2PaPShU32dsYOEfYCM604psns5NDK_qM4IPK7eJgtegwFRwjg0WFmXvN_z93yYzYqy4Ls22w; expires=Fri, 30-Jan-2026 05:59:24 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 224 bytes, indexed False
+2025-07-31 11:29:25,120 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:29:25,120 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:29:25,120 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-31 11:29:25,120 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:29:25,120 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:29:25,120 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-31 11:29:25,120 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-31 11:29:25,120 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-31 11:29:25,120 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-31 11:29:25,123 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-31 11:29:25,126 - INFO - Translated 'doing great' to 'Doing great'
+2025-07-31 11:29:25,127 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:25] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:29:25,133 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:25] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-31 11:29:25,162 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-31 11:29:25,162 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:25,162 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:27,127 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.39', 'Sad': '0.57', 'Surprised': '0.00'}
+2025-07-31 11:29:27,127 - INFO - Detected soldier 100000001 with Sad emotion (score: 3)
+2025-07-31 11:29:27,127 - INFO - Survey detection: 100000001 - Sad (3.00)
+2025-07-31 11:29:30,759 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.95', 'Sad': '0.05', 'Surprised': '0.00'}
+2025-07-31 11:29:30,759 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:30,759 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:30,876 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.90', 'Sad': '0.09', 'Surprised': '0.00'}
+2025-07-31 11:29:30,878 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:30,878 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:30,892 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.86', 'Sad': '0.13', 'Surprised': '0.00'}
+2025-07-31 11:29:30,892 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:29:30,892 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-07-31 11:29:30,960 - INFO - All models loaded successfully
+2025-07-31 11:29:30,960 - WARNING - No monitoring session active for soldier 100000001
+2025-07-31 11:29:30,960 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-07-31 11:29:30,960 - WARNING - No emotion data retrieved from monitoring service
+2025-07-31 11:29:30,960 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-07-31 11:29:30,960 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.196, 'pos': 0.804, 'compound': 0.6249}
+2025-07-31 11:29:30,960 - INFO - Text: 'Doing great...' - Label: POSITIVE, Depression score: 0.19
+2025-07-31 11:29:30,960 - INFO - Question 4 - Sentiment: POSITIVE, Score: 0.19
+2025-07-31 11:29:30,960 - INFO - Question 4: Weighted Combined = (0.19 * 0.7) + (0.00 * 0.3) = 0.131
+2025-07-31 11:29:30,960 - INFO - Question 4: NLP=0.18755, Emotion=0.00, Weighted Combined=0.131
+2025-07-31 11:29:30,970 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-31 11:29:30,970 - INFO - Text: 'Is...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-31 11:29:30,970 - INFO - Question 5 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-31 11:29:30,970 - INFO - Question 5: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-07-31 11:29:30,970 - INFO - Question 5: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-07-31 11:29:30,970 - INFO - Session 8 - Average NLP Depression Score: 0.34
+2025-07-31 11:29:30,970 - INFO - Session 8 - Using NLP score only: 0.34
+2025-07-31 11:29:30,970 - INFO - ================================================================================
+2025-07-31 11:29:31,027 - INFO - ================================================================================
+2025-07-31 11:29:31,051 - INFO - 
+2025-07-31 11:29:31,060 - INFO -    State:          GOOD MENTAL HEALTH
+2025-07-31 11:29:31,060 - INFO -    Alert Level:    GREEN
+2025-07-31 11:29:31,060 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-07-31 11:29:31,060 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-07-31 11:29:31,060 - INFO - 
+2025-07-31 11:29:31,060 - INFO -    Total Detections: 0
+2025-07-31 11:29:31,060 - INFO -    Dominant Emotion: Unknown
+2025-07-31 11:29:31,060 - INFO - ================================================================================
+2025-07-31 11:29:31,081 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:31] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-31 11:29:31,392 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:31] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:29:31,723 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-07-31 11:29:31,746 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-07-31 11:29:31,779 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-07-31 11:29:31,779 - INFO - Processing 19 emotion detections for soldier 100000001
+2025-07-31 11:29:31,779 - INFO - Found 19 actual emotion detections (filtered from 19 total entries)
+2025-07-31 11:29:31,779 - INFO - Calculated avg depression score: 0.58, dominant emotion: Neutral
+2025-07-31 11:29:31,779 - INFO - Storing emotion data for session_id: 8
+2025-07-31 11:29:31,813 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-07-31 11:29:33,813 - INFO - Storing emotion data - session_id: 8, force_id: 100000001, avg_score: 0.58
+2025-07-31 11:29:33,813 - INFO - Updated 1 weekly session record(s)
+2025-07-31 11:29:33,834 - INFO - Updated 2 question response record(s)
+2025-07-31 11:29:33,834 - INFO - Successfully stored survey emotion data for session 8: avg_score=0.58
+2025-07-31 11:29:33,834 - INFO - Survey monitoring ended for 100000001: avg_score=0.58, emotion=Neutral, detections=19
+2025-07-31 11:29:34,258 - INFO - Camera resources released after survey monitoring
+2025-07-31 11:29:34,258 - INFO - 127.0.0.1 - - [31/Jul/2025 11:29:34] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:37:46,378 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-31 11:37:49,026 - INFO - All models loaded successfully
+2025-07-31 11:37:49,541 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-31 11:37:49,541 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-31 11:37:49,543 - INFO -  * Restarting with stat
+2025-07-31 11:37:53,175 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-07-31 11:37:57,816 - INFO - All models loaded successfully
+2025-07-31 11:37:58,784 - WARNING -  * Debugger is active!
+2025-07-31 11:37:58,801 - INFO -  * Debugger PIN: 119-607-349
+2025-07-31 11:38:02,503 - INFO - 127.0.0.1 - - [31/Jul/2025 11:38:02] "[33mGET /main.1543c61783f23fa6dab7.hot-update.json HTTP/1.1[0m" 404 -
+2025-07-31 11:44:45,937 - INFO - 127.0.0.1 - - [31/Jul/2025 11:44:45] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:44:45,937 - INFO - 127.0.0.1 - - [31/Jul/2025 11:44:45] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:44:48,231 - INFO - 127.0.0.1 - - [31/Jul/2025 11:44:48] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-31 11:44:48,247 - INFO - Trying external webcam (index 1)...
+2025-07-31 11:44:48,278 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-31 11:44:48,315 - INFO - Trying external webcam (index 1)...
+2025-07-31 11:44:48,326 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-07-31 11:44:50,274 - INFO - 127.0.0.1 - - [31/Jul/2025 11:44:50] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-07-31 11:44:57,658 - INFO - Successfully connected to built-in camera
+2025-07-31 11:44:57,658 - INFO - Successfully connected to built-in camera
+2025-07-31 11:45:15,670 - INFO - Starting continuous survey frame processing for soldier 100000003
+2025-07-31 11:45:15,670 - INFO - Started survey emotion monitoring for soldier 100000003
+2025-07-31 11:45:15,670 - INFO - 127.0.0.1 - - [31/Jul/2025 11:45:15] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:45:21,176 - INFO - Starting continuous survey frame processing for soldier 100000003
+2025-07-31 11:45:21,176 - INFO - Started survey emotion monitoring for soldier 100000003
+2025-07-31 11:45:21,183 - INFO - 127.0.0.1 - - [31/Jul/2025 11:45:21] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:45:25,760 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:45:26,894 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:45:29,852 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:45:34,166 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '1.00', 'Neutral': '0.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-31 11:45:34,170 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:34,753 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '1.00', 'Neutral': '0.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-31 11:45:34,753 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:38,162 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.49', 'Neutral': '0.30', 'Sad': '0.20', 'Surprised': '0.00'}
+2025-07-31 11:45:38,162 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:38,828 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.98', 'Neutral': '0.02', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-31 11:45:38,828 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:42,609 - DEBUG - Emotion probabilities: {'Angry': '0.01', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.07', 'Neutral': '0.85', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-31 11:45:42,609 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:45:42,609 - INFO - Survey detection: 100000003 - Neutral (0.00)
+2025-07-31 11:45:45,864 - DEBUG - Emotion probabilities: {'Angry': '0.13', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.56', 'Neutral': '0.29', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-07-31 11:45:45,864 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:46,843 - DEBUG - Emotion probabilities: {'Angry': '0.04', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.46', 'Neutral': '0.25', 'Sad': '0.22', 'Surprised': '0.01'}
+2025-07-31 11:45:46,843 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:49,933 - DEBUG - Emotion probabilities: {'Angry': '0.09', 'Disgusted': '0.00', 'Fearful': '0.04', 'Happy': '0.41', 'Neutral': '0.23', 'Sad': '0.22', 'Surprised': '0.02'}
+2025-07-31 11:45:49,933 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:50,891 - DEBUG - Emotion probabilities: {'Angry': '0.16', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.07', 'Neutral': '0.30', 'Sad': '0.46', 'Surprised': '0.01'}
+2025-07-31 11:45:50,891 - INFO - Detected soldier 100000001 with Sad emotion (score: 3)
+2025-07-31 11:45:53,975 - INFO - 127.0.0.1 - - [31/Jul/2025 11:45:53] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:45:54,552 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000002554226A0B0>
+2025-07-31 11:45:54,552 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 1 with 6 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoding 14 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 7 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 4 with 6 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoding 101 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 19 with 6 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 16 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 58 with 6 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoding 32 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 51 with 6 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoding 20 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b'content-length', b'184') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 28 with 6 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-31 11:45:54,552 - DEBUG - Encoding 31 with 6 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoding 24 with 7 bits
+2025-07-31 11:45:54,552 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83\x0b\xcd\x7f_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-31 11:45:56,177 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x97\xdf=\xbfJ2\x152\xdbB\x82\x00\x9bP\x0e\\\x0bw\x1bmLZ7\xffY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9fv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff[\xd3\x92\xfc\r\x89\xb85k\xf3\x93K\xceE<z\x1f\xe9uh\xd3\xb3\xb8(~\xfe\x9bu\x87\xc4\x95`Y\xad\xa0\xeaV\xbf2\xa7\xa7N@\x8f\xbcXfE\xfe\xbe\xd6\xe9\x9e\xd4n\xd4\xb1\x7f^\xb1\xfc\x85y\xee\xb9{t6\x9cd\xd3\x9d\x9f\xd6\xf6\x87C\x8e\xe1\x98M\xde\xdc\xfeY\'d\\\xbb\xb2m\xe3u\xb7n\xe0?&c\xc3\xf8\xd7f\xf1\x93\xf0\xd7\xf4\xe2\x8bw9\xea\x87\x06!x\xe6\xdcY\xbfvMw\x9d\x8e\xfej\xdb\x8b./\xdeZ\r\xceY\xbc\xa7\xd7\x15\xa5\xdd\xda\xdc\xf4Z\xe7\xeei:?\t\xf8z\xf0\xf7\xaa\xbb\xdf\xb5\x1fj\x17\xcdf\xb0\xa8\x83\r\x86\xfaQ\x90-\x94u, \t\xc5\x00\xe5\xc0\xb7q\xb6\xd4\xc5\xa3\x7f\xda\x95\x8d3\xc0\xc7\xda\x92\x1e\x91\x9a\xa8\x17\x98\xe7\x9a\x82\xaeC\xd3\xf6\xa64\xa6\xbdUQ\xeb@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-31 11:45:56,177 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-31 11:45:56,177 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 23, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'date', b'Thu, 31 Jul 2025 06:15:55 GMT'), total consumed 26 bytes, indexed False
+2025-07-31 11:45:56,177 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (<memory at 0x000002553C145A00>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-31 11:45:56,177 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-31 11:45:56,177 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:45:56,182 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-31 11:45:56,182 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-31 11:45:56,182 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:45:56,182 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-31 11:45:56,182 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-31 11:45:56,182 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-31 11:45:56,182 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-31 11:45:56,182 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-31 11:45:56,182 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded (b'server', <memory at 0x000002553C145280>), total consumed 5 bytes, indexed True
+2025-07-31 11:45:56,183 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002553C145F40>), total consumed 16 bytes, indexed True
+2025-07-31 11:45:56,183 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-31 11:45:56,183 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded 218, consumed 2 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded (b'set-cookie', b'NID=525=OPxIN86_hbM9jB-btQv0l9DNuP1wdnE-4R0ke4XJtjjW0bv_FgsDkz-jLusSO-eZ8r9Ie88kJqjiNHcNL3Z5R1M67Fg25CS9Jdh32Wv3iTa757BEoW3bFX4q5HcXiDNG_SYhnAEG2wY5_KZQgBYr7XORGJGZWMiYfgxtyV-fSquLlu6ZKdj9AoUyw8ynvDus; expires=Fri, 30-Jan-2026 06:15:55 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 222 bytes, indexed False
+2025-07-31 11:45:56,183 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-31 11:45:56,183 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-31 11:45:56,183 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-31 11:45:56,183 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-31 11:45:56,184 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-31 11:45:56,184 - INFO - Translated 'Hello, hello, hello. Jai Chamunda.' to 'Hello! Hello! Hello.Jai Chamunda.'
+2025-07-31 11:45:56,190 - INFO - 127.0.0.1 - - [31/Jul/2025 11:45:56] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:45:57,210 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.98', 'Neutral': '0.02', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-31 11:45:57,210 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:45:58,203 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.90', 'Neutral': '0.10', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-07-31 11:45:58,203 - INFO - Detected soldier 100000001 with Happy emotion (score: -1)
+2025-07-31 11:46:01,245 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:46:02,280 - WARNING - Face detected but not recognized as any known soldier
+2025-07-31 11:46:05,203 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.05', 'Neutral': '0.84', 'Sad': '0.11', 'Surprised': '0.00'}
+2025-07-31 11:46:05,203 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:46:05,203 - INFO - Survey detection: 100000003 - Neutral (0.00)
+2025-07-31 11:46:06,385 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.12', 'Neutral': '0.77', 'Sad': '0.09', 'Surprised': '0.00'}
+2025-07-31 11:46:06,385 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:46:09,307 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.17', 'Neutral': '0.82', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-31 11:46:09,307 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:46:09,307 - INFO - Survey detection: 100000003 - Neutral (0.00)
+2025-07-31 11:46:10,362 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.20', 'Neutral': '0.78', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-31 11:46:10,362 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:46:20,510 - DEBUG - Emotion probabilities: {'Angry': '0.26', 'Disgusted': '0.00', 'Fearful': '0.08', 'Happy': '0.00', 'Neutral': '0.59', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-07-31 11:46:20,510 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-07-31 11:46:22,106 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:22] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:46:22,106 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:22] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:46:22,634 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x00000255422DE2E0>
+2025-07-31 11:46:22,634 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 1 with 6 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoding 14 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 7 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 4 with 6 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoding 101 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 19 with 6 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 16 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 58 with 6 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoding 32 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 51 with 6 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoding 20 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b'content-length', b'289') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 28 with 6 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-31 11:46:22,634 - DEBUG - Encoding 31 with 6 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoding 24 with 7 bits
+2025-07-31 11:46:22,634 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83\x13\xcf\xff_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-31 11:46:22,641 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x00000255422DE190>
+2025-07-31 11:46:22,641 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 1 with 6 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoding 14 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 7 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 4 with 6 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoding 101 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 19 with 6 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 16 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 58 with 6 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoding 32 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 51 with 6 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoding 20 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b'content-length', b'304') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 28 with 6 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoding 3 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-07-31 11:46:22,641 - DEBUG - Encoding 31 with 6 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoding 24 with 7 bits
+2025-07-31 11:46:22,641 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83d\r\x7f_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-07-31 11:46:23,462 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-31 11:46:23,462 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:46:23,462 - INFO - Survey detection: 100000003 - Neutral (0.00)
+2025-07-31 11:46:23,697 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xdf=\xbfJ2\x152\xdbB\x82\x00\x9bP\x0e\\\x0b\x97\x04\xca\x98\xb4oY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82Kv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xffZ\xd3\x92\xfc\r\x89\xb8\x06\xf3\xben\x86\xd3\xe0\'\xecv\xe4\xcah\xa6\xa9\x1a\x7fuH\x1e\xd7\xcf\x96\xae\xb87a\xf5Z1\xfe\x9b\xa0i\xd7{\xac\x9d)\xd3\xaen\x1c\x0b\xcb\x8b\xb4`\xd1;\xdcl\xca=]\x1e\xcc\\E\xc3\xb7k\x92\xd4Qe!\x19\xf2\x9e\xf3l\xaeLqY\x1fhw_xC\xed\xf9\xa76\x8f\x04\xbb\x9d:z2\xee\xe7}\x0b\x0e\x0c\xf6a\xe3\\\xb7\xf6\xee\xa2\xdcg\xda9\xfa\xd5`5u\xa4\xf8+\xbd\x9b\xdf\xee$\xf5\xf0\xf25\xd0!\xeb\xc1\xf9\x95\x98\xb1\xf6v~\xf8xnx\xcc\xb7\xe3\x17\xbc\xfd\xaa\xd3\x9aD\xfd\xa8_5\x9a\xc2\xa2\x0c6\x1b\xe9F@\xb6Q\xd4\xb0\x80\'\x14\x03\x97\x02\xe5\xc12\xa6-\x1b\xfe\xd4\xaci\x9e\x06>\xd4\x90\xf4\x8c\xd5@\xbc\xc7<\xd4\x15r\x1e\x9f\xb51\xa55\xea\xaa\x8f_@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-31 11:46:23,697 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-31 11:46:23,697 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'date', b'Thu, 31 Jul 2025 06:16:23 GMT'), total consumed 25 bytes, indexed False
+2025-07-31 11:46:23,697 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (<memory at 0x000002553C145D00>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'server', <memory at 0x000002553C145A00>), total consumed 5 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000002553C145E80>), total consumed 16 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 217, consumed 2 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'set-cookie', b'NID=525=a87xB1uoEcZbuIJi_gnsNZOd1qDoJnkESFypsHZij1mPCkdjmNPgUUeWV7lEMh8VrJaOj8KeGeFRR6fne2Jcc3xtvgQpdH_rbqASD82aqXNKMwcBLtNj37S7y2FELrFVpfDRSluHoRahknr0OkmoEpCKzZGtkw8sPl2aPEXJ3_Hq7hvFUS8i35wGzLqnNKdt; expires=Fri, 30-Jan-2026 06:16:23 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 221 bytes, indexed False
+2025-07-31 11:46:23,697 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-31 11:46:23,697 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-31 11:46:23,697 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-31 11:46:23,702 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xdf=\xbfJ2\x152\xdbB\x82\x00\x9bP\x0e\\\x0b\x97\x04\xca\x98\xb4oY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1v\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff]\xd3\x92\xfc\r\x89\xb89^[\x9d\xdc>\xb3\xc9\xb4]\xcf\xe2\xacH\xda)lf\xef8V\x9b\x1b\xee>\x8b\xbe\xde\xfd7.]n\xce\xf6\xcd\x8fn\xd64\xfa\xd9\x16\x0f\xcd\xcf\xc2\x0c~C\x9c\xdc\xf9S\xa7;\x92\xde\xc6\xdeg\x81}#\xde\x1c\xb3g\xc6\xd7U\xafm\x07\x07\xf2\xd5\xbd\xff\xcf=\xe4FZ:r\xf6\xb6\xb9\xe4t\xd1\xd9w\xb3\x94w6\xcc\x1eq\xd6^\x1ew\xfe\xedt\xb7\x9f\xdb^\x1b\xd7L\xd37\xe3k\xdb<\x9e\xcb\xd3~\x92\xd9\xbfF\x86qV\xe5/C\xa4\x85\xef\xfb\xe3\xd6\x9c\xfb\x1dN\xdf:\xf9\x976^\xc9\xb6>\x92x\xfbP\xbek5\x85D\x18l7\xd2\x8c\x81l\xa3\xa9a\x00N(\x07.\x05\xcb\x82eLZ7\xfd\xa9X\xd3<\x0c}\xa9!\xe9\x19\xaa\x81y\x8ey\xa8*\xe4=?jcJk\xd5U\x1e\xbf@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-07-31 11:46:23,718 - DEBUG - Decoded 8, consumed 1 bytes
+2025-07-31 11:46:23,724 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-07-31 11:46:23,724 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:23] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:46:23,724 - DEBUG - Decoded 31, consumed 1 bytes
+2025-07-31 11:46:23,727 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:46:23,727 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-07-31 11:46:23,727 - DEBUG - Decoded 24, consumed 1 bytes
+2025-07-31 11:46:23,727 - DEBUG - Decoded 33, consumed 1 bytes
+2025-07-31 11:46:23,727 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-07-31 11:46:23,727 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:46:23,731 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:46:23,733 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-07-31 11:46:23,733 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 33, consumed 2 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 22, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'date', b'Thu, 31 Jul 2025 06:16:23 GMT'), total consumed 25 bytes, indexed False
+2025-07-31 11:46:23,740 - DEBUG - Decoded 25, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 50, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 47, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (<memory at 0x0000025552D161C0>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 20, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 13, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 129, consumed 2 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 16, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 58, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 6, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 146, consumed 2 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 17, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 54, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'server', <memory at 0x0000025552D16280>), total consumed 5 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 12, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 1, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x0000025552D16100>), total consumed 16 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 11, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 9, consumed 1 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-07-31 11:46:23,740 - DEBUG - Decoded 55, consumed 2 bytes
+2025-07-31 11:46:23,740 - DEBUG - Decoded 220, consumed 2 bytes
+2025-07-31 11:46:23,744 - DEBUG - Decoded (b'set-cookie', b'NID=525=WC-YBFyLdR2vownGsR2fr3BYA-gH969sBz8ZiWWkBh8QQ8SPatyQ_EXS9A0Hx1LiYWmNL6fCH5K80DtaT1JgLH4k-CR0U9JnT9XxvdsJljWz-Phd7ibrBq6lviQExHpeUxTZR7eC9RpFCBi43Db4z3W8JjTNerTMM3Gp6m8ANcevZwyNLQ7tRxPYeKJqtubjdw; expires=Fri, 30-Jan-2026 06:16:23 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 224 bytes, indexed False
+2025-07-31 11:46:23,744 - DEBUG - Decoded 5, consumed 1 bytes
+2025-07-31 11:46:23,744 - DEBUG - Decoded 36, consumed 1 bytes
+2025-07-31 11:46:23,744 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-07-31 11:46:23,744 - DEBUG - Decoded 18, consumed 1 bytes
+2025-07-31 11:46:23,744 - DEBUG - Decoded 3, consumed 1 bytes
+2025-07-31 11:46:23,744 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-07-31 11:46:23,744 - DEBUG - Decoded 59, consumed 1 bytes
+2025-07-31 11:46:23,744 - DEBUG - Decoded 45, consumed 1 bytes
+2025-07-31 11:46:23,747 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-07-31 11:46:23,747 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-07-31 11:46:23,761 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:23] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-07-31 11:46:23,769 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:23] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-07-31 11:46:24,627 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.01', 'Surprised': '0.01'}
+2025-07-31 11:46:24,627 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:46:24,627 - INFO - Survey detection: 100000003 - Neutral (0.00)
+2025-07-31 11:46:27,638 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-07-31 11:46:27,638 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:46:27,638 - INFO - Survey detection: 100000003 - Neutral (0.00)
+2025-07-31 11:46:28,306 - INFO - All models loaded successfully
+2025-07-31 11:46:28,306 - WARNING - No monitoring session active for soldier 100000003
+2025-07-31 11:46:28,308 - INFO - Emotion monitoring results: {'force_id': '100000003', 'message': 'No monitoring session active'}
+2025-07-31 11:46:28,308 - WARNING - No emotion data retrieved from monitoring service
+2025-07-31 11:46:28,308 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-07-31 11:46:28,310 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-07-31 11:46:28,310 - INFO - Text: 'Hello, Hello, Hello.Jai Chamunda.Jai Mahesh Mati?...' - Label: NEUTRAL, Depression score: 0.50
+2025-07-31 11:46:28,310 - INFO - Question 4 - Sentiment: NEUTRAL, Score: 0.50
+2025-07-31 11:46:28,310 - INFO - Question 4: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-07-31 11:46:28,310 - INFO - Question 4: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-07-31 11:46:28,695 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.238, 'pos': 0.762, 'compound': 0.7506}
+2025-07-31 11:46:28,695 - INFO - Text: 'Yes brother became happy....' - Label: POSITIVE, Depression score: 0.12
+2025-07-31 11:46:28,695 - INFO - Question 5 - Sentiment: POSITIVE, Score: 0.12
+2025-07-31 11:46:28,695 - INFO - Question 5: Weighted Combined = (0.12 * 0.7) + (0.00 * 0.3) = 0.087
+2025-07-31 11:46:28,695 - INFO - Question 5: NLP=0.12469999999999998, Emotion=0.00, Weighted Combined=0.087
+2025-07-31 11:46:28,695 - INFO - Session 9 - Average NLP Depression Score: 0.31
+2025-07-31 11:46:28,695 - INFO - Session 9 - Using NLP score only: 0.31
+2025-07-31 11:46:28,695 - INFO - ================================================================================
+2025-07-31 11:46:28,729 - INFO - ================================================================================
+2025-07-31 11:46:28,781 - INFO - 
+2025-07-31 11:46:28,788 - INFO -    State:          GOOD MENTAL HEALTH
+2025-07-31 11:46:28,788 - INFO -    Alert Level:    GREEN
+2025-07-31 11:46:28,788 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-07-31 11:46:28,788 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-07-31 11:46:28,788 - INFO - 
+2025-07-31 11:46:28,795 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.00', 'Surprised': '0.02'}
+2025-07-31 11:46:28,795 - INFO -    Total Detections: 0
+2025-07-31 11:46:28,795 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-07-31 11:46:28,795 - INFO -    Dominant Emotion: Unknown
+2025-07-31 11:46:28,795 - INFO - Survey detection: 100000003 - Neutral (0.00)
+2025-07-31 11:46:28,800 - INFO - ================================================================================
+2025-07-31 11:46:28,800 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:28] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-07-31 11:46:29,126 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:29] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:46:29,446 - INFO - Stopped continuous survey frame processing for soldier 100000003
+2025-07-31 11:46:29,515 - INFO - Stopped continuous survey frame processing for soldier 100000003
+2025-07-31 11:46:29,515 - INFO - Processing 7 emotion detections for soldier 100000003
+2025-07-31 11:46:29,515 - INFO - Found 7 actual emotion detections (filtered from 7 total entries)
+2025-07-31 11:46:29,515 - INFO - Calculated avg depression score: 0.00, dominant emotion: Neutral
+2025-07-31 11:46:29,515 - INFO - Storing emotion data for session_id: 9
+2025-07-31 11:46:31,545 - INFO - Storing emotion data - session_id: 9, force_id: 100000003, avg_score: 0.00
+2025-07-31 11:46:31,545 - INFO - Updated 1 weekly session record(s)
+2025-07-31 11:46:31,564 - INFO - Updated 2 question response record(s)
+2025-07-31 11:46:31,564 - INFO - Successfully stored survey emotion data for session 9: avg_score=0.00
+2025-07-31 11:46:31,564 - INFO - Survey monitoring ended for 100000003: avg_score=0.00, emotion=Neutral, detections=7
+2025-07-31 11:46:31,996 - INFO - Camera resources released after survey monitoring
+2025-07-31 11:46:31,996 - INFO - 127.0.0.1 - - [31/Jul/2025 11:46:31] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-07-31 11:55:42,418 - INFO - 127.0.0.1 - - [31/Jul/2025 11:55:42] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-07-31 11:55:45,265 - INFO - 127.0.0.1 - - [31/Jul/2025 11:55:45] "POST /api/auth/login HTTP/1.1" 200 -
+2025-07-31 11:55:45,615 - INFO - 127.0.0.1 - - [31/Jul/2025 11:55:45] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-31 11:55:45,854 - INFO - 127.0.0.1 - - [31/Jul/2025 11:55:45] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-31 11:55:47,721 - INFO - 127.0.0.1 - - [31/Jul/2025 11:55:47] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-31 11:55:49,759 - INFO - 127.0.0.1 - - [31/Jul/2025 11:55:49] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-07-31 11:56:16,007 - INFO - 127.0.0.1 - - [31/Jul/2025 11:56:16] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:56:16,023 - INFO - 127.0.0.1 - - [31/Jul/2025 11:56:16] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-31 11:56:46,009 - INFO - 127.0.0.1 - - [31/Jul/2025 11:56:46] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:56:46,017 - INFO - 127.0.0.1 - - [31/Jul/2025 11:56:46] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -
+2025-07-31 11:57:15,996 - INFO - 127.0.0.1 - - [31/Jul/2025 11:57:15] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 11:57:15,999 - INFO - 127.0.0.1 - - [31/Jul/2025 11:57:15] "[33mGET /api/admin/realtime-alerts HTTP/1.1[0m" 404 -

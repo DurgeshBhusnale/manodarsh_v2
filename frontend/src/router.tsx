@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import LoginPage from './pages/login';
+import LandingPage from './pages/LandingPage';
 import AdminDashboard from './pages/admin/dashboard';
 import AddSoldier from './pages/admin/add-soldier';
 import SoldiersData from './pages/admin/soldiers-data';
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Navigate to="/login" replace />,
+    element: <LandingPage />,
   },
   {
     path: '/login',

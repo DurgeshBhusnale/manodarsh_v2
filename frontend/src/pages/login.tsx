@@ -84,24 +84,15 @@ export const LoginPage: React.FC = () => {
         <Box bg={'white'} p={8} rounded="lg" shadow="md" w={{ base: '100%', sm: '400px' }}>
           <Heading as="h1" size="lg" mb={6} textAlign="center">CRPF Admin Login</Heading>
           <Alert status="info" mb={4} rounded="md">
-            <InfoIcon boxSize={5} mr={2} color="blue.400" />
-            <Box flex="1">
-              <AlertTitle fontSize="md">Note:</AlertTitle>
-              <AlertDescription fontSize="sm">
-                This system is for administrators only.<br />
-                <b>Soldiers:</b> Please use the button below to login and start your survey.
-              </AlertDescription>
-            </Box>
-          </Alert>
-          <Button
-            mb={4}
-            colorScheme="teal"
-            variant="outline"
-            w="full"
-            onClick={() => navigate('/soldier/login')}
-          >
-            Soldier Login (for Survey)
-          </Button>
+          <InfoIcon boxSize={5} mr={2} color="blue.400" />
+          <Box flex="1">
+            <AlertTitle fontSize="md">Note:</AlertTitle>
+            <AlertDescription fontSize="sm">
+              This system is for administrators only.<br />
+              <b>Soldiers:</b> Please use the link below to login and start your survey.
+            </AlertDescription>
+          </Box>
+        </Alert>
           {error && (
             <Alert status="error" mb={4} rounded="md">
               <WarningIcon boxSize={5} mr={2} color="red.400" />
@@ -140,6 +131,22 @@ export const LoginPage: React.FC = () => {
               </Button>
             </Stack>
           </form>
+          <Button
+            mt={6}
+            colorScheme="teal"
+            variant="outline"
+            w="full"
+            onClick={() => navigate('/soldier/login')}
+          >
+            For Soldier Login, Click Here
+          </Button>
+          <Box mt={4} textAlign="center">
+            <Text>
+              <a href="/" style={{ color: '#2563eb', textDecoration: 'underline', fontWeight: 600 }}>
+                &larr; Back to Home
+              </a>
+            </Text>
+          </Box>
         </Box>
         {/* Modal Components */}
         <InfoModal

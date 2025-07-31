@@ -22283,3 +22283,4 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-07-31 09:40:18,746 - INFO - 127.0.0.1 - - [31/Jul/2025 09:40:18] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
 2025-07-31 09:40:20,775 - INFO - 127.0.0.1 - - [31/Jul/2025 09:40:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
 2025-07-31 09:40:25,093 - INFO - 127.0.0.1 - - [31/Jul/2025 09:40:25] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-07-31 09:40:55,992 - INFO - 127.0.0.1 - - [31/Jul/2025 09:40:55] "GET /api/auth/session-status HTTP/1.1" 200 -

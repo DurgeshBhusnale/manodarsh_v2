@@ -80,21 +80,25 @@ const AdminQuestionnaires: React.FC = () => {
         <div className="flex h-screen">
             <Sidebar />
             <div className="flex-1 p-8 bg-gray-100 overflow-y-auto relative">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center justify-between mb-6 relative z-10">
+                <div className="w-full mx-auto">
+                    <div className="flex items-center mb-2">
                         <h1 className="text-3xl font-bold text-gray-900">Manage Questionnaires</h1>
+                    </div>
+                    <div className="flex justify-end mb-8">
                         <button
                             className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-colors font-semibold"
-                            style={{ position: 'relative', zIndex: 20 }}
                             onClick={handleCreateClick}
                         >
                             + Create Questionnaire
                         </button>
                     </div>
+                    <div className="mb-4">
+                        <h2 className="text-xl font-semibold text-gray-800">Questionnaire List</h2>
+                    </div>
                     {loading ? (
                         <div className="text-center py-8 text-gray-500">Loading...</div>
                     ) : showQuestionnaireDetails ? (
-                        <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full relative">
+                        <div className="bg-white rounded-lg shadow-xl p-8 w-[80%] mx-auto relative">
                             <button
                                 className="absolute top-4 right-4 text-gray-400 hover:text-blue-600 text-3xl font-bold transition"
                                 onClick={handleBackToList}
@@ -115,21 +119,35 @@ const AdminQuestionnaires: React.FC = () => {
                                 {selectedQuestionnaire && (
                                     selectedQuestionnaire.status !== 'Active' ? (
                                         <button
-                                            className="ml-4 px-4 py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700 transition-colors"
+                                            className={`ml-8 px-4 py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center ${activatingId === selectedQuestionnaire.id ? 'opacity-70 cursor-not-allowed' : ''}`}
                                             onClick={async () => {
+                                                if (activatingId === selectedQuestionnaire.id) return;
+                                                setActivatingId(selectedQuestionnaire.id);
                                                 await apiService.activateQuestionnaire(selectedQuestionnaire.id.toString());
                                                 setTimeout(async () => {
                                                     const response = await apiService.getQuestionnaireDetails(selectedQuestionnaire.id);
                                                     setSelectedQuestionnaire(response.data.questionnaire);
                                                     fetchQuestionnaires();
+                                                    setActivatingId(null);
                                                 }, 500);
                                             }}
+                                            disabled={activatingId === selectedQuestionnaire.id}
                                         >
-                                            Activate
+                                            {activatingId === selectedQuestionnaire.id ? (
+                                                <span className="flex items-center">
+                                                    <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                                                    </svg>
+                                                    Activating...
+                                                </span>
+                                            ) : (
+                                                'Activate'
+                                            )}
                                         </button>
                                     ) : (
                                         <button
-                                            className="ml-4 px-4 py-2 bg-green-600 text-white rounded font-semibold cursor-not-allowed opacity-70"
+                                            className="ml-8 px-4 py-2 bg-green-600 text-white rounded font-semibold cursor-not-allowed opacity-70"
                                             disabled
                                         >
                                             Active
@@ -180,7 +198,7 @@ const AdminQuestionnaires: React.FC = () => {
                             )}
                         </div>
                     ) : (
-                        <table className="min-w-full bg-white rounded-lg shadow-md">
+                        <table className="w-full bg-white rounded-lg shadow-md">
                             <thead>
                                 <tr>
                                     <th className="px-4 py-2 text-left">Title</th>

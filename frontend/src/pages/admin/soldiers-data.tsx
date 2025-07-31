@@ -353,15 +353,11 @@ const SoldiersData: React.FC = () => {
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Risk Level
                                         </th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Mental State
-                                        </th>
+                                        {/* Removed Mental State column */}
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Scores
                                         </th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            CCTV Data
-                                        </th>
+                                        {/* Removed CCTV Data column */}
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
@@ -376,13 +372,8 @@ const SoldiersData: React.FC = () => {
                                             <tr key={soldier.force_id} className="hover:bg-gray-50">
                                                 {/* Soldier Info */}
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <div>
-                                                        <div className="text-sm font-medium text-gray-900">
-                                                            {soldier.name}
-                                                        </div>
-                                                        <div className="text-sm text-gray-500">
-                                                            ID: {soldier.force_id}
-                                                        </div>
+                                                    <div className="text-sm font-medium text-gray-900">
+                                                        {soldier.force_id}
                                                     </div>
                                                 </td>
 
@@ -403,18 +394,7 @@ const SoldiersData: React.FC = () => {
                                                     </span>
                                                 </td>
 
-                                                {/* Mental State */}
-                                                <td className="px-6 py-4">
-                                                    <div className="text-sm font-medium text-gray-900">
-                                                        {soldier.mental_state}
-                                                    </div>
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getAlertLevelColor(soldier.alert_level)}`}>
-                                                        {soldier.alert_level}
-                                                    </span>
-                                                    <div className="text-xs text-gray-500 mt-1">
-                                                        {soldier.recommendation}
-                                                    </div>
-                                                </td>
+                                                {/* Removed Mental State cell */}
 
                                                 {/* Scores */}
                                                 <td className="px-6 py-4 whitespace-nowrap">
@@ -427,15 +407,7 @@ const SoldiersData: React.FC = () => {
                                                     </div>
                                                 </td>
 
-                                                {/* CCTV Data */}
-                                                <td className="px-6 py-4 whitespace-nowrap">
-                                                    <div className="text-sm text-gray-900">
-                                                        <div>Detections: {soldier.total_cctv_detections}</div>
-                                                        <div className="text-xs text-gray-500">
-                                                            Avg: {soldier.avg_cctv_score.toFixed(3)}
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                {/* Removed CCTV Data cell */}
                                             </tr>
                                         ))
                                     )}

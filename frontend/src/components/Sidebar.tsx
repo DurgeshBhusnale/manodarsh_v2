@@ -29,7 +29,6 @@ export const Sidebar: React.FC = () => {
         { path: '/admin/soldiers-data', label: 'Soldiers Data' },
         { path: '/admin/questionnaires', label: 'Questionnaire' },
         { path: '/admin/settings', label: 'System Settings' },
-        { path: '/admin/survey', label: 'Survey' },
         { path: '/admin/daily-emotion', label: 'Daily Emotion' },
     ];
 

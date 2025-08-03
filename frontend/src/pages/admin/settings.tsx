@@ -202,12 +202,19 @@ const AdminSettings: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="flex h-screen">
+            <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
                 <Sidebar />
-                <div className="flex-1 p-8 bg-gray-100 flex items-center justify-center">
-                    <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                        <p className="mt-4 text-gray-600">Loading system settings...</p>
+                <div className="flex-1 p-8 flex items-center justify-center relative">
+                    {/* Animated Background Elements */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div className="absolute top-10 right-20 w-32 h-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-5 animate-pulse"></div>
+                        <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-5 animate-bounce"></div>
+                        <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-5 animate-pulse delay-1000"></div>
+                    </div>
+                    <div className="text-center bg-white/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-white/20 relative z-10">
+                        <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto mb-4"></div>
+                        <p className="text-lg font-semibold text-gray-700">Loading system settings...</p>
+                        <p className="text-sm text-gray-500 mt-1">Please wait while we fetch the configuration</p>
                     </div>
                 </div>
             </div>
@@ -215,41 +222,64 @@ const AdminSettings: React.FC = () => {
     }
 
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
             <Sidebar />
-            <div className="flex-1 p-8 bg-gray-100 overflow-y-auto">
-                <div className="max-w-6xl mx-auto">
+            <div className="flex-1 p-8 overflow-y-auto relative">
+                {/* Animated Background Elements */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-10 right-20 w-32 h-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-5 animate-pulse"></div>
+                    <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-5 animate-bounce"></div>
+                    <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-5 animate-pulse delay-1000"></div>
+                </div>
+
+                <div className="max-w-6xl mx-auto relative z-10">
                     {/* Header */}
-                    <div className="mb-8">
-                        <h1 className="text-3xl font-bold text-gray-900">System Settings</h1>
-                        <p className="text-gray-600 mt-2">Configure system parameters and behavior</p>
+                    <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-white/20 mb-6">
+                        <div className="flex items-center">
+                            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center mr-3 shadow-lg">
+                                <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i className="fas fa-cogs text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h1 className="text-2xl font-bold text-black tracking-tight">System Settings</h1>
+                                <p className="text-gray-600 text-sm mt-1">Configure system parameters and behavior</p>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-                        <div className="flex flex-wrap gap-4 justify-between items-center">
+                    <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl border border-white/20 p-5 mb-6">
+                        <div className="flex items-center mb-4">
+                            <i className="fas fa-tools text-blue-600 text-lg mr-2"></i>
+                            <h2 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Actions</h2>
+                        </div>
+                        <div className="flex flex-wrap gap-3 justify-between items-center">
                             <div className="flex flex-wrap gap-3">
                                 <button
                                     onClick={handleSaveSettings}
                                     disabled={!hasChanges || saving}
-                                    className={`px-6 py-2 rounded-lg font-medium ${
+                                    className={`px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] flex items-center shadow-md ${
                                         hasChanges && !saving
-                                            ? 'bg-blue-600 text-white hover:bg-blue-700'
-                                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                            ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white'
+                                            : 'bg-gray-100 text-gray-400 cursor-not-allowed'
                                     }`}
                                 >
+                                    <i className={`fas ${saving ? 'fa-spinner fa-spin' : 'fa-save'} mr-2 text-sm`}></i>
                                     {saving ? 'Saving...' : 'Save Changes'}
                                 </button>
                                 
                                 <button
                                     onClick={handleBackupSettings}
                                     disabled={backingUp}
-                                    className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400"
+                                    className="px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-lg hover:shadow-md disabled:bg-gray-400 font-semibold transition-all duration-200 transform hover:scale-[1.02] flex items-center shadow-md"
                                 >
+                                    <i className={`fas ${backingUp ? 'fa-spinner fa-spin' : 'fa-download'} mr-2 text-sm`}></i>
                                     {backingUp ? 'Creating...' : 'Backup Settings'}
                                 </button>
                                 
-                                <label className="px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 cursor-pointer">
+                                <label className="px-6 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white rounded-lg hover:shadow-md cursor-pointer font-semibold transition-all duration-200 transform hover:scale-[1.02] flex items-center shadow-md">
+                                    <i className="fas fa-upload mr-2 text-sm"></i>
                                     Restore Settings
                                     <input
                                         type="file"
@@ -263,17 +293,21 @@ const AdminSettings: React.FC = () => {
                             <button
                                 onClick={handleResetSettings}
                                 disabled={saving}
-                                className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:bg-gray-400"
+                                className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-lg hover:shadow-md disabled:bg-gray-400 font-semibold transition-all duration-200 transform hover:scale-[1.02] flex items-center shadow-md"
                             >
+                                <i className="fas fa-undo mr-2 text-sm"></i>
                                 Reset to Defaults
                             </button>
                         </div>
                         
                         {hasChanges && (
-                            <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-                                <p className="text-yellow-800 text-sm">
-                                    ⚠️ You have unsaved changes. Don't forget to save your settings.
-                                </p>
+                            <div className="mt-4 p-3 bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg shadow-sm">
+                                <div className="flex items-center">
+                                    <i className="fas fa-exclamation-triangle text-yellow-600 mr-2 text-sm"></i>
+                                    <p className="text-yellow-800 font-medium text-sm">
+                                        You have unsaved changes. Don't forget to save your settings.
+                                    </p>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -281,21 +315,29 @@ const AdminSettings: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
                         {/* Categories Sidebar */}
                         <div className="lg:col-span-1">
-                            <div className="bg-white rounded-lg shadow-md p-4">
-                                <h3 className="text-lg font-semibold mb-4">Categories</h3>
+                            <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl border border-white/20 p-4">
+                                <div className="flex items-center mb-4">
+                                    <i className="fas fa-list text-purple-600 text-lg mr-2"></i>
+                                    <h3 className="text-lg font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">Categories</h3>
+                                </div>
                                 <div className="space-y-2">
                                     {categories.map((category) => (
                                         <button
                                             key={category.id}
                                             onClick={() => setActiveCategory(category.id)}
-                                            className={`w-full text-left p-3 rounded-lg transition-colors ${
+                                            className={`w-full text-left p-3 rounded-lg transition-all duration-200 transform hover:scale-[1.01] ${
                                                 activeCategory === category.id
-                                                    ? 'bg-blue-100 text-blue-800 border border-blue-200'
-                                                    : 'hover:bg-gray-100'
+                                                    ? 'bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border-2 border-blue-200 shadow-md'
+                                                    : 'bg-white/60 hover:bg-white/80 border border-white/30 hover:shadow-md'
                                             }`}
                                         >
-                                            <div className="font-medium">{category.name}</div>
-                                            <div className="text-sm text-gray-600">{category.description}</div>
+                                            <div className="flex items-center">
+                                                <i className={`fas ${category.icon || 'fa-cog'} mr-2 text-blue-600 text-sm`}></i>
+                                                <div>
+                                                    <div className="font-semibold text-gray-800 text-sm">{category.name}</div>
+                                                    <div className="text-xs text-gray-600 mt-0.5">{category.description}</div>
+                                                </div>
+                                            </div>
                                         </button>
                                     ))}
                                 </div>
@@ -304,39 +346,52 @@ const AdminSettings: React.FC = () => {
 
                         {/* Settings Panel */}
                         <div className="lg:col-span-3">
-                            <div className="bg-white rounded-lg shadow-md p-6">
+                            <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl border border-white/20 p-6">
                                 <div className="mb-6">
-                                    <h3 className="text-xl font-semibold">
-                                        {categories.find(c => c.id === activeCategory)?.name || 'Settings'}
-                                    </h3>
-                                    <p className="text-gray-600">
-                                        {categories.find(c => c.id === activeCategory)?.description}
-                                    </p>
+                                    <div className="flex items-center mb-3">
+                                        <i className="fas fa-sliders-h text-blue-600 text-lg mr-3"></i>
+                                        <div>
+                                            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                                {categories.find(c => c.id === activeCategory)?.name || 'Settings'}
+                                            </h3>
+                                            <p className="text-gray-600 text-sm mt-1">
+                                                {categories.find(c => c.id === activeCategory)?.description}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div className="space-y-6">
+                                <div className="space-y-5">
                                     {filteredSettings.map(([settingKey, setting]) => (
-                                        <div key={settingKey} className="border-b border-gray-200 pb-4">
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <div key={settingKey} className="bg-white/60 backdrop-blur-md p-4 rounded-lg border border-white/30 shadow-md hover:shadow-lg transition-all duration-200">
+                                            <label className="block text-base font-semibold text-gray-800 mb-2 flex items-center">
+                                                <i className="fas fa-cog text-blue-600 mr-2 text-sm"></i>
                                                 {settingKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
                                             </label>
                                             <input
                                                 type={getInputType(settingKey, setting.value)}
                                                 value={setting.value}
                                                 onChange={(e) => handleSettingChange(settingKey, e.target.value)}
-                                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                                className="w-full p-3 border-2 border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 bg-white/80 backdrop-blur-sm text-gray-800 font-medium transition-all duration-200"
                                                 {...getInputProps(settingKey)}
                                             />
                                             {setting.description && (
-                                                <p className="text-sm text-gray-500 mt-1">{setting.description}</p>
+                                                <div className="mt-2 p-2 bg-blue-50/80 border border-blue-200 rounded-md">
+                                                    <div className="flex items-start">
+                                                        <i className="fas fa-info-circle text-blue-600 mr-2 mt-0.5 text-xs"></i>
+                                                        <p className="text-blue-800 text-xs font-medium">{setting.description}</p>
+                                                    </div>
+                                                </div>
                                             )}
                                         </div>
                                     ))}
                                 </div>
 
                                 {filteredSettings.length === 0 && (
-                                    <div className="text-center py-8 text-gray-500">
-                                        No settings available for this category.
+                                    <div className="text-center py-12">
+                                        <i className="fas fa-cogs text-gray-400 text-4xl mb-4"></i>
+                                        <p className="text-lg font-semibold text-gray-500">No settings available for this category.</p>
+                                        <p className="text-gray-400 mt-1 text-sm">Select a different category to view settings.</p>
                                     </div>
                                 )}
                             </div>
@@ -345,7 +400,7 @@ const AdminSettings: React.FC = () => {
                 </div>
             </div>
 
-            {/* Modals */}
+            {/* Enhanced Modals */}
             <LoadingModal
                 isOpen={saving && !backingUp}
                 title="Saving Settings"

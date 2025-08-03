@@ -5,7 +5,6 @@ import InfoModal from '../../components/InfoModal';
 import LoadingModal from '../../components/LoadingModal';
 import ErrorModal from '../../components/ErrorModal';
 import { apiService } from '../../services/api';
-import { Box, Button, Input, Stack, Heading, Text } from '@chakra-ui/react';
 
 const AddSoldier: React.FC = () => {
     const [forceId, setForceId] = useState('');
@@ -113,76 +112,136 @@ Please keep the window focused for key controls to work.`);
     };
 
     return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      <Sidebar />
-      <Box flex="1" p={8} bg={'gray.100'}>
-        <Heading as="h1" size="lg" mb={6}>Add New Soldier</Heading>
-        <Stack spacing={6}>
-          {/* Add Soldier Form */}
-          <Box bg={'white'} p={6} rounded="lg" shadow="md" maxW="md">
-            <form onSubmit={handleAddSoldier}>
-              <Stack spacing={4}>
-                <Box>
-                  <Text as="label" color={'gray.700'} fontWeight="semibold" mb={1}>Force ID</Text>
-                  <Input
-                    type="text"
-                    value={forceId}
-                    onChange={(e) => setForceId(e.target.value)}
-                    required
-                    pattern="[0-9]{9}"
-                    title="Force ID must be 9 digits"
-                    isDisabled={isCollecting}
-                  />
-                </Box>
-                <Box>
-                  <Text as="label" color={'gray.700'} fontWeight="semibold" mb={1}>Password</Text>
-                  <Input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    isDisabled={isCollecting}
-                  />
-                </Box>
-                <Stack spacing={4}>
-                  <Button
-                    type="button"
-                    onClick={handleCollectImages}
-                    isLoading={isCollecting}
-                    isDisabled={isCollecting}
-                    colorScheme="green"
-                    w="full"
-                  >
-                    {isCollecting ? 'Collecting Images...' : 'Collect Images'}
-                  </Button>
-                  <Button
-                    type="submit"
-                    isLoading={isLoading}
-                    isDisabled={isLoading || isCollecting}
-                    colorScheme="blue"
-                    w="full"
-                  >
-                    {isLoading ? 'Adding...' : 'Add Soldier'}
-                  </Button>
-                </Stack>
-              </Stack>
-            </form>
-          </Box>
-          {/* Train Model Button (Outside Form) */}
-          <Box bg={'white'} p={6} rounded="lg" shadow="md" maxW="md">
-            <Heading as="h2" size="md" mb={4}>Model Training</Heading>
-            <Button
-              onClick={handleTrainModel}
-              isLoading={isTraining}
-              isDisabled={isTraining}
-              colorScheme="yellow"
-              w="full"
-            >
-              {isTraining ? 'Training Model...' : 'Train Model'}
-            </Button>
-          </Box>
-        </Stack>
-      </Box>
+        <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
+            <Sidebar />
+            <div className="flex-1 p-8 overflow-y-auto relative">
+                {/* Animated Background Elements */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-10 right-20 w-32 h-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-5 animate-pulse"></div>
+                    <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-5 animate-bounce"></div>
+                    <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-5 animate-pulse delay-1000"></div>
+                </div>
+
+                <div className="max-w-4xl mx-auto relative z-10">
+                    {/* Header */}
+                    <div className="bg-white/80 backdrop-blur-xl rounded-xl p-5 shadow-lg border border-white/20 mb-5">
+                        <div className="flex items-center">
+                            <div className="w-8 h-8 bg-gradient-to-br from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center mr-3">
+                                <i className="fas fa-user-plus text-blue-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h1 className="text-xl font-bold text-black">Add New Soldier</h1>
+                                <p className="text-gray-600 text-xs">Register a new soldier in the CRPF system</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {/* Add Soldier Form */}
+                        <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-lg p-6 border border-white/20">
+                            <div className="flex items-center mb-5">
+                                <i className="fas fa-id-card text-lg text-blue-600 mr-2"></i>
+                                <h2 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Soldier Registration</h2>
+                            </div>
+                            
+                            <form onSubmit={handleAddSoldier} className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                                        <i className="fas fa-fingerprint mr-2 text-orange-500"></i>
+                                        Force ID
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={forceId}
+                                        onChange={(e) => setForceId(e.target.value)}
+                                        required
+                                        pattern="[0-9]{9}"
+                                        title="Force ID must be 9 digits"
+                                        disabled={isCollecting}
+                                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        placeholder="Enter 9-digit Force ID"
+                                    />
+                                </div>
+                                
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                                        <i className="fas fa-lock mr-2 text-green-500"></i>
+                                        Password
+                                    </label>
+                                    <input
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                        disabled={isCollecting}
+                                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        placeholder="Enter secure password"
+                                    />
+                                </div>
+
+                                <div className="space-y-3">
+                                    <button
+                                        type="button"
+                                        onClick={handleCollectImages}
+                                        disabled={isCollecting}
+                                        className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg transition-all duration-200 font-semibold shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center"
+                                    >
+                                        <i className={`fas ${isCollecting ? 'fa-spinner fa-spin' : 'fa-camera'} mr-2`}></i>
+                                        {isCollecting ? 'Collecting Images...' : 'Collect Images'}
+                                    </button>
+                                    
+                                    <button
+                                        type="submit"
+                                        disabled={isLoading || isCollecting}
+                                        className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-3 rounded-lg transition-all duration-200 font-semibold shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center"
+                                    >
+                                        <i className={`fas ${isLoading ? 'fa-spinner fa-spin' : 'fa-user-plus'} mr-2`}></i>
+                                        {isLoading ? 'Adding Soldier...' : 'Add Soldier'}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        {/* Model Training Section */}
+                        <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-lg p-6 border border-white/20">
+                            <div className="flex items-center mb-5">
+                                <i className="fas fa-brain text-lg text-purple-600 mr-2"></i>
+                                <h2 className="text-lg font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">Model Training</h2>
+                            </div>
+                            
+                            <div className="mb-4">
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    Train the facial recognition model once you added the soldiers. 
+                                    This process helps the system recognize soldiers during monitoring.
+                                </p>
+                            </div>
+
+                            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-3 mb-4 border border-yellow-200">
+                                <div className="flex items-start">
+                                    <i className="fas fa-info-circle text-yellow-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h4 className="font-semibold text-yellow-800 mb-1">Training Instructions</h4>
+                                        <ul className="text-sm text-yellow-700 space-y-1">
+                                            <li>• Ensure all soldier images are collected</li>
+                                            <li>• Training may take several minutes</li>
+                                            <li>• Do not close the application during training</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={handleTrainModel}
+                                disabled={isTraining}
+                                className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center"
+                            >
+                                <i className={`fas ${isTraining ? 'fa-spinner fa-spin' : 'fa-cogs'} mr-2`}></i>
+                                {isTraining ? 'Training Model...' : 'Train Model'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {/* Modal Components */}
         <Modal
             isOpen={showSuccessModal}

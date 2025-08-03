@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import RiskTrendsChart from '../../components/RiskTrendsChart';
 import Sidebar from '../../components/Sidebar';
 import { apiService } from '../../services/api';
@@ -45,32 +46,6 @@ interface DashboardStats {
     lastUpdated?: string;
 }
 
-interface Alert {
-    force_id: string;
-    name: string;
-    unit: string;
-    rank?: string;
-    score: number;
-    timestamp: string;
-    severity: string;
-    recommendation: string;
-    alert_type: string;
-}
-
-interface RealtimeData {
-    criticalAlerts: Alert[];
-    emotionAlerts: Alert[];
-    systemHealth: {
-        todaySessions: number;
-        activeUsersToday: number;
-        inactiveSoldiers: number;
-        systemStatus: string;
-        lastDataUpdate: string;
-    };
-    totalAlerts: number;
-    timestamp: string;
-}
-
 interface StatCard {
     title: string;
     value: string | number;
@@ -85,19 +60,23 @@ const StatCardComponent: React.FC<StatCard> = ({
     color
 }) => {
     return (
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-200 group relative">
+        <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 group relative border border-white/20 hover:scale-[1.02]">
             <div className="flex items-center justify-between">
                 <div>
-                    <p className="text-sm font-medium text-gray-600 flex items-center">
+                    <p className="text-sm font-medium text-gray-600 flex items-center mb-2">
                         {title}
-                        <span className="ml-1 cursor-pointer" title={title + ' info'}>ℹ️</span>
+                        <span className="ml-2 cursor-pointer opacity-50 hover:opacity-100 transition-opacity" title={title + ' info'}>
+                            <i className="fas fa-info-circle text-xs"></i>
+                        </span>
                     </p>
-                    <p className="text-3xl font-bold text-gray-900 mt-2 group-hover:text-blue-700 transition-colors duration-200">{value}</p>
+                    <p className="text-2xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">{value}</p>
                 </div>
-                <div className={`w-16 h-16 ${color} rounded-full flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-105 transition-transform duration-200`}>
+                <div className={`w-12 h-12 ${color} rounded-xl flex items-center justify-center text-white text-lg shadow-md group-hover:scale-110 transition-transform duration-300`}>
                     {icon}
                 </div>
             </div>
+            {/* Decorative gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-blue-50/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
         </div>
     );
 };
@@ -106,34 +85,10 @@ const StatCardComponent: React.FC<StatCard> = ({
 
 const AdminDashboard: React.FC = () => {
     const [stats, setStats] = useState<DashboardStats | null>(null);
-    const [realtimeData, setRealtimeData] = useState<RealtimeData | null>(null);
     const [loading, setLoading] = useState(true);
     const [timeframe, setTimeframe] = useState('7d');
-    const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
-    const [webcamEnabled, setWebcamEnabled] = useState(true);
-    // Webcam toggle removed
 
-    useEffect(() => {
-        fetchDashboardStats();
-        fetchRealtimeAlerts();
-        // Webcam toggle fetch removed
-        
-        // Set up auto-refresh every 30 seconds for alerts, 5 minutes for stats
-        const alertsInterval = setInterval(() => {
-            fetchRealtimeAlerts();
-        }, 30 * 1000);
-        
-        const statsInterval = setInterval(() => {
-            fetchDashboardStats();
-        }, 5 * 60 * 1000);
-        
-        return () => {
-            clearInterval(alertsInterval);
-            clearInterval(statsInterval);
-        };
-    }, [timeframe]);
-
-    const fetchDashboardStats = async () => {
+    const fetchDashboardStats = useCallback(async () => {
         try {
             setLoading(true);
             // Fetch real data from backend
@@ -175,7 +130,6 @@ const AdminDashboard: React.FC = () => {
             };
             
             setStats(dashboardData);
-            setLastUpdated(new Date());
         } catch (error) {
             // Enhanced fallback to mock data if API fails
             const mockStats: DashboardStats = {
@@ -216,70 +170,30 @@ const AdminDashboard: React.FC = () => {
                 }
             };
             setStats(mockStats);
-            setLastUpdated(new Date());
         } finally {
             setLoading(false);
         }
-    };
+    }, [timeframe]);
 
-    const fetchRealtimeAlerts = async () => {
-        try {
-            const response = await apiService.getRealtimeAlerts();
-            setRealtimeData(response.data);
-        } catch (error) {
-            // Mock data for demonstration
-            const mockRealtimeData: RealtimeData = {
-                criticalAlerts: [
-                    {
-                        force_id: 'CRPF001',
-                        name: 'John Doe',
-                        unit: 'Alpha Battalion',
-                        rank: 'Constable',
-                        score: 0.15,
-                        timestamp: new Date().toISOString(),
-                        severity: 'CRITICAL',
-                        recommendation: 'Immediate counseling required',
-                        alert_type: 'mental_health'
-                    }
-                ],
-                emotionAlerts: [
-                    {
-                        force_id: 'CRPF002',
-                        name: 'Jane Smith',
-                        unit: 'Bravo Company',
-                        rank: 'Head Constable',
-                        score: 0.25,
-                        timestamp: new Date().toISOString(),
-                        severity: 'ORANGE',
-                        recommendation: 'Monitor emotional state',
-                        alert_type: 'emotion_detection'
-                    }
-                ],
-                systemHealth: {
-                    todaySessions: 24,
-                    activeUsersToday: 89,
-                    inactiveSoldiers: 12,
-                    systemStatus: 'HEALTHY',
-                    lastDataUpdate: new Date().toISOString()
-                },
-                totalAlerts: 2,
-                timestamp: new Date().toISOString()
-            };
-            setRealtimeData(mockRealtimeData);
-        }
-    };
-
-    const fetchWebcamToggle = async () => {
-        // Webcam toggle fetch removed
-    };
-
-    const handleWebcamToggle = async () => {
-        // Webcam toggle handler removed
-    };
+    useEffect(() => {
+        const fetchData = async () => {
+            await fetchDashboardStats();
+        };
+        
+        fetchData();
+        
+        // Set up auto-refresh every 5 minutes for stats
+        const statsInterval = setInterval(() => {
+            fetchDashboardStats();
+        }, 5 * 60 * 1000);
+        
+        return () => {
+            clearInterval(statsInterval);
+        };
+    }, [timeframe, fetchDashboardStats]); // Now safe to include the memoized function
 
     const handleRefresh = () => {
         fetchDashboardStats();
-        fetchRealtimeAlerts();
     };
 
     const getStatCards = (): StatCard[] => {
@@ -333,12 +247,18 @@ const AdminDashboard: React.FC = () => {
 
     if (loading && !stats) {
         return (
-            <div className="flex h-screen">
+            <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
                 <Sidebar />
-                <div className="flex-1 p-8 bg-gray-100 flex items-center justify-center">
-                    <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                        <p className="mt-4 text-gray-600">Loading dashboard...</p>
+                <div className="flex-1 p-8 flex items-center justify-center relative overflow-hidden">
+                    {/* Animated Background Elements */}
+                    <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-10 animate-pulse"></div>
+                        <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-10 animate-bounce"></div>
+                    </div>
+                    <div className="text-center relative z-10 bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20">
+                        <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-t-transparent mx-auto mb-4"></div>
+                        <p className="text-xl font-semibold text-gray-700">Loading dashboard...</p>
+                        <p className="text-sm text-gray-500 mt-2">Please wait while we fetch your data</p>
                     </div>
                 </div>
             </div>
@@ -346,25 +266,30 @@ const AdminDashboard: React.FC = () => {
     }
 
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
             <Sidebar />
-            <div className="flex-1 p-8 bg-gray-100 overflow-y-auto">
-                <div className="max-w-7xl mx-auto">
+            <div className="flex-1 p-6 overflow-y-auto relative">
+                {/* Animated Background Elements */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-10 right-20 w-32 h-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-5 animate-pulse"></div>
+                    <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-5 animate-bounce"></div>
+                    <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-5 animate-pulse delay-1000"></div>
+                </div>
+
+                <div className="max-w-7xl mx-auto relative z-10">
                     {/* Header */}
-                    <div className="flex flex-col mb-8 border-b pb-4">
-                        <div className="flex justify-between items-center w-full mb-2">
+                    <div className="flex flex-col mb-6 bg-white/80 backdrop-blur-xl rounded-xl p-5 shadow-xl border border-white/20">
+                        <div className="flex justify-between items-center w-full mb-3">
                             <div>
-                                <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Dashboard</h1>
-                                <p className="text-gray-600">Mental Health Monitoring Overview</p>
+                                <h1 className="text-2xl font-bold text-black tracking-tight">Dashboard</h1>
+                                <p className="text-gray-600 text-sm mt-1">Mental Health Monitoring Overview</p>
                             </div>
-                            <div className="flex items-center space-x-4">
-                                {/* Webcam Toggle - now leftmost */}
-                                {/* Webcam Toggle removed as per user request */}
+                            <div className="flex items-center space-x-3">
                                 {/* Timeframe Selector */}
                                 <select
                                     value={timeframe}
                                     onChange={(e) => setTimeframe(e.target.value)}
-                                    className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                    className="px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-md transition-all duration-200 text-sm"
                                     aria-label="Select timeframe"
                                 >
                                     <option value="24h">Last 24 Hours</option>
@@ -376,54 +301,56 @@ const AdminDashboard: React.FC = () => {
                                 <button
                                     onClick={handleRefresh}
                                     disabled={loading}
-                                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 flex items-center"
+                                    className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg disabled:opacity-50 flex items-center shadow-md hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 font-medium text-sm"
                                 >
                                     <span className={`mr-2 ${loading ? 'animate-spin' : ''}`}>{loading ? '⟳' : '🔄'}</span>
                                     Refresh
                                 </button>
                             </div>
                         </div>
-                        {/* Webcam Toggle Info removed as per user request */}
-                        {/* System Health Status multiline */}
-                        {realtimeData?.systemHealth && (
-                            <div className={`p-4 rounded-lg border-l-4 ${realtimeData.systemHealth.systemStatus === 'HEALTHY' ? 'bg-green-50 border-green-500' : 'bg-yellow-50 border-yellow-500'} w-fit`}>
-                                <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
-                                    <h3 className="font-semibold text-lg mb-1 md:mb-0">System Status: {realtimeData.systemHealth.systemStatus}</h3>
-                                    <p className="text-sm text-gray-600 md:mb-0 md:ml-2">
-                                        Active today: {realtimeData.systemHealth.activeUsersToday} users &bull; Sessions: {realtimeData.systemHealth.todaySessions} &bull; Inactive: {realtimeData.systemHealth.inactiveSoldiers} soldiers
-                                    </p>
-                                    <div className="text-sm text-gray-500 mt-1 md:mt-0 md:ml-2">Last updated: {lastUpdated.toLocaleString()}</div>
-                                </div>
-                            </div>
-                        )}
                     </div>
 
                     {/* System Health & Webcam Block removed to avoid duplication */}
 
                     {/* Stats Cards Row */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
                         {getStatCards().map((card, index) => (
                             <StatCardComponent key={index} {...card} />
                         ))}
                     </div>
 
                     {/* Trends Chart Block - full width */}
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow-lg p-8 border border-blue-200 mb-8">
-                        <h3 className="text-xl font-bold mb-4 flex items-center text-blue-900">Risk Level Trends <span className="ml-2 text-blue-400" title="Trends in risk levels over time">📈</span></h3>
+                    <div className="bg-gradient-to-br from-blue-50/80 to-blue-100/80 backdrop-blur-xl rounded-xl shadow-xl p-6 border border-white/20 mb-6">
+                        <h3 className="text-xl font-bold mb-5 flex items-center bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                            <i className="fas fa-chart-line mr-3 text-blue-500"></i>
+                            Risk Level Trends 
+                            <span className="ml-3 text-blue-400 hover:text-blue-600 cursor-help transition-colors" title="Trends in risk levels over time">
+                                <i className="fas fa-info-circle text-sm"></i>
+                            </span>
+                        </h3>
                         {stats?.trendsData ? (
                           <RiskTrendsChart labels={stats.trendsData.labels} riskLevels={stats.trendsData.riskLevels} />
                         ) : (
-                          <div className="text-center py-8 text-gray-500"><p>No trends data available</p></div>
+                          <div className="text-center py-8 text-gray-500">
+                            <i className="fas fa-chart-line text-3xl mb-3 opacity-50"></i>
+                            <p className="text-lg">No trends data available</p>
+                          </div>
                         )}
                     </div>
 
                     {/* Analytics Blocks: Risk Distribution & Unit Distribution */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         {/* Risk Distribution */}
-                        <div className="bg-white rounded-lg shadow-md p-6">
-                            <h3 className="text-lg font-semibold mb-4 flex items-center">Risk Level Distribution <span className="ml-2 text-gray-400" title="Distribution of soldiers by risk level">ℹ️</span></h3>
+                        <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl p-5 border border-white/20">
+                            <h3 className="text-lg font-semibold mb-4 flex items-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                                <i className="fas fa-chart-pie mr-3 text-orange-500"></i>
+                                Risk Level Distribution 
+                                <span className="ml-3 text-gray-400 hover:text-gray-600 cursor-help transition-colors" title="Distribution of soldiers by risk level">
+                                    <i className="fas fa-info-circle text-sm"></i>
+                                </span>
+                            </h3>
                             {stats?.riskDistribution && (
-                                <div className="space-y-4">
+                                <div className="space-y-3">
                                     {Object.entries(stats.riskDistribution).map(([level, count]) => {
                                         const total = Object.values(stats.riskDistribution!).reduce((a, b) => a + b, 0);
                                         const percentage = total > 0 ? (count / total * 100).toFixed(1) : '0';
@@ -435,14 +362,14 @@ const AdminDashboard: React.FC = () => {
                                             noData: 'bg-gray-500'
                                         };
                                         return (
-                                            <div key={level} className="flex items-center justify-between hover:bg-gray-50 rounded px-2 py-1 transition-colors duration-150">
+                                            <div key={level} className="flex items-center justify-between p-3 bg-gray-50/50 rounded-lg hover:bg-gray-100/50 transition-colors duration-200">
                                                 <div className="flex items-center">
-                                                    <div className={`w-4 h-4 ${colors[level as keyof typeof colors]} rounded mr-3`} />
-                                                    <span className="capitalize">{level.replace('noData', 'No Data')}</span>
+                                                    <div className={`w-3 h-3 ${colors[level as keyof typeof colors]} rounded-full mr-3 shadow-sm`} />
+                                                    <span className="font-medium capitalize text-gray-700 text-sm">{level.replace('noData', 'No Data')}</span>
                                                 </div>
-                                                <div className="flex items-center space-x-2">
-                                                    <span className="font-semibold">{count}</span>
-                                                    <span className="text-sm text-gray-500">({percentage}%)</span>
+                                                <div className="text-right">
+                                                    <span className="font-bold text-gray-900 text-sm">{count}</span>
+                                                    <span className="text-xs text-gray-500 ml-2">({percentage}%)</span>
                                                 </div>
                                             </div>
                                         );
@@ -450,18 +377,31 @@ const AdminDashboard: React.FC = () => {
                                 </div>
                             )}
                             {(!stats?.riskDistribution) && (
-                                <div className="text-center text-gray-500"><p>No risk distribution data available</p></div>
+                                <div className="text-center text-gray-500 py-6">
+                                    <i className="fas fa-chart-pie text-3xl mb-3 opacity-50"></i>
+                                    <p>No distribution data available</p>
+                                </div>
                             )}
                         </div>
                         {/* Unit Distribution */}
                         {stats?.unitDistribution && stats.unitDistribution.length > 0 && (
-                            <div className="bg-white rounded-lg shadow-md p-6">
-                                <h3 className="text-lg font-semibold mb-4 flex items-center">Unit Distribution (Top 10) <span className="ml-2 text-gray-400" title="Top 10 units by soldier count">ℹ️</span></h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl p-5 border border-white/20">
+                                <h3 className="text-lg font-semibold mb-4 flex items-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                                    <i className="fas fa-users mr-3 text-green-500"></i>
+                                    Unit Distribution (Top 10)
+                                </h3>
+                                <div className="space-y-3">
                                     {stats.unitDistribution.slice(0, 10).map((unit, index) => (
-                                        <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded hover:bg-blue-50 transition-colors duration-150">
-                                            <span className="text-sm font-medium">{unit.unit}</span>
-                                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">{unit.count}</span>
+                                        <div key={index} className="flex items-center justify-between p-3 bg-gray-50/50 rounded-lg hover:bg-gray-100/50 transition-colors duration-200">
+                                            <div className="flex items-center">
+                                                <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3 shadow-sm">
+                                                    {index + 1}
+                                                </div>
+                                                <span className="font-medium text-gray-700 text-sm">{unit.unit}</span>
+                                            </div>
+                                            <span className="font-bold text-gray-900 bg-blue-100 px-2 py-1 rounded-full text-xs shadow-sm">
+                                                {unit.count}
+                                            </span>
                                         </div>
                                     ))}
                                 </div>

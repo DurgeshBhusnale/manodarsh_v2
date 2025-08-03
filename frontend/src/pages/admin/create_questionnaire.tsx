@@ -6,24 +6,6 @@ import ErrorModal from '../../components/ErrorModal';
 import LoadingModal from '../../components/LoadingModal';
 import { apiService} from '../../services/api';
 
-interface Questionnaire {
-    id: number;
-    title: string;
-    description: string;
-    status: string;
-    total_questions: number;
-    created_at: string;
-}
-
-interface QuestionnaireDetails extends Questionnaire {
-    questions: Array<{
-        id: number;
-        question_text: string;
-        question_text_hindi: string;
-        created_at: string;
-    }>;
-}
-
 const QuestionnairePage: React.FC = () => {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
@@ -43,90 +25,11 @@ const QuestionnairePage: React.FC = () => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showErrorModal, setShowErrorModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const [questionnaires, setQuestionnaires] = useState<Questionnaire[]>([]);
-    const [loadingQuestionnaires, setLoadingQuestionnaires] = useState(false);
-    const [selectedQuestionnaire, setSelectedQuestionnaire] = useState<QuestionnaireDetails | null>(null);
-    const [showQuestionnaireDetails, setShowQuestionnaireDetails] = useState(false);
-    const [loadingDetails, setLoadingDetails] = useState(false);
 
     // Fetch questionnaires on component mount
     useEffect(() => {
-        fetchQuestionnaires();
+        // Component initialization
     }, []);
-
-    // Handle keyboard shortcuts
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Escape' && showQuestionnaireDetails) {
-                handleBackToList();
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [showQuestionnaireDetails]);
-
-    // Handle keyboard shortcuts
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Escape' && showQuestionnaireDetails) {
-                handleBackToList();
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [showQuestionnaireDetails]);
-
-    const fetchQuestionnaires = async () => {
-        setLoadingQuestionnaires(true);
-        try {
-            console.log('Fetching questionnaires...');
-            const response = await apiService.getQuestionnaires();
-            console.log('API Response:', response);
-            console.log('Questionnaires data:', response.data);
-            setQuestionnaires(response.data.questionnaires);
-            console.log('Set questionnaires:', response.data.questionnaires);
-        } catch (error) {
-            console.error('Failed to fetch questionnaires:', error);
-            // Show error message to user
-            setErrorMessage('Failed to load questionnaires. Please try again.');
-            setShowErrorModal(true);
-        } finally {
-            setLoadingQuestionnaires(false);
-        }
-    };
-
-    const handleQuestionnaireClick = async (questionnaireId: number) => {
-        setLoadingDetails(true);
-        try {
-            const response = await apiService.getQuestionnaireDetails(questionnaireId);
-            setSelectedQuestionnaire(response.data.questionnaire);
-            setShowQuestionnaireDetails(true);
-        } catch (error) {
-            console.error('Failed to fetch questionnaire details:', error);
-            setErrorMessage('Failed to load questionnaire details. Please try again.');
-            setShowErrorModal(true);
-        } finally {
-            setLoadingDetails(false);
-        }
-    };
-
-    const handleBackToList = () => {
-        setShowQuestionnaireDetails(false);
-        setSelectedQuestionnaire(null);
-    };
-
-    // Sort questionnaires to show active ones first
-    const sortedQuestionnaires = [...questionnaires].sort((a, b) => {
-        if (a.status === 'Active' && b.status !== 'Active') return -1;
-        if (a.status !== 'Active' && b.status === 'Active') return 1;
-        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-    });
 
     const handleCreateQuestionnaire = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -221,8 +124,6 @@ const QuestionnairePage: React.FC = () => {
 
             // Show custom success modal instead of alert
             setShowSuccessModal(true);
-            // Refresh questionnaires list
-            fetchQuestionnaires();
         } catch (error: any) {
             console.error('Failed to save questionnaire:', error);
             console.error('Error details:', error.response?.data);
@@ -251,33 +152,6 @@ const QuestionnairePage: React.FC = () => {
         }
     };
 
-    const handleReset = () => {
-        setStep(1);
-        setTitle('');
-        setDescription('');
-        setQuestions([]);
-        setNumberOfQuestions(0);
-        setCurrentQuestionIndex(0);
-        setQuestionText('');
-        setQuestionTextHindi('');
-        setIsEditMode(false);
-        setAllQuestionsEntered(false);
-        setShowSuccessModal(false);
-        setShowErrorModal(false);
-        setErrorMessage('');
-    };
-
-    const handleModalClose = () => {
-        setShowSuccessModal(false);
-    };
-
-    const handleModalContinue = () => {
-        setShowSuccessModal(false);
-        handleReset();
-        fetchQuestionnaires(); // Refresh the questionnaires list
-        // Stay on the questionnaire page to show the updated list
-    };
-
     const handleErrorModalClose = () => {
         setShowErrorModal(false);
         setErrorMessage('');
@@ -290,135 +164,213 @@ const QuestionnairePage: React.FC = () => {
     };
 
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
             <Sidebar />
-            <div className="flex-1 p-8 bg-gray-100 overflow-y-auto relative">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center justify-between mb-6 relative z-10">
-                        <h1 className="text-3xl font-bold text-gray-900">Create Questionnaire</h1>
+            <div className="flex-1 p-6 overflow-y-auto relative">
+                {/* Animated Background Elements */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-10 right-20 w-32 h-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-5 animate-pulse"></div>
+                    <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-5 animate-bounce"></div>
+                    <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-5 animate-pulse delay-1000"></div>
+                </div>
+
+                <div className="max-w-4xl mx-auto relative z-10">
+                    {/* Header */}
+                    <div className="bg-white/80 backdrop-blur-xl rounded-xl p-5 shadow-xl border border-white/20 mb-6">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center">
+                                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center mr-3 shadow-lg">
+                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                                        ➕
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1 className="text-2xl font-bold text-black tracking-tight">Create Questionnaire</h1>
+                                    <p className="text-gray-600 text-sm mt-1">Design comprehensive mental health assessment questionnaires</p>
+                                </div>
+                            </div>
+                            <button
+                                className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-4 py-2.5 rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-[1.02] flex items-center text-sm"
+                                onClick={() => navigate('/admin/questionnaires')}
+                            >
+                                ← <span className="ml-2">Back to List</span>
+                            </button>
+                        </div>
                     </div>
                     {step === 1 ? (
-                        <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full mx-auto">
-                            <form onSubmit={handleCreateQuestionnaire}>
-                                <div className="mb-6">
-                                    <label className="block text-gray-700 font-semibold mb-2">Title</label>
+                        <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl p-6 border border-white/20">
+                            <div className="flex items-center mb-6">
+                                📋 <div className="ml-3">
+                                    <h2 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Questionnaire Setup</h2>
+                                    <p className="text-gray-600 text-sm">Configure the basic details of your questionnaire</p>
+                                </div>
+                            </div>
+                            
+                            <form onSubmit={handleCreateQuestionnaire} className="space-y-5">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-700 flex items-center">
+                                        <i className="fas fa-heading mr-2 text-blue-500"></i>
+                                        Questionnaire Title
+                                    </label>
                                     <input
                                         type="text"
                                         value={title}
                                         onChange={(e) => setTitle(e.target.value)}
-                                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
                                         required
-                                        placeholder="Enter questionnaire title"
+                                        placeholder="Enter a descriptive title for your questionnaire"
                                     />
                                 </div>
-                                <div className="mb-6">
-                                    <label className="block text-gray-700 font-semibold mb-2">Description</label>
+                                
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-700 flex items-center">
+                                        <i className="fas fa-align-left mr-2 text-green-500"></i>
+                                        Description
+                                    </label>
                                     <textarea
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
-                                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        rows={4}
+                                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
+                                        rows={3}
                                         required
-                                        placeholder="Enter questionnaire description"
+                                        placeholder="Describe the purpose and scope of this questionnaire"
                                     />
                                 </div>
-                                <div className="mb-6">
-                                    <label className="block text-gray-700 font-semibold mb-2">Number of Questions</label>
+                                
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-700 flex items-center">
+                                        <i className="fas fa-list-ol mr-2 text-purple-500"></i>
+                                        Number of Questions
+                                    </label>
                                     <input
                                         type="number"
                                         min="1"
+                                        max="50"
                                         value={numberOfQuestions}
                                         onChange={(e) => setNumberOfQuestions(parseInt(e.target.value))}
-                                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
                                         required
-                                        placeholder="How many questions?"
+                                        placeholder="How many questions will this questionnaire have?"
                                     />
                                 </div>
-                                <div className="mb-6">
-                                    <label className="flex items-center text-gray-700 font-semibold">
+                                
+                                <div className="bg-gradient-to-r from-orange-50 to-green-50 p-4 rounded-lg border border-orange-200">
+                                    <label className="flex items-center text-gray-700 font-medium cursor-pointer">
                                         <input
                                             type="checkbox"
                                             checked={isActive}
                                             onChange={(e) => setIsActive(e.target.checked)}
-                                            className="mr-2"
+                                            className="mr-3 w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                                         />
-                                        Make Questionnaire Active
+                                        <i className="fas fa-toggle-on mr-2 text-green-500"></i>
+                                        Set as Active Questionnaire
                                     </label>
+                                    <p className="text-sm text-gray-600 mt-2 ml-7">This questionnaire will be used for new soldier assessments</p>
                                 </div>
+                                
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-colors font-semibold w-full"
+                                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center text-sm"
                                 >
+                                    <i className="fas fa-arrow-right mr-3"></i>
                                     Continue to Add Questions
                                 </button>
                             </form>
                         </div>
                     ) : (
-                        <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full mx-auto">
-                            <div className="mb-8">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-2">Add Questions</h2>
-                                <div className="flex justify-between items-center mb-4">
-                                    <p className="text-gray-600 font-semibold">
-                                        Question {currentQuestionIndex + 1} of {numberOfQuestions}
-                                    </p>
+                        <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-xl p-6 border border-white/20">
+                            <div className="mb-6">
+                                <div className="flex items-center mb-4">
+                                    <i className="fas fa-question-circle text-2xl text-green-600 mr-3"></i>
+                                    <div>
+                                        <h2 className="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Add Questions</h2>
+                                        <p className="text-gray-600 text-sm">Create bilingual questions for your mental health assessment</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex justify-between items-center mb-5">
+                                    <div className="bg-gradient-to-r from-green-100 to-blue-100 px-3 py-2 rounded-lg border border-green-200">
+                                        <p className="text-sm font-medium text-gray-700">
+                                            <i className="fas fa-list mr-2 text-green-600"></i>
+                                            Question {currentQuestionIndex + 1} of {numberOfQuestions}
+                                        </p>
+                                    </div>
                                     <div className="flex space-x-2">
                                         <button
                                             onClick={handlePreviousQuestion}
                                             disabled={currentQuestionIndex === 0}
-                                            className={`px-6 py-2 rounded-lg font-semibold shadow ${
+                                            className={`px-3 py-2 rounded-lg font-medium shadow-sm transition-all duration-200 flex items-center text-sm ${
                                                 currentQuestionIndex === 0
-                                                    ? 'bg-gray-300 cursor-not-allowed text-gray-500'
-                                                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                                                    ? 'bg-gray-200 cursor-not-allowed text-gray-400'
+                                                    : 'bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white transform hover:scale-105'
                                             }`}
                                         >
+                                            <i className="fas fa-chevron-left mr-1"></i>
                                             Previous
                                         </button>
                                         <button
                                             onClick={handleNextQuestion}
                                             disabled={currentQuestionIndex === numberOfQuestions - 1 || !questions[currentQuestionIndex]}
-                                            className={`px-6 py-2 rounded-lg font-semibold shadow ${
+                                            className={`px-3 py-2 rounded-lg font-medium shadow-sm transition-all duration-200 flex items-center text-sm ${
                                                 currentQuestionIndex === numberOfQuestions - 1 || !questions[currentQuestionIndex]
-                                                    ? 'bg-gray-300 cursor-not-allowed text-gray-500'
-                                                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                                                    ? 'bg-gray-200 cursor-not-allowed text-gray-400'
+                                                    : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white transform hover:scale-105'
                                             }`}
                                         >
                                             Next
+                                            <i className="fas fa-chevron-right ml-1"></i>
                                         </button>
                                     </div>
                                 </div>
-                                <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+                                
+                                <div className="w-full bg-gray-200/50 rounded-full h-2 mb-5 overflow-hidden">
                                     <div 
-                                        className="bg-blue-600 h-2 rounded-full"
+                                        className="bg-gradient-to-r from-green-500 to-blue-500 h-2 rounded-full transition-all duration-300 ease-out"
                                         style={{ width: `${((currentQuestionIndex + 1) / numberOfQuestions) * 100}%` }}
                                     />
                                 </div>
                             </div>
                             {questions.length > 0 && (
                                 <div className="mb-6">
-                                    <h3 className="text-md font-semibold text-gray-700 mb-2">Questions Added</h3>
-                                    <div className="border rounded-lg overflow-hidden">
+                                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center">
+                                        <i className="fas fa-clipboard-list mr-2 text-blue-500"></i>
+                                        Questions Overview
+                                    </h3>
+                                    <div className="bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-white/30">
                                         <table className="w-full">
+                                            <thead>
+                                                <tr className="bg-gradient-to-r from-blue-50 to-green-50">
+                                                    <th className="py-3 px-4 text-left text-sm font-bold text-gray-700">No.</th>
+                                                    <th className="py-3 px-4 text-left text-sm font-bold text-gray-700">Question Preview</th>
+                                                    <th className="py-3 px-4 text-center text-sm font-bold text-gray-700">Actions</th>
+                                                </tr>
+                                            </thead>
                                             <tbody>
                                                 {questions.map((q, index) => (
                                                     <tr 
                                                         key={index}
-                                                        className={`border-b last:border-b-0 ${
+                                                        className={`border-b last:border-b-0 transition-colors duration-200 ${
                                                             index === currentQuestionIndex
-                                                                ? 'bg-blue-50'
-                                                                : 'bg-white hover:bg-gray-50'
+                                                                ? 'bg-blue-100/60'
+                                                                : 'bg-white/40 hover:bg-gray-50/60'
                                                         }`}
                                                     >
-                                                        <td className="py-2 px-3 text-sm font-medium text-gray-600">Q{index + 1}:</td>
-                                                        <td className="py-2 px-3 text-sm text-gray-800">
-                                                            {q && q.english ? (
-                                                                <div className="line-clamp-1">{q.english}</div>
-                                                            ) : (
-                                                                <span className="text-gray-400">(Not added yet)</span>
+                                                        <td className="py-3 px-4 text-sm font-bold text-blue-600">
+                                                            Q{index + 1}
+                                                            {index === currentQuestionIndex && (
+                                                                <i className="fas fa-edit ml-2 text-green-500"></i>
                                                             )}
                                                         </td>
-                                                        <td className="py-2 px-3 w-16 text-right">
-                                                            {q && (
+                                                        <td className="py-3 px-4 text-sm text-gray-800">
+                                                            {q && q.english ? (
+                                                                <div className="line-clamp-2 font-medium">{q.english}</div>
+                                                            ) : (
+                                                                <span className="text-gray-400 italic">Not added yet</span>
+                                                            )}
+                                                        </td>
+                                                        <td className="py-3 px-4 text-center">
+                                                            {q && q.english && (
                                                                 <button
                                                                     onClick={() => {
                                                                         setCurrentQuestionIndex(index);
@@ -426,8 +378,9 @@ const QuestionnairePage: React.FC = () => {
                                                                         setQuestionTextHindi(q.hindi);
                                                                         setIsEditMode(true);
                                                                     }}
-                                                                    className="text-xs text-blue-600 hover:text-blue-800 font-semibold"
+                                                                    className="px-3 py-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-xs font-semibold rounded-lg transition-all duration-200 transform hover:scale-105"
                                                                 >
+                                                                    <i className="fas fa-edit mr-1"></i>
                                                                     Edit
                                                                 </button>
                                                             )}
@@ -440,224 +393,103 @@ const QuestionnairePage: React.FC = () => {
                                 </div>
                             )}
                             {!allQuestionsEntered ? (
-                                <form onSubmit={handleAddQuestion}>
-                                    <div className="mb-6">
-                                        <label className="block text-gray-700 font-semibold mb-2">Question Text (English)</label>
-                                        <textarea
-                                            value={questionText}
-                                            onChange={(e) => setQuestionText(e.target.value)}
-                                            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                            rows={4}
-                                            placeholder="Enter your question here..."
-                                            required
-                                        />
-                                    </div>
-                                    {questionTextHindi && (
-                                        <div className="mb-6">
-                                            <label className="block text-gray-700 font-semibold mb-2">Hindi Translation</label>
-                                            <div className="p-3 border rounded-lg bg-gray-50 text-gray-800 min-h-[48px]">{questionTextHindi}</div>
+                                <div className="bg-gradient-to-r from-blue-50 to-green-50 p-5 rounded-lg border border-blue-200">
+                                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center">
+                                        <i className="fas fa-edit mr-2 text-green-500"></i>
+                                        {isEditMode ? 'Edit Question' : `Add Question ${currentQuestionIndex + 1}`}
+                                    </h3>
+                                    
+                                    <form onSubmit={handleAddQuestion} className="space-y-4">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-gray-700 flex items-center">
+                                                <i className="fas fa-language mr-2 text-blue-500"></i>
+                                                Question Text (English)
+                                            </label>
+                                            <textarea
+                                                value={questionText}
+                                                onChange={(e) => setQuestionText(e.target.value)}
+                                                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
+                                                rows={3}
+                                                placeholder="Enter your question here... Be clear and specific for better mental health assessment."
+                                                required
+                                            />
                                         </div>
-                                    )}
-                                    <div className="flex space-x-4">
-                                        <button
-                                            type="submit"
-                                            disabled={loading || translating}
-                                            className="flex-1 px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 font-semibold"
-                                        >
-                                            {loading || translating ? 'Translating...' : isEditMode ? 'Update Question' : `Add Question ${currentQuestionIndex + 1}`}
-                                        </button>
-                                    </div>
-                                </form>
+                                        
+                                        {questionTextHindi && (
+                                            <div className="space-y-2">
+                                                <label className="text-sm font-medium text-gray-700 flex items-center">
+                                                    <i className="fas fa-globe mr-2 text-orange-500"></i>
+                                                    Hindi Translation (Auto-generated)
+                                                </label>
+                                                <div className="p-3 border border-orange-200 rounded-lg bg-orange-50/50 text-gray-800 min-h-[48px] font-medium text-sm">
+                                                    {questionTextHindi}
+                                                </div>
+                                            </div>
+                                        )}
+                                        
+                                        <div className="flex space-x-3">
+                                            <button
+                                                type="submit"
+                                                disabled={loading || translating}
+                                                className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2.5 rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center text-sm"
+                                            >
+                                                {loading || translating ? (
+                                                    <>
+                                                        <i className="fas fa-spinner fa-spin mr-2"></i>
+                                                        Translating...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <i className={`fas ${isEditMode ? 'fa-save' : 'fa-plus'} mr-2`}></i>
+                                                        {isEditMode ? 'Update Question' : `Add Question ${currentQuestionIndex + 1}`}
+                                                    </>
+                                                )}
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             ) : (
-                                <div className="text-center py-8 bg-green-50 rounded-lg border border-green-200">
-                                    <p className="text-green-700 font-semibold mb-4">All questions have been entered. Review them and click 'Create Questionnaire' when ready.</p>
-                                    <div className="flex space-x-4 justify-center">
+                                <div className="text-center py-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
+                                    <div className="mb-5">
+                                        <i className="fas fa-check-circle text-5xl text-green-500 mb-3"></i>
+                                        <h3 className="text-xl font-bold text-green-700 mb-2">All Questions Complete!</h3>
+                                        <p className="text-green-600 font-medium text-sm">Review your questions and create the questionnaire when ready.</p>
+                                    </div>
+                                    
+                                    <div className="flex space-x-3 justify-center">
                                         <button
                                             onClick={() => setAllQuestionsEntered(false)}
-                                            className="px-6 py-2 bg-gray-500 text-white rounded-lg shadow hover:bg-gray-600 font-semibold"
+                                            className="px-4 py-2.5 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] font-medium transition-all duration-200 flex items-center text-sm"
                                         >
+                                            <i className="fas fa-edit mr-2"></i>
                                             Edit Questions
                                         </button>
                                         <button
                                             onClick={handleSaveQuestionnaire}
                                             disabled={loading}
-                                            className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 font-semibold"
+                                            className="px-4 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] font-medium transition-all duration-200 flex items-center disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm"
                                         >
-                                            {loading ? 'Creating...' : 'Create Questionnaire'}
+                                            {loading ? (
+                                                <>
+                                                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                                                    Creating...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                    Create Questionnaire
+                                                </>
+                                            )}
                                         </button>
                                     </div>
                                 </div>
                             )}
                         </div>
-                )}
+                    )}
                 </div>
-            
-            {/* Questionnaire Details Modal */}
-            {showQuestionnaireDetails && (
-                <div 
-                    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-                    onClick={(e) => {
-                        // Close modal when clicking on backdrop
-                        if (e.target === e.currentTarget) {
-                            handleBackToList();
-                        }
-                    }}
-                >
-                    <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col"
-                         onClick={(e) => e.stopPropagation()}>
-                        {/* Modal Header */}
-                        <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                            <h2 className="text-2xl font-bold text-gray-800">
-                                Questionnaire Details
-                            </h2>
-                            <div className="flex items-center gap-3">
-                                {selectedQuestionnaire && (
-                                    selectedQuestionnaire.status === 'Active' ? (
-                                        <button
-                                            className="px-4 py-2 bg-green-600 text-white rounded font-semibold cursor-not-allowed opacity-70"
-                                            disabled
-                                        >
-                                            Active
-                                        </button>
-                                    ) : (
-                                        <button
-                                            className="px-4 py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700"
-                                            onClick={async () => {
-                                                await apiService.activateQuestionnaire(selectedQuestionnaire.id.toString());
-                                                // Wait for backend to update before refreshing
-                                                setTimeout(async () => {
-                                                    const response = await apiService.getQuestionnaireDetails(selectedQuestionnaire.id);
-                                                    setSelectedQuestionnaire(response.data.questionnaire);
-                                                    fetchQuestionnaires();
-                                                }, 500);
-                                            }}
-                                        >
-                                            Activate
-                                        </button>
-                                    )
-                                )}
-                                <button
-                                    onClick={handleBackToList}
-                                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                                    title="Close (Press Esc)"
-                                >
-                                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
 
-                        {/* Modal Content - Scrollable */}
-                        <div className="flex-1 overflow-y-auto p-6">
-                            {loadingDetails ? (
-                                <div className="text-center py-12">
-                                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                                    <p className="mt-4 text-gray-600 text-lg">Loading questionnaire details...</p>
-                                </div>
-                            ) : selectedQuestionnaire ? (
-                                <div>
-                                    {/* Questionnaire Info */}
-                                    <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
-                                        <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                                            <svg className="w-8 h-8 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                            </svg>
-                                            {selectedQuestionnaire.title}
-                                        </h3>
-                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
-                                            <div className="bg-white p-4 rounded-lg shadow-sm">
-                                                <p className="text-sm font-semibold text-gray-600 mb-2">Description</p>
-                                                <p className="text-gray-800 leading-relaxed">{selectedQuestionnaire.description}</p>
-                                            </div>
-                                            <div className="bg-white p-4 rounded-lg shadow-sm">
-                                                <p className="text-sm font-semibold text-gray-600 mb-2">Created Date</p>
-                                                <p className="text-gray-800">
-                                                    {new Date(selectedQuestionnaire.created_at).toLocaleDateString('en-US', {
-                                                        year: 'numeric',
-                                                        month: 'long',
-                                                        day: 'numeric',
-                                                        hour: '2-digit',
-                                                        minute: '2-digit'
-                                                    })}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="bg-white p-4 rounded-lg shadow-sm inline-block">
-                                            <span className="text-sm font-semibold text-gray-600">Total Questions: </span>
-                                            <span className="text-lg font-bold text-blue-600">{selectedQuestionnaire.total_questions}</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Questions List */}
-                                    <div>
-                                        <h3 className="text-xl font-semibold mb-6 flex items-center">
-                                            <svg className="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            Questions & Translations
-                                        </h3>
-                                        {selectedQuestionnaire.questions && selectedQuestionnaire.questions.length > 0 ? (
-                                            <div className="space-y-4">
-                                                {selectedQuestionnaire.questions.map((question, index) => (
-                                                    <div key={question.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                                                        <div className="flex items-start justify-between mb-4">
-                                                            <span className="bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
-                                                                Question {index + 1}
-                                                            </span>
-                                                            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                                                                ID: {question.id}
-                                                            </span>
-                                                        </div>
-                                                        <div className="space-y-4">
-                                                            <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                                                <p className="text-sm font-semibold text-blue-700 mb-2 flex items-center">
-                                                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                                                                    </svg>
-                                                                    English
-                                                                </p>
-                                                                <p className="text-gray-800 leading-relaxed">{question.question_text}</p>
-                                                            </div>
-                                                            <div className="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
-                                                                <p className="text-sm font-semibold text-orange-700 mb-2 flex items-center">
-                                                                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                                                                    </svg>
-                                                                    Hindi (हिंदी)
-                                                                </p>
-                                                                <p className="text-gray-800 leading-relaxed font-medium" dir="auto">{question.question_text_hindi}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        ) : (
-                                            <div className="text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-                                                <svg className="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                <p className="text-gray-500 text-lg">No questions found for this questionnaire.</p>
-                                                <p className="text-gray-400 text-sm mt-2">Questions may not have been added yet.</p>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            ) : null}
-                        </div>
-
-                        {/* Modal Footer */}
-                        <div className="border-t border-gray-200 p-6 bg-gray-50">
-                            <button
-                                onClick={handleBackToList}
-                                className="w-full sm:w-auto px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
-                            >
-                                Close & Return to List
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
                 </div>
             
             {/* Loading Modal */}

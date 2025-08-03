@@ -32,11 +32,33 @@ export const Sidebar: React.FC = () => {
         { path: '/admin/daily-emotion', label: 'Daily Emotion' },
     ];
 
+    const getIconForLink = (label: string): string => {
+        const iconMap: { [key: string]: string } = {
+            'Dashboard': 'fa-tachometer-alt',
+            'Add Soldier': 'fa-user-plus',
+            'Soldiers Data': 'fa-users',
+            'Questionnaire': 'fa-clipboard-list',
+            'System Settings': 'fa-cogs',
+            'Daily Emotion': 'fa-smile'
+        };
+        return iconMap[label] || 'fa-circle';
+    };
+
     return (
-        <div className="w-64 h-screen bg-gray-800 text-white flex-col hidden md:flex fixed md:static z-30">
-            <div className="p-4">
+        <div className="w-64 h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white flex-col hidden md:flex fixed md:static z-30 border-r border-gray-700/50 shadow-2xl backdrop-blur-xl">
+            <div className="p-6">
                 <div className="mb-8">
-                    <h2 className="text-xl font-bold">CRPF Admin</h2>
+                    <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center mr-3 shadow-lg">
+                            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                <i className="fas fa-shield-alt text-white text-sm"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 className="text-lg font-bold bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text text-transparent">CRPF Admin</h2>
+                            <p className="text-xs text-gray-400">Dashboard Portal</p>
+                        </div>
+                    </div>
                 </div>
 
                 <nav className="space-y-2">
@@ -44,24 +66,28 @@ export const Sidebar: React.FC = () => {
                         <Link
                             key={link.path}
                             to={link.path}
-                            className={`block p-2 rounded ${
+                            className={`block p-3 rounded-xl transition-all duration-200 ${
                                 isActive(link.path)
-                                    ? 'bg-blue-600'
-                                    : 'hover:bg-gray-700'
+                                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg transform scale-[1.02] border border-blue-500/30'
+                                    : 'hover:bg-gray-700/50 hover:shadow-md text-gray-300 hover:text-white border border-transparent hover:border-gray-600/30'
                             }`}
                         >
-                            {link.label}
+                            <span className="flex items-center">
+                                <i className={`fas ${getIconForLink(link.label)} mr-3 text-sm`}></i>
+                                {link.label}
+                            </span>
                         </Link>
                     ))}
                 </nav>
             </div>
 
-            <div className="mt-auto p-4">
+            <div className="mt-auto p-6">
                 <button
                     onClick={handleLogout}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors"
+                    className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-xl transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center"
                 >
-                    🔒 Logout
+                    <i className="fas fa-sign-out-alt mr-2"></i>
+                    Logout
                 </button>
             </div>
 

@@ -58,7 +58,8 @@ export const LoginPage: React.FC = () => {
             const response = await apiService.login(forceId, password);
             if (response.user) {
                 if (response.user.role === 'admin') {
-                    login(response.user);
+                    // Pass the session timeout from backend response
+                    login(response.user, response.session_timeout);
                     navigate('/admin/dashboard');
                 } else {
                     setError('Access denied. Only administrators can login to this system.');

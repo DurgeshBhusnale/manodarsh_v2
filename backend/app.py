@@ -7,6 +7,7 @@ from api.admin.routes import admin_bp
 from api.admin.settings import settings_bp
 from api.survey.routes import survey_bp
 from config.settings import settings
+from utils.session_utils import get_dynamic_session_timeout
 from datetime import timedelta
 import os
 # DISABLED: from services.scheduler_service import MonitoringScheduler
@@ -14,9 +15,16 @@ import os
 def create_app():
     app = Flask(__name__)
     
-    # Configure Flask sessions
+    # Configure Flask sessions with dynamic timeout
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'crpf-mental-health-secret-key-change-in-production')
-    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=settings.SESSION_TIMEOUT)
+    
+    # Use dynamic session timeout, with fallback to settings default
+    try:
+        session_timeout = get_dynamic_session_timeout()
+    except:
+        session_timeout = settings.SESSION_TIMEOUT
+        
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=session_timeout)
     
     # Update CORS configuration using settings
     CORS(app, resources={

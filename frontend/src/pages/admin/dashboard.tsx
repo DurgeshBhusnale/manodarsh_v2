@@ -6,7 +6,15 @@ import { apiService } from '../../services/api';
 
 interface DashboardStats {
     totalSoldiers?: number;
-    activeSurveys?: number;
+    // REMOVED: activeSurveys (not meaningful - always 1)
+    
+    // NEW: Current Survey Statistics (meaningful replacement)
+    currentSurveyResponses?: number;
+    currentSurveyTitle?: string;
+    currentSurveyCompletionRate?: number;
+    pendingResponses?: number;
+    
+    // Existing meaningful stats
     highRiskSoldiers?: number;
     criticalAlerts?: number;
     surveyCompletionRate?: number;
@@ -14,7 +22,9 @@ interface DashboardStats {
     recentSessions?: number;
     trends?: {
         totalSoldiersChange: number;
-        activeSurveysChange: number;
+        // REMOVED: activeSurveysChange
+        currentSurveyResponsesChange?: number;
+        pendingResponsesChange?: number;
         highRiskChange: number;
         criticalChange: number;
         completionRateChange: number;
@@ -97,7 +107,15 @@ const AdminDashboard: React.FC = () => {
             // Ensure all required properties exist with defaults
             const dashboardData: DashboardStats = {
                 totalSoldiers: response.data.totalSoldiers || 0,
-                activeSurveys: response.data.activeSurveys || 0,
+                // REMOVED: activeSurveys
+                
+                // NEW: Current Survey Statistics
+                currentSurveyResponses: response.data.currentSurveyResponses || 0,
+                currentSurveyTitle: response.data.currentSurveyTitle || "No Active Survey",
+                currentSurveyCompletionRate: response.data.currentSurveyCompletionRate || 0,
+                pendingResponses: response.data.pendingResponses || 0,
+                
+                // Existing stats
                 highRiskSoldiers: response.data.highRiskSoldiers || 0,
                 criticalAlerts: response.data.criticalAlerts || 0,
                 surveyCompletionRate: response.data.surveyCompletionRate || 0,
@@ -105,7 +123,9 @@ const AdminDashboard: React.FC = () => {
                 recentSessions: response.data.recentSessions || 0,
                 trends: response.data.trends || {
                     totalSoldiersChange: 0,
-                    activeSurveysChange: 0,
+                    // REMOVED: activeSurveysChange
+                    currentSurveyResponsesChange: 0,
+                    pendingResponsesChange: 0,
                     highRiskChange: 0,
                     criticalChange: 0,
                     completionRateChange: 0,
@@ -134,7 +154,14 @@ const AdminDashboard: React.FC = () => {
             // Enhanced fallback to mock data if API fails
             const mockStats: DashboardStats = {
                 totalSoldiers: 150,
-                activeSurveys: 12,
+                // REMOVED: activeSurveys (replaced with meaningful stats)
+                
+                // NEW: Mock data for current survey stats
+                currentSurveyResponses: 125,
+                currentSurveyTitle: "Weekly Mental Health Assessment",
+                currentSurveyCompletionRate: 83.3,
+                pendingResponses: 25,
+                
                 highRiskSoldiers: 8,
                 criticalAlerts: 2,
                 surveyCompletionRate: 85.5,
@@ -142,7 +169,9 @@ const AdminDashboard: React.FC = () => {
                 recentSessions: 24,
                 trends: {
                     totalSoldiersChange: 2.5,
-                    activeSurveysChange: 12.3,
+                    // REMOVED: activeSurveysChange (replaced)
+                    currentSurveyResponsesChange: 15.2,
+                    pendingResponsesChange: -8.3,
                     highRiskChange: -5.2,
                     criticalChange: 0,
                     completionRateChange: 8.7,
@@ -213,10 +242,16 @@ const AdminDashboard: React.FC = () => {
                 color: 'bg-blue-500'
             },
             {
-                title: 'Active Surveys',
-                value: stats.activeSurveys || 0,
-                icon: '📋',
+                title: `Responses: ${stats.currentSurveyTitle || 'No Survey'}`,
+                value: `${stats.currentSurveyResponses || 0} (${safeToFixed(stats.currentSurveyCompletionRate)}%)`,
+                icon: '�',
                 color: 'bg-green-500'
+            },
+            {
+                title: 'Pending Responses',
+                value: stats.pendingResponses || 0,
+                icon: '⏳',
+                color: 'bg-yellow-500'
             },
             {
                 title: 'High Risk Soldiers',
@@ -229,12 +264,6 @@ const AdminDashboard: React.FC = () => {
                 value: stats.criticalAlerts || 0,
                 icon: '🚨',
                 color: 'bg-red-500'
-            },
-            {
-                title: 'Survey Completion',
-                value: `${safeToFixed(stats.surveyCompletionRate)}%`,
-                icon: '✅',
-                color: 'bg-purple-500'
             },
             {
                 title: 'Avg Mental Health Score',

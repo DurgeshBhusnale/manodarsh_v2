@@ -500,13 +500,45 @@ def get_dashboard_stats():
         else:  # default 7d
             start_date = today - timedelta(days=7)
         
-        # 1. Total Soldiers
+        # 1. Total Soldiers (unchanged - meaningful stat)
         cursor.execute("SELECT COUNT(*) FROM users WHERE user_type = 'soldier'")
         total_soldiers = cursor.fetchone()[0] or 0
         
-        # 2. Active Questionnaires
-        cursor.execute("SELECT COUNT(*) FROM questionnaires WHERE status = 'Active'")
-        active_surveys = cursor.fetchone()[0] or 0
+        # 2. REMOVED Active surveys count (always 1, not meaningful)
+        # Instead: Get current active survey for completion tracking
+        cursor.execute("""
+            SELECT questionnaire_id, created_at, title 
+            FROM questionnaires 
+            WHERE status = 'Active' 
+            ORDER BY created_at DESC 
+            LIMIT 1
+        """)
+        active_survey = cursor.fetchone()
+        
+        # 3. Current Survey Response Statistics (NEW - meaningful replacement)
+        current_survey_responses = 0
+        current_survey_title = "No Active Survey"
+        current_survey_completion_rate = 0
+        pending_responses = 0
+        
+        if active_survey:
+            questionnaire_id, activation_date, survey_title = active_survey
+            current_survey_title = survey_title
+            
+            # Count soldiers who completed THIS survey AFTER it was activated
+            cursor.execute("""
+                SELECT COUNT(DISTINCT ws.force_id)
+                FROM weekly_sessions ws
+                WHERE ws.questionnaire_id = %s 
+                AND ws.status = 'completed'
+                AND ws.completion_timestamp >= %s
+            """, (questionnaire_id, activation_date))
+            
+            current_survey_responses = cursor.fetchone()[0] or 0
+            
+            # Calculate completion percentage and pending responses
+            current_survey_completion_rate = (current_survey_responses / total_soldiers * 100) if total_soldiers > 0 else 0
+            pending_responses = max(0, total_soldiers - current_survey_responses)
         
         # 3. Get soldiers with their latest mental health scores
         cursor.execute("""
@@ -634,13 +666,21 @@ def get_dashboard_stats():
                 high_counts.append(0)
                 critical_counts.append(0)
         
-        # Prepare response
+        # Prepare response with improved meaningful statistics
         dashboard_stats = {
             'totalSoldiers': total_soldiers,
-            'activeSurveys': active_surveys,
+            # REMOVED: 'activeSurveys' (not meaningful - always 1)
+            
+            # NEW: Current Survey Statistics (meaningful replacement)
+            'currentSurveyResponses': current_survey_responses,
+            'currentSurveyTitle': current_survey_title,
+            'currentSurveyCompletionRate': round(current_survey_completion_rate, 1),
+            'pendingResponses': pending_responses,
+            
+            # Existing meaningful stats (unchanged)
             'highRiskSoldiers': high_risk_count,
             'criticalAlerts': critical_alerts,
-            'surveyCompletionRate': round(completion_rate, 1),
+            'surveyCompletionRate': round(completion_rate, 1),  # Overall completion rate
             'averageMentalHealthScore': round(avg_mental_health_score, 3),
             'riskDistribution': risk_distribution,
             'trendsData': {

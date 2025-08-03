@@ -9,17 +9,24 @@ export interface User {
 
 export interface AuthContextType {
     user: User | null;
-    login: (user: User) => void;
+    login: (user: User, sessionTimeout?: number) => void;
     logout: () => void;
     isAuthenticated: boolean;
 }
 
-// Session timeout in milliseconds (15 minutes for enhanced security)
-const SESSION_TIMEOUT = 15 * 60 * 1000;
+// Dynamic session timeout - will be set from backend response
+let SESSION_TIMEOUT = 15 * 60 * 1000; // Default 15 minutes, will be updated from backend
 const SESSION_KEY = 'user_session';
 const TIMESTAMP_KEY = 'login_timestamp';
+const SESSION_TIMEOUT_KEY = 'session_timeout';
 const WINDOW_ID_KEY = 'window_id';
 const REFRESH_MARKER_KEY = 'page_refresh_marker';
+
+// Helper function to get current session timeout
+const getCurrentSessionTimeout = (): number => {
+    const storedTimeout = localStorage.getItem(SESSION_TIMEOUT_KEY);
+    return storedTimeout ? parseInt(storedTimeout) * 1000 : SESSION_TIMEOUT; // Convert seconds to milliseconds
+};
 
 // Create the context with proper type
 export const AuthContext = createContext<AuthContextType>({
@@ -65,20 +72,31 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             const timeSinceLastActivity = now - loginTime;
             
             if (isPageRefresh) {
-                // Page refresh: logout only if inactive for more than 5 minutes
-                if (timeSinceLastActivity > 5 * 60 * 1000) { // 5 minutes
+                // Page refresh: use the full session timeout, no special limit
+                const currentSessionTimeout = getCurrentSessionTimeout();
+                if (timeSinceLastActivity > currentSessionTimeout) {
                     localStorage.removeItem(SESSION_KEY);
                     localStorage.removeItem(TIMESTAMP_KEY);
+                    localStorage.removeItem(SESSION_TIMEOUT_KEY);
                     localStorage.removeItem(WINDOW_ID_KEY);
                     return null;
                 }
-                // For refresh, keep the existing window ID
+                // For refresh, update the timestamp to show current activity (user is back!)
+                localStorage.setItem(TIMESTAMP_KEY, now.toString());
+                
+                // Keep existing window ID and update SESSION_TIMEOUT
+                const storedTimeout = localStorage.getItem(SESSION_TIMEOUT_KEY);
+                if (storedTimeout) {
+                    SESSION_TIMEOUT = parseInt(storedTimeout) * 1000;
+                }
                 return JSON.parse(savedUser);
             } else {
-                // New window/tab: check full session timeout (15 minutes) OR missing window ID
-                if (timeSinceLastActivity > SESSION_TIMEOUT || !storedWindowId) {
+                // New window/tab: check full session timeout (dynamic) OR missing window ID
+                const currentSessionTimeout = getCurrentSessionTimeout();
+                if (timeSinceLastActivity > currentSessionTimeout || !storedWindowId) {
                     localStorage.removeItem(SESSION_KEY);
                     localStorage.removeItem(TIMESTAMP_KEY);
+                    localStorage.removeItem(SESSION_TIMEOUT_KEY);
                     localStorage.removeItem(WINDOW_ID_KEY);
                     return null;
                 }
@@ -92,7 +110,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         return null;
     });
 
-    // Auto-logout on session timeout (check every 30 seconds for faster detection)
+    // Auto-logout on session timeout (check every 2 minutes for reasonable detection)
     useEffect(() => {
         if (user) {
             const checkSession = () => {
@@ -100,8 +118,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 if (loginTimestamp) {
                     const now = Date.now();
                     const loginTime = parseInt(loginTimestamp);
+                    const currentSessionTimeout = getCurrentSessionTimeout();
                     
-                    if (now - loginTime > SESSION_TIMEOUT) {
+                    if (now - loginTime > currentSessionTimeout) {
                         logout();
                         // Redirect to login with session expired message
                         window.location.href = '/login?expired=timeout';
@@ -109,8 +128,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 }
             };
 
-            // Check session every 30 seconds for faster response
-            const interval = setInterval(checkSession, 30000);
+            // Check session every 2 minutes for reasonable response time
+            const interval = setInterval(checkSession, 2 * 60 * 1000);
             
             return () => clearInterval(interval);
         }
@@ -119,25 +138,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     // Handle page visibility change and browser close detection
     useEffect(() => {
         const handleVisibilityChange = () => {
-            if (document.visibilityState === 'hidden' && user) {
-                // User switched away from tab or minimized browser - start 5-minute logout timer
-                setTimeout(() => {
-                    // If still hidden after 5 minutes, force logout for security
-                    if (document.visibilityState === 'hidden') {
-                        logout();
-                    }
-                }, 5 * 60 * 1000); // 5 minutes = 300,000 milliseconds
-            } else if (document.visibilityState === 'visible' && user) {
-                // Check session when user returns to the tab
+            if (document.visibilityState === 'visible' && user) {
+                // User returned to the tab - check session and update timestamp
                 const loginTimestamp = localStorage.getItem(TIMESTAMP_KEY);
                 if (loginTimestamp) {
                     const now = Date.now();
                     const loginTime = parseInt(loginTimestamp);
+                    const currentSessionTimeout = getCurrentSessionTimeout();
                     
-                    if (now - loginTime > SESSION_TIMEOUT) {
+                    if (now - loginTime > currentSessionTimeout) {
                         logout();
                         // Redirect to login with session expired message
                         window.location.href = '/login?expired=away';
+                    } else {
+                        // Session is still valid - update timestamp to show user is back and active
+                        localStorage.setItem(TIMESTAMP_KEY, now.toString());
                     }
                 }
             }
@@ -198,14 +213,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         // Listen for user activity only when window is active
         const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
         
-        // Throttle to avoid excessive updates (check every 30 seconds)
-        let throttleTimer: NodeJS.Timeout | null = null;
+        // Throttle to avoid excessive updates (but extend session IMMEDIATELY)
+        let lastUpdate = 0;
         const throttledExtend = () => {
-            if (throttleTimer || document.visibilityState !== 'visible') return;
-            throttleTimer = setTimeout(() => {
+            if (document.visibilityState !== 'visible') return;
+            
+            const now = Date.now();
+            // Only update if 30 seconds have passed since last update
+            if (now - lastUpdate > 30000) {
                 extendSession();
-                throttleTimer = null;
-            }, 30000); // Update at most once per 30 seconds
+                lastUpdate = now;
+            }
         };
 
         events.forEach(event => {
@@ -216,21 +234,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             events.forEach(event => {
                 document.removeEventListener(event, throttledExtend, true);
             });
-            if (throttleTimer) {
-                clearTimeout(throttleTimer);
-            }
         };
     }, [user]);
 
     // Remove the beforeunload warning since we want immediate logout
 
-    const login = (userData: User) => {
+    const login = (userData: User, sessionTimeout?: number) => {
         const now = Date.now();
         const windowId = Date.now().toString();
         setUser(userData);
         localStorage.setItem(SESSION_KEY, JSON.stringify(userData));
         localStorage.setItem(TIMESTAMP_KEY, now.toString());
         localStorage.setItem(WINDOW_ID_KEY, windowId);
+        
+        // Store dynamic session timeout if provided
+        if (sessionTimeout) {
+            localStorage.setItem(SESSION_TIMEOUT_KEY, sessionTimeout.toString());
+            SESSION_TIMEOUT = sessionTimeout * 1000; // Convert to milliseconds
+        }
     };
 
     const logout = async () => {
@@ -243,6 +264,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             // Clear all session data immediately
             localStorage.removeItem(SESSION_KEY);
             localStorage.removeItem(TIMESTAMP_KEY);
+            localStorage.removeItem(SESSION_TIMEOUT_KEY);
             localStorage.removeItem(WINDOW_ID_KEY);
             // Also clear any other potential sensitive data
             localStorage.clear();

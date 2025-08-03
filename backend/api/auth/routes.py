@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request, session
 from services.auth_service import AuthService
 from datetime import datetime, timedelta
 from config.settings import settings
+from utils.session_utils import get_dynamic_session_timeout
 
 auth_bp = Blueprint('auth', __name__)
 auth_service = AuthService()
@@ -34,11 +35,14 @@ def login():
                     'error': 'Access denied. Only administrators can login.'
                 }), 403
             
+            # Get dynamic session timeout from database
+            session_timeout = get_dynamic_session_timeout()
+            
             # Set session data
             session['user_id'] = user['force_id']
             session['role'] = user['role']
             session['login_time'] = datetime.now().isoformat()
-            session['expires_at'] = (datetime.now() + timedelta(seconds=settings.SESSION_TIMEOUT)).isoformat()
+            session['expires_at'] = (datetime.now() + timedelta(seconds=session_timeout)).isoformat()
             session.permanent = True
                 
             return jsonify({
@@ -47,7 +51,7 @@ def login():
                     'force_id': user['force_id'],
                     'role': user['role']
                 },
-                'session_timeout': settings.SESSION_TIMEOUT
+                'session_timeout': session_timeout  # Send dynamic timeout to frontend
             }), 200
         else:
             return jsonify({
@@ -170,4 +174,73 @@ def verify_soldier():
         return jsonify({
             'error': str(e),
             'verified': False
+        }), 500
+
+@auth_bp.route('/validate-session', methods=['GET'])
+def validate_session():
+    """Validate current session and return status"""
+    try:
+        # Check if session exists
+        if 'user_id' not in session or 'expires_at' not in session:
+            return jsonify({
+                'valid': False,
+                'message': 'No active session'
+            }), 401
+            
+        # Check if session has expired
+        expires_at = datetime.fromisoformat(session['expires_at'])
+        if datetime.now() > expires_at:
+            # Clear expired session
+            session.clear()
+            return jsonify({
+                'valid': False,
+                'message': 'Session expired'
+            }), 401
+            
+        # Session is valid - extend it with current timeout setting
+        session_timeout = get_dynamic_session_timeout()
+        session['expires_at'] = (datetime.now() + timedelta(seconds=session_timeout)).isoformat()
+        
+        return jsonify({
+            'valid': True,
+            'user': {
+                'force_id': session['user_id'],
+                'role': session['role']
+            },
+            'expires_at': session['expires_at'],
+            'session_timeout': session_timeout
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'valid': False,
+            'message': f'Session validation error: {str(e)}'
+        }), 500
+
+@auth_bp.route('/refresh-session', methods=['POST'])
+def refresh_session():
+    """Refresh session timeout"""
+    try:
+        # Check if session exists
+        if 'user_id' not in session:
+            return jsonify({
+                'success': False,
+                'message': 'No active session'
+            }), 401
+            
+        # Refresh session with current timeout setting
+        session_timeout = get_dynamic_session_timeout()
+        session['expires_at'] = (datetime.now() + timedelta(seconds=session_timeout)).isoformat()
+        
+        return jsonify({
+            'success': True,
+            'message': 'Session refreshed',
+            'expires_at': session['expires_at'],
+            'session_timeout': session_timeout
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Session refresh error: {str(e)}'
         }), 500

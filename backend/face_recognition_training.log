@@ -25727,3 +25727,206 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-08-03 22:28:02,195 - INFO - 127.0.0.1 - - [03/Aug/2025 22:28:02] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-03 22:28:02,235 - INFO - 127.0.0.1 - - [03/Aug/2025 22:28:02] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
 2025-08-03 22:28:02,575 - INFO - 127.0.0.1 - - [03/Aug/2025 22:28:02] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:28:17,127 - INFO - 127.0.0.1 - - [03/Aug/2025 22:28:17] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 22:28:46,813 - INFO - 127.0.0.1 - - [03/Aug/2025 22:28:46] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 22:28:59,142 - INFO - 127.0.0.1 - - [03/Aug/2025 22:28:59] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-03 22:32:17,939 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\auth\\routes.py', reloading
+2025-08-03 22:32:18,465 - INFO -  * Restarting with stat
+2025-08-03 22:32:23,868 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 22:32:26,489 - INFO - All models loaded successfully
+2025-08-03 22:32:27,274 - WARNING -  * Debugger is active!
+2025-08-03 22:32:27,282 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 22:32:29,490 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\auth\\routes.py', reloading
+2025-08-03 22:32:30,124 - INFO -  * Restarting with stat
+2025-08-03 22:32:35,298 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 22:32:38,075 - INFO - All models loaded successfully
+2025-08-03 22:32:38,696 - WARNING -  * Debugger is active!
+2025-08-03 22:32:38,703 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 22:34:47,347 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\auth\\routes.py', reloading
+2025-08-03 22:34:48,013 - INFO -  * Restarting with stat
+2025-08-03 22:34:54,071 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 22:34:56,606 - INFO - All models loaded successfully
+2025-08-03 22:34:57,256 - WARNING -  * Debugger is active!
+2025-08-03 22:34:57,264 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 22:38:50,706 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\app.py', reloading
+2025-08-03 22:38:51,263 - INFO -  * Restarting with stat
+2025-08-03 22:39:01,162 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 22:39:09,164 - INFO - All models loaded successfully
+2025-08-03 22:39:10,030 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:39:10,064 - WARNING -  * Debugger is active!
+2025-08-03 22:39:10,074 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 22:40:58,697 - INFO - 127.0.0.1 - - [03/Aug/2025 22:40:58] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 400 -
+2025-08-03 22:41:00,744 - INFO - 127.0.0.1 - - [03/Aug/2025 22:41:00] "[31m[1mGET /api/auth/validate-session HTTP/1.1[0m" 401 -
+2025-08-03 22:44:03,751 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_session_timeout_integration.py', reloading
+2025-08-03 22:44:04,293 - INFO -  * Restarting with stat
+2025-08-03 22:44:10,259 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 22:44:13,140 - INFO - All models loaded successfully
+2025-08-03 22:44:13,820 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:44:13,849 - WARNING -  * Debugger is active!
+2025-08-03 22:44:13,857 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 22:44:20,158 - INFO - Dynamic session timeout loaded: 600 seconds
+2025-08-03 22:44:20,160 - INFO - 127.0.0.1 - - [03/Aug/2025 22:44:20] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:44:22,214 - INFO - 127.0.0.1 - - [03/Aug/2025 22:44:22] "[31m[1mGET /api/auth/validate-session HTTP/1.1[0m" 401 -
+2025-08-03 22:44:58,021 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_complete_session_flow.py', reloading
+2025-08-03 22:44:58,808 - INFO -  * Restarting with stat
+2025-08-03 22:45:04,801 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 22:45:07,818 - INFO - All models loaded successfully
+2025-08-03 22:45:08,650 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:45:08,685 - WARNING -  * Debugger is active!
+2025-08-03 22:45:08,693 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 22:45:25,684 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:25] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:45:26,426 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:45:26,428 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:26] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:45:26,506 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:45:26,844 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:45:55,212 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:45:55,214 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:55] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:45:57,140 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:57] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 22:45:57,268 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:45:57,270 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:57] "GET /api/auth/validate-session HTTP/1.1" 200 -
+2025-08-03 22:45:59,343 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:45:59,345 - INFO - 127.0.0.1 - - [03/Aug/2025 22:45:59] "POST /api/auth/refresh-session HTTP/1.1" 200 -
+2025-08-03 22:46:01,403 - INFO - 127.0.0.1 - - [03/Aug/2025 22:46:01] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-03 22:46:03,446 - INFO - 127.0.0.1 - - [03/Aug/2025 22:46:03] "[31m[1mGET /api/auth/validate-session HTTP/1.1[0m" 401 -
+2025-08-03 22:46:06,133 - INFO - Dynamic session timeout loaded: 300 seconds
+2025-08-03 22:46:06,135 - INFO - 127.0.0.1 - - [03/Aug/2025 22:46:06] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:46:26,809 - INFO - 127.0.0.1 - - [03/Aug/2025 22:46:26] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 22:46:57,118 - INFO - 127.0.0.1 - - [03/Aug/2025 22:46:57] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 22:47:25,434 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:25] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:47:25,782 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:47:25,784 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:25] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:47:26,163 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:47:26,414 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:47:29,344 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:29] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:47:29,679 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:29] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:47:34,779 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:34] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-08-03 22:47:34,802 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:34] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-03 22:47:35,037 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:35] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-08-03 22:47:35,117 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:35] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-03 22:47:36,456 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:36] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-03 22:47:36,746 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:36] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-08-03 22:47:36,806 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:36] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-03 22:47:37,058 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:37] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-08-03 22:47:39,943 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:39] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:47:40,201 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:40] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:47:42,867 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:42] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:47:43,208 - INFO - 127.0.0.1 - - [03/Aug/2025 22:47:43] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:48:14,123 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\utils\\session_utils.py', reloading
+2025-08-03 22:48:15,147 - INFO -  * Restarting with stat
+2025-08-03 22:48:20,680 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 22:48:23,574 - INFO - All models loaded successfully
+2025-08-03 22:48:24,403 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:48:24,435 - WARNING -  * Debugger is active!
+2025-08-03 22:48:24,443 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 22:49:10,719 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:10] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:49:11,440 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 22:49:11,442 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:11] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 22:49:11,513 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:11] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:11,853 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:11] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:15,131 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:15] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:15,442 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:15] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:22,382 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:22] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:22,712 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:22] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:29,947 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:29] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:30,197 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:30] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:36,914 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:36] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:37,248 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:37] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:54,249 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:49:54,526 - INFO - 127.0.0.1 - - [03/Aug/2025 22:49:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:34,890 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:34] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:35,223 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:35] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:54,690 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:54,956 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:56,841 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:56] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:57,177 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:57] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:59,354 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:59] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 22:50:59,616 - INFO - 127.0.0.1 - - [03/Aug/2025 22:50:59] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:02:47,719 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:02:47,721 - INFO - 127.0.0.1 - - [03/Aug/2025 23:02:47] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:03:49,799 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:03:49,800 - INFO - 127.0.0.1 - - [03/Aug/2025 23:03:49] "GET /api/auth/validate-session HTTP/1.1" 200 -
+2025-08-03 23:04:51,884 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:04:51,886 - INFO - 127.0.0.1 - - [03/Aug/2025 23:04:51] "GET /api/auth/validate-session HTTP/1.1" 200 -
+2025-08-03 23:05:53,974 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:05:53,976 - INFO - 127.0.0.1 - - [03/Aug/2025 23:05:53] "GET /api/auth/validate-session HTTP/1.1" 200 -
+2025-08-03 23:06:56,057 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:06:56,059 - INFO - 127.0.0.1 - - [03/Aug/2025 23:06:56] "GET /api/auth/validate-session HTTP/1.1" 200 -
+2025-08-03 23:07:58,137 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:07:58,140 - INFO - 127.0.0.1 - - [03/Aug/2025 23:07:58] "GET /api/auth/validate-session HTTP/1.1" 200 -
+2025-08-03 23:08:00,476 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:08:00,477 - INFO - 127.0.0.1 - - [03/Aug/2025 23:08:00] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:08:04,553 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:08:04,555 - INFO - 127.0.0.1 - - [03/Aug/2025 23:08:04] "POST /api/auth/refresh-session HTTP/1.1" 200 -
+2025-08-03 23:10:25,285 - INFO - 127.0.0.1 - - [03/Aug/2025 23:10:25] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:10:25,947 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:10:25,949 - INFO - 127.0.0.1 - - [03/Aug/2025 23:10:25] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:10:26,017 - INFO - 127.0.0.1 - - [03/Aug/2025 23:10:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:10:26,353 - INFO - 127.0.0.1 - - [03/Aug/2025 23:10:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:10:57,165 - INFO - 127.0.0.1 - - [03/Aug/2025 23:10:57] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 23:11:04,883 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_session_behavior.py', reloading
+2025-08-03 23:11:05,632 - INFO -  * Restarting with stat
+2025-08-03 23:11:13,590 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 23:11:17,051 - INFO - All models loaded successfully
+2025-08-03 23:11:18,060 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:11:18,100 - WARNING -  * Debugger is active!
+2025-08-03 23:11:18,109 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 23:11:19,275 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:19] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:11:19,924 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:11:19,926 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:19] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:11:19,999 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:19] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:11:20,344 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:20] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:11:28,794 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:28] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:11:29,050 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:29] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:11:50,791 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:50] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:11:51,134 - INFO - 127.0.0.1 - - [03/Aug/2025 23:11:51] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:12:33,506 - INFO - 127.0.0.1 - - [03/Aug/2025 23:12:33] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:12:33,772 - INFO - 127.0.0.1 - - [03/Aug/2025 23:12:33] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:13:47,041 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\admin\\routes.py', reloading
+2025-08-03 23:13:47,688 - INFO -  * Restarting with stat
+2025-08-03 23:13:53,504 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 23:13:56,351 - INFO - All models loaded successfully
+2025-08-03 23:13:57,105 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:13:57,143 - WARNING -  * Debugger is active!
+2025-08-03 23:13:57,151 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 23:14:12,033 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\admin\\routes.py', reloading
+2025-08-03 23:14:12,513 - INFO -  * Restarting with stat
+2025-08-03 23:14:18,288 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 23:14:21,095 - INFO - All models loaded successfully
+2025-08-03 23:14:21,954 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:14:21,996 - WARNING -  * Debugger is active!
+2025-08-03 23:14:22,005 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 23:14:47,223 - INFO - 127.0.0.1 - - [03/Aug/2025 23:14:47] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:15:22,218 - INFO - 127.0.0.1 - - [03/Aug/2025 23:15:22] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:15:40,226 - INFO - 127.0.0.1 - - [03/Aug/2025 23:15:40] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:16:01,881 - INFO - 127.0.0.1 - - [03/Aug/2025 23:16:01] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:17:01,105 - INFO - 127.0.0.1 - - [03/Aug/2025 23:17:01] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:19:05,262 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\dashboard_stats_improvement.py', reloading
+2025-08-03 23:19:06,035 - INFO -  * Restarting with stat
+2025-08-03 23:19:11,792 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 23:19:14,597 - INFO - All models loaded successfully
+2025-08-03 23:19:15,260 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:19:15,292 - WARNING -  * Debugger is active!
+2025-08-03 23:19:15,300 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 23:23:19,019 - INFO - 127.0.0.1 - - [03/Aug/2025 23:23:19] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:23:19,787 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:23:19,789 - INFO - 127.0.0.1 - - [03/Aug/2025 23:23:19] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 23:23:19,864 - INFO - 127.0.0.1 - - [03/Aug/2025 23:23:19] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:23:20,202 - INFO - 127.0.0.1 - - [03/Aug/2025 23:23:20] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 23:23:50,127 - INFO - 127.0.0.1 - - [03/Aug/2025 23:23:50] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 23:24:19,809 - INFO - 127.0.0.1 - - [03/Aug/2025 23:24:19] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 23:24:50,130 - INFO - 127.0.0.1 - - [03/Aug/2025 23:24:50] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 23:25:19,811 - INFO - 127.0.0.1 - - [03/Aug/2025 23:25:19] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-03 23:27:40,925 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_session_refresh_fix.py', reloading
+2025-08-03 23:27:41,683 - INFO -  * Restarting with stat
+2025-08-03 23:27:47,430 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 23:27:50,566 - INFO - All models loaded successfully
+2025-08-03 23:27:51,504 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:27:51,576 - WARNING -  * Debugger is active!
+2025-08-03 23:27:51,596 - INFO -  * Debugger PIN: 132-663-522
+2025-08-03 23:30:08,325 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_session_fixes.py', reloading
+2025-08-03 23:30:09,096 - INFO -  * Restarting with stat
+2025-08-03 23:30:14,701 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-03 23:30:17,514 - INFO - All models loaded successfully
+2025-08-03 23:30:18,220 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-03 23:30:18,249 - WARNING -  * Debugger is active!
+2025-08-03 23:30:18,257 - INFO -  * Debugger PIN: 132-663-522

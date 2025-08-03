@@ -860,27 +860,40 @@ def download_soldiers_pdf():
         if not soldiers_data:
             return jsonify({'error': 'No soldiers data provided'}), 400
         
-        # Create PDF
+        # Create PDF with enhanced design
         pdf = FPDF()
         pdf.add_page()
         
-        # Set fonts
-        pdf.set_font('Arial', 'B', 16)
+        # Add header background rectangle
+        pdf.set_fill_color(41, 128, 185)  # Professional blue background
+        pdf.rect(10, 10, 190, 25, 'F')
         
-        # Title
-        pdf.cell(0, 10, report_title, 0, 1, 'C')
-        pdf.ln(5)
+        # Title with white text on blue background
+        pdf.set_text_color(255, 255, 255)  # White text
+        pdf.set_font('Arial', 'B', 18)
+        pdf.set_xy(10, 18)
+        pdf.cell(190, 10, report_title, 0, 1, 'C')
         
-        # Report metadata
-        pdf.set_font('Arial', '', 10)
-        pdf.cell(0, 5, f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", 0, 1)
-        pdf.cell(0, 5, f"Total Records: {len(soldiers_data)}", 0, 1)
+        # Reset text color to black
+        pdf.set_text_color(0, 0, 0)
+        pdf.ln(10)
         
-        # Applied filters
+        # Report metadata with enhanced styling
+        pdf.set_font('Arial', 'B', 10)
+        pdf.set_fill_color(245, 245, 245)  # Light gray background
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
+        pdf.cell(95, 5, f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", 0, 0)
+        pdf.cell(95, 5, f"Total Records: {len(soldiers_data)}", 0, 1)
+        pdf.ln(15)
+        
+        # Applied filters with enhanced styling
         if filters:
-            pdf.ln(2)
             pdf.set_font('Arial', 'B', 12)
-            pdf.cell(0, 8, "Applied Filters:", 0, 1)
+            pdf.set_fill_color(52, 152, 219)  # Blue background
+            pdf.set_text_color(255, 255, 255)  # White text
+            pdf.rect(10, pdf.get_y(), 190, 8, 'F')
+            pdf.cell(0, 8, "Applied Filters:", 0, 1, 'C')
+            pdf.set_text_color(0, 0, 0)  # Reset to black
             pdf.set_font('Arial', '', 10)
             
             if filters.get('risk_level') and filters.get('risk_level') != 'all':
@@ -889,56 +902,83 @@ def download_soldiers_pdf():
                 pdf.cell(0, 5, f"Time Period: Last {filters.get('days')} days", 0, 1)
             if filters.get('force_id'):
                 pdf.cell(0, 5, f"Force ID Filter: {filters.get('force_id')}", 0, 1)
+            pdf.ln(3)
         
-        pdf.ln(5)
+        # Table headers with enhanced design
+        pdf.set_font('Arial', 'B', 9)
         
-        # Table headers
-        pdf.set_font('Arial', 'B', 8)
+        # Updated header row - removed "Name" and "Mental State", added "Questionnaire", adjusted widths
+        col_widths = [30, 25, 30, 25, 25, 30, 35]  # Adjusted column widths
+        headers = ['Force ID', 'Risk Level', 'Combined Score', 'NLP Score', 'Image Score', 'Last Survey', 'Questionnaire']
         
-        # Header row
-        col_widths = [25, 30, 20, 20, 20, 25, 30, 20]  # Column widths
-        headers = ['Force ID', 'Name', 'Risk Level', 'Combined Score', 'NLP Score', 'Image Score', 'Last Survey', 'Mental State']
+        # Header background
+        pdf.set_fill_color(52, 73, 94)  # Dark blue-gray background
+        pdf.set_text_color(255, 255, 255)  # White text
         
         for i, header in enumerate(headers):
-            pdf.cell(col_widths[i], 8, header, 1, 0, 'C')
+            pdf.cell(col_widths[i], 10, header, 1, 0, 'C', True)
         pdf.ln()
         
-        # Data rows
-        pdf.set_font('Arial', '', 7)
+        # Reset text color for data rows
+        pdf.set_text_color(0, 0, 0)
         
-        for soldier in soldiers_data:
+        # Data rows with enhanced styling
+        pdf.set_font('Arial', '', 8)
+        
+        for i, soldier in enumerate(soldiers_data):
             # Handle potential None values and format data
-            force_id = str(soldier.get('force_id', 'N/A'))[:12]  # Truncate if too long
-            name = str(soldier.get('name', 'N/A'))[:15]
+            force_id = str(soldier.get('force_id', 'N/A'))[:15]  # Allow more space
             risk_level = str(soldier.get('risk_level', 'N/A'))
-            combined_score = f"{soldier.get('combined_score', 0):.3f}"
+            
+            # Better formatting for combined score with proper wrapping
+            combined_score_val = soldier.get('combined_score', 0)
+            combined_score = f"{combined_score_val:.3f}"
+            
             nlp_score = f"{soldier.get('nlp_score', 0):.3f}"
             image_score = f"{soldier.get('image_score', 0):.3f}"
             last_survey = str(soldier.get('last_survey_date', 'N/A'))[:12] if soldier.get('last_survey_date') else 'N/A'
-            mental_state = str(soldier.get('mental_state', 'N/A'))[:15]
+            questionnaire = str(soldier.get('questionnaire_title', 'N/A'))[:20] if soldier.get('questionnaire_title') else 'N/A'
             
-            # Set row color based on risk level
-            if risk_level == 'CRITICAL':
-                pdf.set_fill_color(255, 200, 200)  # Light red
-            elif risk_level == 'HIGH':
-                pdf.set_fill_color(255, 230, 200)  # Light orange
-            elif risk_level == 'MID':
-                pdf.set_fill_color(255, 255, 200)  # Light yellow
+            # Alternating row colors for better readability
+            if i % 2 == 0:
+                pdf.set_fill_color(249, 249, 249)  # Very light gray
             else:
-                pdf.set_fill_color(200, 255, 200)  # Light green
+                pdf.set_fill_color(255, 255, 255)  # White
             
-            # Add row data
-            row_data = [force_id, name, risk_level, combined_score, nlp_score, image_score, last_survey, mental_state]
+            # Risk level specific highlighting
+            if risk_level == 'CRITICAL':
+                pdf.set_fill_color(255, 235, 238)  # Light red
+            elif risk_level == 'HIGH':
+                pdf.set_fill_color(255, 243, 224)  # Light orange
+            elif risk_level == 'MID':
+                pdf.set_fill_color(255, 251, 230)  # Light yellow
+            elif risk_level == 'LOW':
+                pdf.set_fill_color(236, 253, 245)  # Light green
             
-            for i, cell_data in enumerate(row_data):
-                pdf.cell(col_widths[i], 6, cell_data, 1, 0, 'C', fill=True)
+            # Add row data - removed name and mental_state, added questionnaire
+            row_data = [force_id, risk_level, combined_score, nlp_score, image_score, last_survey, questionnaire]
+            
+            # Use proper cell heights for better text fitting
+            cell_height = 8
+            for j, cell_data in enumerate(row_data):
+                # Special handling for combined score to prevent overflow
+                if j == 2:  # Combined score column
+                    pdf.cell(col_widths[j], cell_height, cell_data, 1, 0, 'C', fill=True)
+                else:
+                    pdf.cell(col_widths[j], cell_height, cell_data, 1, 0, 'C', fill=True)
             pdf.ln()
         
-        # Summary statistics
+        # Enhanced Summary statistics
         pdf.ln(10)
-        pdf.set_font('Arial', 'B', 12)
-        pdf.cell(0, 8, "Summary Statistics:", 0, 1)
-        pdf.set_font('Arial', '', 10)
+        
+        # Summary header with background
+        pdf.set_font('Arial', 'B', 14)
+        pdf.set_fill_color(52, 152, 219)  # Blue background
+        pdf.set_text_color(255, 255, 255)  # White text
+        pdf.rect(10, pdf.get_y(), 190, 10, 'F')
+        pdf.cell(0, 10, "Summary Statistics", 0, 1, 'C')
+        pdf.set_text_color(0, 0, 0)  # Reset to black
+        pdf.ln(2)
         
         # Calculate statistics
         total_soldiers = len(soldiers_data)
@@ -958,18 +998,49 @@ def download_soldiers_pdf():
         
         avg_score = total_combined_score / valid_scores if valid_scores > 0 else 0
         
-        # Display statistics
-        pdf.cell(0, 5, f"Total Soldiers: {total_soldiers}", 0, 1)
-        pdf.cell(0, 5, f"Low Risk: {risk_counts['LOW']} ({risk_counts['LOW']/total_soldiers*100:.1f}%)", 0, 1)
-        pdf.cell(0, 5, f"Medium Risk: {risk_counts['MID']} ({risk_counts['MID']/total_soldiers*100:.1f}%)", 0, 1)
-        pdf.cell(0, 5, f"High Risk: {risk_counts['HIGH']} ({risk_counts['HIGH']/total_soldiers*100:.1f}%)", 0, 1)
-        pdf.cell(0, 5, f"Critical Risk: {risk_counts['CRITICAL']} ({risk_counts['CRITICAL']/total_soldiers*100:.1f}%)", 0, 1)
-        pdf.cell(0, 5, f"Average Combined Score: {avg_score:.3f}", 0, 1)
+        # Display statistics in a structured format
+        pdf.set_font('Arial', 'B', 11)
         
-        # Footer
-        pdf.ln(10)
-        pdf.set_font('Arial', 'I', 8)
-        pdf.cell(0, 5, "This report contains sensitive mental health information. Handle with appropriate confidentiality.", 0, 1, 'C')
+        # Total soldiers
+        pdf.set_fill_color(240, 248, 255)  # Light blue background
+        pdf.rect(10, pdf.get_y(), 190, 6, 'F')
+        pdf.cell(0, 6, f"Total Soldiers: {total_soldiers}", 0, 1)
+        
+        # Risk distribution
+        pdf.set_font('Arial', '', 10)
+        
+        # Low Risk
+        pdf.set_fill_color(236, 253, 245)  # Light green
+        pdf.rect(10, pdf.get_y(), 190, 5, 'F')
+        pdf.cell(0, 5, f"Low Risk: {risk_counts['LOW']} ({risk_counts['LOW']/total_soldiers*100:.1f}%)", 0, 1)
+        
+        # Medium Risk
+        pdf.set_fill_color(255, 251, 230)  # Light yellow
+        pdf.rect(10, pdf.get_y(), 190, 5, 'F')
+        pdf.cell(0, 5, f"Medium Risk: {risk_counts['MID']} ({risk_counts['MID']/total_soldiers*100:.1f}%)", 0, 1)
+        
+        # High Risk
+        pdf.set_fill_color(255, 243, 224)  # Light orange
+        pdf.rect(10, pdf.get_y(), 190, 5, 'F')
+        pdf.cell(0, 5, f"High Risk: {risk_counts['HIGH']} ({risk_counts['HIGH']/total_soldiers*100:.1f}%)", 0, 1)
+        
+        # Critical Risk
+        pdf.set_fill_color(255, 235, 238)  # Light red
+        pdf.rect(10, pdf.get_y(), 190, 5, 'F')
+        pdf.cell(0, 5, f"Critical Risk: {risk_counts['CRITICAL']} ({risk_counts['CRITICAL']/total_soldiers*100:.1f}%)", 0, 1)
+        
+        # Average score
+        pdf.set_fill_color(240, 248, 255)  # Light blue background
+        pdf.rect(10, pdf.get_y(), 190, 6, 'F')
+        pdf.set_font('Arial', 'B', 10)
+        pdf.cell(0, 6, f"Average Combined Score: {avg_score:.3f}", 0, 1)
+        
+        # Enhanced Footer
+        pdf.ln(15)
+        pdf.set_font('Arial', 'I', 9)
+        pdf.set_fill_color(245, 245, 245)  # Light gray background
+        pdf.rect(10, pdf.get_y(), 190, 8, 'F')
+        pdf.cell(0, 8, "This report contains sensitive mental health information. Handle with appropriate confidentiality.", 0, 1, 'C')
         
         # Create in-memory file
         pdf_output = io.BytesIO()
@@ -1008,13 +1079,11 @@ def download_soldiers_csv():
         if not soldiers_data:
             return jsonify({'error': 'No soldiers data provided'}), 400
         
-        # Create CSV content
+        # Create CSV content with updated field names (removed: name, total_cctv_detections, avg_cctv_score, mental_state, alert_level, recommendation)
         csv_output = io.StringIO()
         fieldnames = [
-            'force_id', 'name', 'risk_level', 'combined_score', 'nlp_score', 
-            'image_score', 'last_survey_date', 'questionnaire_title', 
-            'total_cctv_detections', 'avg_cctv_score', 'mental_state', 
-            'alert_level', 'recommendation'
+            'force_id', 'risk_level', 'combined_score', 'nlp_score', 
+            'image_score', 'last_survey_date', 'questionnaire_title'
         ]
         
         writer = csv.DictWriter(csv_output, fieldnames=fieldnames)
@@ -1022,23 +1091,17 @@ def download_soldiers_csv():
         # Write header
         writer.writeheader()
         
-        # Write data rows
+        # Write data rows with only the required fields
         for soldier in soldiers_data:
-            # Create a clean row with all required fields
+            # Create a clean row with only the required fields
             row = {
                 'force_id': soldier.get('force_id', ''),
-                'name': soldier.get('name', ''),
                 'risk_level': soldier.get('risk_level', ''),
                 'combined_score': soldier.get('combined_score', 0),
                 'nlp_score': soldier.get('nlp_score', 0),
                 'image_score': soldier.get('image_score', 0),
                 'last_survey_date': soldier.get('last_survey_date', ''),
-                'questionnaire_title': soldier.get('questionnaire_title', ''),
-                'total_cctv_detections': soldier.get('total_cctv_detections', 0),
-                'avg_cctv_score': soldier.get('avg_cctv_score', 0),
-                'mental_state': soldier.get('mental_state', ''),
-                'alert_level': soldier.get('alert_level', ''),
-                'recommendation': soldier.get('recommendation', '')
+                'questionnaire_title': soldier.get('questionnaire_title', '')
             }
             writer.writerow(row)
         

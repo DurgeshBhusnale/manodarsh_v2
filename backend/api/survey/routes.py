@@ -10,31 +10,115 @@ logger = logging.getLogger(__name__)
 # Initialize settings
 settings = Settings()
 
-def get_mental_state_analysis(score):
-    """Determine mental state based on combined score using configurable thresholds"""
+def get_dynamic_settings():
+    """Get current settings from database with fallback to config defaults"""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        # Get NLP and emotion weights from database
+        cursor.execute("""
+            SELECT setting_name, setting_value 
+            FROM system_settings 
+            WHERE setting_name IN ('nlp_weight', 'emotion_weight')
+        """)
+        
+        db_settings = cursor.fetchall()
+        setting_values = {}
+        
+        for setting in db_settings:
+            setting_values[setting['setting_name']] = float(setting['setting_value'])
+        
+        # Use database values if available, otherwise use config defaults
+        nlp_weight = setting_values.get('nlp_weight', settings.NLP_WEIGHT)
+        emotion_weight = setting_values.get('emotion_weight', settings.EMOTION_WEIGHT)
+        
+        conn.close()
+        logger.info(f"Dynamic settings loaded - NLP Weight: {nlp_weight}, Emotion Weight: {emotion_weight}")
+        return nlp_weight, emotion_weight
+        
+    except Exception as e:
+        logger.error(f"Error retrieving dynamic settings: {e}")
+        # Fallback to config defaults
+        logger.info(f"Using config defaults - NLP Weight: {settings.NLP_WEIGHT}, Emotion Weight: {settings.EMOTION_WEIGHT}")
+        return settings.NLP_WEIGHT, settings.EMOTION_WEIGHT
+
+def calculate_dynamic_combined_score(nlp_score, emotion_score):
+    """Calculate weighted combined depression score using database settings"""
+    nlp_weight, emotion_weight = get_dynamic_settings()
     
-    if score <= settings.RISK_THRESHOLDS['LOW']:
+    if nlp_score is not None and emotion_score is not None:
+        return (nlp_score * nlp_weight) + (emotion_score * emotion_weight)
+    elif nlp_score is not None:
+        return nlp_score
+    elif emotion_score is not None:
+        return emotion_score
+    else:
+        return 0.0
+
+def get_dynamic_risk_thresholds():
+    """Get current risk thresholds from database with fallback to config defaults"""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        # Get risk thresholds from database
+        cursor.execute("""
+            SELECT setting_name, setting_value 
+            FROM system_settings 
+            WHERE setting_name IN ('risk_low_threshold', 'risk_medium_threshold', 'risk_high_threshold', 'risk_critical_threshold')
+        """)
+        
+        db_settings = cursor.fetchall()
+        setting_values = {}
+        
+        for setting in db_settings:
+            setting_values[setting['setting_name']] = float(setting['setting_value'])
+        
+        # Use database values if available, otherwise use config defaults
+        risk_thresholds = {
+            'LOW': setting_values.get('risk_low_threshold', settings.RISK_THRESHOLDS['LOW']),
+            'MEDIUM': setting_values.get('risk_medium_threshold', settings.RISK_THRESHOLDS['MEDIUM']),
+            'HIGH': setting_values.get('risk_high_threshold', settings.RISK_THRESHOLDS['HIGH']),
+            'CRITICAL': setting_values.get('risk_critical_threshold', settings.RISK_THRESHOLDS['CRITICAL'])
+        }
+        
+        conn.close()
+        return risk_thresholds
+        
+    except Exception as e:
+        logger.error(f"Error retrieving dynamic risk thresholds: {e}")
+        # Fallback to config defaults
+        return settings.RISK_THRESHOLDS
+
+def get_mental_state_analysis(score):
+    """Determine mental state based on combined score using dynamic thresholds from database"""
+    
+    # Get current risk thresholds from database
+    risk_thresholds = get_dynamic_risk_thresholds()
+    
+    if score <= risk_thresholds['LOW']:
         return {
             'state': 'EXCELLENT MENTAL HEALTH',
             'level': 'GREEN',
             'description': 'Positive emotional state, no concerns',
             'recommendation': 'Continue normal duties'
         }
-    elif score <= settings.RISK_THRESHOLDS['MEDIUM']:
+    elif score <= risk_thresholds['MEDIUM']:
         return {
             'state': 'GOOD MENTAL HEALTH',
             'level': 'GREEN',
             'description': 'Stable emotional state with minor stress indicators',
             'recommendation': 'Continue normal duties, light monitoring'
         }
-    elif score <= settings.RISK_THRESHOLDS['HIGH']:
+    elif score <= risk_thresholds['HIGH']:
         return {
             'state': 'MILD CONCERN',
             'level': 'YELLOW',
             'description': 'Moderate stress/negative mood detected',
             'recommendation': 'Weekly check-ins, monitor closely'
         }
-    elif score <= settings.RISK_THRESHOLDS['CRITICAL']:
+    elif score <= risk_thresholds['CRITICAL']:
         return {
             'state': 'MODERATE DEPRESSION',
             'level': 'ORANGE',
@@ -187,12 +271,13 @@ def submit_survey():
             # Store the actual score even if it's 0 (no more NULL values!)
             question_emotion_score = image_avg_score
             
-            # Calculate WEIGHTED combined depression score using configurable weights
+            # Calculate WEIGHTED combined depression score using dynamic database settings
             combined_depression_score = None
             if nlp_depression_score is not None and question_emotion_score >= 0:
                 # Both scores available - use weighted combination
-                combined_depression_score = settings.calculate_combined_score(nlp_depression_score, question_emotion_score)
-                logger.info(f"Question {question_id}: Weighted Combined = ({nlp_depression_score:.2f} * {settings.NLP_WEIGHT}) + ({question_emotion_score:.2f} * {settings.EMOTION_WEIGHT}) = {combined_depression_score:.3f}")
+                nlp_weight, emotion_weight = get_dynamic_settings()
+                combined_depression_score = calculate_dynamic_combined_score(nlp_depression_score, question_emotion_score)
+                logger.info(f"Question {question_id}: Weighted Combined = ({nlp_depression_score:.2f} * {nlp_weight}) + ({question_emotion_score:.2f} * {emotion_weight}) = {combined_depression_score:.3f}")
             elif nlp_depression_score is not None:
                 # Only NLP score available
                 combined_depression_score = nlp_depression_score
@@ -227,12 +312,13 @@ def submit_survey():
             avg_nlp_score = calculate_average_score(nlp_scores)
             logger.info(f"Session {session_id} - Average NLP Depression Score: {avg_nlp_score:.2f}")
         
-        # Calculate WEIGHTED final combined score (70% NLP + 30% Image)
+        # Calculate WEIGHTED final combined score using dynamic settings
+        nlp_weight, emotion_weight = get_dynamic_settings()
         final_combined_score = 0
         if avg_nlp_score > 0 and image_avg_score > 0:
             # Both scores available - use weighted combination
-            final_combined_score = (avg_nlp_score * 0.7) + (image_avg_score * 0.3)
-            logger.info(f"Session {session_id} - Weighted Combined Score: ({avg_nlp_score:.2f} * 0.7) + ({image_avg_score:.2f} * 0.3) = {final_combined_score:.3f}")
+            final_combined_score = (avg_nlp_score * nlp_weight) + (image_avg_score * emotion_weight)
+            logger.info(f"Session {session_id} - Weighted Combined Score: ({avg_nlp_score:.2f} * {nlp_weight}) + ({image_avg_score:.2f} * {emotion_weight}) = {final_combined_score:.3f}")
         elif avg_nlp_score > 0:
             # Only NLP score available
             final_combined_score = avg_nlp_score

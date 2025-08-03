@@ -34,6 +34,8 @@ const SurveyPage: React.FC = () => {
     // Get soldier data from navigation state
     const soldierData = location.state as { force_id: string; password: string } | null;
     const [showStartNote, setShowStartNote] = useState(true);
+    const [surveyStarted, setSurveyStarted] = useState(false);
+    const [isCompleting, setIsCompleting] = useState(false); // Track if survey is being completed
     
     const [questions, setQuestions] = useState<Question[]>([]);
     const [questionnaireId, setQuestionnaireId] = useState<number | null>(null);
@@ -48,6 +50,7 @@ const SurveyPage: React.FC = () => {
     const [textInput, setTextInput] = useState(''); // New text input state
     const [emotionMonitoringStarted, setEmotionMonitoringStarted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false); // Prevent multiple submissions
+    const [showBackNavigationWarning, setShowBackNavigationWarning] = useState(false);
     const recognitionRef = useRef<any>(null);
 
     // Modal states
@@ -56,63 +59,129 @@ const SurveyPage: React.FC = () => {
     const [modalTitle, setModalTitle] = useState('');
     const [modalMessage, setModalMessage] = useState('');
 
+    // Prevent back navigation when survey is in progress
+    useEffect(() => {
+        const handlePopState = (event: PopStateEvent) => {
+            if (surveyStarted && !isSubmitting && !isCompleting) {
+                // Prevent the back navigation immediately
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                
+                // Re-push the current state to maintain history
+                window.history.pushState(null, '', window.location.href);
+                
+                // Show warning modal immediately
+                setModalTitle('Navigation Restricted');
+                setModalMessage('You cannot go back while the survey is in progress. Please complete and submit the survey first.');
+                setShowBackNavigationWarning(true);
+                
+                return false;
+            }
+        };
+
+        // Only add event listener and manipulate history when survey is actually started
+        if (surveyStarted && !isCompleting) {
+            // Push a state to history to detect back navigation
+            window.history.pushState({ surveyInProgress: true }, '', window.location.href);
+            window.addEventListener('popstate', handlePopState, true); // Use capture phase
+        }
+
+        return () => {
+            window.removeEventListener('popstate', handlePopState, true);
+        };
+    }, [surveyStarted, isSubmitting, isCompleting]);
+
+    // Prevent page refresh/close when survey is in progress
+    useEffect(() => {
+        const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+            if (surveyStarted && !isSubmitting && !isCompleting) {
+                event.preventDefault();
+                event.returnValue = 'You have a survey in progress. Are you sure you want to leave?';
+                return 'You have a survey in progress. Are you sure you want to leave?';
+            }
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, [surveyStarted, isSubmitting, isCompleting]);
+
+    // Cleanup on component unmount
+    useEffect(() => {
+        return () => {
+            // Clean up emotion monitoring when component unmounts
+            if (emotionMonitoringStarted) {
+                // Use a separate cleanup function to avoid dependency issues
+                apiService.endSurveyEmotionMonitoring(soldierData?.force_id || '', undefined)
+                    .catch(console.error);
+            }
+        };
+    }, [emotionMonitoringStarted, soldierData?.force_id]);
+
     useEffect(() => {
         // Redirect if no soldier data provided
         if (!soldierData) {
             navigate('/soldier/login');
             return;
         }
-        setShowStartNote(true);
-        // Parallelize emotion monitoring and questionnaire fetch
-        const fetchAll = async () => {
+        
+        // Define emotion monitoring function inline to avoid dependency issues
+        const startEmotionMonitoringAsync = async () => {
+            if (!soldierData?.force_id || emotionMonitoringStarted) return;
+            
             try {
-                const [emotionResult, questionnaireResult] = await Promise.all([
-                    startEmotionMonitoring(),
-                    apiService.getActiveQuestionnaire()
-                ]);
-                setQuestions(questionnaireResult.data.questions);
-                setQuestionnaireId(questionnaireResult.data.questionnaire.id);
-                setIsLoading(false);
+                console.log('Starting emotion monitoring for:', soldierData.force_id);
+                const response = await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
+                
+                // Check if webcam is disabled by admin
+                if (response.data.webcam_enabled === false) {
+                    console.log('Webcam is disabled by administrator');
+                    setModalTitle('Webcam Disabled');
+                    setModalMessage('Webcam monitoring is currently disabled by the administrator. The survey will continue without emotion detection.');
+                    setShowErrorModal(true);
+                    return; // Exit without setting emotionMonitoringStarted
+                }
+                
+                setEmotionMonitoringStarted(true);
+                console.log('Emotion monitoring started successfully for survey');
+                
             } catch (error) {
-                console.error('Failed to start survey:', error);
-                setModalTitle('Loading Error');
-                setModalMessage('Failed to load survey. Please try again.');
+                console.error('Failed to start emotion monitoring:', error);
+                // Don't block survey if emotion monitoring fails
+                setModalTitle('Emotion Monitoring Warning');
+                setModalMessage('Failed to start emotion monitoring. The survey will continue without emotion detection.');
                 setShowErrorModal(true);
-                setIsLoading(false);
-            } finally {
-                setShowStartNote(false);
             }
         };
-        fetchAll();
-    }, [soldierData, navigate]);
-
-    const startEmotionMonitoring = async () => {
-        if (!soldierData?.force_id || emotionMonitoringStarted) return;
         
-        try {
-            console.log('Starting emotion monitoring for:', soldierData.force_id);
-            const response = await apiService.startSurveyEmotionMonitoring(soldierData.force_id);
-            
-            // Check if webcam is disabled by admin
-            if (response.data.webcam_enabled === false) {
-                console.log('Webcam is disabled by administrator');
-                setModalTitle('Webcam Disabled');
-                setModalMessage('Webcam monitoring is currently disabled by the administrator. The survey will continue without emotion detection.');
-                setShowErrorModal(true);
-                return; // Exit without setting emotionMonitoringStarted
-            }
-            
-            setEmotionMonitoringStarted(true);
-            console.log('Emotion monitoring started successfully for survey');
-            
-        } catch (error) {
-            console.error('Failed to start emotion monitoring:', error);
-            // Don't block survey if emotion monitoring fails
-            setModalTitle('Emotion Monitoring Warning');
-            setModalMessage('Failed to start emotion monitoring. The survey will continue without emotion detection.');
-            setShowErrorModal(true);
+        // Only fetch data once when component first mounts and questions are empty
+        if (questions.length === 0) {
+            const fetchAll = async () => {
+                try {
+                    await Promise.all([
+                        startEmotionMonitoringAsync(),
+                        apiService.getActiveQuestionnaire().then(questionnaireResult => {
+                            setQuestions(questionnaireResult.data.questions);
+                            setQuestionnaireId(questionnaireResult.data.questionnaire.id);
+                        })
+                    ]);
+                    setIsLoading(false);
+                    setSurveyStarted(true); // Mark survey as started
+                } catch (error) {
+                    console.error('Failed to start survey:', error);
+                    setModalTitle('Loading Error');
+                    setModalMessage('Failed to load survey. Please try again.');
+                    setShowErrorModal(true);
+                    setIsLoading(false);
+                } finally {
+                    setShowStartNote(false);
+                }
+            };
+            fetchAll();
         }
-    };
+    }, [soldierData, navigate, emotionMonitoringStarted, questions.length]);
 
     const stopEmotionMonitoring = async (sessionId?: number) => {
         if (!soldierData?.force_id) {
@@ -260,6 +329,10 @@ const SurveyPage: React.FC = () => {
             
             console.log('Survey submitted successfully:', response.data);
             
+            // Mark survey as completing to prevent re-renders
+            setIsCompleting(true);
+            setSurveyStarted(false);
+            
             // Stop emotion monitoring and get results
             const emotionData = await stopEmotionMonitoring(response.data?.session_id);
             
@@ -286,11 +359,13 @@ const SurveyPage: React.FC = () => {
 
     const handleSuccessModalClose = async () => {
         setShowSuccessModal(false);
+        
         // Stop emotion monitoring if still running
         if (emotionMonitoringStarted) {
             await stopEmotionMonitoring();
         }
-        // Reset the survey for next soldier
+        
+        // Reset all states immediately
         setCurrentQuestionIndex(0);
         setResponses([]);
         setCapturedText('');
@@ -298,12 +373,21 @@ const SurveyPage: React.FC = () => {
         setTextInput('');
         setHasEndedAnswering(false);
         setIsAnswering(false);
-        setIsSubmitting(false); // Reset submission state
-        // Redirect to soldier login page
-        navigate('/soldier/login');
+        setIsSubmitting(false);
+        setEmotionMonitoringStarted(false);
+        setQuestions([]);
+        setQuestionnaireId(null);
+        setIsLoading(true); // Set loading to prevent brief survey form display
+        
+        // Navigate immediately without delay
+        navigate('/soldier/login', { replace: true });
     };
 
-    if (showStartNote) {
+    const handleBackNavigationWarningClose = () => {
+        setShowBackNavigationWarning(false);
+    };
+
+    if (showStartNote && !showSuccessModal && !showBackNavigationWarning && !isCompleting) {
         return (
             <div className="flex h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="flex-1 flex items-center justify-center">
@@ -323,7 +407,7 @@ const SurveyPage: React.FC = () => {
             </div>
         );
     }
-    if (isLoading) {
+    if (isLoading && !showSuccessModal && !showBackNavigationWarning && !isCompleting) {
         return (
             <div className="flex h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="flex-1 flex items-center justify-center">
@@ -591,6 +675,30 @@ const SurveyPage: React.FC = () => {
                 message={modalMessage}
                 onRetry={() => setShowErrorModal(false)}
             />
+
+            {/* Back Navigation Warning Modal */}
+            <Modal
+                isOpen={showBackNavigationWarning}
+                onClose={handleBackNavigationWarningClose}
+                title="Navigation Restricted"
+                type="warning"
+            >
+                <div className="text-center py-4">
+                    <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 mb-4 shadow-lg">
+                        <i className="fas fa-exclamation-triangle text-white text-2xl"></i>
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-800 mb-3">Cannot Navigate Back</h3>
+                    <p className="text-gray-600 mb-6">
+                        You cannot go back while the survey is in progress. Please complete and submit the survey first.
+                    </p>
+                    <button
+                        onClick={handleBackNavigationWarningClose}
+                        className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                    >
+                        Continue Survey
+                    </button>
+                </div>
+            </Modal>
         </div>
     );
 };

@@ -10,6 +10,44 @@ from statistics import mean
 from db.connection import get_connection
 from services.emotion_detection_service import EmotionDetectionService
 
+def get_camera_settings():
+    """Get camera settings from database with fallback to defaults"""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        cursor.execute("""
+            SELECT setting_name, setting_value 
+            FROM system_settings 
+            WHERE setting_name IN ('camera_width', 'camera_height', 'detection_interval')
+        """)
+        
+        db_settings = cursor.fetchall()
+        setting_values = {}
+        
+        for setting in db_settings:
+            # Convert to appropriate types
+            if setting['setting_name'] in ['camera_width', 'camera_height', 'detection_interval']:
+                setting_values[setting['setting_name']] = int(setting['setting_value'])
+        
+        conn.close()
+        
+        # Return with defaults if not found in database
+        return {
+            'width': setting_values.get('camera_width', 640),
+            'height': setting_values.get('camera_height', 480),
+            'detection_interval': setting_values.get('detection_interval', 30)
+        }
+        
+    except Exception as e:
+        logging.error(f"Error retrieving camera settings: {e}")
+        # Return hardcoded defaults
+        return {
+            'width': 640,
+            'height': 480,
+            'detection_interval': 30
+        }
+
 class CCTVMonitoringService:
     def __init__(self):
         self.emotion_service = EmotionDetectionService()
@@ -28,6 +66,10 @@ class CCTVMonitoringService:
             level=logging.DEBUG,
             format='%(asctime)s - %(levelname)s - %(message)s'
         )
+        
+    def get_camera_settings(self):
+        """Get camera settings from database - exposed method for testing"""
+        return get_camera_settings()
         
     def _find_available_camera(self):
         """Try different camera indices to find an available camera"""
@@ -387,10 +429,13 @@ class CCTVMonitoringService:
                 if not self.cap:
                     raise Exception("No camera available")
                     
-            # Set camera properties for better performance
-            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-            self.cap.set(cv2.CAP_PROP_FPS, 10)
+            # Set camera properties using dynamic settings from database
+            camera_settings = get_camera_settings()
+            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_settings['width'])
+            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_settings['height'])
+            self.cap.set(cv2.CAP_PROP_FPS, 10)  # Keep FPS at 10 for performance
+            
+            logging.info(f"Camera configured: {camera_settings['width']}x{camera_settings['height']}, detection_interval={camera_settings['detection_interval']}")
             
             # Initialize survey monitoring state
             self.survey_force_id = force_id
@@ -420,7 +465,10 @@ class CCTVMonitoringService:
         logging.info(f"Starting continuous survey frame processing for soldier {force_id}")
         
         frame_count = 0
-        detection_interval = 30  # Process every 30th frame (about 3 seconds at 10 FPS)
+        # Get dynamic detection interval from database settings
+        camera_settings = get_camera_settings()
+        detection_interval = camera_settings['detection_interval']  # Use configurable interval
+        logging.info(f"Using detection interval: {detection_interval} frames")
         
         while self.survey_thread_active and self.survey_monitoring:
             try:

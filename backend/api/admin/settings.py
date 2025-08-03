@@ -17,13 +17,31 @@ def get_system_settings():
         cursor.execute("SELECT * FROM system_settings")
         db_settings = cursor.fetchall()
         
-        # Convert to dictionary
+        # Convert to dictionary with proper category mapping
         settings_dict = {}
+        
+        # Category mapping for database settings
+        category_mapping = {
+            'nlp_weight': 'scoring',
+            'emotion_weight': 'scoring',
+            'session_timeout': 'security',
+            'camera_width': 'camera',
+            'camera_height': 'camera',
+            'detection_interval': 'camera',
+            'webcam_enabled': 'camera',
+            'risk_low_threshold': 'risk',
+            'risk_medium_threshold': 'risk',
+            'risk_high_threshold': 'risk',
+            'risk_critical_threshold': 'risk',
+            'default_page_size': 'performance'
+        }
+        
         for setting in db_settings:
-            settings_dict[setting['setting_name']] = {
+            setting_name = setting['setting_name']
+            settings_dict[setting_name] = {
                 'value': setting['setting_value'],
                 'description': setting['description'],
-                'category': setting.get('category', 'general')
+                'category': category_mapping.get(setting_name, 'general')
             }
         
         # Add default settings if not in database
@@ -121,18 +139,16 @@ def update_system_settings():
         for setting_name, setting_data in updated_settings.items():
             setting_value = setting_data.get('value')
             description = setting_data.get('description', '')
-            category = setting_data.get('category', 'general')
             
             # Insert or update setting
             cursor.execute("""
-                INSERT INTO system_settings (setting_name, setting_value, description, category, updated_at)
-                VALUES (%s, %s, %s, %s, NOW())
+                INSERT INTO system_settings (setting_name, setting_value, description, updated_at)
+                VALUES (%s, %s, %s, NOW())
                 ON DUPLICATE KEY UPDATE
                 setting_value = VALUES(setting_value),
                 description = VALUES(description),
-                category = VALUES(category),
                 updated_at = NOW()
-            """, (setting_name, setting_value, description, category))
+            """, (setting_name, setting_value, description))
         
         conn.commit()
         

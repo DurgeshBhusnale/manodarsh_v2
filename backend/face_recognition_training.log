@@ -24707,3 +24707,218 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-08-03 17:12:18,464 - INFO - 127.0.0.1 - - [03/Aug/2025 17:12:18] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-03 17:13:19,460 - INFO - 127.0.0.1 - - [03/Aug/2025 17:13:19] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-03 17:14:17,494 - INFO - 127.0.0.1 - - [03/Aug/2025 17:14:17] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-03 17:53:07,151 - INFO - 127.0.0.1 - - [03/Aug/2025 17:53:07] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:53:07,156 - INFO - 127.0.0.1 - - [03/Aug/2025 17:53:07] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:53:07,184 - INFO - 127.0.0.1 - - [03/Aug/2025 17:53:07] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 17:53:07,414 - INFO - Trying external webcam (index 1)...
+2025-08-03 17:53:07,434 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 17:53:07,485 - INFO - Trying external webcam (index 1)...
+2025-08-03 17:53:07,490 - INFO - 127.0.0.1 - - [03/Aug/2025 17:53:07] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 17:53:07,515 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 17:53:10,588 - INFO - Successfully connected to built-in camera
+2025-08-03 17:53:10,648 - INFO - Successfully connected to built-in camera
+2025-08-03 17:53:20,732 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 17:53:20,733 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 17:53:20,733 - INFO - 127.0.0.1 - - [03/Aug/2025 17:53:20] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:53:23,364 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 17:53:23,365 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 17:53:23,365 - INFO - 127.0.0.1 - - [03/Aug/2025 17:53:23] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:56:19,108 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:56:23,679 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:56:27,795 - DEBUG - Emotion probabilities: {'Angry': '0.24', 'Disgusted': '0.02', 'Fearful': '0.57', 'Happy': '0.00', 'Neutral': '0.04', 'Sad': '0.12', 'Surprised': '0.00'}
+2025-08-03 17:56:27,795 - INFO - Detected soldier 100000001 with Fearful emotion (score: 2)
+2025-08-03 17:56:29,195 - ERROR - Error in survey frame processing: OpenCV(4.5.1) C:\Users\appveyor\AppData\Local\Temp\1\pip-req-build-kh7iq4w7\opencv\modules\videoio\src\cap_msmf.cpp:423: error: (-215:Assertion failed) videoSample in function '`anonymous-namespace'::SourceReaderCB::Wait'
+
+2025-08-03 17:56:34,414 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:56:38,414 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:57:03,438 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:57:07,771 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:57:09,868 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:09] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:57:09,870 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:09] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:57:09,899 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:09] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 17:57:10,221 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:10] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 17:57:10,379 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 17:57:10,380 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 17:57:10,381 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:10] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:57:10,404 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 17:57:10,405 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 17:57:10,406 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:10] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:57:20,003 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:20] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 17:57:30,672 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-03 17:57:30,678 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-08-03 17:57:30,702 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-03 17:57:30,702 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-08-03 17:57:38,594 - ERROR - Error in survey frame processing: OpenCV(4.5.1) C:\Users\appveyor\AppData\Local\Temp\1\pip-req-build-kh7iq4w7\opencv\modules\videoio\src\cap_msmf.cpp:423: error: (-215:Assertion failed) videoSample in function '`anonymous-namespace'::SourceReaderCB::Wait'
+
+2025-08-03 17:57:41,569 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:57:46,977 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:57:56,835 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:56] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-03 17:57:56,836 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:57:57,871 - INFO - All models loaded successfully
+2025-08-03 17:57:57,871 - WARNING - No monitoring session active for soldier 100000002
+2025-08-03 17:57:57,871 - INFO - Emotion monitoring results: {'force_id': '100000002', 'message': 'No monitoring session active'}
+2025-08-03 17:57:57,872 - WARNING - No emotion data retrieved from monitoring service
+2025-08-03 17:57:57,872 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-03 17:57:57,872 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-03 17:57:57,872 - INFO - Text: 'hello hello brother hello...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-03 17:57:57,872 - INFO - Question 14 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-03 17:57:57,872 - INFO - Question 14: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-03 17:57:57,872 - INFO - Question 14: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-03 17:57:57,874 - INFO - Session 51 - Average NLP Depression Score: 0.50
+2025-08-03 17:57:57,875 - INFO - Session 51 - Using NLP score only: 0.50
+2025-08-03 17:57:57,875 - INFO - ================================================================================
+2025-08-03 17:57:57,884 - INFO - ================================================================================
+2025-08-03 17:57:57,963 - INFO - 
+2025-08-03 17:57:57,976 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-03 17:57:57,978 - INFO -    Alert Level:    GREEN
+2025-08-03 17:57:57,979 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-03 17:57:57,979 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-03 17:57:57,979 - INFO - 
+2025-08-03 17:57:57,988 - INFO -    Total Detections: 0
+2025-08-03 17:57:57,988 - INFO -    Dominant Emotion: Unknown
+2025-08-03 17:57:57,989 - INFO - ================================================================================
+2025-08-03 17:57:58,018 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:58] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-03 17:57:58,339 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:58] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:57:58,350 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 17:57:58,412 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 17:57:58,412 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 17:57:58,475 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 17:57:58,476 - WARNING - No emotion data collected during survey for soldier 100000002
+2025-08-03 17:57:58,964 - INFO - Camera resources released after survey monitoring
+2025-08-03 17:57:58,966 - INFO - 127.0.0.1 - - [03/Aug/2025 17:57:58] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:58:19,919 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:19] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-03 17:58:20,509 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:20] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-03 17:58:20,571 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:20] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 17:58:20,910 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:20] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-03 17:58:24,666 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:24] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-03 17:58:24,942 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:24] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-03 17:58:25,002 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:25] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-03 17:58:25,043 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:25] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-03 17:58:37,242 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:37] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-03 17:58:45,536 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:45] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 17:58:45,830 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:45] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:58:45,834 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:45] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:58:45,858 - INFO - 127.0.0.1 - - [03/Aug/2025 17:58:45] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 17:58:46,157 - INFO - Trying external webcam (index 1)...
+2025-08-03 17:58:46,158 - INFO - Trying external webcam (index 1)...
+2025-08-03 17:58:46,185 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 17:58:46,198 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 17:58:49,413 - INFO - Successfully connected to built-in camera
+2025-08-03 17:58:49,417 - INFO - Successfully connected to built-in camera
+2025-08-03 17:59:00,333 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 17:59:00,333 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 17:59:00,334 - INFO - 127.0.0.1 - - [03/Aug/2025 17:59:00] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:59:03,280 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 17:59:03,281 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 17:59:03,282 - INFO - 127.0.0.1 - - [03/Aug/2025 17:59:03] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:59:07,971 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:59:19,302 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:59:48,507 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 17:59:49,119 - INFO - 127.0.0.1 - - [03/Aug/2025 17:59:49] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-03 17:59:50,097 - INFO - All models loaded successfully
+2025-08-03 17:59:50,098 - WARNING - No monitoring session active for soldier 100000002
+2025-08-03 17:59:50,098 - INFO - Emotion monitoring results: {'force_id': '100000002', 'message': 'No monitoring session active'}
+2025-08-03 17:59:50,098 - WARNING - No emotion data retrieved from monitoring service
+2025-08-03 17:59:50,099 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-03 17:59:50,099 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-03 17:59:50,100 - INFO - Text: 'hello hello...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-03 17:59:50,100 - INFO - Question 14 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-03 17:59:50,100 - INFO - Question 14: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-03 17:59:50,100 - INFO - Question 14: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-03 17:59:50,102 - INFO - Session 52 - Average NLP Depression Score: 0.50
+2025-08-03 17:59:50,103 - INFO - Session 52 - Using NLP score only: 0.50
+2025-08-03 17:59:50,103 - INFO - ================================================================================
+2025-08-03 17:59:50,111 - INFO - ================================================================================
+2025-08-03 17:59:50,182 - INFO - 
+2025-08-03 17:59:50,194 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-03 17:59:50,194 - INFO -    Alert Level:    GREEN
+2025-08-03 17:59:50,194 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-03 17:59:50,194 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-03 17:59:50,195 - INFO - 
+2025-08-03 17:59:50,206 - INFO -    Total Detections: 0
+2025-08-03 17:59:50,207 - INFO -    Dominant Emotion: Unknown
+2025-08-03 17:59:50,207 - INFO - ================================================================================
+2025-08-03 17:59:50,217 - INFO - 127.0.0.1 - - [03/Aug/2025 17:59:50] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-03 17:59:50,232 - INFO - 127.0.0.1 - - [03/Aug/2025 17:59:50] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 17:59:50,250 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 17:59:50,251 - WARNING - No emotion data collected during survey for soldier 100000002
+2025-08-03 17:59:50,297 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 17:59:50,850 - INFO - Camera resources released after survey monitoring
+2025-08-03 17:59:50,852 - INFO - 127.0.0.1 - - [03/Aug/2025 17:59:50] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:13:21,467 - INFO - 127.0.0.1 - - [03/Aug/2025 18:13:21] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:13:21,470 - INFO - 127.0.0.1 - - [03/Aug/2025 18:13:21] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:13:21,487 - INFO - 127.0.0.1 - - [03/Aug/2025 18:13:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 18:13:21,748 - INFO - Trying external webcam (index 1)...
+2025-08-03 18:13:21,775 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 18:13:21,798 - INFO - Trying external webcam (index 1)...
+2025-08-03 18:13:21,801 - INFO - 127.0.0.1 - - [03/Aug/2025 18:13:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 18:13:21,827 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 18:13:25,165 - INFO - Successfully connected to built-in camera
+2025-08-03 18:13:25,170 - INFO - Successfully connected to built-in camera
+2025-08-03 18:13:36,353 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 18:13:36,353 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 18:13:36,355 - INFO - 127.0.0.1 - - [03/Aug/2025 18:13:36] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:13:40,404 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 18:13:40,405 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 18:13:40,406 - INFO - 127.0.0.1 - - [03/Aug/2025 18:13:40] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:13:52,552 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 18:13:54,023 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-03 18:13:54,024 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-08-03 18:13:57,930 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 18:13:58,992 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 18:14:03,388 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 18:14:14,776 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 18:14:18,714 - WARNING - Face detected but not recognized as any known soldier
+2025-08-03 18:14:26,034 - INFO - 127.0.0.1 - - [03/Aug/2025 18:14:26] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-03 18:14:27,260 - INFO - All models loaded successfully
+2025-08-03 18:14:27,261 - WARNING - No monitoring session active for soldier 100000002
+2025-08-03 18:14:27,261 - INFO - Emotion monitoring results: {'force_id': '100000002', 'message': 'No monitoring session active'}
+2025-08-03 18:14:27,261 - WARNING - No emotion data retrieved from monitoring service
+2025-08-03 18:14:27,261 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-03 18:14:27,263 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.405, 'pos': 0.595, 'compound': 0.8316}
+2025-08-03 18:14:27,263 - INFO - Text: 'I am good how are you ok happy journey...' - Label: POSITIVE, Depression score: 0.08
+2025-08-03 18:14:27,263 - INFO - Question 14 - Sentiment: POSITIVE, Score: 0.08
+2025-08-03 18:14:27,264 - INFO - Question 14: Weighted Combined = (0.08 * 0.7) + (0.00 * 0.3) = 0.059
+2025-08-03 18:14:27,264 - INFO - Question 14: NLP=0.0842, Emotion=0.00, Weighted Combined=0.059
+2025-08-03 18:14:27,266 - INFO - Session 53 - Average NLP Depression Score: 0.08
+2025-08-03 18:14:27,266 - INFO - Session 53 - Using NLP score only: 0.08
+2025-08-03 18:14:27,267 - INFO - ================================================================================
+2025-08-03 18:14:27,281 - INFO - ================================================================================
+2025-08-03 18:14:27,350 - INFO - 
+2025-08-03 18:14:27,366 - INFO -    State:          EXCELLENT MENTAL HEALTH
+2025-08-03 18:14:27,366 - INFO -    Alert Level:    GREEN
+2025-08-03 18:14:27,367 - INFO -    Description:    Positive emotional state, no concerns
+2025-08-03 18:14:27,367 - INFO -    Recommendation: Continue normal duties
+2025-08-03 18:14:27,367 - INFO - 
+2025-08-03 18:14:27,380 - INFO -    Total Detections: 0
+2025-08-03 18:14:27,381 - INFO -    Dominant Emotion: Unknown
+2025-08-03 18:14:27,381 - INFO - ================================================================================
+2025-08-03 18:14:27,401 - INFO - 127.0.0.1 - - [03/Aug/2025 18:14:27] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-03 18:14:27,425 - INFO - 127.0.0.1 - - [03/Aug/2025 18:14:27] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:14:27,451 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 18:14:27,451 - WARNING - No emotion data collected during survey for soldier 100000002
+2025-08-03 18:14:27,499 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 18:14:28,044 - INFO - Camera resources released after survey monitoring
+2025-08-03 18:14:28,045 - INFO - 127.0.0.1 - - [03/Aug/2025 18:14:28] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:18:39,476 - INFO - 127.0.0.1 - - [03/Aug/2025 18:18:39] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:18:39,508 - INFO - 127.0.0.1 - - [03/Aug/2025 18:18:39] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 18:18:39,764 - INFO - Trying external webcam (index 1)...
+2025-08-03 18:18:39,806 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 18:18:44,463 - INFO - Successfully connected to built-in camera
+2025-08-03 18:18:55,532 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-03 18:18:55,533 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-03 18:18:55,535 - INFO - 127.0.0.1 - - [03/Aug/2025 18:18:55] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:19:12,105 - INFO - 127.0.0.1 - - [03/Aug/2025 18:19:12] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:19:12,117 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-03 18:19:12,118 - WARNING - No emotion data collected during survey for soldier 100000002
+2025-08-03 18:19:12,595 - INFO - Camera resources released after survey monitoring
+2025-08-03 18:19:12,597 - INFO - 127.0.0.1 - - [03/Aug/2025 18:19:12] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:19:12,660 - INFO - 127.0.0.1 - - [03/Aug/2025 18:19:12] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 18:20:21,352 - INFO - 127.0.0.1 - - [03/Aug/2025 18:20:21] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:20:21,366 - INFO - 127.0.0.1 - - [03/Aug/2025 18:20:21] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-03 18:20:21,390 - INFO - 127.0.0.1 - - [03/Aug/2025 18:20:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 18:20:21,653 - INFO - Trying external webcam (index 1)...
+2025-08-03 18:20:21,702 - INFO - Trying external webcam (index 1)...
+2025-08-03 18:20:21,715 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-03 18:20:21,727 - INFO - 127.0.0.1 - - [03/Aug/2025 18:20:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-03 18:20:21,755 - INFO - External webcam not found, trying built-in camera (index 0)...

@@ -147,7 +147,9 @@ const SurveyPage: React.FC = () => {
             recognition.onresult = async (event: any) => {
                 let transcript = event.results[0][0].transcript;
                 setRecordedText(transcript);
-                setCapturedText(prev => prev ? prev + ' ' + transcript : transcript);
+                // Combine with existing text input instead of separate capturedText
+                setTextInput(prev => prev ? prev + ' ' + transcript : transcript);
+                setCapturedText(transcript); // Keep for backward compatibility
             };
             recognition.onerror = (event: any) => {
                 setIsAnswering(false);
@@ -171,16 +173,17 @@ const SurveyPage: React.FC = () => {
         if (recognitionRef.current) {
             recognitionRef.current.stop();
             recognitionRef.current.onend = async () => {
-                if (capturedText) {
+                // Use textInput which now contains the combined voice + manual input
+                if (textInput) {
                     if (language === 'hi') {
                         try {
-                            const english = await translateHindiToEnglish(capturedText);
+                            const english = await translateHindiToEnglish(textInput);
                             console.log('English translation of answer:', english);
                         } catch (err) {
                             console.error('Translation failed:', err);
                         }
                     } else {
-                        console.log('Recognized:', capturedText);
+                        console.log('Recognized:', textInput);
                     }
                 }
             };
@@ -302,11 +305,19 @@ const SurveyPage: React.FC = () => {
 
     if (showStartNote) {
         return (
-            <div className="flex h-screen bg-gray-100">
+            <div className="flex h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="flex-1 flex items-center justify-center">
                     <div className="text-center">
-                        <div className="text-lg text-blue-600 mb-2 font-semibold">Login successful!</div>
-                        <div className="text-md text-gray-700">Starting survey...</div>
+                        <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full mb-6 shadow-xl">
+                            <i className="fas fa-check text-white text-3xl"></i>
+                        </div>
+                        <div className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3">
+                            Login Successful!
+                        </div>
+                        <div className="text-lg text-gray-600 font-medium">Starting your mental health survey...</div>
+                        <div className="mt-6">
+                            <div className="w-16 h-1 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full mx-auto animate-pulse"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -314,11 +325,27 @@ const SurveyPage: React.FC = () => {
     }
     if (isLoading) {
         return (
-            <div className="flex h-screen bg-gray-100">
+            <div className="flex h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="flex-1 flex items-center justify-center">
                     <div className="text-center">
-                        <div className="text-lg text-gray-600 mb-2">Loading survey...</div>
-                        <div className="text-sm text-gray-500">Preparing camera for emotion monitoring</div>
+                        <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6 shadow-xl">
+                            <i className="fas fa-heart text-white text-3xl animate-pulse"></i>
+                        </div>
+                        <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+                            Loading Survey...
+                        </div>
+                        <div className="text-lg text-gray-600 font-medium mb-6">Preparing your mental health assessment</div>
+                        <div className="flex items-center justify-center space-x-2 text-blue-600">
+                            <i className="fas fa-video"></i>
+                            <span className="text-sm">Setting up emotion monitoring</span>
+                        </div>
+                        <div className="mt-6">
+                            <div className="flex justify-center space-x-1">
+                                <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-bounce"></div>
+                                <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-bounce delay-100"></div>
+                                <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-bounce delay-200"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -326,183 +353,235 @@ const SurveyPage: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <div className="max-w-3xl mx-auto p-8">
-                <div className="bg-white rounded-lg shadow-md p-6">
-                    {/* Language Toggle */}
-                    <div className="flex justify-end mb-4">
-                        <div className="inline-flex rounded-md shadow-sm" role="group">
-                            <button
-                                type="button"
-                                className={`px-4 py-2 border border-gray-300 text-sm font-medium rounded-l-md focus:outline-none ${language === 'en' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}`}
-                                onClick={() => setLanguage('en')}
-                            >
-                                English
-                            </button>
-                            <button
-                                type="button"
-                                className={`px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md focus:outline-none ${language === 'hi' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}`}
-                                onClick={() => setLanguage('hi')}
-                            >
-                                Hindi
-                            </button>
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden flex items-center justify-center">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-10 animate-pulse"></div>
+                <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-10 animate-bounce"></div>
+                <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-10 animate-pulse delay-1000"></div>
+            </div>
+            
+            <div className="w-full max-w-2xl mx-auto p-4 relative z-10">
+                <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-5">
+                    {/* Header with Language Toggle */}
+                    <div className="flex justify-between items-center mb-3">
+                        <div className="flex items-center">
+                            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mr-2 shadow-lg flex items-center justify-center">
+                                <i className="fas fa-heart text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h1 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    Mental Health Survey
+                                </h1>
+                                <p className="text-gray-600 text-xs">Your well-being matters to us</p>
+                            </div>
+                        </div>
+                        
+                        {/* Language Toggle */}
+                        <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-1 rounded-xl shadow-lg">
+                            <div className="inline-flex rounded-lg shadow-sm overflow-hidden" role="group">
+                                <button
+                                    type="button"
+                                    className={`px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                                        language === 'en' 
+                                            ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg transform scale-105' 
+                                            : 'bg-white/80 text-gray-700 hover:bg-white hover:text-blue-600'
+                                    } rounded-l-lg border-r border-gray-200`}
+                                    onClick={() => setLanguage('en')}
+                                >
+                                    <i className="fas fa-globe-americas mr-2"></i>
+                                    English
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                                        language === 'hi' 
+                                            ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg transform scale-105' 
+                                            : 'bg-white/80 text-gray-700 hover:bg-white hover:text-orange-600'
+                                    } rounded-r-lg`}
+                                    onClick={() => setLanguage('hi')}
+                                >
+                                    <i className="fas fa-language mr-2"></i>
+                                    हिंदी
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Header with progress */}
-                    <div className="mb-8">
-                        <h1 className="text-2xl font-bold mb-4">Weekly Mental Health Survey</h1>
-                        
-                        {/* Emotion Monitoring Indicator */}
-                        {emotionMonitoringStarted && (
-                            <div className="flex items-center justify-center text-blue-600 mb-4 bg-blue-50 p-2 rounded-lg">
-                                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse" />
-                                <span className="text-sm">Emotion monitoring active during survey</span>
+                    {/* Progress Section */}
+                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-2.5 border border-gray-200 shadow-inner mb-3">
+                        <div className="flex items-center justify-between mb-1.5">
+                            <div className="flex items-center">
+                                <div className="w-5 h-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-2">
+                                    <span className="text-white text-xs font-bold">{currentQuestionIndex + 1}</span>
+                                </div>
+                                <span className="text-sm font-semibold text-gray-700">
+                                    Question {currentQuestionIndex + 1} of {questions.length}
+                                </span>
                             </div>
-                        )}
-                        
-                        <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm text-gray-600">
-                                Question {currentQuestionIndex + 1} of {questions.length}
-                            </span>
-                            <span className="text-sm text-gray-600">
-                                {Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}% Complete
-                            </span>
+                            <div className="flex items-center">
+                                <i className="fas fa-chart-line mr-1 text-green-600"></i>
+                                <span className="text-sm font-semibold text-green-600">
+                                    {Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}% Complete
+                                </span>
+                            </div>
                         </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div className="w-full bg-gradient-to-r from-gray-200 to-gray-300 rounded-full h-1.5 shadow-inner">
                             <div
-                                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                                className="bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 h-1.5 rounded-full transition-all duration-500 ease-out shadow-lg relative overflow-hidden"
                                 style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
-                            />
+                            >
+                                <div className="absolute inset-0 bg-white/30 animate-pulse"></div>
+                            </div>
                         </div>
                     </div>
 
                     {/* Question Card */}
-                    <div className="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200">
-                        <h2 className="text-xl font-medium text-gray-800 mb-4">
-                            {language === 'en'
-                                ? questions[currentQuestionIndex]?.question_text
-                                : questions[currentQuestionIndex]?.question_text_hindi}
-                        </h2>
+                    <div className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-4 mb-3 border border-gray-200 shadow-xl relative overflow-hidden">
+                        {/* Decorative Elements */}
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full -mr-12 -mt-12 opacity-50"></div>
+                        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-green-100 to-blue-100 rounded-full -ml-10 -mb-10 opacity-50"></div>
                         
-                        {/* Answer Status Indicator */}
-                        {isAnswering && (
-                            <div className="flex items-center justify-center text-green-600 mb-4">
-                                <div className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse" />
-                                <span>Recording your answer...</span>
+                        <div className="relative z-10">
+                            <div className="flex items-start mb-3">
+                                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mr-2 shadow-lg">
+                                    <i className="fas fa-question text-white text-sm"></i>
+                                </div>
+                                <div className="flex-1">
+                                    <h2 className="text-lg font-bold text-gray-800 leading-relaxed">
+                                        {language === 'en'
+                                            ? questions[currentQuestionIndex]?.question_text
+                                            : questions[currentQuestionIndex]?.question_text_hindi}
+                                    </h2>
+                                </div>
                             </div>
-                        )}
-                        
-                        {/* Captured Answer Textbox */}
-                        {capturedText && !isAnswering && (
-                            <div className="mt-4">
-                                <label className="block text-gray-700 mb-2">Captured Voice Answer</label>
+                            
+                            {/* Combined Voice and Text Input */}
+                            <div className="space-y-3">
+                                <div className="flex items-center justify-between mb-2">
+                                    <label className="text-sm font-semibold text-gray-700">Your Response</label>
+                                    <div className="flex items-center space-x-2">
+                                        {isAnswering && (
+                                            <div className="flex items-center bg-gradient-to-r from-red-50 to-pink-50 px-2 py-1 rounded-full">
+                                                <div className="w-2 h-2 bg-red-500 rounded-full mr-1 animate-pulse"></div>
+                                                <span className="text-xs font-semibold text-red-600">Recording</span>
+                                            </div>
+                                        )}
+                                        <button
+                                            onClick={isAnswering ? handleStopAnswer : handleStartAnswer}
+                                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center ${
+                                                isAnswering 
+                                                    ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg transform scale-105' 
+                                                    : 'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:shadow-lg hover:scale-105'
+                                            }`}
+                                        >
+                                            <i className={`fas ${isAnswering ? 'fa-stop' : 'fa-microphone'} mr-1`}></i>
+                                            {isAnswering ? 'Stop' : 'Voice'}
+                                        </button>
+                                    </div>
+                                </div>
+                                
                                 <textarea
-                                    className="w-full p-3 border rounded-lg bg-gray-50"
+                                    value={textInput || capturedText}
+                                    onChange={(e) => setTextInput(e.target.value)}
+                                    placeholder={`Type your response here or use voice input... ${language === 'hi' ? '(यहाँ अपना उत्तर टाइप करें या वॉयस इनपुट का उपयोग करें...)' : ''}`}
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-br from-white to-gray-50 shadow-inner resize-none"
                                     rows={3}
-                                    value={capturedText}
-                                    onChange={e => setCapturedText(e.target.value)}
                                 />
-                            </div>
-                        )}
-
-                        {/* Text Input for Manual Answer */}
-                        <div className="mt-4">
-                            <label className="block text-gray-700 mb-2">
-                                Your Answer (Type here or use voice recording above)
-                            </label>
-                            <textarea
-                                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                rows={4}
-                                value={textInput}
-                                onChange={e => setTextInput(e.target.value)}
-                                placeholder={language === 'hi' 
-                                    ? "अपना उत्तर यहाँ टाइप करें..." 
-                                    : "Type your answer here..."}
-                            />
-                            <div className="text-sm text-gray-500 mt-1">
-                                {language === 'hi' 
-                                    ? "आप अपना उत्तर टाइप कर सकते हैं या ऊपर वॉयस रिकॉर्डिंग का उपयोग कर सकते हैं"
-                                    : "You can type your answer or use voice recording above"}
                             </div>
                         </div>
                     </div>
 
-                    {/* Button Controls */}
-                    <div className="flex justify-between items-center space-x-4">
-                        {/* Start/Stop Answer Button */}
-                        {!isAnswering ? (
-                            <button
-                                onClick={handleStartAnswer}
-                                className="flex-1 flex items-center justify-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                            >
-                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <circle cx="12" cy="12" r="6" fill="currentColor" />
-                                </svg>
-                                Start Answering
-                            </button>
-                        ) : (
-                            <button
-                                onClick={handleStopAnswer}
-                                className="flex-1 flex items-center justify-center px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-                            >
-                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <rect x="8" y="8" width="8" height="8" fill="currentColor" />
-                                </svg>
-                                End Answering
-                            </button>
-                        )}
-
+                    {/* Navigation Controls */}
+                    <div className="flex justify-between items-center space-x-3">
                         {/* Next Question or Submit Button */}
                         {currentQuestionIndex === questions.length - 1 ? (
                             <button
                                 onClick={handleSubmitSurvey}
-                                className={`flex-1 py-3 px-6 rounded-lg transition-colors ${
+                                className={`flex-1 py-2.5 px-5 rounded-lg font-semibold shadow-lg transition-all duration-200 ${
                                     isSubmitting 
-                                        ? 'bg-blue-800 text-white cursor-not-allowed' 
-                                        : (hasEndedAnswering || textInput.trim()) 
-                                            ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                                            : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                                        ? 'bg-gradient-to-r from-blue-800 to-purple-800 text-white cursor-not-allowed' 
+                                        : (hasEndedAnswering || textInput.trim() || capturedText) 
+                                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white hover:scale-[1.02]' 
+                                            : 'bg-gradient-to-r from-gray-400 to-gray-500 text-gray-200 cursor-not-allowed'
                                 }`}
-                                disabled={isSubmitting || (!hasEndedAnswering && !textInput.trim())}
+                                disabled={isSubmitting || (!hasEndedAnswering && !textInput.trim() && !capturedText)}
                             >
-                                {isSubmitting ? (
-                                    <span className="flex items-center justify-center">
-                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
-                                        Submitting...
-                                    </span>
-                                ) : (
-                                    'Submit Survey'
-                                )}
+                                <div className="flex items-center justify-center">
+                                    {isSubmitting ? (
+                                        <>
+                                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                                            <span>Submitting...</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <i className="fas fa-check mr-2"></i>
+                                            <span>Submit Survey</span>
+                                        </>
+                                    )}
+                                </div>
                             </button>
                         ) : (
                             <button
                                 onClick={handleNextQuestion}
-                                className={`flex-1 py-3 px-6 rounded-lg transition-colors ${
-                                    (hasEndedAnswering || textInput.trim()) 
-                                        ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                                        : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                                className={`flex-1 py-2.5 px-5 rounded-lg font-semibold shadow-lg transition-all duration-200 ${
+                                    (hasEndedAnswering || textInput.trim() || capturedText) 
+                                        ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white hover:scale-[1.02]' 
+                                        : 'bg-gradient-to-r from-gray-400 to-gray-500 text-gray-200 cursor-not-allowed'
                                 }`}
-                                disabled={!hasEndedAnswering && !textInput.trim()}
+                                disabled={!hasEndedAnswering && !textInput.trim() && !capturedText}
                             >
-                                Next Question
+                                <div className="flex items-center justify-center">
+                                    <i className="fas fa-arrow-right mr-2"></i>
+                                    <span>Next Question</span>
+                                </div>
                             </button>
                         )}
                     </div>
                 </div>
             </div>
 
-            {/* Modal Components */}
+            {/* Enhanced Success Modal */}
             <Modal
                 isOpen={showSuccessModal}
                 onClose={handleSuccessModalClose}
-                title={modalTitle}
+                title=""
                 type="success"
             >
-                <p className="text-gray-600">{modalMessage}</p>
+                <div className="text-center py-6">
+                    {/* Success Icon with Animation */}
+                    <div className="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 mb-6 shadow-xl">
+                        <div className="flex items-center justify-center h-16 w-16 rounded-full bg-white">
+                            <i className="fas fa-check text-3xl text-green-500 animate-pulse"></i>
+                        </div>
+                    </div>
+                    
+                    {/* Success Title */}
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3">
+                        Survey Submitted Successfully!
+                    </h3>
+                    
+                    {/* Success Message */}
+                    <p className="text-gray-600 text-lg mb-6 leading-relaxed px-4">
+                        Thank you for completing the mental health survey. Your responses have been recorded successfully and will help us better support your well-being.
+                    </p>
+                    
+                    {/* Decorative Elements */}
+                    <div className="flex justify-center space-x-2 mb-6">
+                        <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-bounce delay-100"></div>
+                        <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-bounce delay-200"></div>
+                    </div>
+                    
+                    {/* Action Button */}
+                    <button
+                        onClick={handleSuccessModalClose}
+                        className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center mx-auto"
+                    >
+                        <i className="fas fa-home mr-2"></i>
+                        Return to Login
+                    </button>
+                </div>
             </Modal>
 
             <ErrorModal

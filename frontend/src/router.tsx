@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import LoginPage from './pages/login';
 import LandingPage from './pages/LandingPage';
 import AdminDashboard from './pages/admin/dashboard';
@@ -8,7 +8,6 @@ import QuestionnairePage from './pages/admin/create_questionnaire';
 import AdminQuestionnaires from './pages/admin/questionnaires';
 import AdminSettings from './pages/admin/settings';
 import DailyEmotionPage from './pages/admin/daily-emotion';
-import AdminSurveyPage from './pages/admin/survey';
 import SoldierSurveyPage from './pages/soldier/survey';
 import SoldierLoginPage from './pages/soldier/login';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -84,14 +83,6 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute requiredRole="admin">
         <DailyEmotionPage />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: '/admin/survey',
-    element: (
-      <ProtectedRoute requiredRole="admin">
-        <AdminSurveyPage />
       </ProtectedRoute>
     ),
   },

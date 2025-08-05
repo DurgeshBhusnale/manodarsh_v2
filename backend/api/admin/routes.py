@@ -230,48 +230,46 @@ def create_question():
         db.close()
 
 def get_mental_state_analysis(score):
-    """Determine mental state based on combined depression score (0-3 scale)"""
-    if score <= 0.5:
+    """Determine mental state based on combined score using dynamic thresholds from database"""
+    from api.survey.routes import get_dynamic_risk_thresholds
+    
+    # Get current risk thresholds from database
+    risk_thresholds = get_dynamic_risk_thresholds()
+    
+    if score >= risk_thresholds['CRITICAL']:
         return {
-            'state': 'EXCELLENT MENTAL HEALTH',
-            'level': 'GREEN',
-            'description': 'Positive emotional state, no concerns',
-            'recommendation': 'Continue normal duties'
+            'state': 'CRITICAL MENTAL HEALTH',
+            'level': 'CRITICAL',
+            'description': 'Severe depression/distress indicators',
+            'recommendation': 'URGENT: Immediate professional intervention required'
         }
-    elif score <= 1.0:
+    elif score >= risk_thresholds['HIGH']:
         return {
-            'state': 'GOOD MENTAL HEALTH',  
-            'level': 'GREEN',
-            'description': 'Stable emotional state with minor stress indicators',
-            'recommendation': 'Continue normal duties, light monitoring'
+            'state': 'MODERATE DEPRESSION',
+            'level': 'ORANGE',
+            'description': 'Significant negative emotional indicators',
+            'recommendation': 'Counseling recommended, bi-weekly assessments'
         }
-    elif score <= 1.5:
+    elif score >= risk_thresholds['MEDIUM']:
         return {
             'state': 'MILD CONCERN',
             'level': 'YELLOW',
             'description': 'Moderate stress/negative mood detected',
             'recommendation': 'Weekly check-ins, monitor closely'
         }
-    elif score <= 2.0:
+    elif score >= risk_thresholds['LOW']:
         return {
-            'state': 'MODERATE DEPRESSION',
-            'level': 'ORANGE', 
-            'description': 'Significant negative emotional indicators',
-            'recommendation': 'Counseling recommended, bi-weekly assessments'
-        }
-    elif score <= 2.5:
-        return {
-            'state': 'HIGH DEPRESSION',
-            'level': 'RED',
-            'description': 'Strong depression indicators, requires attention',
-            'recommendation': 'Immediate counseling, modified duties'
+            'state': 'GOOD MENTAL HEALTH',
+            'level': 'GREEN',
+            'description': 'Stable emotional state with minor stress indicators',
+            'recommendation': 'Continue normal duties, light monitoring'
         }
     else:
         return {
-            'state': 'CRITICAL MENTAL HEALTH',
-            'level': 'CRITICAL',
-            'description': 'Severe depression/distress indicators',
-            'recommendation': 'URGENT: Immediate professional intervention required'
+            'state': 'EXCELLENT MENTAL HEALTH',
+            'level': 'GREEN',
+            'description': 'Positive emotional state, no concerns',
+            'recommendation': 'Continue normal duties'
         }
 
 
@@ -341,13 +339,8 @@ def get_soldiers_report():
         }
         date_condition = date_conditions.get(days_filter, date_conditions['7'])
         
-        # Build risk level filter
-        risk_conditions = {
-            'low': 'latest_scores.combined_avg_score <= 1.0',
-            'mid': 'latest_scores.combined_avg_score > 1.0 AND latest_scores.combined_avg_score <= 2.0',
-            'high': 'latest_scores.combined_avg_score > 2.0 AND latest_scores.combined_avg_score <= 2.5',
-            'critical': 'latest_scores.combined_avg_score > 2.5'
-        }
+        # Note: Risk level filtering is now done in Python after data retrieval
+        # to ensure consistency with dynamic thresholds from database settings
         
         # Simplified and more robust query approach
         # First, let's get all soldiers and then join with their latest sessions
@@ -411,15 +404,18 @@ def get_soldiers_report():
             nlp_score = session_data[2] if session_data and session_data[2] else 0
             image_score = session_data[3] if session_data and session_data[3] else 0
             
-            # Determine risk level
-            if combined_score <= 1.0:
-                risk_level_calc = 'LOW'
-            elif combined_score <= 2.0:
-                risk_level_calc = 'MID'
-            elif combined_score <= 2.5:
-                risk_level_calc = 'HIGH'
-            else:
+            # Determine risk level using dynamic thresholds from database
+            from api.survey.routes import get_dynamic_risk_thresholds
+            risk_thresholds = get_dynamic_risk_thresholds()
+            
+            if combined_score >= risk_thresholds['CRITICAL']:
                 risk_level_calc = 'CRITICAL'
+            elif combined_score >= risk_thresholds['HIGH']:
+                risk_level_calc = 'HIGH'
+            elif combined_score >= risk_thresholds['MEDIUM']:
+                risk_level_calc = 'MID'
+            else:
+                risk_level_calc = 'LOW'
             
             mental_state = get_mental_state_analysis(combined_score)
             

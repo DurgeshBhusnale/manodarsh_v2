@@ -236,7 +236,7 @@ const AdminDashboard: React.FC = () => {
         
         return [
             {
-                title: 'Total Soldiers',
+                title: 'Total Users',
                 value: stats.totalSoldiers || 0,
                 icon: '👥',
                 color: 'bg-blue-500'
@@ -254,7 +254,7 @@ const AdminDashboard: React.FC = () => {
                 color: 'bg-yellow-500'
             },
             {
-                title: 'High Risk Soldiers',
+                title: 'High Risk Users',
                 value: stats.highRiskSoldiers || 0,
                 icon: '⚠️',
                 color: 'bg-orange-500'
@@ -374,7 +374,7 @@ const AdminDashboard: React.FC = () => {
                             <h3 className="text-lg font-semibold mb-4 flex items-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                                 <i className="fas fa-chart-pie mr-3 text-orange-500"></i>
                                 Risk Level Distribution 
-                                <span className="ml-3 text-gray-400 hover:text-gray-600 cursor-help transition-colors" title="Distribution of soldiers by risk level">
+                                <span className="ml-3 text-gray-400 hover:text-gray-600 cursor-help transition-colors" title="Distribution of users by risk level">
                                     <i className="fas fa-info-circle text-sm"></i>
                                 </span>
                             </h3>

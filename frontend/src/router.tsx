@@ -86,7 +86,7 @@ export const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-  // SOLDIER LOGIN & SURVEY ROUTES (No authentication required)
+  // USER LOGIN & SURVEY ROUTES (No authentication required)
   {
     path: '/soldier/login',
     element: <SoldierLoginPage />,

@@ -375,7 +375,8 @@ def get_soldiers_report():
                 ws.nlp_avg_score,
                 ws.image_avg_score,
                 ws.completion_timestamp,
-                q.title as questionnaire_title
+                q.title as questionnaire_title,
+                ws.mental_state_score
             FROM weekly_sessions ws
             LEFT JOIN questionnaires q ON ws.questionnaire_id = q.questionnaire_id
             WHERE ws.force_id = %s 
@@ -403,6 +404,7 @@ def get_soldiers_report():
             combined_score = session_data[1] if session_data and session_data[1] else 0
             nlp_score = session_data[2] if session_data and session_data[2] else 0
             image_score = session_data[3] if session_data and session_data[3] else 0
+            mental_state_score = session_data[6] if session_data and session_data[6] else None
             
             # Determine risk level using dynamic thresholds from database
             from api.survey.routes import get_dynamic_risk_thresholds
@@ -433,7 +435,8 @@ def get_soldiers_report():
                 "avg_cctv_score": round(cctv_data[1], 3) if cctv_data and cctv_data[1] else 0,
                 "mental_state": mental_state['state'],
                 "alert_level": mental_state['level'],
-                "recommendation": mental_state['recommendation']
+                "recommendation": mental_state['recommendation'],
+                "mental_state_score": mental_state_score
             })
         
         # Apply risk level filtering

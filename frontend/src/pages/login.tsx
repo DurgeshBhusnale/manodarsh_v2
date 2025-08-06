@@ -111,7 +111,7 @@ export const LoginPage: React.FC = () => {
                             <h4 className="font-semibold text-gray-700 mb-0.5 text-xs">Administrator Access Only</h4>
                             <p className="text-gray-600 text-xs leading-tight">
                                 This system is for administrators only.<br />
-                                <span className="font-semibold text-gray-700">Soldiers:</span> Please use the soldier login button below.
+                                <span className="font-semibold text-gray-700">Users:</span> Please use the user login button below.
                             </p>
                         </div>
                     </div>
@@ -182,7 +182,7 @@ export const LoginPage: React.FC = () => {
                             className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 text-sm"
                         >
                             <i className="fas fa-user-shield mr-2"></i>
-                            For Soldier Login, Click Here
+                            For User Login, Click Here
                         </button>
 
                         <div className="text-center">

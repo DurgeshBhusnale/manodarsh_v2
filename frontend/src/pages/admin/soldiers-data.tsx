@@ -2,6 +2,59 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Sidebar from '../../components/Sidebar';
 import { apiService } from '../../services/api';
 
+// Mental state options - same as in survey
+const MENTAL_STATE_OPTIONS = [
+    { 
+        value: 1, 
+        emoji: '😰', 
+        textEn: 'Very Low', 
+        textHi: 'बहुत उदास (Bahut Udaas)',
+        color: '#dc2626' 
+    },
+    { 
+        value: 2, 
+        emoji: '😟', 
+        textEn: 'Low', 
+        textHi: 'उदास (Udaas)',
+        color: '#ea580c' 
+    },
+    { 
+        value: 3, 
+        emoji: '😐', 
+        textEn: 'Neutral', 
+        textHi: 'सामान्य (Saamaanya)',
+        color: '#d97706' 
+    },
+    { 
+        value: 4, 
+        emoji: '🙂', 
+        textEn: 'Slightly Positive', 
+        textHi: 'थोड़े खुश (Thode Khush)',
+        color: '#65a30d' 
+    },
+    { 
+        value: 5, 
+        emoji: '😊', 
+        textEn: 'Positive', 
+        textHi: 'खुश (Khush)',
+        color: '#16a34a' 
+    },
+    { 
+        value: 6, 
+        emoji: '😁', 
+        textEn: 'Very Positive', 
+        textHi: 'बहुत खुश (Bahut Khush)',
+        color: '#059669' 
+    },
+    { 
+        value: 7, 
+        emoji: '🤩', 
+        textEn: 'Excellent', 
+        textHi: 'शानदार / बेहद खुश (Shandar / Behad Khush)',
+        color: '#0d9488' 
+    }
+];
+
 // Real data type from backend
 interface Soldier {
     force_id: string;
@@ -12,6 +65,11 @@ interface Soldier {
     nlp_score: number;
     image_score: number;
     mental_state: string;
+    mental_state_emoji?: string;
+    mental_state_text_en?: string;
+    mental_state_text_hi?: string;
+    mental_state_rating?: number;
+    mental_state_score?: number; // Add this field for the score from weekly_sessions
     alert_level: string;
     recommendation: string;
     total_cctv_detections: number;
@@ -77,8 +135,8 @@ const SoldiersData: React.FC = () => {
             
             setAllFilteredData(allDataResponse.data.soldiers);
         } catch (err: any) {
-            setError(err.response?.data?.error || 'Failed to fetch soldiers data');
-            console.error('Error fetching soldiers data:', err);
+            setError(err.response?.data?.error || 'Failed to fetch users data');
+            console.error('Error fetching users data:', err);
         } finally {
             setLoading(false);
         }
@@ -113,6 +171,14 @@ const SoldiersData: React.FC = () => {
         }
     };
 
+    // Function to get mental state display data from score
+    const getMentalStateDisplay = (score: number | undefined) => {
+        if (!score || score < 1 || score > 7) {
+            return null;
+        }
+        return MENTAL_STATE_OPTIONS.find(option => option.value === score);
+    };
+
     const downloadFile = (blob: Blob, filename: string) => {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -141,7 +207,7 @@ const SoldiersData: React.FC = () => {
             const response = await apiService.downloadSoldiersPDF(allFilteredData, currentFilters);
             
             const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
-            const filename = `soldiers_report_${timestamp}.pdf`;
+            const filename = `users_report_${timestamp}.pdf`;
             
             downloadFile(response.data, filename);
         } catch (error: any) {
@@ -169,7 +235,7 @@ const SoldiersData: React.FC = () => {
             const response = await apiService.downloadSoldiersCSV(allFilteredData, currentFilters);
             
             const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
-            const filename = `soldiers_report_${timestamp}.csv`;
+            const filename = `users_report_${timestamp}.csv`;
             
             downloadFile(response.data, filename);
         } catch (error: any) {
@@ -201,7 +267,7 @@ const SoldiersData: React.FC = () => {
                                 </div>
                             </div>
                             <div>
-                                <h1 className="text-2xl font-bold text-black tracking-tight">Soldiers Mental Health Report</h1>
+                                <h1 className="text-2xl font-bold text-black tracking-tight">Users Mental Health Report</h1>
                                 <p className="text-gray-600 text-sm mt-1">Monitor and analyze soldier mental health data</p>
                             </div>
                         </div>
@@ -354,7 +420,7 @@ const SoldiersData: React.FC = () => {
                             <div className="flex items-center mb-3 md:mb-0">
                                 <i className="fas fa-info-circle text-blue-600 mr-3"></i>
                                 <div>
-                                    <strong>Total Records Available for Download:</strong> {allFilteredData.length} soldiers
+                                    <strong>Total Records Available for Download:</strong> {allFilteredData.length} users
                                     {pagination && (
                                         <span className="ml-4 text-sm">
                                             (Showing {soldiersData.length} of {pagination.total_count} on this page)
@@ -378,7 +444,7 @@ const SoldiersData: React.FC = () => {
                 {loading && (
                     <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl p-12 text-center border border-white/20">
                         <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-t-transparent mx-auto mb-6"></div>
-                        <p className="text-xl font-semibold text-gray-700">Loading soldiers data...</p>
+                        <p className="text-xl font-semibold text-gray-700">Loading users data...</p>
                         <p className="text-sm text-gray-500 mt-2">Please wait while we fetch the latest information</p>
                     </div>
                 )}
@@ -393,7 +459,7 @@ const SoldiersData: React.FC = () => {
                                         <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                                             <div className="flex items-center">
                                                 <i className="fas fa-id-badge mr-2 text-blue-500"></i>
-                                                Soldier Info
+                                                User Info
                                             </div>
                                         </th>
                                         <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
@@ -410,6 +476,12 @@ const SoldiersData: React.FC = () => {
                                         </th>
                                         <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                                             <div className="flex items-center">
+                                                <i className="fas fa-brain mr-2 text-pink-500"></i>
+                                                Mental State
+                                            </div>
+                                        </th>
+                                        <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                            <div className="flex items-center">
                                                 <i className="fas fa-chart-bar mr-2 text-purple-500"></i>
                                                 Scores
                                             </div>
@@ -419,10 +491,10 @@ const SoldiersData: React.FC = () => {
                                 <tbody className="bg-white/50 divide-y divide-gray-200">
                                     {soldiersData.length === 0 ? (
                                         <tr>
-                                            <td colSpan={4} className="px-6 py-12 text-center text-gray-500">
+                                            <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
                                                 <div className="flex flex-col items-center">
                                                     <i className="fas fa-search text-4xl text-gray-300 mb-4"></i>
-                                                    <p className="text-lg font-semibold">No soldiers data found</p>
+                                                    <p className="text-lg font-semibold">No users data found</p>
                                                     <p className="text-sm">Try adjusting your filters to see more results</p>
                                                 </div>
                                             </td>
@@ -474,6 +546,58 @@ const SoldiersData: React.FC = () => {
                                                     </span>
                                                 </td>
 
+                                                {/* Mental State */}
+                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                    {(() => {
+                                                        // First check if we have direct mental state data (from mental_state_responses table)
+                                                        if (soldier.mental_state_emoji && soldier.mental_state_text_en) {
+                                                            return (
+                                                                <div className="flex items-center space-x-2">
+                                                                    <span className="text-2xl" title={`Rating: ${soldier.mental_state_rating || 'N/A'}/7`}>
+                                                                        {soldier.mental_state_emoji}
+                                                                    </span>
+                                                                    <div>
+                                                                        <div className="text-sm font-semibold text-gray-900">
+                                                                            {soldier.mental_state_text_en}
+                                                                        </div>
+                                                                        <div className="text-xs text-gray-500">
+                                                                            {soldier.mental_state_rating}/7
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        }
+                                                        
+                                                        // If not, check if we have mental_state_score (from weekly_sessions table)
+                                                        const mentalStateData = getMentalStateDisplay(soldier.mental_state_score);
+                                                        if (mentalStateData) {
+                                                            return (
+                                                                <div className="flex items-center space-x-2">
+                                                                    <span className="text-2xl" title={`Rating: ${soldier.mental_state_score}/7`}>
+                                                                        {mentalStateData.emoji}
+                                                                    </span>
+                                                                    <div>
+                                                                        <div className="text-sm font-semibold text-gray-900">
+                                                                            {mentalStateData.textEn}
+                                                                        </div>
+                                                                        <div className="text-xs text-gray-500">
+                                                                            {soldier.mental_state_score}/7
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        }
+                                                        
+                                                        // If no mental state data available
+                                                        return (
+                                                            <div className="flex items-center space-x-2 text-gray-400">
+                                                                <i className="fas fa-question-circle"></i>
+                                                                <span className="text-sm">Not assessed</span>
+                                                            </div>
+                                                        );
+                                                    })()}
+                                                </td>
+
                                                 {/* Scores */}
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <div className="space-y-1">
@@ -508,7 +632,7 @@ const SoldiersData: React.FC = () => {
                                         <i className="fas fa-info-circle mr-2 text-blue-500"></i>
                                         Page {pagination.current_page} of {pagination.total_pages} 
                                         <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">
-                                            {pagination.total_count} total soldiers
+                                            {pagination.total_count} total users
                                         </span>
                                     </span>
                                 </div>

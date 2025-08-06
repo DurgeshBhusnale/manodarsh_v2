@@ -48,8 +48,8 @@ const AdvancedSoldiersSearch: React.FC = () => {
     const filterPresets: FilterPreset[] = [
         {
             id: 'high-risk',
-            name: 'High Risk Soldiers',
-            description: 'Soldiers with high or critical risk levels',
+            name: 'High Risk Users',
+            description: 'Users with high or critical risk levels',
             filters: {
                 riskLevels: ['HIGH', 'CRITICAL'],
                 sortBy: 'combined_score',
@@ -59,7 +59,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
         {
             id: 'recent-surveys',
             name: 'Recent Surveys',
-            description: 'Soldiers who completed surveys in the last 7 days',
+            description: 'Users who completed surveys in the last 7 days',
             filters: {
                 dateRange: {
                     start: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -72,7 +72,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
         {
             id: 'improvement-needed',
             name: 'Improvement Needed',
-            description: 'Soldiers with declining mental health scores',
+            description: 'Users with declining mental health scores',
             filters: {
                 scoreRange: { min: 0.5, max: 1 },
                 sortBy: 'combined_score',
@@ -166,7 +166,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
         const a = document.createElement('a');
         a.setAttribute('hidden', '');
         a.setAttribute('href', url);
-        a.setAttribute('download', `soldiers-search-${new Date().toISOString().split('T')[0]}.csv`);
+        a.setAttribute('download', `users-search-${new Date().toISOString().split('T')[0]}.csv`);
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -189,8 +189,8 @@ const AdvancedSoldiersSearch: React.FC = () => {
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
                     <div className="mb-8">
-                        <h1 className="text-3xl font-bold text-gray-900">Advanced Soldiers Search</h1>
-                        <p className="text-gray-600 mt-2">Search and filter soldiers with advanced criteria</p>
+                        <h1 className="text-3xl font-bold text-gray-900">Advanced Users Search</h1>
+                        <p className="text-gray-600 mt-2">Search and filter users with advanced criteria</p>
                     </div>
 
                     {/* Quick Filter Presets */}
@@ -357,7 +357,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
                                     <div className="flex justify-between items-center">
                                         <div>
                                             <h3 className="text-lg font-semibold">Search Results</h3>
-                                            <p className="text-gray-600">{results.length} soldiers found</p>
+                                            <p className="text-gray-600">{results.length} users found</p>
                                         </div>
                                         <div className="flex space-x-3">
                                             <button
@@ -401,7 +401,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
                                                 {results.length === 0 ? (
                                                     <tr>
                                                         <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
-                                                            No soldiers found matching your criteria
+                                                            No users found matching your criteria
                                                         </td>
                                                     </tr>
                                                 ) : (

@@ -55,7 +55,7 @@ const SoldierLoginPage: React.FC = () => {
                             </div>
                         </div>
                         <h1 className="text-xl font-bold bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent mb-1">
-                            CRPF Soldier Portal
+                            CRPF User Portal
                         </h1>
                         <p className="text-gray-600 text-xs">Enter your Force ID and password to access the mental health survey</p>
                     </div>

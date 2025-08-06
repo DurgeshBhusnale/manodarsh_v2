@@ -54,7 +54,7 @@ Please keep the window focused for key controls to work.`);
             const response = await apiService.collectImages(forceId);
             if (response.data.folder_path) {
                 setModalTitle('Images Collected Successfully');
-                setModalMessage('Images collected successfully! You can now proceed with adding the soldier.');
+                setModalMessage('Images collected successfully! You can now proceed with adding the user.');
                 setShowSuccessModal(true);
             } else {
                 setModalTitle('Collection Cancelled');
@@ -95,8 +95,8 @@ Please keep the window focused for key controls to work.`);
                 password: password
             });
 
-            setModalTitle('Soldier Added');
-            setModalMessage('Soldier added successfully!');
+            setModalTitle('User Added');
+            setModalMessage('User added successfully!');
             setShowSuccessModal(true);
 
             // Clear form
@@ -104,7 +104,7 @@ Please keep the window focused for key controls to work.`);
             setPassword('');
         } catch (error: any) {
             setModalTitle('Registration Error');
-            setModalMessage(error.response?.data?.error || 'Failed to add soldier. Please try again.');
+            setModalMessage(error.response?.data?.error || 'Failed to add user. Please try again.');
             setShowErrorModal(true);
         } finally {
             setIsLoading(false);
@@ -130,18 +130,18 @@ Please keep the window focused for key controls to work.`);
                                 <i className="fas fa-user-plus text-blue-600 text-sm"></i>
                             </div>
                             <div>
-                                <h1 className="text-xl font-bold text-black">Add New Soldier</h1>
-                                <p className="text-gray-600 text-xs">Register a new soldier in the CRPF system</p>
+                                <h1 className="text-xl font-bold text-black">Add New User</h1>
+                                <p className="text-gray-600 text-xs">Register a new user in the CRPF system</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* Add Soldier Form */}
+                        {/* Add User Form */}
                         <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-lg p-6 border border-white/20">
                             <div className="flex items-center mb-5">
                                 <i className="fas fa-id-card text-lg text-blue-600 mr-2"></i>
-                                <h2 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Soldier Registration</h2>
+                                <h2 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">User Registration</h2>
                             </div>
                             
                             <form onSubmit={handleAddSoldier} className="space-y-4">
@@ -196,7 +196,7 @@ Please keep the window focused for key controls to work.`);
                                         className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-3 rounded-lg transition-all duration-200 font-semibold shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center"
                                     >
                                         <i className={`fas ${isLoading ? 'fa-spinner fa-spin' : 'fa-user-plus'} mr-2`}></i>
-                                        {isLoading ? 'Adding Soldier...' : 'Add Soldier'}
+                                        {isLoading ? 'Adding User...' : 'Add User'}
                                     </button>
                                 </div>
                             </form>
@@ -211,8 +211,8 @@ Please keep the window focused for key controls to work.`);
                             
                             <div className="mb-4">
                                 <p className="text-gray-600 text-sm leading-relaxed">
-                                    Train the facial recognition model once you added the soldiers. 
-                                    This process helps the system recognize soldiers during monitoring.
+                                    Train the facial recognition model once you added the users. 
+                                    This process helps the system recognize users during monitoring.
                                 </p>
                             </div>
 
@@ -222,7 +222,7 @@ Please keep the window focused for key controls to work.`);
                                     <div>
                                         <h4 className="font-semibold text-yellow-800 mb-1">Training Instructions</h4>
                                         <ul className="text-sm text-yellow-700 space-y-1">
-                                            <li>• Ensure all soldier images are collected</li>
+                                            <li>• Ensure all user images are collected</li>
                                             <li>• Training may take several minutes</li>
                                             <li>• Do not close the application during training</li>
                                         </ul>

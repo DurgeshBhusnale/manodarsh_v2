@@ -61,7 +61,7 @@ const DailyEmotionPage: React.FC = () => {
                             <ul className="space-y-2 text-sm text-gray-700">
                                 <li className="flex items-center">
                                     <i className="fas fa-smile text-green-600 mr-3"></i>
-                                    <span className="flex-1">Survey emotion monitoring (active during soldier surveys)</span>
+                                    <span className="flex-1">Survey emotion monitoring (active during user surveys)</span>
                                     <div className="flex items-center ml-2">
                                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1 animate-pulse"></div>
                                         <span className="text-xs text-green-600 font-medium">ACTIVE</span>
@@ -73,7 +73,7 @@ const DailyEmotionPage: React.FC = () => {
                                 </li>
                                 <li className="flex items-center">
                                     <i className="fas fa-camera text-purple-600 mr-3"></i>
-                                    <span className="flex-1">Image collection for soldiers</span>
+                                    <span className="flex-1">Image collection for users</span>
                                 </li>
                                 <li className="flex items-center">
                                     <i className="fas fa-clipboard-list text-orange-600 mr-3"></i>

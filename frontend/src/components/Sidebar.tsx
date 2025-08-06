@@ -25,8 +25,8 @@ export const Sidebar: React.FC = () => {
 
     const links = [
         { path: '/admin/dashboard', label: 'Dashboard' },
-        { path: '/admin/add-soldier', label: 'Add Soldier' },
-        { path: '/admin/soldiers-data', label: 'Soldiers Data' },
+        { path: '/admin/add-soldier', label: 'Add User' },
+        { path: '/admin/soldiers-data', label: 'Users Data' },
         { path: '/admin/questionnaires', label: 'Questionnaire' },
         { path: '/admin/settings', label: 'System Settings' },
         { path: '/admin/daily-emotion', label: 'Daily Emotion' },
@@ -35,8 +35,8 @@ export const Sidebar: React.FC = () => {
     const getIconForLink = (label: string): string => {
         const iconMap: { [key: string]: string } = {
             'Dashboard': 'fa-tachometer-alt',
-            'Add Soldier': 'fa-user-plus',
-            'Soldiers Data': 'fa-users',
+            'Add User': 'fa-user-plus',
+            'Users Data': 'fa-users',
             'Questionnaire': 'fa-clipboard-list',
             'System Settings': 'fa-cogs',
             'Daily Emotion': 'fa-smile'

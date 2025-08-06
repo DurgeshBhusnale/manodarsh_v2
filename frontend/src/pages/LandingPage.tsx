@@ -38,10 +38,10 @@ const LandingPage = () => (
         <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl rotate-45 opacity-80"></div>
         
         <h2 className="text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-600 via-yellow-500 to-green-600 bg-clip-text text-transparent animate-pulse">
-          Support. Strength. Stability.
+          SATHI
         </h2>
         <p className="text-xl md:text-2xl mb-10 text-gray-700 font-light leading-relaxed">
-          Comprehensive mental wellness support and weekly check-ins for CRPF personnel
+          Supportive AI To Heal and Iterate
         </p>
         
         <div className="flex flex-col md:flex-row gap-6 justify-center">
@@ -61,7 +61,7 @@ const LandingPage = () => (
           >
             <span className="flex items-center justify-center">
               <i className="fas fa-user-shield mr-3 text-xl"></i> 
-              Soldier Login
+              User Login
             </span>
           </Link>
         </div>
@@ -188,7 +188,7 @@ const LandingPage = () => (
           >
             <span className="flex items-center justify-center">
               <i className="fas fa-user-shield mr-3 text-2xl"></i> 
-              Soldier Portal
+              User Portal
             </span>
           </Link>
         </div>

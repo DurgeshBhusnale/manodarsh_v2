@@ -265,7 +265,7 @@ const QuestionnairePage: React.FC = () => {
                                         <i className="fas fa-toggle-on mr-2 text-green-500"></i>
                                         Set as Active Questionnaire
                                     </label>
-                                    <p className="text-sm text-gray-600 mt-2 ml-7">This questionnaire will be used for new soldier assessments</p>
+                                    <p className="text-sm text-gray-600 mt-2 ml-7">This questionnaire will be used for new user assessments</p>
                                 </div>
                                 
                                 <button

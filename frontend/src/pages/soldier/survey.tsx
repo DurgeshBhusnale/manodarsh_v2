@@ -43,11 +43,11 @@ const SurveyPage: React.FC = () => {
     const [responses, setResponses] = useState<SurveyResponse[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isAnswering, setIsAnswering] = useState(false);
-    const [hasEndedAnswering, setHasEndedAnswering] = useState(false);
     const [language, setLanguage] = useState<'en' | 'hi'>('en');
     const [recordedText, setRecordedText] = useState('');
     const [capturedText, setCapturedText] = useState('');
-    const [textInput, setTextInput] = useState(''); // New text input state
+    const [textInput, setTextInput] = useState(''); // Combined text input state
+    const [manualInput, setManualInput] = useState(''); // Manual typing input only
     const [emotionMonitoringStarted, setEmotionMonitoringStarted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false); // Prevent multiple submissions
     const [showBackNavigationWarning, setShowBackNavigationWarning] = useState(false);
@@ -142,7 +142,33 @@ const SurveyPage: React.FC = () => {
             setShowWordCountWarning(false);
         }
     }, [textInput, capturedText, recordedText]);
+    
+    // Handle manual text input changes (when user types while not in voice mode)
+    const handleTextInputChange = (value: string) => {
+        setTextInput(value);
+        if (!isAnswering) {
+            // Update manual input only when not in voice recording mode
+            setManualInput(value);
+            // Clear recorded text if user is manually editing (they want to type instead)
+            if (recordedText && !value.includes(recordedText)) {
+                setRecordedText('');
+                setCapturedText('');
+            }
+        }
+    };
     const recognitionRef = useRef<any>(null);
+    const surveyLoadedRef = useRef<boolean>(false); // Track if survey is already loaded
+    const successModalShownRef = useRef<boolean>(false); // Track if success modal has been shown
+
+    // Cleanup speech recognition on component unmount or question change
+    useEffect(() => {
+        return () => {
+            if (recognitionRef.current) {
+                recognitionRef.current.onend = null;
+                recognitionRef.current.stop();
+            }
+        };
+    }, [currentQuestionIndex]); // Clean up when question changes
 
     // Modal states
     const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -225,7 +251,7 @@ const SurveyPage: React.FC = () => {
             setCapturedText('');
             setRecordedText('');
             setTextInput('');
-            setHasEndedAnswering(false);
+            setManualInput(''); // Clear manual input
             setIsAnswering(false);
             setIsSubmitting(false);
             setShowMentalStateQuestion(false);
@@ -237,12 +263,16 @@ const SurveyPage: React.FC = () => {
             setSurveyStarted(false);
         };
         
-        // Reset states on component mount
-        resetStates();
+        // Reset states on component mount (but not if success modal was already shown)
+        if (!successModalShownRef.current) {
+            resetStates();
+        }
         
         // Define emotion monitoring function inline to avoid dependency issues
         const startEmotionMonitoringAsync = async () => {
-            if (!soldierData?.force_id || emotionMonitoringStarted) return;
+            // Check current state instead of using dependency
+            const currentEmotionState = emotionMonitoringStarted;
+            if (!soldierData?.force_id || currentEmotionState) return;
             
             try {
                 console.log('Starting emotion monitoring for:', soldierData.force_id);
@@ -269,66 +299,82 @@ const SurveyPage: React.FC = () => {
             }
         };
         
-        // Only fetch data once when component first mounts and questions are empty
-        if (questions.length === 0) {
-            const fetchAll = async () => {
-                try {
-                    console.log('Starting survey fetch process...');
-                    
-                    // Set a timeout to prevent infinite loading
-                    const timeoutId = setTimeout(() => {
-                        if (isLoading) {
-                            setModalTitle('Loading Timeout');
-                            setModalMessage('Survey loading is taking too long. Please try logging in again.');
-                            setShowErrorModal(true);
-                            setIsLoading(false);
-                            setShowStartNote(false);
-                        }
-                    }, 30000); // 30 seconds timeout
-                    
-                    // Start emotion monitoring first
-                    console.log('Starting emotion monitoring...');
-                    await startEmotionMonitoringAsync();
-                    
-                    // Then fetch questionnaire
-                    console.log('Fetching active questionnaire...');
-                    const questionnaireResult = await apiService.getActiveQuestionnaire();
-                    console.log('Questionnaire result:', questionnaireResult.data);
-                    
-                    // Clear timeout on success
-                    clearTimeout(timeoutId);
-                    
-                    if (!questionnaireResult.data.questionnaire) {
-                        throw new Error('No active questionnaire found');
+        // Load survey only on initial mount
+        const loadSurvey = async () => {
+            // Prevent loading if already loaded or if completing/success modal or success already shown
+            if (surveyLoadedRef.current || isCompleting || showSuccessModal || successModalShownRef.current) {
+                console.log('Skipping survey load - already loaded or completing', {
+                    alreadyLoaded: surveyLoadedRef.current,
+                    isCompleting,
+                    showSuccessModal,
+                    successModalShown: successModalShownRef.current
+                });
+                return;
+            }
+            
+            console.log('Initial survey load triggered');
+            surveyLoadedRef.current = true; // Mark as loading
+            
+            try {
+                console.log('Starting survey fetch process...');
+                
+                // Set a timeout to prevent infinite loading
+                const timeoutId = setTimeout(() => {
+                    if (isLoading) {
+                        setModalTitle('Loading Timeout');
+                        setModalMessage('Survey loading is taking too long. Please try logging in again.');
+                        setShowErrorModal(true);
+                        setIsLoading(false);
+                        setShowStartNote(false);
                     }
-                    
-                    if (!questionnaireResult.data.questions || questionnaireResult.data.questions.length === 0) {
-                        throw new Error('No questions found in the questionnaire');
-                    }
-                    
-                    setQuestions(questionnaireResult.data.questions);
-                    setQuestionnaireId(questionnaireResult.data.questionnaire.id);
-                    
-                    console.log('Survey loaded successfully:', {
-                        questionnaireId: questionnaireResult.data.questionnaire.id,
-                        questionsCount: questionnaireResult.data.questions.length
-                    });
-                    
-                    setIsLoading(false);
-                    setSurveyStarted(true); // Mark survey as started
-                    setShowStartNote(false); // Only hide start note on success
-                } catch (error) {
-                    console.error('Failed to start survey:', error);
-                    setModalTitle('Loading Error');
-                    setModalMessage(error instanceof Error ? error.message : 'Failed to load survey. Please try again.');
-                    setShowErrorModal(true);
-                    setIsLoading(false);
-                    setShowStartNote(false); // Hide start note to show error modal
+                }, 30000); // 30 seconds timeout
+                
+                // Start emotion monitoring first
+                console.log('Starting emotion monitoring...');
+                await startEmotionMonitoringAsync();
+                
+                // Then fetch questionnaire
+                console.log('Fetching active questionnaire...');
+                const questionnaireResult = await apiService.getActiveQuestionnaire();
+                console.log('Questionnaire result:', questionnaireResult.data);
+                
+                // Clear timeout on success
+                clearTimeout(timeoutId);
+                
+                if (!questionnaireResult.data.questionnaire) {
+                    throw new Error('No active questionnaire found');
                 }
-            };
-            fetchAll();
-        }
-    }, [soldierData, navigate, emotionMonitoringStarted, questions.length, isLoading]);
+                
+                if (!questionnaireResult.data.questions || questionnaireResult.data.questions.length === 0) {
+                    throw new Error('No questions found in the questionnaire');
+                }
+                
+                setQuestions(questionnaireResult.data.questions);
+                setQuestionnaireId(questionnaireResult.data.questionnaire.id);
+                
+                console.log('Survey loaded successfully:', {
+                    questionnaireId: questionnaireResult.data.questionnaire.id,
+                    questionsCount: questionnaireResult.data.questions.length
+                });
+                
+                setIsLoading(false);
+                setSurveyStarted(true); // Mark survey as started
+                setShowStartNote(false); // Only hide start note on success
+            } catch (error) {
+                console.error('Failed to start survey:', error);
+                setModalTitle('Loading Error');
+                setModalMessage(error instanceof Error ? error.message : 'Failed to load survey. Please try again.');
+                setShowErrorModal(true);
+                setIsLoading(false);
+                setShowStartNote(false); // Hide start note to show error modal
+                surveyLoadedRef.current = false; // Reset on error so it can retry
+            }
+        };
+        
+        // Only load survey once on mount
+        loadSurvey();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [soldierData, navigate]); // Only depend on soldierData and navigate to avoid re-renders on state changes
 
     const stopEmotionMonitoring = async (sessionId?: number) => {
         if (!soldierData?.force_id) {
@@ -353,28 +399,131 @@ const SurveyPage: React.FC = () => {
 
     const handleStartAnswer = () => {
         setIsAnswering(true);
-        setHasEndedAnswering(false);
-        setRecordedText('');
+        
+        // Don't clear recordedText when restarting - preserve existing voice input
+        // setRecordedText(''); // Remove this line
+        
+        // Capture current manual input before starting voice recognition
+        // But don't overwrite if we already have manual input stored
+        const currentText = textInput.trim();
+        if (currentText && !manualInput) {
+            // If we have text but no manual input stored, it means this is existing content
+            setManualInput(currentText);
+        } else if (currentText && manualInput && !currentText.includes(recordedText || '')) {
+            // If current text doesn't include recorded text, user has been typing manually
+            setManualInput(currentText);
+        }
+        
         if ('webkitSpeechRecognition' in window) {
             const recognition = new (window as any).webkitSpeechRecognition();
             recognition.lang = language === 'hi' ? 'hi-IN' : 'en-US';
-            recognition.interimResults = false;
+            recognition.continuous = true; // Keep listening continuously
+            recognition.interimResults = true; // Get interim results as user speaks
             recognition.maxAlternatives = 1;
+            
+            // Start with existing voice transcript if any
+            let finalTranscript = recordedText ? recordedText + ' ' : '';
+            
             recognition.onresult = async (event: any) => {
-                let transcript = event.results[0][0].transcript;
-                setRecordedText(transcript);
-                // Combine with existing text input instead of separate capturedText
-                setTextInput(prev => prev ? prev + ' ' + transcript : transcript);
-                setCapturedText(transcript); // Keep for backward compatibility
+                let interimTranscript = '';
+                
+                // Process all results from the current session
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        finalTranscript += transcript + ' ';
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+                
+                // Update the complete transcript (final + interim)
+                const completeTranscript = (finalTranscript + interimTranscript).trim();
+                setRecordedText(completeTranscript);
+                
+                // Combine manual input with voice input
+                const combinedText = manualInput && completeTranscript 
+                    ? manualInput + ' ' + completeTranscript 
+                    : manualInput || completeTranscript;
+                
+                setTextInput(combinedText);
+                setCapturedText(completeTranscript); // Keep for backward compatibility
             };
+            
             recognition.onerror = (event: any) => {
+                console.error('Speech recognition error:', event.error);
+                // Don't stop recognition for temporary errors - just log them
+                if (event.error === 'network' || event.error === 'audio-capture' || event.error === 'no-speech') {
+                    console.log('Temporary error, recognition will continue...', event.error);
+                    return;
+                }
+                
+                // Only show error for serious errors
+                if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                    setIsAnswering(false);
+                    setModalTitle('Microphone Permission Required');
+                    setModalMessage('Please allow microphone access to use voice input feature.');
+                    setShowErrorModal(true);
+                } else {
+                    console.warn('Speech recognition error (continuing):', event.error);
+                }
+            };
+            
+            recognition.onend = () => {
+                // Always restart if still in answering mode - no conditions
+                if (isAnswering) {
+                    console.log('Speech recognition ended, restarting immediately...');
+                    // Use a very short timeout to ensure seamless restart
+                    setTimeout(() => {
+                        if (isAnswering && recognitionRef.current) {
+                            try {
+                                recognitionRef.current.start();
+                                console.log('Speech recognition restarted successfully');
+                            } catch (error) {
+                                console.error('Failed to restart recognition:', error);
+                                // If immediate restart fails, try with slightly longer delay
+                                setTimeout(() => {
+                                    if (isAnswering && recognitionRef.current) {
+                                        try {
+                                            recognitionRef.current.start();
+                                            console.log('Speech recognition restarted on second attempt');
+                                        } catch (retryError) {
+                                            console.error('Failed to restart recognition on retry, trying once more:', retryError);
+                                            // Final attempt with longer delay
+                                            setTimeout(() => {
+                                                if (isAnswering && recognitionRef.current) {
+                                                    try {
+                                                        recognitionRef.current.start();
+                                                        console.log('Speech recognition restarted on final attempt');
+                                                    } catch (finalError) {
+                                                        console.error('All restart attempts failed:', finalError);
+                                                        setIsAnswering(false);
+                                                        setModalTitle('Speech Recognition Error');
+                                                        setModalMessage('Speech recognition stopped unexpectedly. Please try again.');
+                                                        setShowErrorModal(true);
+                                                    }
+                                                }
+                                            }, 1000);
+                                        }
+                                    }
+                                }, 300);
+                            }
+                        }
+                    }, 10); // Start with 10ms delay for immediate restart
+                }
+            };
+            
+            recognitionRef.current = recognition;
+            
+            try {
+                recognition.start();
+            } catch (error) {
+                console.error('Failed to start recognition:', error);
                 setIsAnswering(false);
                 setModalTitle('Speech Recognition Error');
-                setModalMessage(`Speech recognition error: ${event.error}`);
+                setModalMessage('Failed to start speech recognition. Please try again.');
                 setShowErrorModal(true);
-            };
-            recognitionRef.current = recognition;
-            recognition.start();
+            }
         } else {
             setModalTitle('Not Supported');
             setModalMessage('Speech recognition is not supported in this browser.');
@@ -385,10 +534,14 @@ const SurveyPage: React.FC = () => {
 
     const handleStopAnswer = async () => {
         setIsAnswering(false);
-        setHasEndedAnswering(true);
+        
         if (recognitionRef.current) {
+            // Remove the onend handler to prevent automatic restart
+            recognitionRef.current.onend = null;
             recognitionRef.current.stop();
-            recognitionRef.current.onend = async () => {
+            
+            // Process final text after stopping
+            setTimeout(async () => {
                 // Use textInput which now contains the combined voice + manual input
                 if (textInput) {
                     if (language === 'hi') {
@@ -402,11 +555,18 @@ const SurveyPage: React.FC = () => {
                         console.log('Recognized:', textInput);
                     }
                 }
-            };
+            }, 100);
         }
     };
 
     const handleNextQuestion = () => {
+        // Stop any ongoing speech recognition
+        if (recognitionRef.current && isAnswering) {
+            recognitionRef.current.onend = null;
+            recognitionRef.current.stop();
+            setIsAnswering(false);
+        }
+        
         // Validate that we have questions and current index is valid
         if (!questions || questions.length === 0) {
             console.error('No questions available');
@@ -448,7 +608,7 @@ const SurveyPage: React.FC = () => {
         setCapturedText('');
         setRecordedText('');
         setTextInput('');
-        setHasEndedAnswering(false);
+        setManualInput(''); // Clear manual input as well
         
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -540,28 +700,42 @@ const SurveyPage: React.FC = () => {
             
             console.log('Survey submitted successfully:', response.data);
             
-            // Mark survey as completing to prevent re-renders
-            setIsCompleting(true);
-            setSurveyStarted(false);
-            setShowMentalStateQuestion(false); // Hide mental state question
-            
-            // Ensure loading states are cleared
-            setIsLoading(false);
-            setShowStartNote(false);
-            
-            // Stop emotion monitoring and get results
+            // Stop emotion monitoring and get results first
             const emotionData = await stopEmotionMonitoring(response.data?.session_id);
             
             if (emotionData) {
                 console.log('Emotion monitoring data collected:', emotionData);
             }
             
+            // Mark survey as completing to prevent re-renders and set success modal FIRST
+            console.log('Setting showSuccessModal to true');
+            
+            // Set all completion states together to prevent race conditions
+            setIsCompleting(true);
+            setSurveyStarted(false);
+            setShowMentalStateQuestion(false); // Hide mental state question
+            setShowErrorModal(false); // Ensure error modal is hidden
+            setShowStartNote(false); // Ensure start note is hidden
+            setIsLoading(false); // Ensure loading is false
+            setShowSuccessModal(true); // Set success modal LAST
+            successModalShownRef.current = true; // Mark success modal as shown permanently
+            
+            console.log('Set completion states: isCompleting=true, surveyStarted=false, showMentalStateQuestion=false, showSuccessModal=true');
+            
+            // IMPORTANT: Don't clear questions array here as it might trigger useEffect
+            // setQuestions([]); // DON'T DO THIS
+            
+            // Don't clear loading states here - let success modal handle navigation
             setModalTitle('Survey Submitted Successfully');
             setModalMessage('Thank you for completing the mental health survey. Your responses have been recorded successfully.');
-            console.log('Setting showSuccessModal to true');
-            setShowSuccessModal(true);
+            console.log('Set modal title and message, submission complete');
         } catch (err: any) {
             console.error('Survey submission error:', err);
+            
+            // Ensure success modal is not shown on error
+            setShowSuccessModal(false);
+            setIsCompleting(false); // Reset completing state on error
+            
             setModalTitle('Submission Failed');
             setModalMessage(err.response?.data?.error || 'Failed to submit survey. Please try again.');
             setShowErrorModal(true);
@@ -577,30 +751,15 @@ const SurveyPage: React.FC = () => {
     };
 
     const handleSuccessModalClose = async () => {
-        setShowSuccessModal(false);
+        console.log('Closing success modal and navigating...');
         
         // Stop emotion monitoring if still running
         if (emotionMonitoringStarted) {
             await stopEmotionMonitoring();
         }
         
-        // Reset all states immediately
-        setCurrentQuestionIndex(0);
-        setResponses([]);
-        setCapturedText('');
-        setRecordedText('');
-        setTextInput('');
-        setHasEndedAnswering(false);
-        setIsAnswering(false);
-        setIsSubmitting(false);
-        setEmotionMonitoringStarted(false);
-        setQuestions([]);
-        setQuestionnaireId(null);
-        setShowMentalStateQuestion(false);
-        setMentalStateRating(null);
-        setIsLoading(true); // Set loading to prevent brief survey form display
-        
-        // Navigate immediately without delay
+        // Don't reset success modal state - just navigate away
+        // The navigation will unmount the component anyway
         navigate('/soldier/login', { replace: true });
     };
 
@@ -608,14 +767,24 @@ const SurveyPage: React.FC = () => {
         setShowBackNavigationWarning(false);
     };
 
-    // Priority: Show success modal first if it's triggered
-    if (showSuccessModal) {
-        console.log('Rendering success modal, showSuccessModal:', showSuccessModal);
+    // Priority: Show success modal first if it's triggered (even if ref says it was shown)
+    if (showSuccessModal || successModalShownRef.current) {
+        console.log('Rendering success modal, showSuccessModal:', showSuccessModal, 'successModalShownRef:', successModalShownRef.current);
+        console.log('All state values:', {
+            showSuccessModal,
+            showErrorModal,
+            showBackNavigationWarning,
+            isCompleting,
+            showStartNote,
+            isLoading,
+            showMentalStateQuestion,
+            surveyStarted
+        });
         return (
             <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 relative overflow-hidden flex items-center justify-center">
                 <div className="w-full max-w-lg mx-auto p-4 relative z-10">
                     <Modal
-                        isOpen={showSuccessModal}
+                        isOpen={showSuccessModal || successModalShownRef.current}
                         onClose={handleSuccessModalClose}
                         title=""
                         type="success"
@@ -660,7 +829,7 @@ const SurveyPage: React.FC = () => {
         );
     }
 
-    if (showStartNote && !showErrorModal && !showBackNavigationWarning && !isCompleting) {
+    if (showStartNote && !showErrorModal && !showBackNavigationWarning && !isCompleting && !showSuccessModal) {
         return (
             <div className="flex h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="flex-1 flex items-center justify-center">
@@ -680,7 +849,7 @@ const SurveyPage: React.FC = () => {
             </div>
         );
     }
-    if (isLoading && !showErrorModal && !showBackNavigationWarning && !isCompleting) {
+    if (isLoading && !showErrorModal && !showBackNavigationWarning && !isCompleting && !showSuccessModal) {
         return (
             <div className="flex h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="flex-1 flex items-center justify-center">
@@ -1016,7 +1185,7 @@ const SurveyPage: React.FC = () => {
                                 
                                 <textarea
                                     value={textInput || capturedText}
-                                    onChange={(e) => setTextInput(e.target.value)}
+                                    onChange={(e) => handleTextInputChange(e.target.value)}
                                     placeholder={`Type your response here or use voice input... ${language === 'hi' ? '(यहाँ अपना उत्तर टाइप करें या वॉयस इनपुट का उपयोग करें...)' : ''}`}
                                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-br from-white to-gray-50 shadow-inner resize-none"
                                     rows={3}
@@ -1071,7 +1240,7 @@ const SurveyPage: React.FC = () => {
             </div>
 
             <ErrorModal
-                isOpen={showErrorModal}
+                isOpen={showErrorModal && !showSuccessModal}
                 onClose={() => setShowErrorModal(false)}
                 title={modalTitle}
                 message={modalMessage}

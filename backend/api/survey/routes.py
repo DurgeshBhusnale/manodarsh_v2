@@ -217,6 +217,12 @@ def submit_survey():
                 "error": "Invalid soldier credentials"
             }), 401
 
+        # Extract mental state data
+        mental_state_rating = data.get('mental_state_rating')
+        mental_state_emoji = data.get('mental_state_emoji')
+        mental_state_text_en = data.get('mental_state_text_en')
+        mental_state_text_hi = data.get('mental_state_text_hi')
+
         # Create a new weekly session
         cursor.execute("""
             INSERT INTO weekly_sessions 
@@ -352,17 +358,32 @@ def submit_survey():
             logger.info(f"   Total Detections: {emotion_results.get('detection_count', 0)}")
             logger.info(f"   Dominant Emotion: {emotion_results.get('dominant_emotion', 'Unknown')}")
         logger.info("="*80)
+        
+        # Save mental state response if provided
+        if mental_state_rating is not None:
+            try:
+                cursor.execute("""
+                    INSERT INTO mental_state_responses 
+                    (session_id, mental_state_rating, mental_state_emoji, mental_state_text_en, mental_state_text_hi)
+                    VALUES (%s, %s, %s, %s, %s)
+                """, (session_id, mental_state_rating, mental_state_emoji, mental_state_text_en, mental_state_text_hi))
+                logger.info(f"Mental state saved: {mental_state_emoji} {mental_state_text_en} (Rating: {mental_state_rating}/7)")
+            except Exception as e:
+                logger.error(f"Error saving mental state: {e}")
+                # Don't fail the entire survey if mental state fails to save
             
-        # Update the weekly session with the calculated average scores
+        # Update the weekly session with the calculated average scores AND mental state
         cursor.execute("""
             UPDATE weekly_sessions
             SET nlp_avg_score = %s, 
                 image_avg_score = %s,
-                combined_avg_score = %s
+                combined_avg_score = %s,
+                mental_state_score = %s
             WHERE session_id = %s
         """, (avg_nlp_score if avg_nlp_score > 0 else None, 
               image_avg_score,  # Always store image score (even if 0)
               final_combined_score, 
+              mental_state_rating,  # Add mental state rating to weekly_sessions table
               session_id))
         
         db.commit()
@@ -384,7 +405,13 @@ def submit_survey():
             "emotion_details": {
                 "detection_count": emotion_results.get('detection_count', 0) if emotion_results else 0,
                 "dominant_emotion": emotion_results.get('dominant_emotion', 'Unknown') if emotion_results else 'Unknown'
-            }
+            },
+            "mental_state": {
+                "rating": mental_state_rating,
+                "emoji": mental_state_emoji,
+                "text_en": mental_state_text_en,
+                "text_hi": mental_state_text_hi
+            } if mental_state_rating is not None else None
         }), 201
 
     except Exception as e:

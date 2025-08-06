@@ -175,7 +175,11 @@ export const apiService = {
         questionnaire_id: number, 
         responses: { question_id: number, answer_text: string }[], 
         force_id: string,
-        password: string 
+        password: string,
+        mental_state_rating?: number,
+        mental_state_emoji?: string,
+        mental_state_text_en?: string,
+        mental_state_text_hi?: string
     }) =>
         api.post('/survey/submit', data),
 

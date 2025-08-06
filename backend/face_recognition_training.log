@@ -26970,3 +26970,1294 @@ Invoked with: <_dlib_pybind11.face_recognition_model_v1 object at 0x000001EC7EE1
 2025-08-04 13:26:10,744 - INFO - 127.0.0.1 - - [04/Aug/2025 13:26:10] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-04 13:26:40,421 - INFO - 127.0.0.1 - - [04/Aug/2025 13:26:40] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-04 13:27:10,737 - INFO - 127.0.0.1 - - [04/Aug/2025 13:27:10] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:18:37,660 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-05 21:18:52,862 - INFO - All models loaded successfully
+2025-08-05 21:18:55,473 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 21:18:55,681 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-05 21:18:55,681 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-05 21:18:55,686 - INFO -  * Restarting with stat
+2025-08-05 21:19:03,352 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-05 21:19:07,074 - INFO - All models loaded successfully
+2025-08-05 21:19:08,190 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 21:19:08,259 - WARNING -  * Debugger is active!
+2025-08-05 21:19:08,268 - INFO -  * Debugger PIN: 132-663-522
+2025-08-05 21:26:51,079 - INFO - 127.0.0.1 - - [05/Aug/2025 21:26:51] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-05 21:26:51,710 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 21:26:51,712 - INFO - 127.0.0.1 - - [05/Aug/2025 21:26:51] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-05 21:26:51,793 - INFO - 127.0.0.1 - - [05/Aug/2025 21:26:51] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 21:26:52,136 - INFO - 127.0.0.1 - - [05/Aug/2025 21:26:52] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 21:27:05,188 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:05] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-05 21:27:05,469 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:05] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-05 21:27:05,686 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:05] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-05 21:27:05,883 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:05] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-05 21:27:22,040 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:22] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:27:51,738 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:27:59,570 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:59] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-05 21:27:59,840 - INFO - 127.0.0.1 - - [05/Aug/2025 21:27:59] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-05 21:28:21,737 - INFO - 127.0.0.1 - - [05/Aug/2025 21:28:21] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:28:42,603 - INFO - 127.0.0.1 - - [05/Aug/2025 21:28:42] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-05 21:28:42,875 - INFO - 127.0.0.1 - - [05/Aug/2025 21:28:42] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-05 21:28:51,753 - INFO - 127.0.0.1 - - [05/Aug/2025 21:28:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:29:22,665 - INFO - 127.0.0.1 - - [05/Aug/2025 21:29:22] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:29:43,244 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\admin\\routes.py', reloading
+2025-08-05 21:29:43,825 - INFO -  * Restarting with stat
+2025-08-05 21:29:52,903 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-05 21:30:00,366 - INFO - All models loaded successfully
+2025-08-05 21:30:01,173 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 21:30:01,204 - WARNING -  * Debugger is active!
+2025-08-05 21:30:01,212 - INFO -  * Debugger PIN: 132-663-522
+2025-08-05 21:30:01,639 - INFO - 127.0.0.1 - - [05/Aug/2025 21:30:01] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:30:22,361 - INFO - 127.0.0.1 - - [05/Aug/2025 21:30:22] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:31:14,683 - INFO - 127.0.0.1 - - [05/Aug/2025 21:31:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:32:14,364 - INFO - 127.0.0.1 - - [05/Aug/2025 21:32:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:33:14,666 - INFO - 127.0.0.1 - - [05/Aug/2025 21:33:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:34:14,370 - INFO - 127.0.0.1 - - [05/Aug/2025 21:34:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:35:14,664 - INFO - 127.0.0.1 - - [05/Aug/2025 21:35:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:36:14,356 - INFO - 127.0.0.1 - - [05/Aug/2025 21:36:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:37:14,678 - INFO - 127.0.0.1 - - [05/Aug/2025 21:37:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:37:51,964 - INFO - 127.0.0.1 - - [05/Aug/2025 21:37:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 21:37:56,153 - INFO - 127.0.0.1 - - [05/Aug/2025 21:37:56] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-05 21:38:15,140 - INFO - 127.0.0.1 - - [05/Aug/2025 21:38:15] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 21:38:15,411 - INFO - 127.0.0.1 - - [05/Aug/2025 21:38:15] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 21:38:15,413 - INFO - 127.0.0.1 - - [05/Aug/2025 21:38:15] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 21:38:15,483 - INFO - 127.0.0.1 - - [05/Aug/2025 21:38:15] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 21:38:15,736 - INFO - Trying external webcam (index 1)...
+2025-08-05 21:38:15,740 - INFO - Trying external webcam (index 1)...
+2025-08-05 21:38:15,806 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 21:38:15,806 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 21:38:19,341 - INFO - Successfully connected to built-in camera
+2025-08-05 21:38:19,349 - INFO - Successfully connected to built-in camera
+2025-08-05 21:38:31,667 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 21:38:31,668 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 21:38:31,669 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 21:38:31,671 - INFO - 127.0.0.1 - - [05/Aug/2025 21:38:31] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 21:38:31,686 - INFO - Using detection interval: 30 frames
+2025-08-05 21:38:34,411 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 21:38:34,412 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 21:38:34,413 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 21:38:34,414 - INFO - 127.0.0.1 - - [05/Aug/2025 21:38:34] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 21:38:34,431 - INFO - Using detection interval: 30 frames
+2025-08-05 21:40:21,741 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:21] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-05 21:40:21,745 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:21] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-05 21:40:22,334 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x00000215EF0510B0>
+2025-08-05 21:40:22,335 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-08-05 21:40:22,336 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 21:40:22,336 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x00000215EF0B6120>
+2025-08-05 21:40:22,336 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-08-05 21:40:22,337 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-08-05 21:40:22,337 - DEBUG - Encoding 1 with 6 bits
+2025-08-05 21:40:22,337 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 21:40:22,338 - DEBUG - Encoding 14 with 7 bits
+2025-08-05 21:40:22,338 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-08-05 21:40:22,338 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-08-05 21:40:22,339 - DEBUG - Encoding 1 with 6 bits
+2025-08-05 21:40:22,339 - DEBUG - Encoding 7 with 7 bits
+2025-08-05 21:40:22,339 - DEBUG - Encoding 14 with 7 bits
+2025-08-05 21:40:22,340 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-08-05 21:40:22,340 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-08-05 21:40:22,340 - DEBUG - Encoding 4 with 6 bits
+2025-08-05 21:40:22,341 - DEBUG - Encoding 7 with 7 bits
+2025-08-05 21:40:22,341 - DEBUG - Encoding 101 with 7 bits
+2025-08-05 21:40:22,341 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-08-05 21:40:22,342 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-08-05 21:40:22,342 - DEBUG - Encoding 4 with 6 bits
+2025-08-05 21:40:22,342 - DEBUG - Encoding 19 with 6 bits
+2025-08-05 21:40:22,343 - DEBUG - Encoding 101 with 7 bits
+2025-08-05 21:40:22,343 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 21:40:22,344 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-08-05 21:40:22,344 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-08-05 21:40:22,344 - DEBUG - Encoding 19 with 6 bits
+2025-08-05 21:40:22,345 - DEBUG - Encoding 16 with 7 bits
+2025-08-05 21:40:22,345 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 21:40:22,345 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-08-05 21:40:22,347 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-08-05 21:40:22,347 - DEBUG - Encoding 58 with 6 bits
+2025-08-05 21:40:22,348 - DEBUG - Encoding 16 with 7 bits
+2025-08-05 21:40:22,348 - DEBUG - Encoding 32 with 7 bits
+2025-08-05 21:40:22,349 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-08-05 21:40:22,349 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-08-05 21:40:22,349 - DEBUG - Encoding 58 with 6 bits
+2025-08-05 21:40:22,349 - DEBUG - Encoding 51 with 6 bits
+2025-08-05 21:40:22,350 - DEBUG - Encoding 32 with 7 bits
+2025-08-05 21:40:22,350 - DEBUG - Encoding 20 with 7 bits
+2025-08-05 21:40:22,351 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-08-05 21:40:22,351 - DEBUG - Adding (b'content-length', b'315') to the header table
+2025-08-05 21:40:22,351 - DEBUG - Encoding 51 with 6 bits
+2025-08-05 21:40:22,351 - DEBUG - Encoding 28 with 6 bits
+2025-08-05 21:40:22,352 - DEBUG - Encoding 20 with 7 bits
+2025-08-05 21:40:22,352 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 21:40:22,352 - DEBUG - Adding (b'content-length', b'291') to the header table
+2025-08-05 21:40:22,353 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-08-05 21:40:22,353 - DEBUG - Encoding 28 with 6 bits
+2025-08-05 21:40:22,353 - DEBUG - Encoding 31 with 6 bits
+2025-08-05 21:40:22,354 - DEBUG - Encoding 2 with 7 bits
+2025-08-05 21:40:22,354 - DEBUG - Encoding 24 with 7 bits
+2025-08-05 21:40:22,354 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-08-05 21:40:22,355 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83d-\xff_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-08-05 21:40:22,355 - DEBUG - Encoding 31 with 6 bits
+2025-08-05 21:40:22,356 - DEBUG - Encoding 24 with 7 bits
+2025-08-05 21:40:22,356 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x82\x13\xe1_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-08-05 21:40:23,361 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xdfi~\x94\x03jCl\xca\x08\x02m@\xb9p \xb8&T\xc5\xa3\x7fY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xafv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff[\xd3\x92\xfc\r\x89\xb8*\xdb\xc2i\xd6\xf5?\x8fR~R\xd5E\xb2\x1c\x94\xd7$\xb1\xe0\xdc\xd1\xb5\xee\xe3l\xb8\x96y\x9c\x19\x87\xf9\xef\x18\x1d\xd5\x87W\xef8\xc4\xd6\xcd\x9b\x9c[\xf3\xa6\xf2~i\xaa\xe9\xf1\xb7vL\xdc\xf5\xe2\xf5\x87\x8c-\x8f\x87\xe6\x19z\xd0x\xee\xf4\x96\xbf\'\xb6\xe8v4Qr\xc29(\xea\xe6U\xafO\xdcUW\xab\x8f\xe6\xc7z\xac\x1cvO\x0fn\xfc\x9a\xee\x1f\r^\xbd\x8a\x16\xfav\xf1W+p\xbf&|\xb7\xff^z^\x04\xb2\x9d\x1e\xa9\x16\x8c\xeb9\xe5l\xfd+\xc6\xdePp\x87\xc7\x9cGM\xb9\x01\x82M\xffj\x17\xcdf\xb0\xa8\x83\x91d\xfaP\r-\x84\xb1\xac \t\xc5\x02\xe5\xc0\x82\xe0\x99S\x16\x8d\xffjV4\xcf\x03\x1fjHzFj\xa0^c\x9ej\n\xb9\x0fO\xda\x98\xd2\x9a\xf5UG\xaf@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-08-05 21:40:23,362 - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-05 21:40:23,363 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-05 21:40:23,363 - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-05 21:40:23,363 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 21:40:23,364 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-05 21:40:23,364 - DEBUG - Decoded 24, consumed 1 bytes
+2025-08-05 21:40:23,364 - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-05 21:40:23,364 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-08-05 21:40:23,365 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 21:40:23,365 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 21:40:23,365 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-08-05 21:40:23,365 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 21:40:23,366 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 21:40:23,366 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-08-05 21:40:23,366 - DEBUG - Decoded 33, consumed 2 bytes
+2025-08-05 21:40:23,366 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 21:40:23,367 - DEBUG - Decoded (b'date', b'Tue, 05 Aug 2025 16:10:23 GMT'), total consumed 25 bytes, indexed False
+2025-08-05 21:40:23,367 - DEBUG - Decoded 25, consumed 1 bytes
+2025-08-05 21:40:23,367 - DEBUG - Decoded 50, consumed 1 bytes
+2025-08-05 21:40:23,367 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-08-05 21:40:23,368 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 21:40:23,368 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 21:40:23,368 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-05 21:40:23,368 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 21:40:23,368 - DEBUG - Decoded 47, consumed 1 bytes
+2025-08-05 21:40:23,369 - DEBUG - Decoded (<memory at 0x00000215F34B01C0>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-08-05 21:40:23,369 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 21:40:23,369 - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-05 21:40:23,369 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-08-05 21:40:23,370 - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-05 21:40:23,370 - DEBUG - Decoded 129, consumed 2 bytes
+2025-08-05 21:40:23,370 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-08-05 21:40:23,370 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 21:40:23,371 - DEBUG - Decoded 58, consumed 1 bytes
+2025-08-05 21:40:23,371 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-08-05 21:40:23,372 - DEBUG - Decoded 20, consumed 1 bytes
+2025-08-05 21:40:23,372 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 21:40:23,372 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-08-05 21:40:23,372 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 21:40:23,372 - DEBUG - Decoded 146, consumed 2 bytes
+2025-08-05 21:40:23,373 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-08-05 21:40:23,373 - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-05 21:40:23,373 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 21:40:23,374 - DEBUG - Decoded (b'server', <memory at 0x00000215F34B0280>), total consumed 5 bytes, indexed True
+2025-08-05 21:40:23,374 - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-05 21:40:23,374 - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-05 21:40:23,374 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x00000215F34B0100>), total consumed 16 bytes, indexed True
+2025-08-05 21:40:23,374 - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-05 21:40:23,375 - DEBUG - Decoded 9, consumed 1 bytes
+2025-08-05 21:40:23,375 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-08-05 21:40:23,375 - DEBUG - Decoded 55, consumed 2 bytes
+2025-08-05 21:40:23,375 - DEBUG - Decoded 218, consumed 2 bytes
+2025-08-05 21:40:23,376 - DEBUG - Decoded (b'set-cookie', b'NID=525=nRUgh-yhwydXm4nerAImpdfbES4iPSVufG-83EKaXzH07OFOZYb24QQS6-XjTcXNnBoH5BdKYPGyFVA5aUXFfklobBjfpxouB1Q4e2WFadlk6J-Chv2npOVXQ7k-1HrhAqvW4v1w4CCGA5jqwnWuF9dLJDZ88fUcrmMym2ML-6x-LjpH5J0UAwxGotuI0EdT; expires=Wed, 04-Feb-2026 16:10:23 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 222 bytes, indexed False
+2025-08-05 21:40:23,376 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 21:40:23,376 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 21:40:23,376 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-08-05 21:40:23,377 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 21:40:23,377 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 21:40:23,377 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-08-05 21:40:23,377 - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-05 21:40:23,377 - DEBUG - Decoded 45, consumed 1 bytes
+2025-08-05 21:40:23,378 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-08-05 21:40:23,381 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-08-05 21:40:23,779 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:23] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-05 21:40:24,795 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xdfi~\x94\x03jCl\xca\x08\x02m@\xb9p \xb8&\x94\xc5\xa3\x7fY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xafv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff\\\xd3\x92\xfc\r\x89\xb80\xe7/\xe6\xcd\x18\x85\xd7\x0bw\xffe[kV\xd1\xae\x7f\x1b\xae\xb2\x9c\x9b\xbf\x16\xf7\x86\x12n\x88\x04\xc5\xe9\xd1G\xc9\xfc\xdd\tw\xb9\x7fI\r)\xb3n\xbe\x9b!=\xe1\xd7\x86\xa7\xf1\xe0\xe2\xde\x1f\xd1~\xed\xecm\x8e\xf2\xef]\xf9M\xa8\xcc\xfe\xf0\xdd\xd2\xd2\xcb\xb8kt\xbe\xfbs\xe0\xeb\xfbF~\x18\xbak\xc3z\x1d\x94->\xde\x04\xebz~z?Sw\x7f\xe4\xdb\xf6[\xc3\x8e\xefM\x9a\xf5\x05\xe3\x88\x17\\\x0eg\x9f\xed\xfa~\r=\x92/\x1c\xb6y~\x9f\xc8\xaa\xa3K\xd8\xe7rT\xee\xfc\xbe\x84k\xed\x0f\x0c_j\x17\xcdf\xb0\xa8\x83\x91d\xfaP\r-\x84\xb1\xac \t\xc5\x02\xe5\xc0\x82\xe0\x9aS\x16\x8d\xffjV4\xcf\x03\x1fjHzFj\xa0^c\x9ej\n\xb9\x0fO\xda\x98\xd2\x9a\xf5UG\xaf@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-08-05 21:40:24,796 - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-05 21:40:24,796 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-05 21:40:24,797 - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-05 21:40:24,797 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 21:40:24,798 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-05 21:40:24,798 - DEBUG - Decoded 24, consumed 1 bytes
+2025-08-05 21:40:24,799 - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-05 21:40:24,799 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-08-05 21:40:24,800 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 21:40:24,800 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 21:40:24,800 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-08-05 21:40:24,801 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 21:40:24,801 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 21:40:24,801 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-08-05 21:40:24,802 - DEBUG - Decoded 33, consumed 2 bytes
+2025-08-05 21:40:24,802 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 21:40:24,802 - DEBUG - Decoded (b'date', b'Tue, 05 Aug 2025 16:10:24 GMT'), total consumed 25 bytes, indexed False
+2025-08-05 21:40:24,803 - DEBUG - Decoded 25, consumed 1 bytes
+2025-08-05 21:40:24,803 - DEBUG - Decoded 50, consumed 1 bytes
+2025-08-05 21:40:24,803 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-08-05 21:40:24,804 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 21:40:24,804 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 21:40:24,804 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-05 21:40:24,805 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 21:40:24,805 - DEBUG - Decoded 47, consumed 1 bytes
+2025-08-05 21:40:24,805 - DEBUG - Decoded (<memory at 0x00000215F34B0640>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-08-05 21:40:24,806 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 21:40:24,806 - DEBUG - Decoded 58, consumed 1 bytes
+2025-08-05 21:40:24,806 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-08-05 21:40:24,807 - DEBUG - Decoded 20, consumed 1 bytes
+2025-08-05 21:40:24,807 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 21:40:24,807 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-08-05 21:40:24,808 - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-05 21:40:24,808 - DEBUG - Decoded 129, consumed 2 bytes
+2025-08-05 21:40:24,809 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-08-05 21:40:24,809 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 21:40:24,809 - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-05 21:40:24,810 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-08-05 21:40:24,810 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 21:40:24,810 - DEBUG - Decoded 146, consumed 2 bytes
+2025-08-05 21:40:24,812 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-08-05 21:40:24,813 - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-05 21:40:24,813 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 21:40:24,814 - DEBUG - Decoded (b'server', <memory at 0x00000215F34B0700>), total consumed 5 bytes, indexed True
+2025-08-05 21:40:24,814 - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-05 21:40:24,815 - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-05 21:40:24,815 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x00000215F34B0580>), total consumed 16 bytes, indexed True
+2025-08-05 21:40:24,816 - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-05 21:40:24,817 - DEBUG - Decoded 9, consumed 1 bytes
+2025-08-05 21:40:24,817 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-08-05 21:40:24,817 - DEBUG - Decoded 55, consumed 2 bytes
+2025-08-05 21:40:24,818 - DEBUG - Decoded 219, consumed 2 bytes
+2025-08-05 21:40:24,819 - DEBUG - Decoded (b'set-cookie', b'NID=525=FLeXQMG2kF5DZf-R4ulPhwSB3tISX-zFAcS_0cGy72bW9KjcBveZcAmtrRPjQAoCapFn9HEV5FZ2ZRqiQ7WvpDfiOi3ZUSjuefSa-jD95hEkZlLUGjPFCAQl-hRUckChYMZtBTXgTQuUVSy5iCleVG0B61K89qZoU48I_wWQx9mX_nlN8Hh6ftSXDssPqAUG; expires=Wed, 04-Feb-2026 16:10:24 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 223 bytes, indexed False
+2025-08-05 21:40:24,820 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 21:40:24,820 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 21:40:24,821 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-08-05 21:40:24,821 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 21:40:24,821 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 21:40:24,821 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-08-05 21:40:24,822 - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-05 21:40:24,822 - DEBUG - Decoded 45, consumed 1 bytes
+2025-08-05 21:40:24,823 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-08-05 21:40:24,824 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-08-05 21:40:24,847 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:24] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-05 21:40:24,865 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:24] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 21:40:25,406 - INFO - All models loaded successfully
+2025-08-05 21:40:25,407 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 21:40:25,407 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 21:40:25,407 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 21:40:25,407 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 21:40:25,407 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 21:40:25,407 - INFO - Text: 'Puja Ji Hello Kaise How are you guys...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 21:40:25,407 - INFO - Question 10 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 21:40:25,420 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 21:40:25,435 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 21:40:25,435 - INFO - Question 10: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 21:40:25,435 - INFO - Question 10: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 21:40:25,437 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.328, 'pos': 0.672, 'compound': 0.6249}
+2025-08-05 21:40:25,437 - INFO - Text: 'Everything is great...' - Label: POSITIVE, Depression score: 0.19
+2025-08-05 21:40:25,437 - INFO - Question 11 - Sentiment: POSITIVE, Score: 0.19
+2025-08-05 21:40:25,451 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 21:40:25,465 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 21:40:25,465 - INFO - Question 11: Weighted Combined = (0.19 * 0.7) + (0.00 * 0.3) = 0.131
+2025-08-05 21:40:25,466 - INFO - Question 11: NLP=0.18755, Emotion=0.00, Weighted Combined=0.131
+2025-08-05 21:40:25,467 - INFO - Session 63 - Average NLP Depression Score: 0.34
+2025-08-05 21:40:25,478 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 21:40:25,478 - INFO - Session 63 - Using NLP score only: 0.34
+2025-08-05 21:40:25,489 - INFO - ================================================================================
+2025-08-05 21:40:25,524 - INFO - ================================================================================
+2025-08-05 21:40:25,565 - INFO - 
+2025-08-05 21:40:25,573 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 21:40:25,573 - INFO -    Alert Level:    GREEN
+2025-08-05 21:40:25,574 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 21:40:25,574 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 21:40:25,574 - INFO - 
+2025-08-05 21:40:25,581 - INFO -    Total Detections: 0
+2025-08-05 21:40:25,581 - INFO -    Dominant Emotion: Unknown
+2025-08-05 21:40:25,581 - INFO - ================================================================================
+2025-08-05 21:40:25,594 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:25] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 21:40:25,915 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:25] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 21:40:26,238 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 21:40:26,333 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 21:40:26,333 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-05 21:40:26,919 - INFO - Camera resources released after survey monitoring
+2025-08-05 21:40:26,921 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:26] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 21:40:26,954 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 21:40:26,956 - INFO - 127.0.0.1 - - [05/Aug/2025 21:40:26] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:03:23,811 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:23] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-05 22:03:24,651 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 22:03:24,654 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:24] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-05 22:03:24,760 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:24] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 22:03:25,140 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:25] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 22:03:27,875 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:27] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-05 22:03:28,170 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:28] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-05 22:03:28,367 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:28] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-05 22:03:28,572 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:28] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-05 22:03:54,977 - INFO - 127.0.0.1 - - [05/Aug/2025 22:03:54] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 22:04:25,362 - INFO - 127.0.0.1 - - [05/Aug/2025 22:04:25] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 22:22:11,236 - INFO - 127.0.0.1 - - [05/Aug/2025 22:22:11] "[31m[1mGET /api/auth/session-status HTTP/1.1[0m" 401 -
+2025-08-05 22:22:11,251 - INFO - 127.0.0.1 - - [05/Aug/2025 22:22:11] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-05 22:35:37,616 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-05 22:54:01,561 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-05 22:54:16,015 - INFO - All models loaded successfully
+2025-08-05 22:54:17,659 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 22:54:17,710 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-05 22:54:17,711 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-05 22:54:17,714 - INFO -  * Restarting with stat
+2025-08-05 22:54:30,330 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-05 22:54:35,142 - INFO - All models loaded successfully
+2025-08-05 22:54:36,476 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 22:54:36,530 - WARNING -  * Debugger is active!
+2025-08-05 22:54:36,543 - INFO -  * Debugger PIN: 132-663-522
+2025-08-05 22:56:58,468 - INFO - 127.0.0.1 - - [05/Aug/2025 22:56:58] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:56:58,473 - INFO - 127.0.0.1 - - [05/Aug/2025 22:56:58] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:56:58,795 - INFO - Trying external webcam (index 1)...
+2025-08-05 22:56:58,807 - INFO - Trying external webcam (index 1)...
+2025-08-05 22:56:58,854 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 22:56:58,854 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 22:57:05,071 - INFO - Successfully connected to built-in camera
+2025-08-05 22:57:05,118 - INFO - Successfully connected to built-in camera
+2025-08-05 22:57:21,250 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 22:57:21,252 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-05 22:57:21,252 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-05 22:57:21,254 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:21] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:21,287 - INFO - Using detection interval: 30 frames
+2025-08-05 22:57:21,310 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 22:57:21,657 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:21] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 22:57:25,277 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 22:57:25,280 - INFO - Starting continuous survey frame processing for soldier 100000002
+2025-08-05 22:57:25,282 - INFO - Started survey emotion monitoring for soldier 100000002
+2025-08-05 22:57:25,284 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:25] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:25,315 - INFO - Using detection interval: 30 frames
+2025-08-05 22:57:25,646 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:25] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 22:57:41,760 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:41] "[33mGET /main.9a9859eed1fa5e278f3b.hot-update.json HTTP/1.1[0m" 404 -
+2025-08-05 22:57:42,965 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:42] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:43,093 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 22:57:43,094 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 22:57:43,095 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 22:57:43,098 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:43] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:43,120 - INFO - Using detection interval: 30 frames
+2025-08-05 22:57:43,275 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:43] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:43,442 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:43] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 22:57:43,721 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:43] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 22:57:43,754 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 22:57:43,757 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 22:57:43,758 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 22:57:43,759 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:43] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:43,789 - INFO - Using detection interval: 30 frames
+2025-08-05 22:57:43,808 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:43] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 22:57:54,217 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:54] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 22:57:55,438 - INFO - All models loaded successfully
+2025-08-05 22:57:55,439 - WARNING - No monitoring session active for soldier 100000002
+2025-08-05 22:57:55,439 - INFO - Emotion monitoring results: {'force_id': '100000002', 'message': 'No monitoring session active'}
+2025-08-05 22:57:55,439 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 22:57:55,439 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 22:57:55,440 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 22:57:55,440 - INFO - Text: 'h hi hi hi hi...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 22:57:55,440 - INFO - Question 10 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 22:57:55,461 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 22:57:55,498 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 22:57:55,504 - INFO - Question 10: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 22:57:55,505 - INFO - Question 10: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 22:57:55,532 - ERROR - Error in survey frame processing: OpenCV(4.5.1) C:\Users\appveyor\AppData\Local\Temp\1\pip-req-build-kh7iq4w7\opencv\modules\videoio\src\cap_msmf.cpp:423: error: (-215:Assertion failed) videoSample in function '`anonymous-namespace'::SourceReaderCB::Wait'
+
+2025-08-05 22:57:55,544 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 22:57:55,544 - INFO - Text: 'yo yo yo yo yo...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 22:57:55,545 - INFO - Question 11 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 22:57:55,577 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 22:57:55,603 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 22:57:55,603 - INFO - Question 11: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 22:57:55,604 - INFO - Question 11: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 22:57:55,607 - INFO - Session 64 - Average NLP Depression Score: 0.50
+2025-08-05 22:57:55,631 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 22:57:55,632 - INFO - Session 64 - Using NLP score only: 0.50
+2025-08-05 22:57:55,661 - INFO - ================================================================================
+2025-08-05 22:57:56,058 - INFO - ================================================================================
+2025-08-05 22:57:56,117 - INFO - 
+2025-08-05 22:57:56,137 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 22:57:56,138 - INFO -    Alert Level:    GREEN
+2025-08-05 22:57:56,138 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 22:57:56,138 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 22:57:56,138 - INFO - 
+2025-08-05 22:57:56,154 - INFO -    Total Detections: 0
+2025-08-05 22:57:56,154 - INFO -    Dominant Emotion: Unknown
+2025-08-05 22:57:56,154 - INFO - ================================================================================
+2025-08-05 22:57:56,185 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:56] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 22:57:56,216 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:56] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:56,235 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-05 22:57:56,338 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 22:57:56,369 - INFO - Stopped continuous survey frame processing for soldier 100000002
+2025-08-05 22:57:56,541 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 22:57:56,542 - WARNING - No emotion data collected during survey for soldier 100000002
+2025-08-05 22:57:57,120 - INFO - Camera resources released after survey monitoring
+2025-08-05 22:57:57,122 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:57] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:57:57,521 - WARNING - No monitoring session active for soldier 100000002
+2025-08-05 22:57:57,522 - INFO - 127.0.0.1 - - [05/Aug/2025 22:57:57] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:58:12,001 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:12] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-05 22:58:12,394 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 22:58:12,396 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:12] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-05 22:58:12,788 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:12] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 22:58:13,049 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:13] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 22:58:14,515 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:14] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-05 22:58:14,852 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:14] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-05 22:58:38,340 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:38] "OPTIONS /api/admin/translate-question HTTP/1.1" 200 -
+2025-08-05 22:58:39,757 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x0000015655DB0120>
+2025-08-05 22:58:39,758 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-08-05 22:58:39,758 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 22:58:39,758 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-08-05 22:58:39,759 - DEBUG - Encoding 1 with 6 bits
+2025-08-05 22:58:39,759 - DEBUG - Encoding 14 with 7 bits
+2025-08-05 22:58:39,759 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-08-05 22:58:39,759 - DEBUG - Encoding 7 with 7 bits
+2025-08-05 22:58:39,759 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-08-05 22:58:39,760 - DEBUG - Encoding 4 with 6 bits
+2025-08-05 22:58:39,760 - DEBUG - Encoding 101 with 7 bits
+2025-08-05 22:58:39,760 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-08-05 22:58:39,761 - DEBUG - Encoding 19 with 6 bits
+2025-08-05 22:58:39,761 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 22:58:39,761 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-08-05 22:58:39,761 - DEBUG - Encoding 16 with 7 bits
+2025-08-05 22:58:39,761 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-08-05 22:58:39,761 - DEBUG - Encoding 58 with 6 bits
+2025-08-05 22:58:39,762 - DEBUG - Encoding 32 with 7 bits
+2025-08-05 22:58:39,762 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-08-05 22:58:39,762 - DEBUG - Encoding 51 with 6 bits
+2025-08-05 22:58:39,762 - DEBUG - Encoding 20 with 7 bits
+2025-08-05 22:58:39,763 - DEBUG - Adding (b'content-length', b'152') to the header table
+2025-08-05 22:58:39,763 - DEBUG - Encoding 28 with 6 bits
+2025-08-05 22:58:39,763 - DEBUG - Encoding 2 with 7 bits
+2025-08-05 22:58:39,763 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-08-05 22:58:39,763 - DEBUG - Encoding 31 with 6 bits
+2025-08-05 22:58:39,764 - DEBUG - Encoding 24 with 7 bits
+2025-08-05 22:58:39,764 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x82\x0bb_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-08-05 22:58:41,323 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xdfi~\x94\x03jCl\xca\x08\x02m@\xbbpO\\h*b\xd1\xbfY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7fv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff[\xd3\x92\xfc\r\x89\xb8:"e\x9f\x8e\xed\xec.M\xdf\x95\x8f\xf3\xd3g\x8cs`\x94\x11y\xf7\xef\x9e\x07\xd1\xd1\xa7a\xc5\xd2\xb07O{\xfc8k\xab\xb3\xa9\x9e\x1c8,|\xda\x89w+}\xf6C\x8c\xfe\xe3\xcc\x9c;\xa1\x1d\x01\xbeS\xe4\xef\xa7^\x8d\xf8\xbb\xf0\xcf\x97\x9d\xb3\x1b0\x9d@\xc5/\x0b<S\xaf\xd4\xd5\xfe8[\xd9h\x97\xf2\x98\xf3\xe7\xd3\xb3\x18j\xf5\xfa\'Z.\xdd\x12g\x89\x058x\x82L\xaf\xecB^\xb7\x86\xbe\xb983tX{a\xf7\xcd\xfb\xb7\xf6\xd9\xafs\xe9\xc7\x91\x9e\xa8\xc7\xe1<w\x9a\xfe\xfcS\xc2(\xa6\xfbP\xbek5\x85D\x1c\x8b\'\xd2\x80il%\x8da\x00N(\x17n\t\xeb\x8d\x05LZ7\xfd\xa9X\xd3<\x0c}\xa9!\xe9\x19\xaa\x81y\x8ey\xa8*\xe4=?jcJk\xd5U\x1e\xbf@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-08-05 22:58:41,324 - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-05 22:58:41,324 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-05 22:58:41,324 - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-05 22:58:41,324 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 22:58:41,325 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-05 22:58:41,325 - DEBUG - Decoded 24, consumed 1 bytes
+2025-08-05 22:58:41,325 - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-05 22:58:41,325 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-08-05 22:58:41,325 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 22:58:41,326 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 22:58:41,326 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-08-05 22:58:41,326 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 22:58:41,326 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 22:58:41,326 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-08-05 22:58:41,327 - DEBUG - Decoded 33, consumed 2 bytes
+2025-08-05 22:58:41,327 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 22:58:41,327 - DEBUG - Decoded (b'date', b'Tue, 05 Aug 2025 17:28:41 GMT'), total consumed 25 bytes, indexed False
+2025-08-05 22:58:41,327 - DEBUG - Decoded 25, consumed 1 bytes
+2025-08-05 22:58:41,327 - DEBUG - Decoded 50, consumed 1 bytes
+2025-08-05 22:58:41,328 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-08-05 22:58:41,328 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 22:58:41,328 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 22:58:41,328 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-05 22:58:41,329 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 22:58:41,329 - DEBUG - Decoded 47, consumed 1 bytes
+2025-08-05 22:58:41,329 - DEBUG - Decoded (<memory at 0x0000015653672340>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-08-05 22:58:41,329 - DEBUG - Decoded 20, consumed 1 bytes
+2025-08-05 22:58:41,329 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 22:58:41,330 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-08-05 22:58:41,330 - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-05 22:58:41,330 - DEBUG - Decoded 129, consumed 2 bytes
+2025-08-05 22:58:41,331 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-08-05 22:58:41,331 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 22:58:41,331 - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-05 22:58:41,332 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-08-05 22:58:41,332 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 22:58:41,332 - DEBUG - Decoded 146, consumed 2 bytes
+2025-08-05 22:58:41,333 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-08-05 22:58:41,334 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 22:58:41,334 - DEBUG - Decoded 58, consumed 1 bytes
+2025-08-05 22:58:41,334 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-08-05 22:58:41,335 - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-05 22:58:41,335 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 22:58:41,335 - DEBUG - Decoded (b'server', <memory at 0x0000015653672400>), total consumed 5 bytes, indexed True
+2025-08-05 22:58:41,335 - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-05 22:58:41,335 - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-05 22:58:41,336 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x0000015653672280>), total consumed 16 bytes, indexed True
+2025-08-05 22:58:41,336 - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-05 22:58:41,336 - DEBUG - Decoded 9, consumed 1 bytes
+2025-08-05 22:58:41,336 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-08-05 22:58:41,336 - DEBUG - Decoded 55, consumed 2 bytes
+2025-08-05 22:58:41,336 - DEBUG - Decoded 218, consumed 2 bytes
+2025-08-05 22:58:41,337 - DEBUG - Decoded (b'set-cookie', b'NID=525=jsg-9bBCF6gvWr9YNrwHgEf0_xzzYE9sj47AGjp05mvDUUPnq7thAFEr9iOcBJ5vQAHozbKtFSAal1DeoIvNPMTGvULJYugiK27sa2fUrwmPygpX6eCJlfXmbLLNQH1nyZ274eRMdL_seo1V0dJ9Qst8uUPkIU3B2FqFzY9BDRrPS9tHI3ksHwtVTiDTGhA2_g; expires=Wed, 04-Feb-2026 17:28:41 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 222 bytes, indexed False
+2025-08-05 22:58:41,338 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 22:58:41,338 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 22:58:41,338 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-08-05 22:58:41,338 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 22:58:41,338 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 22:58:41,339 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-08-05 22:58:41,339 - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-05 22:58:41,339 - DEBUG - Decoded 45, consumed 1 bytes
+2025-08-05 22:58:41,339 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-08-05 22:58:41,342 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-08-05 22:58:41,380 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:41] "POST /api/admin/translate-question HTTP/1.1" 200 -
+2025-08-05 22:58:42,432 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:42] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-05 22:58:46,520 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:46] "OPTIONS /api/admin/translate-question HTTP/1.1" 200 -
+2025-08-05 22:58:47,005 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x00000156536AE4A0>
+2025-08-05 22:58:47,006 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-08-05 22:58:47,006 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 22:58:47,006 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-08-05 22:58:47,007 - DEBUG - Encoding 1 with 6 bits
+2025-08-05 22:58:47,007 - DEBUG - Encoding 14 with 7 bits
+2025-08-05 22:58:47,008 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-08-05 22:58:47,009 - DEBUG - Encoding 7 with 7 bits
+2025-08-05 22:58:47,009 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-08-05 22:58:47,009 - DEBUG - Encoding 4 with 6 bits
+2025-08-05 22:58:47,010 - DEBUG - Encoding 101 with 7 bits
+2025-08-05 22:58:47,011 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-08-05 22:58:47,011 - DEBUG - Encoding 19 with 6 bits
+2025-08-05 22:58:47,011 - DEBUG - Encoding 3 with 7 bits
+2025-08-05 22:58:47,011 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-08-05 22:58:47,012 - DEBUG - Encoding 16 with 7 bits
+2025-08-05 22:58:47,012 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-08-05 22:58:47,012 - DEBUG - Encoding 58 with 6 bits
+2025-08-05 22:58:47,012 - DEBUG - Encoding 32 with 7 bits
+2025-08-05 22:58:47,013 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-08-05 22:58:47,013 - DEBUG - Encoding 51 with 6 bits
+2025-08-05 22:58:47,013 - DEBUG - Encoding 20 with 7 bits
+2025-08-05 22:58:47,013 - DEBUG - Adding (b'content-length', b'152') to the header table
+2025-08-05 22:58:47,013 - DEBUG - Encoding 28 with 6 bits
+2025-08-05 22:58:47,014 - DEBUG - Encoding 2 with 7 bits
+2025-08-05 22:58:47,014 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-08-05 22:58:47,014 - DEBUG - Encoding 31 with 6 bits
+2025-08-05 22:58:47,014 - DEBUG - Encoding 24 with 7 bits
+2025-08-05 22:58:47,015 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x82\x0bb_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-08-05 22:58:48,371 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xdfi~\x94\x03jCl\xca\x08\x02m@\xbbpO\\i\xe51h\xdfY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82Kv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff\\\xd3\x92\xfc\r\x89\xb85?\xb6\xf2\x02\xffO\x00\xd7\x19\xb6\x85\x01\xf6\xfc-g2\xcf\x1e\x8d\xe2\xb7\xb7\xeb\xc6\x9f[8\xf7t\xd5\xcc\xdeb\xd3\x9e\xbd\xff\x9e\xf9Q\x9f\xf0[\xcaK/G\x8bf\xed7\x8d>\x82\x93~\x92:\xfb\xe4\xd2M2m\xf5\x12rN\xb6.;y\xe5\xe7o+\xf1\x93\xb6\xe1Y\x8f\x9fIsI\x87\r\xed\xb9\x1c\xdd\x9e\xf3\xd4{\xd3\x97\x84|\x7fH\xf4\xce\xf0\xc3\x8b\x9fl\xcfS\x89\x00\xe3\xbaK/\x14\x97\xa8#\xb4\xef\xf4\xf3[\xe1\xe1\xfbE`\xc9\xf9\xf8\x1f>\xe4\xa0\xa2g\xb0\xfd\xeb\xf3z\x1a\xdd\xf7\xc6\xaf\x0bl\x87\xedB\xf9\xac\xd6\x15\x10r,\x9fJ\x01\xa5\xb0\x965\x84\x018\xa0]\xb8\'\xae4\xf2\x98\xb4o\xfbR\xb1\xa6x\x18\xfbRC\xd23U\x02\xf3\x1c\xf3PU\xc8z~\xd4\xc6\x94\xd7\xaa\xaa=\x7f@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-08-05 22:58:48,371 - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-05 22:58:48,371 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-05 22:58:48,372 - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-05 22:58:48,372 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 22:58:48,372 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-05 22:58:48,372 - DEBUG - Decoded 24, consumed 1 bytes
+2025-08-05 22:58:48,372 - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-05 22:58:48,373 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-08-05 22:58:48,373 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 22:58:48,373 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 22:58:48,374 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-08-05 22:58:48,374 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 22:58:48,374 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 22:58:48,375 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-08-05 22:58:48,375 - DEBUG - Decoded 33, consumed 2 bytes
+2025-08-05 22:58:48,375 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-05 22:58:48,375 - DEBUG - Decoded (b'date', b'Tue, 05 Aug 2025 17:28:48 GMT'), total consumed 25 bytes, indexed False
+2025-08-05 22:58:48,376 - DEBUG - Decoded 25, consumed 1 bytes
+2025-08-05 22:58:48,376 - DEBUG - Decoded 50, consumed 1 bytes
+2025-08-05 22:58:48,376 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-08-05 22:58:48,376 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 22:58:48,376 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 22:58:48,377 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-05 22:58:48,377 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 22:58:48,377 - DEBUG - Decoded 47, consumed 1 bytes
+2025-08-05 22:58:48,377 - DEBUG - Decoded (<memory at 0x0000015653672880>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-08-05 22:58:48,378 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 22:58:48,378 - DEBUG - Decoded 146, consumed 2 bytes
+2025-08-05 22:58:48,378 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-08-05 22:58:48,378 - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-05 22:58:48,378 - DEBUG - Decoded 129, consumed 2 bytes
+2025-08-05 22:58:48,379 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-08-05 22:58:48,379 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-05 22:58:48,379 - DEBUG - Decoded 58, consumed 1 bytes
+2025-08-05 22:58:48,380 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-08-05 22:58:48,380 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 22:58:48,380 - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-05 22:58:48,380 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-08-05 22:58:48,380 - DEBUG - Decoded 20, consumed 1 bytes
+2025-08-05 22:58:48,380 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-05 22:58:48,381 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-08-05 22:58:48,381 - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-05 22:58:48,381 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 22:58:48,381 - DEBUG - Decoded (b'server', <memory at 0x0000015653672940>), total consumed 5 bytes, indexed True
+2025-08-05 22:58:48,382 - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-05 22:58:48,382 - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-05 22:58:48,383 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x0000015653672100>), total consumed 16 bytes, indexed True
+2025-08-05 22:58:48,383 - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-05 22:58:48,383 - DEBUG - Decoded 9, consumed 1 bytes
+2025-08-05 22:58:48,383 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-08-05 22:58:48,384 - DEBUG - Decoded 55, consumed 2 bytes
+2025-08-05 22:58:48,384 - DEBUG - Decoded 219, consumed 2 bytes
+2025-08-05 22:58:48,385 - DEBUG - Decoded (b'set-cookie', b'NID=525=O9RCs19jw0PbiR1s1z9A4Li-8olT2uqZ8ihP3HSjOYix_NLpTXzWlLX2TecrCbGQSNCihMecTNc799cNcNdRy_tIh-GVRYJYuWDbcqS2rHYjfKdFFCRI6SLC8lzNJUbVZc8g7UFGYqK8mGs0VSdrCecClc7mTy84TAUZlp0IXX1xzdle23qazPxCAp7zVnw-QA; expires=Wed, 04-Feb-2026 17:28:48 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 223 bytes, indexed False
+2025-08-05 22:58:48,385 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-05 22:58:48,385 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-05 22:58:48,386 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-08-05 22:58:48,386 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-05 22:58:48,386 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-05 22:58:48,387 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-08-05 22:58:48,387 - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-05 22:58:48,387 - DEBUG - Decoded 45, consumed 1 bytes
+2025-08-05 22:58:48,387 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-08-05 22:58:48,389 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-08-05 22:58:48,390 - INFO - Translated 'qweqwe' to 'qweqwe'
+2025-08-05 22:58:48,395 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:48] "POST /api/admin/translate-question HTTP/1.1" 200 -
+2025-08-05 22:58:54,879 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:54] "OPTIONS /api/admin/create-questionnaire HTTP/1.1" 200 -
+2025-08-05 22:58:54,938 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:54] "[35m[1mPOST /api/admin/create-questionnaire HTTP/1.1[0m" 201 -
+2025-08-05 22:58:55,267 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:55] "OPTIONS /api/admin/add-question HTTP/1.1" 200 -
+2025-08-05 22:58:55,628 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:55] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-08-05 22:58:55,889 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:55] "[35m[1mPOST /api/admin/add-question HTTP/1.1[0m" 201 -
+2025-08-05 22:58:57,599 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:57] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 22:58:57,961 - INFO - 127.0.0.1 - - [05/Aug/2025 22:58:57] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-05 22:59:05,613 - INFO - 127.0.0.1 - - [05/Aug/2025 22:59:05] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-05 22:59:37,538 - INFO - 127.0.0.1 - - [05/Aug/2025 22:59:37] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:59:37,576 - INFO - Trying external webcam (index 1)...
+2025-08-05 22:59:37,612 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 22:59:37,850 - INFO - 127.0.0.1 - - [05/Aug/2025 22:59:37] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:59:38,188 - INFO - Trying external webcam (index 1)...
+2025-08-05 22:59:38,226 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 22:59:42,353 - INFO - Successfully connected to built-in camera
+2025-08-05 22:59:42,357 - INFO - Successfully connected to built-in camera
+2025-08-05 22:59:59,778 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 22:59:59,780 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 22:59:59,780 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 22:59:59,782 - INFO - 127.0.0.1 - - [05/Aug/2025 22:59:59] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 22:59:59,807 - INFO - Using detection interval: 30 frames
+2025-08-05 23:00:00,145 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:00] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:00:00,497 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:00] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:00:03,619 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:00:03,622 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:00:03,622 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:00:03,625 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:03] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:00:03,648 - INFO - Using detection interval: 30 frames
+2025-08-05 23:00:03,981 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:03] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:00:18,760 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:18] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 23:00:19,586 - INFO - All models loaded successfully
+2025-08-05 23:00:19,586 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:00:19,586 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 23:00:19,588 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 23:00:19,588 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 23:00:19,588 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:00:19,589 - INFO - Text: 'hjnhjn hj hj hj hj h...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:00:19,589 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:00:19,610 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:00:19,632 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:00:19,632 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:00:19,633 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:00:19,635 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:00:19,636 - INFO - Text: 'hu ii yii ihh i...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:00:19,636 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:00:19,661 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:00:19,683 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:00:19,683 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:00:19,683 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:00:19,686 - INFO - Session 65 - Average NLP Depression Score: 0.50
+2025-08-05 23:00:19,710 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:00:19,711 - INFO - Session 65 - Using NLP score only: 0.50
+2025-08-05 23:00:19,738 - INFO - ================================================================================
+2025-08-05 23:00:19,749 - INFO - ================================================================================
+2025-08-05 23:00:19,813 - INFO - 
+2025-08-05 23:00:19,826 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 23:00:19,827 - INFO -    Alert Level:    GREEN
+2025-08-05 23:00:19,827 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 23:00:19,827 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 23:00:19,828 - INFO - 
+2025-08-05 23:00:19,843 - INFO -    Total Detections: 0
+2025-08-05 23:00:19,844 - INFO -    Dominant Emotion: Unknown
+2025-08-05 23:00:19,844 - INFO - ================================================================================
+2025-08-05 23:00:19,866 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:19] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 23:00:19,886 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:19] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:00:20,254 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:00:20,254 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-05 23:00:20,362 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:00:20,732 - INFO - Camera resources released after survey monitoring
+2025-08-05 23:00:20,734 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:20] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:00:20,789 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:00:20,791 - INFO - 127.0.0.1 - - [05/Aug/2025 23:00:20] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:07:02,669 - INFO - 127.0.0.1 - - [05/Aug/2025 23:07:02] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:07:03,102 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:07:03,124 - INFO - 127.0.0.1 - - [05/Aug/2025 23:07:03] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:07:08,363 - INFO - 127.0.0.1 - - [05/Aug/2025 23:07:08] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:07:08,371 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:07:08,372 - INFO - 127.0.0.1 - - [05/Aug/2025 23:07:08] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:08:29,936 - INFO - 127.0.0.1 - - [05/Aug/2025 23:08:29] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:08:29,941 - INFO - 127.0.0.1 - - [05/Aug/2025 23:08:29] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:08:30,292 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:08:30,294 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:08:30,354 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:08:30,378 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:08:35,401 - INFO - Successfully connected to built-in camera
+2025-08-05 23:08:35,512 - INFO - Successfully connected to built-in camera
+2025-08-05 23:08:50,796 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:08:50,798 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:08:50,799 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:08:50,803 - INFO - 127.0.0.1 - - [05/Aug/2025 23:08:50] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:08:50,839 - INFO - Using detection interval: 30 frames
+2025-08-05 23:08:50,864 - INFO - 127.0.0.1 - - [05/Aug/2025 23:08:50] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:08:51,204 - INFO - 127.0.0.1 - - [05/Aug/2025 23:08:51] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:08:54,938 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:08:54,940 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:08:54,941 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:08:54,942 - INFO - 127.0.0.1 - - [05/Aug/2025 23:08:54] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:08:54,968 - INFO - Using detection interval: 30 frames
+2025-08-05 23:08:55,295 - INFO - 127.0.0.1 - - [05/Aug/2025 23:08:55] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:09:01,917 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:09:01,918 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:09:01,918 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:01,919 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:07,120 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:09:07,120 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:12,364 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.02', 'Happy': '0.00', 'Neutral': '0.95', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-08-05 23:09:12,365 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:12,415 - DEBUG - Emotion probabilities: {'Angry': '0.02', 'Disgusted': '0.00', 'Fearful': '0.07', 'Happy': '0.24', 'Neutral': '0.64', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-08-05 23:09:12,415 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:17,530 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-08-05 23:09:17,531 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:17,550 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.96', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-08-05 23:09:17,551 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:22,684 - WARNING - Face detected but not recognized as any known soldier
+2025-08-05 23:09:22,827 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-08-05 23:09:22,827 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:26,995 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:09:26,997 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:27,970 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:09:27,970 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:31,977 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-08-05 23:09:31,978 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:32,907 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.96', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-08-05 23:09:32,907 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:35,121 - INFO - 127.0.0.1 - - [05/Aug/2025 23:09:35] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 23:09:36,092 - INFO - All models loaded successfully
+2025-08-05 23:09:36,093 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:09:36,093 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 23:09:36,094 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 23:09:36,094 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 23:09:36,094 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:09:36,094 - INFO - Text: 'hyl hylo hih i hi...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:09:36,095 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:09:36,910 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:09:36,947 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:09:36,951 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:09:36,951 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:09:36,954 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:09:36,957 - INFO - Text: 'jhkhkjh jji hi hi j...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:09:36,958 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:09:36,996 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:09:37,039 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:09:37,043 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:09:37,044 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:09:37,048 - INFO - Session 66 - Average NLP Depression Score: 0.50
+2025-08-05 23:09:37,909 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:09:37,910 - INFO - Session 66 - Using NLP score only: 0.50
+2025-08-05 23:09:37,960 - INFO - ================================================================================
+2025-08-05 23:09:37,990 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:09:38,044 - INFO - ================================================================================
+2025-08-05 23:09:38,044 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:38,157 - INFO - 
+2025-08-05 23:09:38,169 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:09:38,172 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 23:09:38,172 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:09:38,173 - INFO -    Alert Level:    GREEN
+2025-08-05 23:09:38,173 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 23:09:38,173 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 23:09:38,173 - INFO - 
+2025-08-05 23:09:38,186 - INFO -    Total Detections: 0
+2025-08-05 23:09:38,186 - INFO -    Dominant Emotion: Unknown
+2025-08-05 23:09:38,186 - INFO - ================================================================================
+2025-08-05 23:09:38,206 - INFO - 127.0.0.1 - - [05/Aug/2025 23:09:38] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 23:09:38,225 - INFO - 127.0.0.1 - - [05/Aug/2025 23:09:38] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:09:38,563 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:09:38,594 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:09:38,595 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-05 23:09:39,143 - INFO - Camera resources released after survey monitoring
+2025-08-05 23:09:39,144 - INFO - 127.0.0.1 - - [05/Aug/2025 23:09:39] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:09:39,210 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:09:39,211 - INFO - 127.0.0.1 - - [05/Aug/2025 23:09:39] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:11:52,670 - INFO - 127.0.0.1 - - [05/Aug/2025 23:11:52] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:11:52,996 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:11:52,997 - INFO - 127.0.0.1 - - [05/Aug/2025 23:11:52] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:12:58,790 - INFO - 127.0.0.1 - - [05/Aug/2025 23:12:58] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:12:58,792 - INFO - 127.0.0.1 - - [05/Aug/2025 23:12:58] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:12:59,130 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:12:59,134 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:12:59,186 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:12:59,218 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:13:04,068 - INFO - Successfully connected to built-in camera
+2025-08-05 23:13:04,168 - INFO - Successfully connected to built-in camera
+2025-08-05 23:13:19,736 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:13:19,738 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:13:19,740 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:13:19,741 - INFO - 127.0.0.1 - - [05/Aug/2025 23:13:19] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:13:19,768 - INFO - Using detection interval: 30 frames
+2025-08-05 23:13:19,782 - INFO - 127.0.0.1 - - [05/Aug/2025 23:13:19] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:13:20,124 - INFO - 127.0.0.1 - - [05/Aug/2025 23:13:20] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:13:23,460 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:13:23,464 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:13:23,464 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:13:23,466 - INFO - 127.0.0.1 - - [05/Aug/2025 23:13:23] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:13:23,490 - INFO - Using detection interval: 30 frames
+2025-08-05 23:13:23,825 - INFO - 127.0.0.1 - - [05/Aug/2025 23:13:23] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:13:29,265 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:29,266 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:29,274 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:29,275 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:34,733 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:13:34,734 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:34,755 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:34,755 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:40,032 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:40,032 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:40,098 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:13:40,099 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:45,235 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:45,235 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:45,240 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:45,240 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:50,388 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-08-05 23:13:50,389 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-08-05 23:13:50,397 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.91', 'Sad': '0.08', 'Surprised': '0.00'}
+2025-08-05 23:13:50,398 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-08-05 23:13:55,663 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:55,665 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-08-05 23:13:55,674 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:13:55,674 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:13:58,151 - INFO - 127.0.0.1 - - [05/Aug/2025 23:13:58] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 23:13:59,125 - INFO - All models loaded successfully
+2025-08-05 23:13:59,126 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:13:59,126 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 23:13:59,127 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 23:13:59,127 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 23:13:59,127 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:13:59,128 - INFO - Text: 'hjh j hj jh  gi uhk hj...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:13:59,128 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:14:00,827 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:14:00,872 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:14:00,873 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:14:00,875 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:14:00,884 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:14:00,885 - INFO - Text: 'jg kj  h jg  o h...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:14:00,885 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:14:00,932 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:14:00,972 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:14:00,973 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:14:00,973 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:14:00,979 - INFO - Session 67 - Average NLP Depression Score: 0.50
+2025-08-05 23:14:01,032 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:14:01,037 - INFO - Session 67 - Using NLP score only: 0.50
+2025-08-05 23:14:01,084 - INFO - ================================================================================
+2025-08-05 23:14:01,119 - INFO - ================================================================================
+2025-08-05 23:14:01,165 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:14:01,172 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:14:01,202 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:14:01,207 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:14:01,217 - INFO - 
+2025-08-05 23:14:01,232 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 23:14:01,233 - INFO -    Alert Level:    GREEN
+2025-08-05 23:14:01,233 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 23:14:01,233 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 23:14:01,233 - INFO - 
+2025-08-05 23:14:01,249 - INFO -    Total Detections: 0
+2025-08-05 23:14:01,250 - INFO -    Dominant Emotion: Unknown
+2025-08-05 23:14:01,250 - INFO - ================================================================================
+2025-08-05 23:14:01,296 - INFO - 127.0.0.1 - - [05/Aug/2025 23:14:01] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 23:14:01,638 - INFO - 127.0.0.1 - - [05/Aug/2025 23:14:01] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:14:01,963 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:14:02,026 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:14:02,027 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-05 23:14:02,548 - INFO - Camera resources released after survey monitoring
+2025-08-05 23:14:02,549 - INFO - 127.0.0.1 - - [05/Aug/2025 23:14:02] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:14:02,567 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:14:02,569 - INFO - 127.0.0.1 - - [05/Aug/2025 23:14:02] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:17:43,674 - INFO - 127.0.0.1 - - [05/Aug/2025 23:17:43] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:17:43,987 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:17:43,989 - INFO - 127.0.0.1 - - [05/Aug/2025 23:17:43] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:18:16,363 - INFO - 127.0.0.1 - - [05/Aug/2025 23:18:16] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:18:16,375 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:18:16,376 - INFO - 127.0.0.1 - - [05/Aug/2025 23:18:16] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:18:54,665 - INFO - 127.0.0.1 - - [05/Aug/2025 23:18:54] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:18:54,979 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:18:54,980 - INFO - 127.0.0.1 - - [05/Aug/2025 23:18:54] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:21:26,992 - INFO - 127.0.0.1 - - [05/Aug/2025 23:21:26] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:21:26,999 - INFO - 127.0.0.1 - - [05/Aug/2025 23:21:26] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:21:27,351 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:21:27,353 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:21:27,412 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:21:27,436 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:21:32,291 - INFO - Successfully connected to built-in camera
+2025-08-05 23:21:32,326 - INFO - Successfully connected to built-in camera
+2025-08-05 23:21:47,462 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:21:47,465 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:21:47,465 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:21:47,468 - INFO - 127.0.0.1 - - [05/Aug/2025 23:21:47] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:21:47,503 - INFO - Using detection interval: 30 frames
+2025-08-05 23:21:47,529 - INFO - 127.0.0.1 - - [05/Aug/2025 23:21:47] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:21:47,872 - INFO - 127.0.0.1 - - [05/Aug/2025 23:21:47] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:21:51,248 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:21:51,251 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:21:51,252 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:21:51,254 - INFO - 127.0.0.1 - - [05/Aug/2025 23:21:51] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:21:51,282 - INFO - Using detection interval: 30 frames
+2025-08-05 23:21:51,610 - INFO - 127.0.0.1 - - [05/Aug/2025 23:21:51] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:21:57,027 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:21:57,027 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:21:57,072 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:21:57,072 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:02,899 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-08-05 23:22:02,900 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:03,061 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:22:03,061 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:08,698 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.58', 'Neutral': '0.42', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:08,699 - INFO - Detected soldier 100000004 with Happy emotion (score: -1)
+2025-08-05 23:22:08,768 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.08', 'Neutral': '0.92', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:08,769 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:13,998 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.06', 'Neutral': '0.93', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:14,000 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:14,007 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.03', 'Neutral': '0.97', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:14,008 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:19,356 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:22:19,356 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:19,363 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:22:19,364 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:24,612 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:22:24,612 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:24,637 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.98', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:22:24,637 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:29,895 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:22:29,896 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:29,922 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.02', 'Surprised': '0.00'}
+2025-08-05 23:22:29,922 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:35,040 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '1.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:35,041 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:35,046 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:35,046 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:40,444 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.07', 'Neutral': '0.93', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:40,445 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:40,459 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.01', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:40,459 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:43,833 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:43] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 23:22:45,986 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-05 23:22:45,987 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:46,031 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:22:46,031 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-05 23:22:46,810 - INFO - All models loaded successfully
+2025-08-05 23:22:46,810 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:22:46,811 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 23:22:46,811 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 23:22:46,811 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 23:22:46,812 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:22:46,812 - INFO - Text: 'new new new new new...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:22:46,812 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:22:46,836 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:46,857 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:46,858 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:22:46,858 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:22:46,860 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:22:46,861 - INFO - Text: 'new new new new e...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:22:46,861 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:22:46,879 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:46,898 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:46,898 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:22:46,898 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:22:46,900 - INFO - Session 68 - Average NLP Depression Score: 0.50
+2025-08-05 23:22:46,922 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:46,923 - INFO - Session 68 - Using NLP score only: 0.50
+2025-08-05 23:22:46,942 - INFO - ================================================================================
+2025-08-05 23:22:46,953 - INFO - ================================================================================
+2025-08-05 23:22:47,016 - INFO - 
+2025-08-05 23:22:47,030 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 23:22:47,030 - INFO -    Alert Level:    GREEN
+2025-08-05 23:22:47,031 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 23:22:47,031 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 23:22:47,031 - INFO - 
+2025-08-05 23:22:47,045 - INFO -    Total Detections: 0
+2025-08-05 23:22:47,045 - INFO -    Dominant Emotion: Unknown
+2025-08-05 23:22:47,046 - INFO - ================================================================================
+2025-08-05 23:22:47,073 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:47] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 23:22:47,092 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:47] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:22:47,157 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:22:47,158 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-05 23:22:47,203 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:22:47,698 - INFO - Camera resources released after survey monitoring
+2025-08-05 23:22:47,700 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:47] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:22:48,039 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:22:48,040 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:48] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:22:51,971 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:51] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 23:22:52,753 - INFO - All models loaded successfully
+2025-08-05 23:22:52,753 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:22:52,754 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 23:22:52,754 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 23:22:52,754 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 23:22:52,755 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:22:52,755 - INFO - Text: 'new new new new new...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:22:52,755 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:22:52,775 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:52,795 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:52,796 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:22:52,796 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:22:52,798 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:22:52,798 - INFO - Text: 'new new new new e...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:22:52,799 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:22:52,818 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:52,841 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:52,842 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:22:52,842 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:22:52,844 - INFO - Session 69 - Average NLP Depression Score: 0.50
+2025-08-05 23:22:52,863 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:22:52,863 - INFO - Session 69 - Using NLP score only: 0.50
+2025-08-05 23:22:52,886 - INFO - ================================================================================
+2025-08-05 23:22:52,897 - INFO - ================================================================================
+2025-08-05 23:22:52,949 - INFO - 
+2025-08-05 23:22:52,960 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 23:22:52,960 - INFO -    Alert Level:    GREEN
+2025-08-05 23:22:52,960 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 23:22:52,962 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 23:22:52,962 - INFO - 
+2025-08-05 23:22:52,972 - INFO -    Total Detections: 0
+2025-08-05 23:22:52,974 - INFO -    Dominant Emotion: Unknown
+2025-08-05 23:22:52,974 - INFO - ================================================================================
+2025-08-05 23:22:53,000 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:53] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 23:22:53,023 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:53] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:22:53,351 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:22:53,352 - INFO - 127.0.0.1 - - [05/Aug/2025 23:22:53] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:23:07,776 - INFO - 127.0.0.1 - - [05/Aug/2025 23:23:07] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 23:23:08,724 - INFO - All models loaded successfully
+2025-08-05 23:23:08,724 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:23:08,725 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 23:23:08,725 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 23:23:08,725 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 23:23:08,725 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:23:08,725 - INFO - Text: 'new new new new new...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:23:08,726 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:23:08,746 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:23:08,765 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:23:08,765 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:23:08,765 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:23:08,767 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:23:08,767 - INFO - Text: 'new new new new e...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:23:08,769 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:23:08,792 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:23:08,811 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:23:08,811 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:23:08,812 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:23:08,814 - INFO - Session 70 - Average NLP Depression Score: 0.50
+2025-08-05 23:23:08,833 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:23:08,834 - INFO - Session 70 - Using NLP score only: 0.50
+2025-08-05 23:23:08,856 - INFO - ================================================================================
+2025-08-05 23:23:08,863 - INFO - ================================================================================
+2025-08-05 23:23:08,934 - INFO - 
+2025-08-05 23:23:08,950 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 23:23:08,950 - INFO -    Alert Level:    GREEN
+2025-08-05 23:23:08,952 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 23:23:08,953 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 23:23:08,953 - INFO - 
+2025-08-05 23:23:08,961 - INFO -    Total Detections: 0
+2025-08-05 23:23:08,963 - INFO -    Dominant Emotion: Unknown
+2025-08-05 23:23:08,964 - INFO - ================================================================================
+2025-08-05 23:23:08,988 - INFO - 127.0.0.1 - - [05/Aug/2025 23:23:08] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-05 23:23:09,005 - INFO - 127.0.0.1 - - [05/Aug/2025 23:23:09] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:23:09,327 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:23:09,328 - INFO - 127.0.0.1 - - [05/Aug/2025 23:23:09] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:28:12,665 - INFO - 127.0.0.1 - - [05/Aug/2025 23:28:12] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:28:12,980 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:28:12,981 - INFO - 127.0.0.1 - - [05/Aug/2025 23:28:12] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:29:16,436 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-05 23:43:55,689 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-05 23:44:00,529 - INFO - All models loaded successfully
+2025-08-05 23:44:01,661 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 23:44:01,743 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-05 23:44:01,744 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-05 23:44:01,753 - INFO -  * Restarting with stat
+2025-08-05 23:44:14,358 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-05 23:44:24,195 - INFO - All models loaded successfully
+2025-08-05 23:44:25,427 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-05 23:44:25,516 - WARNING -  * Debugger is active!
+2025-08-05 23:44:25,525 - INFO -  * Debugger PIN: 132-663-522
+2025-08-05 23:44:51,288 - INFO - 127.0.0.1 - - [05/Aug/2025 23:44:51] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:44:51,292 - INFO - 127.0.0.1 - - [05/Aug/2025 23:44:51] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:44:51,639 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:44:51,641 - INFO - Trying external webcam (index 1)...
+2025-08-05 23:44:51,762 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:44:51,762 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-05 23:44:56,857 - INFO - Successfully connected to built-in camera
+2025-08-05 23:44:56,861 - INFO - Successfully connected to built-in camera
+2025-08-05 23:45:11,431 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:45:11,436 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:45:11,437 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:45:11,439 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:11] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:45:11,469 - INFO - Using detection interval: 30 frames
+2025-08-05 23:45:11,484 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:11] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:45:11,823 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:11] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:45:15,976 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-05 23:45:15,979 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-05 23:45:15,979 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-05 23:45:15,983 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:15] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:45:16,020 - INFO - Using detection interval: 30 frames
+2025-08-05 23:45:16,345 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:16] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-05 23:45:20,177 - WARNING - Face detected but not recognized as any known soldier
+2025-08-05 23:45:24,281 - WARNING - Face detected but not recognized as any known soldier
+2025-08-05 23:45:25,588 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.99', 'Neutral': '0.00', 'Sad': '0.00', 'Surprised': '0.00'}
+2025-08-05 23:45:25,588 - INFO - Detected soldier 100000004 with Happy emotion (score: -1)
+2025-08-05 23:45:29,208 - WARNING - Face detected but not recognized as any known soldier
+2025-08-05 23:45:30,622 - WARNING - Face detected but not recognized as any known soldier
+2025-08-05 23:45:32,995 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:32] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-05 23:45:33,888 - INFO - All models loaded successfully
+2025-08-05 23:45:33,888 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:45:33,888 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-05 23:45:33,889 - WARNING - No emotion data retrieved from monitoring service
+2025-08-05 23:45:33,889 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-05 23:45:33,889 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:45:33,889 - INFO - Text: 'yuyu yu y uuy u...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:45:33,890 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:45:33,909 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:45:33,929 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:45:33,930 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:45:33,930 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:45:33,935 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-05 23:45:33,935 - INFO - Text: 'yu yu y yu yu...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-05 23:45:33,936 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-05 23:45:33,959 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:45:33,980 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:45:33,981 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-05 23:45:33,981 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-05 23:45:33,984 - INFO - Session 71 - Average NLP Depression Score: 0.50
+2025-08-05 23:45:34,012 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-05 23:45:34,013 - INFO - Session 71 - Using NLP score only: 0.50
+2025-08-05 23:45:34,042 - INFO - ================================================================================
+2025-08-05 23:45:34,078 - INFO - ================================================================================
+2025-08-05 23:45:34,867 - WARNING - Face detected but not recognized as any known soldier
+2025-08-05 23:45:34,888 - INFO - 
+2025-08-05 23:45:34,897 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-05 23:45:34,897 - INFO -    Alert Level:    GREEN
+2025-08-05 23:45:34,897 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-05 23:45:34,898 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-05 23:45:34,898 - INFO - 
+2025-08-05 23:45:34,911 - INFO -    Total Detections: 0
+2025-08-05 23:45:34,911 - INFO -    Dominant Emotion: Unknown
+2025-08-05 23:45:34,911 - INFO - ================================================================================
+2025-08-05 23:45:34,939 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:34] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 500 -
+2025-08-05 23:45:35,268 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:35] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:45:35,637 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:45:35,684 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-05 23:45:35,685 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-05 23:45:36,196 - INFO - Camera resources released after survey monitoring
+2025-08-05 23:45:36,198 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:36] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:45:36,242 - WARNING - No monitoring session active for soldier 100000001
+2025-08-05 23:45:36,245 - INFO - 127.0.0.1 - - [05/Aug/2025 23:45:36] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-05 23:49:54,976 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-06 21:13:26,169 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-06 21:13:48,025 - INFO - All models loaded successfully
+2025-08-06 21:13:50,346 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-06 21:13:50,618 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-06 21:13:50,622 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-06 21:13:50,643 - INFO -  * Restarting with stat
+2025-08-06 21:14:04,962 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-06 21:14:10,937 - INFO - All models loaded successfully
+2025-08-06 21:14:12,230 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-06 21:14:12,280 - WARNING -  * Debugger is active!
+2025-08-06 21:14:12,298 - INFO -  * Debugger PIN: 132-663-522
+2025-08-06 21:14:16,707 - INFO - 127.0.0.1 - - [06/Aug/2025 21:14:16] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:14:16,714 - INFO - 127.0.0.1 - - [06/Aug/2025 21:14:16] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:14:17,057 - INFO - Trying external webcam (index 1)...
+2025-08-06 21:14:17,064 - INFO - Trying external webcam (index 1)...
+2025-08-06 21:14:17,233 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-06 21:14:17,234 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-06 21:14:22,546 - INFO - Successfully connected to built-in camera
+2025-08-06 21:14:22,655 - INFO - Successfully connected to built-in camera
+2025-08-06 21:14:38,001 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-06 21:14:38,007 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-06 21:14:38,008 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-06 21:14:38,010 - INFO - 127.0.0.1 - - [06/Aug/2025 21:14:38] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:14:38,043 - INFO - Using detection interval: 30 frames
+2025-08-06 21:14:38,065 - INFO - 127.0.0.1 - - [06/Aug/2025 21:14:38] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-06 21:14:38,420 - INFO - 127.0.0.1 - - [06/Aug/2025 21:14:38] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-06 21:14:41,828 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-06 21:14:41,830 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-06 21:14:41,831 - INFO - Started survey emotion monitoring for soldier 100000001
+2025-08-06 21:14:41,834 - INFO - 127.0.0.1 - - [06/Aug/2025 21:14:41] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:14:41,866 - INFO - Using detection interval: 30 frames
+2025-08-06 21:14:42,195 - INFO - 127.0.0.1 - - [06/Aug/2025 21:14:42] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-06 21:14:51,113 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.84', 'Sad': '0.15', 'Surprised': '0.00'}
+2025-08-06 21:14:51,113 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-06 21:14:52,419 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.92', 'Sad': '0.07', 'Surprised': '0.00'}
+2025-08-06 21:14:52,420 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0)
+2025-08-06 21:14:52,420 - INFO - Survey detection: 100000001 - Neutral (0.00)
+2025-08-06 21:14:59,709 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.01', 'Happy': '0.00', 'Neutral': '0.93', 'Sad': '0.06', 'Surprised': '0.00'}
+2025-08-06 21:14:59,710 - INFO - Detected soldier 100000003 with Neutral emotion (score: 0)
+2025-08-06 21:15:04,533 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.99', 'Sad': '0.01', 'Surprised': '0.00'}
+2025-08-06 21:15:04,533 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-06 21:15:05,547 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.91', 'Sad': '0.09', 'Surprised': '0.00'}
+2025-08-06 21:15:05,547 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-06 21:15:09,649 - INFO - 127.0.0.1 - - [06/Aug/2025 21:15:09] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-06 21:15:09,699 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.97', 'Sad': '0.03', 'Surprised': '0.00'}
+2025-08-06 21:15:10,468 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-06 21:15:10,671 - DEBUG - Emotion probabilities: {'Angry': '0.00', 'Disgusted': '0.00', 'Fearful': '0.00', 'Happy': '0.00', 'Neutral': '0.96', 'Sad': '0.04', 'Surprised': '0.00'}
+2025-08-06 21:15:10,672 - INFO - Detected soldier 100000004 with Neutral emotion (score: 0)
+2025-08-06 21:15:11,335 - INFO - All models loaded successfully
+2025-08-06 21:15:11,335 - WARNING - No monitoring session active for soldier 100000001
+2025-08-06 21:15:11,335 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-06 21:15:11,336 - WARNING - No emotion data retrieved from monitoring service
+2025-08-06 21:15:11,336 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-06 21:15:11,336 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-06 21:15:11,336 - INFO - Text: 'yo yo yo yo yo...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-06 21:15:11,336 - INFO - Question 15 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-06 21:15:11,355 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:15:11,375 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:15:11,375 - INFO - Question 15: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-06 21:15:11,376 - INFO - Question 15: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-06 21:15:11,380 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-06 21:15:11,380 - INFO - Text: 'Hasta la vista Tari Mani...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-06 21:15:11,380 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-06 21:15:11,405 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:15:11,428 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:15:11,429 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-06 21:15:11,429 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-06 21:15:11,432 - INFO - Session 72 - Average NLP Depression Score: 0.50
+2025-08-06 21:15:11,454 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:15:11,455 - INFO - Session 72 - Using NLP score only: 0.50
+2025-08-06 21:15:11,475 - INFO - ================================================================================
+2025-08-06 21:15:11,863 - INFO - ================================================================================
+2025-08-06 21:15:11,945 - INFO - 
+2025-08-06 21:15:11,961 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-06 21:15:11,962 - INFO -    Alert Level:    GREEN
+2025-08-06 21:15:11,962 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-06 21:15:11,963 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-06 21:15:11,963 - INFO - 
+2025-08-06 21:15:11,985 - INFO -    Total Detections: 0
+2025-08-06 21:15:11,985 - INFO -    Dominant Emotion: Unknown
+2025-08-06 21:15:11,986 - INFO - ================================================================================
+2025-08-06 21:15:12,046 - INFO - 127.0.0.1 - - [06/Aug/2025 21:15:12] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-06 21:15:12,391 - INFO - 127.0.0.1 - - [06/Aug/2025 21:15:12] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:15:12,729 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-06 21:15:12,730 - INFO - Processing 1 emotion detections for soldier 100000001
+2025-08-06 21:15:12,730 - INFO - Found 1 actual emotion detections (filtered from 1 total entries)
+2025-08-06 21:15:12,730 - INFO - Calculated avg depression score: 0.00, dominant emotion: Neutral
+2025-08-06 21:15:12,731 - INFO - Storing emotion data for session_id: 72
+2025-08-06 21:15:12,749 - INFO - Storing emotion data - session_id: 72, force_id: 100000001, avg_score: 0.00
+2025-08-06 21:15:12,753 - INFO - Updated 1 weekly session record(s)
+2025-08-06 21:15:12,755 - INFO - Updated 2 question response record(s)
+2025-08-06 21:15:12,762 - INFO - Successfully stored survey emotion data for session 72: avg_score=0.00
+2025-08-06 21:15:12,764 - INFO - Survey monitoring ended for 100000001: avg_score=0.00, emotion=Neutral, detections=1
+2025-08-06 21:15:12,792 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-06 21:15:13,308 - INFO - Camera resources released after survey monitoring
+2025-08-06 21:15:13,313 - INFO - 127.0.0.1 - - [06/Aug/2025 21:15:13] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:15:13,403 - WARNING - No monitoring session active for soldier 100000001
+2025-08-06 21:15:13,406 - INFO - 127.0.0.1 - - [06/Aug/2025 21:15:13] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:22:47,377 - INFO - 127.0.0.1 - - [06/Aug/2025 21:22:47] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-06 21:22:48,457 - INFO - All models loaded successfully
+2025-08-06 21:22:48,457 - WARNING - No monitoring session active for soldier 100000001
+2025-08-06 21:22:48,457 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-06 21:22:48,458 - WARNING - No emotion data retrieved from monitoring service
+2025-08-06 21:22:48,458 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-06 21:22:48,458 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.094, 'pos': 0.906, 'compound': 0.8225}
+2025-08-06 21:22:48,458 - INFO - Text: 'hi ha ha ha ha...' - Label: POSITIVE, Depression score: 0.09
+2025-08-06 21:22:48,459 - INFO - Question 15 - Sentiment: POSITIVE, Score: 0.09
+2025-08-06 21:22:48,478 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:22:48,500 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:22:48,501 - INFO - Question 15: Weighted Combined = (0.09 * 0.7) + (0.00 * 0.3) = 0.062
+2025-08-06 21:22:48,501 - INFO - Question 15: NLP=0.08875, Emotion=0.00, Weighted Combined=0.062
+2025-08-06 21:22:48,504 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-06 21:22:48,504 - INFO - Text: 'yo ho ho ho ho...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-06 21:22:48,504 - INFO - Question 16 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-06 21:22:48,526 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:22:48,550 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:22:48,551 - INFO - Question 16: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-06 21:22:48,552 - INFO - Question 16: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-06 21:22:48,555 - INFO - Session 73 - Average NLP Depression Score: 0.29
+2025-08-06 21:22:48,575 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-06 21:22:48,576 - INFO - Session 73 - Using NLP score only: 0.29
+2025-08-06 21:22:48,595 - INFO - ================================================================================
+2025-08-06 21:22:48,605 - INFO - ================================================================================
+2025-08-06 21:22:48,719 - INFO - 
+2025-08-06 21:22:48,738 - INFO -    State:          EXCELLENT MENTAL HEALTH
+2025-08-06 21:22:48,738 - INFO -    Alert Level:    GREEN
+2025-08-06 21:22:48,739 - INFO -    Description:    Positive emotional state, no concerns
+2025-08-06 21:22:48,739 - INFO -    Recommendation: Continue normal duties
+2025-08-06 21:22:48,739 - INFO - 
+2025-08-06 21:22:48,788 - INFO -    Total Detections: 0
+2025-08-06 21:22:48,789 - INFO -    Dominant Emotion: Unknown
+2025-08-06 21:22:48,790 - INFO - ================================================================================
+2025-08-06 21:22:48,835 - INFO - 127.0.0.1 - - [06/Aug/2025 21:22:48] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-06 21:22:48,854 - INFO - 127.0.0.1 - - [06/Aug/2025 21:22:48] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:22:48,865 - WARNING - No monitoring session active for soldier 100000001
+2025-08-06 21:22:48,870 - INFO - 127.0.0.1 - - [06/Aug/2025 21:22:48] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-06 21:26:20,886 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading

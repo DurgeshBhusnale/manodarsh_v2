@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS weekly_sessions (
     status ENUM('pending', 'completed', 'missed') NOT NULL,
     nlp_avg_score FLOAT,
     image_avg_score FLOAT,
+    mental_state_score FLOAT,
     combined_avg_score FLOAT,
     FOREIGN KEY (force_id) REFERENCES users(force_id) ON DELETE CASCADE,
     FOREIGN KEY (questionnaire_id) REFERENCES questionnaires(questionnaire_id) ON DELETE SET NULL
@@ -56,6 +57,18 @@ CREATE TABLE IF NOT EXISTS question_responses (
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (session_id) REFERENCES weekly_sessions(session_id) ON DELETE CASCADE,
     FOREIGN KEY (question_id) REFERENCES questions(question_id) ON DELETE CASCADE
+);
+
+-- Mental State Responses Table (for the universal mental state question)
+CREATE TABLE IF NOT EXISTS mental_state_responses (
+    mental_state_id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id INT NOT NULL,
+    mental_state_rating INT NOT NULL CHECK (mental_state_rating BETWEEN 1 AND 7),
+    mental_state_emoji VARCHAR(10) NOT NULL,
+    mental_state_text_en VARCHAR(50) NOT NULL,
+    mental_state_text_hi VARCHAR(100) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (session_id) REFERENCES weekly_sessions(session_id) ON DELETE CASCADE
 );
 
 -- CCTV Daily Monitoring Table

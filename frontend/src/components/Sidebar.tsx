@@ -28,6 +28,7 @@ export const Sidebar: React.FC = () => {
         { path: '/admin/add-soldier', label: 'Add User' },
         { path: '/admin/soldiers-data', label: 'Users Data' },
         { path: '/admin/questionnaires', label: 'Questionnaire' },
+        { path: '/admin/face-model-management', label: 'Face Model' },
         { path: '/admin/settings', label: 'System Settings' },
         { path: '/admin/daily-emotion', label: 'Daily Emotion' },
     ];
@@ -38,6 +39,7 @@ export const Sidebar: React.FC = () => {
             'Add User': 'fa-user-plus',
             'Users Data': 'fa-users',
             'Questionnaire': 'fa-clipboard-list',
+            'Face Model': 'fa-face-grin',
             'System Settings': 'fa-cogs',
             'Daily Emotion': 'fa-smile'
         };

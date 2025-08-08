@@ -1,0 +1,13 @@
+2025-08-07 20:51:19,731 - INFO - Model backed up to: storage\models\backups\face_model_backup_pre_migrated_20250807_205119.pkl
+2025-08-07 20:51:19,784 - INFO - Model saved atomically - Version: migrated_20250807_205119, Soldiers: 117
+2025-08-07 20:51:19,815 - INFO - Model loaded successfully - 117 soldiers
+2025-08-07 20:51:22,671 - INFO - Model loaded successfully - 117 soldiers
+2025-08-07 20:51:22,688 - INFO - Model loaded successfully - 117 soldiers
+2025-08-07 20:51:22,704 - INFO - Model loaded successfully - 117 soldiers
+2025-08-07 22:32:37,420 - ERROR - Error loading model: too many values to unpack (expected 2)
+2025-08-07 22:33:40,185 - WARNING - Model hash mismatch - possible corruption
+2025-08-07 22:33:40,187 - WARNING - Soldier count mismatch in metadata
+2025-08-07 22:33:40,187 - INFO - Model loaded successfully - 87 soldiers
+2025-08-08 19:22:10,573 - INFO - Removed old atomic backup: face_recognition_model.pkl.backup_20250807_223056
+2025-08-08 19:23:53,459 - INFO - Removed old atomic backup: face_recognition_model.pkl.backup_20250808_110000
+2025-08-08 19:23:53,460 - INFO - Removed old atomic backup: face_recognition_model.pkl.backup_20250808_100000

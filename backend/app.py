@@ -6,6 +6,7 @@ from api.image.routes import image_bp
 from api.admin.routes import admin_bp
 from api.admin.settings import settings_bp
 from api.survey.routes import survey_bp
+from api.monitor.routes import monitor_bp
 from config.settings import settings
 from utils.session_utils import get_dynamic_session_timeout
 from datetime import timedelta
@@ -43,6 +44,7 @@ def create_app():
     app.register_blueprint(admin_bp, url_prefix='/api/admin')
     app.register_blueprint(settings_bp, url_prefix='/api/admin/settings')
     app.register_blueprint(survey_bp, url_prefix='/api/survey')
+    app.register_blueprint(monitor_bp, url_prefix='/api/monitor')
 
     # DISABLED: Initialize scheduler for CCTV monitoring
     # scheduler = MonitoringScheduler()

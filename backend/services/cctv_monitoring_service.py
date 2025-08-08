@@ -8,7 +8,7 @@ from typing import Optional, Dict, List
 from collections import deque, defaultdict
 from statistics import mean
 from db.connection import get_connection
-from services.emotion_detection_service import EmotionDetectionService
+from services.enhanced_emotion_detection_service import EnhancedEmotionDetectionService
 
 def get_camera_settings():
     """Get camera settings from database with fallback to defaults"""
@@ -50,7 +50,7 @@ def get_camera_settings():
 
 class CCTVMonitoringService:
     def __init__(self):
-        self.emotion_service = EmotionDetectionService()
+        self.emotion_service = EnhancedEmotionDetectionService()
         self.monitoring_id = None
         self.cap = None
         self.is_monitoring = False

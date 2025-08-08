@@ -421,8 +421,19 @@ const SurveyPage: React.FC = () => {
             recognition.interimResults = true; // Get interim results as user speaks
             recognition.maxAlternatives = 1;
             
+            // Additional settings to improve continuous listening
+            if (recognition.serviceURI) {
+                // This is available in some browsers
+                recognition.serviceURI = 'wss://www.google.com/speech-api/full-duplex/v1/up';
+            }
+            
             // Start with existing voice transcript if any
             let finalTranscript = recordedText ? recordedText + ' ' : '';
+            
+            // Add start event handler for debugging
+            recognition.onstart = () => {
+                console.log('Speech recognition started successfully');
+            };
             
             recognition.onresult = async (event: any) => {
                 let interimTranscript = '';
@@ -432,8 +443,10 @@ const SurveyPage: React.FC = () => {
                     const transcript = event.results[i][0].transcript;
                     if (event.results[i].isFinal) {
                         finalTranscript += transcript + ' ';
+                        console.log('Final transcript added:', transcript);
                     } else {
                         interimTranscript += transcript;
+                        console.log('Interim transcript:', transcript);
                     }
                 }
                 
@@ -452,20 +465,22 @@ const SurveyPage: React.FC = () => {
             
             recognition.onerror = (event: any) => {
                 console.error('Speech recognition error:', event.error);
-                // Don't stop recognition for temporary errors - just log them
-                if (event.error === 'network' || event.error === 'audio-capture' || event.error === 'no-speech') {
-                    console.log('Temporary error, recognition will continue...', event.error);
+                // Handle different types of errors
+                if (event.error === 'no-speech') {
+                    console.log('No speech detected, will restart recognition...');
+                    // Don't show error for no-speech, just let it restart via onend
                     return;
-                }
-                
-                // Only show error for serious errors
-                if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                } else if (event.error === 'network' || event.error === 'audio-capture') {
+                    console.log('Temporary error, recognition will restart...', event.error);
+                    return;
+                } else if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
                     setIsAnswering(false);
                     setModalTitle('Microphone Permission Required');
                     setModalMessage('Please allow microphone access to use voice input feature.');
                     setShowErrorModal(true);
                 } else {
-                    console.warn('Speech recognition error (continuing):', event.error);
+                    console.warn('Speech recognition error (will restart):', event.error);
+                    // For other errors, let it restart through onend
                 }
             };
             
@@ -477,6 +492,7 @@ const SurveyPage: React.FC = () => {
                     setTimeout(() => {
                         if (isAnswering && recognitionRef.current) {
                             try {
+                                console.log('Attempting to restart speech recognition...');
                                 recognitionRef.current.start();
                                 console.log('Speech recognition restarted successfully');
                             } catch (error) {
@@ -485,31 +501,35 @@ const SurveyPage: React.FC = () => {
                                 setTimeout(() => {
                                     if (isAnswering && recognitionRef.current) {
                                         try {
+                                            console.log('Attempting restart on second attempt...');
                                             recognitionRef.current.start();
                                             console.log('Speech recognition restarted on second attempt');
                                         } catch (retryError) {
-                                            console.error('Failed to restart recognition on retry, trying once more:', retryError);
+                                            console.error('Failed to restart recognition on retry:', retryError);
                                             // Final attempt with longer delay
                                             setTimeout(() => {
                                                 if (isAnswering && recognitionRef.current) {
                                                     try {
+                                                        console.log('Final restart attempt...');
                                                         recognitionRef.current.start();
                                                         console.log('Speech recognition restarted on final attempt');
                                                     } catch (finalError) {
                                                         console.error('All restart attempts failed:', finalError);
                                                         setIsAnswering(false);
                                                         setModalTitle('Speech Recognition Error');
-                                                        setModalMessage('Speech recognition stopped unexpectedly. Please try again.');
+                                                        setModalMessage('Speech recognition stopped unexpectedly. Please try the voice button again.');
                                                         setShowErrorModal(true);
                                                     }
                                                 }
                                             }, 1000);
                                         }
                                     }
-                                }, 300);
+                                }, 100);
                             }
                         }
-                    }, 10); // Start with 10ms delay for immediate restart
+                    }, 50); // Increased from 10ms to 50ms for more reliable restart
+                } else {
+                    console.log('Speech recognition ended - not restarting as isAnswering is false');
                 }
             };
             

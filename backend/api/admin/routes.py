@@ -1163,3 +1163,41 @@ def download_soldiers_csv():
     except Exception as e:
         logger.error(f"Error generating CSV report: {e}")
         return jsonify({"error": f"Failed to generate CSV: {str(e)}"}), 500
+
+# ============================================================================
+# SOLDIERS ENDPOINT FOR FACE MODEL MANAGEMENT
+# ============================================================================
+
+@admin_bp.route('/soldiers', methods=['GET'])
+def get_all_soldiers():
+    """Get all soldiers from the users table (simplified structure)"""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        # Query with actual table structure
+        cursor.execute("""
+            SELECT u.force_id, u.created_at
+            FROM users u 
+            WHERE u.user_type = 'soldier'
+            ORDER BY u.force_id
+        """)
+        
+        soldiers = []
+        for row in cursor.fetchall():
+            soldiers.append({
+                'force_id': row[0],
+                'name': 'N/A',  # Not available in current schema
+                'unit': 'N/A',  # Not available in current schema
+                'rank': 'N/A',  # Not available in current schema
+                'created_at': row[1].isoformat() if row[1] else None
+            })
+        
+        cursor.close()
+        conn.close()
+        
+        return jsonify({'soldiers': soldiers}), 200
+        
+    except Exception as e:
+        logger.error(f"Error fetching soldiers: {e}")
+        return jsonify({'error': str(e)}), 500

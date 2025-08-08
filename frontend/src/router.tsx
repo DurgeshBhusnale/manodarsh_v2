@@ -8,6 +8,7 @@ import QuestionnairePage from './pages/admin/create_questionnaire';
 import AdminQuestionnaires from './pages/admin/questionnaires';
 import AdminSettings from './pages/admin/settings';
 import DailyEmotionPage from './pages/admin/daily-emotion';
+import FaceModelManagement from './pages/admin/face-model-management';
 import SoldierSurveyPage from './pages/soldier/survey';
 import SoldierLoginPage from './pages/soldier/login';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -83,6 +84,22 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute requiredRole="admin">
         <DailyEmotionPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/face-model-management',
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <FaceModelManagement />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/system-monitor',
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <FaceModelManagement />
       </ProtectedRoute>
     ),
   },

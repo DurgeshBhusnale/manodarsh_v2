@@ -1,0 +1,12 @@
+{
+  "version": "20250808_100341",
+  "timestamp": "2025-08-08T10:03:41.239942",
+  "soldier_count": 1,
+  "force_ids": [
+    "100000001"
+  ],
+  "model_hash": "be10d18b093009c0caa34dc29c69750bc6ca5d8a11a28675195c45337b1541c5",
+  "encoding_dimensions": [
+    128
+  ]
+}

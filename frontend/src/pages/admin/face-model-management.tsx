@@ -74,7 +74,7 @@ const FaceModelManagement: React.FC = () => {
             existing.name = soldier.name;
             existing.unit = soldier.unit;
             existing.in_database = true;
-            existing.status = 'synced';
+            existing.status = 'synced'; // Both PKL and DB
           } else {
             soldierMap.set(soldier.force_id, {
               force_id: soldier.force_id,
@@ -88,6 +88,19 @@ const FaceModelManagement: React.FC = () => {
           }
         }
       }
+      
+      // Final status determination after all data is collected
+      soldierMap.forEach((soldier, forceId) => {
+        if (soldier.in_pkl && soldier.in_database) {
+          soldier.status = 'synced';
+        } else if (soldier.in_pkl && !soldier.in_database) {
+          soldier.status = 'pkl_only';
+        } else if (!soldier.in_pkl && soldier.in_database) {
+          soldier.status = 'db_only';
+        } else {
+          soldier.status = 'missing';
+        }
+      });
       
       // Get training status for each soldier
       await Promise.all(
@@ -211,8 +224,7 @@ const FaceModelManagement: React.FC = () => {
 
   const getFilteredSoldiers = () => {
     return soldiers.filter(soldier => {
-      const matchesSearch = soldier.force_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           (soldier.name && soldier.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      const matchesSearch = soldier.force_id.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesStatus = statusFilter === 'all' || soldier.status === statusFilter;
       return matchesSearch && matchesStatus;
     });
@@ -272,24 +284,16 @@ const FaceModelManagement: React.FC = () => {
       <div className="flex-1 p-8 bg-gray-50 min-h-screen">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Face Model Management</h1>
+          <h1 className="text-3xl font-bold text-gray-800">User Management</h1>
           <p className="text-gray-600">Manage soldier face recognition data, PKL files, and training status</p>
         </div>
 
         {/* Stats Cards */}
         {modelStats && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-gray-700">Total Soldiers</h3>
               <p className="text-3xl font-bold text-blue-600">{modelStats.unique_soldiers}</p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-700">Face Encodings</h3>
-              <p className="text-3xl font-bold text-green-600">{modelStats.total_encodings}</p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-700">Avg per Soldier</h3>
-              <p className="text-3xl font-bold text-purple-600">{modelStats.avg_encodings_per_soldier.toFixed(1)}</p>
             </div>
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-gray-700">Model Size</h3>
@@ -304,7 +308,7 @@ const FaceModelManagement: React.FC = () => {
             <div className="flex gap-4 items-center">
               <input
                 type="text"
-                placeholder="Search by Force ID or Name"
+                placeholder="Search by Force ID"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -373,12 +377,6 @@ const FaceModelManagement: React.FC = () => {
                     Force ID
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Unit
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Encodings
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -405,12 +403,6 @@ const FaceModelManagement: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {soldier.force_id}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {soldier.name || 'N/A'}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {soldier.unit || 'N/A'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       <span className={`px-2 py-1 rounded-full text-xs ${

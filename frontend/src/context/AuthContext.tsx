@@ -51,9 +51,14 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [user, setUser] = useState<User | null>(() => {
-        // Check if this is a page refresh
+        // Check if this is a page refresh using multiple methods
         const refreshMarker = sessionStorage.getItem(REFRESH_MARKER_KEY);
-        const isPageRefresh = refreshMarker === 'true';
+        
+        // Also check using Performance Navigation API
+        const navigation = window.performance?.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+        const isPageRefreshByAPI = navigation?.type === 'reload';
+        
+        const isPageRefresh = refreshMarker === 'true' || isPageRefreshByAPI;
         
         // Clear the refresh marker
         sessionStorage.removeItem(REFRESH_MARKER_KEY);
@@ -73,8 +78,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             
             if (isPageRefresh) {
                 // Page refresh: use the full session timeout, no special limit
+                console.log('Detected page refresh - maintaining session');
                 const currentSessionTimeout = getCurrentSessionTimeout();
                 if (timeSinceLastActivity > currentSessionTimeout) {
+                    console.log('Session expired during refresh - logging out');
                     localStorage.removeItem(SESSION_KEY);
                     localStorage.removeItem(TIMESTAMP_KEY);
                     localStorage.removeItem(SESSION_TIMEOUT_KEY);
@@ -92,8 +99,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 return JSON.parse(savedUser);
             } else {
                 // New window/tab: check full session timeout (dynamic) OR missing window ID
+                console.log('Detected new window/tab - checking session validity');
                 const currentSessionTimeout = getCurrentSessionTimeout();
                 if (timeSinceLastActivity > currentSessionTimeout || !storedWindowId) {
+                    console.log('Session invalid for new window - logging out');
                     localStorage.removeItem(SESSION_KEY);
                     localStorage.removeItem(TIMESTAMP_KEY);
                     localStorage.removeItem(SESSION_TIMEOUT_KEY);
@@ -164,14 +173,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 // Set refresh marker - if page reloads, this will be detected
                 sessionStorage.setItem(REFRESH_MARKER_KEY, 'true');
                 
-                // Set a timeout to clear the marker if it's actually a close
+                // Set a longer timeout to clear the marker if it's actually a close
+                // This gives enough time for page refresh to complete
                 setTimeout(() => {
-                    sessionStorage.removeItem(REFRESH_MARKER_KEY);
-                    // Clear session data for actual browser close
-                    localStorage.removeItem(SESSION_KEY);
-                    localStorage.removeItem(TIMESTAMP_KEY);
-                    localStorage.removeItem(WINDOW_ID_KEY);
-                }, 100);
+                    // Only clear if the refresh marker is still there (meaning page didn't reload)
+                    const markerStillExists = sessionStorage.getItem(REFRESH_MARKER_KEY);
+                    if (markerStillExists) {
+                        sessionStorage.removeItem(REFRESH_MARKER_KEY);
+                        // Clear session data for actual browser close
+                        localStorage.removeItem(SESSION_KEY);
+                        localStorage.removeItem(TIMESTAMP_KEY);
+                        localStorage.removeItem(WINDOW_ID_KEY);
+                    }
+                }, 1000); // Increased from 100ms to 1000ms
             }
         };
 
@@ -193,10 +207,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         window.addEventListener('beforeunload', handleBeforeUnload);
         window.addEventListener('unload', handleUnload);
         
+        // Also listen for pageshow to handle browser back/forward cache
+        const handlePageShow = (event: PageTransitionEvent) => {
+            if (event.persisted && user) {
+                // Page was loaded from cache (e.g., browser back/forward)
+                // This is definitely not a logout scenario
+                console.log('Page loaded from cache - maintaining session');
+                const now = Date.now();
+                localStorage.setItem(TIMESTAMP_KEY, now.toString());
+            }
+        };
+        
+        window.addEventListener('pageshow', handlePageShow);
+        
         return () => {
             document.removeEventListener('visibilitychange', handleVisibilityChange);
             window.removeEventListener('beforeunload', handleBeforeUnload);
             window.removeEventListener('unload', handleUnload);
+            window.removeEventListener('pageshow', handlePageShow);
         };
     }, [user]);
 

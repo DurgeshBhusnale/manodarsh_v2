@@ -28,7 +28,7 @@ export const Sidebar: React.FC = () => {
         { path: '/admin/add-soldier', label: 'Add User' },
         { path: '/admin/soldiers-data', label: 'Users Data' },
         { path: '/admin/questionnaires', label: 'Questionnaire' },
-        { path: '/admin/face-model-management', label: 'Face Model' },
+        { path: '/admin/face-model-management', label: 'User Management' },
         { path: '/admin/settings', label: 'System Settings' },
         { path: '/admin/daily-emotion', label: 'Daily Emotion' },
     ];
@@ -39,7 +39,7 @@ export const Sidebar: React.FC = () => {
             'Add User': 'fa-user-plus',
             'Users Data': 'fa-users',
             'Questionnaire': 'fa-clipboard-list',
-            'Face Model': 'fa-face-grin',
+            'User Management': 'fa-face-grin',
             'System Settings': 'fa-cogs',
             'Daily Emotion': 'fa-smile'
         };
@@ -47,7 +47,7 @@ export const Sidebar: React.FC = () => {
     };
 
     return (
-        <div className="w-64 h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white flex-col hidden md:flex fixed md:static z-30 border-r border-gray-700/50 shadow-2xl backdrop-blur-xl">
+        <div className="w-64 h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white hidden md:flex flex-col fixed md:static z-30 border-r border-gray-700/50 shadow-2xl backdrop-blur-xl">
             <div className="p-6">
                 <div className="mb-8">
                     <div className="flex items-center mb-4">
@@ -83,7 +83,7 @@ export const Sidebar: React.FC = () => {
                 </nav>
             </div>
 
-            <div className="mt-auto p-6">
+            <div className="mt-auto p-6 pt-0">
                 <button
                     onClick={handleLogout}
                     className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-xl transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center"

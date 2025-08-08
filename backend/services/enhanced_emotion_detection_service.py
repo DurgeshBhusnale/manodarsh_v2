@@ -15,9 +15,17 @@ class EnhancedEmotionDetectionService:
             0: "Angry", 1: "Disgusted", 2: "Fearful", 
             3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"
         }
+        # Updated emotion mapping to 0-1 scale to match NLP scoring
+        # 0.0 = No depression/positive mental state
+        # 1.0 = High depression/negative mental state
         self.emotion_mapping = {
-            "Angry": 2, "Disgusted": 2, "Fearful": 2,
-            "Happy": -1, "Neutral": 0, "Sad": 3, "Surprised": 1
+            "Angry": 0.8,      # High depression indicator
+            "Disgusted": 0.7,  # High depression indicator  
+            "Fearful": 0.75,   # High depression indicator
+            "Happy": 0.1,      # Low depression (positive emotion)
+            "Neutral": 0.5,    # Neutral baseline (neither positive nor negative)
+            "Sad": 0.9,        # Highest depression indicator
+            "Surprised": 0.3   # Mild positive indicator
         }
         
         # Use the model refresh service for face recognition

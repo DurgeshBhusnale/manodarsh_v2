@@ -271,6 +271,174 @@ class FaceModelManager:
                 logging.error(f"Error in incremental add: {e}")
                 return False
     
+    def add_soldiers_batch_atomic(self, soldiers_data: List[Dict]) -> Dict:
+        """
+        Atomically add multiple soldiers in a single transaction
+        Production-safe with full atomic operations
+        """
+        with self.lock:
+            start_time = datetime.now()
+            
+            try:
+                # Single backup creation for entire batch
+                timestamp = start_time.strftime("%Y%m%d_%H%M%S")
+                backup_filename = f"{self.model_filename}.batch_backup_{timestamp}"
+                
+                if os.path.exists(self.model_filename):
+                    shutil.copy2(self.model_filename, backup_filename)
+                    logging.info(f"Created batch backup: {backup_filename}")
+                
+                # Load existing model with full validation
+                existing_encodings, existing_force_ids = self.load_model_with_validation()
+                if existing_encodings is None:
+                    existing_encodings, existing_force_ids = [], []
+                
+                # Process all soldiers in memory (atomic-friendly)
+                all_new_encodings = []
+                all_new_force_ids = []
+                processed_soldiers = []
+                existing_ids_set = set(existing_force_ids)
+                
+                for soldier_data in soldiers_data:
+                    force_id = soldier_data['force_id']
+                    encodings = soldier_data['encodings']
+                    
+                    # Skip duplicates
+                    if force_id not in existing_ids_set:
+                        all_new_encodings.extend(encodings)
+                        all_new_force_ids.extend([force_id] * len(encodings))
+                        processed_soldiers.append(force_id)
+                        existing_ids_set.add(force_id)  # Prevent duplicates within batch
+                    else:
+                        logging.warning(f"Skipping duplicate soldier: {force_id}")
+                
+                if not processed_soldiers:
+                    # Clean up backup if no processing needed
+                    if os.path.exists(backup_filename):
+                        os.remove(backup_filename)
+                    return {
+                        'success': True,
+                        'message': 'No new soldiers to add',
+                        'processed_soldiers': [],
+                        'processed_count': 0,
+                        'processing_time': (datetime.now() - start_time).total_seconds()
+                    }
+                
+                # Combine data
+                combined_encodings = existing_encodings + all_new_encodings
+                combined_force_ids = existing_force_ids + all_new_force_ids
+                
+                # Generate version
+                version = f"batch_{timestamp}_{len(processed_soldiers)}_soldiers"
+                
+                # Single atomic save for entire batch
+                success = self.atomic_save_model(combined_encodings, combined_force_ids, version)
+                
+                if success:
+                    # Clean up backup after successful save
+                    if os.path.exists(backup_filename):
+                        os.remove(backup_filename)
+                    
+                    processing_time = (datetime.now() - start_time).total_seconds()
+                    logging.info(f"Batch atomic save completed: {len(processed_soldiers)} soldiers in {processing_time:.2f}s")
+                    
+                    return {
+                        'success': True,
+                        'processed_soldiers': processed_soldiers,
+                        'processed_count': len(processed_soldiers),
+                        'total_encodings': len(all_new_encodings),
+                        'processing_time': processing_time,
+                        'version': version
+                    }
+                else:
+                    raise Exception("Atomic save failed")
+                    
+            except Exception as e:
+                # Atomic rollback
+                if os.path.exists(backup_filename):
+                    if os.path.exists(self.model_filename):
+                        shutil.copy2(backup_filename, self.model_filename)
+                        logging.info("Rolled back from batch backup due to error")
+                    os.remove(backup_filename)
+                
+                processing_time = (datetime.now() - start_time).total_seconds()
+                logging.error(f"Batch atomic operation failed: {e}")
+                return {
+                    'success': False,
+                    'error': str(e),
+                    'processed_soldiers': [],
+                    'processing_time': processing_time
+                }
+    
+    def add_soldiers_incremental_optimized(self, new_encodings: List, new_force_ids: List) -> bool:
+        """
+        Optimized atomic incremental addition - production safe
+        Uses smart duplicate checking but maintains full atomic safety
+        """
+        with self.lock:
+            try:
+                start_time = datetime.now()
+                
+                # Create backup only if needed
+                if self._needs_backup():
+                    timestamp = start_time.strftime("%Y%m%d_%H%M%S")
+                    backup_filename = f"{self.model_filename}.backup_{timestamp}"
+                    if os.path.exists(self.model_filename):
+                        shutil.copy2(self.model_filename, backup_filename)
+                
+                # Load with validation
+                existing_encodings, existing_force_ids = self.load_model_with_validation()
+                if existing_encodings is None:
+                    existing_encodings, existing_force_ids = [], []
+                
+                # Fast duplicate check using sets (but maintain atomic safety)
+                existing_ids_set = set(existing_force_ids)
+                filtered_encodings = []
+                filtered_force_ids = []
+                
+                for enc, fid in zip(new_encodings, new_force_ids):
+                    if fid not in existing_ids_set:
+                        filtered_encodings.append(enc)
+                        filtered_force_ids.append(fid)
+                
+                if not filtered_encodings:
+                    logging.info("No new soldiers to add (all duplicates)")
+                    return True  # No new data to add
+                
+                # Combine and save atomically
+                combined_encodings = existing_encodings + filtered_encodings
+                combined_force_ids = existing_force_ids + filtered_force_ids
+                
+                version = f"incremental_{start_time.strftime('%Y%m%d_%H%M%S')}"
+                success = self.atomic_save_model(combined_encodings, combined_force_ids, version)
+                
+                processing_time = (datetime.now() - start_time).total_seconds()
+                if success:
+                    logging.info(f"Optimized atomic add completed: {len(filtered_encodings)} soldiers in {processing_time:.2f}s")
+                
+                return success
+                
+            except Exception as e:
+                logging.error(f"Optimized atomic add failed: {e}")
+                return False
+    
+    def _needs_backup(self) -> bool:
+        """
+        Check if backup is needed based on last backup time
+        Reduces I/O for frequent small updates
+        """
+        try:
+            if not os.path.exists(self.model_filename):
+                return False
+                
+            # Only create backup if model was modified recently (last 30 minutes)
+            model_mtime = os.path.getmtime(self.model_filename)
+            current_time = datetime.now().timestamp()
+            
+            return (current_time - model_mtime) < 1800  # 30 minutes
+        except:
+            return True  # Safe default
+    
     def remove_soldiers(self, force_ids_to_remove: List[str]) -> bool:
         """
         Remove soldiers from model

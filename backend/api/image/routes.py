@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request, send_file
 import logging
 import os
+import re
 import shutil
 from services.image_collection import ImageCollectionService
 from services.enhanced_face_recognition_service import EnhancedFaceRecognitionService
@@ -50,6 +51,52 @@ def train_model():
             result = face_recognition_service.train_model_enhanced()
         return jsonify(result)
     except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@image_bp.route('/train/batch', methods=['POST'])
+def train_batch():
+    """
+    Production batch training endpoint with full atomic safety
+    Optimized for training multiple soldiers at once
+    """
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+            
+        force_ids = data.get('force_ids', [])
+        if not force_ids:
+            return jsonify({'error': 'No force IDs provided'}), 400
+        
+        if not isinstance(force_ids, list):
+            return jsonify({'error': 'force_ids must be an array'}), 400
+        
+        # Validate force_ids format
+        invalid_ids = []
+        for force_id in force_ids:
+            if not isinstance(force_id, str) or not force_id.strip():
+                invalid_ids.append(force_id)
+            elif not re.match(r'^\d{9}$', force_id.strip()):
+                invalid_ids.append(force_id)
+        
+        if invalid_ids:
+            return jsonify({
+                'error': f'Invalid force IDs format: {invalid_ids}. Must be 9-digit strings.'
+            }), 400
+        
+        # Use batch training method
+        result = face_recognition_service.train_soldiers_batch([fid.strip() for fid in force_ids])
+        
+        # Return appropriate status code based on result
+        if result.get('status') == 'success':
+            return jsonify(result), 200
+        elif result.get('status') == 'warning':
+            return jsonify(result), 206  # Partial content
+        else:
+            return jsonify(result), 500
+            
+    except Exception as e:
+        logging.error(f"Batch training API error: {e}")
         return jsonify({'error': str(e)}), 500
 
 @image_bp.route('/start-monitoring', methods=['POST'])

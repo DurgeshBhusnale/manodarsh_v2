@@ -2148,3 +2148,351 @@
 2025-08-08 19:25:58,147 - INFO - 127.0.0.1 - - [08/Aug/2025 19:25:58] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-08 19:26:12,050 - INFO - 127.0.0.1 - - [08/Aug/2025 19:26:12] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-08 19:26:16,669 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\face_model_manager.py', reloading
+2025-08-08 19:26:17,203 - INFO -  * Restarting with stat
+2025-08-08 19:26:23,553 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 19:26:25,887 - INFO - Refreshing face recognition model...
+2025-08-08 19:26:25,888 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:26:25,888 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 19:26:25,890 - INFO - Auto refresh started with 300s interval
+2025-08-08 19:26:26,089 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 19:26:26,675 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 19:26:26,712 - WARNING -  * Debugger is active!
+2025-08-08 19:26:26,719 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 19:26:41,463 - INFO - 127.0.0.1 - - [08/Aug/2025 19:26:41] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:27:11,153 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:11] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:27:37,650 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:37] "GET /api/monitor/face-model/soldiers HTTP/1.1" 200 -
+2025-08-08 19:27:37,918 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:37] "GET /api/monitor/face-model/soldiers HTTP/1.1" 200 -
+2025-08-08 19:27:37,980 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:37] "GET /api/admin/soldiers HTTP/1.1" 200 -
+2025-08-08 19:27:37,999 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:37] "GET /api/admin/soldiers HTTP/1.1" 200 -
+2025-08-08 19:27:38,296 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,297 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,298 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,328 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:38] "GET /api/monitor/face-model/status HTTP/1.1" 200 -
+2025-08-08 19:27:38,646 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,648 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,649 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,661 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,662 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:38] "GET /api/image/soldier-training-status/100000001 HTTP/1.1" 200 -
+2025-08-08 19:27:38,678 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:38] "GET /api/monitor/face-model/status HTTP/1.1" 200 -
+2025-08-08 19:27:38,922 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:27:38,923 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:38] "GET /api/image/soldier-training-status/100000001 HTTP/1.1" 200 -
+2025-08-08 19:27:41,339 - INFO - 127.0.0.1 - - [08/Aug/2025 19:27:41] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:28:11,151 - INFO - 127.0.0.1 - - [08/Aug/2025 19:28:11] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:28:41,460 - INFO - 127.0.0.1 - - [08/Aug/2025 19:28:41] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:29:42,465 - INFO - 127.0.0.1 - - [08/Aug/2025 19:29:42] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:30:43,463 - INFO - 127.0.0.1 - - [08/Aug/2025 19:30:43] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:31:44,456 - INFO - 127.0.0.1 - - [08/Aug/2025 19:31:44] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:32:45,456 - INFO - 127.0.0.1 - - [08/Aug/2025 19:32:45] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:33:46,490 - INFO - 127.0.0.1 - - [08/Aug/2025 19:33:46] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 19:34:47,460 - INFO - 127.0.0.1 - - [08/Aug/2025 19:34:47] "[31m[1mGET /api/auth/session-status HTTP/1.1[0m" 401 -
+2025-08-08 19:48:09,617 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\image_collection.py', reloading
+2025-08-08 19:48:10,290 - INFO -  * Restarting with stat
+2025-08-08 19:48:17,756 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 19:48:20,513 - INFO - Refreshing face recognition model...
+2025-08-08 19:48:20,514 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:48:20,514 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 19:48:20,516 - INFO - Auto refresh started with 300s interval
+2025-08-08 19:48:20,773 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 19:48:21,518 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 19:48:21,571 - WARNING -  * Debugger is active!
+2025-08-08 19:48:21,580 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 19:50:14,574 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\face_model_manager.py', reloading
+2025-08-08 19:50:15,505 - INFO -  * Restarting with stat
+2025-08-08 19:50:22,307 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 19:50:25,291 - INFO - Refreshing face recognition model...
+2025-08-08 19:50:25,292 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:50:25,293 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 19:50:25,295 - INFO - Auto refresh started with 300s interval
+2025-08-08 19:50:25,562 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 19:50:26,580 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 19:50:26,638 - WARNING -  * Debugger is active!
+2025-08-08 19:50:26,646 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 19:50:34,465 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\enhanced_face_recognition_service.py', reloading
+2025-08-08 19:50:35,096 - INFO -  * Restarting with stat
+2025-08-08 19:50:42,166 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 19:50:45,112 - INFO - Refreshing face recognition model...
+2025-08-08 19:50:45,113 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:50:45,114 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 19:50:45,117 - INFO - Auto refresh started with 300s interval
+2025-08-08 19:50:45,355 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 19:50:46,036 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 19:50:46,077 - WARNING -  * Debugger is active!
+2025-08-08 19:50:46,085 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 19:51:36,888 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\enhanced_face_recognition_service.py', reloading
+2025-08-08 19:51:37,545 - INFO -  * Restarting with stat
+2025-08-08 19:51:43,712 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 19:51:46,539 - INFO - Refreshing face recognition model...
+2025-08-08 19:51:46,541 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:51:46,541 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 19:51:46,543 - INFO - Auto refresh started with 300s interval
+2025-08-08 19:51:46,786 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 19:51:47,544 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 19:51:47,586 - WARNING -  * Debugger is active!
+2025-08-08 19:51:47,595 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 19:51:53,794 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\enhanced_face_recognition_service.py', reloading
+2025-08-08 19:51:54,337 - INFO -  * Restarting with stat
+2025-08-08 19:52:00,573 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 19:52:04,181 - INFO - Refreshing face recognition model...
+2025-08-08 19:52:04,182 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 19:52:04,183 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 19:52:04,186 - INFO - Auto refresh started with 300s interval
+2025-08-08 19:52:04,641 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 19:52:05,640 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 19:52:05,698 - WARNING -  * Debugger is active!
+2025-08-08 19:52:05,711 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 20:04:45,496 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\face_model_manager.py', reloading
+2025-08-08 20:04:46,524 - INFO -  * Restarting with stat
+2025-08-08 20:04:55,911 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 20:04:59,932 - INFO - Refreshing face recognition model...
+2025-08-08 20:04:59,933 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 20:04:59,934 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 20:04:59,936 - INFO - Auto refresh started with 300s interval
+2025-08-08 20:05:00,287 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 20:05:01,406 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 20:05:01,471 - WARNING -  * Debugger is active!
+2025-08-08 20:05:01,485 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 20:05:05,511 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\enhanced_face_recognition_service.py', reloading
+2025-08-08 20:05:06,607 - INFO -  * Restarting with stat
+2025-08-08 20:05:15,582 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 20:05:19,947 - INFO - Refreshing face recognition model...
+2025-08-08 20:05:19,949 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 20:05:19,950 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 20:05:19,952 - INFO - Auto refresh started with 300s interval
+2025-08-08 20:05:20,304 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 20:05:21,566 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 20:05:21,631 - WARNING -  * Debugger is active!
+2025-08-08 20:05:21,646 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 20:06:01,256 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\enhanced_face_recognition_service.py', reloading
+2025-08-08 20:06:02,504 - INFO -  * Restarting with stat
+2025-08-08 20:06:11,851 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 20:06:16,902 - INFO - Refreshing face recognition model...
+2025-08-08 20:06:16,904 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 20:06:16,905 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 20:06:16,908 - INFO - Auto refresh started with 300s interval
+2025-08-08 20:06:17,277 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 20:06:18,431 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 20:06:18,494 - WARNING -  * Debugger is active!
+2025-08-08 20:06:18,507 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 20:06:24,267 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\image\\routes.py', reloading
+2025-08-08 20:06:25,540 - INFO -  * Restarting with stat
+2025-08-08 20:06:34,763 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-08 20:06:39,347 - INFO - Refreshing face recognition model...
+2025-08-08 20:06:39,349 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 20:06:39,350 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-08 20:06:39,352 - INFO - Auto refresh started with 300s interval
+2025-08-08 20:06:39,693 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 20:06:41,330 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 20:06:41,464 - WARNING -  * Debugger is active!
+2025-08-08 20:06:41,489 - INFO -  * Debugger PIN: 132-663-522
+2025-08-08 20:38:04,371 - INFO - 127.0.0.1 - - [08/Aug/2025 20:38:04] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-08 20:38:05,036 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-08 20:38:05,038 - INFO - 127.0.0.1 - - [08/Aug/2025 20:38:05] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-08 20:38:05,108 - INFO - 127.0.0.1 - - [08/Aug/2025 20:38:05] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-08 20:38:05,453 - INFO - 127.0.0.1 - - [08/Aug/2025 20:38:05] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-08 20:38:35,055 - INFO - 127.0.0.1 - - [08/Aug/2025 20:38:35] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:38:54,688 - INFO - 127.0.0.1 - - [08/Aug/2025 20:38:54] "OPTIONS /api/image/capture HTTP/1.1" 200 -
+2025-08-08 20:39:05,054 - INFO - 127.0.0.1 - - [08/Aug/2025 20:39:05] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:39:35,361 - INFO - 127.0.0.1 - - [08/Aug/2025 20:39:35] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:40:00,240 - INFO - 127.0.0.1 - - [08/Aug/2025 20:40:00] "POST /api/image/capture HTTP/1.1" 200 -
+2025-08-08 20:40:05,364 - INFO - 127.0.0.1 - - [08/Aug/2025 20:40:05] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:40:14,949 - INFO - 127.0.0.1 - - [08/Aug/2025 20:40:14] "OPTIONS /api/admin/add-soldier HTTP/1.1" 200 -
+2025-08-08 20:40:15,642 - INFO - 127.0.0.1 - - [08/Aug/2025 20:40:15] "[35m[1mPOST /api/admin/add-soldier HTTP/1.1[0m" 201 -
+2025-08-08 20:40:35,057 - INFO - 127.0.0.1 - - [08/Aug/2025 20:40:35] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:40:47,289 - INFO - 127.0.0.1 - - [08/Aug/2025 20:40:47] "OPTIONS /api/image/capture HTTP/1.1" 200 -
+2025-08-08 20:41:05,058 - INFO - 127.0.0.1 - - [08/Aug/2025 20:41:05] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:41:35,364 - INFO - 127.0.0.1 - - [08/Aug/2025 20:41:35] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:42:05,364 - INFO - 127.0.0.1 - - [08/Aug/2025 20:42:05] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:42:12,048 - INFO - 127.0.0.1 - - [08/Aug/2025 20:42:12] "POST /api/image/capture HTTP/1.1" 200 -
+2025-08-08 20:42:20,135 - INFO - 127.0.0.1 - - [08/Aug/2025 20:42:20] "OPTIONS /api/admin/add-soldier HTTP/1.1" 200 -
+2025-08-08 20:42:20,789 - INFO - 127.0.0.1 - - [08/Aug/2025 20:42:20] "[35m[1mPOST /api/admin/add-soldier HTTP/1.1[0m" 201 -
+2025-08-08 20:42:35,059 - INFO - 127.0.0.1 - - [08/Aug/2025 20:42:35] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:42:36,612 - INFO - 127.0.0.1 - - [08/Aug/2025 20:42:36] "OPTIONS /api/image/train HTTP/1.1" 200 -
+2025-08-08 20:42:36,950 - INFO - Starting training for 2 soldiers: ['100000002', '100000003']
+2025-08-08 20:42:36,951 - INFO - Processing soldier 100000002...
+2025-08-08 20:42:36,951 - INFO - Found 12 images for soldier 100000002
+2025-08-08 20:42:36,952 - INFO - Processing 12 images with 4 workers
+2025-08-08 20:42:45,424 - INFO - Processed 12 images in 8.47s, selected 12 best encodings
+2025-08-08 20:42:45,439 - INFO - Deleted training images for soldier 100000002 for security
+2025-08-08 20:42:45,439 - INFO - Successfully processed 12 quality encodings for soldier 100000002
+2025-08-08 20:42:45,439 - INFO - Successfully processed soldier 100000002 with 12 encodings
+2025-08-08 20:42:45,439 - INFO - Processing soldier 100000003...
+2025-08-08 20:42:45,440 - INFO - Found 12 images for soldier 100000003
+2025-08-08 20:42:45,440 - INFO - Processing 12 images with 4 workers
+2025-08-08 20:42:55,449 - INFO - Processed 12 images in 10.01s, selected 12 best encodings
+2025-08-08 20:42:55,454 - INFO - Deleted training images for soldier 100000003 for security
+2025-08-08 20:42:55,455 - INFO - Successfully processed 12 quality encodings for soldier 100000003
+2025-08-08 20:42:55,455 - INFO - Successfully processed soldier 100000003 with 12 encodings
+2025-08-08 20:42:55,455 - INFO - Adding 24 encodings for 2 soldiers to model...
+2025-08-08 20:42:55,456 - INFO - Model loaded successfully - 1 soldiers
+2025-08-08 20:42:55,485 - INFO - Model saved atomically - Version: incremental_20250808_204255, Soldiers: 25
+2025-08-08 20:42:55,486 - INFO - Optimized atomic add completed: 24 soldiers in 0.03s
+2025-08-08 20:42:55,518 - INFO - Marked 2 soldiers as trained with version 20250808_204236
+2025-08-08 20:42:55,519 - INFO - Training completed successfully for 2 soldiers
+2025-08-08 20:42:55,541 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:42:55,543 - INFO - 127.0.0.1 - - [08/Aug/2025 20:42:55] "POST /api/image/train HTTP/1.1" 200 -
+2025-08-08 20:43:05,062 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:05] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:43:10,236 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:10] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-08 20:43:10,591 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:10] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-08 20:43:10,704 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:10] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-08 20:43:10,831 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:10] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-08 20:43:18,512 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:18] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-08 20:43:18,791 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:18] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-08 20:43:20,531 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:20] "GET /api/monitor/face-model/soldiers HTTP/1.1" 200 -
+2025-08-08 20:43:20,785 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:20] "GET /api/monitor/face-model/soldiers HTTP/1.1" 200 -
+2025-08-08 20:43:20,872 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:20] "GET /api/admin/soldiers HTTP/1.1" 200 -
+2025-08-08 20:43:20,903 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:20] "GET /api/admin/soldiers HTTP/1.1" 200 -
+2025-08-08 20:43:21,200 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,210 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,219 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,270 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:21] "GET /api/monitor/face-model/status HTTP/1.1" 200 -
+2025-08-08 20:43:21,588 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,599 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,612 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,642 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,644 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:21] "GET /api/image/soldier-training-status/100000001 HTTP/1.1" 200 -
+2025-08-08 20:43:21,672 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,672 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,674 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:21] "GET /api/image/soldier-training-status/100000003 HTTP/1.1" 200 -
+2025-08-08 20:43:21,677 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:21] "GET /api/image/soldier-training-status/100000002 HTTP/1.1" 200 -
+2025-08-08 20:43:21,680 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:21] "GET /api/monitor/face-model/status HTTP/1.1" 200 -
+2025-08-08 20:43:21,864 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:21,865 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:21] "GET /api/image/soldier-training-status/100000001 HTTP/1.1" 200 -
+2025-08-08 20:43:22,037 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:22,038 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:22] "GET /api/image/soldier-training-status/100000002 HTTP/1.1" 200 -
+2025-08-08 20:43:22,042 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:43:22,043 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:22] "GET /api/image/soldier-training-status/100000003 HTTP/1.1" 200 -
+2025-08-08 20:43:35,063 - INFO - 127.0.0.1 - - [08/Aug/2025 20:43:35] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:44:06,311 - INFO - 127.0.0.1 - - [08/Aug/2025 20:44:06] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-08 20:44:30,666 - INFO - 127.0.0.1 - - [08/Aug/2025 20:44:30] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-08 20:45:26,707 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:26] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:45:27,044 - INFO - Trying external webcam (index 1)...
+2025-08-08 20:45:27,075 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-08 20:45:30,437 - INFO - Successfully connected to built-in camera
+2025-08-08 20:45:39,757 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-08 20:45:39,758 - INFO - Starting continuous survey frame processing for soldier 100000003
+2025-08-08 20:45:39,758 - INFO - Started survey emotion monitoring for soldier 100000003
+2025-08-08 20:45:39,760 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:39] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:45:39,785 - INFO - Using detection interval: 30 frames
+2025-08-08 20:45:39,801 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:39] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-08 20:45:39,857 - WARNING - Failed to read frame during survey
+2025-08-08 20:45:50,026 - WARNING - Failed to read frame during survey
+2025-08-08 20:45:52,123 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:52] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-08 20:45:53,108 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 20:45:53,108 - WARNING - No monitoring session active for soldier 100000003
+2025-08-08 20:45:53,108 - INFO - Emotion monitoring results: {'force_id': '100000003', 'message': 'No monitoring session active'}
+2025-08-08 20:45:53,108 - WARNING - No emotion data retrieved from monitoring service
+2025-08-08 20:45:53,108 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-08 20:45:53,108 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-08 20:45:53,108 - INFO - Text: 'f f f f f...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-08 20:45:53,109 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-08 20:45:53,121 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-08 20:45:53,133 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-08 20:45:53,133 - INFO - Question 17: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-08 20:45:53,133 - INFO - Question 17: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-08 20:45:53,136 - INFO - Session 87 - Average NLP Depression Score: 0.50
+2025-08-08 20:45:53,153 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-08 20:45:53,153 - INFO - Session 87 - Using NLP score only: 0.50
+2025-08-08 20:45:53,164 - INFO - ================================================================================
+2025-08-08 20:45:53,189 - INFO - ================================================================================
+2025-08-08 20:45:53,258 - INFO - 
+2025-08-08 20:45:53,265 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-08 20:45:53,266 - INFO -    Alert Level:    GREEN
+2025-08-08 20:45:53,266 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-08 20:45:53,266 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-08 20:45:53,267 - INFO - 
+2025-08-08 20:45:53,282 - INFO -    Total Detections: 0
+2025-08-08 20:45:53,286 - INFO -    Dominant Emotion: Unknown
+2025-08-08 20:45:53,286 - INFO - ================================================================================
+2025-08-08 20:45:53,313 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:53] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-08 20:45:53,639 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:53] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:45:55,653 - WARNING - No emotion data collected during survey for soldier 100000003
+2025-08-08 20:45:57,844 - INFO - Camera resources released after survey monitoring
+2025-08-08 20:45:57,845 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:57] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:45:58,218 - WARNING - No monitoring session active for soldier 100000003
+2025-08-08 20:45:58,219 - INFO - 127.0.0.1 - - [08/Aug/2025 20:45:58] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:46:00,165 - WARNING - Failed to read frame during survey
+2025-08-08 20:46:00,271 - INFO - Stopped continuous survey frame processing for soldier 100000003
+2025-08-08 20:46:14,569 - INFO - Refreshing face recognition model...
+2025-08-08 20:46:14,577 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:46:14,578 - INFO - Model refreshed (auto) - Soldiers: 1 -> 25
+2025-08-08 20:47:24,576 - INFO - Refreshing face recognition model...
+2025-08-08 20:47:24,589 - INFO - Model loaded successfully - 25 soldiers
+2025-08-08 20:47:24,591 - INFO - Model refreshed (auto) - Soldiers: 1 -> 25
+2025-08-08 20:47:51,474 - INFO - 127.0.0.1 - - [08/Aug/2025 20:47:51] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:47:51,806 - INFO - Trying external webcam (index 1)...
+2025-08-08 20:47:51,854 - INFO - External webcam not found, trying built-in camera (index 0)...
+2025-08-08 20:47:55,274 - INFO - Successfully connected to built-in camera
+2025-08-08 20:48:03,384 - INFO - Camera configured: 640x480, detection_interval=30
+2025-08-08 20:48:03,385 - INFO - Starting continuous survey frame processing for soldier 100000003
+2025-08-08 20:48:03,385 - INFO - Started survey emotion monitoring for soldier 100000003
+2025-08-08 20:48:03,387 - INFO - 127.0.0.1 - - [08/Aug/2025 20:48:03] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:48:03,401 - INFO - Using detection interval: 30 frames
+2025-08-08 20:48:03,411 - INFO - 127.0.0.1 - - [08/Aug/2025 20:48:03] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-08 20:48:08,809 - DEBUG - Recognized soldier 100000003 with distance 0.180
+2025-08-08 20:48:09,296 - DEBUG - Emotion probabilities for 100000003: {'Angry': '0.030', 'Disgusted': '0.011', 'Fearful': '0.078', 'Happy': '0.000', 'Neutral': '0.057', 'Sad': '0.823', 'Surprised': '0.000'}
+2025-08-08 20:48:09,297 - INFO - Detected soldier 100000003 with Sad emotion (score: 3, confidence: 0.823)
+2025-08-08 20:48:09,297 - INFO - Survey detection: 100000003 - Sad (3.00)
+2025-08-08 20:48:13,111 - DEBUG - Recognized soldier 100000003 with distance 0.156
+2025-08-08 20:48:13,168 - DEBUG - Emotion probabilities for 100000003: {'Angry': '0.010', 'Disgusted': '0.018', 'Fearful': '0.099', 'Happy': '0.000', 'Neutral': '0.085', 'Sad': '0.787', 'Surprised': '0.001'}
+2025-08-08 20:48:13,168 - INFO - Detected soldier 100000003 with Sad emotion (score: 3, confidence: 0.787)
+2025-08-08 20:48:13,168 - INFO - Survey detection: 100000003 - Sad (3.00)
+2025-08-08 20:48:17,031 - DEBUG - Recognized soldier 100000003 with distance 0.140
+2025-08-08 20:48:17,114 - DEBUG - Emotion probabilities for 100000003: {'Angry': '0.027', 'Disgusted': '0.005', 'Fearful': '0.122', 'Happy': '0.000', 'Neutral': '0.029', 'Sad': '0.815', 'Surprised': '0.002'}
+2025-08-08 20:48:17,115 - INFO - Detected soldier 100000003 with Sad emotion (score: 3, confidence: 0.815)
+2025-08-08 20:48:17,115 - INFO - Survey detection: 100000003 - Sad (3.00)
+2025-08-08 20:48:20,957 - DEBUG - Recognized soldier 100000003 with distance 0.126
+2025-08-08 20:48:21,037 - DEBUG - Emotion probabilities for 100000003: {'Angry': '0.038', 'Disgusted': '0.002', 'Fearful': '0.093', 'Happy': '0.000', 'Neutral': '0.034', 'Sad': '0.833', 'Surprised': '0.001'}
+2025-08-08 20:48:21,037 - INFO - Detected soldier 100000003 with Sad emotion (score: 3, confidence: 0.833)
+2025-08-08 20:48:21,037 - INFO - Survey detection: 100000003 - Sad (3.00)
+2025-08-08 20:48:24,923 - DEBUG - Recognized soldier 100000003 with distance 0.157
+2025-08-08 20:48:25,016 - DEBUG - Emotion probabilities for 100000003: {'Angry': '0.019', 'Disgusted': '0.004', 'Fearful': '0.125', 'Happy': '0.000', 'Neutral': '0.037', 'Sad': '0.813', 'Surprised': '0.000'}
+2025-08-08 20:48:25,017 - INFO - Detected soldier 100000003 with Sad emotion (score: 3, confidence: 0.813)
+2025-08-08 20:48:25,017 - INFO - Survey detection: 100000003 - Sad (3.00)
+2025-08-08 20:48:28,887 - DEBUG - Recognized soldier 100000003 with distance 0.158
+2025-08-08 20:48:28,953 - DEBUG - Emotion probabilities for 100000003: {'Angry': '0.132', 'Disgusted': '0.001', 'Fearful': '0.059', 'Happy': '0.000', 'Neutral': '0.100', 'Sad': '0.709', 'Surprised': '0.000'}
+2025-08-08 20:48:28,954 - INFO - Detected soldier 100000003 with Sad emotion (score: 3, confidence: 0.709)
+2025-08-08 20:48:28,954 - INFO - Survey detection: 100000003 - Sad (3.00)
+2025-08-08 20:48:29,223 - INFO - 127.0.0.1 - - [08/Aug/2025 20:48:29] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-08 20:48:30,073 - INFO - Emotion and face detection models loaded successfully
+2025-08-08 20:48:30,073 - WARNING - No monitoring session active for soldier 100000003
+2025-08-08 20:48:30,073 - INFO - Emotion monitoring results: {'force_id': '100000003', 'message': 'No monitoring session active'}
+2025-08-08 20:48:30,073 - WARNING - No emotion data retrieved from monitoring service
+2025-08-08 20:48:30,074 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-08 20:48:30,074 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-08 20:48:30,074 - INFO - Text: 'g g g g g...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-08 20:48:30,074 - INFO - Question 17 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-08 20:48:30,088 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-08 20:48:30,101 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-08 20:48:30,101 - INFO - Question 17: Weighted Combined = (0.50 * 0.7) + (0.00 * 0.3) = 0.350
+2025-08-08 20:48:30,101 - INFO - Question 17: NLP=0.5, Emotion=0.00, Weighted Combined=0.350
+2025-08-08 20:48:30,102 - INFO - Session 88 - Average NLP Depression Score: 0.50
+2025-08-08 20:48:30,114 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-08 20:48:30,114 - INFO - Session 88 - Using NLP score only: 0.50
+2025-08-08 20:48:30,126 - INFO - ================================================================================
+2025-08-08 20:48:30,132 - INFO - ================================================================================
+2025-08-08 20:48:30,167 - INFO - 
+2025-08-08 20:48:30,173 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-08 20:48:30,173 - INFO -    Alert Level:    GREEN
+2025-08-08 20:48:30,173 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-08 20:48:30,173 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-08 20:48:30,173 - INFO - 
+2025-08-08 20:48:30,183 - INFO -    Total Detections: 0
+2025-08-08 20:48:30,184 - INFO -    Dominant Emotion: Unknown
+2025-08-08 20:48:30,184 - INFO - ================================================================================
+2025-08-08 20:48:30,202 - INFO - 127.0.0.1 - - [08/Aug/2025 20:48:30] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-08 20:48:30,529 - INFO - 127.0.0.1 - - [08/Aug/2025 20:48:30] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:48:30,601 - INFO - Stopped continuous survey frame processing for soldier 100000003
+2025-08-08 20:48:30,601 - INFO - Processing 6 emotion detections for soldier 100000003
+2025-08-08 20:48:30,602 - INFO - Found 6 actual emotion detections (filtered from 6 total entries)
+2025-08-08 20:48:30,602 - INFO - Calculated avg depression score: 3.00, dominant emotion: Sad
+2025-08-08 20:48:30,602 - INFO - Storing emotion data for session_id: 88
+2025-08-08 20:48:30,619 - INFO - Storing emotion data - session_id: 88, force_id: 100000003, avg_score: 3.00
+2025-08-08 20:48:30,620 - INFO - Updated 1 weekly session record(s)
+2025-08-08 20:48:30,621 - INFO - Updated 1 question response record(s)
+2025-08-08 20:48:30,635 - INFO - Successfully stored survey emotion data for session 88: avg_score=3.00
+2025-08-08 20:48:30,635 - INFO - Survey monitoring ended for 100000003: avg_score=3.00, emotion=Sad, detections=6
+2025-08-08 20:48:31,055 - INFO - Camera resources released after survey monitoring
+2025-08-08 20:48:31,058 - INFO - 127.0.0.1 - - [08/Aug/2025 20:48:31] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:48:31,393 - WARNING - No monitoring session active for soldier 100000003
+2025-08-08 20:48:31,394 - INFO - 127.0.0.1 - - [08/Aug/2025 20:48:31] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-08 20:49:07,937 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\face_model_manager.py', reloading

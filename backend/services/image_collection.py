@@ -5,15 +5,14 @@ import time
 class ImageCollectionService:
     def __init__(self):
         self.base_storage_path = os.path.join('storage', 'uploads')
+        # Optimized poses for better quality and faster training
         self.poses = [
             "Look straight at camera",
-            "Tilt your face down",
-            "Turn your face right",
-            "Turn your face left",
-            "Stand a little away",
-            "Smile"
+            "Turn your face slightly right (15°)",
+            "Turn your face slightly left (15°)",
+            "Natural smile"
         ]
-        self.images_per_pose = 5
+        self.images_per_pose = 3  # 4 poses × 3 images = 12 total (vs 30)
 
     def _find_available_camera(self):
         """Try different camera indices to find an available camera"""

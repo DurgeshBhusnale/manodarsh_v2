@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from db.connection import get_connection
 from services.face_model_manager import FaceModelManager
+from services.fast_face_encoding_service import get_fast_encoding_service
 
 # Configure logging
 logging.basicConfig(
@@ -19,8 +20,9 @@ class EnhancedFaceRecognitionService:
     def __init__(self):
         self.uploads_dir = os.path.join('storage', 'uploads')
         
-        # Use the new face model manager
+        # Use the new face model manager and fast encoding service
         self.model_manager = FaceModelManager()
+        self.fast_encoding_service = get_fast_encoding_service()
     
     def get_untrained_soldiers(self) -> List[str]:
         """Get list of soldiers who haven't been trained yet"""
@@ -81,51 +83,44 @@ class EnhancedFaceRecognitionService:
 
     def process_soldier_images(self, force_id: str) -> Tuple[List, bool]:
         """
-        Process all images for a single soldier and extract face encodings
-        Returns: (encodings_list, success_flag)
+        Fast processing of soldier images using parallel encoding and quality selection
         """
         soldier_dir = os.path.join(self.uploads_dir, force_id)
-        if not os.path.exists(soldier_dir):
-            logging.warning(f"No images found for soldier {force_id}")
-            return [], False
-
-        encodings = []
-        processed_images = []
-        first_valid_image = None
         
         try:
+            if not os.path.exists(soldier_dir):
+                logging.error(f"Directory not found for soldier {force_id}: {soldier_dir}")
+                return [], False
+
+            # Get all image files
+            image_paths = []
             for filename in os.listdir(soldier_dir):
                 if filename.lower().endswith(('.jpg', '.jpeg', '.png')):
-                    image_path = os.path.join(soldier_dir, filename)
-                    try:
-                        image = face_recognition.load_image_file(image_path)
-                        face_encodings = face_recognition.face_encodings(image)
-                        
-                        if face_encodings:
-                            # Store first valid image path for profile picture
-                            if not first_valid_image:
-                                first_valid_image = image_path
-                            
-                            encodings.append(face_encodings[0])
-                            processed_images.append(filename)
-                            logging.info(f"Processed image {filename} for soldier {force_id}")
-                        else:
-                            logging.warning(f"No face found in image {filename} for soldier {force_id}")
-                            
-                    except Exception as e:
-                        logging.error(f"Error processing image {image_path}: {e}")
-                        continue
+                    image_paths.append(os.path.join(soldier_dir, filename))
+            
+            if not image_paths:
+                logging.error(f"No image files found for soldier {force_id}")
+                return [], False
 
+            logging.info(f"Found {len(image_paths)} images for soldier {force_id}")
+            
+            # Use fast parallel encoding service with quality selection
+            encodings = self.fast_encoding_service.encode_faces_parallel(image_paths)
+            
             if encodings:
                 # Delete training images immediately after processing for security
                 shutil.rmtree(soldier_dir)
                 logging.info(f"Deleted training images for soldier {force_id} for security")
                 
-                logging.info(f"Successfully processed {len(encodings)} images for soldier {force_id}")
+                logging.info(f"Successfully processed {len(encodings)} quality encodings for soldier {force_id}")
                 return encodings, True
             else:
                 logging.error(f"No valid face encodings extracted for soldier {force_id}")
                 return [], False
+                
+        except Exception as e:
+            logging.error(f"Error processing soldier {force_id}: {e}")
+            return [], False
                 
         except Exception as e:
             logging.error(f"Error processing soldier {force_id}: {e}")
@@ -162,21 +157,21 @@ class EnhancedFaceRecognitionService:
                 encodings, success = self.process_soldier_images(force_id)
                 
                 if success and encodings:
-                    # For multiple images per soldier, take the first encoding or average
-                    # Here we take the first encoding for simplicity
-                    new_encodings.append(encodings[0])
-                    new_force_ids.append(force_id)
+                    # Add all quality encodings for this soldier
+                    new_encodings.extend(encodings)
+                    new_force_ids.extend([force_id] * len(encodings))
                     successfully_trained.append(force_id)
-                    logging.info(f"Successfully processed soldier {force_id}")
+                    logging.info(f"Successfully processed soldier {force_id} with {len(encodings)} encodings")
                 else:
                     failed_soldiers.append(force_id)
                     logging.error(f"Failed to process soldier {force_id}")
 
-            # Update model with new soldiers using atomic operations
+            # Update model with new soldiers using optimized atomic operations
             if new_encodings:
-                logging.info(f"Adding {len(new_encodings)} soldiers to model...")
+                logging.info(f"Adding {len(new_encodings)} encodings for {len(successfully_trained)} soldiers to model...")
                 
-                if self.model_manager.add_soldiers_incremental(new_encodings, new_force_ids):
+                # Use optimized atomic mode - production safe with better performance
+                if self.model_manager.add_soldiers_incremental_optimized(new_encodings, new_force_ids):
                     # Mark soldiers as trained in database
                     if self.mark_soldiers_as_trained(successfully_trained, model_version):
                         logging.info(f"Training completed successfully for {len(successfully_trained)} soldiers")
@@ -187,7 +182,8 @@ class EnhancedFaceRecognitionService:
                             "trained_soldiers": successfully_trained,
                             "failed_soldiers": failed_soldiers,
                             "model_version": model_version,
-                            "total_soldiers_in_model": len(new_force_ids) + len(self._get_existing_soldiers())
+                            "total_encodings": len(new_encodings),
+                            "total_soldiers_in_model": len(set(new_force_ids)) + len(self._get_existing_soldiers())
                         }
                         
                         if failed_soldiers:
@@ -307,4 +303,105 @@ class EnhancedFaceRecognitionService:
                 "timestamp": datetime.now().isoformat(),
                 "error": str(e),
                 "model_operational": False
+            }
+
+    def train_soldiers_batch(self, force_ids: List[str]) -> Dict:
+        """
+        Production-optimized batch training with full atomic safety
+        Ideal for training multiple soldiers at once
+        """
+        model_version = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        try:
+            if not force_ids:
+                return {"message": "No force IDs provided", "status": "error"}
+
+            logging.info(f"Starting batch training for {len(force_ids)} soldiers: {force_ids}")
+            start_time = datetime.now()
+
+            # Process all soldiers with parallel encoding
+            soldiers_data = []
+            failed_soldiers = []
+            
+            for force_id in force_ids:
+                try:
+                    logging.info(f"Processing soldier {force_id}...")
+                    encodings, success = self.process_soldier_images(force_id)
+                    
+                    if success and encodings:
+                        soldiers_data.append({
+                            'force_id': force_id,
+                            'encodings': encodings
+                        })
+                        logging.info(f"Successfully processed soldier {force_id} with {len(encodings)} encodings")
+                    else:
+                        failed_soldiers.append({
+                            'force_id': force_id,
+                            'error': 'No valid face encodings found'
+                        })
+                        logging.error(f"Failed to process soldier {force_id}")
+                        
+                except Exception as e:
+                    failed_soldiers.append({
+                        'force_id': force_id,
+                        'error': str(e)
+                    })
+                    logging.error(f"Error processing soldier {force_id}: {e}")
+
+            # Single atomic batch operation
+            if soldiers_data:
+                batch_result = self.model_manager.add_soldiers_batch_atomic(soldiers_data)
+                
+                if batch_result['success']:
+                    # Mark all successfully processed soldiers as trained
+                    processed_soldiers = batch_result['processed_soldiers']
+                    
+                    if self.mark_soldiers_as_trained(processed_soldiers, model_version):
+                        total_time = (datetime.now() - start_time).total_seconds()
+                        
+                        logging.info(f"Batch training completed successfully: {len(processed_soldiers)} soldiers in {total_time:.2f}s")
+                        
+                        return {
+                            "message": f"Successfully trained {len(processed_soldiers)} soldiers in batch",
+                            "status": "success",
+                            "trained_soldiers": processed_soldiers,
+                            "failed_soldiers": failed_soldiers,
+                            "model_version": model_version,
+                            "total_encodings": batch_result.get('total_encodings', 0),
+                            "processing_time": total_time,
+                            "batch_processing_time": batch_result['processing_time']
+                        }
+                    else:
+                        # Database update failed
+                        logging.error("Failed to update database after successful model training")
+                        return {
+                            "message": "Model updated but database update failed",
+                            "status": "error",
+                            "error": "Database update failed",
+                            "trained_soldiers": processed_soldiers
+                        }
+                else:
+                    # Batch operation failed
+                    return {
+                        "message": "Batch training failed",
+                        "status": "error",
+                        "error": batch_result.get('error', 'Unknown batch processing error'),
+                        "failed_soldiers": failed_soldiers
+                    }
+            else:
+                logging.warning("No soldiers were successfully processed in batch")
+                return {
+                    "message": "No soldiers were successfully processed",
+                    "status": "warning",
+                    "trained_soldiers": [],
+                    "failed_soldiers": failed_soldiers,
+                    "model_version": model_version
+                }
+
+        except Exception as e:
+            logging.error(f"Batch training failed with error: {e}")
+            return {
+                "message": f"Batch training failed: {str(e)}",
+                "status": "error",
+                "error": str(e)
             }

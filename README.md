@@ -236,18 +236,18 @@ Model Structure:
 
 ```python
 emotion_dict = {
-    0: "Angry",      # Depression Score: 0.8 (high depression indicator)
-    1: "Disgusted",  # Depression Score: 0.7 (high depression indicator)
-    2: "Fearful",    # Depression Score: 0.75 (high depression indicator)
-    3: "Happy",      # Depression Score: 0.1 (low depression, positive emotion)
-    4: "Neutral",    # Depression Score: 0.5 (neutral baseline)
-    5: "Sad",        # Depression Score: 0.9 (highest depression indicator)
-    6: "Surprised"   # Depression Score: 0.3 (mild positive indicator)
+    0: "Angry",      # Depression Score: 0.82 (high depression, stress indicator)
+    1: "Disgusted",  # Depression Score: 0.72 (high depression indicator)
+    2: "Fearful",    # Depression Score: 0.78 (high depression, anxiety/stress)
+    3: "Happy",      # Depression Score: 0.05 (very low depression, clearly positive)
+    4: "Neutral",    # Depression Score: 0.45 (slightly below middle, subtle positivity)
+    5: "Sad",        # Depression Score: 0.92 (highest depression indicator)
+    6: "Surprised"   # Depression Score: 0.25 (mild positive, can indicate engagement)
 }
 
-# Scale: 0.0 = No depression/positive mental state
-#        1.0 = High depression/negative mental state
-# Now consistent with NLP scoring scale
+# ENHANCED Scale: 0.0 = No depression/positive mental state
+#                 1.0 = High depression/negative mental state
+# More nuanced mapping for better accuracy and clinical correlation
 ```
 
 #### Model Performance:

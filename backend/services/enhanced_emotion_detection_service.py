@@ -18,14 +18,15 @@ class EnhancedEmotionDetectionService:
         # Updated emotion mapping to 0-1 scale to match NLP scoring
         # 0.0 = No depression/positive mental state
         # 1.0 = High depression/negative mental state
+        # ENHANCED: More nuanced mapping for better accuracy
         self.emotion_mapping = {
-            "Angry": 0.8,      # High depression indicator
-            "Disgusted": 0.7,  # High depression indicator  
-            "Fearful": 0.75,   # High depression indicator
-            "Happy": 0.1,      # Low depression (positive emotion)
-            "Neutral": 0.5,    # Neutral baseline (neither positive nor negative)
-            "Sad": 0.9,        # Highest depression indicator
-            "Surprised": 0.3   # Mild positive indicator
+            "Angry": 0.82,      # High depression indicator, often indicates stress
+            "Disgusted": 0.72,  # High depression indicator, but less than anger
+            "Fearful": 0.78,    # High depression indicator, fear often indicates anxiety/stress
+            "Happy": 0.05,      # Very low depression (clearly positive emotion)
+            "Neutral": 0.45,    # Slightly below middle to account for subtle positivity
+            "Sad": 0.92,        # Highest depression indicator
+            "Surprised": 0.25   # Mild positive indicator, surprise can be positive
         }
         
         # Use the model refresh service for face recognition
@@ -107,6 +108,13 @@ class EnhancedEmotionDetectionService:
             # Process the largest face found
             x, y, w, h = max(faces, key=lambda face: face[2] * face[3])
             face_coords = (x, y, w, h)
+            
+            # NEW: Check face quality before processing
+            face_region = frame[y:y+h, x:x+w]
+            face_quality = self._check_face_quality(face_region)
+            if face_quality < 0.5:  # Skip low quality faces
+                logging.debug(f"Low quality face detected (quality: {face_quality:.2f}), skipping")
+                return None
             
             # Get face encoding for recognition
             rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -329,3 +337,62 @@ class EnhancedEmotionDetectionService:
     def refresh_face_model(self) -> Dict:
         """Manually refresh the face recognition model"""
         return self.model_refresh_service.force_refresh()
+    
+    def _check_face_quality(self, face_image):
+        """Simple face quality check to filter out poor quality faces"""
+        if face_image is None or face_image.size == 0:
+            return 0.0
+        
+        try:
+            # Convert to grayscale for analysis
+            if len(face_image.shape) == 3:
+                gray_face = cv2.cvtColor(face_image, cv2.COLOR_BGR2GRAY)
+            else:
+                gray_face = face_image
+            
+            # Check 1: Brightness (should be between 50-200 for good visibility)
+            brightness = np.mean(gray_face)
+            if brightness < 30:  # Too dark
+                brightness_score = 0.1
+            elif brightness > 220:  # Too bright/overexposed
+                brightness_score = 0.2
+            elif 80 <= brightness <= 180:  # Good range
+                brightness_score = 1.0
+            else:  # Acceptable range
+                brightness_score = 0.6
+            
+            # Check 2: Sharpness (blur detection using Laplacian variance)
+            blur_score = cv2.Laplacian(gray_face, cv2.CV_64F).var()
+            if blur_score > 500:  # Sharp image
+                sharpness_score = 1.0
+            elif blur_score > 200:  # Acceptable sharpness
+                sharpness_score = 0.7
+            elif blur_score > 100:  # Slightly blurry
+                sharpness_score = 0.4
+            else:  # Too blurry
+                sharpness_score = 0.1
+            
+            # Check 3: Face size (larger faces are generally more reliable)
+            face_area = face_image.shape[0] * face_image.shape[1]
+            if face_area > 10000:  # Large face (100x100 or bigger)
+                size_score = 1.0
+            elif face_area > 4900:   # Medium face (70x70)
+                size_score = 0.8
+            elif face_area > 2500:   # Small face (50x50)
+                size_score = 0.5
+            else:  # Very small face
+                size_score = 0.2
+            
+            # Combine scores with weights
+            final_quality = (brightness_score * 0.4) + (sharpness_score * 0.4) + (size_score * 0.2)
+            
+            logging.debug(f"Face quality analysis - Brightness: {brightness:.1f} ({brightness_score:.2f}), "
+                         f"Blur: {blur_score:.1f} ({sharpness_score:.2f}), "
+                         f"Size: {face_area} ({size_score:.2f}), "
+                         f"Final: {final_quality:.2f}")
+            
+            return min(final_quality, 1.0)
+            
+        except Exception as e:
+            logging.error(f"Error in face quality check: {e}")
+            return 0.5  # Neutral quality if check fails

@@ -57,6 +57,12 @@ __pycache__/
 /backend/storage/uploads/*
 !/backend/storage/uploads/.gitkeep
 
+
+
+# Log files
+/backend/*.log
+
+
 # IDE specific files
 .idea/
 .vscode/

@@ -323,6 +323,16 @@ def delete_soldier_face_data(force_id):
             if removed_count > 0:
                 if not model_manager.atomic_save_model(new_encodings, new_force_ids):
                     return jsonify({'error': 'Failed to update PKL model'}), 500
+                
+                # Force refresh the model cache after PKL update
+                try:
+                    from services.model_refresh_service import get_model_refresh_service
+                    refresh_service = get_model_refresh_service()
+                    refresh_service.force_refresh()
+                    logging.info(f"Model cache refreshed after deleting soldier {force_id}")
+                except Exception as e:
+                    logging.warning(f"Failed to refresh model cache: {str(e)}")
+                    # Don't fail the deletion if cache refresh fails
         
         # Complete system-wide deletion from ALL tables
         conn = get_connection()
@@ -436,6 +446,16 @@ def batch_delete_soldiers():
         # Save updated model
         if not model_manager.atomic_save_model(new_encodings, new_force_ids):
             return jsonify({'error': 'Failed to update model'}), 500
+        
+        # Force refresh the model cache after PKL update
+        try:
+            from services.model_refresh_service import get_model_refresh_service
+            refresh_service = get_model_refresh_service()
+            refresh_service.force_refresh()
+            logging.info(f"Model cache refreshed after batch deleting soldiers {force_ids_to_delete}")
+        except Exception as e:
+            logging.warning(f"Failed to refresh model cache: {str(e)}")
+            # Don't fail the deletion if cache refresh fails
         
         # Complete system-wide deletion from ALL tables
         conn = get_connection()

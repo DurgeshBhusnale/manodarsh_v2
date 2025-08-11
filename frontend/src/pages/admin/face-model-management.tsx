@@ -89,7 +89,29 @@ const FaceModelManagement: React.FC = () => {
         }
       }
       
-      // Final status determination after all data is collected
+      // Get training status for each soldier
+      await Promise.all(
+        Array.from(soldierMap.entries()).map(async ([forceId, soldier]) => {
+          try {
+            const trainResponse = await fetch(`${API_BASE}/image/soldier-training-status/${forceId}`);
+            if (trainResponse.ok) {
+              const trainData = await trainResponse.json();
+              soldier.trained_at = trainData.trained_at;
+              soldier.model_version = trainData.model_version;
+              soldier.encodings_count = trainData.encodings_count || 0;
+              
+              // Fix: If soldier has encodings, they are definitely in PKL
+              if (soldier.encodings_count > 0) {
+                soldier.in_pkl = true;
+              }
+            }
+          } catch (error) {
+            console.warn(`Failed to get training status for ${forceId}:`, error);
+          }
+        })
+      );
+
+      // Recalculate status after getting training data
       soldierMap.forEach((soldier, forceId) => {
         if (soldier.in_pkl && soldier.in_database) {
           soldier.status = 'synced';
@@ -101,23 +123,6 @@ const FaceModelManagement: React.FC = () => {
           soldier.status = 'missing';
         }
       });
-      
-      // Get training status for each soldier
-      await Promise.all(
-        Array.from(soldierMap.entries()).map(async ([forceId, soldier]) => {
-          try {
-            const trainResponse = await fetch(`${API_BASE}/image/soldier-training-status/${forceId}`);
-            if (trainResponse.ok) {
-              const trainData = await trainResponse.json();
-              soldier.trained_at = trainData.trained_at;
-              soldier.model_version = trainData.model_version;
-              soldier.encodings_count = trainData.encodings_count || 0;
-            }
-          } catch (error) {
-            console.warn(`Failed to get training status for ${forceId}:`, error);
-          }
-        })
-      );
       
       setSoldiers(Array.from(soldierMap.values()));
       

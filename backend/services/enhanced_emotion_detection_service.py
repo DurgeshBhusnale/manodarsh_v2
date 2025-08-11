@@ -45,15 +45,23 @@ class EnhancedEmotionDetectionService:
     def _load_models(self):
         """Load emotion detection and face cascade models"""
         try:
+            # Get the directory of this script
+            import os
+            current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            
             # Load emotion model
-            json_file = open('model/emotion_model.json', 'r')
+            model_json_path = os.path.join(current_dir, 'model', 'emotion_model.json')
+            model_h5_path = os.path.join(current_dir, 'model', 'emotion_model.h5')
+            cascade_path = os.path.join(current_dir, 'haarcascades', 'haarcascade_frontalface_default.xml')
+            
+            json_file = open(model_json_path, 'r')
             loaded_model_json = json_file.read()
             json_file.close()
             self.emotion_model = model_from_json(loaded_model_json)
-            self.emotion_model.load_weights("model/emotion_model.h5")
+            self.emotion_model.load_weights(model_h5_path)
             
             # Load face cascade
-            self.face_detector = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
+            self.face_detector = cv2.CascadeClassifier(cascade_path)
             
             logging.info("Emotion and face detection models loaded successfully")
             

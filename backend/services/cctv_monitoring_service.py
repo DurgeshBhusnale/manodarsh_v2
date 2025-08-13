@@ -72,23 +72,50 @@ class CCTVMonitoringService:
         return get_camera_settings()
         
     def _find_available_camera(self):
-        """Try different camera indices to find an available camera"""
-        # Try external webcam first (usually index 1)
+        """Try camera indices 1 and 0 only (optimized for fixed webcam setup)"""
+        # OPTIMIZATION: Only check 2 indices - external webcam (1) and built-in (0)
+        # This reduces camera initialization time significantly
+        
+        # Try external webcam first (usually index 1 for fixed CRPF setup)
         logging.info("Trying external webcam (index 1)...")
         cap = cv2.VideoCapture(1)
+        
+        # Give camera minimal time to initialize
+        time.sleep(0.1)
+        
         if cap.isOpened():
-            logging.info("Successfully connected to external webcam")
-            return cap
+            # Quick test read to ensure camera is truly ready
+            ret, frame = cap.read()
+            if ret and frame is not None:
+                logging.info("Successfully connected to external webcam (index 1)")
+                return cap
+            else:
+                cap.release()
+                logging.info("External webcam opened but not ready, trying built-in camera")
+        else:
+            cap.release()
         
         # If external webcam not available, try built-in camera (index 0)
-        logging.info("External webcam not found, trying built-in camera (index 0)...")
+        logging.info("Trying built-in camera (index 0)...")
         cap = cv2.VideoCapture(0)
+        
+        # Give camera minimal time to initialize  
+        time.sleep(0.1)
+        
         if cap.isOpened():
-            logging.info("Successfully connected to built-in camera")
-            return cap
+            # Quick test read to ensure camera is truly ready
+            ret, frame = cap.read()
+            if ret and frame is not None:
+                logging.info("Successfully connected to built-in camera (index 0)")
+                return cap
+            else:
+                cap.release()
+                logging.error("Built-in camera opened but not ready")
+        else:
+            cap.release()
             
         # If no camera is available, return None
-        logging.error("No cameras available")
+        logging.error("No cameras available (checked indices 1 and 0 only)")
         return None
 
     def _process_frames_continuously(self, date: str):
@@ -422,20 +449,35 @@ class CCTVMonitoringService:
 
     def start_survey_monitoring(self, force_id: str) -> bool:
         """Start emotion detection monitoring during survey for a specific soldier"""
+        start_time = time.time()
+        camera_init_time = 0  # Initialize timing variable
+        
         try:
+            logging.info(f"[START] Starting survey monitoring for soldier {force_id}")
+            
             # Initialize camera if not already done
             if not self.cap:
+                camera_init_start = time.time()
+                logging.info("[CAMERA] Initializing camera...")
+                
                 self.cap = self._find_available_camera()
                 if not self.cap:
                     raise Exception("No camera available")
                     
+                camera_init_time = time.time() - camera_init_start
+                logging.info(f"[CAMERA] Camera initialized in {camera_init_time:.2f} seconds")
+            else:
+                logging.info("[CAMERA] Using existing camera connection")
+                    
             # Set camera properties using dynamic settings from database
+            settings_start = time.time()
             camera_settings = get_camera_settings()
             self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_settings['width'])
             self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_settings['height'])
             self.cap.set(cv2.CAP_PROP_FPS, 10)  # Keep FPS at 10 for performance
+            settings_time = time.time() - settings_start
             
-            logging.info(f"Camera configured: {camera_settings['width']}x{camera_settings['height']}, detection_interval={camera_settings['detection_interval']}")
+            logging.info(f"[CONFIG] Camera configured in {settings_time:.2f}s: {camera_settings['width']}x{camera_settings['height']}, detection_interval={camera_settings['detection_interval']}")
             
             # Initialize survey monitoring state
             self.survey_force_id = force_id
@@ -445,18 +487,22 @@ class CCTVMonitoringService:
             self.survey_start_time = datetime.now()  # Track survey start time for question correlation
             
             # Start background monitoring thread
+            thread_start = time.time()
             self.survey_thread = threading.Thread(
                 target=self._process_survey_frames_continuously,
                 args=(force_id,),
                 daemon=True
             )
             self.survey_thread.start()
+            thread_time = time.time() - thread_start
             
-            logging.info(f"Started survey emotion monitoring for soldier {force_id}")
+            total_time = time.time() - start_time
+            logging.info(f"[SUCCESS] Survey monitoring started in {total_time:.2f}s (camera: {camera_init_time:.2f}s, settings: {settings_time:.2f}s, thread: {thread_time:.2f}s)")
             return True
             
         except Exception as e:
-            logging.error(f"Failed to start survey monitoring: {e}")
+            total_time = time.time() - start_time
+            logging.error(f"[ERROR] Failed to start survey monitoring after {total_time:.2f}s: {e}")
             self.survey_monitoring = False
             return False
 

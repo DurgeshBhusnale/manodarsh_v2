@@ -11,7 +11,11 @@ from config.settings import settings
 from utils.session_utils import get_dynamic_session_timeout
 from datetime import timedelta
 import os
+import logging
+import threading
 # DISABLED: from services.scheduler_service import MonitoringScheduler
+# PHASE 2 OPTIMIZATION: Add model preloader
+from services.model_preloader_service import ModelPreloaderService
 
 def create_app():
     app = Flask(__name__)
@@ -45,6 +49,28 @@ def create_app():
     app.register_blueprint(settings_bp, url_prefix='/api/admin/settings')
     app.register_blueprint(survey_bp, url_prefix='/api/survey')
     app.register_blueprint(monitor_bp, url_prefix='/api/monitor')
+
+    # PHASE 2 OPTIMIZATION: Initialize model preloader in background
+    def start_model_preloader():
+        """Start model preloading in background thread"""
+        try:
+            print("[APP] Starting model preloader service...")
+            logging.info("Starting model preloader service...")
+            model_preloader = ModelPreloaderService.get_instance()
+            # The constructor automatically starts preloading, just wait a moment for it
+            import time
+            time.sleep(0.5)  # Give it a moment to start
+            status = model_preloader.get_status()
+            print(f"[APP] Model preloader status: {status}")
+            logging.info(f"Model preloader initialization completed: {status}")
+        except Exception as e:
+            print(f"[APP] Error starting model preloader: {e}")
+            logging.error(f"Error starting model preloader: {e}")
+    
+    # Start model preloading in background thread (non-blocking)
+    print("[APP] Launching model preloader thread...")
+    preloader_thread = threading.Thread(target=start_model_preloader, daemon=True)
+    preloader_thread.start()
 
     # DISABLED: Initialize scheduler for CCTV monitoring
     # scheduler = MonitoringScheduler()

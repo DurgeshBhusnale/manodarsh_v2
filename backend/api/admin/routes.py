@@ -2,6 +2,7 @@
 from flask import Blueprint, request, jsonify, send_file
 from db.connection import get_connection
 from services.translation_service import translate_to_hindi, translate_to_english
+from services.model_preloader_service import ModelPreloaderService
 from fpdf import FPDF
 import logging
 from datetime import datetime
@@ -11,6 +12,18 @@ import io
 logger = logging.getLogger(__name__)
 
 admin_bp = Blueprint('admin', __name__)
+
+# PHASE 2 OPTIMIZATION: Model preloader status endpoint
+@admin_bp.route('/model-preloader-status', methods=['GET'])
+def get_model_preloader_status():
+    """Get current status of model preloader service"""
+    try:
+        model_preloader = ModelPreloaderService.get_instance()
+        status = model_preloader.get_status()
+        return jsonify(status), 200
+    except Exception as e:
+        logger.error(f"Error getting model preloader status: {e}")
+        return jsonify({'error': str(e)}), 500
 
 
 # Translation endpoint for question (English to Hindi)

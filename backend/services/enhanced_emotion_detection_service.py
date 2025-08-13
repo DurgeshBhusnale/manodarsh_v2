@@ -4,6 +4,7 @@ from keras.models import model_from_json
 import face_recognition
 import logging
 import os
+import time
 from datetime import datetime
 from db.connection import get_connection
 from typing import Dict, Optional, Tuple, List
@@ -11,6 +12,9 @@ from services.model_refresh_service import get_model_refresh_service
 
 class EnhancedEmotionDetectionService:
     def __init__(self):
+        init_start_time = time.time()
+        logging.info("[INIT] Initializing EnhancedEmotionDetectionService...")
+        
         self.emotion_dict = {
             0: "Angry", 1: "Disgusted", 2: "Fearful", 
             3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"
@@ -32,8 +36,25 @@ class EnhancedEmotionDetectionService:
         # Use the model refresh service for face recognition
         self.model_refresh_service = get_model_refresh_service()
         
+        # OPTIMIZATION: Use preloaded models for instant access
+        self.model_preloader = None
+        self._initialize_preloader()
+        
         self.setup_logging()
         self._load_models()
+        
+        init_time = time.time() - init_start_time
+        logging.info(f"[SUCCESS] EnhancedEmotionDetectionService initialized in {init_time:.2f}s")
+        
+    def _initialize_preloader(self):
+        """Initialize model preloader service"""
+        try:
+            from services.model_preloader_service import ModelPreloaderService
+            self.model_preloader = ModelPreloaderService.get_instance()
+            logging.info("Model preloader service initialized successfully")
+        except Exception as e:
+            logging.warning(f"Model preloader service not available: {e}")
+            self.model_preloader = None
         
     def setup_logging(self):
         logging.basicConfig(
@@ -43,10 +64,56 @@ class EnhancedEmotionDetectionService:
         )
     
     def _load_models(self):
-        """Load emotion detection and face cascade models"""
+        """Load emotion detection and face cascade models - use preloaded if available"""
+        load_start_time = time.time()
+        try:
+            # OPTIMIZATION: Try to use preloaded models first (check again in case they're ready now)
+            if not self.model_preloader:
+                # Re-attempt to get model preloader (might be ready now)
+                try:
+                    from services.model_preloader_service import ModelPreloaderService
+                    self.model_preloader = ModelPreloaderService.get_instance()
+                    logging.info("[RETRY] Model preloader service now available")
+                except Exception as e:
+                    logging.debug(f"Model preloader still not available: {e}")
+                    self.model_preloader = None
+            
+            if self.model_preloader and self.model_preloader.is_ready():
+                logging.info("[OPTIMIZE] Using preloaded models for instant access")
+                
+                # Get preloaded models
+                self.emotion_model = self.model_preloader.get_emotion_model()
+                self.face_detector = self.model_preloader.get_face_cascade()
+                
+                if self.emotion_model and self.face_detector:
+                    load_time = time.time() - load_start_time
+                    logging.info(f"[SUCCESS] All preloaded models loaded successfully in {load_time:.3f}s - instant access!")
+                    return
+                else:
+                    logging.warning("[WARNING] Some preloaded models not available, falling back to on-demand loading")
+            else:
+                if self.model_preloader:
+                    logging.info("[WARNING] Model preloader exists but not ready yet, using traditional loading")
+                else:
+                    logging.info("[WARNING] Model preloader not available, using traditional loading")
+            
+            # Fallback: Traditional on-demand loading
+            logging.info("[LOADING] Loading models on-demand (preloader not ready or failed)")
+            self._load_models_traditional()
+            
+            load_time = time.time() - load_start_time
+            logging.info(f"[SUCCESS] Traditional model loading completed in {load_time:.2f}s")
+            
+        except Exception as e:
+            load_time = time.time() - load_start_time
+            logging.error(f"[ERROR] Error in model loading after {load_time:.2f}s: {e}")
+            # Final fallback
+            self._load_models_traditional()
+    
+    def _load_models_traditional(self):
+        """Traditional model loading method (fallback)"""
         try:
             # Get the directory of this script
-            import os
             current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             
             # Load emotion model
@@ -63,15 +130,50 @@ class EnhancedEmotionDetectionService:
             # Load face cascade
             self.face_detector = cv2.CascadeClassifier(cascade_path)
             
-            logging.info("Emotion and face detection models loaded successfully")
+            logging.info("Traditional model loading completed successfully")
             
         except Exception as e:
             logging.error(f"Error loading models: {e}")
             raise
     
     def _get_current_face_model(self) -> Tuple[Optional[List], Optional[List]]:
-        """Get current face recognition model with automatic refresh"""
+        """Get current face recognition model - use preloaded if available"""
         try:
+            # OPTIMIZATION: Try preloaded models first for instant access
+            # Re-check for model preloader in case it's ready now
+            if not self.model_preloader:
+                try:
+                    from services.model_preloader_service import ModelPreloaderService
+                    self.model_preloader = ModelPreloaderService.get_instance()
+                    logging.info("[RETRY] Model preloader service now available for face recognition")
+                except Exception as e:
+                    logging.debug(f"Model preloader still not available for face recognition: {e}")
+                    self.model_preloader = None
+            
+            if self.model_preloader and self.model_preloader.is_ready():
+                face_encodings = self.model_preloader.get_face_encodings()
+                if face_encodings:
+                    # Extract encodings and force_ids from preloaded data
+                    known_encodings = []
+                    known_force_ids = []
+                    
+                    for force_id, encoding in face_encodings.items():
+                        known_encodings.append(encoding)
+                        known_force_ids.append(force_id)
+                    
+                    logging.info(f"[OPTIMIZE] Using preloaded face encodings - instant access! ({len(known_encodings)} soldiers)")
+                    return known_encodings, known_force_ids
+                else:
+                    logging.warning("[WARNING] Preloaded face encodings not available, falling back to disk loading")
+            else:
+                if self.model_preloader:
+                    logging.info("[WARNING] Model preloader exists but not ready for face recognition, loading from disk")
+                else:
+                    logging.info("[LOADING] Model preloader not available, loading face encodings from disk")
+            
+            # Fallback: Traditional loading from model refresh service
+            logging.info("[LOADING] Loading face encodings from disk (preloader not ready)")
+            
             # Get current model from refresh service
             encodings, force_ids = self.model_refresh_service.get_current_model()
             

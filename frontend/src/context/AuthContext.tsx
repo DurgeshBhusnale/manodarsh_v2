@@ -80,7 +80,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 // Page refresh: use the full session timeout, no special limit
                 console.log('Detected page refresh - maintaining session');
                 const currentSessionTimeout = getCurrentSessionTimeout();
-                if (timeSinceLastActivity > currentSessionTimeout) {
+                
+                // Re-read timestamp in case it was updated by visibility change handler
+                const currentTimestamp = localStorage.getItem(TIMESTAMP_KEY);
+                const currentLoginTime = currentTimestamp ? parseInt(currentTimestamp) : loginTime;
+                const currentTimeSinceActivity = now - currentLoginTime;
+                
+                if (currentTimeSinceActivity > currentSessionTimeout) {
                     console.log('Session expired during refresh - logging out');
                     localStorage.removeItem(SESSION_KEY);
                     localStorage.removeItem(TIMESTAMP_KEY);

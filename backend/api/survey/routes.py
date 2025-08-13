@@ -135,6 +135,86 @@ def get_mental_state_analysis(score):
 
 survey_bp = Blueprint('survey', __name__)
 
+@survey_bp.route('/survey-initialization', methods=['GET'])
+def get_survey_initialization_data():
+    """Optimized endpoint to get all survey initialization data in a single request"""
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        # OPTIMIZATION: Batch multiple queries in single connection
+        
+        # Query 1: Get active questionnaire
+        cursor.execute("""
+            SELECT questionnaire_id, title, description, total_questions
+            FROM questionnaires
+            WHERE status = 'Active'
+            LIMIT 1
+        """)
+        questionnaire = cursor.fetchone()
+
+        if not questionnaire:
+            return jsonify({"error": "No active questionnaire found"}), 404
+
+        questionnaire_id, title, description, total_questions = questionnaire
+
+        # Query 2: Get questions for this questionnaire
+        cursor.execute("""
+            SELECT question_id, question_text, question_text_hindi
+            FROM questions
+            WHERE questionnaire_id = %s
+            ORDER BY created_at ASC
+        """, (questionnaire_id,))
+        
+        questions = [
+            {
+                "id": row[0],
+                "question_text": row[1],
+                "question_text_hindi": row[2]
+            }
+            for row in cursor.fetchall()
+        ]
+
+        # Query 3: Get webcam settings (commonly needed for survey)
+        cursor.execute("""
+            SELECT setting_name, setting_value 
+            FROM system_settings 
+            WHERE setting_name IN ('webcam_enabled', 'detection_interval', 'camera_width', 'camera_height')
+        """)
+        
+        settings = {}
+        for setting_name, setting_value in cursor.fetchall():
+            if setting_name == 'webcam_enabled':
+                settings[setting_name] = setting_value.lower() == 'true'
+            elif setting_name in ['detection_interval', 'camera_width', 'camera_height']:
+                settings[setting_name] = int(setting_value)
+            else:
+                settings[setting_name] = setting_value
+
+        # Default settings if not found
+        settings.setdefault('webcam_enabled', True)
+        settings.setdefault('detection_interval', 30)
+        settings.setdefault('camera_width', 640)
+        settings.setdefault('camera_height', 480)
+
+        return jsonify({
+            "questionnaire": {
+                "id": questionnaire_id,
+                "title": title,
+                "description": description,
+                "total_questions": total_questions
+            },
+            "questions": questions,
+            "settings": settings,
+            "initialization_optimized": True
+        }), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
 @survey_bp.route('/active-questionnaire', methods=['GET'])
 def get_active_questionnaire():
     db = get_connection()
@@ -339,22 +419,22 @@ def submit_survey():
         
         # Comprehensive console logging with mental state analysis
         logger.info("="*80)
-        logger.info(f"🎯 MENTAL HEALTH ASSESSMENT COMPLETE - Session {session_id}")
+        logger.info(f"[ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session {session_id}")
         logger.info("="*80)
-        logger.info(f"👤 Soldier: {force_id}")
-        logger.info(f"📊 SCORES BREAKDOWN:")
-        logger.info(f"   📝 NLP Average Score (70%):     {avg_nlp_score:.3f}")
-        logger.info(f"   📷 Emotion Average Score (30%): {image_avg_score:.3f}")
-        logger.info(f"   🎯 FINAL WEIGHTED COMBINED:     {final_combined_score:.3f}")
+        logger.info(f"[SOLDIER] {force_id}")
+        logger.info(f"[SCORES] BREAKDOWN:")
+        logger.info(f"   [NLP] Average Score (70%):     {avg_nlp_score:.3f}")
+        logger.info(f"   [EMOTION] Average Score (30%): {image_avg_score:.3f}")
+        logger.info(f"   [FINAL] WEIGHTED COMBINED:     {final_combined_score:.3f}")
         logger.info(f"")
-        logger.info(f"🧠 MENTAL STATE ANALYSIS:")
+        logger.info(f"[MENTAL_STATE] ANALYSIS:")
         logger.info(f"   State:          {mental_state['state']}")
         logger.info(f"   Alert Level:    {mental_state['level']}")
         logger.info(f"   Description:    {mental_state['description']}")
         logger.info(f"   Recommendation: {mental_state['recommendation']}")
         logger.info(f"")
         if emotion_results:
-            logger.info(f"📹 EMOTION MONITORING DETAILS:")
+            logger.info(f"[EMOTION_MONITORING] DETAILS:")
             logger.info(f"   Total Detections: {emotion_results.get('detection_count', 0)}")
             logger.info(f"   Dominant Emotion: {emotion_results.get('dominant_emotion', 'Unknown')}")
         logger.info("="*80)
@@ -367,7 +447,7 @@ def submit_survey():
                     (session_id, mental_state_rating, mental_state_emoji, mental_state_text_en, mental_state_text_hi)
                     VALUES (%s, %s, %s, %s, %s)
                 """, (session_id, mental_state_rating, mental_state_emoji, mental_state_text_en, mental_state_text_hi))
-                logger.info(f"Mental state saved: {mental_state_emoji} {mental_state_text_en} (Rating: {mental_state_rating}/7)")
+                logger.info(f"[MENTAL_STATE] Mental state saved: {mental_state_text_en} (Rating: {mental_state_rating}/7)")
             except Exception as e:
                 logger.error(f"Error saving mental state: {e}")
                 # Don't fail the entire survey if mental state fails to save

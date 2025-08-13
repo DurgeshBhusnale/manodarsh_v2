@@ -132,6 +132,16 @@ def start_survey_monitoring():
     force_id = data['force_id']
     
     try:
+        # OPTIMIZATION: Quick return if monitoring is already active for this soldier
+        if hasattr(monitoring_service, 'survey_monitoring') and monitoring_service.survey_monitoring:
+            if hasattr(monitoring_service, 'survey_force_id') and monitoring_service.survey_force_id == force_id:
+                return jsonify({
+                    'message': 'Survey emotion monitoring already active',
+                    'webcam_enabled': True,
+                    'force_id': force_id,
+                    'already_active': True
+                }), 200
+        
         # Check if webcam is enabled before starting monitoring
         from db.connection import get_connection
         conn = get_connection()

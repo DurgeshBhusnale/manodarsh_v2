@@ -5924,3 +5924,1384 @@
 2025-08-13 12:00:18,010 - WARNING - No monitoring session active for soldier 100000001
 2025-08-13 12:00:18,012 - INFO - 127.0.0.1 - - [13/Aug/2025 12:00:18] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
 2025-08-13 12:11:42,567 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\utils\\hash.py', reloading
+2025-08-13 13:55:04,505 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-13 13:55:08,157 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 13:55:08,158 - INFO - Refreshing face recognition model...
+2025-08-13 13:55:08,160 - INFO - Model loaded successfully - 1 soldiers
+2025-08-13 13:55:08,161 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-13 13:55:08,164 - INFO - Auto refresh started with 300s interval
+2025-08-13 13:55:08,171 - INFO - Model preloader service initialized successfully
+2025-08-13 13:55:08,171 - INFO - Model preloading started
+2025-08-13 13:55:08,171 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-13 13:55:08,172 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-13 13:55:08,259 - INFO - Face cascade loaded successfully
+2025-08-13 13:55:08,868 - INFO - Emotion detection model loaded successfully
+2025-08-13 13:55:08,869 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-13 13:55:08,870 - INFO - Model preloading completed in 0.70 seconds
+2025-08-13 13:55:08,907 - INFO - Traditional model loading completed successfully
+2025-08-13 13:55:08,907 - INFO - [SUCCESS] Traditional model loading completed in 0.74s
+2025-08-13 13:55:08,907 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.75s
+2025-08-13 13:55:09,468 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 13:55:09,511 - INFO - Starting model preloader service...
+2025-08-13 13:55:09,568 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-13 13:55:09,568 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-13 13:55:09,571 - INFO -  * Restarting with stat
+2025-08-13 13:55:10,018 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.697566, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-13 13:55:17,269 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-13 13:55:20,109 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 13:55:20,111 - INFO - Refreshing face recognition model...
+2025-08-13 13:55:20,112 - INFO - Model loaded successfully - 1 soldiers
+2025-08-13 13:55:20,113 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-13 13:55:20,116 - INFO - Auto refresh started with 300s interval
+2025-08-13 13:55:20,121 - INFO - Model preloader service initialized successfully
+2025-08-13 13:55:20,122 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-13 13:55:20,122 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-13 13:55:20,122 - INFO - Model preloading started
+2025-08-13 13:55:20,195 - INFO - Face cascade loaded successfully
+2025-08-13 13:55:20,632 - INFO - Emotion detection model loaded successfully
+2025-08-13 13:55:20,633 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-13 13:55:20,633 - INFO - Model preloading completed in 0.51 seconds
+2025-08-13 13:55:20,652 - INFO - Traditional model loading completed successfully
+2025-08-13 13:55:20,653 - INFO - [SUCCESS] Traditional model loading completed in 0.53s
+2025-08-13 13:55:20,653 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.54s
+2025-08-13 13:55:21,486 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 13:55:21,527 - INFO - Starting model preloader service...
+2025-08-13 13:55:21,548 - WARNING -  * Debugger is active!
+2025-08-13 13:55:21,566 - INFO -  * Debugger PIN: 132-663-522
+2025-08-13 13:55:22,029 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.51189, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-13 13:55:44,606 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:44] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-13 13:55:45,424 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 13:55:45,428 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:45] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-13 13:55:45,589 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:45] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 13:55:45,973 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:45] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 13:55:47,687 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:47] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-13 13:55:48,042 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:48] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-13 13:55:50,620 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:50] "GET /api/admin/questionnaires/11 HTTP/1.1" 200 -
+2025-08-13 13:55:54,811 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:54] "POST /api/survey/admin/questionnaires/11/activate HTTP/1.1" 200 -
+2025-08-13 13:55:55,383 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:55] "GET /api/admin/questionnaires/11 HTTP/1.1" 200 -
+2025-08-13 13:55:55,742 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:55] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-13 13:55:59,858 - INFO - 127.0.0.1 - - [13/Aug/2025 13:55:59] "GET /api/admin/questionnaires/8 HTTP/1.1" 200 -
+2025-08-13 13:56:03,876 - INFO - 127.0.0.1 - - [13/Aug/2025 13:56:03] "POST /api/survey/admin/questionnaires/8/activate HTTP/1.1" 200 -
+2025-08-13 13:56:04,440 - INFO - 127.0.0.1 - - [13/Aug/2025 13:56:04] "GET /api/admin/questionnaires/8 HTTP/1.1" 200 -
+2025-08-13 13:56:04,794 - INFO - 127.0.0.1 - - [13/Aug/2025 13:56:04] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-13 13:56:08,202 - INFO - 127.0.0.1 - - [13/Aug/2025 13:56:08] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-13 13:56:15,251 - INFO - 127.0.0.1 - - [13/Aug/2025 13:56:15] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 13:56:15,889 - INFO - 127.0.0.1 - - [13/Aug/2025 13:56:15] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:56:15,922 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-13 13:56:15,923 - INFO - [CAMERA] Initializing camera...
+2025-08-13 13:56:15,923 - INFO - Trying external webcam (index 1)...
+2025-08-13 13:56:16,135 - INFO - Trying built-in camera (index 0)...
+2025-08-13 13:56:22,187 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-13 13:56:22,188 - INFO - [CAMERA] Camera initialized in 6.26 seconds
+2025-08-13 13:56:22,378 - INFO - [CONFIG] Camera configured in 0.19s: 640x480, detection_interval=30
+2025-08-13 13:56:22,388 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-13 13:56:22,388 - INFO - [SUCCESS] Survey monitoring started in 6.47s (camera: 6.26s, settings: 0.19s, thread: 0.01s)
+2025-08-13 13:56:22,392 - INFO - 127.0.0.1 - - [13/Aug/2025 13:56:22] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:56:22,438 - INFO - Using detection interval: 30 frames
+2025-08-13 13:56:25,619 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:29,902 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:33,251 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:36,583 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:39,927 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:43,264 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:46,623 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:49,997 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:53,361 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:56:56,716 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:00,084 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:00,594 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:00] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:00,658 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:00] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:00,987 - WARNING - No monitoring session active for soldier 
+2025-08-13 13:57:01,011 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-13 13:57:01,012 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-13 13:57:01,014 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:01] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:01,507 - INFO - Camera resources released after survey monitoring
+2025-08-13 13:57:01,510 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:01] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:10,041 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:10] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 13:57:10,667 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:10] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:10,703 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-13 13:57:10,703 - INFO - [CAMERA] Initializing camera...
+2025-08-13 13:57:10,703 - INFO - Trying external webcam (index 1)...
+2025-08-13 13:57:10,868 - INFO - Trying built-in camera (index 0)...
+2025-08-13 13:57:16,118 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-13 13:57:16,119 - INFO - [CAMERA] Camera initialized in 5.42 seconds
+2025-08-13 13:57:16,285 - INFO - [CONFIG] Camera configured in 0.16s: 640x480, detection_interval=30
+2025-08-13 13:57:16,288 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-13 13:57:16,289 - INFO - [SUCCESS] Survey monitoring started in 5.59s (camera: 5.42s, settings: 0.16s, thread: 0.00s)
+2025-08-13 13:57:16,290 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:16] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:16,326 - INFO - Using detection interval: 30 frames
+2025-08-13 13:57:19,517 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:22,948 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:26,311 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:29,648 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:33,009 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:36,360 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:39,690 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:43,028 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:46,373 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:49,739 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:53,078 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:57:55,497 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:55] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:55,527 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:55] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:55,840 - WARNING - No monitoring session active for soldier 
+2025-08-13 13:57:55,864 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-13 13:57:55,864 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-13 13:57:55,866 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:55] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:57:56,481 - INFO - Camera resources released after survey monitoring
+2025-08-13 13:57:56,483 - INFO - 127.0.0.1 - - [13/Aug/2025 13:57:56] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:58:28,044 - INFO - 127.0.0.1 - - [13/Aug/2025 13:58:28] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 13:58:28,685 - INFO - 127.0.0.1 - - [13/Aug/2025 13:58:28] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:58:28,722 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-13 13:58:28,723 - INFO - [CAMERA] Initializing camera...
+2025-08-13 13:58:28,723 - INFO - Trying external webcam (index 1)...
+2025-08-13 13:58:28,886 - INFO - Trying built-in camera (index 0)...
+2025-08-13 13:58:34,353 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-13 13:58:34,354 - INFO - [CAMERA] Camera initialized in 5.63 seconds
+2025-08-13 13:58:34,542 - INFO - [CONFIG] Camera configured in 0.19s: 640x480, detection_interval=30
+2025-08-13 13:58:34,546 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-13 13:58:34,546 - INFO - [SUCCESS] Survey monitoring started in 5.82s (camera: 5.63s, settings: 0.19s, thread: 0.00s)
+2025-08-13 13:58:34,549 - INFO - 127.0.0.1 - - [13/Aug/2025 13:58:34] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:58:34,599 - INFO - Using detection interval: 30 frames
+2025-08-13 13:58:37,791 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:58:41,156 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:58:44,519 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:58:47,878 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:58:51,229 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:58:54,586 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:58:57,945 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:01,295 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:04,652 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:08,011 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:08,182 - INFO - 127.0.0.1 - - [13/Aug/2025 13:59:08] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 13:59:08,819 - INFO - 127.0.0.1 - - [13/Aug/2025 13:59:08] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:59:08,831 - INFO - 127.0.0.1 - - [13/Aug/2025 13:59:08] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 13:59:11,361 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:14,711 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:18,064 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:21,420 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:24,779 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:28,106 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:31,480 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:34,828 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:38,177 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:41,531 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:44,892 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:48,269 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:51,669 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:55,028 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 13:59:58,377 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:01,731 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:05,176 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:08,522 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:11,932 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:15,269 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:18,620 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:22,005 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:25,361 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:28,701 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:32,051 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:35,390 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:38,736 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:42,079 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:45,430 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:48,764 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:52,123 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:55,451 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:00:55,487 - DEBUG - Face quality analysis - Brightness: 85.7 (1.00), Blur: 11.6 (0.10), Size: 88209 (1.00), Final: 0.64
+2025-08-13 14:00:56,207 - DEBUG - Recognized soldier 100000001 with distance 0.433
+2025-08-13 14:00:56,659 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.789', 'Disgusted': '0.001', 'Fearful': '0.085', 'Happy': '0.001', 'Neutral': '0.015', 'Sad': '0.110', 'Surprised': '0.000'}
+2025-08-13 14:00:56,659 - INFO - Detected soldier 100000001 with Angry emotion (score: 0.82, confidence: 0.789)
+2025-08-13 14:00:56,659 - INFO - Survey detection: 100000001 - Angry (0.82)
+2025-08-13 14:00:59,964 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:00,024 - DEBUG - Face quality analysis - Brightness: 95.8 (1.00), Blur: 11.4 (0.10), Size: 66049 (1.00), Final: 0.64
+2025-08-13 14:01:00,891 - DEBUG - Recognized soldier 100000001 with distance 0.468
+2025-08-13 14:01:01,028 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.830', 'Disgusted': '0.007', 'Fearful': '0.054', 'Happy': '0.000', 'Neutral': '0.073', 'Sad': '0.037', 'Surprised': '0.000'}
+2025-08-13 14:01:01,029 - INFO - Detected soldier 100000001 with Angry emotion (score: 0.82, confidence: 0.830)
+2025-08-13 14:01:01,030 - INFO - Survey detection: 100000001 - Angry (0.82)
+2025-08-13 14:01:04,336 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:04,378 - DEBUG - Face quality analysis - Brightness: 107.7 (1.00), Blur: 7.6 (0.10), Size: 73984 (1.00), Final: 0.64
+2025-08-13 14:01:05,096 - DEBUG - Recognized soldier 100000001 with distance 0.494
+2025-08-13 14:01:05,242 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.780', 'Disgusted': '0.003', 'Fearful': '0.097', 'Happy': '0.000', 'Neutral': '0.083', 'Sad': '0.035', 'Surprised': '0.000'}
+2025-08-13 14:01:05,244 - INFO - Detected soldier 100000001 with Angry emotion (score: 0.82, confidence: 0.780)
+2025-08-13 14:01:05,244 - INFO - Survey detection: 100000001 - Angry (0.82)
+2025-08-13 14:01:08,606 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:08,662 - DEBUG - Face quality analysis - Brightness: 105.6 (1.00), Blur: 7.2 (0.10), Size: 68121 (1.00), Final: 0.64
+2025-08-13 14:01:09,505 - DEBUG - Recognized soldier 100000001 with distance 0.471
+2025-08-13 14:01:09,632 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.806', 'Disgusted': '0.009', 'Fearful': '0.077', 'Happy': '0.001', 'Neutral': '0.056', 'Sad': '0.051', 'Surprised': '0.000'}
+2025-08-13 14:01:09,633 - INFO - Detected soldier 100000001 with Angry emotion (score: 0.82, confidence: 0.806)
+2025-08-13 14:01:09,633 - INFO - Survey detection: 100000001 - Angry (0.82)
+2025-08-13 14:01:12,945 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:13,000 - DEBUG - Face quality analysis - Brightness: 98.2 (1.00), Blur: 6.1 (0.10), Size: 44100 (1.00), Final: 0.64
+2025-08-13 14:01:13,812 - DEBUG - Face detected but not recognized as any known soldier
+2025-08-13 14:01:17,121 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:20,457 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:20,531 - DEBUG - Face quality analysis - Brightness: 103.4 (1.00), Blur: 5.6 (0.10), Size: 56644 (1.00), Final: 0.64
+2025-08-13 14:01:21,301 - DEBUG - Recognized soldier 100000001 with distance 0.463
+2025-08-13 14:01:21,411 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.685', 'Disgusted': '0.042', 'Fearful': '0.221', 'Happy': '0.001', 'Neutral': '0.022', 'Sad': '0.029', 'Surprised': '0.000'}
+2025-08-13 14:01:21,412 - INFO - Detected soldier 100000001 with Angry emotion (score: 0.82, confidence: 0.685)
+2025-08-13 14:01:21,412 - INFO - Survey detection: 100000001 - Angry (0.82)
+2025-08-13 14:01:24,709 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:28,074 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:31,424 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:34,762 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:38,126 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:41,461 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:44,810 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:48,160 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:51,511 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:54,872 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:01:58,219 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:01,556 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:04,923 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:08,265 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:11,609 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:14,939 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:18,284 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:21,633 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:24,981 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:28,346 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:31,676 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:35,051 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:38,397 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:41,732 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:45,086 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:48,476 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:51,869 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:55,219 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:02:58,552 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:01,889 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:05,244 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:08,585 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:11,928 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:15,307 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:18,661 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:21,996 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:25,326 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:28,660 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:32,003 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:35,350 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:38,756 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:42,105 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:45,458 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:48,817 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:52,152 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:55,507 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:03:58,864 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:02,227 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:05,610 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:08,947 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:12,289 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:15,645 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:19,012 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:22,350 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:25,702 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:29,122 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:32,469 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:35,804 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:39,143 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:42,492 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:45,837 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:49,172 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:52,534 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:55,879 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:04:59,196 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:02,563 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:05,935 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:09,276 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:12,631 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:15,981 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:19,340 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:22,700 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:26,049 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:29,384 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:32,756 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:36,084 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:39,437 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:42,780 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:46,163 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:49,497 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:52,835 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:05:56,183 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:00,591 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:04,210 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:07,605 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:11,162 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:14,532 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:17,904 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:21,419 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:24,792 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:28,113 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:31,470 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:34,815 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:38,186 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:41,512 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:44,936 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:48,287 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:50,794 - INFO - 127.0.0.1 - - [13/Aug/2025 14:06:50] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 14:06:51,441 - INFO - 127.0.0.1 - - [13/Aug/2025 14:06:51] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 14:06:51,450 - INFO - 127.0.0.1 - - [13/Aug/2025 14:06:51] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 14:06:51,641 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:54,985 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:06:58,323 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:01,687 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:05,100 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:08,469 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:11,820 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:15,168 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:18,530 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:21,896 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:25,255 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:28,604 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:31,946 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:35,296 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:38,648 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:41,993 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:45,438 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:48,812 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:52,169 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:55,519 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:07:58,871 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:02,237 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:05,662 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:09,015 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:12,373 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:15,722 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:19,074 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:22,419 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:26,040 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:29,610 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:33,120 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:36,488 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:39,838 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:43,190 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:46,537 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:49,879 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:53,281 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:56,639 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:08:59,975 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:03,862 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:07,502 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:10,962 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:14,718 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:18,073 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:21,553 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:24,908 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:28,263 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:31,614 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:34,966 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:38,313 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:41,687 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:45,076 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:48,409 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:50,920 - INFO - 127.0.0.1 - - [13/Aug/2025 14:09:50] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 14:09:51,552 - INFO - 127.0.0.1 - - [13/Aug/2025 14:09:51] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 14:09:51,560 - INFO - 127.0.0.1 - - [13/Aug/2025 14:09:51] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 14:09:51,736 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:55,095 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:09:58,462 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:10:01,839 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:10:05,205 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:10:08,559 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:10:11,915 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:10:15,280 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:10:18,650 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 14:10:21,982 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:32:37,500 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-13 22:32:39,902 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 22:32:39,903 - INFO - Refreshing face recognition model...
+2025-08-13 22:32:39,904 - INFO - Model loaded successfully - 1 soldiers
+2025-08-13 22:32:39,905 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-13 22:32:39,907 - INFO - Auto refresh started with 300s interval
+2025-08-13 22:32:39,911 - INFO - Model preloader service initialized successfully
+2025-08-13 22:32:39,912 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-13 22:32:39,912 - INFO - Model preloading started
+2025-08-13 22:32:39,912 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-13 22:32:39,967 - INFO - Face cascade loaded successfully
+2025-08-13 22:32:40,326 - INFO - Traditional model loading completed successfully
+2025-08-13 22:32:40,327 - INFO - [SUCCESS] Traditional model loading completed in 0.42s
+2025-08-13 22:32:40,327 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.43s
+2025-08-13 22:32:40,359 - INFO - Emotion detection model loaded successfully
+2025-08-13 22:32:40,360 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-13 22:32:40,360 - INFO - Model preloading completed in 0.45 seconds
+2025-08-13 22:32:41,776 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 22:32:41,832 - INFO - Starting model preloader service...
+2025-08-13 22:32:41,880 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-13 22:32:41,880 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-13 22:32:41,884 - INFO -  * Restarting with stat
+2025-08-13 22:32:42,336 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.449353, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-13 22:32:47,646 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-13 22:32:50,692 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 22:32:50,692 - INFO - Refreshing face recognition model...
+2025-08-13 22:32:50,694 - INFO - Model loaded successfully - 1 soldiers
+2025-08-13 22:32:50,694 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-13 22:32:50,696 - INFO - Auto refresh started with 300s interval
+2025-08-13 22:32:50,699 - INFO - Model preloader service initialized successfully
+2025-08-13 22:32:50,699 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-13 22:32:50,700 - INFO - Model preloading started
+2025-08-13 22:32:50,700 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-13 22:32:50,754 - INFO - Face cascade loaded successfully
+2025-08-13 22:32:51,132 - INFO - Traditional model loading completed successfully
+2025-08-13 22:32:51,132 - INFO - [SUCCESS] Traditional model loading completed in 0.43s
+2025-08-13 22:32:51,133 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.44s
+2025-08-13 22:32:51,158 - INFO - Emotion detection model loaded successfully
+2025-08-13 22:32:51,159 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-13 22:32:51,159 - INFO - Model preloading completed in 0.46 seconds
+2025-08-13 22:32:51,766 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 22:32:51,797 - INFO - Starting model preloader service...
+2025-08-13 22:32:51,817 - WARNING -  * Debugger is active!
+2025-08-13 22:32:51,825 - INFO -  * Debugger PIN: 116-430-886
+2025-08-13 22:32:52,309 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.459597, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-13 22:33:48,814 - INFO - 127.0.0.1 - - [13/Aug/2025 22:33:48] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 22:33:49,436 - INFO - 127.0.0.1 - - [13/Aug/2025 22:33:49] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:33:49,468 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-13 22:33:49,469 - INFO - [CAMERA] Initializing camera...
+2025-08-13 22:33:49,469 - INFO - Trying external webcam (index 1)...
+2025-08-13 22:33:49,656 - INFO - Trying built-in camera (index 0)...
+2025-08-13 22:33:54,531 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-13 22:33:54,531 - INFO - [CAMERA] Camera initialized in 5.06 seconds
+2025-08-13 22:33:54,639 - INFO - [CONFIG] Camera configured in 0.11s: 640x480, detection_interval=30
+2025-08-13 22:33:54,640 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-13 22:33:54,641 - INFO - [SUCCESS] Survey monitoring started in 5.17s (camera: 5.06s, settings: 0.11s, thread: 0.00s)
+2025-08-13 22:33:54,642 - INFO - 127.0.0.1 - - [13/Aug/2025 22:33:54] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:33:54,663 - INFO - Using detection interval: 30 frames
+2025-08-13 22:33:57,842 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:33:58,830 - DEBUG - Face quality analysis - Brightness: 95.8 (1.00), Blur: 55.9 (0.10), Size: 59049 (1.00), Final: 0.64
+2025-08-13 22:33:59,658 - DEBUG - Recognized soldier 100000001 with distance 0.270
+2025-08-13 22:34:00,318 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.997', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-13 22:34:00,318 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.997)
+2025-08-13 22:34:00,318 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:03,616 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:03,700 - DEBUG - Face quality analysis - Brightness: 110.6 (1.00), Blur: 37.5 (0.10), Size: 74529 (1.00), Final: 0.64
+2025-08-13 22:34:04,637 - DEBUG - Recognized soldier 100000001 with distance 0.302
+2025-08-13 22:34:04,748 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:34:04,748 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-13 22:34:04,749 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:08,024 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:08,101 - DEBUG - Face quality analysis - Brightness: 110.3 (1.00), Blur: 64.9 (0.10), Size: 79524 (1.00), Final: 0.64
+2025-08-13 22:34:09,009 - DEBUG - Recognized soldier 100000001 with distance 0.266
+2025-08-13 22:34:09,129 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.002', 'Disgusted': '0.000', 'Fearful': '0.005', 'Happy': '0.000', 'Neutral': '0.985', 'Sad': '0.008', 'Surprised': '0.000'}
+2025-08-13 22:34:09,129 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.985)
+2025-08-13 22:34:09,130 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:12,413 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:12,467 - DEBUG - Face quality analysis - Brightness: 111.2 (1.00), Blur: 41.2 (0.10), Size: 74529 (1.00), Final: 0.64
+2025-08-13 22:34:13,516 - INFO - 127.0.0.1 - - [13/Aug/2025 22:34:13] "OPTIONS /api/image/question-reading-marker HTTP/1.1" 200 -
+2025-08-13 22:34:13,518 - DEBUG - Recognized soldier 100000001 with distance 0.220
+2025-08-13 22:34:13,620 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.002', 'Disgusted': '0.000', 'Fearful': '0.005', 'Happy': '0.000', 'Neutral': '0.990', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-13 22:34:13,620 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.990)
+2025-08-13 22:34:13,621 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:13,841 - INFO - Added question reading period: Soldier 100000001, Question 11, Duration: 2025-08-13 22:34:12.495000 to 2025-08-13 22:34:17.495000
+2025-08-13 22:34:13,841 - INFO - Question reading period marked for soldier 100000001, question 11: 2025-08-13 22:34:12.495000 to 2025-08-13 22:34:17.495000
+2025-08-13 22:34:13,842 - INFO - 127.0.0.1 - - [13/Aug/2025 22:34:13] "POST /api/image/question-reading-marker HTTP/1.1" 200 -
+2025-08-13 22:34:16,920 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:17,008 - DEBUG - Face quality analysis - Brightness: 110.1 (1.00), Blur: 50.8 (0.10), Size: 70225 (1.00), Final: 0.64
+2025-08-13 22:34:17,852 - DEBUG - Recognized soldier 100000001 with distance 0.267
+2025-08-13 22:34:18,034 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.004', 'Disgusted': '0.001', 'Fearful': '0.021', 'Happy': '0.000', 'Neutral': '0.951', 'Sad': '0.021', 'Surprised': '0.001'}
+2025-08-13 22:34:18,034 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.951)
+2025-08-13 22:34:18,034 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:21,319 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:21,395 - DEBUG - Face quality analysis - Brightness: 109.2 (1.00), Blur: 61.7 (0.10), Size: 73984 (1.00), Final: 0.64
+2025-08-13 22:34:22,249 - DEBUG - Recognized soldier 100000001 with distance 0.276
+2025-08-13 22:34:22,355 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.007', 'Happy': '0.000', 'Neutral': '0.987', 'Sad': '0.006', 'Surprised': '0.000'}
+2025-08-13 22:34:22,355 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.987)
+2025-08-13 22:34:22,356 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:25,635 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:25,811 - DEBUG - Face quality analysis - Brightness: 105.6 (1.00), Blur: 61.7 (0.10), Size: 76729 (1.00), Final: 0.64
+2025-08-13 22:34:27,043 - DEBUG - Recognized soldier 100000001 with distance 0.258
+2025-08-13 22:34:27,144 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.005', 'Happy': '0.000', 'Neutral': '0.990', 'Sad': '0.005', 'Surprised': '0.000'}
+2025-08-13 22:34:27,144 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.990)
+2025-08-13 22:34:27,144 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:30,422 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:30,515 - DEBUG - Face quality analysis - Brightness: 108.7 (1.00), Blur: 58.9 (0.10), Size: 70756 (1.00), Final: 0.64
+2025-08-13 22:34:32,714 - DEBUG - Recognized soldier 100000001 with distance 0.234
+2025-08-13 22:34:32,886 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.003', 'Disgusted': '0.000', 'Fearful': '0.004', 'Happy': '0.000', 'Neutral': '0.990', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-13 22:34:32,887 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.990)
+2025-08-13 22:34:32,887 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:36,183 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:34:36,271 - DEBUG - Face quality analysis - Brightness: 110.2 (1.00), Blur: 59.4 (0.10), Size: 69169 (1.00), Final: 0.64
+2025-08-13 22:34:37,215 - DEBUG - Recognized soldier 100000001 with distance 0.244
+2025-08-13 22:34:37,328 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.002', 'Happy': '0.000', 'Neutral': '0.996', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-13 22:34:37,328 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.996)
+2025-08-13 22:34:37,329 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:34:38,561 - INFO - 127.0.0.1 - - [13/Aug/2025 22:34:38] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-13 22:34:39,032 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 22:34:39,032 - INFO - Model preloader service initialized successfully
+2025-08-13 22:34:39,032 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-13 22:34:39,032 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.000s - instant access!
+2025-08-13 22:34:39,032 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.00s
+2025-08-13 22:34:39,032 - WARNING - No monitoring session active for soldier 100000001
+2025-08-13 22:34:39,032 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-13 22:34:39,032 - WARNING - No emotion data retrieved from monitoring service
+2025-08-13 22:34:39,033 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-13 22:34:39,033 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.431, 'pos': 0.569, 'compound': 0.765}
+2025-08-13 22:34:39,033 - INFO - Text: 'I am billing happy  week was good...' - Label: POSITIVE, Depression score: 0.12
+2025-08-13 22:34:39,033 - INFO - Question 10 - Sentiment: POSITIVE, Score: 0.12
+2025-08-13 22:34:39,050 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:34:39,066 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:34:39,066 - INFO - Question 10: Weighted Combined = (0.12 * 0.7) + (0.00 * 0.3) = 0.082
+2025-08-13 22:34:39,067 - INFO - Question 10: NLP=0.1175, Emotion=0.00, Weighted Combined=0.082
+2025-08-13 22:34:39,086 - INFO - Sentiment scores for text: {'neg': 0.339, 'neu': 0.379, 'pos': 0.282, 'compound': -0.4678}
+2025-08-13 22:34:39,087 - INFO - Text: 'everything is good at home  But  I feel like suici...' - Label: NEGATIVE, Depression score: 0.73
+2025-08-13 22:34:39,087 - INFO - Question 11 - Sentiment: NEGATIVE, Score: 0.73
+2025-08-13 22:34:39,100 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:34:39,112 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:34:39,112 - INFO - Question 11: Weighted Combined = (0.73 * 0.7) + (0.00 * 0.3) = 0.514
+2025-08-13 22:34:39,112 - INFO - Question 11: NLP=0.7339, Emotion=0.00, Weighted Combined=0.514
+2025-08-13 22:34:39,113 - INFO - Session 106 - Average NLP Depression Score: 0.43
+2025-08-13 22:34:39,126 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:34:39,126 - INFO - Session 106 - Using NLP score only: 0.43
+2025-08-13 22:34:39,138 - INFO - ================================================================================
+2025-08-13 22:34:39,139 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 106
+2025-08-13 22:34:39,139 - INFO - ================================================================================
+2025-08-13 22:34:39,139 - INFO - [SOLDIER] 100000001
+2025-08-13 22:34:39,139 - INFO - [SCORES] BREAKDOWN:
+2025-08-13 22:34:39,139 - INFO -    [NLP] Average Score (70%):     0.426
+2025-08-13 22:34:39,139 - INFO -    [EMOTION] Average Score (30%): 0.000
+2025-08-13 22:34:39,139 - INFO -    [FINAL] WEIGHTED COMBINED:     0.426
+2025-08-13 22:34:39,139 - INFO - 
+2025-08-13 22:34:39,139 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-13 22:34:39,139 - INFO -    State:          GOOD MENTAL HEALTH
+2025-08-13 22:34:39,139 - INFO -    Alert Level:    GREEN
+2025-08-13 22:34:39,140 - INFO -    Description:    Stable emotional state with minor stress indicators
+2025-08-13 22:34:39,140 - INFO -    Recommendation: Continue normal duties, light monitoring
+2025-08-13 22:34:39,140 - INFO - 
+2025-08-13 22:34:39,140 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-13 22:34:39,140 - INFO -    Total Detections: 0
+2025-08-13 22:34:39,140 - INFO -    Dominant Emotion: Unknown
+2025-08-13 22:34:39,140 - INFO - ================================================================================
+2025-08-13 22:34:39,158 - INFO - [MENTAL_STATE] Mental state saved: Positive (Rating: 5/7)
+2025-08-13 22:34:39,166 - INFO - 127.0.0.1 - - [13/Aug/2025 22:34:39] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-13 22:34:39,173 - INFO - 127.0.0.1 - - [13/Aug/2025 22:34:39] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:34:39,534 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-13 22:34:39,534 - INFO - Processing 9 emotion detections for soldier 100000001
+2025-08-13 22:34:39,535 - INFO - Found 9 actual emotion detections (filtered from 9 total entries)
+2025-08-13 22:34:39,535 - DEBUG - No significant emotional peaks detected in 8 scores. Using simple average: 0.450
+2025-08-13 22:34:39,535 - INFO - Question-context weighted score for 100000001: Reading=0.450(70%) + Other=0.450(30%) = 0.450
+2025-08-13 22:34:39,536 - INFO - Context breakdown for 100000001: 1 reading emotions, 8 other emotions
+2025-08-13 22:34:39,536 - INFO - ENHANCED EMOTION SCORING for 100000001:
+2025-08-13 22:34:39,536 - INFO -   - Question-context weighted score: 0.450
+2025-08-13 22:34:39,536 - INFO -   - Dominant emotion: Neutral
+2025-08-13 22:34:39,537 - INFO -   - Score distribution: min=0.45, max=0.45, count=9
+2025-08-13 22:34:39,537 - INFO -   - Reading periods tracked: 1
+2025-08-13 22:34:39,537 - INFO - Storing emotion data for session_id: 106
+2025-08-13 22:34:39,561 - INFO - Storing emotion data - session_id: 106, force_id: 100000001, avg_score: 0.45
+2025-08-13 22:34:39,566 - INFO - Updated 1 weekly session record(s)
+2025-08-13 22:34:39,569 - INFO - Updated 2 question response record(s)
+2025-08-13 22:34:39,573 - INFO - Successfully stored survey emotion data for session 106: avg_score=0.45
+2025-08-13 22:34:39,574 - INFO - Survey monitoring ended for 100000001: ENHANCED score=0.450, emotion=Neutral, detections=9
+2025-08-13 22:34:40,347 - INFO - Camera resources released after survey monitoring
+2025-08-13 22:34:40,347 - INFO - 127.0.0.1 - - [13/Aug/2025 22:34:40] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:34:40,395 - WARNING - No monitoring session active for soldier 100000001
+2025-08-13 22:34:40,396 - INFO - 127.0.0.1 - - [13/Aug/2025 22:34:40] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:35:47,153 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:47] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-13 22:35:47,771 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 22:35:47,772 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:47] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-13 22:35:47,836 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:47] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 22:35:48,182 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:48] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 22:35:52,862 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:52] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-13 22:35:53,269 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:53] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-13 22:35:53,272 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:53] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-13 22:35:53,527 - INFO - 127.0.0.1 - - [13/Aug/2025 22:35:53] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-13 22:36:10,288 - INFO - 127.0.0.1 - - [13/Aug/2025 22:36:10] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-13 22:36:17,237 - INFO - 127.0.0.1 - - [13/Aug/2025 22:36:17] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 22:36:17,558 - INFO - 127.0.0.1 - - [13/Aug/2025 22:36:17] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:36:17,587 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-13 22:36:17,588 - INFO - [CAMERA] Initializing camera...
+2025-08-13 22:36:17,588 - INFO - Trying external webcam (index 1)...
+2025-08-13 22:36:17,738 - INFO - Trying built-in camera (index 0)...
+2025-08-13 22:36:21,673 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-13 22:36:21,674 - INFO - [CAMERA] Camera initialized in 4.09 seconds
+2025-08-13 22:36:21,774 - INFO - [CONFIG] Camera configured in 0.10s: 640x480, detection_interval=30
+2025-08-13 22:36:21,775 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-13 22:36:21,776 - INFO - [SUCCESS] Survey monitoring started in 4.19s (camera: 4.09s, settings: 0.10s, thread: 0.00s)
+2025-08-13 22:36:21,777 - INFO - 127.0.0.1 - - [13/Aug/2025 22:36:21] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:36:21,794 - INFO - Using detection interval: 30 frames
+2025-08-13 22:36:24,983 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:25,065 - DEBUG - Face quality analysis - Brightness: 98.7 (1.00), Blur: 30.5 (0.10), Size: 81225 (1.00), Final: 0.64
+2025-08-13 22:36:25,582 - DEBUG - Recognized soldier 100000001 with distance 0.347
+2025-08-13 22:36:25,668 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.995', 'Sad': '0.004', 'Surprised': '0.000'}
+2025-08-13 22:36:25,669 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.995)
+2025-08-13 22:36:25,669 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:36:28,976 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:29,069 - DEBUG - Face quality analysis - Brightness: 99.0 (1.00), Blur: 28.2 (0.10), Size: 84100 (1.00), Final: 0.64
+2025-08-13 22:36:29,694 - DEBUG - Recognized soldier 100000001 with distance 0.374
+2025-08-13 22:36:29,757 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.798', 'Neutral': '0.198', 'Sad': '0.004', 'Surprised': '0.000'}
+2025-08-13 22:36:29,757 - INFO - Detected soldier 100000001 with Happy emotion (score: 0.05, confidence: 0.798)
+2025-08-13 22:36:29,759 - INFO - Survey detection: 100000001 - Happy (0.05)
+2025-08-13 22:36:33,057 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:33,109 - DEBUG - Face quality analysis - Brightness: 99.3 (1.00), Blur: 23.7 (0.10), Size: 77284 (1.00), Final: 0.64
+2025-08-13 22:36:33,659 - DEBUG - Recognized soldier 100000001 with distance 0.361
+2025-08-13 22:36:33,740 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.578', 'Neutral': '0.418', 'Sad': '0.004', 'Surprised': '0.000'}
+2025-08-13 22:36:33,740 - INFO - Detected soldier 100000001 with Happy emotion (score: 0.05, confidence: 0.578)
+2025-08-13 22:36:33,740 - INFO - Survey detection: 100000001 - Happy (0.05)
+2025-08-13 22:36:37,012 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:37,096 - DEBUG - Face quality analysis - Brightness: 98.9 (1.00), Blur: 23.8 (0.10), Size: 76176 (1.00), Final: 0.64
+2025-08-13 22:36:37,687 - DEBUG - Recognized soldier 100000001 with distance 0.362
+2025-08-13 22:36:37,748 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.465', 'Neutral': '0.534', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-13 22:36:37,749 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.534)
+2025-08-13 22:36:37,749 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:36:41,053 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:41,114 - DEBUG - Face quality analysis - Brightness: 98.9 (1.00), Blur: 23.7 (0.10), Size: 79524 (1.00), Final: 0.64
+2025-08-13 22:36:41,959 - DEBUG - Recognized soldier 100000001 with distance 0.377
+2025-08-13 22:36:41,966 - INFO - 127.0.0.1 - - [13/Aug/2025 22:36:41] "OPTIONS /api/image/question-reading-marker HTTP/1.1" 200 -
+2025-08-13 22:36:42,103 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.248', 'Neutral': '0.748', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-13 22:36:42,103 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.748)
+2025-08-13 22:36:42,103 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:36:42,287 - INFO - Added question reading period: Soldier 100000001, Question 11, Duration: 2025-08-13 22:36:40.961000 to 2025-08-13 22:36:45.961000
+2025-08-13 22:36:42,288 - INFO - Question reading period marked for soldier 100000001, question 11: 2025-08-13 22:36:40.961000 to 2025-08-13 22:36:45.961000
+2025-08-13 22:36:42,289 - INFO - 127.0.0.1 - - [13/Aug/2025 22:36:42] "POST /api/image/question-reading-marker HTTP/1.1" 200 -
+2025-08-13 22:36:45,410 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:45,496 - DEBUG - Face quality analysis - Brightness: 98.3 (1.00), Blur: 29.7 (0.10), Size: 85264 (1.00), Final: 0.64
+2025-08-13 22:36:46,667 - DEBUG - Recognized soldier 100000001 with distance 0.366
+2025-08-13 22:36:46,802 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.016', 'Neutral': '0.981', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-13 22:36:46,803 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.981)
+2025-08-13 22:36:46,803 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:36:50,086 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:50,153 - DEBUG - Face quality analysis - Brightness: 98.9 (1.00), Blur: 24.2 (0.10), Size: 80089 (1.00), Final: 0.64
+2025-08-13 22:36:50,932 - DEBUG - Recognized soldier 100000001 with distance 0.362
+2025-08-13 22:36:51,034 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.073', 'Neutral': '0.924', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-13 22:36:51,034 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.924)
+2025-08-13 22:36:51,034 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:36:54,304 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:54,364 - DEBUG - Face quality analysis - Brightness: 99.0 (1.00), Blur: 23.7 (0.10), Size: 76176 (1.00), Final: 0.64
+2025-08-13 22:36:55,098 - DEBUG - Recognized soldier 100000001 with distance 0.363
+2025-08-13 22:36:55,193 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.205', 'Neutral': '0.792', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-13 22:36:55,194 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.792)
+2025-08-13 22:36:55,194 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:36:58,462 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:36:58,549 - DEBUG - Face quality analysis - Brightness: 99.4 (1.00), Blur: 24.5 (0.10), Size: 76729 (1.00), Final: 0.64
+2025-08-13 22:36:59,314 - DEBUG - Recognized soldier 100000001 with distance 0.375
+2025-08-13 22:36:59,395 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.044', 'Neutral': '0.955', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-13 22:36:59,395 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.955)
+2025-08-13 22:36:59,395 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:37:02,685 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:37:02,776 - DEBUG - Face quality analysis - Brightness: 100.3 (1.00), Blur: 27.2 (0.10), Size: 76176 (1.00), Final: 0.64
+2025-08-13 22:37:03,616 - DEBUG - Recognized soldier 100000001 with distance 0.377
+2025-08-13 22:37:03,729 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.049', 'Neutral': '0.950', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:37:03,729 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.950)
+2025-08-13 22:37:03,730 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:37:07,019 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:37:07,112 - DEBUG - Face quality analysis - Brightness: 99.6 (1.00), Blur: 25.9 (0.10), Size: 82944 (1.00), Final: 0.64
+2025-08-13 22:37:07,926 - DEBUG - Recognized soldier 100000001 with distance 0.361
+2025-08-13 22:37:08,036 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.034', 'Neutral': '0.962', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-13 22:37:08,036 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.962)
+2025-08-13 22:37:08,036 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:37:11,329 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:37:11,442 - DEBUG - Face quality analysis - Brightness: 99.2 (1.00), Blur: 22.9 (0.10), Size: 78961 (1.00), Final: 0.64
+2025-08-13 22:37:12,298 - DEBUG - Recognized soldier 100000001 with distance 0.355
+2025-08-13 22:37:12,406 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.194', 'Neutral': '0.805', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-13 22:37:12,406 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.805)
+2025-08-13 22:37:12,406 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:37:12,677 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:12] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-13 22:37:13,064 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000001D14EB83DD0>
+2025-08-13 22:37:13,064 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-08-13 22:37:13,064 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:13,065 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-08-13 22:37:13,065 - DEBUG - Encoding 1 with 6 bits
+2025-08-13 22:37:13,065 - DEBUG - Encoding 14 with 7 bits
+2025-08-13 22:37:13,065 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-08-13 22:37:13,065 - DEBUG - Encoding 7 with 7 bits
+2025-08-13 22:37:13,065 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-08-13 22:37:13,065 - DEBUG - Encoding 4 with 6 bits
+2025-08-13 22:37:13,067 - DEBUG - Encoding 101 with 7 bits
+2025-08-13 22:37:13,067 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-08-13 22:37:13,067 - DEBUG - Encoding 19 with 6 bits
+2025-08-13 22:37:13,067 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:13,067 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-08-13 22:37:13,067 - DEBUG - Encoding 16 with 7 bits
+2025-08-13 22:37:13,067 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-08-13 22:37:13,067 - DEBUG - Encoding 58 with 6 bits
+2025-08-13 22:37:13,068 - DEBUG - Encoding 32 with 7 bits
+2025-08-13 22:37:13,068 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-08-13 22:37:13,068 - DEBUG - Encoding 51 with 6 bits
+2025-08-13 22:37:13,068 - DEBUG - Encoding 20 with 7 bits
+2025-08-13 22:37:13,068 - DEBUG - Adding (b'content-length', b'970') to the header table
+2025-08-13 22:37:13,070 - DEBUG - Encoding 28 with 6 bits
+2025-08-13 22:37:13,070 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:13,070 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-08-13 22:37:13,070 - DEBUG - Encoding 31 with 6 bits
+2025-08-13 22:37:13,070 - DEBUG - Encoding 24 with 7 bits
+2025-08-13 22:37:13,070 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83}\xd0\x7f_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-08-13 22:37:14,182 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xe4Y>\x94\x0b*Cl\xca\x08\x02m@\xbbp\x0e\xdc\x08\x94\xc5\xa3\x7fY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82Kv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xffZ\xd3\x92\xfc\r\x89\xb82\xef\xf5\x92\x8a\xe9Y\xe1\x03\x16\r\x84\xc0\t\xa7\xf1\xed\xca$\x04\x97s\xf5\x87\xbe]\x1bA\x9a?\x1e\x1b\xd8\xceQ\xcd\x95\xd9\xab\x9c\x96\xf6\xa1g\x0feY\x0b\xa7\xad\xb1w\xe0<@\xae\xe8\xe4\xe9\xa8\xafM\x988G\xeb\xd3N\xbf\x9a\xf4F\xcf\xeb\x1d\xde\xf3\xf7{ez\xf6\xf7\xcb\xe2\xafq\xcf\xbf\x0f\x1d\xb7\xafh\xddW\xacD\xbe\x89\xbb9\xdf\x04\x994\x13-\xf7\x88V\xc9\xb2\xab<\xad\x98\x9e.\xe5\xc8\xb4\xb3l\x7f\xf6\xb6n\xe7}\xbf\x1f\xaf<q\xf7\xc9\'.}\x9c\x16\x99\xf5\xf4\xc5g.x\xedo\x1bX\xbe\xd4/\x9a\xcdaQ\x06\xf9\xed\xfaP"[\tcX@\x13\x8a\x05\xdb\x80v\xe0D\xa6-\x1b\xfe\xd4\xaci\x9e\x06>\xd4\x90\xf4\x8c\xd5@\xbc\xc7<\xd4\x15r\x1e\x9f\xb51\xa55\xea\xaa\x8f_@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-08-13 22:37:14,182 - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-13 22:37:14,183 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-13 22:37:14,183 - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-13 22:37:14,183 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:14,184 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:14,184 - DEBUG - Decoded 24, consumed 1 bytes
+2025-08-13 22:37:14,185 - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-13 22:37:14,185 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-08-13 22:37:14,185 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:14,185 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:14,185 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-08-13 22:37:14,186 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-13 22:37:14,186 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:14,187 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:14,187 - DEBUG - Decoded 33, consumed 2 bytes
+2025-08-13 22:37:14,187 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:14,187 - DEBUG - Decoded (b'date', b'Wed, 13 Aug 2025 17:07:12 GMT'), total consumed 25 bytes, indexed False
+2025-08-13 22:37:14,188 - DEBUG - Decoded 25, consumed 1 bytes
+2025-08-13 22:37:14,188 - DEBUG - Decoded 50, consumed 1 bytes
+2025-08-13 22:37:14,188 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-08-13 22:37:14,189 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-13 22:37:14,189 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:14,189 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:14,189 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:14,189 - DEBUG - Decoded 47, consumed 1 bytes
+2025-08-13 22:37:14,190 - DEBUG - Decoded (<memory at 0x000001D1433C1B80>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-08-13 22:37:14,190 - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-13 22:37:14,190 - DEBUG - Decoded 129, consumed 2 bytes
+2025-08-13 22:37:14,191 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-08-13 22:37:14,191 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-13 22:37:14,191 - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-13 22:37:14,191 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-08-13 22:37:14,191 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:14,192 - DEBUG - Decoded 146, consumed 2 bytes
+2025-08-13 22:37:14,192 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-08-13 22:37:14,192 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-13 22:37:14,193 - DEBUG - Decoded 58, consumed 1 bytes
+2025-08-13 22:37:14,193 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-08-13 22:37:14,193 - DEBUG - Decoded 20, consumed 1 bytes
+2025-08-13 22:37:14,193 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:14,194 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-08-13 22:37:14,194 - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-13 22:37:14,194 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:14,194 - DEBUG - Decoded (b'server', <memory at 0x000001D14EC19040>), total consumed 5 bytes, indexed True
+2025-08-13 22:37:14,194 - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-13 22:37:14,194 - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-13 22:37:14,194 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000001D1433C1A00>), total consumed 16 bytes, indexed True
+2025-08-13 22:37:14,195 - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-13 22:37:14,195 - DEBUG - Decoded 9, consumed 1 bytes
+2025-08-13 22:37:14,195 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-08-13 22:37:14,195 - DEBUG - Decoded 55, consumed 2 bytes
+2025-08-13 22:37:14,195 - DEBUG - Decoded 217, consumed 2 bytes
+2025-08-13 22:37:14,196 - DEBUG - Decoded (b'set-cookie', b'NID=525=JTyIlpm-820GEQcE0ghwz6ld0dBLkAvJMR0Kbww5Q3JagJ7gphcuql-6ornIeNku_vUaG0pBadjOe8gK1Fayy479KC_iLyHBvhv8QpPRvJwnzbhTFVRCCMSnyGcDsgq6vEdIMcJD8ce5cQnrx-KcwBJI-fgQ9Zp3BL95wZ88oavIdWYq62NhPjGrWYHu5H4G; expires=Thu, 12-Feb-2026 17:07:12 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 221 bytes, indexed False
+2025-08-13 22:37:14,196 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:14,196 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-13 22:37:14,197 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-08-13 22:37:14,197 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-13 22:37:14,197 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:14,197 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-08-13 22:37:14,197 - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-13 22:37:14,198 - DEBUG - Decoded 45, consumed 1 bytes
+2025-08-13 22:37:14,198 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-08-13 22:37:14,200 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-08-13 22:37:14,232 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:14] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-13 22:37:15,711 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:37:15,754 - DEBUG - Face quality analysis - Brightness: 98.3 (1.00), Blur: 22.7 (0.10), Size: 77284 (1.00), Final: 0.64
+2025-08-13 22:37:16,482 - DEBUG - Recognized soldier 100000001 with distance 0.357
+2025-08-13 22:37:16,577 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.738', 'Neutral': '0.261', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-13 22:37:16,577 - INFO - Detected soldier 100000001 with Happy emotion (score: 0.05, confidence: 0.738)
+2025-08-13 22:37:16,578 - INFO - Survey detection: 100000001 - Happy (0.05)
+2025-08-13 22:37:19,877 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:37:19,917 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:19] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-13 22:37:19,924 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:19] "OPTIONS /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-13 22:37:19,954 - DEBUG - Face quality analysis - Brightness: 100.2 (1.00), Blur: 23.4 (0.10), Size: 77284 (1.00), Final: 0.64
+2025-08-13 22:37:20,697 - DEBUG - Recognized soldier 100000001 with distance 0.362
+2025-08-13 22:37:20,785 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.695', 'Neutral': '0.303', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-13 22:37:20,785 - INFO - Detected soldier 100000001 with Happy emotion (score: 0.05, confidence: 0.695)
+2025-08-13 22:37:20,785 - INFO - Survey detection: 100000001 - Happy (0.05)
+2025-08-13 22:37:21,052 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000001D14EB1D270>
+2025-08-13 22:37:21,053 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-08-13 22:37:21,053 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:21,053 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-08-13 22:37:21,053 - DEBUG - Encoding 1 with 6 bits
+2025-08-13 22:37:21,054 - DEBUG - Encoding 14 with 7 bits
+2025-08-13 22:37:21,054 - DEBUG - HPACK encoding <generator object _check_path_header.<locals>.inner at 0x000001D14EB1D660>
+2025-08-13 22:37:21,054 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-08-13 22:37:21,054 - DEBUG - Adding (b':method', b'POST') to the header table
+2025-08-13 22:37:21,055 - DEBUG - Encoding 7 with 7 bits
+2025-08-13 22:37:21,055 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:21,055 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-08-13 22:37:21,055 - DEBUG - Adding (b':authority', b'translate.google.com') to the header table
+2025-08-13 22:37:21,056 - DEBUG - Encoding 4 with 6 bits
+2025-08-13 22:37:21,056 - DEBUG - Encoding 1 with 6 bits
+2025-08-13 22:37:21,056 - DEBUG - Encoding 101 with 7 bits
+2025-08-13 22:37:21,056 - DEBUG - Encoding 14 with 7 bits
+2025-08-13 22:37:21,057 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-08-13 22:37:21,057 - DEBUG - Adding (b':scheme', b'https') to the header table
+2025-08-13 22:37:21,057 - DEBUG - Encoding 19 with 6 bits
+2025-08-13 22:37:21,057 - DEBUG - Encoding 7 with 7 bits
+2025-08-13 22:37:21,057 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:21,058 - DEBUG - Adding (b':path', b'/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c') to the header table
+2025-08-13 22:37:21,058 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-08-13 22:37:21,058 - DEBUG - Encoding 4 with 6 bits
+2025-08-13 22:37:21,059 - DEBUG - Encoding 16 with 7 bits
+2025-08-13 22:37:21,059 - DEBUG - Encoding 101 with 7 bits
+2025-08-13 22:37:21,059 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-08-13 22:37:21,060 - DEBUG - Adding (b'accept', b'*/*') to the header table
+2025-08-13 22:37:21,060 - DEBUG - Encoding 58 with 6 bits
+2025-08-13 22:37:21,060 - DEBUG - Encoding 19 with 6 bits
+2025-08-13 22:37:21,060 - DEBUG - Encoding 32 with 7 bits
+2025-08-13 22:37:21,061 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:21,061 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-08-13 22:37:21,061 - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table
+2025-08-13 22:37:21,061 - DEBUG - Encoding 51 with 6 bits
+2025-08-13 22:37:21,062 - DEBUG - Encoding 16 with 7 bits
+2025-08-13 22:37:21,062 - DEBUG - Encoding 20 with 7 bits
+2025-08-13 22:37:21,062 - DEBUG - Adding (b'user-agent', b'Mozilla/5.0 (Windows NT 10.0; Win64; x64)') to the header table
+2025-08-13 22:37:21,063 - DEBUG - Adding (b'content-length', b'970') to the header table
+2025-08-13 22:37:21,063 - DEBUG - Encoding 58 with 6 bits
+2025-08-13 22:37:21,063 - DEBUG - Encoding 28 with 6 bits
+2025-08-13 22:37:21,063 - DEBUG - Encoding 32 with 7 bits
+2025-08-13 22:37:21,064 - DEBUG - Encoding 3 with 7 bits
+2025-08-13 22:37:21,064 - DEBUG - Adding (b'referer', b'https://translate.google.com') to the header table
+2025-08-13 22:37:21,064 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-08-13 22:37:21,064 - DEBUG - Encoding 51 with 6 bits
+2025-08-13 22:37:21,065 - DEBUG - Encoding 31 with 6 bits
+2025-08-13 22:37:21,065 - DEBUG - Encoding 20 with 7 bits
+2025-08-13 22:37:21,065 - DEBUG - Encoding 24 with 7 bits
+2025-08-13 22:37:21,065 - DEBUG - Adding (b'content-length', b'208') to the header table
+2025-08-13 22:37:21,066 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x83}\xd0\x7f_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-08-13 22:37:21,066 - DEBUG - Encoding 28 with 6 bits
+2025-08-13 22:37:21,066 - DEBUG - Encoding 2 with 7 bits
+2025-08-13 22:37:21,067 - DEBUG - Adding (b'content-type', b'application/x-www-form-urlencoded') to the header table
+2025-08-13 22:37:21,067 - DEBUG - Encoding 31 with 6 bits
+2025-08-13 22:37:21,067 - DEBUG - Encoding 24 with 7 bits
+2025-08-13 22:37:21,067 - DEBUG - Encoded header block to b"\x83A\x8eM\x83\xa9\x14\r%^c\x9ej\n\xb9\x0fO\x87D\xe5b&7\xd8:\x91@\xd2^E\x8d\x05\xb3\xb9l\xe0f$\x1aF\xc4cI'/\x92\x92\xd4\x97\xfc\xb2\xb2\x1aDA\xa3\xae\x0eWI\xf1\x1d\x10F~\xd1&\xc1\xd4\x8a\x06\x92\xad\xe0\xb1\xa0\xb6w-\x91\x08\x02\x00D\x07W\x0b1V\x0f\x84\x1c\x8b\x0e\xba\xe0\x0f\xc2\x0eE\xab\xa0i\x94\xf6S\x00~\x10r-!{\x98\x85\x80?\x16&\x02\x7fS\x83\xf9c\xe7\x90z\xa0\xd0\x7ff\xa2\x81\xb0\xda\xe0S\xfa\xe4j\xa4?\x84)\xa7z\x81\x02\xe0\xfbS\x91\xaaq\xaf\xb5<\xb8\xd7\xf7s\x94\x9d)\xad\x17\x18a6\x0e\xa4P4\x95y\x8ey\xa8*\xe4=?\\\x82\x10\x1e_\x98\x1du\xd0b\r&=Ly[\xc7\x8f\x0bJ{)Z\xdb(-D<\x85\x93"
+2025-08-13 22:37:21,678 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xe4Y>\x94\x0b*Cl\xca\x08\x02m@\xbbp\x0e\xdc\x10\x14\xc5\xa3\x7fY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82K@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9fv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xffY\xd3\x92\xfc\r\x89\xb88\xcd\xa2/\xd3\xeb\xfd\xbem=\xdd\x15\x9c\x86\xb6\x1a\x19\xbb\x88\x99\x85\x8e\xcasq\x8d\xcb\xd6\xd9XD\x9d\x99$\xcb\x9a{\xbe\xf8\xe0q\xd2\xf5nW;\xe7n\x8a:p\r\xb4D\xf6\n\x92\xffL=\xc7\xb39\xf0\x06\x86\xc9\xd9\xe3M\xbc\xe2\xf3\x9a]\\{\x80Uk\xeb\xb9\xe0%\xa8\x81\xda\xff\xbc\xbd\x89\xb0\xbe\xe3\xa1\xcb%\xcf\x8cc\x8c\xd1\xd7u\x993vwG\xe60\xe8\xf4}\x1d\xd2Z\xed\xe5w\x83\x8d\xd9\xca\x88\xe9\xd5\x83\xc4>\xdd\xd9\x0c\x9e\xe4\xe2\xd6\xec\xd5\xed\x94\xf2\xa6\xcb\xd9\xf0\xf2\x87Vl]\x1d\x87\xedB\xf9\xac\xd6\x15\x10o\x9e\xdf\xa5\x02%\xb0\x965\x84\x018\xa0]\xb8\x07n\x08\nb\xd1\xbf\xedJ\xc6\x99\xe0c\xedI\x0fH\xcdT\x0b\xccs\xcdAW!\xe9\xfbS\x1aS^\xaa\xa8\xf5@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-08-13 22:37:21,678 - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-13 22:37:21,678 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-13 22:37:21,679 - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-13 22:37:21,679 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:21,679 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:21,679 - DEBUG - Decoded 24, consumed 1 bytes
+2025-08-13 22:37:21,679 - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-13 22:37:21,680 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-08-13 22:37:21,680 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:21,680 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:21,680 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-08-13 22:37:21,681 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-13 22:37:21,681 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:21,681 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:21,681 - DEBUG - Decoded 33, consumed 2 bytes
+2025-08-13 22:37:21,681 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:21,682 - DEBUG - Decoded (b'date', b'Wed, 13 Aug 2025 17:07:20 GMT'), total consumed 25 bytes, indexed False
+2025-08-13 22:37:21,682 - DEBUG - Decoded 25, consumed 1 bytes
+2025-08-13 22:37:21,682 - DEBUG - Decoded 50, consumed 1 bytes
+2025-08-13 22:37:21,682 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-08-13 22:37:21,682 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-13 22:37:21,683 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:21,683 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:21,683 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:21,683 - DEBUG - Decoded 47, consumed 1 bytes
+2025-08-13 22:37:21,683 - DEBUG - Decoded (<memory at 0x000001D14EC19640>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-08-13 22:37:21,684 - DEBUG - Decoded 20, consumed 1 bytes
+2025-08-13 22:37:21,684 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:21,684 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-08-13 22:37:21,684 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-13 22:37:21,684 - DEBUG - Decoded 58, consumed 1 bytes
+2025-08-13 22:37:21,685 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-08-13 22:37:21,685 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-13 22:37:21,685 - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-13 22:37:21,685 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-08-13 22:37:21,685 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:21,686 - DEBUG - Decoded 146, consumed 2 bytes
+2025-08-13 22:37:21,686 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-08-13 22:37:21,686 - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-13 22:37:21,687 - DEBUG - Decoded 129, consumed 2 bytes
+2025-08-13 22:37:21,687 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-08-13 22:37:21,687 - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-13 22:37:21,687 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:21,688 - DEBUG - Decoded (b'server', <memory at 0x000001D14EC19700>), total consumed 5 bytes, indexed True
+2025-08-13 22:37:21,688 - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-13 22:37:21,688 - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-13 22:37:21,688 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000001D14EC19040>), total consumed 16 bytes, indexed True
+2025-08-13 22:37:21,688 - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-13 22:37:21,689 - DEBUG - Decoded 9, consumed 1 bytes
+2025-08-13 22:37:21,689 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-08-13 22:37:21,689 - DEBUG - Decoded 55, consumed 2 bytes
+2025-08-13 22:37:21,689 - DEBUG - Decoded 216, consumed 2 bytes
+2025-08-13 22:37:21,690 - DEBUG - Decoded (b'set-cookie', b'NID=525=VgM_ZoPZDiNv72rWa-Fl3BGcK2HrmKVb6Curp12tQIdJKhBzVE67ek5f6vL5lljU1ul_8Ent9jFvaQLoE1l5cq8igTo2xKfOVv02nPkS80t4_0qDzJqcQezbl6rfLHaabibpB3dKq7MXH1MyoMvtepuWBU65rWlbmOEwAz7QAdzdV4SKpRfoftrCLFWAOKGj7A; expires=Thu, 12-Feb-2026 17:07:20 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 220 bytes, indexed False
+2025-08-13 22:37:21,690 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:21,690 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-13 22:37:21,691 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-08-13 22:37:21,691 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-13 22:37:21,691 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:21,691 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-08-13 22:37:21,691 - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-13 22:37:21,692 - DEBUG - Decoded 45, consumed 1 bytes
+2025-08-13 22:37:21,692 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-08-13 22:37:21,693 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-08-13 22:37:21,705 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:21] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-13 22:37:22,579 - DEBUG - Decoding b'\x88_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{X\xa1\xa8\xeb\x10d\x9c\xbfJTu\x90\x93\xd8_\xa5)\x1f\x95\x871`\x07\xd2\x94\xda\x84\xada{\x8e\x83H4\x97@\x85\xae\xc1\xcdH\xff\x86\xa8\xeb\x10d\x9c\xbfd\x96\xd0z\xbe\x94\x00T\xca:\x94\x0b\xef\x81@\x02\xe0\x01p\x00S\x16\x8d\xff\x0f\x12\x96\xe4Y>\x94\x0b*Cl\xca\x08\x02m@\xbbp\x0e\xdc\x10\x14\xc5\xa3\x7fY\xb2\x1aR2OIjO\xda\x92\x9a\x82\xd4:K\x07\xf3aQY\xeaAW\x8c\xd5\x7f?jJj\x0bP\xe9/\xcc\x1c7\xe1Y\xef\xf5\xfe\xac*+=H*\xf1\x9a\xaf@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x03p3p\xaf\xbd\xae\x0f\xe7|\xe6B\x86B\x95\x1d*\rMl\xebR\xb3\xd0bz\xfe\x14\xdcR\xa92\xe4;\x15\xb3\\\xe5\xa2\xb5%=\x8aR{\n\xa1\xaa\x94\xeb\xff?@\x90!\xeaIjJ\xc8)-\xb0\xc9\xf4\xb5g\xa0\xc4\xf5\xba\xb0\xbd\xad5\x85Y6Z\x84\x96E\x93\xea\xb2\xa1iOb\x9f\xe9\x04\xb0\xd5\xa7\xfd}\xd8Z\xcfbV\xb6\xc3(\xc4Lo\xb0u"\x81\xa4\xbc\x8b\x1a\x0bgr\xd9\xc0\xcc\x11\x15\xd8Z\xcfb\x7f@\x86\x19\x08Z\xd2\xb1\'\xff\x13\xdcR-{\x1a\xdc!Z\x1b\t?\xd2\x9b\x8aE\xafc[\x84+]2j*\x11\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xd8m\xa2\x85\xb8\x96\xc4\x18\xf5})\xb8\xa4Z\xf65\xb8B\xb6\x1bh\xa1n%\xb1\x06=Kg2\x13\xf4\xa6\xe2\x91k\xd8\xd6\xe1\n\xda\x0f!h\xfaSqH\xb5\xeckp\x85nG\xe4\xe3_Jn)\x16\xbd\x8dn\x10\xad\x84\xf6R\xb6\x11\x91\'\xb1\x1fJn)\x16\xbd\x8dn\x10\xad\xae\x81\xa6S\xd9O\xd2\x9b\x8aE\xafc[\x84+k\xa0i\x94\xf6R\xb7\x12\xd8\x83\x1e\xaf@\x8d\xac\xb6Rd \xc7\xa9\x0bVz\x0cO_\xff\x02$\xebZ5\x87a\'\x83\xe7\xe9BN\xb5\xa3Z3&\xa2\xa1\x10|\xfd(I\xd6\xb4kKm\x14-\xdc\xb6 \xc7\xaa\x0f\x9f\xa5\t:\xd6\x8dim\xa2\x85\xbb\x96\xc4\x18\xf5-A\x90\x98>~\x94$\xebZ5\xa9<\x85\xa2\x0f\x9f\xa5\t:\xd6\x8do\x07\xf0\xe3P|\xfd(I\xd6\xb4kJ{)ZQ\x91\'\xb1\x10|\xfd(I\xd6\xb4kW@\xd3)\xec\xa6\x0f\x9f\xa5\t:\xd6\x8dj\xe8\x1ae=\x94\xad\xdc\xb6 \xc7\xaa\x0f\x9f@\x92%\x87B\x16=\x86\x98\xd5,z\xcbQlZ\xb3\xd0bz\x91@\xe9*\xc7\xb0\xd3\x1a\xa5\x87E\x07\xf0\xb5g\xae\xda\xd1@\x94%\x87B\x16=\x86\x98\xd5-aP{l!V\xac\xf4\x18\x9e\xbf\x86@\xe9*\xc82Kv\x03ESF@\x8c\xf2\xb7\x94!j\xec:JD\x98\xf5\x7f\x010@\x8b\xf2\xb4\xb6\x0e\x92\xacz\xd2c\xd4\x8f\x89\xdd\x0e\x8c\x1a\xb6\xe4\xc5\x93O\x0f(\xff^\xd3\x92\xfc\r\x89\xb85x\xc7.\x10\xe5\x1a\xc2\xd96R\xfe~\xe7\xe3\x8a\xf0Eg.\x1e<\xec\xd9z\xf1\xda\x9b\xd9!\xeb\xcb\xa1\xa1\xb1\xf4\xa3\xb5\xddMd\xcb\xeeZ}\xf1[\x12q\x1f\x8f?R\xe4\x8e\xbf\x16\xe7\xd6:\x03&\xaa_\x9e\xfb\xfc\xdb\xa7N\t\xf1k\xf5\xb9\xaf\xce{;i\xcd{D\x96p\xec\x0c\xd88;\xbf\x9d\xdc\xc5o\xb6\xfd\x9d29y\xcf\x03\xd7\xaa\xca\xb4\xfe\x82\x83\xbb\x9b\x86\\s\xbf\xd2\xec\xff\x9b5\xe1\xc7f\x0cU\xdb\x92-\xbc\xf9\x13\xf7?7\xf5v\xf3\xc7\nr\xa3\xbauW\x9f\x8c/\xf2m\xf4\x89\xde\x18\xaf\xc9\xabg\xda\x85\xf3Y\xac* \xdf=\xbfJ\x04Ka,k\x08\x02q@\xbbp\x0e\xdc\x10\x14\xc5\xa3\x7f\xda\x95\x8d3\xc0\xc7\xda\x92\x1e\x91\x9a\xa8\x17\x98\xe7\x9a\x82\xaeC\xd3\xf6\xa64\xa6\xbdUQ\xeb@\x85\x1d\tY\x1d\xc9\xa4\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x80M\xbe \x00\x1fS\xb2\xb0\x9f\x83\xf9\xb8\xd3L\xff?jR8\x04\xdb\xe2\x00\x01R\x83\xa8\xf5\x17{\xad\xdcR-\x84\xa9$\xeb_*\x13\xf4\xa6\xe2\x91l%I\'[A\xe4/\xd2\x9b\x8aE\xb0\x95$\x9dm\xc6I~\xa1!\x0bZV\xc1Q\x0f!\xaa\x9b'
+2025-08-13 22:37:22,580 - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-13 22:37:22,580 - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-13 22:37:22,580 - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-13 22:37:22,580 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:22,580 - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:22,581 - DEBUG - Decoded 24, consumed 1 bytes
+2025-08-13 22:37:22,581 - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-13 22:37:22,581 - DEBUG - Decoded (b'cache-control', b'no-cache, no-store, max-age=0, must-revalidate'), total consumed 35 bytes, indexed True
+2025-08-13 22:37:22,581 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:22,581 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:22,581 - DEBUG - Decoded (b'pragma', b'no-cache'), total consumed 14 bytes, indexed True
+2025-08-13 22:37:22,581 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-13 22:37:22,582 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:22,582 - DEBUG - Decoded (b'expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:22,582 - DEBUG - Decoded 33, consumed 2 bytes
+2025-08-13 22:37:22,583 - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-13 22:37:22,583 - DEBUG - Decoded (b'date', b'Wed, 13 Aug 2025 17:07:20 GMT'), total consumed 25 bytes, indexed False
+2025-08-13 22:37:22,583 - DEBUG - Decoded 25, consumed 1 bytes
+2025-08-13 22:37:22,583 - DEBUG - Decoded 50, consumed 1 bytes
+2025-08-13 22:37:22,583 - DEBUG - Decoded (b'content-disposition', b'attachment; filename="response.bin"; filename*=UTF-8\'\'response.bin'), total consumed 52 bytes, indexed True
+2025-08-13 22:37:22,583 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-13 22:37:22,584 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:22,584 - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-13 22:37:22,584 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:22,584 - DEBUG - Decoded 47, consumed 1 bytes
+2025-08-13 22:37:22,584 - DEBUG - Decoded (<memory at 0x000001D14EC19580>, b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), total consumed 53 bytes, indexed True
+2025-08-13 22:37:22,584 - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-13 22:37:22,585 - DEBUG - Decoded 58, consumed 1 bytes
+2025-08-13 22:37:22,585 - DEBUG - Decoded (b'content-security-policy', b"require-trusted-types-for 'script';report-uri /_/TranslateWebserverUi/cspreport"), total consumed 77 bytes, indexed True
+2025-08-13 22:37:22,585 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:22,585 - DEBUG - Decoded 146, consumed 2 bytes
+2025-08-13 22:37:22,586 - DEBUG - Decoded (b'accept-ch', b'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version'), total consumed 156 bytes, indexed True
+2025-08-13 22:37:22,586 - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-13 22:37:22,586 - DEBUG - Decoded 129, consumed 2 bytes
+2025-08-13 22:37:22,587 - DEBUG - Decoded (b'permissions-policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), total consumed 146 bytes, indexed True
+2025-08-13 22:37:22,587 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-13 22:37:22,587 - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-13 22:37:22,587 - DEBUG - Decoded (b'cross-origin-opener-policy', b'same-origin-allow-popups'), total consumed 38 bytes, indexed True
+2025-08-13 22:37:22,588 - DEBUG - Decoded 20, consumed 1 bytes
+2025-08-13 22:37:22,588 - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-13 22:37:22,588 - DEBUG - Decoded (b'cross-origin-resource-policy', b'same-site'), total consumed 29 bytes, indexed True
+2025-08-13 22:37:22,588 - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-13 22:37:22,588 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:22,588 - DEBUG - Decoded (b'server', <memory at 0x000001D14EC19400>), total consumed 5 bytes, indexed True
+2025-08-13 22:37:22,589 - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-13 22:37:22,589 - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-13 22:37:22,589 - DEBUG - Decoded (b'x-xss-protection', <memory at 0x000001D14EC194C0>), total consumed 16 bytes, indexed True
+2025-08-13 22:37:22,589 - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-13 22:37:22,589 - DEBUG - Decoded 9, consumed 1 bytes
+2025-08-13 22:37:22,590 - DEBUG - Decoded (b'x-frame-options', b'SAMEORIGIN'), total consumed 23 bytes, indexed True
+2025-08-13 22:37:22,590 - DEBUG - Decoded 55, consumed 2 bytes
+2025-08-13 22:37:22,590 - DEBUG - Decoded 221, consumed 2 bytes
+2025-08-13 22:37:22,591 - DEBUG - Decoded (b'set-cookie', b'NID=525=OwHfF1Ja-2QgJeXZLVGC12rWUwxQQCCo4gzcAkWjiAr9tsqBO4IJzfmzV-GtGoVYyfIbpwuLPal1dOm9hD9Y5mNEhGPyS4XYQqNKCMdrUq0KEU7TYBKe5qTQjI6C6waPOrnNZ0lo7KUJHh9jBhXQPFHrEGpuI_RYWcZLY9OqxVFtJsvtOpLVA9W59t27UGDdOQ; expires=Thu, 12-Feb-2026 17:07:20 GMT; path=/; domain=.google.com; HttpOnly'), total consumed 225 bytes, indexed False
+2025-08-13 22:37:22,591 - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-13 22:37:22,591 - DEBUG - Decoded 36, consumed 1 bytes
+2025-08-13 22:37:22,591 - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), total consumed 44 bytes, indexed True
+2025-08-13 22:37:22,591 - DEBUG - Decoded 18, consumed 1 bytes
+2025-08-13 22:37:22,592 - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-13 22:37:22,592 - DEBUG - Decoded (b'accept-ranges', b'none'), total consumed 5 bytes, indexed True
+2025-08-13 22:37:22,592 - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-13 22:37:22,592 - DEBUG - Decoded 45, consumed 1 bytes
+2025-08-13 22:37:22,592 - DEBUG - Decoded (b'vary', b'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding'), total consumed 47 bytes, indexed True
+2025-08-13 22:37:22,593 - DEBUG - HTTP Request: POST https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&bl=boq_translate-webserver_20201207.13_p0&soc-app=1&soc-platform=1&soc-device=1&rt=c "HTTP/2 200 OK"
+2025-08-13 22:37:22,594 - INFO - Translated 'my week was not good  I was feeling depressed  not well at all' to 'My week was not good i was feeling depressed not well at all'
+2025-08-13 22:37:22,596 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:22] "POST /api/admin/translate-answer HTTP/1.1" 200 -
+2025-08-13 22:37:22,603 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:22] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-13 22:37:22,958 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 22:37:22,958 - INFO - Model preloader service initialized successfully
+2025-08-13 22:37:22,958 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-13 22:37:22,958 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.000s - instant access!
+2025-08-13 22:37:22,958 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.00s
+2025-08-13 22:37:22,959 - WARNING - No monitoring session active for soldier 100000001
+2025-08-13 22:37:22,959 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-13 22:37:22,959 - WARNING - No emotion data retrieved from monitoring service
+2025-08-13 22:37:22,959 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-13 22:37:22,959 - INFO - Sentiment scores for text: {'neg': 0.417, 'neu': 0.499, 'pos': 0.083, 'compound': -0.7202}
+2025-08-13 22:37:22,960 - INFO - Text: 'My week was not good i was feeling depressed not w...' - Label: NEGATIVE, Depression score: 0.86
+2025-08-13 22:37:22,960 - INFO - Question 10 - Sentiment: NEGATIVE, Score: 0.86
+2025-08-13 22:37:22,974 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:37:22,988 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:37:22,988 - INFO - Question 10: Weighted Combined = (0.86 * 0.7) + (0.00 * 0.3) = 0.602
+2025-08-13 22:37:22,988 - INFO - Question 10: NLP=0.8601, Emotion=0.00, Weighted Combined=0.602
+2025-08-13 22:37:22,990 - INFO - Sentiment scores for text: {'neg': 0.433, 'neu': 0.439, 'pos': 0.128, 'compound': -0.8752}
+2025-08-13 22:37:22,990 - INFO - Text: 'Everything is not good at home, mother is sick at ...' - Label: NEGATIVE, Depression score: 0.94
+2025-08-13 22:37:22,990 - INFO - Question 11 - Sentiment: NEGATIVE, Score: 0.94
+2025-08-13 22:37:23,001 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:37:23,016 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:37:23,016 - INFO - Question 11: Weighted Combined = (0.94 * 0.7) + (0.00 * 0.3) = 0.656
+2025-08-13 22:37:23,016 - INFO - Question 11: NLP=0.9376, Emotion=0.00, Weighted Combined=0.656
+2025-08-13 22:37:23,018 - INFO - Session 107 - Average NLP Depression Score: 0.90
+2025-08-13 22:37:23,030 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:37:23,031 - INFO - Session 107 - Using NLP score only: 0.90
+2025-08-13 22:37:23,045 - INFO - ================================================================================
+2025-08-13 22:37:23,046 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 107
+2025-08-13 22:37:23,046 - INFO - ================================================================================
+2025-08-13 22:37:23,046 - INFO - [SOLDIER] 100000001
+2025-08-13 22:37:23,046 - INFO - [SCORES] BREAKDOWN:
+2025-08-13 22:37:23,046 - INFO -    [NLP] Average Score (70%):     0.899
+2025-08-13 22:37:23,046 - INFO -    [EMOTION] Average Score (30%): 0.000
+2025-08-13 22:37:23,046 - INFO -    [FINAL] WEIGHTED COMBINED:     0.899
+2025-08-13 22:37:23,046 - INFO - 
+2025-08-13 22:37:23,046 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-13 22:37:23,046 - INFO -    State:          CRITICAL MENTAL HEALTH
+2025-08-13 22:37:23,047 - INFO -    Alert Level:    CRITICAL
+2025-08-13 22:37:23,047 - INFO -    Description:    Severe depression/distress indicators
+2025-08-13 22:37:23,047 - INFO -    Recommendation: URGENT: Immediate professional intervention required
+2025-08-13 22:37:23,047 - INFO - 
+2025-08-13 22:37:23,047 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-13 22:37:23,047 - INFO -    Total Detections: 0
+2025-08-13 22:37:23,047 - INFO -    Dominant Emotion: Unknown
+2025-08-13 22:37:23,047 - INFO - ================================================================================
+2025-08-13 22:37:23,049 - INFO - [MENTAL_STATE] Mental state saved: Positive (Rating: 5/7)
+2025-08-13 22:37:23,055 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:23] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-13 22:37:23,380 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:23] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:37:23,753 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-13 22:37:23,753 - INFO - Processing 14 emotion detections for soldier 100000001
+2025-08-13 22:37:23,754 - INFO - Found 14 actual emotion detections (filtered from 14 total entries)
+2025-08-13 22:37:23,754 - DEBUG - Peak-weighted calculation: 4/13 significant emotions. Peak avg: 0.050, Overall avg: 0.327, Weighted result: 0.133
+2025-08-13 22:37:23,754 - INFO - Question-context weighted score for 100000001: Reading=0.450(70%) + Other=0.133(30%) = 0.355
+2025-08-13 22:37:23,754 - INFO - Context breakdown for 100000001: 1 reading emotions, 13 other emotions
+2025-08-13 22:37:23,755 - INFO - ENHANCED EMOTION SCORING for 100000001:
+2025-08-13 22:37:23,755 - INFO -   - Question-context weighted score: 0.355
+2025-08-13 22:37:23,755 - INFO -   - Dominant emotion: Neutral
+2025-08-13 22:37:23,756 - INFO -   - Score distribution: min=0.05, max=0.45, count=14
+2025-08-13 22:37:23,756 - INFO -   - Reading periods tracked: 1
+2025-08-13 22:37:23,756 - INFO - Storing emotion data for session_id: 107
+2025-08-13 22:37:23,778 - INFO - Storing emotion data - session_id: 107, force_id: 100000001, avg_score: 0.35
+2025-08-13 22:37:23,781 - INFO - Updated 1 weekly session record(s)
+2025-08-13 22:37:23,783 - INFO - Updated 2 question response record(s)
+2025-08-13 22:37:23,797 - INFO - Successfully stored survey emotion data for session 107: avg_score=0.35
+2025-08-13 22:37:23,798 - INFO - Survey monitoring ended for 100000001: ENHANCED score=0.355, emotion=Neutral, detections=14
+2025-08-13 22:37:24,315 - INFO - Camera resources released after survey monitoring
+2025-08-13 22:37:24,316 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:24] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:37:24,350 - WARNING - No monitoring session active for soldier 100000001
+2025-08-13 22:37:24,351 - INFO - 127.0.0.1 - - [13/Aug/2025 22:37:24] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:38:06,283 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:06] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-13 22:38:06,920 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 22:38:06,922 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:06] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-13 22:38:06,981 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:06] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 22:38:07,319 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:07] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 22:38:09,379 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:09] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-13 22:38:09,748 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:09] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-13 22:38:09,749 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:09] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-13 22:38:10,026 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:10] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-13 22:38:37,356 - INFO - 127.0.0.1 - - [13/Aug/2025 22:38:37] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-13 22:39:07,672 - INFO - 127.0.0.1 - - [13/Aug/2025 22:39:07] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-13 22:39:37,368 - INFO - 127.0.0.1 - - [13/Aug/2025 22:39:37] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-13 22:40:07,664 - INFO - 127.0.0.1 - - [13/Aug/2025 22:40:07] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-13 22:40:37,369 - INFO - 127.0.0.1 - - [13/Aug/2025 22:40:37] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-13 22:40:55,975 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-13 22:53:36,440 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-13 22:53:38,898 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 22:53:38,898 - INFO - Refreshing face recognition model...
+2025-08-13 22:53:38,899 - INFO - Model loaded successfully - 1 soldiers
+2025-08-13 22:53:38,900 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-13 22:53:38,901 - INFO - Auto refresh started with 300s interval
+2025-08-13 22:53:38,905 - INFO - Model preloader service initialized successfully
+2025-08-13 22:53:38,905 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-13 22:53:38,905 - INFO - Model preloading started
+2025-08-13 22:53:38,905 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-13 22:53:38,956 - INFO - Face cascade loaded successfully
+2025-08-13 22:53:39,282 - INFO - Emotion detection model loaded successfully
+2025-08-13 22:53:39,283 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-13 22:53:39,283 - INFO - Model preloading completed in 0.38 seconds
+2025-08-13 22:53:39,317 - INFO - Traditional model loading completed successfully
+2025-08-13 22:53:39,317 - INFO - [SUCCESS] Traditional model loading completed in 0.41s
+2025-08-13 22:53:39,317 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.42s
+2025-08-13 22:53:39,955 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 22:53:39,983 - INFO - Starting model preloader service...
+2025-08-13 22:53:40,012 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-13 22:53:40,012 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-13 22:53:40,015 - INFO -  * Restarting with stat
+2025-08-13 22:53:40,493 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.378234, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-13 22:53:45,172 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-13 22:53:47,670 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 22:53:47,671 - INFO - Refreshing face recognition model...
+2025-08-13 22:53:47,673 - INFO - Model loaded successfully - 1 soldiers
+2025-08-13 22:53:47,673 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-13 22:53:47,675 - INFO - Auto refresh started with 300s interval
+2025-08-13 22:53:47,679 - INFO - Model preloader service initialized successfully
+2025-08-13 22:53:47,679 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-13 22:53:47,679 - INFO - Model preloading started
+2025-08-13 22:53:47,679 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-13 22:53:47,740 - INFO - Face cascade loaded successfully
+2025-08-13 22:53:48,087 - INFO - Traditional model loading completed successfully
+2025-08-13 22:53:48,088 - INFO - [SUCCESS] Traditional model loading completed in 0.41s
+2025-08-13 22:53:48,088 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.42s
+2025-08-13 22:53:48,116 - INFO - Emotion detection model loaded successfully
+2025-08-13 22:53:48,117 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-13 22:53:48,117 - INFO - Model preloading completed in 0.44 seconds
+2025-08-13 22:53:48,682 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-13 22:53:48,709 - INFO - Starting model preloader service...
+2025-08-13 22:53:48,727 - WARNING -  * Debugger is active!
+2025-08-13 22:53:48,740 - INFO -  * Debugger PIN: 116-430-886
+2025-08-13 22:53:49,224 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.438061, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-13 22:54:06,845 - INFO - 127.0.0.1 - - [13/Aug/2025 22:54:06] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 22:54:07,114 - INFO - 127.0.0.1 - - [13/Aug/2025 22:54:07] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-13 22:54:34,922 - INFO - 127.0.0.1 - - [13/Aug/2025 22:54:34] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-13 22:54:35,558 - INFO - 127.0.0.1 - - [13/Aug/2025 22:54:35] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:54:35,885 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-13 22:54:35,885 - INFO - [CAMERA] Initializing camera...
+2025-08-13 22:54:35,885 - INFO - Trying external webcam (index 1)...
+2025-08-13 22:54:36,026 - INFO - Trying built-in camera (index 0)...
+2025-08-13 22:54:39,693 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-13 22:54:39,693 - INFO - [CAMERA] Camera initialized in 3.81 seconds
+2025-08-13 22:54:39,782 - INFO - [CONFIG] Camera configured in 0.09s: 640x480, detection_interval=30
+2025-08-13 22:54:39,783 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-13 22:54:39,783 - INFO - [SUCCESS] Survey monitoring started in 3.90s (camera: 3.81s, settings: 0.09s, thread: 0.00s)
+2025-08-13 22:54:39,785 - INFO - 127.0.0.1 - - [13/Aug/2025 22:54:39] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:54:39,802 - INFO - Using detection interval: 30 frames
+2025-08-13 22:54:42,982 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:54:43,589 - DEBUG - Face quality analysis - Brightness: 97.7 (1.00), Blur: 45.4 (0.10), Size: 36100 (1.00), Final: 0.64
+2025-08-13 22:54:44,119 - DEBUG - Recognized soldier 100000001 with distance 0.349
+2025-08-13 22:54:44,486 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.022', 'Neutral': '0.977', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:54:44,486 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.977)
+2025-08-13 22:54:44,486 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:54:47,777 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:54:47,831 - DEBUG - Face quality analysis - Brightness: 97.4 (1.00), Blur: 43.3 (0.10), Size: 33856 (1.00), Final: 0.64
+2025-08-13 22:54:48,340 - DEBUG - Recognized soldier 100000001 with distance 0.374
+2025-08-13 22:54:48,412 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.041', 'Neutral': '0.959', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:54:48,412 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.959)
+2025-08-13 22:54:48,413 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:54:51,690 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:54:51,753 - DEBUG - Face quality analysis - Brightness: 96.6 (1.00), Blur: 44.5 (0.10), Size: 32761 (1.00), Final: 0.64
+2025-08-13 22:54:52,265 - DEBUG - Recognized soldier 100000001 with distance 0.344
+2025-08-13 22:54:52,343 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.223', 'Neutral': '0.776', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-13 22:54:52,343 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.776)
+2025-08-13 22:54:52,344 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:54:55,640 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:54:55,700 - DEBUG - Face quality analysis - Brightness: 97.4 (1.00), Blur: 42.3 (0.10), Size: 34969 (1.00), Final: 0.64
+2025-08-13 22:54:56,208 - DEBUG - Recognized soldier 100000001 with distance 0.375
+2025-08-13 22:54:56,282 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.027', 'Neutral': '0.972', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:54:56,282 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.972)
+2025-08-13 22:54:56,282 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:54:59,569 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:54:59,622 - DEBUG - Face quality analysis - Brightness: 95.3 (1.00), Blur: 53.9 (0.10), Size: 3481 (0.50), Final: 0.54
+2025-08-13 22:55:00,165 - DEBUG - Face detected but not recognized as any known soldier
+2025-08-13 22:55:03,460 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:06,792 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:06,841 - DEBUG - Face quality analysis - Brightness: 93.4 (1.00), Blur: 67.1 (0.10), Size: 3249 (0.50), Final: 0.54
+2025-08-13 22:55:07,336 - DEBUG - Face detected but not recognized as any known soldier
+2025-08-13 22:55:10,622 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:13,975 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:14,027 - DEBUG - Face quality analysis - Brightness: 93.9 (1.00), Blur: 49.8 (0.10), Size: 32761 (1.00), Final: 0.64
+2025-08-13 22:55:14,505 - DEBUG - Recognized soldier 100000001 with distance 0.336
+2025-08-13 22:55:14,594 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.408', 'Neutral': '0.591', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:14,594 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.591)
+2025-08-13 22:55:14,594 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:17,884 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:17,944 - DEBUG - Face quality analysis - Brightness: 95.5 (1.00), Blur: 38.8 (0.10), Size: 32041 (1.00), Final: 0.64
+2025-08-13 22:55:18,568 - DEBUG - Recognized soldier 100000001 with distance 0.316
+2025-08-13 22:55:18,652 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.007', 'Neutral': '0.993', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:18,652 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.993)
+2025-08-13 22:55:18,653 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:21,927 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:21,986 - DEBUG - Face quality analysis - Brightness: 96.0 (1.00), Blur: 41.7 (0.10), Size: 32400 (1.00), Final: 0.64
+2025-08-13 22:55:22,637 - DEBUG - Recognized soldier 100000001 with distance 0.343
+2025-08-13 22:55:22,747 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.058', 'Neutral': '0.942', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:22,747 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.942)
+2025-08-13 22:55:22,747 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:26,029 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:26,113 - DEBUG - Face quality analysis - Brightness: 93.6 (1.00), Blur: 16.9 (0.10), Size: 8464 (0.80), Final: 0.60
+2025-08-13 22:55:26,739 - DEBUG - Face detected but not recognized as any known soldier
+2025-08-13 22:55:30,037 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:30,105 - DEBUG - Face quality analysis - Brightness: 101.8 (1.00), Blur: 47.0 (0.10), Size: 54756 (1.00), Final: 0.64
+2025-08-13 22:55:30,784 - DEBUG - Recognized soldier 100000001 with distance 0.293
+2025-08-13 22:55:30,901 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.031', 'Neutral': '0.969', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:30,902 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.969)
+2025-08-13 22:55:30,902 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:34,200 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:34,291 - DEBUG - Face quality analysis - Brightness: 102.0 (1.00), Blur: 55.3 (0.10), Size: 55225 (1.00), Final: 0.64
+2025-08-13 22:55:35,056 - DEBUG - Recognized soldier 100000001 with distance 0.286
+2025-08-13 22:55:35,179 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.001', 'Neutral': '0.999', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:35,180 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-13 22:55:35,180 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:37,372 - INFO - 127.0.0.1 - - [13/Aug/2025 22:55:37] "OPTIONS /api/image/question-reading-marker HTTP/1.1" 200 -
+2025-08-13 22:55:37,686 - INFO - Added question reading period: Soldier 100000001, Question 11, Duration: 2025-08-13 22:55:37.041000 to 2025-08-13 22:55:42.041000
+2025-08-13 22:55:37,712 - INFO - 127.0.0.1 - - [13/Aug/2025 22:55:37] "POST /api/image/question-reading-marker HTTP/1.1" 200 -
+2025-08-13 22:55:38,472 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:38,560 - DEBUG - Face quality analysis - Brightness: 102.3 (1.00), Blur: 53.4 (0.10), Size: 55696 (1.00), Final: 0.64
+2025-08-13 22:55:39,239 - DEBUG - Recognized soldier 100000001 with distance 0.321
+2025-08-13 22:55:39,329 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.017', 'Neutral': '0.983', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:39,330 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.983)
+2025-08-13 22:55:39,330 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:42,620 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:42,671 - DEBUG - Face quality analysis - Brightness: 100.4 (1.00), Blur: 43.5 (0.10), Size: 54756 (1.00), Final: 0.64
+2025-08-13 22:55:43,278 - DEBUG - Recognized soldier 100000001 with distance 0.292
+2025-08-13 22:55:43,368 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.002', 'Neutral': '0.997', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-13 22:55:43,368 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.997)
+2025-08-13 22:55:43,368 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:46,662 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:46,750 - DEBUG - Face quality analysis - Brightness: 101.5 (1.00), Blur: 38.0 (0.10), Size: 56169 (1.00), Final: 0.64
+2025-08-13 22:55:47,426 - DEBUG - Recognized soldier 100000001 with distance 0.317
+2025-08-13 22:55:47,536 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.018', 'Neutral': '0.982', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:47,536 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.982)
+2025-08-13 22:55:47,536 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:50,820 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:50,877 - DEBUG - Face quality analysis - Brightness: 102.0 (1.00), Blur: 52.4 (0.10), Size: 54756 (1.00), Final: 0.64
+2025-08-13 22:55:51,509 - DEBUG - Recognized soldier 100000001 with distance 0.323
+2025-08-13 22:55:51,582 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.001', 'Neutral': '0.998', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:51,583 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.998)
+2025-08-13 22:55:51,583 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:54,871 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:54,998 - DEBUG - Face quality analysis - Brightness: 102.1 (1.00), Blur: 49.2 (0.10), Size: 56169 (1.00), Final: 0.64
+2025-08-13 22:55:55,670 - DEBUG - Recognized soldier 100000001 with distance 0.285
+2025-08-13 22:55:55,769 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.008', 'Neutral': '0.992', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:55,769 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.992)
+2025-08-13 22:55:55,769 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:55:59,055 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:55:59,157 - DEBUG - Face quality analysis - Brightness: 101.9 (1.00), Blur: 39.2 (0.10), Size: 55696 (1.00), Final: 0.64
+2025-08-13 22:55:59,826 - DEBUG - Recognized soldier 100000001 with distance 0.313
+2025-08-13 22:55:59,923 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.001', 'Neutral': '0.999', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:55:59,923 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-13 22:55:59,923 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:03,217 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:03,265 - DEBUG - Face quality analysis - Brightness: 101.0 (1.00), Blur: 39.3 (0.10), Size: 56644 (1.00), Final: 0.64
+2025-08-13 22:56:03,799 - DEBUG - Recognized soldier 100000001 with distance 0.312
+2025-08-13 22:56:03,888 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.011', 'Happy': '0.017', 'Neutral': '0.969', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-13 22:56:03,889 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.969)
+2025-08-13 22:56:03,889 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:07,173 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:07,258 - DEBUG - Face quality analysis - Brightness: 100.6 (1.00), Blur: 37.0 (0.10), Size: 52441 (1.00), Final: 0.64
+2025-08-13 22:56:07,966 - DEBUG - Recognized soldier 100000001 with distance 0.297
+2025-08-13 22:56:08,064 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.003', 'Neutral': '0.997', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:08,065 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.997)
+2025-08-13 22:56:08,065 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:11,338 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:11,404 - DEBUG - Face quality analysis - Brightness: 102.2 (1.00), Blur: 41.4 (0.10), Size: 55225 (1.00), Final: 0.64
+2025-08-13 22:56:12,066 - DEBUG - Recognized soldier 100000001 with distance 0.299
+2025-08-13 22:56:12,206 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.005', 'Neutral': '0.995', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:12,206 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.995)
+2025-08-13 22:56:12,207 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:15,485 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:15,583 - DEBUG - Face quality analysis - Brightness: 102.0 (1.00), Blur: 40.2 (0.10), Size: 54756 (1.00), Final: 0.64
+2025-08-13 22:56:16,244 - DEBUG - Recognized soldier 100000001 with distance 0.320
+2025-08-13 22:56:16,349 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.021', 'Neutral': '0.979', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:16,349 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.979)
+2025-08-13 22:56:16,350 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:19,619 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:19,678 - DEBUG - Face quality analysis - Brightness: 102.1 (1.00), Blur: 38.1 (0.10), Size: 54756 (1.00), Final: 0.64
+2025-08-13 22:56:20,299 - DEBUG - Recognized soldier 100000001 with distance 0.325
+2025-08-13 22:56:20,404 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.036', 'Neutral': '0.964', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:20,405 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.964)
+2025-08-13 22:56:20,405 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:23,689 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:23,771 - DEBUG - Face quality analysis - Brightness: 101.9 (1.00), Blur: 38.1 (0.10), Size: 53361 (1.00), Final: 0.64
+2025-08-13 22:56:24,681 - DEBUG - Recognized soldier 100000001 with distance 0.306
+2025-08-13 22:56:24,804 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.174', 'Neutral': '0.826', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:24,805 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.826)
+2025-08-13 22:56:24,805 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:28,101 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:28,166 - DEBUG - Face quality analysis - Brightness: 101.3 (1.00), Blur: 45.0 (0.10), Size: 53824 (1.00), Final: 0.64
+2025-08-13 22:56:28,826 - DEBUG - Recognized soldier 100000001 with distance 0.301
+2025-08-13 22:56:28,929 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.030', 'Neutral': '0.970', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:28,929 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.970)
+2025-08-13 22:56:28,929 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:32,219 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:32,315 - DEBUG - Face quality analysis - Brightness: 101.5 (1.00), Blur: 37.6 (0.10), Size: 53361 (1.00), Final: 0.64
+2025-08-13 22:56:32,934 - DEBUG - Recognized soldier 100000001 with distance 0.318
+2025-08-13 22:56:33,052 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.085', 'Neutral': '0.915', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:33,053 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.915)
+2025-08-13 22:56:33,053 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:36,347 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:36,396 - DEBUG - Face quality analysis - Brightness: 101.4 (1.00), Blur: 36.9 (0.10), Size: 56644 (1.00), Final: 0.64
+2025-08-13 22:56:36,928 - DEBUG - Recognized soldier 100000001 with distance 0.323
+2025-08-13 22:56:37,035 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.196', 'Neutral': '0.803', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:37,035 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.803)
+2025-08-13 22:56:37,035 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:40,329 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:40,410 - DEBUG - Face quality analysis - Brightness: 101.4 (1.00), Blur: 45.9 (0.10), Size: 57121 (1.00), Final: 0.64
+2025-08-13 22:56:41,054 - DEBUG - Recognized soldier 100000001 with distance 0.318
+2025-08-13 22:56:41,157 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.038', 'Neutral': '0.962', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:41,158 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.962)
+2025-08-13 22:56:41,158 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:44,449 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:44,495 - DEBUG - Face quality analysis - Brightness: 101.2 (1.00), Blur: 44.1 (0.10), Size: 59536 (1.00), Final: 0.64
+2025-08-13 22:56:45,036 - DEBUG - Recognized soldier 100000001 with distance 0.290
+2025-08-13 22:56:45,138 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.028', 'Neutral': '0.971', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:45,138 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.971)
+2025-08-13 22:56:45,138 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:48,427 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:48,488 - DEBUG - Face quality analysis - Brightness: 102.2 (1.00), Blur: 48.6 (0.10), Size: 56644 (1.00), Final: 0.64
+2025-08-13 22:56:49,450 - DEBUG - Recognized soldier 100000001 with distance 0.304
+2025-08-13 22:56:49,550 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.007', 'Neutral': '0.993', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:49,550 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.993)
+2025-08-13 22:56:49,551 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:52,844 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:52,901 - DEBUG - Face quality analysis - Brightness: 102.5 (1.00), Blur: 41.4 (0.10), Size: 58081 (1.00), Final: 0.64
+2025-08-13 22:56:53,624 - DEBUG - Recognized soldier 100000001 with distance 0.288
+2025-08-13 22:56:53,693 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.021', 'Neutral': '0.979', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:53,693 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.979)
+2025-08-13 22:56:53,693 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:56,987 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-13 22:56:57,072 - DEBUG - Face quality analysis - Brightness: 103.5 (1.00), Blur: 49.7 (0.10), Size: 60025 (1.00), Final: 0.64
+2025-08-13 22:56:57,720 - DEBUG - Recognized soldier 100000001 with distance 0.344
+2025-08-13 22:56:57,725 - INFO - 127.0.0.1 - - [13/Aug/2025 22:56:57] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-13 22:56:57,842 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.010', 'Neutral': '0.990', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-13 22:56:57,843 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.990)
+2025-08-13 22:56:57,843 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-13 22:56:58,393 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-13 22:56:58,393 - INFO - Model preloader service initialized successfully
+2025-08-13 22:56:58,393 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-13 22:56:58,395 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.000s - instant access!
+2025-08-13 22:56:58,395 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.00s
+2025-08-13 22:56:58,395 - INFO - No active monitoring session for 100000001, but checking for existing detections
+2025-08-13 22:56:58,395 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-13 22:56:58,395 - INFO - Emotion monitoring results: {'force_id': '100000001', 'session_id': 108, 'avg_depression_score': 0, 'dominant_emotion': 'No Detection', 'detection_count': 0, 'message': 'No emotion data collected'}
+2025-08-13 22:56:58,395 - INFO - Retrieved emotion monitoring data: avg_score=0.00
+2025-08-13 22:56:58,395 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-13 22:56:58,395 - INFO - Sentiment scores for text: {'neg': 0.678, 'neu': 0.154, 'pos': 0.168, 'compound': -0.8995}
+2025-08-13 22:56:58,395 - INFO - Text: 'feeling sad  very sad feeling sad  very sad hello...' - Label: NEGATIVE, Depression score: 0.95
+2025-08-13 22:56:58,396 - INFO - Question 10 - Sentiment: NEGATIVE, Score: 0.95
+2025-08-13 22:56:58,409 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:56:58,422 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:56:58,431 - INFO - Question 10: Weighted Combined = (0.95 * 0.7) + (0.00 * 0.3) = 0.665
+2025-08-13 22:56:58,432 - INFO - Question 10: NLP=0.94975, Emotion=0.00, Weighted Combined=0.665
+2025-08-13 22:56:58,434 - INFO - Sentiment scores for text: {'neg': 0.52, 'neu': 0.48, 'pos': 0.0, 'compound': -0.6525}
+2025-08-13 22:56:58,434 - INFO - Text: 'badddddddddddddddd very very very bad...' - Label: NEGATIVE, Depression score: 0.83
+2025-08-13 22:56:58,434 - INFO - Question 11 - Sentiment: NEGATIVE, Score: 0.83
+2025-08-13 22:56:58,448 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:56:58,459 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:56:58,461 - INFO - Question 11: Weighted Combined = (0.83 * 0.7) + (0.00 * 0.3) = 0.578
+2025-08-13 22:56:58,461 - INFO - Question 11: NLP=0.8262499999999999, Emotion=0.00, Weighted Combined=0.578
+2025-08-13 22:56:58,461 - INFO - Session 108 - Average NLP Depression Score: 0.89
+2025-08-13 22:56:58,472 - INFO - Dynamic settings loaded - NLP Weight: 0.7, Emotion Weight: 0.3
+2025-08-13 22:56:58,473 - INFO - Session 108 - Using NLP score only: 0.89
+2025-08-13 22:56:58,485 - INFO - ================================================================================
+2025-08-13 22:56:58,485 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 108
+2025-08-13 22:56:58,485 - INFO - ================================================================================
+2025-08-13 22:56:58,485 - INFO - [SOLDIER] 100000001
+2025-08-13 22:56:58,485 - INFO - [SCORES] BREAKDOWN:
+2025-08-13 22:56:58,485 - INFO -    [NLP] Average Score (70%):     0.888
+2025-08-13 22:56:58,485 - INFO -    [EMOTION] Average Score (30%): 0.000
+2025-08-13 22:56:58,485 - INFO -    [FINAL] WEIGHTED COMBINED:     0.888
+2025-08-13 22:56:58,485 - INFO - 
+2025-08-13 22:56:58,485 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-13 22:56:58,486 - INFO -    State:          CRITICAL MENTAL HEALTH
+2025-08-13 22:56:58,486 - INFO -    Alert Level:    CRITICAL
+2025-08-13 22:56:58,486 - INFO -    Description:    Severe depression/distress indicators
+2025-08-13 22:56:58,486 - INFO -    Recommendation: URGENT: Immediate professional intervention required
+2025-08-13 22:56:58,486 - INFO - 
+2025-08-13 22:56:58,486 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-13 22:56:58,486 - INFO -    Total Detections: 0
+2025-08-13 22:56:58,486 - INFO -    Dominant Emotion: No Detection
+2025-08-13 22:56:58,486 - INFO - ================================================================================
+2025-08-13 22:56:58,488 - INFO - [MENTAL_STATE] Mental state saved: Neutral (Rating: 3/7)
+2025-08-13 22:56:58,494 - INFO - 127.0.0.1 - - [13/Aug/2025 22:56:58] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-13 22:56:58,504 - INFO - 127.0.0.1 - - [13/Aug/2025 22:56:58] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:56:58,613 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-13 22:56:58,613 - INFO - Stopped active survey monitoring for soldier 100000001
+2025-08-13 22:56:58,613 - INFO - Processing 29 emotion detections for soldier 100000001
+2025-08-13 22:56:58,613 - INFO - Found 29 actual emotion detections (filtered from 29 total entries)
+2025-08-13 22:56:58,614 - INFO - === ENHANCED EMOTION SCORING DEBUG for 100000001 ===
+2025-08-13 22:56:58,614 - INFO - Total detections: 29
+2025-08-13 22:56:58,614 - INFO - Reading periods available: 1
+2025-08-13 22:56:58,614 - INFO - Reading period 1: Question 11 from 2025-08-13 22:55:37.041000 to 2025-08-13 22:55:42.041000
+2025-08-13 22:56:58,614 - DEBUG - No significant emotional peaks detected in 28 scores. Using simple average: 0.450
+2025-08-13 22:56:58,614 - INFO - Question-context weighted score for 100000001: Reading=0.450(70%) + Other=0.450(30%) = 0.450
+2025-08-13 22:56:58,614 - INFO - Context breakdown for 100000001: 1 reading emotions, 28 other emotions
+2025-08-13 22:56:58,614 - INFO - ENHANCED EMOTION SCORING RESULT for 100000001:
+2025-08-13 22:56:58,614 - INFO -   - Question-context weighted score: 0.450
+2025-08-13 22:56:58,614 - INFO -   - Dominant emotion: Neutral
+2025-08-13 22:56:58,614 - INFO -   - Score distribution: min=0.45, max=0.45, count=29
+2025-08-13 22:56:58,614 - INFO -   - Simple average (old method): 0.450
+2025-08-13 22:56:58,616 - INFO -   - Enhancement factor: +0.0%
+2025-08-13 22:56:58,616 - INFO - === END ENHANCED SCORING DEBUG ===
+2025-08-13 22:56:58,616 - INFO - Storing emotion data for session_id: 108
+2025-08-13 22:56:58,627 - INFO - Storing emotion data - session_id: 108, force_id: 100000001, avg_score: 0.45
+2025-08-13 22:56:58,628 - INFO - Updated 1 weekly session record(s)
+2025-08-13 22:56:58,630 - INFO - Updated 2 question response record(s)
+2025-08-13 22:56:58,633 - INFO - Successfully stored survey emotion data for session 108: avg_score=0.45
+2025-08-13 22:56:58,635 - INFO - Survey monitoring ended for 100000001: ENHANCED score=0.450, emotion=Neutral, detections=29
+2025-08-13 22:56:59,235 - INFO - Camera resources released after survey monitoring
+2025-08-13 22:56:59,237 - INFO - 127.0.0.1 - - [13/Aug/2025 22:56:59] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:56:59,589 - INFO - No active monitoring session for 100000001, but checking for existing detections
+2025-08-13 22:56:59,589 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-13 22:56:59,590 - INFO - 127.0.0.1 - - [13/Aug/2025 22:56:59] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-13 22:58:36,175 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_full_survey_flow.py', reloading

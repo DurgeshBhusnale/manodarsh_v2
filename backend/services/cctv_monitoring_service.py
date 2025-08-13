@@ -48,6 +48,60 @@ def get_camera_settings():
             'detection_interval': 30
         }
 
+def calculate_peak_weighted_average(scores: List[float]) -> float:
+    """
+    Calculate peak-weighted average that amplifies non-neutral emotions for military personnel.
+    
+    This approach addresses the challenge that soldiers show subtle emotions which get
+    diluted by simple averaging. The algorithm:
+    1. Identifies emotions that deviate significantly from neutral (0.45)
+    2. Gives higher weight to non-neutral emotional peaks
+    3. Combines peak emotions (70%) with overall average (30%)
+    
+    Args:
+        scores: List of emotion scores (0.0-1.0 scale)
+        
+    Returns:
+        Float: Peak-weighted average score that amplifies significant emotional moments
+    """
+    if not scores:
+        return 0.0
+        
+    if len(scores) == 1:
+        return scores[0]
+    
+    # Define neutral baseline and deviation threshold
+    NEUTRAL_BASELINE = 0.45  # Current neutral mapping in emotion_mapping
+    SIGNIFICANCE_THRESHOLD = 0.12  # Minimum deviation to be considered "significant"
+    
+    # Calculate simple average for baseline
+    overall_avg = sum(scores) / len(scores)
+    
+    # Identify significant emotional peaks (deviations from neutral)
+    significant_scores = []
+    for score in scores:
+        deviation = abs(score - NEUTRAL_BASELINE)
+        if deviation >= SIGNIFICANCE_THRESHOLD:
+            significant_scores.append(score)
+    
+    # If we have significant emotional moments, give them higher weight
+    if significant_scores:
+        peak_avg = sum(significant_scores) / len(significant_scores)
+        
+        # Weight formula: 70% peak emotions, 30% overall average
+        # This ensures subtle but important emotions aren't lost in averaging
+        weighted_score = (peak_avg * 0.7) + (overall_avg * 0.3)
+        
+        logging.debug(f"Peak-weighted calculation: {len(significant_scores)}/{len(scores)} significant emotions. "
+                     f"Peak avg: {peak_avg:.3f}, Overall avg: {overall_avg:.3f}, "
+                     f"Weighted result: {weighted_score:.3f}")
+        
+        return weighted_score
+    else:
+        # No significant peaks detected, return simple average
+        logging.debug(f"No significant emotional peaks detected in {len(scores)} scores. Using simple average: {overall_avg:.3f}")
+        return overall_avg
+
 class CCTVMonitoringService:
     def __init__(self):
         self.emotion_service = EnhancedEmotionDetectionService()
@@ -155,11 +209,11 @@ class CCTVMonitoringService:
         if not relevant_detections:
             return 0.0
             
-        # Calculate average score for this time range
+        # Calculate peak-weighted average score for this time range
         scores = [d['score'] for d in relevant_detections]
-        avg_score = sum(scores) / len(scores)
+        avg_score = calculate_peak_weighted_average(scores)
         
-        logging.info(f"Time range {start_seconds}-{end_seconds}s: {len(relevant_detections)} detections, avg_score={avg_score:.2f}")
+        logging.info(f"Time range {start_seconds}-{end_seconds}s: {len(relevant_detections)} detections, peak-weighted avg_score={avg_score:.2f}")
         return avg_score
 
     def start_monitoring(self, date: str) -> bool:
@@ -397,8 +451,9 @@ class CCTVMonitoringService:
         if not buffer:
             return
 
-        # Calculate average score
-        avg_score = sum(d['score'] for d in buffer) / len(buffer)
+        # Calculate peak-weighted average score
+        scores = [d['score'] for d in buffer]
+        avg_score = calculate_peak_weighted_average(scores)
         
         # Get most frequent emotion
         emotions = [d['emotion'] for d in buffer]
@@ -586,15 +641,16 @@ class CCTVMonitoringService:
                 logging.info(f"Found {len(actual_detections)} actual emotion detections (filtered from {len(self.survey_detections)} total entries)")
                 
                 if actual_detections:
-                    # Calculate average depression score
+                    # Calculate peak-weighted average depression score
                     scores = [d['score'] for d in actual_detections]
-                    avg_score = sum(scores) / len(scores)
+                    avg_score = calculate_peak_weighted_average(scores)
                     
                     # Get most common emotion
                     emotions = [d['emotion'] for d in actual_detections]
                     most_common_emotion = max(set(emotions), key=emotions.count) if emotions else "Neutral"
                     
-                    logging.info(f"Calculated avg depression score: {avg_score:.2f}, dominant emotion: {most_common_emotion}")
+                    logging.info(f"Calculated peak-weighted avg depression score: {avg_score:.2f}, dominant emotion: {most_common_emotion}")
+                    logging.info(f"Score distribution: min={min(scores):.2f}, max={max(scores):.2f}, count={len(scores)}")
                 else:
                     # No actual detections found
                     avg_score = 0
@@ -617,7 +673,8 @@ class CCTVMonitoringService:
                     'detections': self.survey_detections  # Return ALL detections for per-question analysis
                 }
                 
-                logging.info(f"Survey monitoring ended for {force_id}: avg_score={avg_score:.2f}, emotion={most_common_emotion}, detections={len(self.survey_detections)}")
+                logging.info(f"Survey monitoring ended for {force_id}: peak-weighted avg_score={avg_score:.2f}, emotion={most_common_emotion}, detections={len(self.survey_detections)}")
+                logging.info(f"PEAK-WEIGHTED AVERAGING APPLIED: Enhanced sensitivity for military personnel emotion detection")
                 return results
             else:
                 logging.warning(f"No emotion data collected during survey for soldier {force_id}")

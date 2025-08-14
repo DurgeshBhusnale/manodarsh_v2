@@ -32,13 +32,66 @@ def translate_question():
     try:
         data = request.json
         english_text = data.get('question_text', '')
+        
         if not english_text:
             return jsonify({'error': 'No question_text provided'}), 400
         
-        hindi_text = translate_to_hindi(english_text)
-        return jsonify({'hindi_text': hindi_text}), 200
+        if not english_text.strip():
+            return jsonify({'error': 'Empty question_text provided'}), 400
+        
+        # Attempt translation with timeout and error handling
+        try:
+            hindi_text = translate_to_hindi(english_text)
+            
+            # Validate translation result
+            if not hindi_text:
+                logger.error(f"Translation service returned empty result for: {english_text}")
+                return jsonify({
+                    'error': 'Translation service failed to generate result',
+                    'error_type': 'TRANSLATION_EMPTY'
+                }), 500
+            
+            if not hindi_text.strip():
+                logger.error(f"Translation service returned whitespace-only result for: {english_text}")
+                return jsonify({
+                    'error': 'Translation service returned invalid result',
+                    'error_type': 'TRANSLATION_INVALID'
+                }), 500
+                
+            # Log successful translation for monitoring
+            logger.info(f"Successfully translated: '{english_text}' -> '{hindi_text}'")
+            
+            return jsonify({'hindi_text': hindi_text}), 200
+            
+        except ConnectionError as e:
+            logger.error(f"Network error during translation: {e}")
+            return jsonify({
+                'error': 'Network connection failed. Please check your internet connection.',
+                'error_type': 'NETWORK_ERROR'
+            }), 503
+            
+        except TimeoutError as e:
+            logger.error(f"Timeout error during translation: {e}")
+            return jsonify({
+                'error': 'Translation request timed out. Please try again.',
+                'error_type': 'TIMEOUT_ERROR'
+            }), 504
+            
+        except Exception as translation_error:
+            logger.error(f"Translation service error: {translation_error}")
+            return jsonify({
+                'error': 'Translation service is temporarily unavailable.',
+                'error_type': 'SERVICE_ERROR',
+                'details': str(translation_error) if logger.level <= logging.DEBUG else None
+            }), 500
+            
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        logger.error(f"Unexpected error in translate_question endpoint: {e}")
+        return jsonify({
+            'error': 'An unexpected error occurred during translation.',
+            'error_type': 'SYSTEM_ERROR'
+        }), 500
+
 
 # Translation endpoint for answer (Hindi to English)
 @admin_bp.route('/translate-answer', methods=['POST'])
@@ -178,6 +231,105 @@ def get_questionnaire_details(questionnaire_id):
         return jsonify({"questionnaire": questionnaire}), 200
 
     except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
+@admin_bp.route('/questionnaires/<int:questionnaire_id>', methods=['DELETE'])
+def delete_questionnaire(questionnaire_id):
+    """Delete a questionnaire and all its associated data"""
+    db = get_connection()
+    cursor = db.cursor()
+    
+    try:
+        # Get force_delete parameter from request
+        data = request.get_json() or {}
+        force_delete = data.get('force_delete', False)
+        
+        # Check if questionnaire exists
+        cursor.execute("""
+            SELECT questionnaire_id, status FROM questionnaires 
+            WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+        
+        questionnaire = cursor.fetchone()
+        
+        if not questionnaire:
+            return jsonify({"error": "Questionnaire not found"}), 404
+        
+        # Check if it's the active questionnaire
+        if questionnaire[1] == 'Active':
+            return jsonify({"error": "Cannot delete the active questionnaire. Please activate another questionnaire first."}), 400
+        
+        # Check if there are any survey responses for this questionnaire
+        cursor.execute("""
+            SELECT COUNT(*) FROM weekly_sessions 
+            WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+        
+        session_count = cursor.fetchone()[0]
+        
+        # If there are responses and force_delete is not set, return warning
+        if session_count > 0 and not force_delete:
+            return jsonify({
+                "warning": True,
+                "session_count": session_count,
+                "message": f"The questionnaire has {session_count} survey responses. Deleting the questionnaire will delete those responses too. Do you want to proceed?"
+            }), 200
+        
+        # If force_delete is True or no sessions exist, proceed with deletion
+        if session_count > 0:
+            # Get all session IDs for this questionnaire
+            cursor.execute("""
+                SELECT session_id FROM weekly_sessions 
+                WHERE questionnaire_id = %s
+            """, (questionnaire_id,))
+            
+            session_ids = [row[0] for row in cursor.fetchall()]
+            
+            if session_ids:
+                # Delete mental state responses
+                session_ids_str = ','.join(map(str, session_ids))
+                cursor.execute(f"""
+                    DELETE FROM mental_state_responses 
+                    WHERE session_id IN ({session_ids_str})
+                """)
+                
+                # Delete question responses
+                cursor.execute(f"""
+                    DELETE FROM question_responses 
+                    WHERE session_id IN ({session_ids_str})
+                """)
+                
+                # Delete weekly sessions
+                cursor.execute("""
+                    DELETE FROM weekly_sessions 
+                    WHERE questionnaire_id = %s
+                """, (questionnaire_id,))
+        
+        # Delete all questions associated with this questionnaire
+        cursor.execute("""
+            DELETE FROM questions WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+        
+        # Delete the questionnaire
+        cursor.execute("""
+            DELETE FROM questionnaires WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+        
+        db.commit()
+        
+        return jsonify({
+            "success": True, 
+            "message": f"Questionnaire deleted successfully{f' along with {session_count} survey responses' if session_count > 0 else ''}",
+            "deleted_id": questionnaire_id,
+            "deleted_responses": session_count
+        }), 200
+        
+    except Exception as e:
+        db.rollback()
         return jsonify({"error": str(e)}), 500
     finally:
         cursor.close()

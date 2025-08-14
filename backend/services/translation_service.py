@@ -24,17 +24,32 @@ def translate_to_hindi(text: str) -> str:
                 translated_text = actual_result.text
             except Exception as e:
                 logger.error(f"Async translation failed: {e}")
-                return text
+                raise ConnectionError(f"Translation service connection failed: {e}")
         else:
             # If it's synchronous, use directly
             translated_text = result.text
         
+        # Validate translation result
+        if not translated_text or not translated_text.strip():
+            raise ValueError("Translation service returned empty result")
+        
+        # Additional check - if translation is exactly the same as input (except for simple words)
+        # it might indicate translation service is not working properly
+        if translated_text.strip() == text.strip() and len(text.split()) > 2:
+            logger.warning(f"Translation result identical to input - possible service issue: '{text}' -> '{translated_text}'")
+            # Don't raise error here as some words/phrases might legitimately be the same
+        
         logger.info(f"Translated '{text}' to '{translated_text}'")
         return translated_text
+        
     except Exception as e:
         logger.error(f"Translation failed for '{text}': {e}")
-        # Fallback to original text if translation fails
-        return text
+        # Instead of fallback, raise the error to be handled by the endpoint
+        if isinstance(e, (ConnectionError, TimeoutError)):
+            raise e
+        else:
+            # Convert generic exceptions to more specific ones
+            raise ConnectionError(f"Translation service failed: {e}")
 
 def translate_to_english(text: str) -> str:
     """Translate Hindi text to English using googletrans."""
@@ -56,14 +71,23 @@ def translate_to_english(text: str) -> str:
                 translated_text = actual_result.text
             except Exception as e:
                 logger.error(f"Async translation failed: {e}")
-                return text
+                raise ConnectionError(f"Translation service connection failed: {e}")
         else:
             # If it's synchronous, use directly
             translated_text = result.text
         
+        # Validate translation result
+        if not translated_text or not translated_text.strip():
+            raise ValueError("Translation service returned empty result")
+        
         logger.info(f"Translated '{text}' to '{translated_text}'")
         return translated_text
+        
     except Exception as e:
         logger.error(f"Translation failed for '{text}': {e}")
-        # Fallback to original text if translation fails
-        return text
+        # Instead of fallback, raise the error to be handled by the endpoint
+        if isinstance(e, (ConnectionError, TimeoutError)):
+            raise e
+        else:
+            # Convert generic exceptions to more specific ones
+            raise ConnectionError(f"Translation service failed: {e}")

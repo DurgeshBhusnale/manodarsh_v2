@@ -25,6 +25,8 @@ const QuestionnairePage: React.FC = () => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showErrorModal, setShowErrorModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [translationError, setTranslationError] = useState<string>('');
+    const [showTranslationRetry, setShowTranslationRetry] = useState(false);
 
     // Fetch questionnaires on component mount
     useEffect(() => {
@@ -47,16 +49,36 @@ const QuestionnairePage: React.FC = () => {
         }
     };
 
-    // Translate and add question
+    // Translate and add question with proper error handling
     const handleAddQuestion = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!questionText.trim()) return;
 
         setTranslating(true);
+        setTranslationError('');
+        setShowTranslationRetry(false);
+        
         try {
+            console.log('🔄 Starting translation for:', questionText);
+            
             // Translate to Hindi
             const res = await apiService.translateQuestion(questionText);
             const hindi = res.data.hindi_text;
+            
+            console.log('✅ Translation successful:', hindi);
+            
+            // Validate translation - check if it's actually translated
+            if (!hindi || hindi.trim() === '') {
+                throw new Error('Translation service returned empty result');
+            }
+            
+            // Simple check - if the Hindi text is exactly the same as English text, 
+            // it might indicate translation failed
+            if (hindi.trim() === questionText.trim()) {
+                console.warn('Warning: Hindi translation is identical to English text');
+                // Don't throw error here as some words might be the same, but log for review
+            }
+            
             setQuestionTextHindi(hindi);
 
             // Save both English and Hindi in questions array
@@ -76,10 +98,94 @@ const QuestionnairePage: React.FC = () => {
             if (currentQuestionIndex === numberOfQuestions - 1) {
                 setAllQuestionsEntered(true);
             }
-        } catch (error) {
-            console.error('Failed to add question:', error);
+        } catch (error: any) {
+            console.error('❌ Translation failed:', error);
+            console.error('❌ Error details:', {
+                message: error.message,
+                response: error.response,
+                status: error.response?.status,
+                data: error.response?.data,
+                code: error.code
+            });
+            
+            // Determine the type of error based on backend response
+            let errorMsg = 'Translation failed. ';
+            const errorType = error.response?.data?.error_type;
+            const errorMessage = error.response?.data?.error;
+            
+            console.log('🔍 Error analysis:', { errorType, errorMessage });
+            
+            if (errorType === 'NETWORK_ERROR' || error.code === 'NETWORK_ERROR' || !navigator.onLine) {
+                errorMsg += 'Please check your internet connection and try again.';
+            } else if (errorType === 'TIMEOUT_ERROR') {
+                errorMsg += 'Translation request timed out. Please try again.';
+            } else if (errorType === 'SERVICE_ERROR') {
+                errorMsg += 'Translation service is temporarily unavailable. Please try again later.';
+            } else if (errorType === 'TRANSLATION_EMPTY' || errorType === 'TRANSLATION_INVALID') {
+                errorMsg += 'Translation service returned invalid results. Please try again or contact support.';
+            } else if (error.response?.status === 429) {
+                errorMsg += 'Too many translation requests. Please wait a moment and try again.';
+            } else if (error.response?.status >= 500) {
+                errorMsg += 'Server error occurred. Please try again later.';
+            } else if (error.response?.status >= 400) {
+                errorMsg += errorMessage || 'Invalid request. Please check your input and try again.';
+            } else if (error.message?.includes('timeout')) {
+                errorMsg += 'Request timed out. Please check your connection and try again.';
+            } else {
+                errorMsg += errorMessage || 'An unexpected error occurred. Please try again or contact support if the problem persists.';
+            }
+            
+            console.log('🚨 Final error message:', errorMsg);
+            setTranslationError(errorMsg);
+            setShowTranslationRetry(true);
+            
+            // DO NOT save the question if translation failed
+            console.log('🚫 Not saving question due to translation error');
+            return; // Early return to prevent saving
         } finally {
             setTranslating(false);
+        }
+    };
+
+    // Retry translation function
+    const handleTranslationRetry = async () => {
+        if (!questionText.trim()) return;
+        
+        setTranslationError('');
+        setShowTranslationRetry(false);
+        
+        // Retry the translation
+        await handleAddQuestion({ preventDefault: () => {} } as React.FormEvent);
+    };
+
+    // Skip translation and proceed with English only (fallback option)
+    const handleSkipTranslation = () => {
+        console.warn('User chose to skip translation for:', questionText);
+        
+        // Save with English text as Hindi (user's choice)
+        const updatedQuestions = [...questions];
+        updatedQuestions[currentQuestionIndex] = { 
+            english: questionText, 
+            hindi: questionText + ' (Translation skipped - Please add Hindi translation manually later)'
+        };
+        setQuestions(updatedQuestions);
+        
+        // Reset translation error state
+        setTranslationError('');
+        setShowTranslationRetry(false);
+        setQuestionTextHindi(questionText + ' (Translation skipped)');
+
+        if (!isEditMode && currentQuestionIndex < numberOfQuestions - 1) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+            setQuestionText(questions[currentQuestionIndex + 1]?.english || '');
+            setQuestionTextHindi(questions[currentQuestionIndex + 1]?.hindi || '');
+        } else {
+            setIsEditMode(false);
+        }
+
+        // Check if all questions are entered
+        if (currentQuestionIndex === numberOfQuestions - 1) {
+            setAllQuestionsEntered(true);
         }
     };
 
@@ -407,7 +513,15 @@ const QuestionnairePage: React.FC = () => {
                                             </label>
                                             <textarea
                                                 value={questionText}
-                                                onChange={(e) => setQuestionText(e.target.value)}
+                                                onChange={(e) => {
+                                                    setQuestionText(e.target.value);
+                                                    // Clear translation errors when user modifies the question
+                                                    if (translationError) {
+                                                        setTranslationError('');
+                                                        setShowTranslationRetry(false);
+                                                        setQuestionTextHindi('');
+                                                    }
+                                                }}
                                                 className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
                                                 rows={3}
                                                 placeholder="Enter your question here... Be clear and specific for better mental health assessment."
@@ -415,7 +529,7 @@ const QuestionnairePage: React.FC = () => {
                                             />
                                         </div>
                                         
-                                        {questionTextHindi && (
+                                        {questionTextHindi && !translationError && (
                                             <div className="space-y-2">
                                                 <label className="text-sm font-medium text-gray-700 flex items-center">
                                                     <i className="fas fa-globe mr-2 text-orange-500"></i>
@@ -426,17 +540,68 @@ const QuestionnairePage: React.FC = () => {
                                                 </div>
                                             </div>
                                         )}
+
+                                        {/* Translation Error Display */}
+                                        {!!translationError && (
+                                            <div className="space-y-3">
+                                                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                                                    <div className="flex items-start">
+                                                        <i className="fas fa-exclamation-triangle text-red-500 mt-0.5 mr-3"></i>
+                                                        <div className="flex-1">
+                                                            <h4 className="text-sm font-semibold text-red-800 mb-1">Translation Error</h4>
+                                                            <p className="text-sm text-red-700">{translationError}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                {showTranslationRetry && (
+                                                    <div className="flex space-x-2">
+                                                        <button
+                                                            type="button"
+                                                            onClick={handleTranslationRetry}
+                                                            disabled={translating}
+                                                            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                                                        >
+                                                            {translating ? (
+                                                                <>
+                                                                    <i className="fas fa-spinner fa-spin mr-2"></i>
+                                                                    Retrying...
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <i className="fas fa-redo mr-2"></i>
+                                                                    Retry Translation
+                                                                </>
+                                                            )}
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={handleSkipTranslation}
+                                                            className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-sm font-medium transition-all duration-200 flex items-center"
+                                                        >
+                                                            <i className="fas fa-skip-forward mr-2"></i>
+                                                            Skip Translation
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
                                         
                                         <div className="flex space-x-3">
                                             <button
                                                 type="submit"
-                                                disabled={loading || translating}
+                                                disabled={loading || translating || (!!translationError && showTranslationRetry)}
                                                 className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2.5 rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center text-sm"
                                             >
                                                 {loading || translating ? (
                                                     <>
                                                         <i className="fas fa-spinner fa-spin mr-2"></i>
                                                         Translating...
+                                                    </>
+                                                ) : !!translationError && showTranslationRetry ? (
+                                                    <>
+                                                        <i className="fas fa-exclamation-triangle mr-2"></i>
+                                                        Fix Translation Error
                                                     </>
                                                 ) : (
                                                     <>

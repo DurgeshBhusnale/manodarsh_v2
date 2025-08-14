@@ -160,6 +160,12 @@ export const apiService = {
     activateQuestionnaire: (id: string) =>
         api.post(`/survey/admin/questionnaires/${id}/activate`),
 
+    // Delete questionnaire
+    deleteQuestionnaire: (id: number, forceDelete: boolean = false) =>
+        api.delete(`/admin/questionnaires/${id}`, { 
+            data: { force_delete: forceDelete }
+        }),
+
     // Daily Emotion Detection endpoints
     startDailyMonitoring: (date: string) =>
         api.post('/image/start-monitoring', { date }),

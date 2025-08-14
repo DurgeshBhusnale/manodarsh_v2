@@ -18,6 +18,10 @@ const AdminQuestionnaires: React.FC = () => {
     const [questionnaires, setQuestionnaires] = useState<Questionnaire[]>([]);
     const [loading, setLoading] = useState(true);
     const [activatingId, setActivatingId] = useState<number | null>(null);
+    const [deletingId, setDeletingId] = useState<number | null>(null);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [deleteError, setDeleteError] = useState<string>('');
+    const [deleteWarning, setDeleteWarning] = useState<{show: boolean, sessionCount: number}>({show: false, sessionCount: 0});
 
     useEffect(() => {
         fetchQuestionnaires();
@@ -57,6 +61,80 @@ const AdminQuestionnaires: React.FC = () => {
         setShowQuestionnaireDetails(false);
         setSelectedQuestionnaire(null);
     };
+
+    const handleDeleteClick = (questionnaireId: number) => {
+        setDeletingId(questionnaireId);
+        setShowDeleteConfirm(true);
+        setDeleteError('');
+        setDeleteWarning({show: false, sessionCount: 0});
+    };
+
+    const handleDeleteConfirm = async () => {
+        if (!deletingId) return;
+        
+        try {
+            const response = await apiService.deleteQuestionnaire(deletingId, false);
+            
+            // Check if we got a warning about survey responses
+            if (response.data.warning) {
+                setDeleteWarning({
+                    show: true, 
+                    sessionCount: response.data.session_count
+                });
+                return;
+            }
+            
+            // If no warning, proceed with normal deletion success
+            setQuestionnaires(prev => prev.filter(q => q.id !== deletingId));
+            
+            if (selectedQuestionnaire && selectedQuestionnaire.id === deletingId) {
+                setShowQuestionnaireDetails(false);
+                setSelectedQuestionnaire(null);
+            }
+            
+            setShowDeleteConfirm(false);
+            setDeletingId(null);
+            
+        } catch (error: any) {
+            console.error('Failed to delete questionnaire:', error);
+            const errorMessage = error.response?.data?.error || 'Failed to delete questionnaire';
+            setDeleteError(errorMessage);
+        }
+    };
+
+    const handleForceDelete = async () => {
+        if (!deletingId) return;
+        
+        try {
+            await apiService.deleteQuestionnaire(deletingId, true);
+            
+            // Remove the deleted questionnaire from the list
+            setQuestionnaires(prev => prev.filter(q => q.id !== deletingId));
+            
+            // If we're viewing the deleted questionnaire's details, go back to list
+            if (selectedQuestionnaire && selectedQuestionnaire.id === deletingId) {
+                setShowQuestionnaireDetails(false);
+                setSelectedQuestionnaire(null);
+            }
+            
+            setShowDeleteConfirm(false);
+            setDeletingId(null);
+            setDeleteWarning({show: false, sessionCount: 0});
+            
+        } catch (error: any) {
+            console.error('Failed to delete questionnaire:', error);
+            const errorMessage = error.response?.data?.error || 'Failed to delete questionnaire';
+            setDeleteError(errorMessage);
+        }
+    };
+
+    const handleDeleteCancel = () => {
+        setShowDeleteConfirm(false);
+        setDeletingId(null);
+        setDeleteError('');
+        setDeleteWarning({show: false, sessionCount: 0});
+    };
+
     // Sort questionnaires: active first, then by created_at desc
     const sortedQuestionnaires = [...questionnaires].sort((a, b) => {
         if (a.status === 'Active' && b.status !== 'Active') return -1;
@@ -132,9 +210,9 @@ const AdminQuestionnaires: React.FC = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    {/* Activate button moved below header */}
+                                    {/* Action buttons moved below header */}
                                     {selectedQuestionnaire && (
-                                        <div className="mb-6 flex justify-end">
+                                        <div className="mb-6 flex justify-end space-x-3">
                                             {selectedQuestionnaire.status !== 'Active' ? (
                                                 <button
                                                     className={`px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] flex items-center justify-center ${activatingId === selectedQuestionnaire.id ? 'opacity-70 cursor-not-allowed' : ''}`}
@@ -170,6 +248,16 @@ const AdminQuestionnaires: React.FC = () => {
                                                     <i className="fas fa-check mr-2"></i> Active
                                                 </button>
                                             )}
+                                            
+                                            {/* Delete Button */}
+                                            <button
+                                                className={`px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] flex items-center justify-center ${selectedQuestionnaire.status === 'Active' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                onClick={() => handleDeleteClick(selectedQuestionnaire.id)}
+                                                disabled={selectedQuestionnaire.status === 'Active'}
+                                                title={selectedQuestionnaire.status === 'Active' ? 'Cannot delete active questionnaire' : 'Delete questionnaire'}
+                                            >
+                                                <i className="fas fa-trash mr-2"></i> Delete
+                                            </button>
                                         </div>
                                     )}
                                     {loadingDetails ? (
@@ -326,6 +414,56 @@ const AdminQuestionnaires: React.FC = () => {
                     </div>
                 </div>
             </div>
+            
+            {/* Delete Confirmation Modal */}
+            {showDeleteConfirm && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl border border-gray-200">
+                        <div className="text-center mb-6">
+                            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i className="fas fa-exclamation-triangle text-red-500 text-2xl"></i>
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-800 mb-2">Delete Questionnaire</h3>
+                            {!deleteWarning.show ? (
+                                <p className="text-gray-600 text-sm">
+                                    Are you sure you want to delete this questionnaire? This action cannot be undone.
+                                </p>
+                            ) : (
+                                <div className="text-left">
+                                    <p className="text-red-600 text-sm font-medium mb-2">
+                                        The questionnaire has {deleteWarning.sessionCount} survey responses. 
+                                        Deleting the questionnaire will delete those responses too.
+                                    </p>
+                                    <p className="text-gray-600 text-sm">
+                                        Do you want to proceed?
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+
+                        {deleteError && (
+                            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                                <p className="text-red-700 text-sm">{deleteError}</p>
+                            </div>
+                        )}
+
+                        <div className="flex space-x-3">
+                            <button
+                                onClick={handleDeleteCancel}
+                                className="flex-1 px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-semibold transition-all duration-200"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={deleteWarning.show ? handleForceDelete : handleDeleteConfirm}
+                                className="flex-1 px-4 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl font-semibold transition-all duration-200"
+                            >
+                                {deleteWarning.show ? 'Delete All' : 'Delete'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

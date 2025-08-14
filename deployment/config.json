@@ -1,0 +1,46 @@
+{
+  "system": {
+    "name": "CRPF Mental Health & Wellness System",
+    "version": "1.0.0",
+    "organization": "Central Reserve Police Force",
+    "description": "Mental Health Monitoring and Assessment System for CRPF Personnel"
+  },
+  "services": {
+    "backend": {
+      "port": 5000,
+      "host": "localhost",
+      "startup_delay": 3,
+      "health_endpoint": "/api/health"
+    },
+    "frontend": {
+      "port": 3000,
+      "host": "localhost", 
+      "startup_delay": 35,
+      "build_mode": "production",
+      "prefer_production_build": true
+    },
+    "database": {
+      "type": "mysql",
+      "host": "localhost",
+      "port": 3306,
+      "auto_backup": true
+    },
+    "browser": {
+      "auto_open": true,
+      "url": "http://localhost:3000",
+      "default_browser": true
+    }
+  },
+  "security": {
+    "offline_mode": true,
+    "local_only": true,
+    "session_timeout": 1800,
+    "auto_logout": false
+  },
+  "deployment": {
+    "environment": "production",
+    "debug_mode": false,
+    "log_level": "INFO",
+    "auto_restart": false
+  }
+}

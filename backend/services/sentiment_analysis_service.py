@@ -87,3 +87,61 @@ def calculate_average_score(scores):
     
     # Use mean from statistics for better numerical stability
     return statistics.mean(valid_scores)
+
+def calculate_peak_weighted_nlp_average(scores):
+    """
+    Calculate peak-weighted average for NLP depression scores that amplifies high-risk responses.
+    
+    This addresses the critical issue where severe responses (like suicidal ideation) get
+    diluted by averaging with normal responses. The algorithm:
+    1. Identifies high-risk responses that deviate significantly from normal
+    2. Gives higher weight to high-risk depression scores
+    3. Combines high-risk responses (80%) with overall average (20%)
+    
+    Args:
+        scores (list): List of NLP depression scores (0.0-1.0 scale)
+        
+    Returns:
+        float: Peak-weighted average score that preserves critical mental health signals
+    """
+    if not scores:
+        return 0.0
+        
+    # Filter out None values
+    valid_scores = [score for score in scores if score is not None]
+    if not valid_scores:
+        return 0.0
+        
+    if len(valid_scores) == 1:
+        return valid_scores[0]
+    
+    # Define high-risk threshold and significance level
+    HIGH_RISK_THRESHOLD = 0.65  # Scores above this indicate significant mental health concern
+    
+    # Calculate simple average for baseline
+    overall_avg = statistics.mean(valid_scores)
+    
+    # Identify high-risk responses (potential suicide ideation, severe depression, etc.)
+    high_risk_scores = []
+    for score in valid_scores:
+        if score >= HIGH_RISK_THRESHOLD:
+            high_risk_scores.append(score)
+    
+    # If we have high-risk responses, give them much higher weight
+    if high_risk_scores:
+        high_risk_avg = statistics.mean(high_risk_scores)
+        
+        # Weight formula: 80% high-risk responses, 20% overall average
+        # This ensures severe mental health signals are preserved and not diluted
+        weighted_score = (high_risk_avg * 0.8) + (overall_avg * 0.2)
+        
+        logger.info(f"CRITICAL: Peak-weighted NLP calculation: {len(high_risk_scores)}/{len(valid_scores)} high-risk responses detected.")
+        logger.info(f"High-risk avg: {high_risk_avg:.3f}, Overall avg: {overall_avg:.3f}, "
+                   f"Weighted result: {weighted_score:.3f}")
+        logger.info(f"HIGH-RISK RESPONSE PRESERVED: Mental health intervention may be required")
+        
+        return weighted_score
+    else:
+        # No high-risk responses detected, return simple average
+        logger.info(f"No high-risk NLP responses detected in {len(valid_scores)} responses. Using simple average: {overall_avg:.3f}")
+        return overall_avg

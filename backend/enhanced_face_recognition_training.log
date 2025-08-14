@@ -13512,3 +13512,1641 @@
 2025-08-14 21:19:19,038 - INFO - 127.0.0.1 - - [14/Aug/2025 21:19:19] "GET /api/auth/session-status HTTP/1.1" 200 -
 2025-08-14 21:19:49,079 - INFO - 127.0.0.1 - - [14/Aug/2025 21:19:49] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
 2025-08-14 22:57:22,499 - INFO - 127.0.0.1 - - [14/Aug/2025 22:57:22] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-14 23:41:39,286 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\sentiment_analysis_service.py', reloading
+2025-08-14 23:41:39,306 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\sentiment_analysis_service.py', reloading
+2025-08-14 23:41:39,322 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\sentiment_analysis_service.py', reloading
+2025-08-14 23:41:40,602 - INFO -  * Restarting with stat
+2025-08-14 23:41:40,670 - INFO -  * Restarting with stat
+2025-08-14 23:41:40,859 - INFO -  * Restarting with stat
+2025-08-14 23:41:50,406 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:41:50,409 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:41:50,409 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:41:58,399 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:41:58,400 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:41:58,400 - INFO - Refreshing face recognition model...
+2025-08-14 23:41:58,401 - INFO - Refreshing face recognition model...
+2025-08-14 23:41:58,401 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:41:58,402 - INFO - Refreshing face recognition model...
+2025-08-14 23:41:58,420 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:41:58,420 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:41:58,420 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:41:58,420 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:41:58,421 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:41:58,422 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:41:58,423 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:41:58,423 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:41:58,427 - INFO - Model preloader service initialized successfully
+2025-08-14 23:41:58,427 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:41:58,427 - INFO - Model preloader service initialized successfully
+2025-08-14 23:41:58,427 - INFO - Model preloader service initialized successfully
+2025-08-14 23:41:58,427 - INFO - Model preloading started
+exists but not ready yet, using traditional loading
+2025-08-14 23:41:58,427 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:41:58,428 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:41:58,427 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:41:58,428 - INFO - Model preloading started
+2025-08-14 23:41:58,428 - INFO - Model preloading started
+2025-08-14 23:41:58,428 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:41:58,516 - INFO - Face cascade loaded successfully
+2025-08-14 23:41:58,516 - INFO - Face cascade loaded successfully
+2025-08-14 23:41:58,523 - INFO - Face cascade loaded successfully
+2025-08-14 23:41:58,984 - INFO - Traditional model loading completed successfully
+2025-08-14 23:41:58,984 - INFO - [SUCCESS] Traditional model loading completed in 0.56s
+2025-08-14 23:41:58,984 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.58s
+2025-08-14 23:41:59,063 - INFO - Traditional model loading completed successfully
+2025-08-14 23:41:59,064 - INFO - [SUCCESS] Traditional model loading completed in 0.64s
+2025-08-14 23:41:59,064 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.66s
+2025-08-14 23:41:59,073 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:41:59,073 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:41:59,074 - INFO - Model preloading completed in 0.65 seconds
+2025-08-14 23:41:59,080 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:41:59,080 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:41:59,081 - INFO - Model preloading completed in 0.65 seconds
+2025-08-14 23:41:59,094 - INFO - Traditional model loading completed successfully
+2025-08-14 23:41:59,095 - INFO - [SUCCESS] Traditional model loading completed in 0.67s
+2025-08-14 23:41:59,095 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.69s
+2025-08-14 23:41:59,096 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:41:59,096 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:41:59,097 - INFO - Model preloading completed in 0.67 seconds
+2025-08-14 23:41:59,963 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:41:59,964 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:41:59,964 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:42:00,003 - INFO - Starting model preloader service...
+2025-08-14 23:42:00,005 - INFO - Starting model preloader service...
+2025-08-14 23:42:00,009 - INFO - Starting model preloader service...
+2025-08-14 23:42:00,023 - WARNING -  * Debugger is active!
+2025-08-14 23:42:00,024 - WARNING -  * Debugger is active!
+2025-08-14 23:42:00,027 - WARNING -  * Debugger is active!
+2025-08-14 23:42:00,035 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:42:00,037 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:42:00,520 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.645443, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:42:00,520 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.653446, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:42:00,520 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.669473, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:42:05,202 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-14 23:42:05,276 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-14 23:42:05,297 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-14 23:42:05,985 - INFO -  * Restarting with stat
+2025-08-14 23:42:06,132 - INFO -  * Restarting with stat
+2025-08-14 23:42:06,137 - INFO -  * Restarting with stat
+2025-08-14 23:42:13,698 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:42:13,861 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:42:13,951 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:42:17,341 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:42:17,342 - INFO - Refreshing face recognition model...
+2025-08-14 23:42:17,344 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:42:17,345 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:42:17,347 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:42:17,351 - INFO - Model preloader service initialized successfully
+2025-08-14 23:42:17,351 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:42:17,352 - INFO - Model preloading started
+2025-08-14 23:42:17,352 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:42:17,425 - INFO - Face cascade loaded successfully
+2025-08-14 23:42:17,442 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:42:17,443 - INFO - Refreshing face recognition model...
+2025-08-14 23:42:17,445 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:42:17,446 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:42:17,448 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:42:17,452 - INFO - Model preloader service initialized successfully
+2025-08-14 23:42:17,452 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:42:17,452 - INFO - Model preloading started
+2025-08-14 23:42:17,453 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:42:17,529 - INFO - Face cascade loaded successfully
+2025-08-14 23:42:17,537 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:42:17,538 - INFO - Refreshing face recognition model...
+2025-08-14 23:42:17,540 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:42:17,540 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:42:17,542 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:42:17,547 - INFO - Model preloader service initialized successfully
+2025-08-14 23:42:17,547 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:42:17,547 - INFO - Model preloading started
+2025-08-14 23:42:17,548 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:42:17,627 - INFO - Face cascade loaded successfully
+2025-08-14 23:42:18,076 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:42:18,076 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:42:18,077 - INFO - Model preloading completed in 0.73 seconds
+2025-08-14 23:42:18,079 - INFO - Traditional model loading completed successfully
+2025-08-14 23:42:18,079 - INFO - [SUCCESS] Traditional model loading completed in 0.73s
+2025-08-14 23:42:18,079 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.74s
+2025-08-14 23:42:18,164 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:42:18,165 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:42:18,166 - INFO - Model preloading completed in 0.71 seconds
+2025-08-14 23:42:18,226 - INFO - Traditional model loading completed successfully
+2025-08-14 23:42:18,226 - INFO - [SUCCESS] Traditional model loading completed in 0.77s
+2025-08-14 23:42:18,226 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.78s
+2025-08-14 23:42:18,244 - INFO - Traditional model loading completed successfully
+2025-08-14 23:42:18,245 - INFO - [SUCCESS] Traditional model loading completed in 0.70s
+2025-08-14 23:42:18,245 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.71s
+2025-08-14 23:42:18,249 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:42:18,250 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:42:18,251 - INFO - Model preloading completed in 0.70 seconds
+2025-08-14 23:42:19,083 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:42:19,135 - INFO - Starting model preloader service...
+2025-08-14 23:42:19,160 - WARNING -  * Debugger is active!
+2025-08-14 23:42:19,175 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:42:19,177 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:42:19,192 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:42:19,255 - INFO - Starting model preloader service...
+2025-08-14 23:42:19,257 - INFO - Starting model preloader service...
+2025-08-14 23:42:19,280 - WARNING -  * Debugger is active!
+2025-08-14 23:42:19,281 - WARNING -  * Debugger is active!
+2025-08-14 23:42:19,297 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:42:19,302 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:42:19,639 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.72579, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:42:19,766 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.703644, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:42:19,766 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.712632, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:43:01,848 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-14 23:43:01,849 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-14 23:43:01,895 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\api\\survey\\routes.py', reloading
+2025-08-14 23:43:02,579 - INFO -  * Restarting with stat
+2025-08-14 23:43:02,619 - INFO -  * Restarting with stat
+2025-08-14 23:43:02,643 - INFO -  * Restarting with stat
+2025-08-14 23:43:09,454 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:43:09,514 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:43:09,519 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:43:12,588 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:43:12,589 - INFO - Refreshing face recognition model...
+2025-08-14 23:43:12,590 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:43:12,590 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:43:12,592 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:43:12,595 - INFO - Model preloader service initialized successfully
+2025-08-14 23:43:12,595 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:43:12,595 - INFO - Model preloading started
+2025-08-14 23:43:12,595 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:43:12,637 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:43:12,638 - INFO - Refreshing face recognition model...
+2025-08-14 23:43:12,639 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:43:12,639 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:43:12,641 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:43:12,645 - INFO - Model preloader service initialized successfully
+2025-08-14 23:43:12,645 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:43:12,645 - INFO - Model preloading started
+2025-08-14 23:43:12,645 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:43:12,654 - INFO - Face cascade loaded successfully
+2025-08-14 23:43:12,663 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:43:12,664 - INFO - Refreshing face recognition model...
+2025-08-14 23:43:12,665 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:43:12,666 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:43:12,668 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:43:12,672 - INFO - Model preloader service initialized successfully
+2025-08-14 23:43:12,673 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:43:12,673 - INFO - Model preloading started
+2025-08-14 23:43:12,673 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:43:12,702 - INFO - Face cascade loaded successfully
+2025-08-14 23:43:12,727 - INFO - Face cascade loaded successfully
+2025-08-14 23:43:13,191 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:43:13,202 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:43:13,204 - INFO - Model preloading completed in 0.61 seconds
+2025-08-14 23:43:13,247 - INFO - Traditional model loading completed successfully
+2025-08-14 23:43:13,254 - INFO - [SUCCESS] Traditional model loading completed in 0.61s
+2025-08-14 23:43:13,255 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.62s
+2025-08-14 23:43:13,260 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:43:13,260 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:43:13,260 - INFO - Model preloading completed in 0.61 seconds
+2025-08-14 23:43:13,278 - INFO - Traditional model loading completed successfully
+2025-08-14 23:43:13,278 - INFO - [SUCCESS] Traditional model loading completed in 0.68s
+2025-08-14 23:43:13,278 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.69s
+2025-08-14 23:43:13,291 - INFO - Traditional model loading completed successfully
+2025-08-14 23:43:13,292 - INFO - [SUCCESS] Traditional model loading completed in 0.62s
+2025-08-14 23:43:13,292 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.63s
+2025-08-14 23:43:13,293 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:43:13,294 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:43:13,295 - INFO - Model preloading completed in 0.62 seconds
+2025-08-14 23:43:14,054 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:43:14,060 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:43:14,064 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:43:14,088 - INFO - Starting model preloader service...
+2025-08-14 23:43:14,097 - INFO - Starting model preloader service...
+2025-08-14 23:43:14,105 - WARNING -  * Debugger is active!
+2025-08-14 23:43:14,105 - INFO - Starting model preloader service...
+2025-08-14 23:43:14,111 - WARNING -  * Debugger is active!
+2025-08-14 23:43:14,115 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:43:14,122 - WARNING -  * Debugger is active!
+2025-08-14 23:43:14,124 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:43:14,133 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:43:14,599 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.608588, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:43:14,615 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.614595, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:46:28,231 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:46:31,227 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:46:31,228 - INFO - Refreshing face recognition model...
+2025-08-14 23:46:31,229 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:46:31,230 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:46:31,231 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:46:31,235 - INFO - Model preloader service initialized successfully
+2025-08-14 23:46:31,235 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:46:31,235 - INFO - Model preloading started
+2025-08-14 23:46:31,235 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:46:31,294 - INFO - Face cascade loaded successfully
+2025-08-14 23:46:31,675 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:46:31,675 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:46:31,676 - INFO - Model preloading completed in 0.44 seconds
+2025-08-14 23:46:31,710 - INFO - Traditional model loading completed successfully
+2025-08-14 23:46:31,715 - INFO - [SUCCESS] Traditional model loading completed in 0.48s
+2025-08-14 23:46:31,715 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.49s
+2025-08-14 23:46:32,288 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:46:32,317 - INFO - Starting model preloader service...
+2025-08-14 23:46:32,342 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-14 23:46:32,342 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-14 23:46:32,345 - INFO -  * Restarting with stat
+2025-08-14 23:46:32,825 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.440119, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:46:38,391 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:46:41,366 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:46:41,367 - INFO - Refreshing face recognition model...
+2025-08-14 23:46:41,368 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:46:41,369 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:46:41,370 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:46:41,374 - INFO - Model preloader service initialized successfully
+2025-08-14 23:46:41,374 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:46:41,374 - INFO - Model preloading started
+2025-08-14 23:46:41,374 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:46:41,423 - INFO - Face cascade loaded successfully
+2025-08-14 23:46:41,946 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:46:41,947 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:46:41,947 - INFO - Model preloading completed in 0.57 seconds
+2025-08-14 23:46:41,963 - INFO - Traditional model loading completed successfully
+2025-08-14 23:46:41,963 - INFO - [SUCCESS] Traditional model loading completed in 0.59s
+2025-08-14 23:46:41,963 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.60s
+2025-08-14 23:46:42,655 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:46:42,688 - INFO - Starting model preloader service...
+2025-08-14 23:46:42,703 - WARNING -  * Debugger is active!
+2025-08-14 23:46:42,714 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:46:43,198 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.573555, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:48:20,245 - INFO - 127.0.0.1 - - [14/Aug/2025 23:48:20] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-14 23:48:26,702 - INFO - 127.0.0.1 - - [14/Aug/2025 23:48:26] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-14 23:48:39,400 - INFO - 127.0.0.1 - - [14/Aug/2025 23:48:39] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-14 23:49:01,455 - INFO - 127.0.0.1 - - [14/Aug/2025 23:49:01] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-14 23:49:04,936 - INFO - 127.0.0.1 - - [14/Aug/2025 23:49:04] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-14 23:52:34,226 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:52:38,287 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:52:38,288 - INFO - Refreshing face recognition model...
+2025-08-14 23:52:38,289 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:52:38,290 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:52:38,291 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:52:38,295 - INFO - Model preloader service initialized successfully
+2025-08-14 23:52:38,295 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:52:38,296 - INFO - Model preloading started
+2025-08-14 23:52:38,296 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:52:38,379 - INFO - Face cascade loaded successfully
+2025-08-14 23:52:39,020 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:52:39,021 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:52:39,022 - INFO - Model preloading completed in 0.73 seconds
+2025-08-14 23:52:39,121 - INFO - Traditional model loading completed successfully
+2025-08-14 23:52:39,121 - INFO - [SUCCESS] Traditional model loading completed in 0.83s
+2025-08-14 23:52:39,121 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.83s
+2025-08-14 23:52:39,897 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:52:39,955 - INFO - Starting model preloader service...
+2025-08-14 23:52:40,006 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-14 23:52:40,006 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-14 23:52:40,014 - INFO -  * Restarting with stat
+2025-08-14 23:52:40,468 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.725897, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:52:47,927 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-14 23:52:51,551 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:52:51,551 - INFO - Refreshing face recognition model...
+2025-08-14 23:52:51,552 - INFO - Model loaded successfully - 1 soldiers
+2025-08-14 23:52:51,553 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-14 23:52:51,555 - INFO - Auto refresh started with 300s interval
+2025-08-14 23:52:51,558 - INFO - Model preloader service initialized successfully
+2025-08-14 23:52:51,558 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-14 23:52:51,559 - INFO - Model preloading started
+2025-08-14 23:52:51,559 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-14 23:52:51,647 - INFO - Face cascade loaded successfully
+2025-08-14 23:52:52,292 - INFO - Emotion detection model loaded successfully
+2025-08-14 23:52:52,293 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-14 23:52:52,293 - INFO - Model preloading completed in 0.73 seconds
+2025-08-14 23:52:52,322 - INFO - Traditional model loading completed successfully
+2025-08-14 23:52:52,322 - INFO - [SUCCESS] Traditional model loading completed in 0.76s
+2025-08-14 23:52:52,323 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.77s
+2025-08-14 23:52:53,204 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:52:53,286 - INFO - Starting model preloader service...
+2025-08-14 23:52:53,303 - WARNING -  * Debugger is active!
+2025-08-14 23:52:53,317 - INFO -  * Debugger PIN: 116-430-886
+2025-08-14 23:52:53,797 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.734878, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-14 23:55:07,990 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:07] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-14 23:55:08,617 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:08] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:55:08,644 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-14 23:55:08,644 - INFO - [CAMERA] Initializing camera...
+2025-08-14 23:55:08,645 - INFO - Trying external webcam (index 1)...
+2025-08-14 23:55:08,846 - INFO - Trying built-in camera (index 0)...
+2025-08-14 23:55:13,447 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-14 23:55:13,447 - INFO - [CAMERA] Camera initialized in 4.80 seconds
+2025-08-14 23:55:13,559 - INFO - [CONFIG] Camera configured in 0.11s: 1280x960, detection_interval=30
+2025-08-14 23:55:13,560 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-14 23:55:13,560 - INFO - [SUCCESS] Survey monitoring started in 4.92s (camera: 4.80s, settings: 0.11s, thread: 0.00s)
+2025-08-14 23:55:13,562 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:13] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:55:13,574 - INFO - Using detection interval: 30 frames
+2025-08-14 23:55:16,765 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:55:18,069 - DEBUG - Face quality analysis - Brightness: 74.2 (0.60), Blur: 25.3 (0.10), Size: 46656 (1.00), Final: 0.48
+2025-08-14 23:55:18,069 - DEBUG - Low quality face detected (quality: 0.48), skipping
+2025-08-14 23:55:21,383 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:55:21,438 - DEBUG - Face quality analysis - Brightness: 106.5 (1.00), Blur: 34.1 (0.10), Size: 48841 (1.00), Final: 0.64
+2025-08-14 23:55:22,280 - DEBUG - Recognized soldier 100000001 with distance 0.301
+2025-08-14 23:55:22,956 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.988', 'Sad': '0.005', 'Surprised': '0.006'}
+2025-08-14 23:55:22,956 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.988)
+2025-08-14 23:55:22,957 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:55:26,280 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:55:26,324 - DEBUG - Face quality analysis - Brightness: 106.8 (1.00), Blur: 35.7 (0.10), Size: 47961 (1.00), Final: 0.64
+2025-08-14 23:55:28,329 - DEBUG - Recognized soldier 100000001 with distance 0.288
+2025-08-14 23:55:28,540 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.981', 'Sad': '0.017', 'Surprised': '0.000'}
+2025-08-14 23:55:28,541 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.981)
+2025-08-14 23:55:28,541 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:55:31,856 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:55:31,904 - DEBUG - Face quality analysis - Brightness: 107.4 (1.00), Blur: 31.8 (0.10), Size: 49729 (1.00), Final: 0.64
+2025-08-14 23:55:32,813 - DEBUG - Recognized soldier 100000001 with distance 0.312
+2025-08-14 23:55:32,946 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.980', 'Sad': '0.019', 'Surprised': '0.001'}
+2025-08-14 23:55:32,946 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.980)
+2025-08-14 23:55:32,947 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:55:36,261 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:55:36,309 - DEBUG - Face quality analysis - Brightness: 106.4 (1.00), Blur: 38.0 (0.10), Size: 46225 (1.00), Final: 0.64
+2025-08-14 23:55:37,658 - DEBUG - Recognized soldier 100000001 with distance 0.270
+2025-08-14 23:55:37,807 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.993', 'Sad': '0.005', 'Surprised': '0.001'}
+2025-08-14 23:55:37,808 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.993)
+2025-08-14 23:55:37,809 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:55:39,289 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:39] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-14 23:55:40,133 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:55:40,133 - INFO - Model preloader service initialized successfully
+2025-08-14 23:55:40,133 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-14 23:55:40,134 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.001s - instant access!
+2025-08-14 23:55:40,134 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.00s
+2025-08-14 23:55:40,134 - WARNING - No monitoring session active for soldier 100000001
+2025-08-14 23:55:40,134 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-14 23:55:40,135 - WARNING - No emotion data retrieved from monitoring service
+2025-08-14 23:55:40,135 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-14 23:55:40,135 - INFO - Sentiment scores for text: {'neg': 0.292, 'neu': 0.5, 'pos': 0.208, 'compound': -0.25}
+2025-08-14 23:55:40,136 - INFO - Text: 'it was bad, felt like ending my life....' - Label: NEGATIVE, Depression score: 0.62
+2025-08-14 23:55:40,136 - INFO - Question 10 - Sentiment: NEGATIVE, Score: 0.62
+2025-08-14 23:55:40,156 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:55:40,173 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:55:40,174 - INFO - Question 10: Weighted Combined = (0.62 * 0.75) + (0.00 * 0.25) = 0.469
+2025-08-14 23:55:40,174 - INFO - Question 10: NLP=0.625, Emotion=0.00, Weighted Combined=0.469
+2025-08-14 23:55:40,177 - INFO - Sentiment scores for text: {'neg': 0.533, 'neu': 0.467, 'pos': 0.0, 'compound': -0.6908}
+2025-08-14 23:55:40,177 - INFO - Text: 'no not at all. everything is bad...' - Label: NEGATIVE, Depression score: 0.85
+2025-08-14 23:55:40,177 - INFO - Question 11 - Sentiment: NEGATIVE, Score: 0.85
+2025-08-14 23:55:40,197 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:55:40,217 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:55:40,217 - INFO - Question 11: Weighted Combined = (0.85 * 0.75) + (0.00 * 0.25) = 0.634
+2025-08-14 23:55:40,217 - INFO - Question 11: NLP=0.8453999999999999, Emotion=0.00, Weighted Combined=0.634
+2025-08-14 23:55:40,220 - INFO - CRITICAL: Peak-weighted NLP calculation: 1/2 high-risk responses detected.
+2025-08-14 23:55:40,220 - INFO - High-risk avg: 0.845, Overall avg: 0.735, Weighted result: 0.823
+2025-08-14 23:55:40,220 - INFO - HIGH-RISK RESPONSE PRESERVED: Mental health intervention may be required
+2025-08-14 23:55:40,221 - INFO - Session 111 - Peak-Weighted NLP Depression Score: 0.82
+2025-08-14 23:55:40,221 - INFO - NLP Score Distribution: min=0.62, max=0.85, count=2
+2025-08-14 23:55:40,242 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:55:40,242 - INFO - Session 111 - Using peak-weighted NLP score only: 0.82
+2025-08-14 23:55:40,263 - INFO - ================================================================================
+2025-08-14 23:55:40,263 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 111
+2025-08-14 23:55:40,264 - INFO - ================================================================================
+2025-08-14 23:55:40,264 - INFO - [SOLDIER] 100000001
+2025-08-14 23:55:40,264 - INFO - [SCORES] BREAKDOWN:
+2025-08-14 23:55:40,264 - INFO -    [NLP] Peak-Weighted Score (70%):     0.823
+2025-08-14 23:55:40,264 - INFO -    [EMOTION] Peak-Weighted Score (30%): 0.000
+2025-08-14 23:55:40,264 - INFO -    [FINAL] WEIGHTED COMBINED:           0.823
+2025-08-14 23:55:40,265 - INFO - 
+2025-08-14 23:55:40,265 - INFO - [ENHANCED_SCORING] PEAK-WEIGHTED AVERAGING ACTIVE:
+2025-08-14 23:55:40,265 - INFO -    NLP: High-risk responses (>0.65) amplified for suicide/crisis detection
+2025-08-14 23:55:40,265 - INFO -    Emotion: Non-neutral emotions amplified for military personnel sensitivity
+2025-08-14 23:55:40,265 - INFO - 
+2025-08-14 23:55:40,265 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-14 23:55:40,265 - INFO -    State:          MODERATE DEPRESSION
+2025-08-14 23:55:40,266 - INFO -    Alert Level:    ORANGE
+2025-08-14 23:55:40,266 - INFO -    Description:    Significant negative emotional indicators
+2025-08-14 23:55:40,266 - INFO -    Recommendation: Counseling recommended, bi-weekly assessments
+2025-08-14 23:55:40,266 - INFO - 
+2025-08-14 23:55:40,266 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-14 23:55:40,266 - INFO -    Total Detections: 0
+2025-08-14 23:55:40,267 - INFO -    Dominant Emotion: Unknown
+2025-08-14 23:55:40,267 - INFO - ================================================================================
+2025-08-14 23:55:40,269 - INFO - [MENTAL_STATE] Mental state saved: Slightly Positive (Rating: 4/7)
+2025-08-14 23:55:40,277 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:40] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-14 23:55:40,286 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:40] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:55:40,350 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-14 23:55:40,350 - INFO - Processing 4 emotion detections for soldier 100000001
+2025-08-14 23:55:40,350 - INFO - Found 4 actual emotion detections (filtered from 4 total entries)
+2025-08-14 23:55:40,351 - DEBUG - No significant emotional peaks detected in 4 scores. Using simple average: 0.450
+2025-08-14 23:55:40,351 - INFO - Calculated peak-weighted avg depression score: 0.45, dominant emotion: Neutral
+2025-08-14 23:55:40,351 - INFO - Score distribution: min=0.45, max=0.45, count=4
+2025-08-14 23:55:40,351 - INFO - Storing emotion data for session_id: 111
+2025-08-14 23:55:40,369 - INFO - Storing emotion data - session_id: 111, force_id: 100000001, avg_score: 0.45
+2025-08-14 23:55:40,373 - INFO - Updated 1 weekly session record(s)
+2025-08-14 23:55:40,374 - INFO - Updated 2 question response record(s)
+2025-08-14 23:55:40,378 - INFO - Successfully stored survey emotion data for session 111: avg_score=0.45
+2025-08-14 23:55:40,379 - INFO - Survey monitoring ended for 100000001: peak-weighted avg_score=0.45, emotion=Neutral, detections=4
+2025-08-14 23:55:40,379 - INFO - PEAK-WEIGHTED AVERAGING APPLIED: Enhanced sensitivity for military personnel emotion detection
+2025-08-14 23:55:40,856 - INFO - Camera resources released after survey monitoring
+2025-08-14 23:55:40,857 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:40] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:55:41,202 - WARNING - No monitoring session active for soldier 100000001
+2025-08-14 23:55:41,203 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:41] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:55:47,754 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:47] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-14 23:55:48,413 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:55:48,415 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:48] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-14 23:55:48,483 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:48] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-14 23:55:48,839 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:48] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-14 23:55:51,152 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:51] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-14 23:55:51,610 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:51] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-14 23:55:51,620 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:51] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-14 23:55:51,839 - INFO - 127.0.0.1 - - [14/Aug/2025 23:55:51] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-14 23:56:18,755 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:18] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-14 23:56:30,415 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:30] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-14 23:56:30,669 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:30] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-14 23:56:33,179 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:33] "GET /api/admin/questionnaires/14 HTTP/1.1" 200 -
+2025-08-14 23:56:36,858 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:36] "GET /api/admin/questionnaires/13 HTTP/1.1" 200 -
+2025-08-14 23:56:38,621 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:38] "POST /api/survey/admin/questionnaires/13/activate HTTP/1.1" 200 -
+2025-08-14 23:56:39,171 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:39] "GET /api/admin/questionnaires/13 HTTP/1.1" 200 -
+2025-08-14 23:56:39,521 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:39] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-14 23:56:42,296 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:42] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-14 23:56:51,263 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:51] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-14 23:56:51,898 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:51] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:56:51,925 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-14 23:56:51,925 - INFO - [CAMERA] Initializing camera...
+2025-08-14 23:56:51,925 - INFO - Trying external webcam (index 1)...
+2025-08-14 23:56:52,082 - INFO - Trying built-in camera (index 0)...
+2025-08-14 23:56:56,448 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-14 23:56:56,448 - INFO - [CAMERA] Camera initialized in 4.52 seconds
+2025-08-14 23:56:56,599 - INFO - [CONFIG] Camera configured in 0.15s: 1280x960, detection_interval=30
+2025-08-14 23:56:56,600 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-14 23:56:56,601 - INFO - [SUCCESS] Survey monitoring started in 4.68s (camera: 4.52s, settings: 0.15s, thread: 0.00s)
+2025-08-14 23:56:56,602 - INFO - 127.0.0.1 - - [14/Aug/2025 23:56:56] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:56:56,620 - INFO - Using detection interval: 30 frames
+2025-08-14 23:56:59,831 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:56:59,943 - DEBUG - Face quality analysis - Brightness: 108.9 (1.00), Blur: 26.9 (0.10), Size: 53361 (1.00), Final: 0.64
+2025-08-14 23:57:01,512 - DEBUG - Recognized soldier 100000001 with distance 0.240
+2025-08-14 23:57:01,697 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.003', 'Happy': '0.000', 'Neutral': '0.996', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:57:01,697 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.996)
+2025-08-14 23:57:01,697 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:04,984 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:05,105 - DEBUG - Face quality analysis - Brightness: 110.1 (1.00), Blur: 34.3 (0.10), Size: 57600 (1.00), Final: 0.64
+2025-08-14 23:57:06,412 - DEBUG - Recognized soldier 100000001 with distance 0.275
+2025-08-14 23:57:06,536 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:57:06,537 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:57:06,537 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:09,818 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:09,899 - DEBUG - Face quality analysis - Brightness: 109.1 (1.00), Blur: 39.0 (0.10), Size: 56644 (1.00), Final: 0.64
+2025-08-14 23:57:11,155 - DEBUG - Recognized soldier 100000001 with distance 0.318
+2025-08-14 23:57:11,335 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.998', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-14 23:57:11,335 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.998)
+2025-08-14 23:57:11,335 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:14,616 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:14,705 - DEBUG - Face quality analysis - Brightness: 110.2 (1.00), Blur: 34.8 (0.10), Size: 56644 (1.00), Final: 0.64
+2025-08-14 23:57:15,816 - DEBUG - Recognized soldier 100000001 with distance 0.290
+2025-08-14 23:57:15,991 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.994', 'Sad': '0.005', 'Surprised': '0.000'}
+2025-08-14 23:57:15,992 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.994)
+2025-08-14 23:57:15,992 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:19,272 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:19,364 - DEBUG - Face quality analysis - Brightness: 108.4 (1.00), Blur: 28.7 (0.10), Size: 53361 (1.00), Final: 0.64
+2025-08-14 23:57:20,686 - DEBUG - Recognized soldier 100000001 with distance 0.292
+2025-08-14 23:57:21,116 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.987', 'Sad': '0.011', 'Surprised': '0.000'}
+2025-08-14 23:57:21,117 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.987)
+2025-08-14 23:57:21,117 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:24,392 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:24,487 - DEBUG - Face quality analysis - Brightness: 108.9 (1.00), Blur: 34.4 (0.10), Size: 53824 (1.00), Final: 0.64
+2025-08-14 23:57:26,028 - DEBUG - Recognized soldier 100000001 with distance 0.303
+2025-08-14 23:57:26,155 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.997', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-14 23:57:26,156 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.997)
+2025-08-14 23:57:26,156 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:29,470 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:29,568 - DEBUG - Face quality analysis - Brightness: 108.5 (1.00), Blur: 36.8 (0.10), Size: 54289 (1.00), Final: 0.64
+2025-08-14 23:57:30,788 - DEBUG - Recognized soldier 100000001 with distance 0.265
+2025-08-14 23:57:30,933 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.990', 'Sad': '0.009', 'Surprised': '0.000'}
+2025-08-14 23:57:30,934 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.990)
+2025-08-14 23:57:30,934 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:34,218 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:34,282 - DEBUG - Face quality analysis - Brightness: 109.1 (1.00), Blur: 31.7 (0.10), Size: 53361 (1.00), Final: 0.64
+2025-08-14 23:57:35,440 - DEBUG - Recognized soldier 100000001 with distance 0.284
+2025-08-14 23:57:35,578 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.994', 'Sad': '0.006', 'Surprised': '0.000'}
+2025-08-14 23:57:35,578 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.994)
+2025-08-14 23:57:35,580 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:38,873 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:38,975 - DEBUG - Face quality analysis - Brightness: 109.3 (1.00), Blur: 32.0 (0.10), Size: 53824 (1.00), Final: 0.64
+2025-08-14 23:57:40,218 - DEBUG - Recognized soldier 100000001 with distance 0.275
+2025-08-14 23:57:40,402 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.995', 'Sad': '0.004', 'Surprised': '0.000'}
+2025-08-14 23:57:40,402 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.995)
+2025-08-14 23:57:40,403 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:43,683 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:43,798 - DEBUG - Face quality analysis - Brightness: 109.9 (1.00), Blur: 32.7 (0.10), Size: 54289 (1.00), Final: 0.64
+2025-08-14 23:57:45,354 - DEBUG - Recognized soldier 100000001 with distance 0.279
+2025-08-14 23:57:45,504 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.001', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.980', 'Sad': '0.018', 'Surprised': '0.000'}
+2025-08-14 23:57:45,504 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.980)
+2025-08-14 23:57:45,504 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:48,777 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:48,874 - DEBUG - Face quality analysis - Brightness: 109.7 (1.00), Blur: 33.7 (0.10), Size: 51984 (1.00), Final: 0.64
+2025-08-14 23:57:50,242 - DEBUG - Recognized soldier 100000001 with distance 0.287
+2025-08-14 23:57:50,400 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.004', 'Neutral': '0.994', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:57:50,400 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.994)
+2025-08-14 23:57:50,401 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:53,736 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:53,831 - DEBUG - Face quality analysis - Brightness: 108.4 (1.00), Blur: 32.5 (0.10), Size: 51984 (1.00), Final: 0.64
+2025-08-14 23:57:54,977 - DEBUG - Recognized soldier 100000001 with distance 0.278
+2025-08-14 23:57:55,164 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.998', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-14 23:57:55,165 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.998)
+2025-08-14 23:57:55,165 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:57:58,449 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:57:58,535 - DEBUG - Face quality analysis - Brightness: 108.7 (1.00), Blur: 36.1 (0.10), Size: 52900 (1.00), Final: 0.64
+2025-08-14 23:57:59,971 - DEBUG - Recognized soldier 100000001 with distance 0.328
+2025-08-14 23:58:00,110 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.001', 'Neutral': '0.990', 'Sad': '0.007', 'Surprised': '0.000'}
+2025-08-14 23:58:00,110 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.990)
+2025-08-14 23:58:00,110 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:03,399 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:03,554 - DEBUG - Face quality analysis - Brightness: 106.6 (1.00), Blur: 31.1 (0.10), Size: 47524 (1.00), Final: 0.64
+2025-08-14 23:58:04,849 - DEBUG - Recognized soldier 100000001 with distance 0.289
+2025-08-14 23:58:04,988 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.995', 'Sad': '0.004', 'Surprised': '0.000'}
+2025-08-14 23:58:04,988 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.995)
+2025-08-14 23:58:04,989 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:08,303 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:08,388 - DEBUG - Face quality analysis - Brightness: 108.8 (1.00), Blur: 33.3 (0.10), Size: 51529 (1.00), Final: 0.64
+2025-08-14 23:58:09,364 - DEBUG - Recognized soldier 100000001 with distance 0.281
+2025-08-14 23:58:09,477 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-14 23:58:09,477 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:58:09,477 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:12,765 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:12,902 - DEBUG - Face quality analysis - Brightness: 108.9 (1.00), Blur: 36.1 (0.10), Size: 52441 (1.00), Final: 0.64
+2025-08-14 23:58:14,338 - DEBUG - Recognized soldier 100000001 with distance 0.268
+2025-08-14 23:58:14,540 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:58:14,540 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:58:14,540 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:17,857 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:17,970 - DEBUG - Face quality analysis - Brightness: 109.0 (1.00), Blur: 35.9 (0.10), Size: 51984 (1.00), Final: 0.64
+2025-08-14 23:58:19,117 - DEBUG - Recognized soldier 100000001 with distance 0.288
+2025-08-14 23:58:19,361 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.002', 'Happy': '0.000', 'Neutral': '0.991', 'Sad': '0.007', 'Surprised': '0.000'}
+2025-08-14 23:58:19,362 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.991)
+2025-08-14 23:58:19,363 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:22,636 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:22,741 - DEBUG - Face quality analysis - Brightness: 109.1 (1.00), Blur: 35.6 (0.10), Size: 51984 (1.00), Final: 0.64
+2025-08-14 23:58:23,705 - DEBUG - Recognized soldier 100000001 with distance 0.309
+2025-08-14 23:58:23,824 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:58:23,825 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:58:23,825 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:27,107 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:27,266 - DEBUG - Face quality analysis - Brightness: 108.5 (1.00), Blur: 36.1 (0.10), Size: 51984 (1.00), Final: 0.64
+2025-08-14 23:58:29,226 - DEBUG - Recognized soldier 100000001 with distance 0.306
+2025-08-14 23:58:29,414 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:58:29,414 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:58:29,415 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:32,721 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:32,784 - DEBUG - Face quality analysis - Brightness: 107.3 (1.00), Blur: 34.1 (0.10), Size: 49729 (1.00), Final: 0.64
+2025-08-14 23:58:33,818 - DEBUG - Recognized soldier 100000001 with distance 0.248
+2025-08-14 23:58:33,950 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '1.000', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-14 23:58:33,951 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 1.000)
+2025-08-14 23:58:33,951 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:37,250 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:37,342 - DEBUG - Face quality analysis - Brightness: 108.9 (1.00), Blur: 33.8 (0.10), Size: 51984 (1.00), Final: 0.64
+2025-08-14 23:58:38,838 - DEBUG - Recognized soldier 100000001 with distance 0.291
+2025-08-14 23:58:39,026 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:58:39,027 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:58:39,028 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:42,315 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:42,378 - DEBUG - Face quality analysis - Brightness: 108.9 (1.00), Blur: 35.1 (0.10), Size: 52441 (1.00), Final: 0.64
+2025-08-14 23:58:43,386 - DEBUG - Recognized soldier 100000001 with distance 0.257
+2025-08-14 23:58:43,507 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:58:43,507 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:58:43,507 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:46,817 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:46,979 - DEBUG - Face quality analysis - Brightness: 108.6 (1.00), Blur: 37.1 (0.10), Size: 51076 (1.00), Final: 0.64
+2025-08-14 23:58:48,518 - DEBUG - Recognized soldier 100000001 with distance 0.315
+2025-08-14 23:58:48,690 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.998', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-14 23:58:48,690 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.998)
+2025-08-14 23:58:48,690 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:51,970 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:52,102 - DEBUG - Face quality analysis - Brightness: 108.3 (1.00), Blur: 37.1 (0.10), Size: 51076 (1.00), Final: 0.64
+2025-08-14 23:58:53,154 - DEBUG - Recognized soldier 100000001 with distance 0.254
+2025-08-14 23:58:53,295 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.998', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:58:53,296 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.998)
+2025-08-14 23:58:53,296 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:58:56,610 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:58:56,694 - DEBUG - Face quality analysis - Brightness: 109.4 (1.00), Blur: 38.0 (0.10), Size: 52441 (1.00), Final: 0.64
+2025-08-14 23:58:58,140 - DEBUG - Recognized soldier 100000001 with distance 0.311
+2025-08-14 23:58:58,308 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.998', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:58:58,308 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.998)
+2025-08-14 23:58:58,309 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:59:01,557 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:59:01,741 - DEBUG - Face quality analysis - Brightness: 107.0 (1.00), Blur: 36.3 (0.10), Size: 48841 (1.00), Final: 0.64
+2025-08-14 23:59:03,696 - DEBUG - Recognized soldier 100000001 with distance 0.276
+2025-08-14 23:59:03,887 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.998', 'Sad': '0.002', 'Surprised': '0.000'}
+2025-08-14 23:59:03,888 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.998)
+2025-08-14 23:59:03,888 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:59:07,209 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:59:07,310 - DEBUG - Face quality analysis - Brightness: 109.2 (1.00), Blur: 35.6 (0.10), Size: 51529 (1.00), Final: 0.64
+2025-08-14 23:59:08,313 - DEBUG - Recognized soldier 100000001 with distance 0.326
+2025-08-14 23:59:08,442 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.996', 'Sad': '0.003', 'Surprised': '0.000'}
+2025-08-14 23:59:08,443 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.996)
+2025-08-14 23:59:08,443 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:59:11,726 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-14 23:59:11,816 - DEBUG - Face quality analysis - Brightness: 110.6 (1.00), Blur: 33.4 (0.10), Size: 52900 (1.00), Final: 0.64
+2025-08-14 23:59:13,172 - DEBUG - Recognized soldier 100000001 with distance 0.288
+2025-08-14 23:59:13,291 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-14 23:59:13,292 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-14 23:59:13,292 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-14 23:59:15,008 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:15] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-14 23:59:15,809 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-14 23:59:15,809 - INFO - Model preloader service initialized successfully
+2025-08-14 23:59:15,809 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-14 23:59:15,809 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.000s - instant access!
+2025-08-14 23:59:15,809 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.00s
+2025-08-14 23:59:15,809 - WARNING - No monitoring session active for soldier 100000001
+2025-08-14 23:59:15,810 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-14 23:59:15,810 - WARNING - No emotion data retrieved from monitoring service
+2025-08-14 23:59:15,810 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-14 23:59:15,811 - INFO - Sentiment scores for text: {'neg': 0.325, 'neu': 0.457, 'pos': 0.218, 'compound': -0.4559}
+2025-08-14 23:59:15,811 - INFO - Text: 'why it was good not feeling well  I think like doi...' - Label: NEGATIVE, Depression score: 0.73
+2025-08-14 23:59:15,811 - INFO - Question 18 - Sentiment: NEGATIVE, Score: 0.73
+2025-08-14 23:59:15,829 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,848 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,848 - INFO - Question 18: Weighted Combined = (0.73 * 0.75) + (0.00 * 0.25) = 0.546
+2025-08-14 23:59:15,849 - INFO - Question 18: NLP=0.72795, Emotion=0.00, Weighted Combined=0.546
+2025-08-14 23:59:15,851 - INFO - Sentiment scores for text: {'neg': 0.343, 'neu': 0.657, 'pos': 0.0, 'compound': -0.5719}
+2025-08-14 23:59:15,851 - INFO - Text: 'no I didn't get any  sleep this week  I was exhaus...' - Label: NEGATIVE, Depression score: 0.79
+2025-08-14 23:59:15,851 - INFO - Question 19 - Sentiment: NEGATIVE, Score: 0.79
+2025-08-14 23:59:15,871 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,892 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,892 - INFO - Question 19: Weighted Combined = (0.79 * 0.75) + (0.00 * 0.25) = 0.589
+2025-08-14 23:59:15,892 - INFO - Question 19: NLP=0.7859499999999999, Emotion=0.00, Weighted Combined=0.589
+2025-08-14 23:59:15,894 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.654, 'pos': 0.346, 'compound': 0.5719}
+2025-08-14 23:59:15,894 - INFO - Text: 'I feel happy when I saw my wife...' - Label: POSITIVE, Depression score: 0.21
+2025-08-14 23:59:15,894 - INFO - Question 20 - Sentiment: POSITIVE, Score: 0.21
+2025-08-14 23:59:15,915 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,935 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,935 - INFO - Question 20: Weighted Combined = (0.21 * 0.75) + (0.00 * 0.25) = 0.161
+2025-08-14 23:59:15,935 - INFO - Question 20: NLP=0.21405000000000002, Emotion=0.00, Weighted Combined=0.161
+2025-08-14 23:59:15,938 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-14 23:59:15,938 - INFO - Text: 'Har commander  scolded me for coming late in morni...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-14 23:59:15,938 - INFO - Question 21 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-14 23:59:15,955 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,974 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:15,974 - INFO - Question 21: Weighted Combined = (0.50 * 0.75) + (0.00 * 0.25) = 0.375
+2025-08-14 23:59:15,975 - INFO - Question 21: NLP=0.5, Emotion=0.00, Weighted Combined=0.375
+2025-08-14 23:59:15,976 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.597, 'pos': 0.403, 'compound': 0.4019}
+2025-08-14 23:59:15,977 - INFO - Text: 'yes I talked with them...' - Label: POSITIVE, Depression score: 0.30
+2025-08-14 23:59:15,977 - INFO - Question 22 - Sentiment: POSITIVE, Score: 0.30
+2025-08-14 23:59:15,996 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,017 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,017 - INFO - Question 22: Weighted Combined = (0.30 * 0.75) + (0.00 * 0.25) = 0.224
+2025-08-14 23:59:16,017 - INFO - Question 22: NLP=0.29905000000000004, Emotion=0.00, Weighted Combined=0.224
+2025-08-14 23:59:16,019 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.902, 'pos': 0.098, 'compound': 0.0772}
+2025-08-14 23:59:16,019 - INFO - Text: 'I want to change  that I was not able to  call at ...' - Label: POSITIVE, Depression score: 0.46
+2025-08-14 23:59:16,019 - INFO - Question 23 - Sentiment: POSITIVE, Score: 0.46
+2025-08-14 23:59:16,037 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,056 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,057 - INFO - Question 23: Weighted Combined = (0.46 * 0.75) + (0.00 * 0.25) = 0.346
+2025-08-14 23:59:16,057 - INFO - Question 23: NLP=0.4614, Emotion=0.00, Weighted Combined=0.346
+2025-08-14 23:59:16,058 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 0.58, 'pos': 0.42, 'compound': 0.4404}
+2025-08-14 23:59:16,058 - INFO - Text: 'I got enough sleep  thanks...' - Label: POSITIVE, Depression score: 0.28
+2025-08-14 23:59:16,059 - INFO - Question 24 - Sentiment: POSITIVE, Score: 0.28
+2025-08-14 23:59:16,075 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,096 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,097 - INFO - Question 24: Weighted Combined = (0.28 * 0.75) + (0.00 * 0.25) = 0.210
+2025-08-14 23:59:16,097 - INFO - Question 24: NLP=0.2798, Emotion=0.00, Weighted Combined=0.210
+2025-08-14 23:59:16,099 - INFO - Sentiment scores for text: {'neg': 0.369, 'neu': 0.631, 'pos': 0.0, 'compound': -0.4449}
+2025-08-14 23:59:16,100 - INFO - Text: 'nothing give me happiness this week...' - Label: NEGATIVE, Depression score: 0.72
+2025-08-14 23:59:16,100 - INFO - Question 25 - Sentiment: NEGATIVE, Score: 0.72
+2025-08-14 23:59:16,122 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,147 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,147 - INFO - Question 25: Weighted Combined = (0.72 * 0.75) + (0.00 * 0.25) = 0.542
+2025-08-14 23:59:16,148 - INFO - Question 25: NLP=0.72245, Emotion=0.00, Weighted Combined=0.542
+2025-08-14 23:59:16,150 - INFO - Sentiment scores for text: {'neg': 0.519, 'neu': 0.481, 'pos': 0.0, 'compound': -0.6597}
+2025-08-14 23:59:16,150 - INFO - Text: 'I feel tired  because I am exhausted...' - Label: NEGATIVE, Depression score: 0.83
+2025-08-14 23:59:16,150 - INFO - Question 26 - Sentiment: NEGATIVE, Score: 0.83
+2025-08-14 23:59:16,171 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,190 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,190 - INFO - Question 26: Weighted Combined = (0.83 * 0.75) + (0.00 * 0.25) = 0.622
+2025-08-14 23:59:16,190 - INFO - Question 26: NLP=0.82985, Emotion=0.00, Weighted Combined=0.622
+2025-08-14 23:59:16,192 - INFO - Sentiment scores for text: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+2025-08-14 23:59:16,192 - INFO - Text: 'I am waiting to meet my family...' - Label: NEUTRAL, Depression score: 0.50
+2025-08-14 23:59:16,192 - INFO - Question 27 - Sentiment: NEUTRAL, Score: 0.50
+2025-08-14 23:59:16,212 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,234 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,234 - INFO - Question 27: Weighted Combined = (0.50 * 0.75) + (0.00 * 0.25) = 0.375
+2025-08-14 23:59:16,235 - INFO - Question 27: NLP=0.5, Emotion=0.00, Weighted Combined=0.375
+2025-08-14 23:59:16,237 - INFO - CRITICAL: Peak-weighted NLP calculation: 4/10 high-risk responses detected.
+2025-08-14 23:59:16,237 - INFO - High-risk avg: 0.767, Overall avg: 0.532, Weighted result: 0.720
+2025-08-14 23:59:16,237 - INFO - HIGH-RISK RESPONSE PRESERVED: Mental health intervention may be required
+2025-08-14 23:59:16,237 - INFO - Session 112 - Peak-Weighted NLP Depression Score: 0.72
+2025-08-14 23:59:16,238 - INFO - NLP Score Distribution: min=0.21, max=0.83, count=10
+2025-08-14 23:59:16,258 - INFO - Dynamic settings loaded - NLP Weight: 0.75, Emotion Weight: 0.25
+2025-08-14 23:59:16,258 - INFO - Session 112 - Using peak-weighted NLP score only: 0.72
+2025-08-14 23:59:16,282 - INFO - ================================================================================
+2025-08-14 23:59:16,282 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 112
+2025-08-14 23:59:16,282 - INFO - ================================================================================
+2025-08-14 23:59:16,283 - INFO - [SOLDIER] 100000001
+2025-08-14 23:59:16,283 - INFO - [SCORES] BREAKDOWN:
+2025-08-14 23:59:16,283 - INFO -    [NLP] Peak-Weighted Score (70%):     0.720
+2025-08-14 23:59:16,283 - INFO -    [EMOTION] Peak-Weighted Score (30%): 0.000
+2025-08-14 23:59:16,284 - INFO -    [FINAL] WEIGHTED COMBINED:           0.720
+2025-08-14 23:59:16,284 - INFO - 
+2025-08-14 23:59:16,284 - INFO - [ENHANCED_SCORING] PEAK-WEIGHTED AVERAGING ACTIVE:
+2025-08-14 23:59:16,284 - INFO -    NLP: High-risk responses (>0.65) amplified for suicide/crisis detection
+2025-08-14 23:59:16,284 - INFO -    Emotion: Non-neutral emotions amplified for military personnel sensitivity
+2025-08-14 23:59:16,285 - INFO - 
+2025-08-14 23:59:16,285 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-14 23:59:16,285 - INFO -    State:          MODERATE DEPRESSION
+2025-08-14 23:59:16,285 - INFO -    Alert Level:    ORANGE
+2025-08-14 23:59:16,285 - INFO -    Description:    Significant negative emotional indicators
+2025-08-14 23:59:16,285 - INFO -    Recommendation: Counseling recommended, bi-weekly assessments
+2025-08-14 23:59:16,285 - INFO - 
+2025-08-14 23:59:16,286 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-14 23:59:16,286 - INFO -    Total Detections: 0
+2025-08-14 23:59:16,286 - INFO -    Dominant Emotion: Unknown
+2025-08-14 23:59:16,286 - INFO - ================================================================================
+2025-08-14 23:59:16,288 - INFO - [MENTAL_STATE] Mental state saved: Slightly Positive (Rating: 4/7)
+2025-08-14 23:59:16,295 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:16] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-14 23:59:16,306 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:16] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:59:16,392 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-14 23:59:16,392 - INFO - Processing 28 emotion detections for soldier 100000001
+2025-08-14 23:59:16,393 - INFO - Found 28 actual emotion detections (filtered from 28 total entries)
+2025-08-14 23:59:16,393 - DEBUG - No significant emotional peaks detected in 28 scores. Using simple average: 0.450
+2025-08-14 23:59:16,393 - INFO - Calculated peak-weighted avg depression score: 0.45, dominant emotion: Neutral
+2025-08-14 23:59:16,393 - INFO - Score distribution: min=0.45, max=0.45, count=28
+2025-08-14 23:59:16,394 - INFO - Storing emotion data for session_id: 112
+2025-08-14 23:59:16,414 - INFO - Storing emotion data - session_id: 112, force_id: 100000001, avg_score: 0.45
+2025-08-14 23:59:16,415 - INFO - Updated 1 weekly session record(s)
+2025-08-14 23:59:16,418 - INFO - Updated 10 question response record(s)
+2025-08-14 23:59:16,422 - INFO - Successfully stored survey emotion data for session 112: avg_score=0.45
+2025-08-14 23:59:16,423 - INFO - Survey monitoring ended for 100000001: peak-weighted avg_score=0.45, emotion=Neutral, detections=28
+2025-08-14 23:59:16,423 - INFO - PEAK-WEIGHTED AVERAGING APPLIED: Enhanced sensitivity for military personnel emotion detection
+2025-08-14 23:59:16,959 - INFO - Camera resources released after survey monitoring
+2025-08-14 23:59:16,961 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:16] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:59:17,296 - WARNING - No monitoring session active for soldier 100000001
+2025-08-14 23:59:17,297 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:17] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-14 23:59:25,945 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:25] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-14 23:59:26,695 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-14 23:59:26,697 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:26] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-14 23:59:26,775 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:26] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-14 23:59:27,140 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:27] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-14 23:59:29,241 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:29] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-14 23:59:29,592 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:29] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-14 23:59:31,592 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-14 23:59:31,978 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-14 23:59:31,988 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:31] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-14 23:59:32,232 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:32] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-14 23:59:52,217 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:52] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-08-14 23:59:52,231 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:52] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-14 23:59:52,480 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:52] "GET /api/admin/settings/settings-categories HTTP/1.1" 200 -
+2025-08-14 23:59:52,545 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:52] "GET /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-14 23:59:57,032 - INFO - 127.0.0.1 - - [14/Aug/2025 23:59:57] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:00:02,542 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:02] "OPTIONS /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-15 00:00:02,596 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:02] "POST /api/admin/settings/system-settings HTTP/1.1" 200 -
+2025-08-15 00:00:07,324 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:07] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-15 00:00:07,592 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:07] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-15 00:00:08,807 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:08] "GET /api/admin/questionnaires/8 HTTP/1.1" 200 -
+2025-08-15 00:00:10,398 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:10] "POST /api/survey/admin/questionnaires/8/activate HTTP/1.1" 200 -
+2025-08-15 00:00:10,942 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:10] "GET /api/admin/questionnaires/8 HTTP/1.1" 200 -
+2025-08-15 00:00:11,288 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:11] "GET /api/admin/questionnaires HTTP/1.1" 200 -
+2025-08-15 00:00:14,347 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:14] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-15 00:00:20,121 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:20] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-15 00:00:20,747 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:20] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:00:21,106 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-15 00:00:21,107 - INFO - [CAMERA] Initializing camera...
+2025-08-15 00:00:21,107 - INFO - Trying external webcam (index 1)...
+2025-08-15 00:00:21,264 - INFO - Trying built-in camera (index 0)...
+2025-08-15 00:00:28,637 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-15 00:00:28,638 - INFO - [CAMERA] Camera initialized in 7.53 seconds
+2025-08-15 00:00:28,935 - INFO - [CONFIG] Camera configured in 0.30s: 1280x960, detection_interval=30
+2025-08-15 00:00:28,937 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-15 00:00:28,937 - INFO - [SUCCESS] Survey monitoring started in 7.83s (camera: 7.53s, settings: 0.30s, thread: 0.00s)
+2025-08-15 00:00:28,939 - INFO - 127.0.0.1 - - [15/Aug/2025 00:00:28] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:00:28,980 - INFO - Using detection interval: 30 frames
+2025-08-15 00:00:32,187 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:00:35,729 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:00:35,896 - DEBUG - Face quality analysis - Brightness: 104.6 (1.00), Blur: 34.1 (0.10), Size: 48400 (1.00), Final: 0.64
+2025-08-15 00:00:37,706 - DEBUG - Recognized soldier 100000001 with distance 0.295
+2025-08-15 00:00:37,987 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.002', 'Happy': '0.000', 'Neutral': '0.989', 'Sad': '0.009', 'Surprised': '0.000'}
+2025-08-15 00:00:37,989 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.989)
+2025-08-15 00:00:37,989 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:00:41,255 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:00:41,399 - DEBUG - Face quality analysis - Brightness: 104.9 (1.00), Blur: 32.6 (0.10), Size: 47742 (1.00), Final: 0.64
+2025-08-15 00:00:43,146 - DEBUG - Recognized soldier 100000001 with distance 0.333
+2025-08-15 00:00:43,311 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.002', 'Happy': '0.000', 'Neutral': '0.981', 'Sad': '0.017', 'Surprised': '0.000'}
+2025-08-15 00:00:43,312 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.981)
+2025-08-15 00:00:43,312 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:00:46,607 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:00:50,125 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:00:50,261 - DEBUG - Face quality analysis - Brightness: 103.2 (1.00), Blur: 33.8 (0.10), Size: 44944 (1.00), Final: 0.64
+2025-08-15 00:00:51,874 - DEBUG - Recognized soldier 100000001 with distance 0.341
+2025-08-15 00:00:52,059 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.999', 'Sad': '0.001', 'Surprised': '0.000'}
+2025-08-15 00:00:52,060 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.999)
+2025-08-15 00:00:52,060 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:00:55,330 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:00:55,454 - DEBUG - Face quality analysis - Brightness: 104.8 (1.00), Blur: 35.6 (0.10), Size: 49284 (1.00), Final: 0.64
+2025-08-15 00:00:57,343 - DEBUG - Recognized soldier 100000001 with distance 0.309
+2025-08-15 00:00:57,672 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '0.995', 'Sad': '0.005', 'Surprised': '0.000'}
+2025-08-15 00:00:57,672 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.995)
+2025-08-15 00:00:57,673 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:01:00,974 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:01:01,107 - DEBUG - Face quality analysis - Brightness: 106.6 (1.00), Blur: 35.1 (0.10), Size: 53824 (1.00), Final: 0.64
+2025-08-15 00:01:02,689 - DEBUG - Recognized soldier 100000001 with distance 0.367
+2025-08-15 00:01:02,892 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.010', 'Happy': '0.000', 'Neutral': '0.899', 'Sad': '0.090', 'Surprised': '0.001'}
+2025-08-15 00:01:02,893 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.899)
+2025-08-15 00:01:02,893 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:01:06,178 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:01:06,274 - DEBUG - Face quality analysis - Brightness: 107.9 (1.00), Blur: 35.2 (0.10), Size: 51076 (1.00), Final: 0.64
+2025-08-15 00:01:07,714 - DEBUG - Recognized soldier 100000001 with distance 0.269
+2025-08-15 00:01:08,013 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.001', 'Happy': '0.000', 'Neutral': '0.988', 'Sad': '0.011', 'Surprised': '0.000'}
+2025-08-15 00:01:08,019 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.988)
+2025-08-15 00:01:08,020 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:01:10,711 - INFO - 127.0.0.1 - - [15/Aug/2025 00:01:10] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-15 00:01:11,337 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:01:11,537 - DEBUG - Face quality analysis - Brightness: 105.6 (1.00), Blur: 32.5 (0.10), Size: 47524 (1.00), Final: 0.64
+2025-08-15 00:01:17,732 - DEBUG - Recognized soldier 100000001 with distance 0.280
+2025-08-15 00:01:17,736 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:01:17,737 - INFO - Model preloader service initialized successfully
+2025-08-15 00:01:17,738 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-15 00:01:17,738 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.001s - instant access!
+2025-08-15 00:01:17,744 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.01s
+2025-08-15 00:01:17,745 - WARNING - No monitoring session active for soldier 100000001
+2025-08-15 00:01:17,746 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-15 00:01:17,746 - WARNING - No emotion data retrieved from monitoring service
+2025-08-15 00:01:17,746 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-15 00:01:17,748 - INFO - Sentiment scores for text: {'neg': 0.485, 'neu': 0.364, 'pos': 0.152, 'compound': -0.7579}
+2025-08-15 00:01:17,753 - INFO - Text: 'my week was bad I feel like doing suicide...' - Label: NEGATIVE, Depression score: 0.88
+2025-08-15 00:01:17,754 - INFO - Question 10 - Sentiment: NEGATIVE, Score: 0.88
+2025-08-15 00:01:17,800 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:01:17,848 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:01:17,849 - INFO - Question 10: Weighted Combined = (0.88 * 0.8) + (0.00 * 0.2) = 0.703
+2025-08-15 00:01:17,850 - INFO - Question 10: NLP=0.87895, Emotion=0.00, Weighted Combined=0.703
+2025-08-15 00:01:17,855 - INFO - Sentiment scores for text: {'neg': 0.535, 'neu': 0.465, 'pos': 0.0, 'compound': -0.5583}
+2025-08-15 00:01:17,861 - INFO - Text: 'no nothing is good at home...' - Label: NEGATIVE, Depression score: 0.78
+2025-08-15 00:01:17,861 - INFO - Question 11 - Sentiment: NEGATIVE, Score: 0.78
+2025-08-15 00:01:17,924 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:01:17,970 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:01:17,972 - INFO - Question 11: Weighted Combined = (0.78 * 0.8) + (0.00 * 0.2) = 0.623
+2025-08-15 00:01:17,972 - INFO - Question 11: NLP=0.77915, Emotion=0.00, Weighted Combined=0.623
+2025-08-15 00:01:17,979 - INFO - CRITICAL: Peak-weighted NLP calculation: 2/2 high-risk responses detected.
+2025-08-15 00:01:17,980 - INFO - High-risk avg: 0.829, Overall avg: 0.829, Weighted result: 0.829
+2025-08-15 00:01:17,980 - INFO - HIGH-RISK RESPONSE PRESERVED: Mental health intervention may be required
+2025-08-15 00:01:17,981 - INFO - Session 113 - Peak-Weighted NLP Depression Score: 0.83
+2025-08-15 00:01:17,982 - INFO - NLP Score Distribution: min=0.78, max=0.88, count=2
+2025-08-15 00:01:18,065 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:01:18,066 - INFO - Session 113 - Using peak-weighted NLP score only: 0.83
+2025-08-15 00:01:18,093 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.000', 'Disgusted': '0.000', 'Fearful': '0.000', 'Happy': '0.000', 'Neutral': '1.000', 'Sad': '0.000', 'Surprised': '0.000'}
+2025-08-15 00:01:18,094 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 1.000)
+2025-08-15 00:01:18,094 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:01:18,113 - INFO - ================================================================================
+2025-08-15 00:01:18,114 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 113
+2025-08-15 00:01:18,115 - INFO - ================================================================================
+2025-08-15 00:01:18,116 - INFO - [SOLDIER] 100000001
+2025-08-15 00:01:18,116 - INFO - [SCORES] BREAKDOWN:
+2025-08-15 00:01:18,116 - INFO -    [NLP] Peak-Weighted Score (70%):     0.829
+2025-08-15 00:01:18,117 - INFO -    [EMOTION] Peak-Weighted Score (30%): 0.000
+2025-08-15 00:01:18,117 - INFO -    [FINAL] WEIGHTED COMBINED:           0.829
+2025-08-15 00:01:18,117 - INFO - 
+2025-08-15 00:01:18,118 - INFO - [ENHANCED_SCORING] PEAK-WEIGHTED AVERAGING ACTIVE:
+2025-08-15 00:01:18,118 - INFO -    NLP: High-risk responses (>0.65) amplified for suicide/crisis detection
+2025-08-15 00:01:18,118 - INFO -    Emotion: Non-neutral emotions amplified for military personnel sensitivity
+2025-08-15 00:01:18,118 - INFO - 
+2025-08-15 00:01:18,119 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-15 00:01:18,119 - INFO -    State:          MODERATE DEPRESSION
+2025-08-15 00:01:18,119 - INFO -    Alert Level:    ORANGE
+2025-08-15 00:01:18,119 - INFO -    Description:    Significant negative emotional indicators
+2025-08-15 00:01:18,119 - INFO -    Recommendation: Counseling recommended, bi-weekly assessments
+2025-08-15 00:01:18,121 - INFO - 
+2025-08-15 00:01:18,121 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-15 00:01:18,122 - INFO -    Total Detections: 0
+2025-08-15 00:01:18,122 - INFO -    Dominant Emotion: Unknown
+2025-08-15 00:01:18,123 - INFO - ================================================================================
+2025-08-15 00:01:18,127 - INFO - [MENTAL_STATE] Mental state saved: Slightly Positive (Rating: 4/7)
+2025-08-15 00:01:18,150 - INFO - 127.0.0.1 - - [15/Aug/2025 00:01:18] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-15 00:01:18,490 - INFO - 127.0.0.1 - - [15/Aug/2025 00:01:18] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:01:18,860 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-15 00:01:18,860 - INFO - Processing 7 emotion detections for soldier 100000001
+2025-08-15 00:01:18,861 - INFO - Found 7 actual emotion detections (filtered from 7 total entries)
+2025-08-15 00:01:18,861 - DEBUG - No significant emotional peaks detected in 7 scores. Using simple average: 0.450
+2025-08-15 00:01:18,861 - INFO - Calculated peak-weighted avg depression score: 0.45, dominant emotion: Neutral
+2025-08-15 00:01:18,862 - INFO - Score distribution: min=0.45, max=0.45, count=7
+2025-08-15 00:01:18,862 - INFO - Storing emotion data for session_id: 113
+2025-08-15 00:01:18,885 - INFO - Storing emotion data - session_id: 113, force_id: 100000001, avg_score: 0.45
+2025-08-15 00:01:18,887 - INFO - Updated 1 weekly session record(s)
+2025-08-15 00:01:18,890 - INFO - Updated 2 question response record(s)
+2025-08-15 00:01:18,905 - INFO - Successfully stored survey emotion data for session 113: avg_score=0.45
+2025-08-15 00:01:18,907 - INFO - Survey monitoring ended for 100000001: peak-weighted avg_score=0.45, emotion=Neutral, detections=7
+2025-08-15 00:01:18,907 - INFO - PEAK-WEIGHTED AVERAGING APPLIED: Enhanced sensitivity for military personnel emotion detection
+2025-08-15 00:01:20,032 - INFO - Camera resources released after survey monitoring
+2025-08-15 00:01:20,038 - INFO - 127.0.0.1 - - [15/Aug/2025 00:01:20] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:01:20,249 - WARNING - No monitoring session active for soldier 100000001
+2025-08-15 00:01:20,254 - INFO - 127.0.0.1 - - [15/Aug/2025 00:01:20] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:02:19,419 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:19] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:02:20,858 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:02:20,863 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:20] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:02:21,019 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:21] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:02:21,470 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:21] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:02:24,336 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:24] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:02:24,684 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:24] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:02:24,917 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:24] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:02:25,186 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:25] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:02:51,937 - INFO - 127.0.0.1 - - [15/Aug/2025 00:02:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:03:21,903 - INFO - 127.0.0.1 - - [15/Aug/2025 00:03:21] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:03:51,913 - INFO - 127.0.0.1 - - [15/Aug/2025 00:03:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:04:21,911 - INFO - 127.0.0.1 - - [15/Aug/2025 00:04:21] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:04:51,924 - INFO - 127.0.0.1 - - [15/Aug/2025 00:04:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:05:21,901 - INFO - 127.0.0.1 - - [15/Aug/2025 00:05:21] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:05:51,912 - INFO - 127.0.0.1 - - [15/Aug/2025 00:05:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:06:21,660 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_peak_weighted_nlp.py', reloading
+2025-08-15 00:06:22,001 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_vader_analysis.py', reloading
+2025-08-15 00:06:22,293 - INFO -  * Restarting with stat
+2025-08-15 00:06:22,644 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\sentiment_analysis_service.py', reloading
+2025-08-15 00:06:22,709 - INFO -  * Restarting with stat
+2025-08-15 00:06:22,891 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\test_peak_weighted_nlp.py', reloading
+2025-08-15 00:06:23,628 - INFO -  * Restarting with stat
+2025-08-15 00:06:30,500 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:06:30,887 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:06:31,849 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:06:34,069 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:06:34,070 - INFO - Refreshing face recognition model...
+2025-08-15 00:06:34,072 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:06:34,073 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:06:34,075 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:06:34,078 - INFO - Model preloader service initialized successfully
+2025-08-15 00:06:34,078 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:06:34,078 - INFO - Model preloading started
+2025-08-15 00:06:34,078 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:06:34,152 - INFO - Face cascade loaded successfully
+2025-08-15 00:06:34,494 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:06:34,495 - INFO - Refreshing face recognition model...
+2025-08-15 00:06:34,497 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:06:34,497 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:06:34,499 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:06:34,505 - INFO - Model preloader service initialized successfully
+2025-08-15 00:06:34,505 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:06:34,505 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:06:34,505 - INFO - Model preloading started
+2025-08-15 00:06:34,598 - INFO - Face cascade loaded successfully
+2025-08-15 00:06:34,727 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:06:34,728 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:06:34,728 - INFO - Model preloading completed in 0.65 seconds
+2025-08-15 00:06:34,756 - INFO - Traditional model loading completed successfully
+2025-08-15 00:06:34,757 - INFO - [SUCCESS] Traditional model loading completed in 0.68s
+2025-08-15 00:06:34,757 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.69s
+2025-08-15 00:06:35,132 - INFO - Traditional model loading completed successfully
+2025-08-15 00:06:35,133 - INFO - [SUCCESS] Traditional model loading completed in 0.63s
+2025-08-15 00:06:35,134 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.64s
+2025-08-15 00:06:35,140 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:06:35,141 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:06:35,142 - INFO - Model preloading completed in 0.64 seconds
+2025-08-15 00:06:35,572 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:06:35,574 - INFO - Refreshing face recognition model...
+2025-08-15 00:06:35,576 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:06:35,577 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:06:35,579 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:06:35,584 - INFO - Model preloader service initialized successfully
+2025-08-15 00:06:35,585 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:06:35,585 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:06:35,585 - INFO - Model preloading started
+2025-08-15 00:06:35,679 - INFO - Face cascade loaded successfully
+2025-08-15 00:06:35,732 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:06:35,787 - INFO - Starting model preloader service...
+2025-08-15 00:06:35,807 - WARNING -  * Debugger is active!
+2025-08-15 00:06:35,819 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:06:36,066 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:06:36,131 - INFO - Starting model preloader service...
+2025-08-15 00:06:36,150 - WARNING -  * Debugger is active!
+2025-08-15 00:06:36,162 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:06:36,221 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:06:36,221 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:06:36,222 - INFO - Model preloading completed in 0.64 seconds
+2025-08-15 00:06:36,259 - INFO - Traditional model loading completed successfully
+2025-08-15 00:06:36,260 - INFO - [SUCCESS] Traditional model loading completed in 0.67s
+2025-08-15 00:06:36,260 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.69s
+2025-08-15 00:06:36,301 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.649728, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:06:36,633 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.636622, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:06:37,226 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:06:37,283 - INFO - Starting model preloader service...
+2025-08-15 00:06:37,303 - WARNING -  * Debugger is active!
+2025-08-15 00:06:37,318 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:06:37,784 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.636453, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:19:36,424 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-15 00:19:36,883 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-15 00:19:37,464 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-15 00:19:37,488 - INFO -  * Restarting with stat
+2025-08-15 00:19:38,030 - INFO -  * Restarting with stat
+2025-08-15 00:19:38,697 - INFO -  * Restarting with stat
+2025-08-15 00:19:47,468 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:19:47,564 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:19:48,078 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:19:51,411 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:19:51,413 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:19:51,413 - INFO - Refreshing face recognition model...
+2025-08-15 00:19:51,414 - INFO - Refreshing face recognition model...
+2025-08-15 00:19:51,414 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:19:51,415 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:19:51,415 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:19:51,416 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:19:51,417 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:19:51,418 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:19:51,421 - INFO - Model preloader service initialized successfully
+2025-08-15 00:19:51,422 - INFO - Model preloading started
+2025-08-15 00:19:51,422 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:19:51,422 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:19:51,423 - INFO - Model preloader service initialized successfully
+2025-08-15 00:19:51,423 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:19:51,424 - INFO - Model preloading started
+2025-08-15 00:19:51,424 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:19:51,513 - INFO - Face cascade loaded successfully
+2025-08-15 00:19:51,520 - INFO - Face cascade loaded successfully
+2025-08-15 00:19:52,139 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:19:52,141 - INFO - Refreshing face recognition model...
+2025-08-15 00:19:52,142 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:19:52,143 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:19:52,146 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:19:52,152 - INFO - Model preloader service initialized successfully
+2025-08-15 00:19:52,153 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:19:52,153 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:19:52,161 - INFO - Model preloading started
+2025-08-15 00:19:52,214 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:19:52,215 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:19:52,215 - INFO - Model preloading completed in 0.79 seconds
+2025-08-15 00:19:52,218 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:19:52,219 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:19:52,223 - INFO - Model preloading completed in 0.80 seconds
+2025-08-15 00:19:52,223 - INFO - Traditional model loading completed successfully
+2025-08-15 00:19:52,223 - INFO - [SUCCESS] Traditional model loading completed in 0.80s
+2025-08-15 00:19:52,223 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.81s
+2025-08-15 00:19:52,251 - INFO - Traditional model loading completed successfully
+2025-08-15 00:19:52,251 - INFO - [SUCCESS] Traditional model loading completed in 0.83s
+2025-08-15 00:19:52,251 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.84s
+2025-08-15 00:19:52,265 - INFO - Face cascade loaded successfully
+2025-08-15 00:19:53,034 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:19:53,034 - INFO - Traditional model loading completed successfully
+2025-08-15 00:19:53,034 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:19:53,035 - INFO - [SUCCESS] Traditional model loading completed in 0.88s
+2025-08-15 00:19:53,036 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.90s
+2025-08-15 00:19:53,038 - INFO - Model preloading completed in 0.88 seconds
+2025-08-15 00:19:53,609 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:19:53,622 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:19:53,705 - INFO - Starting model preloader service...
+2025-08-15 00:19:53,718 - INFO - Starting model preloader service...
+2025-08-15 00:19:53,735 - WARNING -  * Debugger is active!
+2025-08-15 00:19:53,748 - WARNING -  * Debugger is active!
+2025-08-15 00:19:53,755 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:19:53,767 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:19:54,211 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.793515, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:19:54,226 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.797538, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:19:54,517 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:19:54,622 - INFO - Starting model preloader service...
+2025-08-15 00:19:54,649 - WARNING -  * Debugger is active!
+2025-08-15 00:19:54,664 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:19:55,127 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.883018, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:20:01,183 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-15 00:20:01,298 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-15 00:20:01,649 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-15 00:20:01,864 - INFO -  * Restarting with stat
+2025-08-15 00:20:02,101 - INFO -  * Restarting with stat
+2025-08-15 00:20:02,582 - INFO -  * Restarting with stat
+2025-08-15 00:20:10,038 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:20:10,072 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:20:10,311 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:20:13,381 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:20:13,382 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:20:13,382 - INFO - Refreshing face recognition model...
+2025-08-15 00:20:13,383 - INFO - Refreshing face recognition model...
+2025-08-15 00:20:13,384 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:20:13,384 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:20:13,385 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:20:13,385 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:20:13,386 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:20:13,387 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:20:13,390 - INFO - Model preloader service initialized successfully
+2025-08-15 00:20:13,390 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:20:13,390 - INFO - Model preloading started
+2025-08-15 00:20:13,390 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:20:13,391 - INFO - Model preloader service initialized successfully
+2025-08-15 00:20:13,391 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:20:13,391 - INFO - Model preloading started
+2025-08-15 00:20:13,391 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:20:13,464 - INFO - Face cascade loaded successfully
+2025-08-15 00:20:13,466 - INFO - Face cascade loaded successfully
+2025-08-15 00:20:13,697 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:20:13,698 - INFO - Refreshing face recognition model...
+2025-08-15 00:20:13,702 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:20:13,706 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:20:13,713 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:20:13,719 - INFO - Model preloader service initialized successfully
+2025-08-15 00:20:13,719 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:20:13,719 - INFO - Model preloading started
+2025-08-15 00:20:13,719 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:20:13,832 - INFO - Face cascade loaded successfully
+2025-08-15 00:20:14,020 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:20:14,020 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:20:14,020 - INFO - Model preloading completed in 0.63 seconds
+2025-08-15 00:20:14,035 - INFO - Traditional model loading completed successfully
+2025-08-15 00:20:14,035 - INFO - [SUCCESS] Traditional model loading completed in 0.65s
+2025-08-15 00:20:14,035 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.65s
+2025-08-15 00:20:14,070 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:20:14,071 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:20:14,072 - INFO - Model preloading completed in 0.68 seconds
+2025-08-15 00:20:14,128 - INFO - Traditional model loading completed successfully
+2025-08-15 00:20:14,129 - INFO - [SUCCESS] Traditional model loading completed in 0.74s
+2025-08-15 00:20:14,129 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.75s
+2025-08-15 00:20:14,366 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:20:14,367 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:20:14,368 - INFO - Model preloading completed in 0.65 seconds
+2025-08-15 00:20:14,409 - INFO - Traditional model loading completed successfully
+2025-08-15 00:20:14,409 - INFO - [SUCCESS] Traditional model loading completed in 0.69s
+2025-08-15 00:20:14,409 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.71s
+2025-08-15 00:20:15,218 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:20:15,262 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:20:15,302 - INFO - Starting model preloader service...
+2025-08-15 00:20:15,329 - WARNING -  * Debugger is active!
+2025-08-15 00:20:15,349 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:20:15,350 - INFO - Starting model preloader service...
+2025-08-15 00:20:15,372 - WARNING -  * Debugger is active!
+2025-08-15 00:20:15,389 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:20:15,543 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:20:15,606 - INFO - Starting model preloader service...
+2025-08-15 00:20:15,624 - WARNING -  * Debugger is active!
+2025-08-15 00:20:15,635 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:20:15,805 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.630613, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:20:15,853 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.680643, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:20:16,107 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.649043, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:27:42,882 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:27:45,385 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:27:45,386 - INFO - Refreshing face recognition model...
+2025-08-15 00:27:45,388 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:27:45,388 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:27:45,390 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:27:45,393 - INFO - Model preloader service initialized successfully
+2025-08-15 00:27:45,394 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:27:45,394 - INFO - Model preloading started
+2025-08-15 00:27:45,394 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:27:45,475 - INFO - Face cascade loaded successfully
+2025-08-15 00:27:45,874 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:27:45,875 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:27:45,875 - INFO - Model preloading completed in 0.48 seconds
+2025-08-15 00:27:45,913 - INFO - Traditional model loading completed successfully
+2025-08-15 00:27:45,913 - INFO - [SUCCESS] Traditional model loading completed in 0.52s
+2025-08-15 00:27:45,913 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.53s
+2025-08-15 00:27:46,451 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:27:46,490 - INFO - Starting model preloader service...
+2025-08-15 00:27:46,522 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-15 00:27:46,523 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-15 00:27:46,526 - INFO -  * Restarting with stat
+2025-08-15 00:27:47,005 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.481261, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:27:52,102 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:27:54,573 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:27:54,574 - INFO - Refreshing face recognition model...
+2025-08-15 00:27:54,575 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:27:54,575 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:27:54,576 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:27:54,580 - INFO - Model preloader service initialized successfully
+2025-08-15 00:27:54,580 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:27:54,580 - INFO - Model preloading started
+2025-08-15 00:27:54,580 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:27:54,646 - INFO - Face cascade loaded successfully
+2025-08-15 00:27:55,049 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:27:55,049 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:27:55,050 - INFO - Model preloading completed in 0.47 seconds
+2025-08-15 00:27:55,059 - INFO - Traditional model loading completed successfully
+2025-08-15 00:27:55,060 - INFO - [SUCCESS] Traditional model loading completed in 0.48s
+2025-08-15 00:27:55,060 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.49s
+2025-08-15 00:27:55,673 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:27:55,702 - INFO - Starting model preloader service...
+2025-08-15 00:27:55,716 - WARNING -  * Debugger is active!
+2025-08-15 00:27:55,725 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:27:56,212 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.469175, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:31:05,868 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:31:08,258 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:31:08,259 - INFO - Refreshing face recognition model...
+2025-08-15 00:31:08,260 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:31:08,260 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:31:08,262 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:31:08,265 - INFO - Model preloader service initialized successfully
+2025-08-15 00:31:08,266 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:31:08,266 - INFO - Model preloading started
+2025-08-15 00:31:08,266 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:31:08,323 - INFO - Face cascade loaded successfully
+2025-08-15 00:31:08,697 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:31:08,698 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:31:08,699 - INFO - Model preloading completed in 0.43 seconds
+2025-08-15 00:31:08,735 - INFO - Traditional model loading completed successfully
+2025-08-15 00:31:08,735 - INFO - [SUCCESS] Traditional model loading completed in 0.47s
+2025-08-15 00:31:08,735 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.48s
+2025-08-15 00:31:09,314 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:31:09,344 - INFO - Starting model preloader service...
+2025-08-15 00:31:09,370 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-15 00:31:09,370 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-15 00:31:09,374 - INFO -  * Restarting with stat
+2025-08-15 00:31:09,847 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.433523, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:31:14,457 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:31:16,897 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:31:16,898 - INFO - Refreshing face recognition model...
+2025-08-15 00:31:16,899 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:31:16,899 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:31:16,901 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:31:16,904 - INFO - Model preloader service initialized successfully
+2025-08-15 00:31:16,904 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:31:16,905 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:31:16,905 - INFO - Model preloading started
+2025-08-15 00:31:16,957 - INFO - Face cascade loaded successfully
+2025-08-15 00:31:17,352 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:31:17,352 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:31:17,353 - INFO - Model preloading completed in 0.45 seconds
+2025-08-15 00:31:17,396 - INFO - Traditional model loading completed successfully
+2025-08-15 00:31:17,398 - INFO - [SUCCESS] Traditional model loading completed in 0.49s
+2025-08-15 00:31:17,398 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.50s
+2025-08-15 00:31:17,986 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:31:18,015 - INFO - Starting model preloader service...
+2025-08-15 00:31:18,030 - WARNING -  * Debugger is active!
+2025-08-15 00:31:18,042 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:31:18,528 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.448168, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:33:39,775 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\check_settings.py', reloading
+2025-08-15 00:33:39,967 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\services\\cctv_monitoring_service.py', reloading
+2025-08-15 00:33:40,568 - INFO -  * Detected change in 'D:\\Manodarsh\\backend\\analyze_mismatch.py', reloading
+2025-08-15 00:33:40,584 - INFO -  * Restarting with stat
+2025-08-15 00:33:40,758 - INFO -  * Restarting with stat
+2025-08-15 00:33:41,385 - INFO -  * Restarting with stat
+2025-08-15 00:33:49,017 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:33:49,054 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:33:49,401 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:33:52,670 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:33:52,671 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:33:52,671 - INFO - Refreshing face recognition model...
+2025-08-15 00:33:52,672 - INFO - Refreshing face recognition model...
+2025-08-15 00:33:52,672 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:33:52,673 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:33:52,673 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:33:52,675 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:33:52,675 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:33:52,676 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:33:52,678 - INFO - Model preloader service initialized successfully
+2025-08-15 00:33:52,679 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:33:52,679 - INFO - Model preloading started
+2025-08-15 00:33:52,679 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:33:52,680 - INFO - Model preloader service initialized successfully
+2025-08-15 00:33:52,681 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:33:52,681 - INFO - Model preloading started
+2025-08-15 00:33:52,681 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:33:52,750 - INFO - Face cascade loaded successfully
+2025-08-15 00:33:52,762 - INFO - Face cascade loaded successfully
+2025-08-15 00:33:53,072 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:33:53,074 - INFO - Refreshing face recognition model...
+2025-08-15 00:33:53,076 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:33:53,077 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:33:53,079 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:33:53,087 - INFO - Model preloader service initialized successfully
+2025-08-15 00:33:53,087 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:33:53,088 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:33:53,088 - INFO - Model preloading started
+2025-08-15 00:33:53,174 - INFO - Face cascade loaded successfully
+2025-08-15 00:33:53,333 - INFO - Traditional model loading completed successfully
+2025-08-15 00:33:53,333 - INFO - [SUCCESS] Traditional model loading completed in 0.65s
+2025-08-15 00:33:53,334 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.66s
+2025-08-15 00:33:53,340 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:33:53,341 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:33:53,341 - INFO - Model preloading completed in 0.66 seconds
+2025-08-15 00:33:53,361 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:33:53,362 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:33:53,362 - INFO - Model preloading completed in 0.68 seconds
+2025-08-15 00:33:53,373 - INFO - Traditional model loading completed successfully
+2025-08-15 00:33:53,374 - INFO - [SUCCESS] Traditional model loading completed in 0.69s
+2025-08-15 00:33:53,374 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.70s
+2025-08-15 00:33:53,742 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:33:53,742 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:33:53,743 - INFO - Model preloading completed in 0.66 seconds
+2025-08-15 00:33:53,766 - INFO - Traditional model loading completed successfully
+2025-08-15 00:33:53,766 - INFO - [SUCCESS] Traditional model loading completed in 0.68s
+2025-08-15 00:33:53,766 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.69s
+2025-08-15 00:33:54,427 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:33:54,482 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:33:54,497 - INFO - Starting model preloader service...
+2025-08-15 00:33:54,521 - WARNING -  * Debugger is active!
+2025-08-15 00:33:54,535 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:33:54,553 - INFO - Starting model preloader service...
+2025-08-15 00:33:54,575 - WARNING -  * Debugger is active!
+2025-08-15 00:33:54,591 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:33:55,010 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.662779, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:33:55,036 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:33:55,058 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.681823, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:33:55,081 - INFO - Starting model preloader service...
+2025-08-15 00:33:55,100 - WARNING -  * Debugger is active!
+2025-08-15 00:33:55,115 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:33:55,582 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.655412, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:36:45,608 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:36:48,024 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:36:48,025 - INFO - Refreshing face recognition model...
+2025-08-15 00:36:48,026 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:36:48,027 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:36:48,028 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:36:48,032 - INFO - Model preloader service initialized successfully
+2025-08-15 00:36:48,032 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:36:48,032 - INFO - Model preloading started
+2025-08-15 00:36:48,032 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:36:48,097 - INFO - Face cascade loaded successfully
+2025-08-15 00:36:48,488 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:36:48,488 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:36:48,488 - INFO - Model preloading completed in 0.46 seconds
+2025-08-15 00:36:48,500 - INFO - Traditional model loading completed successfully
+2025-08-15 00:36:48,500 - INFO - [SUCCESS] Traditional model loading completed in 0.47s
+2025-08-15 00:36:48,500 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.48s
+2025-08-15 00:36:49,057 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:36:49,085 - INFO - Starting model preloader service...
+2025-08-15 00:36:49,120 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-15 00:36:49,120 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-15 00:36:49,123 - INFO -  * Restarting with stat
+2025-08-15 00:36:49,597 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.455764, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:36:54,431 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:36:56,892 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:36:56,893 - INFO - Refreshing face recognition model...
+2025-08-15 00:36:56,894 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:36:56,894 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:36:56,896 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:36:56,899 - INFO - Model preloader service initialized successfully
+2025-08-15 00:36:56,899 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:36:56,900 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:36:56,900 - INFO - Model preloading started
+2025-08-15 00:36:56,956 - INFO - Face cascade loaded successfully
+2025-08-15 00:36:57,318 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:36:57,318 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:36:57,319 - INFO - Model preloading completed in 0.42 seconds
+2025-08-15 00:36:57,334 - INFO - Traditional model loading completed successfully
+2025-08-15 00:36:57,334 - INFO - [SUCCESS] Traditional model loading completed in 0.43s
+2025-08-15 00:36:57,334 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.44s
+2025-08-15 00:36:57,922 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:36:57,953 - INFO - Starting model preloader service...
+2025-08-15 00:36:57,968 - WARNING -  * Debugger is active!
+2025-08-15 00:36:57,978 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:36:58,461 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.419403, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:50:42,730 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:50:55,918 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:50:55,919 - INFO - Refreshing face recognition model...
+2025-08-15 00:50:55,963 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:50:55,964 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:50:55,966 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:50:55,972 - INFO - Model preloader service initialized successfully
+2025-08-15 00:50:55,972 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:50:55,972 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:50:55,972 - INFO - Model preloading started
+2025-08-15 00:50:56,098 - INFO - Face cascade loaded successfully
+2025-08-15 00:50:56,768 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:50:56,769 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:50:56,770 - INFO - Model preloading completed in 0.80 seconds
+2025-08-15 00:50:56,781 - INFO - Traditional model loading completed successfully
+2025-08-15 00:50:56,781 - INFO - [SUCCESS] Traditional model loading completed in 0.81s
+2025-08-15 00:50:56,782 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.86s
+2025-08-15 00:50:59,094 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:50:59,198 - INFO - Starting model preloader service...
+2025-08-15 00:50:59,328 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-15 00:50:59,328 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-15 00:50:59,340 - INFO -  * Restarting with stat
+2025-08-15 00:50:59,702 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 0.796706, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:51:13,908 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-08-15 00:51:21,569 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:51:21,571 - INFO - Refreshing face recognition model...
+2025-08-15 00:51:21,573 - INFO - Model loaded successfully - 1 soldiers
+2025-08-15 00:51:21,574 - INFO - Model refreshed (manual) - Soldiers: 0 -> 1
+2025-08-15 00:51:21,577 - INFO - Auto refresh started with 300s interval
+2025-08-15 00:51:21,585 - INFO - Model preloader service initialized successfully
+2025-08-15 00:51:21,586 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-08-15 00:51:21,586 - INFO - Model preloading started
+2025-08-15 00:51:21,586 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-08-15 00:51:21,674 - INFO - Face cascade loaded successfully
+2025-08-15 00:51:22,692 - INFO - Emotion detection model loaded successfully
+2025-08-15 00:51:22,693 - INFO - Face recognition model loaded with 1 soldiers
+2025-08-15 00:51:22,697 - INFO - Model preloading completed in 1.11 seconds
+2025-08-15 00:51:22,766 - INFO - Traditional model loading completed successfully
+2025-08-15 00:51:22,767 - INFO - [SUCCESS] Traditional model loading completed in 1.18s
+2025-08-15 00:51:22,767 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 1.20s
+2025-08-15 00:51:24,198 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:51:24,284 - INFO - Starting model preloader service...
+2025-08-15 00:51:24,311 - WARNING -  * Debugger is active!
+2025-08-15 00:51:24,331 - INFO -  * Debugger PIN: 116-430-886
+2025-08-15 00:51:24,789 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 1, 'estimated_memory_mb': 3.51, 'load_time_seconds': 1.10933, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-08-15 00:51:52,557 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:52] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:51:53,425 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:51:53,433 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:53] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:51:53,655 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:53] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:51:54,023 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:51:57,552 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:57] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:51:57,963 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:57] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:51:57,969 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:57] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:51:58,206 - INFO - 127.0.0.1 - - [15/Aug/2025 00:51:58] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:52:03,143 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:03] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-15 00:52:09,381 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:09] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-15 00:52:09,699 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:09] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:52:09,729 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-15 00:52:09,730 - INFO - [CAMERA] Initializing camera...
+2025-08-15 00:52:09,730 - INFO - Trying external webcam (index 1)...
+2025-08-15 00:52:09,948 - INFO - Trying built-in camera (index 0)...
+2025-08-15 00:52:15,980 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-15 00:52:15,980 - INFO - [CAMERA] Camera initialized in 6.25 seconds
+2025-08-15 00:52:16,126 - INFO - [CONFIG] Camera configured in 0.15s: 1280x960, detection_interval=30
+2025-08-15 00:52:16,128 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-15 00:52:16,129 - INFO - [SUCCESS] Survey monitoring started in 6.40s (camera: 6.25s, settings: 0.15s, thread: 0.00s)
+2025-08-15 00:52:16,132 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:16] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:52:16,163 - INFO - Using detection interval: 30 frames
+2025-08-15 00:52:19,351 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:52:24,048 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:52:27,390 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:52:30,741 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:52:34,103 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:52:36,867 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:36] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-15 00:52:37,460 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:52:37,652 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:52:37,653 - INFO - Model preloader service initialized successfully
+2025-08-15 00:52:37,653 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-15 00:52:37,653 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.000s - instant access!
+2025-08-15 00:52:37,653 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.00s
+2025-08-15 00:52:37,653 - WARNING - No monitoring session active for soldier 100000001
+2025-08-15 00:52:37,654 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-15 00:52:37,654 - WARNING - No emotion data retrieved from monitoring service
+2025-08-15 00:52:37,654 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-15 00:52:37,654 - INFO - Sentiment scores for text: {'neg': 0.486, 'neu': 0.379, 'pos': 0.135, 'compound': -0.8172}
+2025-08-15 00:52:37,654 - INFO - Text: 'I feel like doing suicide why am I so bad...' - Label: NEGATIVE, Depression score: 0.91
+2025-08-15 00:52:37,655 - INFO - Question 10 - Sentiment: NEGATIVE, Score: 0.91
+2025-08-15 00:52:37,676 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:52:37,694 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:52:37,695 - INFO - Question 10: Weighted Combined = (0.91 * 0.8) + (0.00 * 0.2) = 0.727
+2025-08-15 00:52:37,695 - INFO - Question 10: NLP=0.9086000000000001, Emotion=0.00, Weighted Combined=0.727
+2025-08-15 00:52:37,726 - INFO - Sentiment scores for text: {'neg': 0.469, 'neu': 0.531, 'pos': 0.0, 'compound': -0.6492}
+2025-08-15 00:52:37,726 - INFO - Text: 'nothing is good at home everyone hates me...' - Label: NEGATIVE, Depression score: 0.82
+2025-08-15 00:52:37,726 - INFO - Question 11 - Sentiment: NEGATIVE, Score: 0.82
+2025-08-15 00:52:37,748 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:52:37,768 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:52:37,769 - INFO - Question 11: Weighted Combined = (0.82 * 0.8) + (0.00 * 0.2) = 0.660
+2025-08-15 00:52:37,769 - INFO - Question 11: NLP=0.8246, Emotion=0.00, Weighted Combined=0.660
+2025-08-15 00:52:37,771 - INFO - CRITICAL: Peak-weighted NLP calculation: 2/2 high-risk responses detected.
+2025-08-15 00:52:37,772 - INFO - High-risk avg: 0.867, Overall avg: 0.867, Weighted result: 0.867
+2025-08-15 00:52:37,772 - INFO - HIGH-RISK RESPONSE PRESERVED: Mental health intervention may be required
+2025-08-15 00:52:37,772 - INFO - Session 114 - Peak-Weighted NLP Depression Score: 0.87
+2025-08-15 00:52:37,772 - INFO - NLP Score Distribution: min=0.82, max=0.91, count=2
+2025-08-15 00:52:37,791 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:52:37,791 - INFO - Session 114 - Using peak-weighted NLP score only: 0.87
+2025-08-15 00:52:37,815 - INFO - ================================================================================
+2025-08-15 00:52:37,816 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 114
+2025-08-15 00:52:37,816 - INFO - ================================================================================
+2025-08-15 00:52:37,816 - INFO - [SOLDIER] 100000001
+2025-08-15 00:52:37,816 - INFO - [SCORES] BREAKDOWN:
+2025-08-15 00:52:37,816 - INFO -    [NLP] Peak-Weighted Score (70%):     0.867
+2025-08-15 00:52:37,816 - INFO -    [EMOTION] Peak-Weighted Score (30%): 0.000
+2025-08-15 00:52:37,816 - INFO -    [FINAL] WEIGHTED COMBINED:           0.867
+2025-08-15 00:52:37,817 - INFO - 
+2025-08-15 00:52:37,817 - INFO - [ENHANCED_SCORING] PEAK-WEIGHTED AVERAGING ACTIVE:
+2025-08-15 00:52:37,817 - INFO -    NLP: High-risk responses (>0.65) amplified for suicide/crisis detection
+2025-08-15 00:52:37,817 - INFO -    Emotion: Non-neutral emotions amplified for military personnel sensitivity
+2025-08-15 00:52:37,817 - INFO - 
+2025-08-15 00:52:37,817 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-15 00:52:37,817 - INFO -    State:          CRITICAL MENTAL HEALTH
+2025-08-15 00:52:37,817 - INFO -    Alert Level:    CRITICAL
+2025-08-15 00:52:37,818 - INFO -    Description:    Severe depression/distress indicators
+2025-08-15 00:52:37,818 - INFO -    Recommendation: URGENT: Immediate professional intervention required
+2025-08-15 00:52:37,818 - INFO - 
+2025-08-15 00:52:37,818 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-15 00:52:37,818 - INFO -    Total Detections: 0
+2025-08-15 00:52:37,818 - INFO -    Dominant Emotion: Unknown
+2025-08-15 00:52:37,819 - INFO - ================================================================================
+2025-08-15 00:52:37,847 - INFO - [MENTAL_STATE] Mental state saved: Neutral (Rating: 3/7)
+2025-08-15 00:52:37,859 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:37] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-15 00:52:37,873 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:37] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:52:37,935 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-15 00:52:37,936 - WARNING - No emotion data collected during survey for soldier 100000001
+2025-08-15 00:52:38,444 - INFO - Camera resources released after survey monitoring
+2025-08-15 00:52:38,446 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:38] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:52:38,824 - WARNING - No monitoring session active for soldier 100000001
+2025-08-15 00:52:38,826 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:38] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:52:45,847 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:45] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:52:46,379 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:52:46,383 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:46] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:52:46,806 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:46] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:52:47,066 - INFO - 127.0.0.1 - - [15/Aug/2025 00:52:47] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:53:16,725 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:16] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:53:19,906 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:19] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:53:20,364 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:53:20,391 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:53:20,590 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:20] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:53:32,021 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:32] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-08-15 00:53:39,325 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:39] "GET /api/survey/active-questionnaire HTTP/1.1" 200 -
+2025-08-15 00:53:39,953 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:39] "OPTIONS /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:53:39,974 - INFO - [START] Starting survey monitoring for soldier 100000001
+2025-08-15 00:53:39,975 - INFO - [CAMERA] Initializing camera...
+2025-08-15 00:53:39,975 - INFO - Trying external webcam (index 1)...
+2025-08-15 00:53:40,106 - INFO - Trying built-in camera (index 0)...
+2025-08-15 00:53:45,246 - INFO - Successfully connected to built-in camera (index 0)
+2025-08-15 00:53:45,247 - INFO - [CAMERA] Camera initialized in 5.27 seconds
+2025-08-15 00:53:45,388 - INFO - [CONFIG] Camera configured in 0.14s: 1280x960, detection_interval=30
+2025-08-15 00:53:45,391 - INFO - Starting continuous survey frame processing for soldier 100000001
+2025-08-15 00:53:45,392 - INFO - [SUCCESS] Survey monitoring started in 5.42s (camera: 5.27s, settings: 0.14s, thread: 0.00s)
+2025-08-15 00:53:45,394 - INFO - 127.0.0.1 - - [15/Aug/2025 00:53:45] "POST /api/image/start-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:53:45,415 - INFO - Using detection interval: 30 frames
+2025-08-15 00:53:48,588 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:53:48,682 - DEBUG - Face quality analysis - Brightness: 117.8 (1.00), Blur: 35.5 (0.10), Size: 70756 (1.00), Final: 0.64
+2025-08-15 00:53:49,553 - DEBUG - Recognized soldier 100000001 with distance 0.321
+2025-08-15 00:53:50,415 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.008', 'Disgusted': '0.004', 'Fearful': '0.130', 'Happy': '0.000', 'Neutral': '0.579', 'Sad': '0.278', 'Surprised': '0.001'}
+2025-08-15 00:53:50,416 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.579)
+2025-08-15 00:53:50,416 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:53:53,711 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:53:53,796 - DEBUG - Face quality analysis - Brightness: 112.6 (1.00), Blur: 26.2 (0.10), Size: 67600 (1.00), Final: 0.64
+2025-08-15 00:53:54,507 - DEBUG - Recognized soldier 100000001 with distance 0.317
+2025-08-15 00:53:54,659 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.002', 'Disgusted': '0.001', 'Fearful': '0.004', 'Happy': '0.001', 'Neutral': '0.986', 'Sad': '0.006', 'Surprised': '0.000'}
+2025-08-15 00:53:54,659 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.986)
+2025-08-15 00:53:54,659 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:53:57,956 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:53:58,074 - DEBUG - Face quality analysis - Brightness: 114.5 (1.00), Blur: 31.0 (0.10), Size: 70756 (1.00), Final: 0.64
+2025-08-15 00:53:59,848 - DEBUG - Recognized soldier 100000001 with distance 0.270
+2025-08-15 00:54:00,132 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.006', 'Disgusted': '0.002', 'Fearful': '0.006', 'Happy': '0.001', 'Neutral': '0.950', 'Sad': '0.035', 'Surprised': '0.001'}
+2025-08-15 00:54:00,133 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.950)
+2025-08-15 00:54:00,133 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:54:03,436 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:54:03,530 - DEBUG - Face quality analysis - Brightness: 115.1 (1.00), Blur: 31.7 (0.10), Size: 70225 (1.00), Final: 0.64
+2025-08-15 00:54:04,665 - DEBUG - Recognized soldier 100000001 with distance 0.264
+2025-08-15 00:54:05,060 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.036', 'Disgusted': '0.011', 'Fearful': '0.029', 'Happy': '0.002', 'Neutral': '0.819', 'Sad': '0.100', 'Surprised': '0.003'}
+2025-08-15 00:54:05,060 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.819)
+2025-08-15 00:54:05,060 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:54:08,336 - INFO - [OPTIMIZE] Using preloaded face encodings - instant access! (1 soldiers)
+2025-08-15 00:54:08,467 - DEBUG - Face quality analysis - Brightness: 114.3 (1.00), Blur: 30.3 (0.10), Size: 68121 (1.00), Final: 0.64
+2025-08-15 00:54:09,714 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:09] "OPTIONS /api/survey/submit HTTP/1.1" 200 -
+2025-08-15 00:54:09,717 - DEBUG - Recognized soldier 100000001 with distance 0.276
+2025-08-15 00:54:09,982 - DEBUG - Emotion probabilities for 100000001: {'Angry': '0.002', 'Disgusted': '0.000', 'Fearful': '0.003', 'Happy': '0.000', 'Neutral': '0.986', 'Sad': '0.009', 'Surprised': '0.000'}
+2025-08-15 00:54:09,982 - INFO - Detected soldier 100000001 with Neutral emotion (score: 0.45, confidence: 0.986)
+2025-08-15 00:54:09,982 - INFO - Survey detection: 100000001 - Neutral (0.45)
+2025-08-15 00:54:10,522 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-08-15 00:54:10,523 - INFO - Model preloader service initialized successfully
+2025-08-15 00:54:10,523 - INFO - [OPTIMIZE] Using preloaded models for instant access
+2025-08-15 00:54:10,523 - INFO - [SUCCESS] All preloaded models loaded successfully in 0.000s - instant access!
+2025-08-15 00:54:10,523 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.00s
+2025-08-15 00:54:10,524 - WARNING - No monitoring session active for soldier 100000001
+2025-08-15 00:54:10,524 - INFO - Emotion monitoring results: {'force_id': '100000001', 'message': 'No monitoring session active'}
+2025-08-15 00:54:10,524 - WARNING - No emotion data retrieved from monitoring service
+2025-08-15 00:54:10,524 - INFO - Using emotion monitoring average score: 0.00 for all questions
+2025-08-15 00:54:10,525 - INFO - Sentiment scores for text: {'neg': 0.453, 'neu': 0.435, 'pos': 0.111, 'compound': -0.9086}
+2025-08-15 00:54:10,525 - INFO - Text: 'my week was bad I am feeling so bad I want to do s...' - Label: NEGATIVE, Depression score: 0.95
+2025-08-15 00:54:10,525 - INFO - Question 10 - Sentiment: NEGATIVE, Score: 0.95
+2025-08-15 00:54:10,543 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:54:10,564 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:54:10,565 - INFO - Question 10: Weighted Combined = (0.95 * 0.8) + (0.00 * 0.2) = 0.763
+2025-08-15 00:54:10,565 - INFO - Question 10: NLP=0.9542999999999999, Emotion=0.00, Weighted Combined=0.763
+2025-08-15 00:54:10,567 - INFO - Sentiment scores for text: {'neg': 0.376, 'neu': 0.624, 'pos': 0.0, 'compound': -0.3412}
+2025-08-15 00:54:10,567 - INFO - Text: 'nothing is good at home...' - Label: NEGATIVE, Depression score: 0.67
+2025-08-15 00:54:10,568 - INFO - Question 11 - Sentiment: NEGATIVE, Score: 0.67
+2025-08-15 00:54:10,594 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:54:10,612 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:54:10,613 - INFO - Question 11: Weighted Combined = (0.67 * 0.8) + (0.00 * 0.2) = 0.536
+2025-08-15 00:54:10,613 - INFO - Question 11: NLP=0.6706, Emotion=0.00, Weighted Combined=0.536
+2025-08-15 00:54:10,614 - INFO - CRITICAL: Peak-weighted NLP calculation: 2/2 high-risk responses detected.
+2025-08-15 00:54:10,615 - INFO - High-risk avg: 0.812, Overall avg: 0.812, Weighted result: 0.812
+2025-08-15 00:54:10,615 - INFO - HIGH-RISK RESPONSE PRESERVED: Mental health intervention may be required
+2025-08-15 00:54:10,615 - INFO - Session 115 - Peak-Weighted NLP Depression Score: 0.81
+2025-08-15 00:54:10,615 - INFO - NLP Score Distribution: min=0.67, max=0.95, count=2
+2025-08-15 00:54:10,634 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:54:10,635 - INFO - Session 115 - Using peak-weighted NLP score only: 0.81
+2025-08-15 00:54:10,649 - INFO - ================================================================================
+2025-08-15 00:54:10,649 - INFO - [ASSESSMENT] MENTAL HEALTH ASSESSMENT COMPLETE - Session 115
+2025-08-15 00:54:10,650 - INFO - ================================================================================
+2025-08-15 00:54:10,650 - INFO - [SOLDIER] 100000001
+2025-08-15 00:54:10,650 - INFO - [SCORES] BREAKDOWN:
+2025-08-15 00:54:10,650 - INFO -    [NLP] Peak-Weighted Score (70%):     0.812
+2025-08-15 00:54:10,650 - INFO -    [EMOTION] Peak-Weighted Score (30%): 0.000
+2025-08-15 00:54:10,650 - INFO -    [FINAL] WEIGHTED COMBINED:           0.812
+2025-08-15 00:54:10,650 - INFO - 
+2025-08-15 00:54:10,650 - INFO - [ENHANCED_SCORING] PEAK-WEIGHTED AVERAGING ACTIVE:
+2025-08-15 00:54:10,650 - INFO -    NLP: High-risk responses (>0.65) amplified for suicide/crisis detection
+2025-08-15 00:54:10,650 - INFO -    Emotion: Non-neutral emotions amplified for military personnel sensitivity
+2025-08-15 00:54:10,651 - INFO - 
+2025-08-15 00:54:10,651 - INFO - [MENTAL_STATE] ANALYSIS:
+2025-08-15 00:54:10,651 - INFO -    State:          MODERATE DEPRESSION
+2025-08-15 00:54:10,651 - INFO -    Alert Level:    ORANGE
+2025-08-15 00:54:10,651 - INFO -    Description:    Significant negative emotional indicators
+2025-08-15 00:54:10,651 - INFO -    Recommendation: Counseling recommended, bi-weekly assessments
+2025-08-15 00:54:10,651 - INFO - 
+2025-08-15 00:54:10,651 - INFO - [EMOTION_MONITORING] DETAILS:
+2025-08-15 00:54:10,651 - INFO -    Total Detections: 0
+2025-08-15 00:54:10,652 - INFO -    Dominant Emotion: Unknown
+2025-08-15 00:54:10,652 - INFO - ================================================================================
+2025-08-15 00:54:10,655 - INFO - [MENTAL_STATE] Mental state saved: Slightly Positive (Rating: 4/7)
+2025-08-15 00:54:10,664 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:10] "[35m[1mPOST /api/survey/submit HTTP/1.1[0m" 201 -
+2025-08-15 00:54:10,984 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:10] "OPTIONS /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:54:11,073 - INFO - Stopped continuous survey frame processing for soldier 100000001
+2025-08-15 00:54:11,074 - INFO - Processing 5 emotion detections for soldier 100000001
+2025-08-15 00:54:11,074 - INFO - Found 5 actual emotion detections (filtered from 5 total entries)
+2025-08-15 00:54:11,074 - DEBUG - No significant emotional peaks detected in 5 scores. Using simple average: 0.450
+2025-08-15 00:54:11,075 - INFO - Calculated peak-weighted avg depression score: 0.45, dominant emotion: Neutral
+2025-08-15 00:54:11,075 - INFO - Score distribution: min=0.45, max=0.45, count=5
+2025-08-15 00:54:11,075 - INFO - Storing emotion data for session_id: 115
+2025-08-15 00:54:11,096 - INFO - Storing emotion data - session_id: 115, force_id: 100000001, avg_score: 0.45
+2025-08-15 00:54:11,115 - INFO - Dynamic settings loaded - NLP Weight: 0.8, Emotion Weight: 0.2
+2025-08-15 00:54:11,116 - INFO - Using database weights for combined score calculation: NLP=0.8, Emotion=0.2
+2025-08-15 00:54:11,118 - INFO - Updated 1 weekly session record(s)
+2025-08-15 00:54:11,124 - INFO - Updated 2 question response record(s)
+2025-08-15 00:54:11,131 - INFO - Successfully stored survey emotion data for session 115: avg_score=0.45
+2025-08-15 00:54:11,132 - INFO - FIXED: Using database-weighted calculation instead of simple 50/50 averaging
+2025-08-15 00:54:11,133 - INFO - Survey monitoring ended for 100000001: peak-weighted avg_score=0.45, emotion=Neutral, detections=5
+2025-08-15 00:54:11,133 - INFO - PEAK-WEIGHTED AVERAGING APPLIED: Enhanced sensitivity for military personnel emotion detection
+2025-08-15 00:54:11,676 - INFO - Camera resources released after survey monitoring
+2025-08-15 00:54:11,678 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:11] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:54:12,073 - WARNING - No monitoring session active for soldier 100000001
+2025-08-15 00:54:12,074 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:12] "POST /api/image/end-survey-monitoring HTTP/1.1" 200 -
+2025-08-15 00:54:52,935 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:52] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:54:53,400 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-08-15 00:54:53,402 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:53] "POST /api/auth/login HTTP/1.1" 200 -
+2025-08-15 00:54:53,775 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:53] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:54:54,052 - INFO - 127.0.0.1 - - [15/Aug/2025 00:54:54] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-08-15 00:55:21,533 - INFO - 127.0.0.1 - - [15/Aug/2025 00:55:21] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:55:21,953 - INFO - 127.0.0.1 - - [15/Aug/2025 00:55:21] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=20 HTTP/1.1" 200 -
+2025-08-15 00:55:21,960 - INFO - 127.0.0.1 - - [15/Aug/2025 00:55:21] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:55:22,214 - INFO - 127.0.0.1 - - [15/Aug/2025 00:55:22] "GET /api/admin/soldiers-report?risk_level=all&days=7&page=1&per_page=10000 HTTP/1.1" 200 -
+2025-08-15 00:55:23,416 - INFO - 127.0.0.1 - - [15/Aug/2025 00:55:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:55:53,900 - INFO - 127.0.0.1 - - [15/Aug/2025 00:55:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:56:23,583 - INFO - 127.0.0.1 - - [15/Aug/2025 00:56:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:56:53,898 - INFO - 127.0.0.1 - - [15/Aug/2025 00:56:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:57:23,606 - INFO - 127.0.0.1 - - [15/Aug/2025 00:57:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:57:53,904 - INFO - 127.0.0.1 - - [15/Aug/2025 00:57:53] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:58:23,582 - INFO - 127.0.0.1 - - [15/Aug/2025 00:58:23] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-08-15 00:58:53,902 - INFO - 127.0.0.1 - - [15/Aug/2025 00:58:53] "GET /api/auth/session-status HTTP/1.1" 200 -

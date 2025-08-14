@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from db.connection import get_connection
-from services.sentiment_analysis_service import analyze_sentiment, calculate_average_score
+from services.sentiment_analysis_service import analyze_sentiment, calculate_average_score, calculate_peak_weighted_nlp_average
 from config.settings import Settings
 import logging
 
@@ -392,11 +392,12 @@ def submit_survey():
                 combined_depression_score
             ))
         
-        # Calculate and update average NLP score in the session
+        # Calculate and update peak-weighted average NLP score in the session
         avg_nlp_score = 0
         if nlp_scores:
-            avg_nlp_score = calculate_average_score(nlp_scores)
-            logger.info(f"Session {session_id} - Average NLP Depression Score: {avg_nlp_score:.2f}")
+            avg_nlp_score = calculate_peak_weighted_nlp_average(nlp_scores)
+            logger.info(f"Session {session_id} - Peak-Weighted NLP Depression Score: {avg_nlp_score:.2f}")
+            logger.info(f"NLP Score Distribution: min={min(nlp_scores):.2f}, max={max(nlp_scores):.2f}, count={len(nlp_scores)}")
         
         # Calculate WEIGHTED final combined score using dynamic settings
         nlp_weight, emotion_weight = get_dynamic_settings()
@@ -404,11 +405,11 @@ def submit_survey():
         if avg_nlp_score > 0 and image_avg_score > 0:
             # Both scores available - use weighted combination
             final_combined_score = (avg_nlp_score * nlp_weight) + (image_avg_score * emotion_weight)
-            logger.info(f"Session {session_id} - Weighted Combined Score: ({avg_nlp_score:.2f} * {nlp_weight}) + ({image_avg_score:.2f} * {emotion_weight}) = {final_combined_score:.3f}")
+            logger.info(f"Session {session_id} - Weighted Combined Score: Peak-weighted NLP({avg_nlp_score:.2f} * {nlp_weight}) + Peak-weighted Emotion({image_avg_score:.2f} * {emotion_weight}) = {final_combined_score:.3f}")
         elif avg_nlp_score > 0:
             # Only NLP score available
             final_combined_score = avg_nlp_score
-            logger.info(f"Session {session_id} - Using NLP score only: {final_combined_score:.2f}")
+            logger.info(f"Session {session_id} - Using peak-weighted NLP score only: {final_combined_score:.2f}")
         elif image_avg_score > 0:
             # Only emotion score available
             final_combined_score = image_avg_score
@@ -423,9 +424,13 @@ def submit_survey():
         logger.info("="*80)
         logger.info(f"[SOLDIER] {force_id}")
         logger.info(f"[SCORES] BREAKDOWN:")
-        logger.info(f"   [NLP] Average Score (70%):     {avg_nlp_score:.3f}")
-        logger.info(f"   [EMOTION] Average Score (30%): {image_avg_score:.3f}")
-        logger.info(f"   [FINAL] WEIGHTED COMBINED:     {final_combined_score:.3f}")
+        logger.info(f"   [NLP] Peak-Weighted Score (70%):     {avg_nlp_score:.3f}")
+        logger.info(f"   [EMOTION] Peak-Weighted Score (30%): {image_avg_score:.3f}")
+        logger.info(f"   [FINAL] WEIGHTED COMBINED:           {final_combined_score:.3f}")
+        logger.info(f"")
+        logger.info(f"[ENHANCED_SCORING] PEAK-WEIGHTED AVERAGING ACTIVE:")
+        logger.info(f"   NLP: High-risk responses (>0.65) amplified for suicide/crisis detection")
+        logger.info(f"   Emotion: Non-neutral emotions amplified for military personnel sensitivity")
         logger.info(f"")
         logger.info(f"[MENTAL_STATE] ANALYSIS:")
         logger.info(f"   State:          {mental_state['state']}")

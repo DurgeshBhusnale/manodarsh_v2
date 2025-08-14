@@ -721,7 +721,7 @@ class CCTVMonitoringService:
                 logging.error(f"Error during cleanup: {cleanup_error}")
 
     def _store_survey_emotion_data(self, session_id: int, force_id: str, avg_score: float):
-        """Store survey emotion data in the weekly_sessions table"""
+        """Store survey emotion data using proper weighted calculation from database settings"""
         conn = None
         try:
             conn = get_connection()
@@ -729,30 +729,44 @@ class CCTVMonitoringService:
             
             logging.info(f"Storing emotion data - session_id: {session_id}, force_id: {force_id}, avg_score: {avg_score:.2f}")
             
-            # Update the weekly session with image emotion score
+            # Get dynamic database settings for proper weighted calculation
+            from api.survey.routes import get_dynamic_settings
+            nlp_weight, emotion_weight = get_dynamic_settings()
+            logging.info(f"Using database weights for combined score calculation: NLP={nlp_weight}, Emotion={emotion_weight}")
+            
+            # Update the weekly session with image emotion score using DATABASE WEIGHTED calculation
             cursor.execute("""
                 UPDATE weekly_sessions 
                 SET image_avg_score = %s,
-                    combined_avg_score = COALESCE((nlp_avg_score + %s) / 2, %s)
+                    combined_avg_score = CASE 
+                        WHEN nlp_avg_score IS NOT NULL AND nlp_avg_score > 0 THEN 
+                            (nlp_avg_score * %s) + (%s * %s)
+                        ELSE %s
+                    END
                 WHERE session_id = %s AND force_id = %s
-            """, (avg_score, avg_score, avg_score, session_id, force_id))
+            """, (avg_score, nlp_weight, avg_score, emotion_weight, avg_score, session_id, force_id))
             
             session_rows_affected = cursor.rowcount
             logging.info(f"Updated {session_rows_affected} weekly session record(s)")
             
-            # Also update individual question responses with image scores
+            # Also update individual question responses with proper weighted calculation
             cursor.execute("""
                 UPDATE question_responses 
                 SET image_depression_score = %s,
-                    combined_depression_score = COALESCE((nlp_depression_score + %s) / 2, %s)
+                    combined_depression_score = CASE 
+                        WHEN nlp_depression_score IS NOT NULL THEN 
+                            (nlp_depression_score * %s) + (%s * %s)
+                        ELSE %s
+                    END
                 WHERE session_id = %s
-            """, (avg_score, avg_score, avg_score, session_id))
+            """, (avg_score, nlp_weight, avg_score, emotion_weight, avg_score, session_id))
             
             response_rows_affected = cursor.rowcount
             logging.info(f"Updated {response_rows_affected} question response record(s)")
             
             conn.commit()
             logging.info(f"Successfully stored survey emotion data for session {session_id}: avg_score={avg_score:.2f}")
+            logging.info(f"FIXED: Using database-weighted calculation instead of simple 50/50 averaging")
             
         except Exception as e:
             logging.error(f"Error storing survey emotion data: {e}")

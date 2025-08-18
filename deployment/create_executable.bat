@@ -18,8 +18,8 @@ if %errorlevel% neq 0 (
 echo Creating executable...
 cd /d "%~dp0"
 
-REM Create the executable with icon and single file
-pyinstaller --onefile --windowed --name="CRPF_Mental_Health_System" --icon=crpf_icon.ico crpf_launcher.py
+REM Create the executable with SATHI PNG logo (best quality)
+pyinstaller --onefile --windowed --name="CRPF_Mental_Health_System" --icon=sathi_logo.png crpf_launcher.py
 
 if exist "dist\CRPF_Mental_Health_System.exe" (
     echo ✅ Executable created successfully!

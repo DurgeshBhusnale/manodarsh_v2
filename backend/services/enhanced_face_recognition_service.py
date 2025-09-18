@@ -121,10 +121,6 @@ class EnhancedFaceRecognitionService:
         except Exception as e:
             logging.error(f"Error processing soldier {force_id}: {e}")
             return [], False
-                
-        except Exception as e:
-            logging.error(f"Error processing soldier {force_id}: {e}")
-            return [], False
 
 
     def train_model_enhanced(self, force_ids: Optional[List[str]] = None) -> Dict:

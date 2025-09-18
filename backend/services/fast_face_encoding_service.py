@@ -12,8 +12,8 @@ from typing import List, Dict, Optional, Tuple
 from datetime import datetime
 
 class FastFaceEncodingService:
-    def __init__(self, max_workers: int = 4):
-        self.max_workers = min(max_workers, os.cpu_count() or 4)
+    def __init__(self, max_workers: int = 2):  # Reduced from 4 to 2 for stability
+        self.max_workers = min(max_workers, os.cpu_count() or 2)
         self.setup_logging()
     
     def setup_logging(self):
@@ -39,7 +39,7 @@ class FastFaceEncodingService:
         self.logger.info(f"Processing {len(image_paths)} images with {self.max_workers} workers")
         start_time = datetime.now()
         
-        # Process images in parallel
+        # Process images in parallel with timeout safety
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             # Submit all encoding tasks
             future_to_path = {
@@ -49,15 +49,20 @@ class FastFaceEncodingService:
             
             encodings_with_quality = []
             
-            # Collect results as they complete
-            for future in concurrent.futures.as_completed(future_to_path):
-                path = future_to_path[future]
-                try:
-                    result = future.result()
-                    if result is not None:
-                        encodings_with_quality.append(result)
-                except Exception as e:
-                    self.logger.error(f"Error processing {path}: {e}")
+            # Collect results as they complete with timeout
+            try:
+                for future in concurrent.futures.as_completed(future_to_path, timeout=60):
+                    path = future_to_path[future]
+                    try:
+                        result = future.result(timeout=15)  # 15 second timeout per image
+                        if result is not None:
+                            encodings_with_quality.append(result)
+                    except concurrent.futures.TimeoutError:
+                        self.logger.error(f"Timeout processing {path}")
+                    except Exception as e:
+                        self.logger.error(f"Error processing {path}: {e}")
+            except concurrent.futures.TimeoutError:
+                self.logger.error(f"Overall processing timeout after 60s - processed {len(encodings_with_quality)} images")
         
         # Sort by quality and return best encodings
         encodings_with_quality.sort(key=lambda x: x['quality_score'], reverse=True)

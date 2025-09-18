@@ -43,15 +43,28 @@ def train_model():
     """Train the face recognition model on new soldiers"""
     data = request.get_json(silent=True) or {}
     force_id = data.get('force_id')
+    
     try:
-        # Use the enhanced training method
+        # Use the enhanced training method with additional safety
+        logging.info(f"Training request received for force_id: {force_id}")
+        
         if force_id:
             result = face_recognition_service.train_model_enhanced([force_id])
         else:
             result = face_recognition_service.train_model_enhanced()
+            
+        logging.info(f"Training completed with result: {result.get('status', 'unknown')}")
         return jsonify(result)
+        
+    except MemoryError as e:
+        error_msg = "Training failed due to insufficient memory"
+        logging.error(f"{error_msg}: {e}")
+        return jsonify({'error': error_msg, 'status': 'error'}), 500
+        
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        error_msg = f"Training Error: Failed to train model. Please try again."
+        logging.error(f"Training exception: {e}", exc_info=True)
+        return jsonify({'error': error_msg, 'status': 'error'}), 500
 
 @image_bp.route('/train/batch', methods=['POST'])
 def train_batch():

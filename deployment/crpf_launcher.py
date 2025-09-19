@@ -423,6 +423,7 @@ class CRPFSystemLauncher:
     
     def keep_alive(self):
         """Keep the launcher running with clear shutdown instructions"""
+        import sys  # Import sys at the beginning
         try:
             # Check if we're running as EXE
             if getattr(sys, 'frozen', False):
@@ -444,7 +445,6 @@ class CRPFSystemLauncher:
             else:
                 # Script mode - use interactive console
                 # Check if we have a console (running from terminal)
-                import sys
                 if hasattr(sys.stdin, 'isatty') and sys.stdin.isatty():
                     # Console mode - show instructions and wait for input
                     print("💡 SYSTEM CONTROL INSTRUCTIONS:")

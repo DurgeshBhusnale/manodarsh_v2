@@ -19,18 +19,18 @@ echo Creating executable...
 cd /d "%~dp0"
 
 REM Create the executable with SATHI PNG logo (console mode for better user control)
-pyinstaller --onefile --name="CRPF_Mental_Health_System" --icon=sathi_logo.png crpf_launcher.py
+pyinstaller --onefile --name="SATHI" --icon=sathi_logo.png crpf_launcher.py
 
-if exist "dist\CRPF_Mental_Health_System.exe" (
+if exist "dist\SATHI.exe" (
     echo ✅ Executable created successfully!
-    echo Location: dist\CRPF_Mental_Health_System.exe
+    echo Location: dist\SATHI.exe
     
     REM Copy to main directory for easy access
-    copy "dist\CRPF_Mental_Health_System.exe" "..\CRPF_Mental_Health_System.exe"
+    copy "dist\SATHI.exe" "..\SATHI.exe"
     
     echo.
     echo 📋 Deployment Package Ready:
-    echo   • CRPF_Mental_Health_System.exe (main executable)
+    echo   • SATHI.exe (main executable)
     echo   • backend\ (Flask application)
     echo   • frontend\ (React application)  
     echo   • deployment\ (configuration files)
@@ -38,7 +38,7 @@ if exist "dist\CRPF_Mental_Health_System.exe" (
     echo 🚀 For CRPF Deployment:
     echo   1. Copy entire project folder to CRPF computer
     echo   2. Run deployment\install.bat as Administrator
-    echo   3. Double-click CRPF_Mental_Health_System.exe to use
+    echo   3. Double-click SATHI.exe to use
     
 ) else (
     echo ❌ Failed to create executable

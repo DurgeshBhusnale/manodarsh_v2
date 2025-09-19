@@ -18513,3 +18513,254 @@ exists but not ready yet, using traditional loading
 2025-09-18 21:41:03,335 - INFO - 127.0.0.1 - - [18/Sep/2025 21:41:03] "POST /api/auth/login HTTP/1.1" 200 -
 2025-09-18 21:41:03,443 - INFO - 127.0.0.1 - - [18/Sep/2025 21:41:03] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
 2025-09-18 21:41:33,666 - INFO - 127.0.0.1 - - [18/Sep/2025 21:41:33] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 09:19:55,977 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-09-19 09:20:05,929 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-09-19 09:20:05,930 - INFO - Refreshing face recognition model...
+2025-09-19 09:20:05,975 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:20:05,976 - INFO - Model refreshed (manual) - Soldiers: 0 -> 93
+2025-09-19 09:20:05,978 - INFO - Auto refresh started with 300s interval
+2025-09-19 09:20:05,982 - INFO - Model preloader service initialized successfully
+2025-09-19 09:20:05,983 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-09-19 09:20:05,983 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-09-19 09:20:05,983 - INFO - Model preloading started
+2025-09-19 09:20:06,091 - INFO - Face cascade loaded successfully
+2025-09-19 09:20:06,616 - INFO - Emotion detection model loaded successfully
+2025-09-19 09:20:06,616 - INFO - Face recognition model loaded with 93 soldiers
+2025-09-19 09:20:06,622 - INFO - Model preloading completed in 0.64 seconds
+2025-09-19 09:20:06,627 - INFO - Traditional model loading completed successfully
+2025-09-19 09:20:06,628 - INFO - [SUCCESS] Traditional model loading completed in 0.64s
+2025-09-19 09:20:06,628 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.70s
+2025-09-19 09:20:07,767 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 09:20:07,804 - INFO - Starting model preloader service...
+2025-09-19 09:20:07,868 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-19 09:20:07,868 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 09:20:07,872 - INFO -  * Restarting with stat
+2025-09-19 09:20:08,316 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 93, 'estimated_memory_mb': 4.43, 'load_time_seconds': 0.638121, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-09-19 09:20:13,879 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-09-19 09:20:17,669 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-09-19 09:20:17,670 - INFO - Refreshing face recognition model...
+2025-09-19 09:20:17,690 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:20:17,691 - INFO - Model refreshed (manual) - Soldiers: 0 -> 93
+2025-09-19 09:20:17,693 - INFO - Auto refresh started with 300s interval
+2025-09-19 09:20:17,697 - INFO - Model preloader service initialized successfully
+2025-09-19 09:20:17,698 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-09-19 09:20:17,698 - INFO - Model preloading started
+2025-09-19 09:20:17,698 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-09-19 09:20:17,757 - INFO - Face cascade loaded successfully
+2025-09-19 09:20:18,195 - INFO - Emotion detection model loaded successfully
+2025-09-19 09:20:18,195 - INFO - Face recognition model loaded with 93 soldiers
+2025-09-19 09:20:18,195 - INFO - Model preloading completed in 0.50 seconds
+2025-09-19 09:20:18,236 - INFO - Traditional model loading completed successfully
+2025-09-19 09:20:18,237 - INFO - [SUCCESS] Traditional model loading completed in 0.54s
+2025-09-19 09:20:18,237 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.57s
+2025-09-19 09:20:18,945 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 09:20:18,989 - INFO - Starting model preloader service...
+2025-09-19 09:20:19,005 - WARNING -  * Debugger is active!
+2025-09-19 09:20:19,022 - INFO -  * Debugger PIN: 132-663-522
+2025-09-19 09:20:19,455 - INFO - 127.0.0.1 - - [19/Sep/2025 09:20:19] "GET / HTTP/1.1" 200 -
+2025-09-19 09:20:19,457 - INFO - 127.0.0.1 - - [19/Sep/2025 09:20:19] "GET / HTTP/1.1" 200 -
+2025-09-19 09:20:19,499 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 93, 'estimated_memory_mb': 4.43, 'load_time_seconds': 0.49779, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-09-19 09:20:21,964 - INFO - 127.0.0.1 - - [19/Sep/2025 09:20:21] "GET / HTTP/1.1" 200 -
+2025-09-19 09:21:17,153 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:17] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-09-19 09:21:17,888 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 09:21:17,890 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:17] "POST /api/auth/login HTTP/1.1" 200 -
+2025-09-19 09:21:18,038 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:18] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-09-19 09:21:24,651 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:24] "GET /api/monitor/face-model/soldiers HTTP/1.1" 200 -
+2025-09-19 09:21:24,932 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:24] "GET /api/admin/soldiers HTTP/1.1" 200 -
+2025-09-19 09:21:24,976 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:24,992 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,005 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,057 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/monitor/face-model/status HTTP/1.1" 200 -
+2025-09-19 09:21:25,276 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,276 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000001 HTTP/1.1" 200 -
+2025-09-19 09:21:25,405 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,406 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000002 HTTP/1.1" 200 -
+2025-09-19 09:21:25,411 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000005 HTTP/1.1" 200 -
+2025-09-19 09:21:25,425 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,437 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,439 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000004 HTTP/1.1" 200 -
+2025-09-19 09:21:25,440 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000003 HTTP/1.1" 200 -
+2025-09-19 09:21:25,458 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,459 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000006 HTTP/1.1" 200 -
+2025-09-19 09:21:25,614 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,614 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000007 HTTP/1.1" 200 -
+2025-09-19 09:21:25,746 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,747 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000008 HTTP/1.1" 200 -
+2025-09-19 09:21:25,767 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 09:21:25,767 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:25] "GET /api/image/soldier-training-status/100000009 HTTP/1.1" 200 -
+2025-09-19 09:21:48,215 - INFO - 127.0.0.1 - - [19/Sep/2025 09:21:48] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 09:22:17,918 - INFO - 127.0.0.1 - - [19/Sep/2025 09:22:17] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 09:22:48,225 - INFO - 127.0.0.1 - - [19/Sep/2025 09:22:48] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:50:22,091 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-09-19 10:50:30,367 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-09-19 10:50:30,368 - INFO - Refreshing face recognition model...
+2025-09-19 10:50:30,413 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 10:50:30,414 - INFO - Model refreshed (manual) - Soldiers: 0 -> 93
+2025-09-19 10:50:30,416 - INFO - Auto refresh started with 300s interval
+2025-09-19 10:50:30,421 - INFO - Model preloader service initialized successfully
+2025-09-19 10:50:30,421 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-09-19 10:50:30,422 - INFO - Model preloading started
+2025-09-19 10:50:30,422 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-09-19 10:50:30,537 - INFO - Face cascade loaded successfully
+2025-09-19 10:50:30,953 - INFO - Emotion detection model loaded successfully
+2025-09-19 10:50:30,954 - INFO - Face recognition model loaded with 93 soldiers
+2025-09-19 10:50:30,954 - INFO - Model preloading completed in 0.53 seconds
+2025-09-19 10:50:30,966 - INFO - Traditional model loading completed successfully
+2025-09-19 10:50:30,966 - INFO - [SUCCESS] Traditional model loading completed in 0.54s
+2025-09-19 10:50:30,967 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.60s
+2025-09-19 10:50:31,903 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 10:50:31,935 - INFO - Starting model preloader service...
+2025-09-19 10:50:32,004 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-19 10:50:32,004 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 10:50:32,009 - INFO -  * Restarting with stat
+2025-09-19 10:50:32,446 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 93, 'estimated_memory_mb': 4.43, 'load_time_seconds': 0.532926, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-09-19 10:50:38,733 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-09-19 10:50:41,520 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-09-19 10:50:41,521 - INFO - Refreshing face recognition model...
+2025-09-19 10:50:41,532 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 10:50:41,533 - INFO - Model refreshed (manual) - Soldiers: 0 -> 93
+2025-09-19 10:50:41,535 - INFO - Auto refresh started with 300s interval
+2025-09-19 10:50:41,540 - INFO - Model preloader service initialized successfully
+2025-09-19 10:50:41,540 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-09-19 10:50:41,540 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-09-19 10:50:41,540 - INFO - Model preloading started
+2025-09-19 10:50:41,598 - INFO - Face cascade loaded successfully
+2025-09-19 10:50:41,986 - INFO - Emotion detection model loaded successfully
+2025-09-19 10:50:41,987 - INFO - Face recognition model loaded with 93 soldiers
+2025-09-19 10:50:41,988 - INFO - Model preloading completed in 0.45 seconds
+2025-09-19 10:50:41,990 - INFO - Traditional model loading completed successfully
+2025-09-19 10:50:41,990 - INFO - [SUCCESS] Traditional model loading completed in 0.45s
+2025-09-19 10:50:41,990 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.47s
+2025-09-19 10:50:42,620 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 10:50:42,650 - INFO - Starting model preloader service...
+2025-09-19 10:50:42,663 - WARNING -  * Debugger is active!
+2025-09-19 10:50:42,674 - INFO -  * Debugger PIN: 132-663-522
+2025-09-19 10:50:43,077 - INFO - 127.0.0.1 - - [19/Sep/2025 10:50:43] "GET / HTTP/1.1" 200 -
+2025-09-19 10:50:43,079 - INFO - 127.0.0.1 - - [19/Sep/2025 10:50:43] "GET / HTTP/1.1" 200 -
+2025-09-19 10:50:43,155 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 93, 'estimated_memory_mb': 4.43, 'load_time_seconds': 0.447425, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-09-19 10:52:42,850 - INFO - 127.0.0.1 - - [19/Sep/2025 10:52:42] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-09-19 10:52:43,536 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 10:52:43,537 - INFO - 127.0.0.1 - - [19/Sep/2025 10:52:43] "POST /api/auth/login HTTP/1.1" 200 -
+2025-09-19 10:52:43,611 - INFO - 127.0.0.1 - - [19/Sep/2025 10:52:43] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-09-19 10:53:14,666 - INFO - 127.0.0.1 - - [19/Sep/2025 10:53:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:53:44,366 - INFO - 127.0.0.1 - - [19/Sep/2025 10:53:44] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:54:14,666 - INFO - 127.0.0.1 - - [19/Sep/2025 10:54:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:54:44,363 - INFO - 127.0.0.1 - - [19/Sep/2025 10:54:44] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:55:14,685 - INFO - 127.0.0.1 - - [19/Sep/2025 10:55:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:55:44,399 - INFO - 127.0.0.1 - - [19/Sep/2025 10:55:44] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:56:14,676 - INFO - 127.0.0.1 - - [19/Sep/2025 10:56:14] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:56:51,368 - INFO - 127.0.0.1 - - [19/Sep/2025 10:56:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:57:44,716 - INFO - 127.0.0.1 - - [19/Sep/2025 10:57:44] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-09-19 10:57:51,366 - INFO - 127.0.0.1 - - [19/Sep/2025 10:57:51] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-19 10:59:32,066 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-09-19 10:59:35,502 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-09-19 10:59:35,504 - INFO - Refreshing face recognition model...
+2025-09-19 10:59:35,528 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 10:59:35,530 - INFO - Model refreshed (manual) - Soldiers: 0 -> 93
+2025-09-19 10:59:35,533 - INFO - Auto refresh started with 300s interval
+2025-09-19 10:59:35,539 - INFO - Model preloader service initialized successfully
+2025-09-19 10:59:35,539 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-09-19 10:59:35,539 - INFO - Model preloading started
+2025-09-19 10:59:35,539 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-09-19 10:59:35,700 - INFO - Face cascade loaded successfully
+2025-09-19 10:59:36,197 - INFO - Traditional model loading completed successfully
+2025-09-19 10:59:36,198 - INFO - [SUCCESS] Traditional model loading completed in 0.66s
+2025-09-19 10:59:36,199 - INFO - Emotion detection model loaded successfully
+2025-09-19 10:59:36,199 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.70s
+2025-09-19 10:59:36,200 - INFO - Face recognition model loaded with 93 soldiers
+2025-09-19 10:59:36,201 - INFO - Model preloading completed in 0.66 seconds
+2025-09-19 10:59:36,859 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 10:59:36,892 - INFO - Starting model preloader service...
+2025-09-19 10:59:36,916 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-19 10:59:36,917 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 10:59:36,920 - INFO -  * Restarting with stat
+2025-09-19 10:59:37,402 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 93, 'estimated_memory_mb': 4.43, 'load_time_seconds': 0.662847, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-09-19 10:59:43,829 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-09-19 10:59:46,452 - INFO - [INIT] Initializing EnhancedEmotionDetectionService...
+2025-09-19 10:59:46,452 - INFO - Refreshing face recognition model...
+2025-09-19 10:59:46,464 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 10:59:46,464 - INFO - Model refreshed (manual) - Soldiers: 0 -> 93
+2025-09-19 10:59:46,467 - INFO - Auto refresh started with 300s interval
+2025-09-19 10:59:46,470 - INFO - Model preloader service initialized successfully
+2025-09-19 10:59:46,470 - INFO - [WARNING] Model preloader exists but not ready yet, using traditional loading
+2025-09-19 10:59:46,471 - INFO - Model preloading started
+2025-09-19 10:59:46,471 - INFO - [LOADING] Loading models on-demand (preloader not ready or failed)
+2025-09-19 10:59:46,534 - INFO - Face cascade loaded successfully
+2025-09-19 10:59:46,997 - INFO - Emotion detection model loaded successfully
+2025-09-19 10:59:46,997 - INFO - Face recognition model loaded with 93 soldiers
+2025-09-19 10:59:46,998 - INFO - Model preloading completed in 0.53 seconds
+2025-09-19 10:59:47,047 - INFO - Traditional model loading completed successfully
+2025-09-19 10:59:47,048 - INFO - [SUCCESS] Traditional model loading completed in 0.58s
+2025-09-19 10:59:47,048 - INFO - [SUCCESS] EnhancedEmotionDetectionService initialized in 0.60s
+2025-09-19 10:59:47,960 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 10:59:47,996 - INFO - Starting model preloader service...
+2025-09-19 10:59:48,012 - WARNING -  * Debugger is active!
+2025-09-19 10:59:48,023 - INFO -  * Debugger PIN: 132-663-522
+2025-09-19 10:59:48,391 - INFO - 127.0.0.1 - - [19/Sep/2025 10:59:48] "GET / HTTP/1.1" 200 -
+2025-09-19 10:59:48,393 - INFO - 127.0.0.1 - - [19/Sep/2025 10:59:48] "GET / HTTP/1.1" 200 -
+2025-09-19 10:59:48,505 - INFO - Model preloader initialization completed: {'ready': True, 'soldiers_loaded': 93, 'estimated_memory_mb': 4.43, 'load_time_seconds': 0.527755, 'models': {'face_cascade': True, 'emotion_model': True, 'face_recognition': True}}
+2025-09-19 10:59:51,074 - INFO - 127.0.0.1 - - [19/Sep/2025 10:59:51] "GET / HTTP/1.1" 200 -
+2025-09-19 11:00:02,422 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:02] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-09-19 11:00:03,114 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 11:00:03,117 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:03] "POST /api/auth/login HTTP/1.1" 200 -
+2025-09-19 11:00:03,173 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:03] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-09-19 11:00:26,050 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:26] "POST /api/auth/logout HTTP/1.1" 200 -
+2025-09-19 11:00:40,256 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:40] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2025-09-19 11:00:40,615 - INFO - Dynamic session timeout loaded: 900 seconds
+2025-09-19 11:00:40,617 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:40] "POST /api/auth/login HTTP/1.1" 200 -
+2025-09-19 11:00:40,962 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:40] "GET /api/admin/dashboard-stats?timeframe=7d HTTP/1.1" 200 -
+2025-09-19 11:00:44,975 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:44] "GET /api/monitor/face-model/soldiers HTTP/1.1" 200 -
+2025-09-19 11:00:45,246 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/admin/soldiers HTTP/1.1" 200 -
+2025-09-19 11:00:45,317 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,329 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,340 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,372 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/monitor/face-model/status HTTP/1.1" 200 -
+2025-09-19 11:00:45,593 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,594 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/image/soldier-training-status/100000001 HTTP/1.1" 200 -
+2025-09-19 11:00:45,736 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/image/soldier-training-status/100000005 HTTP/1.1" 200 -
+2025-09-19 11:00:45,746 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,748 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/image/soldier-training-status/100000003 HTTP/1.1" 200 -
+2025-09-19 11:00:45,762 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,763 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/image/soldier-training-status/100000002 HTTP/1.1" 200 -
+2025-09-19 11:00:45,778 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,780 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/image/soldier-training-status/100000004 HTTP/1.1" 200 -
+2025-09-19 11:00:45,795 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,796 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/image/soldier-training-status/100000006 HTTP/1.1" 200 -
+2025-09-19 11:00:45,959 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:45,961 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:45] "GET /api/image/soldier-training-status/100000007 HTTP/1.1" 200 -
+2025-09-19 11:00:46,106 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:46,107 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:46] "GET /api/image/soldier-training-status/100000008 HTTP/1.1" 200 -
+2025-09-19 11:00:46,139 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:46,140 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:46] "GET /api/image/soldier-training-status/100000009 HTTP/1.1" 200 -
+2025-09-19 11:00:52,889 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:52] "OPTIONS /api/image/delete-soldier/100000009 HTTP/1.1" 200 -
+2025-09-19 11:00:52,974 - INFO - Model loaded successfully - 93 soldiers
+2025-09-19 11:00:53,012 - INFO - Model saved atomically - Version: 20250919_110052, Soldiers: 81
+2025-09-19 11:00:53,013 - INFO - Refreshing face recognition model...
+2025-09-19 11:00:53,056 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:53,057 - INFO - Model refreshed (manual) - Soldiers: 93 -> 81
+2025-09-19 11:00:53,058 - INFO - Model cache refreshed after deleting soldier 100000009
+2025-09-19 11:00:53,198 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:53] "DELETE /api/image/delete-soldier/100000009 HTTP/1.1" 200 -
+2025-09-19 11:00:53,210 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:53] "GET /api/monitor/face-model/soldiers HTTP/1.1" 200 -
+2025-09-19 11:00:53,561 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:53] "GET /api/admin/soldiers HTTP/1.1" 200 -
+2025-09-19 11:00:53,816 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:53,827 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:53,842 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:53,872 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:53] "GET /api/monitor/face-model/status HTTP/1.1" 200 -
+2025-09-19 11:00:53,906 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:53,907 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:53] "GET /api/image/soldier-training-status/100000001 HTTP/1.1" 200 -
+2025-09-19 11:00:54,237 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:54] "GET /api/image/soldier-training-status/100000005 HTTP/1.1" 200 -
+2025-09-19 11:00:54,252 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:54,254 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:54] "GET /api/image/soldier-training-status/100000002 HTTP/1.1" 200 -
+2025-09-19 11:00:54,264 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:54,265 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:54] "GET /api/image/soldier-training-status/100000003 HTTP/1.1" 200 -
+2025-09-19 11:00:54,278 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:54,279 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:54] "GET /api/image/soldier-training-status/100000004 HTTP/1.1" 200 -
+2025-09-19 11:00:54,292 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:54,293 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:54] "GET /api/image/soldier-training-status/100000006 HTTP/1.1" 200 -
+2025-09-19 11:00:54,303 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:54,304 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:54] "GET /api/image/soldier-training-status/100000007 HTTP/1.1" 200 -
+2025-09-19 11:00:54,596 - INFO - Model loaded successfully - 81 soldiers
+2025-09-19 11:00:54,597 - INFO - 127.0.0.1 - - [19/Sep/2025 11:00:54] "GET /api/image/soldier-training-status/100000008 HTTP/1.1" 200 -

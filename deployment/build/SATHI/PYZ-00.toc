@@ -1,4 +1,4 @@
-('D:\\Manodarsh\\deployment\\build\\CRPF_Mental_Health_System\\PYZ-00.pyz',
+('D:\\Manodarsh\\deployment\\build\\SATHI\\PYZ-00.pyz',
  [('__future__',
    'C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python38\\lib\\__future__.py',
    'PYMODULE'),

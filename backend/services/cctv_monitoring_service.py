@@ -4,11 +4,21 @@ import os
 import threading
 import time
 from datetime import datetime, timedelta
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Tuple
 from collections import deque, defaultdict
 from statistics import mean
 from db.connection import get_connection
 from services.enhanced_emotion_detection_service import EnhancedEmotionDetectionService
+
+# SINGLETON PATTERN: Ensure only one monitoring service instance to prevent camera conflicts
+_monitoring_service_instance = None
+
+def get_monitoring_service_instance():
+    """Get singleton instance of CCTVMonitoringService to prevent camera conflicts"""
+    global _monitoring_service_instance
+    if _monitoring_service_instance is None:
+        _monitoring_service_instance = CCTVMonitoringService()
+    return _monitoring_service_instance
 
 def get_camera_settings():
     """Get camera settings from database with fallback to defaults"""
@@ -112,7 +122,20 @@ class CCTVMonitoringService:
         self.detection_buffer = {}  # Buffer for storing detections for 3-second averaging
         self.last_average_time = {}  # Track last average calculation time per force_id
         self.AVERAGE_INTERVAL = 3  # Calculate average every 3 seconds
+        
+        # Survey-specific attributes
+        self.survey_monitoring = False
+        self.survey_mode = False
+        self.survey_thread_active = False
+        self.survey_thread = None
+        
         self.setup_logging()
+        
+        # IMPORTANT: Clean up any existing OpenCV resources on init
+        try:
+            cv2.destroyAllWindows()
+        except:
+            pass
         
     def setup_logging(self):
         logging.basicConfig(
@@ -382,7 +405,7 @@ class CCTVMonitoringService:
         return True
 
     def process_frame(self) -> Optional[Dict]:
-        """Process a single frame from the video feed"""
+        """Process a single frame from the video feed - CONDITIONAL LOGIC for CCTV vs Survey"""
         if not self.cap or not self.monitoring_id:
             return None
 
@@ -397,8 +420,17 @@ class CCTVMonitoringService:
         frame = cv2.resize(frame, (1280, 720))
         display_frame = cv2.resize(display_frame, (1280, 720))
 
-        # Detect face and emotion
-        result = self.emotion_service.detect_face_and_emotion(frame)
+        # CONDITIONAL LOGIC: Choose detection method based on context
+        if hasattr(self, 'survey_mode') and self.survey_mode:
+            # SURVEY MODE: Use credential-based detection
+            if hasattr(self, 'survey_force_id'):
+                result = self.emotion_service.detect_emotion_for_survey(frame, self.survey_force_id)
+            else:
+                result = None
+        else:
+            # CCTV MODE: Use PKL-based identification
+            result = self.emotion_service.detect_face_and_emotion(frame)
+            
         if result:
             force_id, emotion, score, face_coords = result
             logging.info(f"Detected soldier {force_id} with emotion {emotion} and score {score}")
@@ -502,18 +534,113 @@ class CCTVMonitoringService:
             logging.error(f"Error calculating daily scores: {e}")
             return False
 
-    def start_survey_monitoring(self, force_id: str) -> bool:
-        """Start emotion detection monitoring during survey for a specific soldier"""
-        start_time = time.time()
-        camera_init_time = 0  # Initialize timing variable
+    def force_camera_cleanup(self):
+        """FAST force cleanup of all camera resources - optimized for speed"""
+        logging.info("FAST CAMERA CLEANUP: Attempting to release all camera resources...")
         
         try:
-            logging.info(f"[START] Starting survey monitoring for soldier {force_id}")
+            # Stop all monitoring activities immediately
+            self.survey_monitoring = False
+            self.survey_thread_active = False
+            self.is_monitoring = False
+            
+            # Quick thread cleanup with minimal waiting
+            for thread_attr in ['survey_thread', 'monitor_thread']:
+                if hasattr(self, thread_attr):
+                    thread = getattr(self, thread_attr)
+                    if thread and thread.is_alive():
+                        logging.info(f"Fast stopping {thread_attr}...")
+                        # Minimal timeout - don't wait long
+                        thread.join(timeout=0.2)  # Reduced from 1s to 0.2s
+            
+            # Immediate camera release
+            if self.cap is not None:
+                try:
+                    if self.cap.isOpened():
+                        self.cap.release()
+                        logging.info("Camera instantly released")
+                    self.cap = None
+                except Exception as e:
+                    logging.debug(f"Camera release (non-critical): {e}")
+                    self.cap = None  # Set to None anyway
+            
+            # Fast OpenCV cleanup
+            try:
+                cv2.destroyAllWindows()
+                cv2.waitKey(1)  # Single quick cleanup
+                logging.info("OpenCV windows destroyed instantly")
+            except Exception as e:
+                logging.debug(f"OpenCV cleanup (non-critical): {e}")
+            
+            # Instant state reset
+            self.survey_mode = False
+            
+            logging.info("FAST CAMERA CLEANUP COMPLETE")
+            return True
+            
+        except Exception as e:
+            logging.error(f"Error during fast camera cleanup: {e}")
+            return False
+
+    def configure_survey_mode(self, force_id: str):
+        """Configure monitoring for survey mode with specific soldier"""
+        self.survey_mode = True
+        self.survey_force_id = force_id
+        logging.info(f"CCTV Monitoring configured for SURVEY MODE with soldier {force_id}")
+        
+    def configure_cctv_mode(self):
+        """Configure monitoring for general CCTV mode"""
+        self.survey_mode = False
+        if hasattr(self, 'survey_force_id'):
+            delattr(self, 'survey_force_id')
+        logging.info("CCTV Monitoring configured for GENERAL CCTV MODE")
+
+    def _detect_optimal_camera_resolution(self) -> Tuple[int, int]:
+        """Detect maximum supported camera resolution"""
+        if not self.cap:
+            return (1920, 1080)  # Default fallback
+            
+        try:
+            # Test common resolutions from highest to lowest
+            test_resolutions = [
+                (3840, 2160),  # 4K
+                (2560, 1440),  # 2K
+                (1920, 1080),  # Full HD
+                (1280, 720),   # HD
+                (640, 480)     # VGA
+            ]
+            
+            for width, height in test_resolutions:
+                self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+                self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+                
+                # Verify the resolution was actually set
+                actual_width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                actual_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                
+                if actual_width == width and actual_height == height:
+                    logging.info(f"Optimal camera resolution detected: {width}x{height}")
+                    return (width, height)
+                    
+            logging.warning("Could not detect optimal resolution, using default 1920x1080")
+            return (1920, 1080)
+            
+        except Exception as e:
+            logging.error(f"Error detecting optimal camera resolution: {e}")
+            return (1920, 1080)
+
+    def start_survey_monitoring(self, force_id: str) -> bool:
+        """ENHANCED: Start emotion detection monitoring during survey for a specific soldier"""
+        start_time = time.time()
+        camera_init_time = 0
+        
+        try:
+            logging.info(f"[START] ENHANCED survey monitoring for authenticated soldier {force_id}")
             
             # Initialize camera if not already done
             if not self.cap:
                 camera_init_start = time.time()
-                logging.info("[CAMERA] Initializing camera...")
+                logging.info("[CAMERA] Initializing camera with optimal resolution...")
                 
                 self.cap = self._find_available_camera()
                 if not self.cap:
@@ -523,28 +650,43 @@ class CCTVMonitoringService:
                 logging.info(f"[CAMERA] Camera initialized in {camera_init_time:.2f} seconds")
             else:
                 logging.info("[CAMERA] Using existing camera connection")
-                    
-            # Set camera properties using dynamic settings from database
+            
+            # ENHANCED: Set optimal camera resolution (maximum possible)
             settings_start = time.time()
-            camera_settings = get_camera_settings()
-            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_settings['width'])
-            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_settings['height'])
-            self.cap.set(cv2.CAP_PROP_FPS, 10)  # Keep FPS at 10 for performance
+            
+            # Get optimal settings from emotion service
+            optimal_settings = self.emotion_service.get_camera_optimal_settings()
+            
+            if optimal_settings.get('use_auto_resolution', False):
+                # Use auto-detection for maximum resolution
+                actual_width, actual_height = self.emotion_service.set_optimal_camera_resolution(self.cap)
+                logging.info(f"[RESOLUTION] Auto-detected optimal: {actual_width}x{actual_height}")
+            else:
+                # Use configured settings
+                self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, optimal_settings['width'])
+                self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, optimal_settings['height'])
+                actual_width = optimal_settings['width']
+                actual_height = optimal_settings['height']
+            
+            self.cap.set(cv2.CAP_PROP_FPS, optimal_settings.get('fps', 10))
             settings_time = time.time() - settings_start
             
-            logging.info(f"[CONFIG] Camera configured in {settings_time:.2f}s: {camera_settings['width']}x{camera_settings['height']}, detection_interval={camera_settings['detection_interval']}")
+            logging.info(f"[CONFIG] OPTIMAL camera settings applied in {settings_time:.2f}s: "
+                        f"{actual_width}x{actual_height}, fps={optimal_settings.get('fps', 10)}, "
+                        f"detection_interval={optimal_settings['detection_interval']}")
             
             # Initialize survey monitoring state
             self.survey_force_id = force_id
             self.survey_detections = []
             self.survey_monitoring = True
             self.survey_thread_active = True
-            self.survey_start_time = datetime.now()  # Track survey start time for question correlation
+            self.survey_start_time = datetime.now()
+            self.survey_mode = True  # NEW: Flag for survey-specific processing
             
-            # Start background monitoring thread
+            # Start background monitoring thread with enhanced processing
             thread_start = time.time()
             self.survey_thread = threading.Thread(
-                target=self._process_survey_frames_continuously,
+                target=self._process_survey_frames_continuously_enhanced,
                 args=(force_id,),
                 daemon=True
             )
@@ -552,17 +694,18 @@ class CCTVMonitoringService:
             thread_time = time.time() - thread_start
             
             total_time = time.time() - start_time
-            logging.info(f"[SUCCESS] Survey monitoring started in {total_time:.2f}s (camera: {camera_init_time:.2f}s, settings: {settings_time:.2f}s, thread: {thread_time:.2f}s)")
+            logging.info(f"[SUCCESS] ENHANCED survey monitoring started in {total_time:.2f}s "
+                        f"(camera: {camera_init_time:.2f}s, optimal_settings: {settings_time:.2f}s, thread: {thread_time:.2f}s)")
             return True
             
         except Exception as e:
             total_time = time.time() - start_time
-            logging.error(f"[ERROR] Failed to start survey monitoring after {total_time:.2f}s: {e}")
+            logging.error(f"[ERROR] Failed to start enhanced survey monitoring after {total_time:.2f}s: {e}")
             self.survey_monitoring = False
             return False
 
     def _process_survey_frames_continuously(self, force_id: str):
-        """Continuously process frames during survey in background thread"""
+        """LEGACY: Continuously process frames during survey in background thread (PKL-based)"""
         logging.info(f"Starting continuous survey frame processing for soldier {force_id}")
         
         frame_count = 0
@@ -617,6 +760,72 @@ class CCTVMonitoringService:
                 
         logging.info(f"Stopped continuous survey frame processing for soldier {force_id}")
 
+    def _process_survey_frames_continuously_enhanced(self, force_id: str):
+        """ENHANCED: Survey-specific frame processing without PKL identification"""
+        logging.info(f"Starting ENHANCED survey frame processing for authenticated soldier {force_id}")
+        
+        frame_count = 0
+        # Get optimal detection interval
+        optimal_settings = self.emotion_service.get_camera_optimal_settings()
+        detection_interval = optimal_settings['detection_interval']
+        
+        logging.info(f"Using enhanced detection interval: {detection_interval} frames")
+        
+        while self.survey_thread_active and self.survey_monitoring:
+            try:
+                if not self.cap or not self.cap.isOpened():
+                    logging.warning("Camera not available during enhanced survey monitoring")
+                    time.sleep(1)
+                    continue
+                    
+                ret, frame = self.cap.read()
+                if not ret:
+                    logging.warning("Failed to read frame during enhanced survey")
+                    time.sleep(0.1)
+                    continue
+                
+                frame_count += 1
+                
+                # Process every Nth frame with enhanced detection
+                if frame_count % detection_interval == 0:
+                    # ENHANCED: Use survey-specific emotion detection (no PKL matching)
+                    result = self.emotion_service.detect_emotion_for_survey(frame, force_id)
+                    
+                    if result:
+                        detected_force_id, emotion, score, face_coords = result
+                        
+                        # Force ID should match since we pass it to the function
+                        if detected_force_id == force_id:
+                            detection_data = {
+                                'timestamp': datetime.now().isoformat(),
+                                'emotion': emotion,
+                                'score': score,
+                                'force_id': force_id,
+                                'method': 'survey_enhanced'  # Mark as enhanced detection
+                            }
+                            
+                            # Store in survey detections buffer
+                            if not hasattr(self, 'survey_detections'):
+                                self.survey_detections = []
+                            self.survey_detections.append(detection_data)
+                            
+                            logging.info(f"ENHANCED Survey detection: {force_id} - {emotion} ({score:.2f})")
+                        else:
+                            logging.warning(f"Unexpected force_id mismatch in enhanced survey: expected {force_id}, got {detected_force_id}")
+                    else:
+                        # Log when no face is detected for debugging
+                        if frame_count % (detection_interval * 10) == 0:  # Log every 10 detection attempts
+                            logging.debug(f"No face detected in enhanced survey frame (count: {frame_count})")
+                
+                # Smaller delay for enhanced processing
+                time.sleep(0.05)
+                
+            except Exception as e:
+                logging.error(f"Error in enhanced survey frame processing: {e}")
+                time.sleep(1)
+                
+        logging.info(f"Stopped ENHANCED survey frame processing for soldier {force_id}")
+
     def stop_survey_monitoring(self, force_id: str, session_id: Optional[int] = None) -> Dict:
         """Stop survey emotion detection and return average results"""
         try:
@@ -657,10 +866,18 @@ class CCTVMonitoringService:
                     most_common_emotion = "No Detection"
                     logging.warning(f"No actual emotion detections found for soldier {force_id}")
                 
-                # Store in database if session_id provided
+                # Store in database if session_id provided - OPTIMIZED for speed
                 if session_id:
                     logging.info(f"Storing emotion data for session_id: {session_id}")
-                    self._store_survey_emotion_data(session_id, force_id, avg_score)
+                    # OPTIMIZATION: Run database storage in background to not block survey submission
+                    import threading
+                    storage_thread = threading.Thread(
+                        target=self._store_survey_emotion_data_async,
+                        args=(session_id, force_id, avg_score),
+                        daemon=True
+                    )
+                    storage_thread.start()
+                    logging.info("Database storage started in background - won't block submission")
                 else:
                     logging.warning("No session_id provided, emotion data will not be stored in database")
                 
@@ -692,22 +909,44 @@ class CCTVMonitoringService:
             logging.error(f"Error stopping survey monitoring: {e}")
             return {'force_id': force_id, 'error': str(e)}
         finally:
-            # Clean up camera and monitoring resources
+            # OPTIMIZED: Fast camera cleanup to prevent survey submission delays
             try:
-                # Stop any ongoing threads
+                logging.info("Starting FAST camera cleanup process...")
+                
+                # Stop any ongoing threads immediately
                 self.survey_monitoring = False
                 self.survey_thread_active = False
                 
-                # Wait for thread to finish
+                # Quick thread cleanup with minimal timeout
                 if hasattr(self, 'survey_thread') and self.survey_thread.is_alive():
-                    self.survey_thread.join(timeout=2)
+                    logging.info("Quickly stopping survey monitoring thread...")
+                    self.survey_thread.join(timeout=0.5)  # Reduced from 3s to 0.5s
+                    if self.survey_thread.is_alive():
+                        logging.info("Thread still active - will cleanup in background")
                 
-                # IMPORTANT: Release camera resources
-                if self.cap and self.cap.isOpened():
-                    self.cap.release()
+                # FAST: Immediate camera release without sleep delays
+                if self.cap is not None:
+                    if self.cap.isOpened():
+                        logging.info("Releasing camera capture immediately...")
+                        self.cap.release()
+                        # REMOVED: time.sleep(0.5) - this was causing delay
                     self.cap = None
+                    logging.info("Camera capture cleared instantly")
+                
+                # Quick OpenCV cleanup
+                try:
                     cv2.destroyAllWindows()
-                    logging.info("Camera resources released after survey monitoring")
+                    # Quick CV cleanup without excessive waiting
+                    for _ in range(2):  # Reduced from 5 to 2
+                        cv2.waitKey(1)
+                    logging.info("OpenCV windows closed quickly")
+                except Exception as cv_error:
+                    logging.debug(f"OpenCV cleanup (non-critical): {cv_error}")
+                
+                # Fast state reset
+                self.survey_mode = False
+                if hasattr(self, 'survey_force_id'):
+                    delattr(self, 'survey_force_id')
                 
                 # Clean up survey-specific attributes
                 if hasattr(self, 'survey_detections'):
@@ -719,6 +958,16 @@ class CCTVMonitoringService:
                     
             except Exception as cleanup_error:
                 logging.error(f"Error during cleanup: {cleanup_error}")
+
+    def _store_survey_emotion_data_async(self, session_id: int, force_id: str, avg_score: float):
+        """FAST: Store survey emotion data in background thread to not block submission"""
+        try:
+            logging.info(f"Background storage starting - session_id: {session_id}, force_id: {force_id}, avg_score: {avg_score:.2f}")
+            self._store_survey_emotion_data(session_id, force_id, avg_score)
+            logging.info("Background database storage completed successfully")
+        except Exception as e:
+            logging.error(f"Background database storage failed (non-critical): {e}")
+            # Don't raise exception - this is background operation
 
     def _store_survey_emotion_data(self, session_id: int, force_id: str, avg_score: float):
         """Store survey emotion data using proper weighted calculation from database settings"""

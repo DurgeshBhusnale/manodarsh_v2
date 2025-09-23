@@ -191,10 +191,14 @@ export const apiService = {
 
     // Survey emotion monitoring endpoints
     startSurveyEmotionMonitoring: (force_id: string) =>
-        api.post('/image/start-survey-monitoring', { force_id }),
+        api.post('/survey/start-survey-monitoring', { force_id }),
 
     endSurveyEmotionMonitoring: (force_id: string, session_id?: number) =>
         api.post('/image/end-survey-monitoring', { force_id, session_id }),
+
+    // Force cleanup camera resources if stuck
+    forceCameraCleanup: () =>
+        api.post('/survey/force-camera-cleanup'),
 
     // Advanced search functionality
     searchSoldiers: (searchTerm: string, filters: any) =>

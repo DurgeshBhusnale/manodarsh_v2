@@ -12,8 +12,8 @@ from typing import List, Dict, Optional, Tuple
 from datetime import datetime
 
 class FastFaceEncodingService:
-    def __init__(self, max_workers: int = 2):  # Reduced from 4 to 2 for stability
-        self.max_workers = min(max_workers, os.cpu_count() or 2)
+    def __init__(self, max_workers: int = 1):  # Reduced to 1 for maximum stability
+        self.max_workers = 1  # Force single-threaded processing to prevent crashes
         self.setup_logging()
     
     def setup_logging(self):
@@ -25,7 +25,7 @@ class FastFaceEncodingService:
     
     def encode_faces_parallel(self, image_paths: List[str]) -> List[np.ndarray]:
         """
-        Process face encodings in parallel with quality filtering
+        Process face encodings with fallback to sequential processing for stability
         
         Args:
             image_paths: List of paths to image files
@@ -36,35 +36,34 @@ class FastFaceEncodingService:
         if not image_paths:
             return []
             
-        self.logger.info(f"Processing {len(image_paths)} images with {self.max_workers} workers")
+        self.logger.info(f"Processing {len(image_paths)} images")
         start_time = datetime.now()
         
-        # Process images in parallel with timeout safety
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            # Submit all encoding tasks
-            future_to_path = {
-                executor.submit(self._encode_single_image_with_quality, path): path 
-                for path in image_paths
-            }
-            
+        # Use sequential processing for maximum stability
+        try:
             encodings_with_quality = []
-            
-            # Collect results as they complete with timeout
-            try:
-                for future in concurrent.futures.as_completed(future_to_path, timeout=60):
-                    path = future_to_path[future]
-                    try:
-                        result = future.result(timeout=15)  # 15 second timeout per image
-                        if result is not None:
-                            encodings_with_quality.append(result)
-                    except concurrent.futures.TimeoutError:
-                        self.logger.error(f"Timeout processing {path}")
-                    except Exception as e:
-                        self.logger.error(f"Error processing {path}: {e}")
-            except concurrent.futures.TimeoutError:
-                self.logger.error(f"Overall processing timeout after 60s - processed {len(encodings_with_quality)} images")
+            for i, path in enumerate(image_paths):
+                self.logger.info(f"Processing image {i+1}/{len(image_paths)}: {os.path.basename(path)}")
+                try:
+                    result = self._encode_single_image_with_quality(path)
+                    if result is not None:
+                        encodings_with_quality.append(result)
+                        self.logger.info(f"Successfully processed {os.path.basename(path)} (quality: {result['quality_score']:.2f})")
+                    else:
+                        self.logger.warning(f"No face detected in {os.path.basename(path)}")
+                except Exception as e:
+                    self.logger.error(f"Error processing {os.path.basename(path)}: {e}")
+                    continue
+                    
+        except Exception as e:
+            self.logger.error(f"Critical error in face encoding: {e}")
+            return []
         
         # Sort by quality and return best encodings
+        if not encodings_with_quality:
+            self.logger.error("No valid face encodings found")
+            return []
+            
         encodings_with_quality.sort(key=lambda x: x['quality_score'], reverse=True)
         
         # Take top encodings (max 12 for optimization)
@@ -78,7 +77,7 @@ class FastFaceEncodingService:
     
     def _encode_single_image_with_quality(self, image_path: str) -> Optional[Dict]:
         """
-        Encode single image with quality assessment
+        Encode single image with quality assessment and enhanced error handling
         
         Args:
             image_path: Path to image file
@@ -87,29 +86,75 @@ class FastFaceEncodingService:
             Dict with encoding and quality score, or None if failed
         """
         try:
-            # Load and process image
-            image = face_recognition.load_image_file(image_path)
-            face_locations = face_recognition.face_locations(image, model="hog")  # Faster HOG model
-            
-            if not face_locations:
+            # Verify file exists and is readable
+            if not os.path.exists(image_path):
+                self.logger.error(f"Image file does not exist: {image_path}")
                 return None
                 
-            # Get face encoding
-            face_encodings = face_recognition.face_encodings(image, face_locations)
-            if not face_encodings:
+            # Load and process image with error handling
+            try:
+                image = face_recognition.load_image_file(image_path)
+            except Exception as e:
+                self.logger.error(f"Failed to load image {image_path}: {e}")
+                return None
+                
+            if image is None or image.size == 0:
+                self.logger.error(f"Image is None or empty after loading: {image_path}")
                 return None
             
-            # Calculate quality score
-            quality_score = self._calculate_image_quality(image, face_locations[0])
+            # Detect faces with error handling
+            try:
+                face_locations = face_recognition.face_locations(image, model="hog")  # Faster HOG model
+            except Exception as e:
+                self.logger.error(f"Face detection failed for {image_path}: {e}")
+                # Clean up image from memory
+                del image
+                return None
+                
+            if not face_locations:
+                self.logger.debug(f"No faces detected in {image_path}")
+                # Clean up image from memory
+                del image
+                return None
+            
+            # Get face encoding with error handling
+            try:
+                face_encodings = face_recognition.face_encodings(image, face_locations)
+            except Exception as e:
+                self.logger.error(f"Face encoding failed for {image_path}: {e}")
+                # Clean up image from memory
+                del image
+                return None
+                
+            if not face_encodings:
+                self.logger.debug(f"No face encodings generated for {image_path}")
+                # Clean up image from memory
+                del image
+                return None
+            
+            # Calculate quality score with error handling
+            try:
+                quality_score = self._calculate_image_quality(image, face_locations[0])
+            except Exception as e:
+                self.logger.warning(f"Quality calculation failed for {image_path}, using default: {e}")
+                quality_score = 50.0  # Default quality score
+            
+            # Store the encoding before cleaning up
+            encoding = face_encodings[0].copy()  # Make a copy before cleanup
+            
+            # Clean up image from memory
+            del image
+            del face_locations
+            del face_encodings
             
             return {
-                'encoding': face_encodings[0],
+                'encoding': encoding,
                 'quality_score': quality_score,
                 'path': image_path
             }
             
         except Exception as e:
-            self.logger.error(f"Error encoding {image_path}: {e}")
+            self.logger.error(f"Unexpected error encoding {image_path}: {e}")
             return None
     
     def _calculate_image_quality(self, image: np.ndarray, face_location: Tuple) -> float:

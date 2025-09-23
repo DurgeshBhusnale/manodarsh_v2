@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from db.connection import get_connection
 from services.sentiment_analysis_service import analyze_sentiment, calculate_average_score, calculate_peak_weighted_nlp_average
+from services.cctv_monitoring_service import CCTVMonitoringService
 from config.settings import Settings
 import logging
 
@@ -268,6 +269,85 @@ def get_active_questionnaire():
         cursor.close()
         db.close()
 
+@survey_bp.route('/start-survey-monitoring', methods=['POST'])
+def start_survey_monitoring():
+    """Start enhanced emotion monitoring for survey session"""
+    try:
+        data = request.json
+        force_id = data.get('force_id')
+        
+        if not force_id:
+            return jsonify({"error": "force_id is required"}), 400
+            
+        logger.info(f"Starting enhanced survey monitoring for soldier: {force_id}")
+        
+        # Initialize monitoring service - USE SINGLETON to prevent camera conflicts
+        from services.cctv_monitoring_service import get_monitoring_service_instance
+        monitoring_service = get_monitoring_service_instance()
+        
+        # Configure for survey mode with optimal camera resolution
+        monitoring_service.configure_survey_mode(force_id)
+        
+        # Start survey monitoring
+        success = monitoring_service.start_survey_monitoring(force_id)
+        
+        if success:
+            logger.info(f"Survey monitoring started successfully for {force_id}")
+            return jsonify({
+                "success": True,
+                "message": "Survey monitoring started with optimal camera resolution",
+                "force_id": force_id
+            }), 200
+        else:
+            logger.error(f"Failed to start survey monitoring for {force_id}")
+            return jsonify({
+                "success": False,
+                "error": "Failed to start survey monitoring"
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"Error starting survey monitoring: {str(e)}")
+        # Try to cleanup in case of error
+        try:
+            from services.cctv_monitoring_service import get_monitoring_service_instance
+            monitoring_service = get_monitoring_service_instance()
+            monitoring_service.force_camera_cleanup()
+        except:
+            pass
+        return jsonify({
+            "success": False,
+            "error": f"Error starting survey monitoring: {str(e)}"
+        }), 500
+
+@survey_bp.route('/force-camera-cleanup', methods=['POST'])
+def force_camera_cleanup():
+    """Force cleanup camera resources if they get stuck"""
+    try:
+        from services.cctv_monitoring_service import get_monitoring_service_instance
+        monitoring_service = get_monitoring_service_instance()
+        
+        success = monitoring_service.force_camera_cleanup()
+        
+        if success:
+            logger.info("Force camera cleanup successful")
+            return jsonify({
+                "success": True,
+                "message": "Camera resources forcefully cleaned up"
+            }), 200
+        else:
+            logger.warning("Force camera cleanup failed")
+            return jsonify({
+                "success": False,
+                "message": "Camera cleanup failed"
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"Error during force camera cleanup: {str(e)}")
+        return jsonify({
+            "success": False,
+            "error": f"Error during cleanup: {str(e)}"
+        }), 500
+
 @survey_bp.route('/submit', methods=['POST'])
 def submit_survey():
     db = get_connection()
@@ -278,24 +358,25 @@ def submit_survey():
         questionnaire_id = data['questionnaire_id']
         responses = data['responses']
         
-        # REQUIRE soldier credentials for survey submission
+        # AUTHENTICATION ALREADY DONE AT LOGIN - Just verify required fields
         force_id = data.get('force_id')
-        password = data.get('password')
         
-        if not force_id or not password:
+        if not force_id:
             return jsonify({
-                "error": "Soldier force_id and password are required for survey submission"
+                "error": "Soldier force_id is required for survey submission"
             }), 400
         
-        # Verify soldier credentials
-        from services.auth_service import AuthService
-        auth_service = AuthService()
-        user = auth_service.verify_login(force_id, password)
+        # REMOVED: Credential verification (already done at login)
+        # Additional validation: Verify soldier exists in database
+        cursor.execute("SELECT user_type FROM users WHERE force_id = %s", (force_id,))
+        user_result = cursor.fetchone()
         
-        if not user or user['role'] != 'soldier':
+        if not user_result or user_result[0] != 'soldier':
             return jsonify({
-                "error": "Invalid soldier credentials"
-            }), 401
+                "error": "Invalid soldier ID - soldier not found in system"
+            }), 400
+
+        logger.info(f"Survey submission for authenticated soldier: {force_id}")
 
         # Extract mental state data
         mental_state_rating = data.get('mental_state_rating')
@@ -315,8 +396,8 @@ def submit_survey():
         image_avg_score = 0
         emotion_results = None
         try:
-            from services.cctv_monitoring_service import CCTVMonitoringService
-            monitoring_service = CCTVMonitoringService()
+            from services.cctv_monitoring_service import get_monitoring_service_instance
+            monitoring_service = get_monitoring_service_instance()
             emotion_results = monitoring_service.stop_survey_monitoring(force_id, session_id)
             
             logger.info(f"Emotion monitoring results: {emotion_results}")

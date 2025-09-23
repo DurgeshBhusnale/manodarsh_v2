@@ -194,6 +194,7 @@ class EnhancedEmotionDetectionService:
     def detect_face_and_emotion(self, frame) -> Optional[Tuple[str, str, float, tuple]]:
         """
         Detect face, identify soldier and detect emotion with enhanced error handling
+        FOR CCTV MONITORING - Uses PKL identification
         """
         try:
             # Get current face recognition model
@@ -295,6 +296,88 @@ class EnhancedEmotionDetectionService:
             
         except Exception as e:
             logging.error(f"Error in detect_face_and_emotion: {e}")
+            return None
+
+    def detect_emotion_for_survey(self, frame, authenticated_force_id: str) -> Optional[Tuple[str, str, float, tuple]]:
+        """
+        NEW SURVEY-SPECIFIC: Simplified emotion detection for authenticated soldiers
+        SKIPS PKL IDENTIFICATION - Uses credential-based authentication
+        """
+        try:
+            logging.debug(f"Survey emotion detection for authenticated soldier: {authenticated_force_id}")
+            
+            # Convert to grayscale for face detection
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            faces = self.face_detector.detectMultiScale(
+                gray,
+                scaleFactor=1.1,
+                minNeighbors=5,
+                minSize=(30, 30)
+            )
+            
+            if len(faces) == 0:
+                logging.debug("No faces detected in survey frame")
+                return None
+                
+            # Process the largest/best quality face found (assuming it's the authenticated soldier)
+            best_face = None
+            best_quality = 0
+            
+            for (x, y, w, h) in faces:
+                face_region = frame[y:y+h, x:x+w]
+                face_quality = self._check_face_quality(face_region)
+                
+                if face_quality > best_quality:
+                    best_quality = face_quality
+                    best_face = (x, y, w, h)
+            
+            if best_face is None or best_quality < 0.3:  # Lower threshold for survey
+                logging.debug(f"No good quality faces found in survey (best quality: {best_quality:.2f})")
+                return None
+            
+            x, y, w, h = best_face
+            face_coords = (x, y, w, h)
+            
+            logging.debug(f"Using face with quality {best_quality:.2f} for survey emotion analysis")
+            
+            # SKIP PKL MATCHING - Use authenticated force_id directly
+            force_id = authenticated_force_id
+            
+            # Extract and preprocess face region for emotion detection
+            roi_gray = gray[y:y+h, x:x+w]
+            roi_gray = cv2.resize(roi_gray, (48, 48))
+            
+            # Enhance contrast using histogram equalization
+            roi_gray = cv2.equalizeHist(roi_gray)
+            
+            # Normalize pixel values
+            roi_gray = roi_gray.astype('float')/255.0
+            roi_gray = np.expand_dims(roi_gray, axis=0)
+            roi_gray = np.expand_dims(roi_gray, axis=-1)
+            
+            # Get emotion predictions
+            emotion_prediction = self.emotion_model.predict(roi_gray, verbose=0)[0]
+            
+            # Get top 2 emotions and their probabilities
+            top_2_idx = np.argsort(emotion_prediction)[-2:][::-1]
+            top_2_probs = emotion_prediction[top_2_idx]
+            
+            # Log probabilities for debugging
+            emotions_probs = {self.emotion_dict[i]: f"{emotion_prediction[i]:.3f}" 
+                             for i in range(len(emotion_prediction))}
+            logging.debug(f"Survey emotion probabilities for {force_id}: {emotions_probs}")
+            
+            # Enhanced emotion selection logic
+            emotion_label = self._select_emotion_label(emotion_prediction, top_2_idx, top_2_probs)
+            
+            depression_score = self.emotion_mapping[emotion_label]
+            
+            logging.info(f"SURVEY MODE: Detected emotion {emotion_label} for authenticated soldier {force_id} (score: {depression_score}, confidence: {top_2_probs[0]:.3f})")
+            
+            return force_id, emotion_label, float(depression_score), face_coords
+            
+        except Exception as e:
+            logging.error(f"Error in survey emotion detection: {e}")
             return None
     
     def _select_emotion_label(self, emotion_prediction: np.ndarray, top_2_idx: np.ndarray, top_2_probs: np.ndarray) -> str:
@@ -506,3 +589,96 @@ class EnhancedEmotionDetectionService:
         except Exception as e:
             logging.error(f"Error in face quality check: {e}")
             return 0.5  # Neutral quality if check fails
+
+    def set_optimal_camera_resolution(self, cap) -> Tuple[int, int]:
+        """
+        NEW: Auto-detect and set maximum supported camera resolution
+        for better face detection and emotion analysis
+        """
+        try:
+            logging.info("Auto-detecting maximum camera resolution...")
+            
+            # Test common high resolutions (descending order)
+            test_resolutions = [
+                (1920, 1080),  # Full HD
+                (1280, 720),   # HD
+                (1024, 768),   # XGA
+                (800, 600),    # SVGA
+                (640, 480)     # VGA (fallback)
+            ]
+            
+            original_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+            original_height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+            
+            for width, height in test_resolutions:
+                try:
+                    # Test if camera supports this resolution
+                    cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+                    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+                    
+                    # Verify actual resolution set by reading a test frame
+                    ret, test_frame = cap.read()
+                    if ret and test_frame is not None:
+                        actual_height, actual_width = test_frame.shape[:2]
+                        
+                        # Check if resolution is close to requested (within 10% tolerance)
+                        width_match = actual_width >= width * 0.9
+                        height_match = actual_height >= height * 0.9
+                        
+                        if width_match and height_match:
+                            logging.info(f"MAXIMUM RESOLUTION SET: {actual_width}x{actual_height} "
+                                       f"(requested: {width}x{height})")
+                            return actual_width, actual_height
+                        else:
+                            logging.debug(f"Resolution {width}x{height} not fully supported "
+                                        f"(got {actual_width}x{actual_height})")
+                    
+                except Exception as e:
+                    logging.debug(f"Failed to test resolution {width}x{height}: {e}")
+                    continue
+            
+            # Fallback: restore original resolution if no high resolution worked
+            logging.warning("Could not set high resolution, using camera default")
+            cap.set(cv2.CAP_PROP_FRAME_WIDTH, original_width)
+            cap.set(cv2.CAP_PROP_FRAME_HEIGHT, original_height)
+            return int(original_width), int(original_height)
+            
+        except Exception as e:
+            logging.error(f"Error in auto-resolution detection: {e}")
+            # Ultimate fallback
+            return 640, 480
+
+    def get_camera_optimal_settings(self) -> Dict:
+        """
+        NEW: Get optimal camera settings combining maximum resolution with database preferences
+        """
+        try:
+            # Get database settings as preferences
+            from services.cctv_monitoring_service import get_camera_settings
+            db_settings = get_camera_settings()
+            
+            logging.info(f"Database camera preferences: {db_settings}")
+            
+            # For survey mode, prioritize maximum resolution over database settings
+            # Database settings act as minimum requirements or overrides
+            optimal_settings = {
+                'width': max(db_settings.get('width', 640), 1280),  # Minimum 1280 or DB setting
+                'height': max(db_settings.get('height', 480), 720), # Minimum 720 or DB setting
+                'detection_interval': db_settings.get('detection_interval', 30),
+                'fps': 10,  # Fixed for performance
+                'use_auto_resolution': True
+            }
+            
+            logging.info(f"Optimal camera settings for survey: {optimal_settings}")
+            return optimal_settings
+            
+        except Exception as e:
+            logging.error(f"Error getting optimal camera settings: {e}")
+            # Fallback to high-resolution defaults
+            return {
+                'width': 1280,
+                'height': 720,
+                'detection_interval': 30,
+                'fps': 10,
+                'use_auto_resolution': True
+            }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { apiService } from '../../services/api';
 
 const SoldierLoginPage: React.FC = () => {
     const navigate = useNavigate();
@@ -12,7 +13,9 @@ const SoldierLoginPage: React.FC = () => {
         e.preventDefault();
         setSoldierError('');
         setSoldierLoading(true);
+        
         try {
+            // Validate format first
             if (!/^\d{9}$/.test(soldierId)) {
                 setSoldierError('Force ID must be exactly 9 digits');
                 setSoldierLoading(false);
@@ -23,12 +26,34 @@ const SoldierLoginPage: React.FC = () => {
                 setSoldierLoading(false);
                 return;
             }
-            // Pass credentials via navigation state for security
-            navigate('/soldier/survey', {
-                state: { force_id: soldierId, password: soldierPassword }
-            });
+
+            // AUTHENTICATION AT LOGIN: Verify soldier credentials immediately
+            console.log('Authenticating soldier credentials...');
+            const authResponse = await apiService.verifySoldier(soldierId, soldierPassword);
+            
+            if (authResponse.verified) {
+                console.log('Soldier authentication successful:', authResponse);
+                
+                // Navigate to survey with authenticated credentials
+                navigate('/soldier/survey', {
+                    state: { 
+                        force_id: soldierId, 
+                        password: soldierPassword,
+                        authenticated: true,
+                        auth_timestamp: Date.now()
+                    }
+                });
+            } else {
+                setSoldierError('Invalid soldier credentials. Please check your Force ID and password.');
+            }
+            
         } catch (err: any) {
-            setSoldierError('Invalid credentials');
+            console.error('Authentication error:', err);
+            if (err.response?.data?.error) {
+                setSoldierError(err.response.data.error);
+            } else {
+                setSoldierError('Authentication failed. Please check your credentials and try again.');
+            }
         } finally {
             setSoldierLoading(false);
         }

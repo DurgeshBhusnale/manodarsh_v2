@@ -31,8 +31,13 @@ const SurveyPage: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
     
-    // Get soldier data from navigation state
-    const soldierData = location.state as { force_id: string; password: string } | null;
+    // Get soldier data from navigation state with authentication info
+    const soldierData = location.state as { 
+        force_id: string; 
+        password: string; 
+        authenticated?: boolean;
+        auth_timestamp?: number;
+    } | null;
     const [showStartNote, setShowStartNote] = useState(true);
     const [surveyStarted, setSurveyStarted] = useState(false);
     const [isCompleting, setIsCompleting] = useState(false); // Track if survey is being completed
@@ -229,21 +234,55 @@ const SurveyPage: React.FC = () => {
     // Cleanup on component unmount
     useEffect(() => {
         return () => {
-            // Clean up emotion monitoring when component unmounts
+            // FAST cleanup when component unmounts
             if (emotionMonitoringStarted) {
-                // Use a separate cleanup function to avoid dependency issues
+                // Primary cleanup - stop monitoring properly
                 apiService.endSurveyEmotionMonitoring(soldierData?.force_id || '', undefined)
                     .catch(console.error);
+                
+                // Secondary cleanup - force camera cleanup if needed (reduced delay)
+                setTimeout(() => {
+                    apiService.forceCameraCleanup()
+                        .catch(error => {
+                            console.warn('Force camera cleanup failed:', error);
+                        });
+                }, 200);  // Reduced from 1000ms to 200ms
             }
         };
     }, [emotionMonitoringStarted, soldierData?.force_id]);
 
     useEffect(() => {
-        // Redirect if no soldier data provided
+        // ENHANCED AUTHENTICATION CHECK: Verify soldier is properly authenticated
         if (!soldierData) {
+            console.log('No soldier data - redirecting to login');
             navigate('/soldier/login');
             return;
         }
+
+        // Check if soldier was authenticated at login
+        if (!soldierData.authenticated) {
+            console.log('Soldier not authenticated at login - redirecting');
+            navigate('/soldier/login');
+            return;
+        }
+
+        // Check authentication timestamp (optional - prevent old auth tokens)
+        if (soldierData.auth_timestamp) {
+            const authAge = Date.now() - soldierData.auth_timestamp;
+            const maxAuthAge = 10 * 60 * 1000; // 10 minutes max age
+            
+            if (authAge > maxAuthAge) {
+                console.log('Authentication expired - redirecting to login');
+                navigate('/soldier/login');
+                return;
+            }
+        }
+
+        console.log('Soldier authentication verified:', {
+            force_id: soldierData.force_id,
+            authenticated: soldierData.authenticated,
+            auth_age: soldierData.auth_timestamp ? Date.now() - soldierData.auth_timestamp : 'unknown'
+        });
         
         // Reset all states when component mounts (handles page reload scenarios)
         const resetStates = () => {
@@ -730,11 +769,14 @@ const SurveyPage: React.FC = () => {
         }
 
         try {
+            // CREDENTIALS ALREADY VERIFIED AT LOGIN - No need to re-verify
+            console.log('Submitting survey for authenticated soldier:', soldierData?.force_id);
+            
             const response = await apiService.submitSurvey({
                 questionnaire_id: questionnaireId,
                 responses: translatedResponses,
                 force_id: soldierData?.force_id || '',
-                password: soldierData?.password || '',
+                password: soldierData?.password || '', // Keep for backend compatibility during transition
                 ...mentalStateData // Include mental state data in submission
             });
             

@@ -92,11 +92,17 @@ class EnhancedFaceRecognitionService:
                 logging.error(f"Directory not found for soldier {force_id}: {soldier_dir}")
                 return [], False
 
-            # Get all image files
+            # Get all image files with limit for memory safety
             image_paths = []
             for filename in os.listdir(soldier_dir):
                 if filename.lower().endswith(('.jpg', '.jpeg', '.png')):
                     image_paths.append(os.path.join(soldier_dir, filename))
+            
+            # Limit images to prevent memory issues
+            max_images = 15  # Process maximum 15 images per soldier
+            if len(image_paths) > max_images:
+                logging.info(f"Limiting images for soldier {force_id} from {len(image_paths)} to {max_images} for stability")
+                image_paths = image_paths[:max_images]
             
             if not image_paths:
                 logging.error(f"No image files found for soldier {force_id}")
@@ -104,13 +110,20 @@ class EnhancedFaceRecognitionService:
 
             logging.info(f"Found {len(image_paths)} images for soldier {force_id}")
             
-            # Use fast parallel encoding service with quality selection
-            encodings = self.fast_encoding_service.encode_faces_parallel(image_paths)
+            # Use fast encoding service with enhanced error handling
+            try:
+                encodings = self.fast_encoding_service.encode_faces_parallel(image_paths)
+            except Exception as e:
+                logging.error(f"Face encoding service failed for soldier {force_id}: {e}")
+                return [], False
             
             if encodings:
                 # Delete training images immediately after processing for security
-                shutil.rmtree(soldier_dir)
-                logging.info(f"Deleted training images for soldier {force_id} for security")
+                try:
+                    shutil.rmtree(soldier_dir)
+                    logging.info(f"Deleted training images for soldier {force_id} for security")
+                except Exception as e:
+                    logging.warning(f"Failed to delete training images for {force_id}: {e}")
                 
                 logging.info(f"Successfully processed {len(encodings)} quality encodings for soldier {force_id}")
                 return encodings, True

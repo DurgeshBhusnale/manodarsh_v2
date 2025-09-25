@@ -25868,3 +25868,5 @@ exists but not ready yet, using traditional loading
 2025-09-25 13:13:08,916 - INFO - 127.0.0.1 - - [25/Sep/2025 13:13:08] "GET /api/image/soldier-training-status/900000098 HTTP/1.1" 200 -
 2025-09-25 13:13:08,934 - INFO - 127.0.0.1 - - [25/Sep/2025 13:13:08] "GET /api/image/soldier-training-status/900000099 HTTP/1.1" 200 -
 2025-09-25 13:13:08,948 - INFO - 127.0.0.1 - - [25/Sep/2025 13:13:08] "GET /api/image/soldier-training-status/900000100 HTTP/1.1" 200 -
+2025-09-25 13:13:29,314 - INFO - 127.0.0.1 - - [25/Sep/2025 13:13:29] "GET /api/auth/session-status HTTP/1.1" 200 -
+2025-09-25 13:13:59,374 - INFO - 127.0.0.1 - - [25/Sep/2025 13:13:59] "GET /api/auth/session-status HTTP/1.1" 200 -

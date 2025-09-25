@@ -2,6 +2,9 @@
 
 This folder contains all the essential documentation for the CRPF Mental Health Monitoring System.
 
+**Current Version**: Production Ready - Main Branch  
+**Last Updated**: September 2025
+
 ## 📋 Documentation Structure
 
 ### 🎯 Core Project Documentation

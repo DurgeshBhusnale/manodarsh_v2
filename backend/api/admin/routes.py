@@ -1361,7 +1361,10 @@ def get_all_soldiers():
         cursor.close()
         conn.close()
         
-        return jsonify({'soldiers': soldiers}), 200
+        return jsonify({
+            'soldiers': soldiers,
+            'total_count': len(soldiers)
+        }), 200
         
     except Exception as e:
         logger.error(f"Error fetching soldiers: {e}")

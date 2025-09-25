@@ -16,6 +16,7 @@ interface SoldierFaceData {
 interface ModelStats {
   total_encodings: number;
   unique_soldiers: number;
+  total_db_soldiers: number; // Add this for database count
   avg_encodings_per_soldier: number;
   model_size_bytes: number;
   last_updated: string;
@@ -131,6 +132,7 @@ const FaceModelManagement: React.FC = () => {
         setModelStats({
           total_encodings: statsData.model_info.total_encodings || 0,
           unique_soldiers: statsData.model_info.soldier_count || 0,
+          total_db_soldiers: dbData.total_count || 0, // Use database count
           avg_encodings_per_soldier: statsData.model_info.avg_encodings_per_soldier || 0,
           model_size_bytes: statsData.model_info.model_size_bytes || 0,
           last_updated: statsData.model_info.last_updated || new Date().toISOString()
@@ -298,7 +300,7 @@ const FaceModelManagement: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-gray-700">Total Soldiers</h3>
-              <p className="text-3xl font-bold text-blue-600">{modelStats.unique_soldiers}</p>
+              <p className="text-3xl font-bold text-blue-600">{modelStats.total_db_soldiers}</p>
             </div>
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-gray-700">Model Size</h3>

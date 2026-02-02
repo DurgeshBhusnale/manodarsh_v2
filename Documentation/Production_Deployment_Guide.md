@@ -15,7 +15,7 @@
 #### Software Dependencies
 
 - **Python**: 3.8 or higher
-- **Node.js**: 16.x LTS or higher
+- **Node.js**: 18.x LTS or higher
 - **MySQL**: 8.0 or higher
 - **Nginx**: 1.18 or higher (web server/reverse proxy)
 - **PM2**: Process manager for Node.js applications

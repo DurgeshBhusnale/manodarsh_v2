@@ -64,7 +64,7 @@ INSERT INTO soldiers (force_id, name, rank, unit, password_hash, role, created_a
 **Objective**: Verify security for invalid credentials
 **Steps**:
 
-1. Enter invalid Force ID or password
+1. Enter invalid User ID or password
 2. Attempt login
    **Expected Result**:
 

@@ -344,7 +344,7 @@ def add_soldier():
     force_id = data.get('force_id')
     password = data.get('password')
     if not force_id or not password:
-        return jsonify({'error': 'Force ID and password required'}), 400
+        return jsonify({'error': 'User ID and password required'}), 400
     # Hash the password using bcrypt
     password_bytes = password.encode('utf-8')
     salt = bcrypt.gensalt()
@@ -1105,7 +1105,7 @@ def download_soldiers_pdf():
             if filters.get('days'):
                 pdf.cell(0, 5, f"Time Period: Last {filters.get('days')} days", 0, 1)
             if filters.get('force_id'):
-                pdf.cell(0, 5, f"Force ID Filter: {filters.get('force_id')}", 0, 1)
+                pdf.cell(0, 5, f"User ID Filter: {filters.get('force_id')}", 0, 1)
             pdf.ln(3)
         
         # Table headers with enhanced design
@@ -1113,7 +1113,7 @@ def download_soldiers_pdf():
         
         # Updated header row - removed "Name" and "Mental State", added "Questionnaire", adjusted widths
         col_widths = [30, 25, 30, 25, 25, 30, 35]  # Adjusted column widths
-        headers = ['Force ID', 'Risk Level', 'Combined Score', 'NLP Score', 'Image Score', 'Last Survey', 'Questionnaire']
+        headers = ['User ID', 'Risk Level', 'Combined Score', 'NLP Score', 'Image Score', 'Last Survey', 'Questionnaire']
         
         # Header background
         pdf.set_fill_color(52, 73, 94)  # Dark blue-gray background

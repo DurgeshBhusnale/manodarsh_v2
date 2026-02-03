@@ -57,7 +57,7 @@ export const Sidebar: React.FC = () => {
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-lg font-bold bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text text-transparent">CRPF Admin</h2>
+                            <h2 className="text-lg font-bold bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text text-transparent">SATHI Admin</h2>
                             <p className="text-xs text-gray-400">Dashboard Portal</p>
                         </div>
                     </div>

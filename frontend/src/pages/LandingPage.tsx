@@ -23,7 +23,7 @@ const LandingPage = () => (
         </div>
         <div>
           <h1 className="text-xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
-            CRPF Mental Health & Wellness Portal
+            SATHI Portal
           </h1>
           <p className="text-sm md:text-base text-gray-600 font-medium">Prioritizing Mental Well-being for Our Protectors</p>
         </div>
@@ -41,7 +41,7 @@ const LandingPage = () => (
           SATHI
         </h2>
         <p className="text-xl md:text-2xl mb-10 text-gray-700 font-light leading-relaxed">
-          Supportive AI To Heal and Iterate
+          Support of Artificial , Technological and Human Intelligence
         </p>
         
         <div className="flex flex-col md:flex-row gap-6 justify-center">
@@ -76,7 +76,7 @@ const LandingPage = () => (
         </h3>
         <p className="text-lg md:text-xl mb-10 text-gray-700 leading-relaxed max-w-3xl mx-auto">
           This platform enables comprehensive mental health surveys, advanced analytics, and confidential support 
-          specifically tailored for CRPF personnel and their unique operational challenges.
+          specifically tailored for armed personnel and their unique operational challenges.
         </p>
         
         <div className="flex justify-center gap-12 md:gap-16">
@@ -124,7 +124,7 @@ const LandingPage = () => (
               {/* Fallback if FontAwesome not loaded */}
               <span className="text-2xl text-white font-bold" style={{display: 'none'}}>📅</span>
             </div>
-            <h4 className="font-bold mb-3 text-lg text-orange-600">Weekly Mental Health Surveys</h4>
+            <h4 className="font-bold mb-3 text-lg text-orange-600">Weekly Health Surveys</h4>
             <p className="text-sm text-gray-600 leading-relaxed">Regular comprehensive check-ins to monitor and support mental well-being with actionable insights.</p>
           </div>
           
@@ -168,7 +168,7 @@ const LandingPage = () => (
           Begin Your Journey Towards Mental Well-being
         </h3>
         <p className="text-lg md:text-xl mb-12 text-gray-700 max-w-2xl mx-auto">
-          Join thousands of CRPF personnel who have already taken the first step towards better mental health
+          Join thousands of Armed personnel who have already taken the first step towards better mental health
         </p>
         
         <div className="flex flex-col md:flex-row gap-8 justify-center">
@@ -211,14 +211,17 @@ const LandingPage = () => (
         </div>
         
         <div className="text-center md:text-left mb-4 md:mb-0">
-          <div className="text-sm text-gray-500">&copy; 2025 Central Reserve Police Force. All rights reserved.</div>
+          <div className="text-sm text-gray-500">&copy; 2025 SATHI. All rights reserved.</div>
           <div className="text-xs text-gray-400 mt-1">Protecting Those Who Protect Us</div>
         </div>
         
         <div className="text-sm">
-          <button className="text-blue-600 hover:text-blue-800 transition-colors duration-200 font-medium">
-            Contact / Support
-          </button>
+            <a 
+              href="tel:+918856910363" 
+              className="text-blue-600 hover:text-blue-800 transition-colors duration-200 font-medium"
+            >
+              Contact / Support
+            </a>
         </div>
       </div>
     </footer>

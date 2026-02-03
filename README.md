@@ -601,7 +601,7 @@ def update_model_with_feedback(predicted_scores, clinical_outcomes):
 
 ### 1. Authentication & Authorization
 
-- **Basic Authentication**: Force ID and password-based login
+- **Basic Authentication**: User ID and password-based login
 - **Role-Based Access Control**: Admin and Soldier user types
 - **Admin-Only Access**: Only administrators can access the web interface
 - **Password Security**: BCrypt password hashing for secure storage

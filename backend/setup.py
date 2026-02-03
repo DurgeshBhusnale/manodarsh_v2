@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "flask",
-        "psycopg2-binary",
+        #"psycopg2-binary",
         "python-dotenv",
         "flask-cors"
     ],

@@ -149,7 +149,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
 
     const exportResults = () => {
         // Create CSV export
-        const headers = ['Force ID', 'Risk Level', 'Mental State', 'Combined Score', 'Last Survey'];
+        const headers = ['User ID', 'Risk Level', 'Mental State', 'Combined Score', 'Last Survey'];
         const csvContent = [
             headers.join(','),
             ...results.map((soldier: any) => [
@@ -227,7 +227,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
                                         type="text"
                                         value={filters.searchTerm}
                                         onChange={(e) => handleFilterChange('searchTerm', e.target.value)}
-                                        placeholder="Search by Force ID..."
+                                        placeholder="Search by User ID..."
                                         className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
@@ -314,7 +314,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
                                         <option value="lastSurvey">Last Survey</option>
                                         <option value="combined_score">Combined Score</option>
                                         <option value="risk_level">Risk Level</option>
-                                        <option value="force_id">Force ID</option>
+                                        <option value="force_id">User ID</option>
                                     </select>
                                     <select
                                         value={filters.sortOrder}
@@ -389,7 +389,7 @@ const AdvancedSoldiersSearch: React.FC = () => {
                                         <table className="w-full">
                                             <thead className="bg-gray-50">
                                                 <tr>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Force ID</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User ID</th>
                                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Risk Level</th>
                                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Mental State</th>
                                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Combined Score</th>

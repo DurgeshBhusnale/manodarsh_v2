@@ -23,16 +23,16 @@ const AddSoldier: React.FC = () => {
 
     const handleCollectImages = async () => {
         if (!forceId) {
-            setModalTitle('Force ID Required');
-            setModalMessage('Please enter a Force ID first');
+            setModalTitle('User ID Required');
+            setModalMessage('Please enter a User ID first');
             setShowErrorModal(true);
             return;
         }
 
-        // Validate force ID format
+        // Validate User ID format
         if (!/^\d{9}$/.test(forceId)) {
-            setModalTitle('Invalid Force ID');
-            setModalMessage('Force ID must be 9 digits');
+            setModalTitle('Invalid User ID');
+            setModalMessage('User ID must be 9 digits');
             setShowErrorModal(true);
             return;
         }
@@ -131,7 +131,7 @@ Please keep the window focused for key controls to work.`);
                             </div>
                             <div>
                                 <h1 className="text-xl font-bold text-black">Add New User</h1>
-                                <p className="text-gray-600 text-xs">Register a new user in the CRPF system</p>
+                                <p className="text-gray-600 text-xs">Register a new user in the SATHI system</p>
                             </div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@ Please keep the window focused for key controls to work.`);
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
                                         <i className="fas fa-fingerprint mr-2 text-orange-500"></i>
-                                        Force ID
+                                        User ID
                                     </label>
                                     <input
                                         type="text"
@@ -156,10 +156,10 @@ Please keep the window focused for key controls to work.`);
                                         onChange={(e) => setForceId(e.target.value)}
                                         required
                                         pattern="[0-9]{9}"
-                                        title="Force ID must be 9 digits"
+                                        title="User ID must be 9 digits"
                                         disabled={isCollecting}
                                         className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                                        placeholder="Enter 9-digit Force ID"
+                                        placeholder="Enter 9-digit User ID"
                                     />
                                 </div>
                                 

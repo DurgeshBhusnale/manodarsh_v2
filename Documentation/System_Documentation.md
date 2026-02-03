@@ -228,7 +228,7 @@ Mock data is **only used as fallback** when:
 The system includes dummy data for testing via `insert_dummy_data.py`:
 
 **Dummy Users:**
-- **Admin:** Force ID `200000001` (password: `admin123`)
+- **Admin:** User ID `200000001` (password: `admin123`)
 - **Soldiers:** `100000001`, `100000002`, `100000003` (passwords: `soldier123`, `soldier234`, `soldier345`)
 
 **Dummy Sessions:**

@@ -58,7 +58,7 @@ Option 2: Double-click CRPF_Mental_Health_System.exe in deployment folder
 ```bash
 # Download and install (in order):
 1. Python 3.8+ (from python.org) - CHECK "Add Python to PATH"
-2. Node.js 16+ (from nodejs.org)
+2. Node.js 18+ (from nodejs.org)
 3. MySQL 8.0+ (Community Server) - Set root password: crpf@2024
 ```
 
@@ -107,7 +107,7 @@ npm run build
 | Issue | Solution |
 |-------|----------|
 | "Python not found" | Install Python 3.8+ with "Add to PATH" checked |
-| "npm not found" | Install Node.js 16+ |
+| "npm not found" | Install Node.js 18+ |
 | "Access denied" | Right-click install.bat → "Run as Administrator" |
 | "Port already in use" | Close other applications using ports 3000/5000 |
 | Database connection error | Check MySQL service is running |

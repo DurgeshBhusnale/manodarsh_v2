@@ -6,7 +6,7 @@
 
 - **Operating System**: Windows 10/11, macOS 10.15+, or Linux Ubuntu 18.04+
 - **Python**: Version 3.8 or higher
-- **Node.js**: Version 14 or higher
+- **Node.js**: Version 18 or higher
 - **MySQL**: Version 8.0 or higher
 - **Browser**: Chrome 90+, Firefox 88+, Safari 14+, or Edge 90+
 

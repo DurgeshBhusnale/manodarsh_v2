@@ -653,7 +653,7 @@ def update_model_with_feedback(predicted_scores, clinical_outcomes):
 
 - **Operating System**: Ubuntu 20.04 LTS or Windows Server 2019
 - **Python**: 3.8 or higher
-- **Node.js**: 16.x or higher
+- **Node.js**: 18.x or higher
 - **MySQL**: 8.0 or higher
 - **Redis**: 6.0 or higher (optional, for future caching implementation)
 

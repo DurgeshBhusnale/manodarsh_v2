@@ -70,6 +70,7 @@ deployment/system.pid
 # IDE specific files
 .idea/
 .vscode/
+.cursor/
 *.swp
 *.swo
 *~

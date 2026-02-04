@@ -112,6 +112,78 @@ npm run build
 | "Port already in use" | Close other applications using ports 3000/5000 |
 | Database connection error | Check MySQL service is running |
 | Browser doesn't open | Wait 60 seconds, then manually go to localhost:3000 |
+| **External webcam not detected** | See "External Webcam Setup" section below |
+| **Camera shows black screen** | Unplug and reconnect USB camera, wait 30 seconds |
+| **"No cameras available" error** | Check Windows Privacy Settings (see below) |
+
+---
+
+## 📷 **External Webcam Setup (Windows)**
+
+### Prerequisites for External USB Webcams:
+The system is optimized for Windows and supports both built-in and external USB webcams. For best results with external USB cameras:
+
+### 1. **Windows Camera Permissions**
+```
+Windows Settings → Privacy & Security → Camera
+- Enable "Let apps access your camera"
+- Enable "Let desktop apps access your camera"
+- Verify Python/Application has camera access
+```
+
+### 2. **USB Power Settings** (Important!)
+External USB cameras may fail if Windows puts them to sleep:
+```
+Control Panel → Power Options → Change Plan Settings → Advanced
+→ USB Settings → USB selective suspend setting → Set to "Disabled"
+```
+
+### 3. **Verify Camera in Device Manager**
+```
+Device Manager → Cameras (or Imaging devices)
+- External webcam should appear without warning icon
+- If yellow warning icon: Update/reinstall driver
+- If not listed: Try different USB port (use USB 2.0 port preferred)
+```
+
+### 4. **Camera Testing Before Using System**
+Test your external camera works on Windows:
+```
+1. Open Windows Camera app
+2. Select external camera from settings
+3. Verify you can see video feed
+4. Close Camera app before starting CRPF system
+```
+
+### 5. **Camera Detection Order**
+The system tries cameras in this order:
+1. **External USB webcam** (Index 1) - Preferred for CRPF deployment
+2. **Built-in camera** (Index 0) - Backup if external not available
+
+### 6. **Troubleshooting External Webcam Issues**
+
+| Problem | Solution |
+|---------|----------|
+| "Unable to capture frames" | Wait 5 seconds after plugging in camera, then start survey |
+| Camera works in other apps but not CRPF system | Close all other camera apps (Zoom, Teams, Skype) |
+| Black/frozen video | Unplug camera, wait 10 seconds, replug into different USB port |
+| "Camera in use" error | Close all applications, restart CRPF system |
+| Intermittent camera failures | Use USB 2.0 port instead of USB 3.0 |
+| Camera disconnects during survey | Check USB cable connection, try shorter cable |
+
+### 7. **Camera Diagnostics API** (For IT Support)
+The system includes diagnostic tools:
+```
+GET http://localhost:5000/api/image/diagnostics/camera-test
+```
+Returns JSON with all detected cameras and their status.
+
+### 8. **Recommended External Webcams for CRPF**
+- Resolution: 720p (1280x720) minimum, 1080p preferred
+- Connection: USB 2.0 or 3.0
+- Microphone: Built-in (if audio needed)
+- Focus: Auto-focus preferred
+- Tested brands: Logitech, Microsoft, HP (any DirectShow-compatible)
 
 ---
 

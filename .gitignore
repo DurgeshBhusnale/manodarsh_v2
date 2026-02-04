@@ -61,6 +61,10 @@ __pycache__/
 
 # Log files
 /backend/*.log
+backend/enhanced_face_recognition_training.log
+
+# Process ID files
+deployment/system.pid
 
 
 # IDE specific files

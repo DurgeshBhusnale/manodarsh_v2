@@ -30,7 +30,9 @@ export const Sidebar: React.FC = () => {
         { path: '/admin/questionnaires', label: 'Questionnaire' },
         { path: '/admin/face-model-management', label: 'User Management' },
         { path: '/admin/settings', label: 'System Settings' },
-        { path: '/admin/daily-emotion', label: 'Daily Emotion' },
+        // PHASE 1: Daily Emotion hidden (CCTV monitoring not needed for survey-only deployment)
+        // PHASE 2: Uncomment to re-enable CCTV emotion monitoring
+        // { path: '/admin/daily-emotion', label: 'Daily Emotion' },
     ];
 
     const getIconForLink = (label: string): string => {

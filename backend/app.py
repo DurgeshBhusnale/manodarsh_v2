@@ -1,3 +1,9 @@
+# PHASE 1: Disable TensorFlow GPU checking for faster startup
+# Must be set BEFORE any TensorFlow/Keras imports
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # Disable GPU
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suppress TensorFlow warnings
+
 from flask import Flask, jsonify
 from flask_cors import CORS
 from api import api_bp
@@ -10,7 +16,6 @@ from api.monitor.routes import monitor_bp
 from config.settings import settings
 from utils.session_utils import get_dynamic_session_timeout
 from datetime import timedelta
-import os
 import logging
 import threading
 # DISABLED: from services.scheduler_service import MonitoringScheduler
@@ -93,4 +98,6 @@ def hello():
     return jsonify({"message": "CRPF Mental Health Monitoring System API"})
 
 if __name__ == '__main__':
-    app.run(debug=settings.DEBUG_MODE, port=settings.BACKEND_PORT)
+    # PHASE 1: Disable reloader for faster startup (no double initialization)
+    # use_reloader=False prevents Flask from spawning two processes
+    app.run(debug=settings.DEBUG_MODE, port=settings.BACKEND_PORT, use_reloader=False)

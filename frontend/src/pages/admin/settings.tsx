@@ -362,7 +362,9 @@ const AdminSettings: React.FC = () => {
                                 </div>
 
                                 <div className="space-y-5">
-                                    {filteredSettings.map(([settingKey, setting]) => (
+                                    {filteredSettings
+                                        .filter(([settingKey]) => settingKey !== 'session_timeout') // PHASE 1: Hide session timeout
+                                        .map(([settingKey, setting]) => (
                                         <div key={settingKey} className="bg-white/60 backdrop-blur-md p-4 rounded-lg border border-white/30 shadow-md hover:shadow-lg transition-all duration-200">
                                             <label className="block text-base font-semibold text-gray-800 mb-2 flex items-center">
                                                 <i className="fas fa-cog text-blue-600 mr-2 text-sm"></i>

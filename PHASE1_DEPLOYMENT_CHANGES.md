@@ -40,6 +40,16 @@
 - Added TensorFlow CPU-only mode
 - Suppressed verbose logging
 
+**3. Authentication** (`frontend/src/context/AuthContext.tsx`)
+- **Disabled session timeout** (was causing unexpected logouts)
+- Manual logout only - no auto-logout on inactivity
+- Simplified session management
+- Better user experience without interruptions
+
+**4. System Settings** (`frontend/src/pages/admin/settings.tsx`)
+- Hidden session timeout setting from UI
+- Setting still exists in database but not configurable in Phase 1
+
 ---
 
 ## Performance Improvements

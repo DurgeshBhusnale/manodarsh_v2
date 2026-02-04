@@ -108,3 +108,33 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# AI tool artifacts (minimal)
+/.codex/
+/.claude/
+/.cursor/
+/.openai/
+/.chatgpt/
+/.gemini/
+
+# AI reference/instruction files
+AGENTS.md
+GEMINI.md
+CLAUDE.md
+COPILOT.md
+CODEX.md
+GPT.md
+AI.md
+AI_REFERENCE.md
+.cursorrules
+.cursor-rules
+.github/copilot-instructions.md
+.vscode/copilot-instructions.md
+# Test virtual environment
+backend/test_venv/
+backend/.pytest_cache/
+backend/htmlcov/
+backend/.coverage
+backend/coverage.xml
+**/__pycache__/
+**/*.pyc

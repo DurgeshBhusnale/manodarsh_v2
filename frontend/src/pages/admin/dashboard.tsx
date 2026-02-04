@@ -267,7 +267,7 @@ const AdminDashboard: React.FC = () => {
             },
             {
                 title: 'Avg Mental Health Score',
-                value: safeToFixed(stats.averageMentalHealthScore, 2),
+                value: safeToFixed((stats?.averageMentalHealthScore ?? 0)*100, 2)+"%",
                 icon: '🧠',
                 color: 'bg-indigo-500'
             }

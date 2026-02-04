@@ -319,17 +319,17 @@ const SoldiersData: React.FC = () => {
                             </select>
                         </div>
 
-                        {/* Force ID Filter */}
+                        {/* User ID Filter */}
                         <div className="space-y-1">
                             <label className="text-sm font-medium text-gray-700 flex items-center">
                                 <i className="fas fa-id-badge mr-2 text-green-500 text-xs"></i>
-                                Force ID
+                                User ID
                             </label>
                             <input
                                 type="text"
                                 value={forceIdFilter}
                                 onChange={(e) => handleForceIdFilterChange(e.target.value)}
-                                placeholder="Enter Force ID..."
+                                placeholder="Enter User ID..."
                                 className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
                             />
                         </div>
@@ -433,7 +433,7 @@ const SoldiersData: React.FC = () => {
                                     Filters Applied: 
                                     {filter !== 'all' && ` Risk: ${filter.toUpperCase()}`}
                                     {daysFilter && ` | Period: ${daysFilter} days`}
-                                    {forceIdFilter && ` | Force ID: ${forceIdFilter}`}
+                                    {forceIdFilter && ` | User ID: ${forceIdFilter}`}
                                 </span>
                             </div>
                         </div>
@@ -603,16 +603,16 @@ const SoldiersData: React.FC = () => {
                                                     <div className="space-y-1">
                                                         <div className="flex items-center justify-between bg-gray-100 rounded-lg px-3 py-1">
                                                             <span className="text-xs font-semibold text-gray-600">Combined:</span>
-                                                            <span className="text-sm font-bold text-gray-900">{soldier.combined_score.toFixed(3)}</span>
+                                                            <span className="text-sm font-bold text-gray-900">{(soldier.combined_score*100).toFixed(2)}%</span>
                                                         </div>
                                                         <div className="flex space-x-2">
                                                             <div className="flex-1 bg-blue-50 rounded px-2 py-1">
-                                                                <div className="text-xs text-blue-600 font-medium">NLP</div>
-                                                                <div className="text-xs font-bold text-blue-800">{soldier.nlp_score.toFixed(3)}</div>
+                                                                <div className="text-xs text-blue-600 font-medium">Text Score</div>
+                                                                <div className="text-xs font-bold text-blue-800">{(soldier.nlp_score*100).toFixed(2)}%</div>
                                                             </div>
                                                             <div className="flex-1 bg-purple-50 rounded px-2 py-1">
-                                                                <div className="text-xs text-purple-600 font-medium">Emotion</div>
-                                                                <div className="text-xs font-bold text-purple-800">{soldier.image_score.toFixed(3)}</div>
+                                                                <div className="text-xs text-purple-600 font-medium">Facial Emotion</div>
+                                                                <div className="text-xs font-bold text-purple-800">{(soldier.image_score*100).toFixed(2)}%</div>
                                                             </div>
                                                         </div>
                                                     </div>

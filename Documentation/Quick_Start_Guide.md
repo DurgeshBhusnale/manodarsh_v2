@@ -180,7 +180,7 @@ Open your web browser and navigate to `http://localhost:3000`
 
 1. Navigate to the **Admin Registration** page
 2. Fill in admin credentials:
-   - **Force ID**: Use format like `ADM000001`
+   - **User ID**: Use format like `ADM000001`
    - **Name**: Your full name
    - **Password**: Strong password
    - **Role**: Select "Admin"
@@ -237,7 +237,7 @@ Add questions for mental health assessment:
 ### Step 1: Register Test Soldier
 
 1. Create a test soldier profile
-2. Use Force ID format: `TEST00001`
+2. Use User ID format: `TEST00001`
 3. Complete all required fields
 
 ### Step 2: Submit Test Survey

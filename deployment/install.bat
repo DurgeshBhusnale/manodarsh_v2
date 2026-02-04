@@ -66,7 +66,7 @@ if %errorlevel% neq 0 (
 echo.
 echo [2/6] Installing Python Dependencies...
 cd /d "%~dp0\..\backend"
-pip install -r requirements.txt
+pip install -r ../requirements.txt
 if %errorlevel% neq 0 (
     echo ERROR: Failed to install Python dependencies
     pause

@@ -17,7 +17,7 @@ const SoldierLoginPage: React.FC = () => {
         try {
             // Validate format first
             if (!/^\d{9}$/.test(soldierId)) {
-                setSoldierError('Force ID must be exactly 9 digits');
+                setSoldierError('User ID must be exactly 9 digits');
                 setSoldierLoading(false);
                 return;
             }
@@ -44,7 +44,7 @@ const SoldierLoginPage: React.FC = () => {
                     }
                 });
             } else {
-                setSoldierError('Invalid soldier credentials. Please check your Force ID and password.');
+                setSoldierError('Invalid soldier credentials. Please check your User ID and password.');
             }
             
         } catch (err: any) {
@@ -80,9 +80,9 @@ const SoldierLoginPage: React.FC = () => {
                             </div>
                         </div>
                         <h1 className="text-xl font-bold bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent mb-1">
-                            CRPF User Portal
+                            User Portal
                         </h1>
-                        <p className="text-gray-600 text-xs">Enter your Force ID and password to access the mental health survey</p>
+                        <p className="text-gray-600 text-xs">Enter your User ID and password to access the health survey</p>
                     </div>
 
                     {/* Error Alert */}
@@ -98,13 +98,13 @@ const SoldierLoginPage: React.FC = () => {
                         <div>
                             <label className="block text-xs font-semibold text-gray-700 mb-1">
                                 <i className="fas fa-id-badge mr-1 text-blue-500"></i>
-                                Force ID
+                                User ID
                             </label>
                             <input
                                 type="text"
                                 value={soldierId}
                                 onChange={(e) => setSoldierId(e.target.value)}
-                                placeholder="Enter 9-digit Force ID"
+                                placeholder="Enter 9-digit User ID"
                                 required
                                 className="w-full px-3 py-2.5 bg-white/70 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 text-sm"
                             />
@@ -138,7 +138,7 @@ const SoldierLoginPage: React.FC = () => {
                             ) : (
                                 <span className="flex items-center justify-center">
                                     <i className="fas fa-clipboard-list mr-2"></i>
-                                    Start Mental Health Survey
+                                    Start Survey
                                 </span>
                             )}
                         </button>
@@ -168,7 +168,7 @@ const SoldierLoginPage: React.FC = () => {
                     {/* Footer */}
                     <div className="mt-4 pt-3 border-t border-gray-200 text-center">
                         <p className="text-xs text-gray-500">
-                            Secure • Confidential • Professional Mental Health Support
+                            Secure • Confidential • Professional Health Support
                         </p>
                     </div>
                 </div>

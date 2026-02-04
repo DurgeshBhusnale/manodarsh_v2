@@ -84,7 +84,7 @@ class AuthService:
             )
             
             if cursor.fetchone():
-                raise ValueError("Force ID already exists")
+                raise ValueError("User ID already exists")
             
             # Insert new soldier
             cursor.execute(

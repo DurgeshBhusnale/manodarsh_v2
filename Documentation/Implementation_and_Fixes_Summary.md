@@ -184,7 +184,7 @@ final_combined_score = (avg_nlp_score * nlp_weight) + (image_avg_score * emotion
 - Success Rate: 100.0% 🎉
 
 **Issues Resolved**:
-- ✅ "Duplicate Force IDs" Issue: Not actually a problem - system correctly stores ~30 encodings per soldier
+- ✅ "Duplicate User IDs" Issue: Not actually a problem - system correctly stores ~30 encodings per soldier
 - ✅ Database Inconsistency Issue: Cleaned up orphaned entries for perfect sync
 - ✅ Unicode Logging Issue: Fixed arrow characters for Windows console compatibility
 - ✅ Model Loading Compatibility: Enhanced to handle both old and new format

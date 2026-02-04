@@ -36,7 +36,7 @@ class CRPFSystemLauncher:
         """Load system configuration"""
         default_config = {
             "system": {
-                "name": "CRPF Mental Health & Wellness System",
+                "name": "Health & Wellness System",
                 "version": "1.0.0"
             },
             "services": {
@@ -130,7 +130,7 @@ class CRPFSystemLauncher:
     
     def start_backend(self):
         """Start Flask backend"""
-        print("🚀 Starting CRPF Backend Server...")
+        print("🚀 Starting SATHI Backend Server...")
         
         backend_path = self.project_root / "backend"
         
@@ -145,7 +145,8 @@ class CRPFSystemLauncher:
         if venv_python.exists():
             python_cmd = str(venv_python)
         else:
-            python_cmd = sys.executable
+            # Use global Python (assumes 'python' is in PATH)
+            python_cmd = "python"
         
         cmd = [python_cmd, "app.py"]
         

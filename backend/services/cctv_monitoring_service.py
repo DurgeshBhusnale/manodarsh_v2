@@ -794,7 +794,7 @@ class CCTVMonitoringService:
                     if result:
                         detected_force_id, emotion, score, face_coords = result
                         
-                        # Force ID should match since we pass it to the function
+                        # User ID should match since we pass it to the function
                         if detected_force_id == force_id:
                             detection_data = {
                                 'timestamp': datetime.now().isoformat(),

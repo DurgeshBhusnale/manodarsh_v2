@@ -533,7 +533,7 @@ class FaceModelManager:
                 # Check data consistency
                 if len(encodings) != len(force_ids):
                     results['valid'] = False
-                    results['issues'].append(f"Encoding count ({len(encodings)}) != Force ID count ({len(force_ids)})")
+                    results['issues'].append(f"Encoding count ({len(encodings)}) != User ID count ({len(force_ids)})")
                 
                 # Check for unusual encoding counts per soldier (instead of duplicates)
                 from collections import Counter

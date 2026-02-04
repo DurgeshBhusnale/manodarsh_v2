@@ -25,8 +25,8 @@ if exist "dist\SATHI.exe" (
     echo ✅ Executable created successfully!
     echo Location: dist\SATHI.exe
     
-    REM Copy to main directory for easy access
-    copy "dist\SATHI.exe" "..\SATHI.exe"
+    @REM REM Copy to main directory for easy access
+    @REM copy "dist\SATHI.exe" "..\SATHI.exe"
     
     echo.
     echo 📋 Deployment Package Ready:

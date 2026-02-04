@@ -50,7 +50,7 @@ export const LoginPage: React.FC = () => {
         try {
             // Validate force ID format
             if (!/^\d{9}$/.test(forceId)) {
-                setError('Force ID must be exactly 9 digits');
+                setError('User ID must be exactly 9 digits');
                 setIsLoading(false);
                 return;
             }
@@ -101,7 +101,7 @@ export const LoginPage: React.FC = () => {
                         <h1 className="text-xl font-bold bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent mb-1">
                             Admin Login
                         </h1>
-                        <p className="text-gray-600 text-xs">Central Reserve Police Force</p>
+                        <p className="text-black-600 text-xs">Support of Artificial, Technological and Human Intelligence</p>
                     </div>
 
                     {/* Info Alert */}
@@ -129,13 +129,13 @@ export const LoginPage: React.FC = () => {
                         <div>
                             <label className="block text-xs font-semibold text-gray-700 mb-1">
                                 <i className="fas fa-id-badge mr-1 text-blue-500"></i>
-                                Force ID
+                                Admin ID
                             </label>
                             <input
                                 type="text"
                                 value={forceId}
                                 onChange={(e) => setForceId(e.target.value)}
-                                placeholder="Enter 9-digit Force ID"
+                                placeholder="Enter 9-digit Admin ID"
                                 required
                                 className="w-full px-3 py-2.5 bg-white/70 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 text-sm"
                             />

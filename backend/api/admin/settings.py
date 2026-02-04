@@ -48,12 +48,12 @@ def get_system_settings():
         default_settings = {
             'nlp_weight': {
                 'value': str(settings.NLP_WEIGHT),
-                'description': 'Weight for NLP sentiment analysis in combined score',
+                'description': 'Weight for NLP sentiment analysis in combined score (Value should be in 0-1 range)',
                 'category': 'scoring'
             },
             'emotion_weight': {
                 'value': str(settings.EMOTION_WEIGHT),
-                'description': 'Weight for emotion detection in combined score',
+                'description': 'Weight for emotion detection in combined score (Value should be in 0-1 range)',
                 'category': 'scoring'
             },
             'session_timeout': {

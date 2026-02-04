@@ -4,6 +4,12 @@ import os
 import time
 from typing import Optional, Tuple, List
 from datetime import datetime
+
+# PHASE 1: Disable TensorFlow GPU checking for faster startup
+# Set these BEFORE importing TensorFlow/Keras
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # Disable GPU
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suppress TensorFlow warnings (0=all, 1=info, 2=warning, 3=error)
+
 import cv2
 from keras.models import model_from_json
 from services.face_model_manager import FaceModelManager
@@ -85,9 +91,14 @@ class ModelPreloaderService:
                 print("[PRELOADER] Loading emotion detection model...")
                 self._load_emotion_model()
                 
+                # PHASE 1: PKL Loading disabled for faster startup (survey-only deployment)
+                # PHASE 2: Uncomment to re-enable face recognition PKL model loading
                 # Step 3: Load Face Recognition Model (largest)
-                print("[PRELOADER] Loading face recognition model...")
-                self._load_face_recognition_model()
+                # print("[PRELOADER] Loading face recognition model...")
+                # self._load_face_recognition_model()
+                print("[PRELOADER] Skipping face recognition PKL model (Phase 1: Survey-only mode)")
+                self.face_model_cache = []
+                self.face_ids_cache = []
                 
                 self.preload_end_time = datetime.now()
                 preload_duration = (self.preload_end_time - self.preload_start_time).total_seconds()

@@ -149,51 +149,152 @@ class CCTVMonitoringService:
         return get_camera_settings()
         
     def _find_available_camera(self):
-        """Try camera indices 1 and 0 only (optimized for fixed webcam setup)"""
-        # OPTIMIZATION: Only check 2 indices - external webcam (1) and built-in (0)
-        # This reduces camera initialization time significantly
+        """
+        Windows-optimized camera detection with DirectShow backend.
+        Tries external USB webcam first (index 1), then built-in camera (index 0).
+        """
+        logging.info("=== Starting Windows camera detection with DirectShow backend ===")
         
-        # Try external webcam first (usually index 1 for fixed CRPF setup)
-        logging.info("Trying external webcam (index 1)...")
-        cap = cv2.VideoCapture(1)
+        # Try external USB webcam first (index 1) - typical for CRPF setup
+        logging.info("[CAMERA] Attempting external USB webcam (index 1) with DirectShow...")
+        external_cap = self._open_camera_windows(index=1, camera_type="External USB")
+        if external_cap:
+            return external_cap
         
-        # Give camera minimal time to initialize
-        time.sleep(0.1)
+        # If external webcam failed, try built-in camera (index 0)
+        logging.info("[CAMERA] External camera not available, trying built-in camera (index 0)...")
+        builtin_cap = self._open_camera_windows(index=0, camera_type="Built-in")
+        if builtin_cap:
+            return builtin_cap
         
-        if cap.isOpened():
-            # Quick test read to ensure camera is truly ready
-            ret, frame = cap.read()
-            if ret and frame is not None:
-                logging.info("Successfully connected to external webcam (index 1)")
-                return cap
-            else:
-                cap.release()
-                logging.info("External webcam opened but not ready, trying built-in camera")
-        else:
-            cap.release()
-        
-        # If external webcam not available, try built-in camera (index 0)
-        logging.info("Trying built-in camera (index 0)...")
-        cap = cv2.VideoCapture(0)
-        
-        # Give camera minimal time to initialize  
-        time.sleep(0.1)
-        
-        if cap.isOpened():
-            # Quick test read to ensure camera is truly ready
-            ret, frame = cap.read()
-            if ret and frame is not None:
-                logging.info("Successfully connected to built-in camera (index 0)")
-                return cap
-            else:
-                cap.release()
-                logging.error("Built-in camera opened but not ready")
-        else:
-            cap.release()
-            
-        # If no camera is available, return None
-        logging.error("No cameras available (checked indices 1 and 0 only)")
+        # No cameras available
+        logging.error("[CAMERA] ❌ FAILED: No cameras available on Windows (checked indices 1 and 0)")
+        logging.error("[CAMERA] Troubleshooting: Check Windows Privacy Settings > Camera permissions")
         return None
+    
+    def _open_camera_windows(self, index: int, camera_type: str = "Unknown"):
+        """
+        Windows-optimized camera initialization with DirectShow backend.
+        
+        Args:
+            index: Camera index (0=built-in, 1=external USB)
+            camera_type: Descriptive name for logging
+        
+        Returns:
+            cv2.VideoCapture object or None
+        """
+        logging.info(f"[CAMERA] Opening {camera_type} camera at index {index}...")
+        
+        # ALWAYS use DirectShow backend for Windows USB camera reliability
+        try:
+            cap = cv2.VideoCapture(index, cv2.CAP_DSHOW)
+        except Exception as e:
+            logging.error(f"[CAMERA] ❌ Exception opening camera {index}: {e}")
+            return None
+        
+        if not cap.isOpened():
+            logging.warning(f"[CAMERA] ⚠️  Camera {index} failed to open with DirectShow")
+            return None
+        
+        logging.info(f"[CAMERA] ✓ Camera {index} opened with DirectShow backend")
+        
+        # Windows USB cameras need initialization time
+        # External USB (index 1+) needs more time than built-in (index 0)
+        init_delay = 1.0 if index > 0 else 0.5
+        logging.info(f"[CAMERA] Waiting {init_delay}s for {camera_type} initialization...")
+        time.sleep(init_delay)
+        
+        # Discard first 2-3 frames (often black or corrupted on USB cameras)
+        logging.info(f"[CAMERA] Warming up camera {index} (discarding first 2 frames)...")
+        for warmup in range(2):
+            ret, frame = cap.read()
+            if not ret:
+                logging.warning(f"[CAMERA] ⚠️  Warmup frame {warmup+1} failed to read")
+            time.sleep(0.15)
+        
+        # Validate camera with 3 successful frame reads
+        logging.info(f"[CAMERA] Validating camera {index} with frame reads...")
+        successful_reads = 0
+        for attempt in range(5):
+            ret, frame = cap.read()
+            if ret and frame is not None and frame.size > 0:
+                successful_reads += 1
+                logging.debug(f"[CAMERA] ✓ Validation read {successful_reads}/3 successful (frame size: {frame.shape})")
+                if successful_reads >= 3:
+                    # Get camera properties for logging
+                    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                    fps = int(cap.get(cv2.CAP_PROP_FPS))
+                    logging.info(f"[CAMERA] ✅ SUCCESS: {camera_type} camera {index} validated!")
+                    logging.info(f"[CAMERA] Properties: {width}x{height} @ {fps}fps, Backend: DirectShow")
+                    return cap
+            else:
+                logging.warning(f"[CAMERA] ⚠️  Validation attempt {attempt+1}/5 failed")
+            time.sleep(0.2)
+        
+        # Camera opened but not producing valid frames
+        logging.error(f"[CAMERA] ❌ Camera {index} opened but failed validation ({successful_reads}/3 successful reads)")
+        logging.error(f"[CAMERA] Possible issues: Camera in use by another app, driver issue, USB power")
+        cap.release()
+        return None
+    
+    def get_available_cameras_windows(self) -> List[Dict]:
+        """
+        Enumerate all available camera devices on Windows with DirectShow.
+        Tests camera indices 0-4 to find all connected cameras.
+        
+        Returns:
+            List of dicts with camera info: [{'index': 0, 'resolution': '640x480', 'fps': 30, 'backend': 'DirectShow'}]
+        """
+        logging.info("[CAMERA ENUM] Starting Windows camera enumeration with DirectShow...")
+        available_cameras = []
+        
+        # Test camera indices 0-4 (sufficient for most Windows setups)
+        for index in range(5):
+            logging.debug(f"[CAMERA ENUM] Testing camera index {index}...")
+            
+            try:
+                cap = cv2.VideoCapture(index, cv2.CAP_DSHOW)
+                
+                if not cap.isOpened():
+                    logging.debug(f"[CAMERA ENUM] Index {index}: Not available")
+                    continue
+                
+                # Wait for initialization
+                init_delay = 0.5 if index == 0 else 1.0
+                time.sleep(init_delay)
+                
+                # Try to read a frame to validate camera
+                ret, frame = cap.read()
+                
+                if ret and frame is not None and frame.size > 0:
+                    # Get camera properties
+                    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                    fps = int(cap.get(cv2.CAP_PROP_FPS))
+                    
+                    camera_info = {
+                        'index': index,
+                        'resolution': f"{width}x{height}",
+                        'width': width,
+                        'height': height,
+                        'fps': fps if fps > 0 else 30,  # Default to 30 if FPS is 0
+                        'backend': 'DirectShow',
+                        'status': 'available'
+                    }
+                    available_cameras.append(camera_info)
+                    logging.info(f"[CAMERA ENUM] ✓ Index {index}: Available ({width}x{height} @ {fps}fps)")
+                else:
+                    logging.debug(f"[CAMERA ENUM] Index {index}: Opened but cannot read frames")
+                
+                cap.release()
+                
+            except Exception as e:
+                logging.debug(f"[CAMERA ENUM] Index {index}: Exception - {e}")
+                continue
+        
+        logging.info(f"[CAMERA ENUM] Found {len(available_cameras)} available camera(s) on Windows")
+        return available_cameras
 
     def _process_frames_continuously(self, date: str):
         """Continuously process frames in a separate thread"""

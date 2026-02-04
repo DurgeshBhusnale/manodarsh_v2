@@ -1,0 +1,51 @@
+# Testing Dependencies for CRPF Mental Health Monitoring System
+# Install with: pip install -r requirements-test.txt
+
+# Core Testing Framework
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-asyncio==0.21.1
+pytest-timeout==2.1.0
+pytest-xdist==3.5.0  # Parallel test execution
+
+# Flask Testing
+pytest-flask==1.3.0
+flask-testing==0.8.1
+
+# HTTP Testing
+requests-mock==1.11.0
+responses==0.24.1
+
+# Test Data Generation
+faker==20.1.0
+factory-boy==3.3.0
+
+# Time Mocking
+freezegun==1.4.0
+
+# Coverage Reporting
+coverage[toml]==7.4.0
+
+# Test Utilities
+pytest-html==4.1.1  # HTML test reports
+pytest-json-report==1.5.0  # JSON test reports
+
+# Database Testing
+pytest-postgresql==5.0.0
+
+# Security Testing
+bandit==1.7.5  # Security linting
+safety==2.3.5  # Dependency vulnerability scanner
+
+# Performance Testing
+pytest-benchmark==4.0.0
+locust==2.20.0  # Load testing (optional)
+
+# Code Quality
+flake8==7.0.0
+black==23.12.1
+pylint==3.0.3
+
+# Type Checking
+mypy==1.8.0

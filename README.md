@@ -1593,16 +1593,18 @@ def rebuild_models():
 **Solutions**:
 
 ```python
-# Test camera connection
+# Test camera connection with Windows DirectShow backend
 import cv2
 
-def test_camera_connection():
+def test_camera_connection_windows():
+    """Test cameras using DirectShow backend (Windows-optimized)"""
     for i in range(3):  # Test first 3 camera indices
-        cap = cv2.VideoCapture(i)
+        cap = cv2.VideoCapture(i, cv2.CAP_DSHOW)  # Use DirectShow on Windows
         if cap.isOpened():
+            time.sleep(0.5 if i == 0 else 1.0)  # USB cameras need more time
             ret, frame = cap.read()
             if ret:
-                print(f"Camera {i} working")
+                print(f"Camera {i} working ({frame.shape})")
                 cap.release()
                 return i
         cap.release()
@@ -1610,17 +1612,33 @@ def test_camera_connection():
     print("No working cameras found")
     return None
 
-# Alternative camera configurations
-def try_alternative_camera():
-    # Try different backends
-    backends = [cv2.CAP_DSHOW, cv2.CAP_V4L2, cv2.CAP_GSTREAMER]
+# Use diagnostic endpoint to test all cameras
+def test_all_cameras_via_api():
+    """Test cameras using built-in diagnostic API"""
+    import requests
+    response = requests.get('http://localhost:5000/api/image/diagnostics/camera-test')
+    data = response.json()
+    
+    if data['success']:
+        print(f"Found {data['camera_count']} camera(s):")
+        for cam in data['cameras']:
+            print(f"  - Index {cam['index']}: {cam['resolution']} @ {cam['fps']}fps")
+    else:
+        print("Camera test failed:", data.get('error'))
+```
 
-    for backend in backends:
-        cap = cv2.VideoCapture(0, backend)
-        if cap.isOpened():
-            return cap
+**For External USB Webcams on Windows**:
+1. Check Windows Privacy Settings → Camera permissions
+2. Disable USB selective suspend in Power Options
+3. Verify camera in Device Manager (no yellow warning icons)
+4. Close other apps using camera (Zoom, Teams, etc.)
+5. Use USB 2.0 port (sometimes more reliable than USB 3.0)
+6. See `deployment/CRPF_Deployment_Guide.md` for detailed webcam setup
 
-    return None
+**Quick Diagnostic**:
+```bash
+# Run camera test script
+python test_camera_detection.py
 ```
 
 #### 4. High Memory Usage

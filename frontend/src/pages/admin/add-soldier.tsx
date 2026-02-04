@@ -179,7 +179,9 @@ Please keep the window focused for key controls to work.`);
                                     />
                                 </div>
 
-                                <div className="space-y-3">
+                                {/* PHASE 1: Image collection hidden for survey-only deployment */}
+                                {/* PHASE 2: Uncomment to re-enable face recognition */}
+                                {/* <div className="space-y-3">
                                     <button
                                         type="button"
                                         onClick={handleCollectImages}
@@ -189,7 +191,9 @@ Please keep the window focused for key controls to work.`);
                                         <i className={`fas ${isCollecting ? 'fa-spinner fa-spin' : 'fa-camera'} mr-2`}></i>
                                         {isCollecting ? 'Collecting Images...' : 'Collect Images'}
                                     </button>
-                                    
+                                </div> */}
+
+                                <div className="space-y-3">
                                     <button
                                         type="submit"
                                         disabled={isLoading || isCollecting}
@@ -202,8 +206,9 @@ Please keep the window focused for key controls to work.`);
                             </form>
                         </div>
 
-                        {/* Model Training Section */}
-                        <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-lg p-6 border border-white/20">
+                        {/* PHASE 1: Model Training Section hidden for survey-only deployment */}
+                        {/* PHASE 2: Uncomment to re-enable face recognition training */}
+                        {/* <div className="bg-white/80 backdrop-blur-xl rounded-xl shadow-lg p-6 border border-white/20">
                             <div className="flex items-center mb-5">
                                 <i className="fas fa-brain text-lg text-purple-600 mr-2"></i>
                                 <h2 className="text-lg font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">Model Training</h2>
@@ -238,7 +243,7 @@ Please keep the window focused for key controls to work.`);
                                 <i className={`fas ${isTraining ? 'fa-spinner fa-spin' : 'fa-cogs'} mr-2`}></i>
                                 {isTraining ? 'Training Model...' : 'Train Model'}
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

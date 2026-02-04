@@ -577,3 +577,91 @@ def export_face_model():
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+# ============================================================================
+# CAMERA DIAGNOSTICS ENDPOINTS (Windows-Optimized)
+# ============================================================================
+
+@image_bp.route('/diagnostics/camera-test', methods=['GET'])
+def test_cameras():
+    """
+    Windows camera diagnostics endpoint.
+    Tests all available cameras and returns detailed information.
+    """
+    try:
+        logging.info("[DIAGNOSTICS] Starting camera enumeration test...")
+        
+        # Use singleton monitoring service to enumerate cameras
+        from services.cctv_monitoring_service import get_monitoring_service_instance
+        service = get_monitoring_service_instance()
+        
+        # Get all available cameras
+        cameras = service.get_available_cameras_windows()
+        
+        result = {
+            'success': True,
+            'camera_count': len(cameras),
+            'cameras': cameras,
+            'backend': 'DirectShow (Windows)',
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        if len(cameras) == 0:
+            result['warning'] = 'No cameras detected. Check Windows Privacy Settings > Camera permissions.'
+            result['troubleshooting'] = [
+                'Verify camera is connected and powered on',
+                'Check Windows Settings > Privacy > Camera',
+                'Ensure Python has camera permissions',
+                'Try unplugging and reconnecting USB camera',
+                'Check Device Manager for camera driver issues'
+            ]
+        
+        logging.info(f"[DIAGNOSTICS] Camera test complete: {len(cameras)} camera(s) found")
+        return jsonify(result), 200
+        
+    except Exception as e:
+        logging.error(f"[DIAGNOSTICS] Camera test error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': str(e),
+            'camera_count': 0,
+            'cameras': [],
+            'troubleshooting': [
+                'Check if camera is being used by another application',
+                'Restart the application',
+                'Check Windows camera permissions'
+            ]
+        }), 500
+
+@image_bp.route('/diagnostics/camera-cleanup', methods=['POST'])
+def force_camera_cleanup():
+    """
+    Force cleanup of all camera resources.
+    Useful when camera is stuck or not responding.
+    """
+    try:
+        logging.info("[DIAGNOSTICS] Force camera cleanup requested...")
+        
+        from services.cctv_monitoring_service import get_monitoring_service_instance
+        service = get_monitoring_service_instance()
+        
+        # Force cleanup
+        success = service.force_camera_cleanup()
+        
+        if success:
+            return jsonify({
+                'success': True,
+                'message': 'Camera resources cleaned up successfully'
+            }), 200
+        else:
+            return jsonify({
+                'success': False,
+                'message': 'Camera cleanup completed with warnings'
+            }), 200
+            
+    except Exception as e:
+        logging.error(f"[DIAGNOSTICS] Camera cleanup error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500

@@ -93,9 +93,50 @@ def create_app():
 
 app = create_app()
 
-@app.route('/')
-def hello():
-    return jsonify({"message": "CRPF Mental Health Monitoring System API"})
+# ============================================================================
+# DEPLOYMENT: Serve React Frontend (Flask serves production build)
+# ============================================================================
+from flask import send_from_directory
+
+# Frontend build directory (React production build)
+FRONTEND_BUILD_DIR = os.path.abspath(os.path.join(
+    os.path.dirname(__file__), 
+    '../frontend/build'
+))
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_react_app(path):
+    """
+    Serve React production build for deployment.
+    API routes (registered in blueprints) take priority - they're registered first.
+    This catches all other routes for React Router.
+    
+    For development: Use separate React dev server (npm start on port 3000)
+    For production: Build React (npm run build) and Flask serves it at port 5000
+    """
+    # Only serve frontend if build directory exists
+    if not os.path.exists(FRONTEND_BUILD_DIR):
+        # In development, API still works even without frontend build
+        if path.startswith('api/'):
+            return jsonify({
+                "error": "Not found",
+                "message": "API endpoint not found"
+            }), 404
+        
+        return jsonify({
+            "error": "Frontend build not found",
+            "message": "Run 'cd frontend && npm run build' to create production build",
+            "api_status": "API is working at /api/* endpoints",
+            "development": "Use 'npm start' in frontend/ for development"
+        }), 404
+    
+    # If requesting a specific file that exists, serve it
+    if path and os.path.exists(os.path.join(FRONTEND_BUILD_DIR, path)):
+        return send_from_directory(FRONTEND_BUILD_DIR, path)
+    
+    # Otherwise serve index.html (React Router handles routing)
+    return send_from_directory(FRONTEND_BUILD_DIR, 'index.html')
 
 if __name__ == '__main__':
     # PHASE 1: Disable reloader for faster startup (no double initialization)

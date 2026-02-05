@@ -48,11 +48,10 @@ class PackageBuilder:
         
         # URLs for downloads
         self.python_url = "https://www.python.org/ftp/python/3.10.11/python-3.10.11-embed-amd64.zip"
-        self.mariadb_url = "https://downloads.mariadb.com/MariaDB/mariadb-10.6.16/winx64-packages/mariadb-10.6.16-winx64.zip"
         
     def clean_previous_build(self):
         """Remove previous build artifacts"""
-        print_step("1", "10", "Cleaning previous build...")
+        print_step("1", "9", "Cleaning previous build...")
         
         if self.package_dir.exists():
             shutil.rmtree(self.package_dir)
@@ -101,7 +100,7 @@ class PackageBuilder:
     
     def setup_embedded_python(self):
         """Download and configure embedded Python"""
-        print_step("2", "10", "Setting up embedded Python 3.10...")
+        print_step("2", "9", "Setting up embedded Python 3.10...")
         
         python_dir = self.package_dir / "python"
         python_zip = self.script_dir / "downloads" / "python-embed.zip"
@@ -147,7 +146,7 @@ class PackageBuilder:
     
     def install_python_packages(self):
         """Install all Python dependencies to embedded Python"""
-        print_step("3", "10", "Installing Python packages (this may take 10-15 minutes)...")
+        print_step("3", "9", "Installing Python packages (this may take 10-15 minutes)...")
         
         python_exe = self.package_dir / "python" / "python.exe"
         requirements = self.project_root / "backend" / "requirements.txt"
@@ -194,51 +193,9 @@ class PackageBuilder:
             print_error(f"Installation failed: {e}")
             return False
     
-    def setup_mariadb(self):
-        """Download and configure MariaDB embedded"""
-        print_step("4", "10", "Setting up MariaDB embedded server...")
-        
-        mysql_dir = self.package_dir / "mysql"
-        mariadb_zip = self.script_dir / "downloads" / "mariadb.zip"
-        
-        # Check if already exists
-        if (mysql_dir / "bin" / "mysqld.exe").exists():
-            print_warning("MariaDB already exists, skipping download")
-            return True
-        
-        # For now, skip actual download (150 MB) and create placeholder
-        print_warning("MariaDB download skipped for now (will be manual step)")
-        print("   TODO: Download MariaDB from:")
-        print(f"   {self.mariadb_url}")
-        
-        # Create placeholder structure
-        mysql_dir.mkdir(parents=True, exist_ok=True)
-        (mysql_dir / "bin").mkdir(exist_ok=True)
-        (mysql_dir / "data").mkdir(exist_ok=True)
-        (mysql_dir / "README.txt").write_text(
-            "MariaDB embedded server will be placed here.\n"
-            "Download from: https://downloads.mariadb.com/\n"
-            "Extract mariadb-10.6.16-winx64.zip contents to this folder.\n"
-        )
-        
-        # Create my.ini config
-        my_ini = mysql_dir / "my.ini"
-        my_ini.write_text("""[mysqld]
-port=3306
-datadir=data
-basedir=.
-skip-grant-tables
-default-storage-engine=InnoDB
-innodb_buffer_pool_size=256M
-max_connections=50
-""")
-        
-        print_success("MariaDB structure created (manual download required)")
-        return True
-    
     def build_frontend(self):
         """Build React frontend production bundle"""
-        print_step("5", "10", "Building React frontend...")
+        print_step("4", "9", "Building React frontend...")
         
         frontend_dir = self.project_root / "frontend"
         build_dir = frontend_dir / "build"
@@ -282,7 +239,7 @@ max_connections=50
     
     def copy_backend(self):
         """Copy backend application to package"""
-        print_step("6", "10", "Copying backend application...")
+        print_step("5", "9", "Copying backend application...")
         
         backend_src = self.project_root / "backend"
         backend_dest = self.package_dir / "app" / "backend"
@@ -305,7 +262,7 @@ max_connections=50
     
     def create_config_files(self):
         """Generate configuration files"""
-        print_step("7", "10", "Creating configuration files...")
+        print_step("6", "9", "Creating configuration files...")
         
         config_dir = self.package_dir / "config"
         config_dir.mkdir(parents=True, exist_ok=True)
@@ -352,7 +309,7 @@ FLASK_ENV=production
     
     def create_launcher_script(self):
         """Copy launcher script to package"""
-        print_step("8", "10", "Preparing launcher...")
+        print_step("7", "9", "Preparing launcher...")
         
         # Copy existing launcher
         launcher_src = self.script_dir / "crpf_launcher.py"
@@ -368,7 +325,7 @@ FLASK_ENV=production
     
     def create_readme(self):
         """Create README for package"""
-        print_step("9", "10", "Creating documentation...")
+        print_step("8", "9", "Creating documentation...")
         
         readme = self.package_dir / "README.txt"
         readme_content = """
@@ -381,15 +338,18 @@ This is a self-contained deployment package for Windows.
 
 CONTENTS:
   python/          - Embedded Python 3.10 with all dependencies
-  mysql/           - MariaDB embedded database server
   app/backend/     - Flask backend application
   app/frontend/    - React frontend (production build)
   config/          - System configuration
   logs/            - Application logs (created on first run)
 
+PREREQUISITES:
+  - MySQL 8.0 must be installed and running on localhost:3306
+  - Database 'crpf_mental_health' must be created
+
 INSTALLATION:
-  1. Copy entire folder to C:\\Program Files\\CRPF_System\\
-  2. Run CRPF_System.exe
+  1. Copy entire folder to C:\\Program Files\\SATHI\\
+  2. Run SATHI.exe
   3. System will initialize database on first run
   4. Browser opens automatically
 
@@ -415,15 +375,15 @@ SUPPORT:
     
     def create_manifest(self):
         """Create package manifest"""
-        print_step("10", "10", "Finalizing package...")
+        print_step("9", "9", "Finalizing package...")
         
         manifest = {
-            "package": "CRPF Mental Health System",
+            "package": "SATHI - Mental Health System",
             "version": "1.0",
             "build_date": "",
             "components": {
                 "python": "3.10.11 embedded",
-                "database": "MariaDB 10.6.16",
+                "database": "MySQL 8.0 (pre-installed)",
                 "backend": "Flask + AI/ML services",
                 "frontend": "React (production build)"
             },
@@ -443,9 +403,11 @@ SUPPORT:
         print(f"\nPackage location: {self.package_dir}")
         print(f"Total size: {manifest['total_size_mb']} MB")
         print(f"\nNext steps:")
-        print(f"  1. Download MariaDB manually to mysql/ folder")
-        print(f"  2. Build launcher.exe with PyInstaller")
-        print(f"  3. Create installer with Inno Setup")
+        print(f"  1. Build SATHI.exe launcher with PyInstaller")
+        print(f"  2. Create SATHI_Installer.exe with Inno Setup")
+        print(f"\nPrerequisites for deployment:")
+        print(f"  - MySQL 8.0 must be installed on target PC")
+        print(f"  - Database 'crpf_mental_health' must be created")
         
         return True
     
@@ -473,7 +435,6 @@ SUPPORT:
             self.clean_previous_build,
             self.setup_embedded_python,
             self.install_python_packages,
-            self.setup_mariadb,
             self.build_frontend,
             self.copy_backend,
             self.create_config_files,

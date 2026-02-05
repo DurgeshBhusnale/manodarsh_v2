@@ -1,18 +1,18 @@
-; CRPF Mental Health & Wellness System
+; SATHI - Mental Health & Wellness System
 ; Professional Inno Setup Installer Script
 ; Version: 1.0
 ; Compatible with: Windows 10/11 64-bit
 
-#define MyAppName "CRPF Mental Health System"
+#define MyAppName "SATHI"
 #define MyAppVersion "1.0"
 #define MyAppPublisher "CRPF Development Team"
 #define MyAppURL "https://crpf.gov.in"
-#define MyAppExeName "CRPF_System.exe"
+#define MyAppExeName "SATHI.exe"
 #define MyAppDescription "Mental Health & Wellness Monitoring System"
 
 [Setup]
 ; Basic Application Information
-AppId={{A5F8B3C2-CRPF-4D1E-8F9A-2B7C3D4E5F6A}}
+AppId={{A5F8B3C2-SATHI-4D1E-8F9A-2B7C3D4E5F6A}}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
@@ -23,13 +23,13 @@ AppUpdatesURL={#MyAppURL}
 AppComments={#MyAppDescription}
 
 ; Installation Directories
-DefaultDirName={autopf}\CRPF_System
+DefaultDirName={autopf}\SATHI
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 
 ; Output Configuration
 OutputDir=output
-OutputBaseFilename=CRPF_System_Setup
+OutputBaseFilename=SATHI_Installer
 SetupIconFile=assets\sathi_logo.ico
 UninstallDisplayIcon={app}\{#MyAppExeName}
 
@@ -62,28 +62,28 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "Create a &desktop shortcut"; GroupDescription: "Additional icons:"; Flags: checkedonce
 Name: "startmenu"; Description: "Create a Start &Menu folder"; GroupDescription: "Additional icons:"; Flags: checkedonce
-Name: "startup"; Description: "Start CRPF System with &Windows (auto-start on boot)"; GroupDescription: "Startup options:"; Flags: unchecked
+Name: "startup"; Description: "Start SATHI with &Windows (auto-start on boot)"; GroupDescription: "Startup options:"; Flags: unchecked
 
 [Files]
 ; Main application files
 Source: "package\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-; Note: package\ folder should contain: python\, mysql\, app\, config\, etc.
+; Note: package\ folder should contain: python\, app\, config\, etc.
+; MySQL is NOT included - must be pre-installed on target PC
 
 [Dirs]
 CreateDir: "{app}\logs"
 CreateDir: "{app}\.pids"
-CreateDir: "{app}\mysql\data"
 
 [Icons]
 ; Desktop shortcut
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; Comment: "Launch {#MyAppName}"; IconFilename: "{app}\{#MyAppExeName}"
+Name: "{autodesktop}\SATHI"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; Comment: "Launch SATHI"; IconFilename: "{app}\{#MyAppExeName}"
 
 ; Start Menu shortcuts
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: startmenu; Comment: "Launch {#MyAppName}"
-Name: "{group}\Uninstall {#MyAppName}"; Filename: "{uninstallexe}"; Tasks: startmenu
+Name: "{group}\SATHI"; Filename: "{app}\{#MyAppExeName}"; Tasks: startmenu; Comment: "Launch SATHI"
+Name: "{group}\Uninstall SATHI"; Filename: "{uninstallexe}"; Tasks: startmenu
 
 ; Startup (auto-start with Windows)
-Name: "{userstartup}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--silent"; Tasks: startup; Comment: "Auto-start CRPF System on boot"
+Name: "{userstartup}\SATHI"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--silent"; Tasks: startup; Comment: "Auto-start SATHI on boot"
 
 [Run]
 ; Initialize database on first install

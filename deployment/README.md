@@ -1,43 +1,42 @@
-# 🚀 CRPF System - Complete Deployment Package
+# 🚀 SATHI - Complete Deployment Package
 
-## Professional Windows Installer for CRPF Mental Health & Wellness System
+## Professional Windows Installer for Mental Health & Wellness System
 
 ---
 
 ## 📦 What's This?
 
-This is the complete deployment package for creating a professional Windows installer that allows CRPF personnel to install and use the Mental Health & Wellness System with a single click.
+This is the complete deployment package for creating a professional Windows installer for SATHI (Mental Health & Wellness Monitoring System).
 
 **Version**: 1.0  
 **Platform**: Windows 10/11 (64-bit)  
-**Type**: Standalone installer, no dependencies required  
-**Size**: ~900 MB installer
+**Type**: Professional installer with prerequisites  
+**Size**: ~750 MB installer
+
+**Prerequisites**: MySQL 8.0 must be installed on target PC
 
 ---
 
-## 🎯 Deployment Options
+## 🎯 Installation Process
 
-We provide **THREE deployment options**:
+### Two-Step Installation:
 
-### Option 1: Professional Installer (Recommended) ✅
-- Single `CRPF_System_Setup.exe` file
-- Installation wizard with user choices
-- Desktop shortcut, Start Menu entry
-- Automatic database setup
-- Professional uninstaller
-- **Best for**: End-user deployment at CRPF sites
+**Step 1: Install MySQL 8.0** (One-time setup)
+- See: `MySQL_Prerequisites.md` for detailed instructions
+- Install MySQL 8.0 on target PC
+- Create database and user
+- **Time**: 15-20 minutes
 
-### Option 2: Portable Package
-- ZIP file containing complete system
-- Extract and run
-- No installation required
-- **Best for**: Testing, USB drive deployment
+**Step 2: Install SATHI** (One-time setup)
+- Run `SATHI_Installer.exe`
+- Follow installation wizard
+- Desktop shortcut created automatically
+- **Time**: 5-10 minutes
 
-### Option 3: Manual Installation
-- Step-by-step manual setup
-- Install Python, Node.js, MySQL manually
-- Run from source code
-- **Best for**: Developers only
+**Daily Use:**
+- Double-click "SATHI" desktop shortcut
+- System starts automatically
+- Browser opens to login page
 
 ---
 
@@ -45,16 +44,16 @@ We provide **THREE deployment options**:
 
 | Document | For | Purpose |
 |----------|-----|---------|
+| **MySQL_Prerequisites.md** | Installation Team | MySQL 8.0 setup guide |
 | **README_DEPLOYMENT.md** | Developers | Build instructions, technical details |
 | **USER_INSTALL_GUIDE.md** | End Users | Installation and usage guide |
 | **KNOWN_ISSUES.md** | Everyone | Troubleshooting and solutions |
-| **plan.md** (session) | Team | Implementation plan and progress |
 
 ---
 
 ## ⚡ Quick Start for Developers
 
-### Prerequisites
+### Prerequisites (Build Machine Only)
 
 Install these on your **build machine** (not needed on user PCs):
 
@@ -62,6 +61,8 @@ Install these on your **build machine** (not needed on user PCs):
 - Python 3.10+
 - Node.js 18+
 - Git
+- PyInstaller: `pip install pyinstaller`
+- (Optional) Inno Setup 6.x for creating installer
 
 ### One-Command Build
 
@@ -72,39 +73,44 @@ build_installer.bat
 
 This creates:
 - `package\` - Complete portable system
-- `output\CRPF_System_Setup.exe` - Professional installer (if Inno Setup installed)
+- `package\SATHI.exe` - Main launcher
+- `output\SATHI_Installer.exe` - Professional installer (if Inno Setup installed)
 
-**Time**: 15-20 minutes (downloads packages)
+**Time**: 15-20 minutes (downloads Python packages)
 
 ---
 
-## 📦 What's Included
+## 📦 What's Included in Package
 
 ### Core Components
 
 ```
-CRPF_System/
+SATHI/
 ├── python/              # Embedded Python 3.10 + 120 packages
-├── mysql/               # MariaDB embedded database
 ├── app/
 │   ├── backend/         # Flask API + AI/ML services
 │   └── frontend/build/  # React production bundle
 ├── config/              # System configuration
-├── logs/                # Application logs
-├── CRPF_System.exe     # Main launcher (system tray)
-└── uninstall.exe       # Uninstaller
+├── logs/                # Application logs (created at runtime)
+├── .pids/               # Process IDs (created at runtime)
+└── SATHI.exe           # Main launcher (system tray)
 ```
+
+### What's NOT Included
+
+- ❌ MySQL/MariaDB (must be pre-installed)
+- ❌ Node.js runtime (React is pre-built)
 
 ### Features
 
-- ✅ **Zero Dependencies**: Python, MySQL, React all bundled
-- ✅ **100% Offline**: No internet required
+- ✅ **Minimal Dependencies**: Only MySQL required
+- ✅ **100% Offline**: No internet required after installation
 - ✅ **System Tray**: Professional launcher with tray icon
-- ✅ **Auto-Start**: Starts MySQL and Flask automatically
+- ✅ **Auto-Connect**: Connects to pre-installed MySQL
 - ✅ **First-Run Setup**: Database initialized automatically
 - ✅ **Camera Support**: DirectShow backend for USB webcams
 - ✅ **AI/ML Ready**: TensorFlow, OpenCV, dlib included
-- ✅ **Clean Uninstall**: Complete removal with data option
+- ✅ **Clean Uninstall**: Complete removal option
 
 ---
 
@@ -114,400 +120,319 @@ CRPF_System/
 |--------|---------|-------------|
 | `build_package.py` | Creates portable package | Building from scratch |
 | `build_installer.bat` | Complete build automation | One-command build |
-| `crpf_launcher_v2.py` | System launcher | Part of package |
+| `create_executable.bat` | Build SATHI.exe only | Testing launcher |
+| `sathi_launcher.py` | System launcher source | Part of package |
 | `init_database.py` | Database initialization | First-run setup |
 | `installer.iss` | Inno Setup script | Creating .exe installer |
 | `clean.bat` | Clean build artifacts | Starting fresh |
-| `test_package.bat` | Test package structure | Verifying build |
 
 ---
 
-## 🧪 Testing
+## 🚀 Deployment Guide
 
-### Quick Test (After Build)
+### For Developers: Building the Installer
+
+#### Step 1: Build Package
 
 ```cmd
 cd deployment
-test_package.bat
+python build_package.py
 ```
-
-### Manual Test
-
-```cmd
-cd package
-CRPF_System.exe
-```
-
-Expected:
-1. Console shows "Starting..."
-2. System tray icon appears
-3. Browser opens to http://localhost:5000
-4. Login page visible
-
-### Full Test Checklist
-
-- [ ] System starts without errors
-- [ ] Browser opens automatically
-- [ ] Login works (CRPF000001 / admin123)
-- [ ] Camera detection works
-- [ ] Survey creation works
-- [ ] Emotion detection works
-- [ ] Sentiment analysis works
-- [ ] Reports generate correctly
-- [ ] System stops cleanly (tray icon)
-- [ ] All processes terminate
-
----
-
-## 📋 Build Process Details
-
-### Step 1: Portable Package (`build_package.py`)
 
 **What it does:**
 1. Downloads Python 3.10 embedded (50 MB)
-2. Installs 120 Python packages (TensorFlow, OpenCV, dlib, Flask, etc.) - **10-15 minutes**
-3. Sets up MariaDB structure (manual download needed)
-4. Copies backend application
-5. Copies AI models
-6. Creates configuration files
+2. Installs 120 Python packages (TensorFlow, OpenCV, etc.) - **10-15 minutes**
+3. Copies backend application
+4. Copies AI models
+5. Creates configuration files
+6. Creates package structure
 
-**Output**: `package/` folder (~1.2 GB)
+**Output**: `package/` folder (~700 MB)
 
-### Step 2: Frontend Build
+#### Step 2: Build Frontend
 
 ```cmd
-cd frontend
+cd ..\frontend
 npm run build
+cd ..\deployment
 ```
 
-**What it does:**
-- Creates optimized React production bundle
-- Minifies JavaScript
-- Optimizes images and assets
+**Output**: Production-optimized React bundle
 
-**Output**: `frontend/build/` folder (~5 MB)
-
-### Step 3: Launcher Executable
+#### Step 3: Create Launcher Executable
 
 ```cmd
-pyinstaller --onefile --noconsole --icon=assets\sathi_logo.ico --name=CRPF_System crpf_launcher_v2.py
+pyinstaller SATHI.spec --clean
+copy dist\SATHI.exe package\SATHI.exe
 ```
 
-**What it does:**
-- Bundles launcher Python script into .exe
-- Includes system tray functionality
-- Creates standalone executable
+**Output**: `package/SATHI.exe` (~20 MB)
 
-**Output**: `dist/CRPF_System.exe` (~20 MB)
+#### Step 4: Create Installer (Optional)
 
-### Step 4: Professional Installer (Optional)
+Requires Inno Setup 6.x installed:
 
 ```cmd
 "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
 ```
 
-**What it does:**
-- Creates installation wizard
-- Adds uninstaller
-- Registers with Windows
-- Creates shortcuts
-
-**Output**: `output/CRPF_System_Setup.exe` (~900 MB)
+**Output**: `output/SATHI_Installer.exe` (~750 MB)
 
 ---
 
-## 🎨 Customization
+### For IT Staff: Deploying to Target PC
 
-### Adding Your Logo
+#### Prerequisites Check
 
-1. Create 256x256 icon: `assets/sathi_logo.ico`
-2. Create wizard image: `assets/wizard_image.bmp` (164x314)
-3. Create small image: `assets/wizard_small.bmp` (55x58)
-4. Rebuild installer
+Before installation, verify on target PC:
 
-See: `assets/README.txt` for details
+- ✅ Windows 10/11 (64-bit)
+- ✅ MySQL 8.0 installed and running
+- ✅ Database `crpf_mental_health` created
+- ✅ User `crpf_user` created with permissions
+- ✅ MySQL accessible on localhost:3306
 
-### Changing Branding
+See `MySQL_Prerequisites.md` for setup instructions.
 
-Edit `installer.iss`:
-- Change `MyAppName`
-- Change `MyAppPublisher`
-- Update welcome messages
-- Add license agreement
+#### Installation Steps
 
-### Configuration
+1. **Run Installer:**
+   ```cmd
+   SATHI_Installer.exe
+   ```
 
-Edit `package/app/backend/.env`:
-- Database settings
-- Secret key
-- Debug mode
+2. **Follow Wizard:**
+   - Accept license
+   - Choose installation location (default: `C:\Program Files\SATHI\`)
+   - Select options:
+     - ✅ Create desktop shortcut (recommended)
+     - ✅ Create Start Menu folder
+     - ⬜ Auto-start with Windows (optional)
+
+3. **Wait for Installation:**
+   - Installer copies files (~5 minutes)
+   - Database initialized automatically
+   - Desktop shortcut "SATHI" created
+
+4. **First Launch:**
+   - Double-click "SATHI" desktop shortcut
+   - System tray icon appears
+   - Browser opens automatically
+   - Login page loads
+
+5. **Default Login:**
+   - Username: `CRPF000001`
+   - Password: `admin123`
+   - Change password after first login!
+
+---
+
+## ✅ Verification Checklist
+
+After installation, verify:
+
+- [ ] Desktop shortcut "SATHI" exists
+- [ ] SATHI.exe launches without errors
+- [ ] System tray icon appears
+- [ ] Browser opens to http://localhost:5000
+- [ ] Login page loads
+- [ ] Default login works (CRPF000001 / admin123)
+- [ ] Camera access works (if webcam present)
+- [ ] Survey flow works
+
+---
+
+## 🔧 Configuration
+
+### Database Connection
+
+File: `C:\Program Files\SATHI\app\backend\.env`
+
+```ini
+DB_NAME=crpf_mental_health
+DB_USER=crpf_user
+DB_PASSWORD=YourPasswordHere
+DB_HOST=localhost
+DB_PORT=3306
+```
+
+Update `DB_PASSWORD` with your actual MySQL password.
+
+### Backend Settings
+
+Edit `.env` file for:
+- Session timeout
 - Port numbers
+- Debug mode
+- Risk thresholds
+- Camera settings
+
+See `.env.example` for all options.
 
 ---
 
-## 🔧 Troubleshooting Build
+## 🐛 Troubleshooting
 
-### "Python not found"
+### Common Issues
 
-**Solution**:
-```cmd
-python --version
-```
-Install Python 3.10+ from python.org if needed.
+#### MySQL Connection Failed
 
-### "npm not found"
+**Symptoms:**
+- SATHI won't start
+- Error: "MySQL is not running on localhost:3306"
 
-**Solution**:
-```cmd
-node --version
-npm --version
-```
-Install Node.js 18+ from nodejs.org if needed.
-
-### "PyInstaller failed"
-
-**Solution**:
-```cmd
-pip install pyinstaller
-```
-
-### "Frontend build failed"
-
-**Solution**:
-```cmd
-cd frontend
-npm install
-npm run build
-```
-
-### Build hangs during package installation
-
-**Cause**: Large packages (TensorFlow 500MB)
-
-**Solution**: Wait patiently, takes 10-15 minutes
-
----
-
-## 📦 Distribution
-
-### For Small Deployment (< 10 PCs)
-
-**Option A: USB Drive**
-1. Copy `package\` folder to USB
-2. Give to each PC
-3. Run `CRPF_System.exe`
-
-**Option B: Network Share**
-1. Place `package\` on network drive
-2. Users run from network
-3. Or copy to local PC
-
-### For Large Deployment (10+ PCs)
-
-**Option A: Professional Installer**
-1. Create installer: `CRPF_System_Setup.exe`
-2. Distribute via:
-   - USB drives
-   - Network share
-   - Email (if allowed)
-   - Download portal
-
-**Option B: Silent Installation**
-```cmd
-CRPF_System_Setup.exe /SILENT /DIR="C:\CRPF"
-```
-Deploy via Group Policy or deployment tool
-
----
-
-## 🔐 Security
-
-### Code Signing (Recommended for Production)
-
-**Why**: Prevents Windows security warnings
-
-**How**:
-1. Obtain code signing certificate
-2. Sign launcher.exe:
+**Solutions:**
+1. Check MySQL service is running:
    ```cmd
-   signtool sign /f cert.pfx /p password CRPF_System.exe
+   services.msc
    ```
-3. Sign installer:
+   Find "MySQL80" → Status should be "Running"
+
+2. Test MySQL connection:
    ```cmd
-   signtool sign /f cert.pfx /p password CRPF_System_Setup.exe
+   mysql -u crpf_user -p
    ```
 
-**Cost**: ~$300/year for certificate
+3. Verify database exists:
+   ```sql
+   SHOW DATABASES;
+   ```
 
-### Antivirus Exclusions
+See `MySQL_Prerequisites.md` for detailed MySQL troubleshooting.
 
-Add to Windows Defender exclusions:
-- `C:\Program Files\CRPF_System\`
+#### Backend Won't Start
 
-Distribute to all CRPF PCs via Group Policy.
+**Symptoms:**
+- System tray icon appears but browser doesn't open
+- Error in logs
+
+**Solutions:**
+1. Check logs:
+   ```
+   C:\Program Files\SATHI\logs\backend.log
+   ```
+
+2. Verify Python packages:
+   ```cmd
+   cd "C:\Program Files\SATHI\python"
+   python.exe -m pip list
+   ```
+
+3. Check port 5000 is free:
+   ```cmd
+   netstat -ano | findstr :5000
+   ```
+
+See `KNOWN_ISSUES.md` for more troubleshooting.
 
 ---
 
-## 📊 System Requirements
+## 📊 Technical Details
 
-### Build Machine (Developer)
+### System Requirements
 
-- Windows 10/11
-- 8 GB RAM
-- 10 GB free disk space
-- Internet connection (for downloads)
-- Python 3.10+
-- Node.js 18+
-
-### Target Machine (End User)
-
-- Windows 10/11 (64-bit)
-- 4 GB RAM (8 GB recommended)
+**Minimum:**
+- Windows 10 (64-bit)
+- 4 GB RAM
 - 2 GB free disk space
-- Webcam (built-in or USB)
-- **No internet required**
-- **No Python/Node.js/MySQL required**
+- MySQL 8.0
+- Webcam (for emotion detection)
+
+**Recommended:**
+- Windows 11 (64-bit)
+- 8 GB RAM
+- 5 GB free disk space
+- MySQL 8.0
+- HD Webcam
+
+### Components & Versions
+
+**Included:**
+- Python: 3.10.11 embedded
+- TensorFlow: 2.x
+- OpenCV: 4.x
+- Flask: Latest
+- React: Production build
+
+**Required (Not Included):**
+- MySQL: 8.0.x (pre-installed)
+
+### Package Size Breakdown
+
+| Component | Size |
+|-----------|------|
+| Python embedded | ~50 MB |
+| Python packages | ~600 MB |
+| Backend code | ~50 MB |
+| Frontend build | ~20 MB |
+| SATHI.exe | ~20 MB |
+| **Total** | **~750 MB** |
 
 ---
 
-## 🆘 Support
+## 🔒 Security Notes
 
-### For Developers
+### Production Deployment
 
-- Check: `README_DEPLOYMENT.md` (technical guide)
-- Check: Build logs in console
-- Check: Package structure with `test_package.bat`
-- Contact: GitHub repository maintainer
+Before deploying to production:
 
-### For End Users
+1. **Change Default Password:**
+   - Default admin password MUST be changed
+   - Use strong passwords (12+ characters)
 
-- Check: `USER_INSTALL_GUIDE.md` (user guide)
-- Check: `KNOWN_ISSUES.md` (troubleshooting)
-- Check: Application logs in `logs\` folder
-- Contact: support@crpf.gov.in
+2. **Database Security:**
+   - Use strong MySQL passwords
+   - Restrict MySQL to localhost only
+   - Regular backups
 
----
+3. **Network Security:**
+   - Firewall rules for port 5000 (localhost only)
+   - MySQL port 3306 (localhost only)
 
-## ✅ Pre-Deployment Checklist
-
-Before deploying to CRPF:
-
-**Build Quality**
-- [ ] Package builds without errors
-- [ ] All dependencies included
-- [ ] Frontend builds successfully
-- [ ] Launcher.exe runs without console errors
-
-**Functionality**
-- [ ] System starts in < 30 seconds
-- [ ] Browser opens automatically
-- [ ] Login works (default admin)
-- [ ] Camera detection works (USB webcam)
-- [ ] Survey creation works
-- [ ] Survey execution works end-to-end
-- [ ] Emotion detection works
-- [ ] Sentiment analysis works
-- [ ] Reports generate correctly
-
-**User Experience**
-- [ ] Desktop shortcut created
-- [ ] System tray icon works
-- [ ] Right-click menu works
-- [ ] Stop system works cleanly
-- [ ] Restart system works
-- [ ] No console errors visible
-
-**Documentation**
-- [ ] User install guide complete
-- [ ] Known issues documented
-- [ ] Troubleshooting guide complete
-- [ ] Admin guide created
-
-**Security**
-- [ ] Default password documented as temporary
-- [ ] System runs offline
-- [ ] No sensitive data in logs
-- [ ] Proper error messages (no stack traces to users)
-
-**Installation**
-- [ ] Installer runs as administrator
-- [ ] Installs to Program Files
-- [ ] Creates Start Menu entry
-- [ ] Uninstaller works completely
-- [ ] Can reinstall after uninstall
+4. **(Optional) Code Signing:**
+   ```cmd
+   signtool sign /f cert.pfx /p password SATHI.exe
+   signtool sign /f cert.pfx /p password SATHI_Installer.exe
+   ```
 
 ---
 
-## 🚀 Deployment Timeline
+## 📝 Deployment Timeline
 
-| Phase | Time | Tasks |
-|-------|------|-------|
-| **Preparation** | 1 hour | Install build tools, clone repo |
-| **Build** | 15-20 min | Run build_installer.bat |
-| **Testing** | 2-3 hours | Full functionality testing |
-| **Documentation** | 1 hour | Review and finalize docs |
-| **Packaging** | 30 min | Create distribution media |
-| **Pilot Deployment** | 1 day | Test at 1-2 CRPF sites |
-| **Full Deployment** | 1 week | Roll out to all sites |
-
----
-
-## 📞 Contact
-
-**Development Team**: development@crpf.gov.in  
-**User Support**: support@crpf.gov.in  
-**Technical Issues**: GitHub Issues (if applicable)
+| Phase | Duration | Tasks |
+|-------|----------|-------|
+| **Preparation** | 1 hour | Download MySQL, prepare target PC |
+| **MySQL Setup** | 30 mins | Install MySQL, create database |
+| **SATHI Install** | 10 mins | Run installer, verify |
+| **Testing** | 30 mins | Test all features, camera, surveys |
+| **Training** | 1 hour | Train users |
+| **Total** | **~3 hours per PC** | |
 
 ---
 
-## 📝 Version History
+## 📞 Support
 
-### Version 1.0 (2026-02-04)
+**Documentation:**
+- Installation: See `USER_INSTALL_GUIDE.md`
+- MySQL Setup: See `MySQL_Prerequisites.md`
+- Troubleshooting: See `KNOWN_ISSUES.md`
+- Development: See `README_DEPLOYMENT.md`
 
-**Major Features**:
-- Complete portable package with embedded Python
-- Professional Inno Setup installer
-- System tray launcher
-- Automatic database initialization
-- Flask serves React frontend (no Node.js needed)
-- DirectShow camera support for USB webcams
-
-**Components**:
-- Python 3.10.11 embedded
-- MariaDB 10.6.16 portable
-- TensorFlow 2.x
-- OpenCV 4.x
-- React 18.x production build
-
-**Documentation**:
-- User installation guide
-- Developer build guide
-- Known issues and solutions
-- Troubleshooting guide
+**Build Issues:**
+- Check Python version: `python --version` (3.10+)
+- Check Node version: `node --version` (18+)
+- Check package integrity
+- Review build logs
 
 ---
 
-## 🎉 Success Metrics
+## 📄 License
 
-A successful deployment means:
-
-- ✅ **Installation**: < 10 minutes per PC
-- ✅ **Training**: Users operational within 30 minutes
-- ✅ **Startup**: System ready in < 30 seconds
-- ✅ **Reliability**: 99% uptime
-- ✅ **Support**: < 5% of users need help
-- ✅ **Adoption**: Daily active usage > 80%
+**License**: Proprietary  
+**Copyright**: © 2024 CRPF Development Team  
+**Project**: SATHI - Mental Health & Wellness System  
+**For**: Central Reserve Police Force (CRPF)
 
 ---
 
 **Built with ❤️ for CRPF Personnel Mental Health & Wellness**
-
-*This system helps save lives by early detection of mental health issues. Your careful deployment matters.*
-
----
-
-**License**: [To be specified]  
-**Copyright**: © 2024 CRPF Development Team  
-**Version**: 1.0  
-**Platform**: Windows 10/11 64-bit
-

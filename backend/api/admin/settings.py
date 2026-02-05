@@ -176,12 +176,14 @@ def get_settings_categories():
             'description': 'Configuration for depression score calculation',
             'icon': 'chart-bar'
         },
-        {
-            'id': 'security',
-            'name': 'Security & Authentication',
-            'description': 'Session management and security settings',
-            'icon': 'shield-check'
-        },
+        # PHASE 2: Security & Authentication category temporarily hidden for Phase 1 deployment
+        # Uncomment below when Phase 2 security features are ready
+        # {
+        #     'id': 'security',
+        #     'name': 'Security & Authentication',
+        #     'description': 'Session management and security settings',
+        #     'icon': 'shield-check'
+        # },
         {
             'id': 'camera',
             'name': 'Camera & Detection',

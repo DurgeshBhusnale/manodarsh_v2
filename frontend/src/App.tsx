@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { router } from './router';
 import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
+import SystemLoadingScreen from './components/SystemLoadingScreen';
 
 const theme = extendTheme({
   colors: {
@@ -37,6 +38,34 @@ const theme = extendTheme({
 });
 
 function App() {
+  const [systemReady, setSystemReady] = useState(false);
+  const [isProduction, setIsProduction] = useState(false);
+
+  useEffect(() => {
+    // Check if running in production mode (built version)
+    // In production, the loading screen should appear
+    // In development (npm start), skip loading screen
+    const isBuiltVersion = !window.location.hostname.includes('localhost') || 
+                          window.location.port === '5000' ||
+                          process.env.NODE_ENV === 'production';
+    
+    setIsProduction(isBuiltVersion);
+    
+    // If not production, system is immediately ready
+    if (!isBuiltVersion) {
+      setSystemReady(true);
+    }
+  }, []);
+
+  const handleSystemReady = () => {
+    setSystemReady(true);
+  };
+
+  // Show loading screen only in production and before system is ready
+  if (isProduction && !systemReady) {
+    return <SystemLoadingScreen onSystemReady={handleSystemReady} />;
+  }
+
   return (
     <AuthProvider>
       <ChakraProvider theme={theme}>

@@ -54,6 +54,7 @@ const FaceModelManagement: React.FC = () => {
             name: soldier.name,
             unit: soldier.unit,
             encodings_count: 0,
+            trained_at: soldier.created_at, // Use created_at for registered date
             in_pkl: false, // PHASE 1: Not checking PKL
             in_database: true,
             status: 'db_only' // PHASE 1: All are DB only
@@ -122,27 +123,29 @@ const FaceModelManagement: React.FC = () => {
     }
   };
 
-  const exportModelData = async () => {
-    try {
-      const response = await fetch(`${API_BASE}/image/export-face-model`, {
-        credentials: 'include'
-      });
-      
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `face_model_export_${new Date().toISOString().split('T')[0]}.pkl`;
-        a.click();
-        window.URL.revokeObjectURL(url);
-      } else {
-        alert('Failed to export model data');
-      }
-    } catch (error) {
-      alert(`Error exporting model: ${error}`);
-    }
-  };
+  // PHASE 2: Export model functionality - temporarily disabled for Phase 1
+  // Uncomment when Phase 2 face recognition features are fully implemented
+  // const exportModelData = async () => {
+  //   try {
+  //     const response = await fetch(`${API_BASE}/image/export-face-model`, {
+  //       credentials: 'include'
+  //     });
+  //     
+  //     if (response.ok) {
+  //       const blob = await response.blob();
+  //       const url = window.URL.createObjectURL(blob);
+  //       const a = document.createElement('a');
+  //       a.href = url;
+  //       a.download = `face_model_export_${new Date().toISOString().split('T')[0]}.pkl`;
+  //       a.click();
+  //       window.URL.revokeObjectURL(url);
+  //     } else {
+  //       alert('Failed to export model data');
+  //     }
+  //   } catch (error) {
+  //     alert(`Error exporting model: ${error}`);
+  //   }
+  // };
 
   const handleSelectAll = () => {
     const filteredSoldiers = getFilteredSoldiers();
@@ -304,12 +307,14 @@ const FaceModelManagement: React.FC = () => {
                     Delete Selected ({selectedSoldiers.size})
                   </button>
                 )}
-                <button
+                {/* PHASE 2: Export Model button - temporarily disabled for Phase 1
+                    Uncomment when Phase 2 face recognition features are ready */}
+                {/* <button
                   onClick={exportModelData}
                   className="px-3 py-2 text-sm bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 font-semibold shadow-md hover:shadow-lg"
                 >
                   Export Model
-                </button>
+                </button> */}
                 <button
                   onClick={fetchSoldiersData}
                   className="px-3 py-2 text-sm bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all duration-200 font-semibold shadow-md hover:shadow-lg"

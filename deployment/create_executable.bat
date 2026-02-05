@@ -74,7 +74,8 @@ echo Creating executable using SATHI.spec...
 echo This will take 30-60 seconds...
 echo.
 
-pyinstaller --clean SATHI.spec
+REM Force windowless mode with --noconsole flag (overrides spec if needed)
+pyinstaller --clean --noconsole SATHI.spec
 if errorlevel 1 (
     echo.
     echo ================================================

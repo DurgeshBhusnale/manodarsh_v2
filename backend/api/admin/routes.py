@@ -447,7 +447,7 @@ def add_question():
         data = request.json
         questionnaire_id = data['questionnaire_id']
         question_text = data['question_text']
-        
+
         # Get Hindi translation if not provided
         question_text_hindi = data.get('question_text_hindi', '')
         if not question_text_hindi:
@@ -459,7 +459,7 @@ def add_question():
             INSERT INTO questions (questionnaire_id, question_text, question_text_hindi, created_at)
             VALUES (%s, %s, %s, NOW())
         """, (questionnaire_id, question_text, question_text_hindi))
-        
+
         question_id = cursor.lastrowid
         db.commit()
 
@@ -472,6 +472,205 @@ def add_question():
 
     except Exception as e:
         db.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
+@admin_bp.route('/questionnaires/<int:questionnaire_id>', methods=['PUT'])
+def update_questionnaire(questionnaire_id):
+    """Update questionnaire title, description, or status"""
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        data = request.json
+        title = data.get('title')
+        description = data.get('description')
+        status = data.get('status')
+
+        # Check if questionnaire exists
+        cursor.execute("""
+            SELECT questionnaire_id FROM questionnaires WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+
+        if not cursor.fetchone():
+            return jsonify({"error": "Questionnaire not found"}), 404
+
+        # Build update query dynamically based on provided fields
+        update_fields = []
+        values = []
+
+        if title is not None:
+            update_fields.append("title = %s")
+            values.append(title)
+
+        if description is not None:
+            update_fields.append("description = %s")
+            values.append(description)
+
+        if status is not None:
+            # If setting to Active, deactivate all other questionnaires first
+            if status == 'Active':
+                cursor.execute("UPDATE questionnaires SET status = 'Inactive'")
+            update_fields.append("status = %s")
+            values.append(status)
+
+        if not update_fields:
+            return jsonify({"error": "No fields to update"}), 400
+
+        # Execute update
+        values.append(questionnaire_id)
+        cursor.execute(f"""
+            UPDATE questionnaires
+            SET {', '.join(update_fields)}
+            WHERE questionnaire_id = %s
+        """, tuple(values))
+
+        db.commit()
+
+        return jsonify({
+            "message": "Questionnaire updated successfully",
+            "id": questionnaire_id
+        }), 200
+
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error updating questionnaire: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
+@admin_bp.route('/questionnaires/<int:questionnaire_id>/questions/<int:question_id>', methods=['PUT'])
+def update_question(questionnaire_id, question_id):
+    """Update a question's text (English and/or Hindi)"""
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        data = request.json
+        question_text = data.get('question_text')
+        question_text_hindi = data.get('question_text_hindi')
+        auto_translate = data.get('auto_translate', True)
+
+        # Verify question exists and belongs to the questionnaire
+        cursor.execute("""
+            SELECT question_id FROM questions
+            WHERE question_id = %s AND questionnaire_id = %s
+        """, (question_id, questionnaire_id))
+
+        if not cursor.fetchone():
+            return jsonify({"error": "Question not found in this questionnaire"}), 404
+
+        # Build update query dynamically
+        update_fields = []
+        values = []
+
+        if question_text is not None:
+            update_fields.append("question_text = %s")
+            values.append(question_text)
+
+            # Auto-translate to Hindi if not provided and auto_translate is enabled
+            if auto_translate and question_text_hindi is None:
+                try:
+                    question_text_hindi = translate_to_hindi(question_text)
+                except Exception as e:
+                    logger.warning(f"Auto-translation failed: {e}")
+
+        if question_text_hindi is not None:
+            update_fields.append("question_text_hindi = %s")
+            values.append(question_text_hindi)
+
+        if not update_fields:
+            return jsonify({"error": "No fields to update"}), 400
+
+        # Execute update
+        values.append(question_id)
+        cursor.execute(f"""
+            UPDATE questions
+            SET {', '.join(update_fields)}
+            WHERE question_id = %s
+        """, tuple(values))
+
+        db.commit()
+
+        # Return the updated question data
+        cursor.execute("""
+            SELECT question_id, question_text, question_text_hindi
+            FROM questions WHERE question_id = %s
+        """, (question_id,))
+        updated = cursor.fetchone()
+
+        return jsonify({
+            "message": "Question updated successfully",
+            "question": {
+                "id": updated[0],
+                "question_text": updated[1],
+                "question_text_hindi": updated[2]
+            }
+        }), 200
+
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error updating question: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
+@admin_bp.route('/questionnaires/<int:questionnaire_id>/questions/<int:question_id>', methods=['DELETE'])
+def delete_question(questionnaire_id, question_id):
+    """Delete a question from a questionnaire"""
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        # Verify question exists and belongs to the questionnaire
+        cursor.execute("""
+            SELECT question_id FROM questions
+            WHERE question_id = %s AND questionnaire_id = %s
+        """, (question_id, questionnaire_id))
+
+        if not cursor.fetchone():
+            return jsonify({"error": "Question not found in this questionnaire"}), 404
+
+        # Delete the question
+        cursor.execute("""
+            DELETE FROM questions WHERE question_id = %s
+        """, (question_id,))
+
+        # Update total_questions count in questionnaires table
+        cursor.execute("""
+            UPDATE questionnaires
+            SET total_questions = (
+                SELECT COUNT(*) FROM questions WHERE questionnaire_id = %s
+            )
+            WHERE questionnaire_id = %s
+        """, (questionnaire_id, questionnaire_id))
+
+        db.commit()
+
+        # Get updated question count
+        cursor.execute("""
+            SELECT total_questions FROM questionnaires WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+        result = cursor.fetchone()
+        new_count = result[0] if result else 0
+
+        return jsonify({
+            "message": "Question deleted successfully",
+            "deleted_question_id": question_id,
+            "questionnaire_id": questionnaire_id,
+            "total_questions": new_count
+        }), 200
+
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error deleting question: {e}")
         return jsonify({"error": str(e)}), 500
     finally:
         cursor.close()

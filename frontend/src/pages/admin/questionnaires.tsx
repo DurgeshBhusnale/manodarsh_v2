@@ -11,6 +11,13 @@ total_questions: number;
 created_at: string;
 }
 
+interface Question {
+    id: number;
+    question_text: string;
+    question_text_hindi: string;
+    created_at: string;
+}
+
 const AdminQuestionnaires: React.FC = () => {
     const [selectedQuestionnaire, setSelectedQuestionnaire] = useState<any>(null);
     const [showQuestionnaireDetails, setShowQuestionnaireDetails] = useState(false);
@@ -22,6 +29,21 @@ const AdminQuestionnaires: React.FC = () => {
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
     const [deleteError, setDeleteError] = useState<string>('');
     const [deleteWarning, setDeleteWarning] = useState<{show: boolean, sessionCount: number}>({show: false, sessionCount: 0});
+
+    // Edit state
+    const [editingQuestionnaire, setEditingQuestionnaire] = useState(false);
+    const [editQuestionnaireData, setEditQuestionnaireData] = useState({ title: '', description: '' });
+    const [savingQuestionnaire, setSavingQuestionnaire] = useState(false);
+
+    // Question edit state
+    const [editingQuestionId, setEditingQuestionId] = useState<number | null>(null);
+    const [editQuestionData, setEditQuestionData] = useState({ question_text: '', question_text_hindi: '' });
+    const [savingQuestion, setSavingQuestion] = useState(false);
+    const [translatingQuestion, setTranslatingQuestion] = useState(false);
+
+    // Question delete state
+    const [deletingQuestionId, setDeletingQuestionId] = useState<number | null>(null);
+    const [showDeleteQuestionConfirm, setShowDeleteQuestionConfirm] = useState(false);
 
     useEffect(() => {
         fetchQuestionnaires();
@@ -133,6 +155,120 @@ const AdminQuestionnaires: React.FC = () => {
         setDeletingId(null);
         setDeleteError('');
         setDeleteWarning({show: false, sessionCount: 0});
+    };
+
+    // Questionnaire edit handlers
+    const handleEditQuestionnaire = () => {
+        if (selectedQuestionnaire) {
+            setEditQuestionnaireData({
+                title: selectedQuestionnaire.title,
+                description: selectedQuestionnaire.description
+            });
+            setEditingQuestionnaire(true);
+        }
+    };
+
+    const handleSaveQuestionnaire = async () => {
+        if (!selectedQuestionnaire) return;
+        setSavingQuestionnaire(true);
+        try {
+            await apiService.updateQuestionnaire(selectedQuestionnaire.id, editQuestionnaireData);
+            // Refresh questionnaire details
+            const response = await apiService.getQuestionnaireDetails(selectedQuestionnaire.id);
+            setSelectedQuestionnaire(response.data.questionnaire);
+            setEditingQuestionnaire(false);
+            fetchQuestionnaires(); // Refresh list
+        } catch (error) {
+            console.error('Failed to update questionnaire:', error);
+        } finally {
+            setSavingQuestionnaire(false);
+        }
+    };
+
+    const handleCancelEditQuestionnaire = () => {
+        setEditingQuestionnaire(false);
+        setEditQuestionnaireData({ title: '', description: '' });
+    };
+
+    // Question edit handlers
+    const handleEditQuestion = (question: Question) => {
+        setEditingQuestionId(question.id);
+        setEditQuestionData({
+            question_text: question.question_text,
+            question_text_hindi: question.question_text_hindi || ''
+        });
+    };
+
+    const handleTranslateQuestion = async () => {
+        if (!editQuestionData.question_text.trim()) return;
+        setTranslatingQuestion(true);
+        try {
+            const response = await apiService.translateQuestion(editQuestionData.question_text);
+            setEditQuestionData(prev => ({
+                ...prev,
+                question_text_hindi: response.data.hindi_text
+            }));
+        } catch (error) {
+            console.error('Translation failed:', error);
+        } finally {
+            setTranslatingQuestion(false);
+        }
+    };
+
+    const handleSaveQuestion = async () => {
+        if (!selectedQuestionnaire || !editingQuestionId) return;
+        setSavingQuestion(true);
+        try {
+            await apiService.updateQuestion(
+                selectedQuestionnaire.id,
+                editingQuestionId,
+                {
+                    question_text: editQuestionData.question_text,
+                    question_text_hindi: editQuestionData.question_text_hindi,
+                    auto_translate: false // We handle translation manually
+                }
+            );
+            // Refresh questionnaire details
+            const response = await apiService.getQuestionnaireDetails(selectedQuestionnaire.id);
+            setSelectedQuestionnaire(response.data.questionnaire);
+            setEditingQuestionId(null);
+            setEditQuestionData({ question_text: '', question_text_hindi: '' });
+        } catch (error) {
+            console.error('Failed to update question:', error);
+        } finally {
+            setSavingQuestion(false);
+        }
+    };
+
+    const handleCancelEditQuestion = () => {
+        setEditingQuestionId(null);
+        setEditQuestionData({ question_text: '', question_text_hindi: '' });
+    };
+
+    // Question delete handlers
+    const handleDeleteQuestionClick = (questionId: number) => {
+        setDeletingQuestionId(questionId);
+        setShowDeleteQuestionConfirm(true);
+    };
+
+    const handleDeleteQuestionConfirm = async () => {
+        if (!selectedQuestionnaire || !deletingQuestionId) return;
+        try {
+            await apiService.deleteQuestion(selectedQuestionnaire.id, deletingQuestionId);
+            // Refresh questionnaire details
+            const response = await apiService.getQuestionnaireDetails(selectedQuestionnaire.id);
+            setSelectedQuestionnaire(response.data.questionnaire);
+            fetchQuestionnaires(); // Refresh list to update question count
+            setShowDeleteQuestionConfirm(false);
+            setDeletingQuestionId(null);
+        } catch (error) {
+            console.error('Failed to delete question:', error);
+        }
+    };
+
+    const handleDeleteQuestionCancel = () => {
+        setShowDeleteQuestionConfirm(false);
+        setDeletingQuestionId(null);
     };
 
     // Sort questionnaires: active first, then by created_at desc
@@ -267,23 +403,82 @@ const AdminQuestionnaires: React.FC = () => {
                                         </div>
                                     ) : selectedQuestionnaire ? (
                                         <div className="bg-white/40 backdrop-blur-md p-8 rounded-2xl border border-white/30">
-                                            <div className="mb-6 flex items-center justify-between">
-                                                <div>
-                                                    <h3 className="text-2xl font-bold text-gray-800 mb-2">{selectedQuestionnaire.title}</h3>
-                                                    <p className="text-gray-600 text-sm flex items-center">
-                                                        <i className="fas fa-calendar-alt mr-2"></i> Created: {new Date(selectedQuestionnaire.created_at).toLocaleDateString()}
-                                                    </p>
+                                            {editingQuestionnaire ? (
+                                                /* Edit Questionnaire Form */
+                                                <div className="mb-6">
+                                                    <div className="space-y-4">
+                                                        <div>
+                                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Title</label>
+                                                            <input
+                                                                type="text"
+                                                                value={editQuestionnaireData.title}
+                                                                onChange={(e) => setEditQuestionnaireData(prev => ({ ...prev, title: e.target.value }))}
+                                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                                placeholder="Questionnaire title"
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Description</label>
+                                                            <textarea
+                                                                value={editQuestionnaireData.description}
+                                                                onChange={(e) => setEditQuestionnaireData(prev => ({ ...prev, description: e.target.value }))}
+                                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                                rows={3}
+                                                                placeholder="Questionnaire description"
+                                                            />
+                                                        </div>
+                                                        <div className="flex space-x-3">
+                                                            <button
+                                                                onClick={handleSaveQuestionnaire}
+                                                                disabled={savingQuestionnaire}
+                                                                className="px-6 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl font-semibold transition-all duration-200 flex items-center"
+                                                            >
+                                                                {savingQuestionnaire ? (
+                                                                    <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Saving...</>
+                                                                ) : (
+                                                                    <><i className="fas fa-save mr-2"></i> Save</>
+                                                                )}
+                                                            </button>
+                                                            <button
+                                                                onClick={handleCancelEditQuestionnaire}
+                                                                className="px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-semibold transition-all duration-200"
+                                                            >
+                                                                Cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <span className={`px-4 py-2 rounded-full text-sm font-bold border ${selectedQuestionnaire.status === 'Active' ? 'bg-green-100 text-green-800 border-green-200' : 'bg-gray-100 text-gray-700 border-gray-200'}`}>
-                                                    {selectedQuestionnaire.status}
-                                                </span>
-                                            </div>
-                                            <div className="mb-6">
-                                                <div className="flex items-center mb-3">
-                                                    <i className="fas fa-info-circle text-blue-600 mr-2"></i> <span className="font-semibold text-gray-700">Description:</span>
-                                                </div>
-                                                <p className="text-gray-800 bg-blue-50/50 p-4 rounded-xl border border-blue-100">{selectedQuestionnaire.description}</p>
-                                            </div>
+                                            ) : (
+                                                /* Display Questionnaire Info */
+                                                <>
+                                                    <div className="mb-6 flex items-center justify-between">
+                                                        <div className="flex items-start">
+                                                            <div>
+                                                                <h3 className="text-2xl font-bold text-gray-800 mb-2">{selectedQuestionnaire.title}</h3>
+                                                                <p className="text-gray-600 text-sm flex items-center">
+                                                                    <i className="fas fa-calendar-alt mr-2"></i> Created: {new Date(selectedQuestionnaire.created_at).toLocaleDateString()}
+                                                                </p>
+                                                            </div>
+                                                            <button
+                                                                onClick={handleEditQuestionnaire}
+                                                                className="ml-4 p-2 text-blue-600 hover:bg-blue-100 rounded-lg transition-all duration-200"
+                                                                title="Edit questionnaire"
+                                                            >
+                                                                <i className="fas fa-edit"></i>
+                                                            </button>
+                                                        </div>
+                                                        <span className={`px-4 py-2 rounded-full text-sm font-bold border ${selectedQuestionnaire.status === 'Active' ? 'bg-green-100 text-green-800 border-green-200' : 'bg-gray-100 text-gray-700 border-gray-200'}`}>
+                                                            {selectedQuestionnaire.status}
+                                                        </span>
+                                                    </div>
+                                                    <div className="mb-6">
+                                                        <div className="flex items-center mb-3">
+                                                            <i className="fas fa-info-circle text-blue-600 mr-2"></i> <span className="font-semibold text-gray-700">Description:</span>
+                                                        </div>
+                                                        <p className="text-gray-800 bg-blue-50/50 p-4 rounded-xl border border-blue-100">{selectedQuestionnaire.description}</p>
+                                                    </div>
+                                                </>
+                                            )}
                                             <div className="mb-6 flex items-center gap-6">
                                                 <div className="bg-gradient-to-r from-purple-100 to-purple-200 px-4 py-3 rounded-xl border border-purple-200">
                                                     <span className="font-semibold text-purple-700">Total Questions:</span>
@@ -302,15 +497,95 @@ const AdminQuestionnaires: React.FC = () => {
                                                                     <th className="py-3 px-4 text-left text-sm font-bold text-gray-700">No.</th>
                                                                     <th className="py-3 px-4 text-left text-sm font-bold text-gray-700">English Question</th>
                                                                     <th className="py-3 px-4 text-left text-sm font-bold text-gray-700">Hindi Translation</th>
+                                                                    <th className="py-3 px-4 text-center text-sm font-bold text-gray-700">Actions</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 {selectedQuestionnaire.questions.map((q: any, idx: number) => (
-                                                                    <tr key={q.id} className={`border-b last:border-b-0 ${idx % 2 === 0 ? 'bg-blue-50/30' : 'bg-white/30'} hover:bg-blue-100/40 transition-colors duration-200`}>
-                                                                        <td className="py-3 px-4 text-sm font-bold text-blue-600">Q{idx + 1}</td>
-                                                                        <td className="py-3 px-4 text-sm text-gray-800 font-medium">{q.question_text}</td>
-                                                                        <td className="py-3 px-4 text-sm text-gray-600">{q.question_text_hindi}</td>
-                                                                    </tr>
+                                                                    editingQuestionId === q.id ? (
+                                                                        /* Edit Question Row */
+                                                                        <tr key={q.id} className="bg-yellow-50/50 border-b">
+                                                                            <td className="py-3 px-4 text-sm font-bold text-blue-600">Q{idx + 1}</td>
+                                                                            <td className="py-3 px-4">
+                                                                                <textarea
+                                                                                    value={editQuestionData.question_text}
+                                                                                    onChange={(e) => setEditQuestionData(prev => ({ ...prev, question_text: e.target.value }))}
+                                                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                                                                                    rows={2}
+                                                                                />
+                                                                            </td>
+                                                                            <td className="py-3 px-4">
+                                                                                <div className="flex flex-col space-y-2">
+                                                                                    <textarea
+                                                                                        value={editQuestionData.question_text_hindi}
+                                                                                        onChange={(e) => setEditQuestionData(prev => ({ ...prev, question_text_hindi: e.target.value }))}
+                                                                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                                                                                        rows={2}
+                                                                                        placeholder="Hindi translation"
+                                                                                    />
+                                                                                    <button
+                                                                                        onClick={handleTranslateQuestion}
+                                                                                        disabled={translatingQuestion || !editQuestionData.question_text.trim()}
+                                                                                        className="text-xs px-3 py-1 bg-orange-100 hover:bg-orange-200 text-orange-700 rounded-lg transition-all duration-200 disabled:opacity-50 self-start"
+                                                                                    >
+                                                                                        {translatingQuestion ? (
+                                                                                            <><div className="w-3 h-3 border-2 border-orange-500 border-t-transparent rounded-full animate-spin inline-block mr-1"></div> Translating...</>
+                                                                                        ) : (
+                                                                                            <><i className="fas fa-language mr-1"></i> Auto-translate</>
+                                                                                        )}
+                                                                                    </button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td className="py-3 px-4 text-center">
+                                                                                <div className="flex justify-center space-x-2">
+                                                                                    <button
+                                                                                        onClick={handleSaveQuestion}
+                                                                                        disabled={savingQuestion}
+                                                                                        className="p-2 bg-green-100 hover:bg-green-200 text-green-700 rounded-lg transition-all duration-200"
+                                                                                        title="Save"
+                                                                                    >
+                                                                                        {savingQuestion ? (
+                                                                                            <div className="w-4 h-4 border-2 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+                                                                                        ) : (
+                                                                                            <i className="fas fa-check"></i>
+                                                                                        )}
+                                                                                    </button>
+                                                                                    <button
+                                                                                        onClick={handleCancelEditQuestion}
+                                                                                        className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-all duration-200"
+                                                                                        title="Cancel"
+                                                                                    >
+                                                                                        <i className="fas fa-times"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    ) : (
+                                                                        /* Display Question Row */
+                                                                        <tr key={q.id} className={`border-b last:border-b-0 ${idx % 2 === 0 ? 'bg-blue-50/30' : 'bg-white/30'} hover:bg-blue-100/40 transition-colors duration-200`}>
+                                                                            <td className="py-3 px-4 text-sm font-bold text-blue-600">Q{idx + 1}</td>
+                                                                            <td className="py-3 px-4 text-sm text-gray-800 font-medium">{q.question_text}</td>
+                                                                            <td className="py-3 px-4 text-sm text-gray-600">{q.question_text_hindi}</td>
+                                                                            <td className="py-3 px-4 text-center">
+                                                                                <div className="flex justify-center space-x-2">
+                                                                                    <button
+                                                                                        onClick={() => handleEditQuestion(q)}
+                                                                                        className="p-2 text-blue-600 hover:bg-blue-100 rounded-lg transition-all duration-200"
+                                                                                        title="Edit question"
+                                                                                    >
+                                                                                        <i className="fas fa-edit"></i>
+                                                                                    </button>
+                                                                                    <button
+                                                                                        onClick={() => handleDeleteQuestionClick(q.id)}
+                                                                                        className="p-2 text-red-600 hover:bg-red-100 rounded-lg transition-all duration-200"
+                                                                                        title="Delete question"
+                                                                                    >
+                                                                                        <i className="fas fa-trash"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    )
                                                                 ))}
                                                             </tbody>
                                                         </table>
@@ -415,7 +690,7 @@ const AdminQuestionnaires: React.FC = () => {
                 </div>
             </div>
             
-            {/* Delete Confirmation Modal */}
+            {/* Delete Questionnaire Confirmation Modal */}
             {showDeleteConfirm && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl border border-gray-200">
@@ -431,7 +706,7 @@ const AdminQuestionnaires: React.FC = () => {
                             ) : (
                                 <div className="text-left">
                                     <p className="text-red-600 text-sm font-medium mb-2">
-                                        The questionnaire has {deleteWarning.sessionCount} survey responses. 
+                                        The questionnaire has {deleteWarning.sessionCount} survey responses.
                                         Deleting the questionnaire will delete those responses too.
                                     </p>
                                     <p className="text-gray-600 text-sm">
@@ -459,6 +734,38 @@ const AdminQuestionnaires: React.FC = () => {
                                 className="flex-1 px-4 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl font-semibold transition-all duration-200"
                             >
                                 {deleteWarning.show ? 'Delete All' : 'Delete'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Delete Question Confirmation Modal */}
+            {showDeleteQuestionConfirm && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl border border-gray-200">
+                        <div className="text-center mb-6">
+                            <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i className="fas fa-question-circle text-orange-500 text-2xl"></i>
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-800 mb-2">Delete Question</h3>
+                            <p className="text-gray-600 text-sm">
+                                Are you sure you want to delete this question? This action cannot be undone.
+                            </p>
+                        </div>
+
+                        <div className="flex space-x-3">
+                            <button
+                                onClick={handleDeleteQuestionCancel}
+                                className="flex-1 px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-semibold transition-all duration-200"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleDeleteQuestionConfirm}
+                                className="flex-1 px-4 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl font-semibold transition-all duration-200"
+                            >
+                                Delete
                             </button>
                         </div>
                     </div>

@@ -162,9 +162,21 @@ export const apiService = {
 
     // Delete questionnaire
     deleteQuestionnaire: (id: number, forceDelete: boolean = false) =>
-        api.delete(`/admin/questionnaires/${id}`, { 
+        api.delete(`/admin/questionnaires/${id}`, {
             data: { force_delete: forceDelete }
         }),
+
+    // Update questionnaire (title, description, status)
+    updateQuestionnaire: (id: number, data: { title?: string; description?: string; status?: string }) =>
+        api.put(`/admin/questionnaires/${id}`, data),
+
+    // Update question text (English and/or Hindi)
+    updateQuestion: (questionnaireId: number, questionId: number, data: { question_text?: string; question_text_hindi?: string; auto_translate?: boolean }) =>
+        api.put(`/admin/questionnaires/${questionnaireId}/questions/${questionId}`, data),
+
+    // Delete question from questionnaire
+    deleteQuestion: (questionnaireId: number, questionId: number) =>
+        api.delete(`/admin/questionnaires/${questionnaireId}/questions/${questionId}`),
 
     // Daily Emotion Detection endpoints
     startDailyMonitoring: (date: string) =>

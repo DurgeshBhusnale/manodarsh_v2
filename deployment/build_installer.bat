@@ -1,11 +1,11 @@
 @echo off
-REM CRPF Mental Health System - Professional Installer Builder
+REM SATHI - Mental Health System - Professional Installer Builder
 REM Windows Batch Script
 REM Version: 1.0
 
-title CRPF System - Building Professional Installer
+title SATHI - Building Professional Installer
 echo ============================================================
-echo    CRPF MENTAL HEALTH SYSTEM - BUILD INSTALLER
+echo    SATHI - MENTAL HEALTH SYSTEM - BUILD INSTALLER
 echo    Version 1.0
 echo ============================================================
 echo.
@@ -24,6 +24,7 @@ REM Step 2: Build portable package
 echo.
 echo [2/5] Building portable package...
 echo    This will download Python, install packages (10-15 mins)
+echo    NOTE: MySQL is NOT included (must be pre-installed)
 python build_package.py
 if %errorlevel% neq 0 (
     echo.
@@ -56,8 +57,8 @@ echo    Done
 
 REM Step 5: Create launcher executable
 echo.
-echo [5/5] Creating launcher executable...
-pyinstaller --onefile --noconsole --icon=assets\sathi_logo.ico --name=CRPF_System crpf_launcher_v2.py
+echo [5/5] Creating SATHI.exe launcher...
+pyinstaller SATHI.spec --clean
 if %errorlevel% neq 0 (
     echo.
     echo ERROR: PyInstaller failed!
@@ -66,7 +67,7 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-copy dist\CRPF_System.exe package\CRPF_System.exe
+copy dist\SATHI.exe package\SATHI.exe
 echo    Done
 
 echo.
@@ -75,15 +76,22 @@ echo ✅ BUILD COMPLETE!
 echo ============================================================
 echo.
 echo Package location: package\
-echo Launcher: package\CRPF_System.exe
+echo Launcher: package\SATHI.exe
+echo Package size (approx): ~750 MB
 echo.
 echo Next Steps:
-echo   1. Test the package manually
-echo   2. Download MariaDB to package\mysql\
-echo   3. Create installer with Inno Setup (if available)
+echo   1. Test the package manually (see below)
+echo   2. Create installer with Inno Setup (if available):
+echo      "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
 echo.
 echo Manual Testing:
-echo   cd package
-echo   CRPF_System.exe
+echo   • Ensure MySQL 8.0 is installed and running
+echo   • cd package
+echo   • SATHI.exe
+echo.
+echo For CRPF Deployment:
+echo   • Target PC must have MySQL 8.0 installed
+echo   • Run SATHI_Installer.exe on target PC
+echo   • Desktop shortcut will be created
 echo.
 pause

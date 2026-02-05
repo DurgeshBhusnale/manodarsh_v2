@@ -1,10 +1,10 @@
-REM CRPF Mental Health System - Quick Start
-REM This creates a standalone executable for easy distribution
+REM SATHI - Mental Health System - Create Executable
+REM This creates a standalone executable for distribution
 
 @echo off
-title Creating CRPF System Executable
+title Creating SATHI Executable
 echo ============================================================
-echo Creating Standalone Executable for CRPF System
+echo Creating Standalone Executable for SATHI
 echo ============================================================
 echo.
 
@@ -15,33 +15,36 @@ if %errorlevel% neq 0 (
     pip install pyinstaller
 )
 
-echo Creating executable...
+echo Creating executable from SATHI.spec...
 cd /d "%~dp0"
 
-REM Create the executable with SATHI PNG logo (console mode for better user control)
-pyinstaller --onefile --name="SATHI" --icon=sathi_logo.png crpf_launcher.py
+REM Use the SATHI.spec file for consistent builds
+pyinstaller SATHI.spec --clean
 
 if exist "dist\SATHI.exe" (
-    echo ✅ Executable created successfully!
+    echo.
+    echo ============================================================
+    echo ✅ SATHI.exe created successfully!
+    echo ============================================================
     echo Location: dist\SATHI.exe
-    
-    @REM REM Copy to main directory for easy access
-    @REM copy "dist\SATHI.exe" "..\SATHI.exe"
+    echo Size: 
+    dir dist\SATHI.exe | find "SATHI.exe"
     
     echo.
-    echo 📋 Deployment Package Ready:
-    echo   • SATHI.exe (main executable)
-    echo   • backend\ (Flask application)
-    echo   • frontend\ (React application)  
-    echo   • deployment\ (configuration files)
+    echo 📋 Next Steps:
+    echo   1. Copy dist\SATHI.exe to package\ folder
+    echo   2. Run build_installer.bat to create SATHI_Installer.exe
     echo.
     echo 🚀 For CRPF Deployment:
-    echo   1. Copy entire project folder to CRPF computer
-    echo   2. Run deployment\install.bat as Administrator
-    echo   3. Double-click SATHI.exe to use
+    echo   • Requires MySQL 8.0 installed on target PC
+    echo   • Run SATHI_Installer.exe on target PC
+    echo   • Desktop shortcut "SATHI" will be created
     
 ) else (
+    echo.
+    echo ============================================================
     echo ❌ Failed to create executable
+    echo ============================================================
     echo Check for errors above
 )
 

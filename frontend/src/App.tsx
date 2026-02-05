@@ -4,6 +4,8 @@ import { AuthProvider } from './context/AuthContext';
 import { router } from './router';
 import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
 import SystemLoadingScreen from './components/SystemLoadingScreen';
+import SessionConflictModal from './components/SessionConflictModal';
+import { useSingleSession } from './hooks/useSingleSession';
 
 const theme = extendTheme({
   colors: {
@@ -41,6 +43,9 @@ function App() {
   const [systemReady, setSystemReady] = useState(false);
   const [isProduction, setIsProduction] = useState(false);
 
+  // Single session management
+  const { isConflict, isLoading, closeThisWindow, takeOverSession } = useSingleSession();
+
   useEffect(() => {
     // Disable the React loading screen - the tkinter launcher already handles this
     // The launcher ensures backend/frontend are ready before opening browser
@@ -58,9 +63,28 @@ function App() {
     return <SystemLoadingScreen onSystemReady={handleSystemReady} />;
   }
 
+  // Wait for session check to complete
+  if (isLoading) {
+    return (
+      <ChakraProvider theme={theme}>
+        <Box minH="100vh" bg="military.100" display="flex" alignItems="center" justifyContent="center">
+          <Box textAlign="center" color="gray.600">
+            Checking session...
+          </Box>
+        </Box>
+      </ChakraProvider>
+    );
+  }
+
   return (
     <AuthProvider>
       <ChakraProvider theme={theme}>
+        {/* Session conflict modal - blocks app until resolved */}
+        <SessionConflictModal
+          isOpen={isConflict}
+          onCloseWindow={closeThisWindow}
+          onContinueHere={takeOverSession}
+        />
         <Box minH="100vh" bg="military.100" p={0}>
           <RouterProvider router={router} />
         </Box>

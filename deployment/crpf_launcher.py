@@ -503,8 +503,47 @@ class CRPFSystemLauncher:
             print("⚠️  Frontend process started - please check manually at http://localhost:3000")
         return True
     
+    def _find_chrome_executable(self):
+        """Find Chrome executable path on the system"""
+        chrome_paths = [
+            # Standard Windows paths
+            "C:/Program Files/Google/Chrome/Application/chrome.exe",
+            "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+            os.path.expandvars("%LOCALAPPDATA%/Google/Chrome/Application/chrome.exe"),
+            # Edge as fallback (also supports --app mode)
+            "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+            "C:/Program Files/Microsoft/Edge/Application/msedge.exe",
+        ]
+
+        for path in chrome_paths:
+            if os.path.exists(path):
+                return path
+
+        return None
+
+    def _open_as_standalone_app(self, url):
+        """Open URL in Chrome/Edge app mode (standalone window without browser UI)"""
+        chrome_path = self._find_chrome_executable()
+
+        if chrome_path:
+            try:
+                # Open as standalone app window (no tabs, no address bar)
+                subprocess.Popen([chrome_path, f"--app={url}", "--new-window"])
+                if not getattr(sys, 'frozen', False):
+                    browser_name = "Chrome" if "chrome" in chrome_path.lower() else "Edge"
+                    print(f"✅ Opened in {browser_name} app mode (standalone window)")
+                return True
+            except Exception as e:
+                if not getattr(sys, 'frozen', False):
+                    print(f"⚠️  Failed to open in app mode: {e}")
+                return False
+        else:
+            if not getattr(sys, 'frozen', False):
+                print("⚠️  Chrome/Edge not found, falling back to default browser")
+            return False
+
     def open_browser(self, loading_window=None):
-        """Open system in default browser only after verifying server is ready"""
+        """Open system in standalone window (Chrome app mode) after verifying server is ready"""
         if not self.config['services']['browser']['auto_open']:
             return
 
@@ -524,21 +563,27 @@ class CRPFSystemLauncher:
                 response = urllib.request.urlopen(f"http://localhost:{port}", timeout=3)
                 if response.status == 200:
                     if loading_window:
-                        loading_window.update_status("Server ready! Opening browser...", 99)
+                        loading_window.update_status("Server ready! Opening app...", 99)
                     if not getattr(sys, 'frozen', False):
-                        print("✅ Server ready, opening browser...")
+                        print("✅ Server ready, opening standalone window...")
                     time.sleep(1)  # Brief delay for stability
-                    webbrowser.open(url)
+
+                    # Try to open as standalone app, fall back to default browser
+                    if not self._open_as_standalone_app(url):
+                        webbrowser.open(url)
                     return
             except:
                 time.sleep(2)
 
         # Server might still be starting, open browser anyway
         if loading_window:
-            loading_window.update_status("Opening browser...", 99)
+            loading_window.update_status("Opening app...", 99)
         if not getattr(sys, 'frozen', False):
-            print("⚠️  Opening browser (server may still be loading)...")
-        webbrowser.open(url)
+            print("⚠️  Opening app (server may still be loading)...")
+
+        # Try to open as standalone app, fall back to default browser
+        if not self._open_as_standalone_app(url):
+            webbrowser.open(url)
     
     def start_system(self, loading_window=None):
         """Start the complete CRPF system"""

@@ -130,12 +130,14 @@ class CRPFSystemLauncher:
     
     def start_backend(self):
         """Start Flask backend"""
-        print("🚀 Starting SATHI Backend Server...")
+        # Only print if NOT in EXE mode (for debugging during development)
+        if not getattr(sys, 'frozen', False):
+            print("🚀 Starting SATHI Backend Server...")
         
         backend_path = self.project_root / "backend"
         
-        # Debug path resolution for EXE mode
-        if getattr(sys, 'frozen', False):
+        # Debug path resolution ONLY in script mode (not EXE)
+        if getattr(sys, 'frozen', False) and False:  # Disabled debug prints in EXE
             print(f"🔍 EXE Mode - Project root: {self.project_root}")
             print(f"🔍 Backend path: {backend_path}")
             print(f"🔍 Backend exists: {backend_path.exists()}")
@@ -152,16 +154,26 @@ class CRPFSystemLauncher:
         
         try:
             # Create process group for proper cleanup
-            self.backend_process = subprocess.Popen(
-                cmd,
-                cwd=str(backend_path),  # Convert Path to string - fixes WinError 267
-                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
-            )
-        except Exception as e:
-            print(f"❌ Error starting backend: {e}")
+            # In EXE mode, suppress all output to hide terminal
             if getattr(sys, 'frozen', False):
-                print(f"🔍 Current working directory: {os.getcwd()}")
-                print(f"🔍 Available directories: {list(self.project_root.iterdir()) if self.project_root.exists() else 'Project root not found'}")
+                # Windowless mode - redirect all output to null
+                self.backend_process = subprocess.Popen(
+                    cmd,
+                    cwd=str(backend_path),
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                    creationflags=subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
+                )
+            else:
+                # Development mode - show output
+                self.backend_process = subprocess.Popen(
+                    cmd,
+                    cwd=str(backend_path),
+                    creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
+                )
+        except Exception as e:
+            if not getattr(sys, 'frozen', False):
+                print(f"❌ Error starting backend: {e}")
             return False
         
         # Wait for backend to start
@@ -172,29 +184,31 @@ class CRPFSystemLauncher:
             try:
                 response = requests.get(f"http://localhost:{self.config['services']['backend']['port']}", timeout=3)
                 if response.status_code in [200, 404]:  # 404 is also OK, means server is running
-                    print("✅ Backend server is running")
+                    if not getattr(sys, 'frozen', False):
+                        print("✅ Backend server is running")
                     return True
             except:
                 time.sleep(2)  # Wait longer between attempts
         
-        print("❌ Failed to start backend server")
+        if not getattr(sys, 'frozen', False):
+            print("❌ Failed to start backend server")
         return False
     
     def start_frontend(self):
         """Start React frontend"""
-        print("🌐 Starting CRPF Frontend...")
-        
         frontend_path = self.project_root / "frontend"
         
         # Always prefer production build for faster startup
         build_path = frontend_path / "build"
         if build_path.exists():
-            print("✅ Using optimized production build (faster startup)")
+            if not getattr(sys, 'frozen', False):
+                print("✅ Using optimized production build (faster startup)")
             # Use built version with npx serve
             cmd = ["npx", "serve", "-s", "build", "-l", str(self.config['services']['frontend']['port'])]
             startup_delay = 5  # Production build starts much faster
         else:
-            print("⚠️  No production build found, using development mode (slower)")
+            if not getattr(sys, 'frozen', False):
+                print("⚠️  No production build found, using development mode (slower)")
             # Use development version
             cmd = ["npm", "start"]
             startup_delay = self.config['services']['frontend']['startup_delay']
@@ -203,20 +217,33 @@ class CRPFSystemLauncher:
         env['BROWSER'] = 'none'  # Prevent automatic browser opening
         
         # Create process group for proper cleanup
-        self.frontend_process = subprocess.Popen(
-            cmd,
-            cwd=frontend_path,
-            shell=True,
-            env=env,
-            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP  # Better for termination
-        )
+        # In EXE mode, suppress all output
+        if getattr(sys, 'frozen', False):
+            self.frontend_process = subprocess.Popen(
+                cmd,
+                cwd=str(frontend_path),
+                shell=True,
+                env=env,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
+            )
+        else:
+            self.frontend_process = subprocess.Popen(
+                cmd,
+                cwd=str(frontend_path),
+                shell=True,
+                env=env,
+                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
+            )
         
-        # Wait for frontend to start with progress indication
-        print(f"⏳ Waiting {startup_delay} seconds for frontend to start...")
+        # Wait for frontend to start (silently in EXE mode)
+        if not getattr(sys, 'frozen', False):
+            print(f"⏳ Waiting {startup_delay} seconds for frontend to start...")
         
         for i in range(startup_delay):
             time.sleep(1)
-            if i % 5 == 0 and i > 0:
+            if not getattr(sys, 'frozen', False) and i % 5 == 0 and i > 0:
                 print(f"⏳ Still starting... ({i + 1}/{startup_delay} seconds)")
         
         # Check if frontend is responding
@@ -226,43 +253,50 @@ class CRPFSystemLauncher:
                 import urllib.request
                 response = urllib.request.urlopen(f"http://localhost:{self.config['services']['frontend']['port']}", timeout=3)
                 if response.status == 200:
-                    print("✅ Frontend server is running and accessible")
+                    if not getattr(sys, 'frozen', False):
+                        print("✅ Frontend server is running and accessible")
                     return True
             except Exception as e:
                 if attempt < max_attempts - 1:  # Don't show error on last attempt
-                    print(f"⏳ Checking frontend... attempt {attempt + 1}/{max_attempts}")
+                    if not getattr(sys, 'frozen', False):
+                        print(f"⏳ Checking frontend... attempt {attempt + 1}/{max_attempts}")
                 time.sleep(2)
         
         # If production build, wait a bit more as serve might take time
         if startup_delay <= 5:
-            print("⏳ Production build may need extra time, waiting...")
+            if not getattr(sys, 'frozen', False):
+                print("⏳ Production build may need extra time, waiting...")
             time.sleep(5)
             try:
                 import urllib.request
                 response = urllib.request.urlopen(f"http://localhost:{self.config['services']['frontend']['port']}", timeout=3)
                 if response.status == 200:
-                    print("✅ Frontend server is now running and accessible")
+                    if not getattr(sys, 'frozen', False):
+                        print("✅ Frontend server is now running and accessible")
                     return True
             except:
                 pass
         
-        print("⚠️  Frontend process started - please check manually at http://localhost:3000")
+        if not getattr(sys, 'frozen', False):
+            print("⚠️  Frontend process started - please check manually at http://localhost:3000")
         return True
     
     def open_browser(self):
         """Open system in default browser"""
         if self.config['services']['browser']['auto_open']:
-            print("🌍 Opening CRPF Mental Health System...")
+            if not getattr(sys, 'frozen', False):
+                print("🌍 Opening CRPF Mental Health System...")
             time.sleep(2)  # Small delay before opening browser
             webbrowser.open(self.config['services']['browser']['url'])
     
     def start_system(self):
         """Start the complete CRPF system"""
-        print("=" * 60)
-        print("🏛️  CRPF MENTAL HEALTH & WELLNESS SYSTEM")
-        print("    Central Reserve Police Force")
-        print("=" * 60)
-        print("⚡ Initializing system startup...")
+        if not getattr(sys, 'frozen', False):
+            print("=" * 60)
+            print("🏛️  CRPF MENTAL HEALTH & WELLNESS SYSTEM")
+            print("    Central Reserve Police Force")
+            print("=" * 60)
+            print("⚡ Initializing system startup...")
         
         try:
             # Start backend
@@ -279,19 +313,22 @@ class CRPFSystemLauncher:
             # Open browser
             self.open_browser()
             
-            print("=" * 60)
-            print("✅ CRPF SYSTEM SUCCESSFULLY STARTED!")
-            print("🌐 Website URL: http://localhost:3000")
-            print("👨‍💼 Ready for CRPF personnel access")
-            print("=" * 60)
+            if not getattr(sys, 'frozen', False):
+                print("=" * 60)
+                print("✅ CRPF SYSTEM SUCCESSFULLY STARTED!")
+                print("🌐 Website URL: http://localhost:3000")
+                print("👨‍💼 Ready for CRPF personnel access")
+                print("=" * 60)
             
             # Keep the launcher running with clear instructions
             self.keep_alive()
             
         except Exception as e:
-            print(f"❌ Error starting system: {e}")
+            if not getattr(sys, 'frozen', False):
+                print(f"❌ Error starting system: {e}")
             self.cleanup()
-            input("Press Enter to exit...")
+            if not getattr(sys, 'frozen', False):
+                input("Press Enter to exit...")
     
     def stop_system(self):
         """Stop the CRPF system"""

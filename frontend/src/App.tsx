@@ -42,16 +42,17 @@ function App() {
   const [isProduction, setIsProduction] = useState(false);
 
   useEffect(() => {
-    // Check if running in production mode (built version)
-    // In production, the loading screen should appear
-    // In development (npm start), skip loading screen
-    const isBuiltVersion = !window.location.hostname.includes('localhost') || 
-                          window.location.port === '5000' ||
-                          process.env.NODE_ENV === 'production';
+    // Check if running in production mode (served build, not dev server)
+    // Production indicators:
+    // 1. Not using webpack dev server (port 3000 with npm start creates different behavior)
+    // 2. process.env.NODE_ENV === 'production' (set by build)
+    // 3. Not running on typical dev server port with hot reload
+    
+    const isBuiltVersion = process.env.NODE_ENV === 'production';
     
     setIsProduction(isBuiltVersion);
     
-    // If not production, system is immediately ready
+    // If not production (dev mode), system is immediately ready
     if (!isBuiltVersion) {
       setSystemReady(true);
     }

@@ -11,7 +11,7 @@ This directory contains all tools to create a professional Windows installer for
 ### Build Scripts
 - **`build_package.py`** - Main package builder (downloads Python, installs dependencies)
 - **`build_installer.bat`** - Windows batch script to automate entire build
-- **`crpf_launcher_v2.py`** - Enhanced system launcher with system tray
+- **`sathi_launcher.py`** - Enhanced system launcher with system tray
 - **`init_database.py`** - First-run database initialization
 
 ### Support Files
@@ -55,7 +55,7 @@ python build_package.py
 Creates `package/` folder with:
 - Embedded Python 3.10
 - All Python dependencies (TensorFlow, OpenCV, etc.)
-- MariaDB structure (manual download required)
+- MySQL connection (pre-installed)
 - Backend application
 - Configuration files
 
@@ -74,8 +74,8 @@ xcopy /E /I /Y ..\frontend\build package\app\frontend\build
 #### Step 4: Create Launcher Executable
 ```cmd
 pip install pyinstaller
-pyinstaller --onefile --noconsole --icon=assets\sathi_logo.ico --name=CRPF_System crpf_launcher_v2.py
-copy dist\CRPF_System.exe package\CRPF_System.exe
+pyinstaller --onefile --noconsole --icon=assets\sathi_logo.ico --name=SATHI sathi_launcher.py
+copy dist\SATHI.exe package\SATHI.exe
 ```
 
 ---
@@ -85,7 +85,7 @@ copy dist\CRPF_System.exe package\CRPF_System.exe
 ### Manual Test (Without Installer)
 ```cmd
 cd package
-CRPF_System.exe
+SATHI.exe
 ```
 
 **Expected Behavior:**
@@ -118,7 +118,7 @@ package/                          # Portable package (~1.2 GB)
 ├── python/                       # Embedded Python 3.10
 │   ├── python.exe
 │   └── Lib/site-packages/       # All 120 packages
-├── mysql/                        # MariaDB embedded (manual)
+# MySQL runs separately (pre-installed)                        # MySQL (pre-installed on target PC)
 │   ├── bin/
 │   ├── data/
 │   └── my.ini
@@ -134,7 +134,7 @@ package/                          # Portable package (~1.2 GB)
 │   └── system.json
 ├── logs/                        # Created on first run
 ├── .pids/                       # Process IDs
-├── CRPF_System.exe             # Main launcher
+├── SATHI.exe             # Main launcher
 ├── README.txt
 └── manifest.json
 ```
@@ -202,7 +202,7 @@ npm run build
 ### Runtime Issues
 
 **Q: "MySQL won't start"**
-- Download MariaDB manually
+- Verify MySQL 8.0 is installed
 - Extract to `package/mysql/`
 - Ensure mysqld.exe exists in `mysql/bin/`
 
@@ -216,12 +216,8 @@ npm run build
 
 ---
 
-## 📦 MariaDB Manual Download
-
-Since MariaDB is 150 MB, it's not auto-downloaded.
-
 ### Steps:
-1. Download: https://downloads.mariadb.com/MariaDB/mariadb-10.6.16/winx64-packages/mariadb-10.6.16-winx64.zip
+1. Download: https://downloads.MySQL.com/MySQL (pre-installed)
 2. Extract ZIP
 3. Copy contents to `package/mysql/`
 4. Verify `package/mysql/bin/mysqld.exe` exists
@@ -236,12 +232,12 @@ REM Install Inno Setup 6.x first
 "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
 ```
 
-Output: `output/CRPF_System_Setup.exe` (professional installer)
+Output: `output/SATHI_Installer.exe` (professional installer)
 
 ### Create Portable ZIP
 ```cmd
 cd package
-7z a -tzip ..\output\CRPF_System_Portable.zip *
+7z a -tzip ..\output\SATHI_Portable.zip *
 ```
 
 ---
@@ -278,7 +274,7 @@ cd package
 ### Version 1.0 (2026-02-04)
 - Initial professional deployment package
 - Embedded Python 3.10.11
-- MariaDB 10.6.16 support
+- MySQL 8.0 pre-installed support
 - System tray launcher
 - First-run database initialization
 - Flask serves React frontend

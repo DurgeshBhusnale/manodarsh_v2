@@ -146,7 +146,7 @@ All critical issues have been resolved in Version 1.0
 
 ### 7. Antivirus False Positives
 
-**Issue**: Windows Defender flags CRPF_System.exe
+**Issue**: Windows Defender flags SATHI.exe
 
 **Cause**:
 - PyInstaller executables sometimes flagged
@@ -156,7 +156,7 @@ All critical issues have been resolved in Version 1.0
 1. Add exception in Windows Defender:
    - Windows Security → Virus & threat protection
    - Manage settings → Add exclusion
-   - Add: `C:\Program Files\CRPF_System\`
+   - Add: `C:\Program Files\SATHI\`
 
 2. Or download from trusted CRPF source
 3. Verify file hash (check with IT)
@@ -193,7 +193,7 @@ netstat -ano | findstr :3306
 
 **C. Manual database initialization:**
 ```cmd
-cd "C:\Program Files\CRPF_System"
+cd "C:\Program Files\SATHI"
 python\python.exe deployment\init_database.py
 ```
 
@@ -222,14 +222,14 @@ notepad logs\mysql.log
 
 **A. Verify build exists:**
 ```cmd
-dir "C:\Program Files\CRPF_System\app\frontend\build\index.html"
+dir "C:\Program Files\SATHI\app\frontend\build\index.html"
 ```
 
 **B. Rebuild frontend:**
 ```cmd
 cd [source]\frontend
 npm run build
-xcopy /E /I /Y build "C:\Program Files\CRPF_System\app\frontend\build"
+xcopy /E /I /Y build "C:\Program Files\SATHI\app\frontend\build"
 ```
 
 **C. Check Flask routes:**
@@ -277,30 +277,30 @@ REM Check disk space
 wmic logicaldisk get size,freespace,caption
 
 REM Check Python packages
-"C:\Program Files\CRPF_System\python\python.exe" -m pip list
+"C:\Program Files\SATHI\python\python.exe" -m pip list
 ```
 
 ### View Logs
 
 ```cmd
 REM Backend log
-notepad "C:\Program Files\CRPF_System\logs\backend.log"
+notepad "C:\Program Files\SATHI\logs\backend.log"
 
 REM MySQL log
-notepad "C:\Program Files\CRPF_System\logs\mysql.log"
+notepad "C:\Program Files\SATHI\logs\mysql.log"
 
 REM Launcher log
-notepad "C:\Program Files\CRPF_System\logs\launcher.log"
+notepad "C:\Program Files\SATHI\logs\launcher.log"
 ```
 
 ### Test Components
 
 ```cmd
 REM Test Python
-"C:\Program Files\CRPF_System\python\python.exe" --version
+"C:\Program Files\SATHI\python\python.exe" --version
 
 REM Test MySQL
-"C:\Program Files\CRPF_System\mysql\bin\mysqld.exe" --version
+"C:\Program Files\SATHI\mysql\bin\mysqld.exe" --version
 
 REM Test backend (in browser)
 http://localhost:5000/api/health
@@ -322,12 +322,12 @@ If system is completely broken:
 
 2. **Delete PID files:**
    ```cmd
-   del "C:\Program Files\CRPF_System\.pids\*.*"
+   del "C:\Program Files\SATHI\.pids\*.*"
    ```
 
 3. **Restart system:**
    ```cmd
-   "C:\Program Files\CRPF_System\CRPF_System.exe"
+   "C:\Program Files\SATHI\SATHI.exe"
    ```
 
 ### Database Rebuild (Destructive)
@@ -339,10 +339,10 @@ REM Stop system
 taskkill /IM mysqld.exe /F
 
 REM Delete database
-rmdir /s /q "C:\Program Files\CRPF_System\mysql\data\crpf_mental_health"
+rmdir /s /q "C:\Program Files\SATHI\mysql\data\crpf_mental_health"
 
 REM Reinitialize
-cd "C:\Program Files\CRPF_System"
+cd "C:\Program Files\SATHI"
 python\python.exe deployment\init_database.py
 ```
 

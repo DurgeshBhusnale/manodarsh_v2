@@ -16,7 +16,7 @@ export interface AuthContextType {
     isValidating: boolean;
 }
 
-// Session key for single-session enforcement only (not for auth)
+// Session key for in-tab auth restoration only
 const SESSION_KEY = 'user_session';
 
 // Create the context with proper type
@@ -49,6 +49,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     useEffect(() => {
         const validateSession = async () => {
             try {
+                const hasClientSession = sessionStorage.getItem(SESSION_KEY);
+                if (!hasClientSession) {
+                    setUser(null);
+                    setIsValidating(false);
+                    return;
+                }
+
                 const status = await authService.checkSessionStatus();
                 
                 if (status.valid && status.user) {
@@ -63,15 +70,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 } else {
                     // Backend session invalid - clear everything
                     setUser(null);
-                    localStorage.removeItem(SESSION_KEY);
-                    localStorage.clear();
+                    sessionStorage.removeItem(SESSION_KEY);
                 }
             } catch (error) {
                 console.error('Session validation error:', error);
                 // On error, clear session
                 setUser(null);
-                localStorage.removeItem(SESSION_KEY);
-                localStorage.clear();
+                sessionStorage.removeItem(SESSION_KEY);
             } finally {
                 setIsValidating(false);
             }
@@ -84,8 +89,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setUser(userData);
         // Start heartbeat service when user logs in
         heartbeatService.start();
-        // Note: We don't store auth in localStorage anymore
-        // Only backend session is the source of truth
+        // Store client session to allow in-tab restore
+        sessionStorage.setItem(SESSION_KEY, 'active');
     };
 
     const logout = async () => {
@@ -97,8 +102,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             console.error('Logout error:', error);
         } finally {
             setUser(null);
-            localStorage.removeItem(SESSION_KEY);
-            localStorage.clear();
+            sessionStorage.removeItem(SESSION_KEY);
             window.location.replace('/login');
         }
     };
@@ -110,8 +114,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 // Notify backend that browser is closing
                 heartbeatService.notifyBrowserClosing();
                 // Clear local storage
-                localStorage.clear();
-                sessionStorage.clear();
+                sessionStorage.removeItem(SESSION_KEY);
             }
         };
 

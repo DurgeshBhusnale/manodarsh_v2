@@ -13,6 +13,7 @@ from api.admin.routes import admin_bp
 from api.admin.settings import settings_bp
 from api.survey.routes import survey_bp
 from api.monitor.routes import monitor_bp
+from api.system.routes import system_bp
 from config.settings import settings
 from utils.session_utils import get_dynamic_session_timeout
 from datetime import timedelta
@@ -21,6 +22,7 @@ import threading
 # DISABLED: from services.scheduler_service import MonitoringScheduler
 # PHASE 2 OPTIMIZATION: Add model preloader
 from services.model_preloader_service import ModelPreloaderService
+from services.system_shutdown_service import get_system_shutdown_service
 
 def create_app():
     app = Flask(__name__)
@@ -54,6 +56,7 @@ def create_app():
     app.register_blueprint(settings_bp, url_prefix='/api/admin/settings')
     app.register_blueprint(survey_bp, url_prefix='/api/survey')
     app.register_blueprint(monitor_bp, url_prefix='/api/monitor')
+    app.register_blueprint(system_bp, url_prefix='/api')
 
     # PHASE 2 OPTIMIZATION: Initialize model preloader in background
     def start_model_preloader():
@@ -76,6 +79,13 @@ def create_app():
     print("[APP] Launching model preloader thread...")
     preloader_thread = threading.Thread(target=start_model_preloader, daemon=True)
     preloader_thread.start()
+
+    # Start system shutdown watchdog (heartbeat-based)
+    try:
+        get_system_shutdown_service()
+        logging.info("System shutdown watchdog started")
+    except Exception as e:
+        logging.error(f"Failed to start shutdown watchdog: {e}")
 
     # DISABLED: Initialize scheduler for CCTV monitoring
     # scheduler = MonitoringScheduler()

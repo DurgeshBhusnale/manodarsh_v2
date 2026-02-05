@@ -12,9 +12,12 @@ interface SessionState {
 interface UseSingleSessionReturn extends SessionState {
   closeThisWindow: () => void;
   takeOverSession: () => void;
+  broadcastForceLogout: () => void;
+  isPrimary: boolean;
+  sessionId: string;
 }
 
-type MessageType = 'new_session' | 'session_exists' | 'take_over' | 'close_session';
+type MessageType = 'new_session' | 'session_exists' | 'take_over' | 'close_session' | 'force_logout';
 
 interface SessionMessage {
   type: MessageType;
@@ -26,7 +29,7 @@ interface SessionMessage {
  * Custom hook for single-session management.
  * Uses BroadcastChannel API to detect and manage multiple tabs/windows.
  */
-export function useSingleSession(): UseSingleSessionReturn {
+export function useSingleSession(onForceLogout?: () => void): UseSingleSessionReturn {
   const [state, setState] = useState<SessionState>({
     isConflict: false,
     isLoading: true,
@@ -91,6 +94,29 @@ export function useSingleSession(): UseSingleSessionReturn {
       isConflict: false,
     }));
   }, []);
+
+  // Broadcast logout to all tabs and clear session
+  const broadcastForceLogout = useCallback(() => {
+    if (channelRef.current && sessionIdRef.current) {
+      channelRef.current.postMessage({
+        type: 'force_logout',
+        sessionId: sessionIdRef.current,
+        timestamp: Date.now(),
+      } as SessionMessage);
+    }
+
+    localStorage.removeItem(SESSION_KEY);
+    isPrimaryRef.current = false;
+    setState((prev) => ({
+      ...prev,
+      isConflict: false,
+      isLoading: false,
+    }));
+
+    if (onForceLogout) {
+      onForceLogout();
+    }
+  }, [onForceLogout]);
 
   useEffect(() => {
     // Generate session ID for this tab
@@ -189,6 +215,20 @@ export function useSingleSession(): UseSingleSessionReturn {
             }
           }
           break;
+        case 'force_logout':
+          if (messageSessionId !== sessionIdRef.current) {
+            localStorage.removeItem(SESSION_KEY);
+            isPrimaryRef.current = false;
+            setState((prev) => ({
+              ...prev,
+              isConflict: false,
+              isLoading: false,
+            }));
+            if (onForceLogout) {
+              onForceLogout();
+            }
+          }
+          break;
       }
     };
 
@@ -264,6 +304,9 @@ export function useSingleSession(): UseSingleSessionReturn {
     ...state,
     closeThisWindow,
     takeOverSession,
+    broadcastForceLogout,
+    isPrimary: isPrimaryRef.current,
+    sessionId: sessionIdRef.current,
   };
 }
 

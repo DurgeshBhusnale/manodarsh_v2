@@ -6,6 +6,8 @@ import { ChakraProvider, extendTheme, Box, Spinner, Text, VStack } from '@chakra
 import SystemLoadingScreen from './components/SystemLoadingScreen';
 import SessionConflictModal from './components/SessionConflictModal';
 import { useSingleSession } from './hooks/useSingleSession';
+import { authService } from './services/authService';
+import { systemService } from './services/systemService';
 
 const theme = extendTheme({
   colors: {
@@ -43,8 +45,24 @@ function App() {
   const [systemReady, setSystemReady] = useState(false);
   const [isProduction, setIsProduction] = useState(false);
 
+  const handleForceLogout = async () => {
+    try {
+      await authService.logoutAllSessions();
+    } finally {
+      sessionStorage.removeItem('user_session');
+      window.location.replace('/login');
+    }
+  };
+
   // Single session management
-  const { isConflict, isLoading, closeThisWindow, takeOverSession } = useSingleSession();
+  const {
+    isConflict,
+    isLoading,
+    closeThisWindow,
+    broadcastForceLogout,
+    isPrimary,
+    sessionId,
+  } = useSingleSession(handleForceLogout);
 
   useEffect(() => {
     // Disable the React loading screen - the tkinter launcher already handles this
@@ -53,6 +71,17 @@ function App() {
     setSystemReady(true);
     setIsProduction(false);
   }, []);
+
+  useEffect(() => {
+    if (!isPrimary || !sessionId) return;
+
+    systemService.heartbeat(sessionId);
+    const interval = setInterval(() => {
+      systemService.heartbeat(sessionId);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPrimary, sessionId]);
 
   const handleSystemReady = () => {
     setSystemReady(true);
@@ -79,17 +108,21 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <AuthProvider>
-        <AppContent isConflict={isConflict} closeThisWindow={closeThisWindow} takeOverSession={takeOverSession} />
+        <AppContent
+          isConflict={isConflict}
+          closeThisWindow={closeThisWindow}
+          logoutEverywhere={broadcastForceLogout}
+        />
       </AuthProvider>
     </ChakraProvider>
   );
 }
 
 // Inner component that can access AuthContext
-function AppContent({ isConflict, closeThisWindow, takeOverSession }: {
+function AppContent({ isConflict, closeThisWindow, logoutEverywhere }: {
   isConflict: boolean;
   closeThisWindow: () => void;
-  takeOverSession: () => void;
+  logoutEverywhere: () => void;
 }) {
   const { isValidating } = useAuth();
 
@@ -111,7 +144,7 @@ function AppContent({ isConflict, closeThisWindow, takeOverSession }: {
       <SessionConflictModal
         isOpen={isConflict}
         onCloseWindow={closeThisWindow}
-        onContinueHere={takeOverSession}
+        onLogoutEverywhere={logoutEverywhere}
       />
       <Box minH="100vh" bg="military.100" p={0}>
         <RouterProvider router={router} />

@@ -74,8 +74,8 @@ echo Creating executable using SATHI.spec...
 echo This will take 30-60 seconds...
 echo.
 
-REM Force windowless mode with --noconsole flag (overrides spec if needed)
-pyinstaller --clean --noconsole SATHI.spec
+REM Use the SATHI.spec file (console=False is set in spec for windowless mode)
+pyinstaller --clean SATHI.spec
 if errorlevel 1 (
     echo.
     echo ================================================
@@ -91,7 +91,7 @@ if errorlevel 1 (
 echo.
 echo ============================================================
 
-if exist "dist\SATHI.exe" (
+if exist "%SCRIPT_DIR%\dist\SATHI.exe" (
     echo ✅ Executable created successfully!
     echo ============================================================
     echo.

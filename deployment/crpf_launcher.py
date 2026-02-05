@@ -14,13 +14,32 @@ import requests
 import psutil
 from pathlib import Path
 
+# Setup error logging for windowless mode
+def setup_error_logging():
+    """Setup logging to file for debugging windowless EXE"""
+    if getattr(sys, 'frozen', False):
+        try:
+            log_dir = Path(sys.executable).parent
+            log_file = log_dir / "sathi_launcher.log"
+            sys.stdout = open(log_file, 'w', encoding='utf-8')
+            sys.stderr = sys.stdout
+            print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] SATHI Launcher started")
+            print(f"Executable: {sys.executable}")
+            print(f"Log file: {log_file}")
+        except Exception as e:
+            pass  # Can't log the logging error
+
+setup_error_logging()
+
 # GUI imports for loading screen
 try:
     import tkinter as tk
     from tkinter import ttk
     GUI_AVAILABLE = True
-except ImportError:
+    print(f"[OK] tkinter imported successfully, GUI_AVAILABLE={GUI_AVAILABLE}")
+except ImportError as e:
     GUI_AVAILABLE = False
+    print(f"[WARN] tkinter import failed: {e}, GUI_AVAILABLE={GUI_AVAILABLE}")
 
 
 class LoadingWindow:
@@ -940,5 +959,26 @@ class CRPFSystemLauncher:
         print("=" * 60)
 
 if __name__ == "__main__":
-    launcher = CRPFSystemLauncher()
-    launcher.run()
+    try:
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Creating launcher instance...")
+        launcher = CRPFSystemLauncher()
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Running launcher...")
+        launcher.run()
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Launcher completed")
+    except Exception as e:
+        error_msg = f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] FATAL ERROR: {e}"
+        print(error_msg)
+        import traceback
+        traceback.print_exc()
+
+        # Show error in GUI if possible
+        if getattr(sys, 'frozen', False):
+            try:
+                import tkinter as tk
+                from tkinter import messagebox
+                root = tk.Tk()
+                root.withdraw()
+                messagebox.showerror("SATHI Error", f"Failed to start: {e}\n\nCheck sathi_launcher.log for details.")
+                root.destroy()
+            except:
+                pass

@@ -410,8 +410,8 @@ const FaceModelManagement: React.FC = () => {
               <h3 className="text-lg font-semibold mb-4">Confirm Deletion</h3>
               <p className="text-gray-600 mb-6">
                 {deleteType === 'single' 
-                  ? `Are you sure you want to delete soldier ${soldierToDelete}? This will remove their face data from both PKL file and database.`
-                  : `Are you sure you want to delete ${selectedSoldiers.size} selected soldiers? This will remove their face data from both PKL file and database.`
+                  ? `Are you sure you want to delete soldier ${soldierToDelete}? `
+                  : `Are you sure you want to delete ${selectedSoldiers.size} selected soldiers? `
                 }
               </p>
               <div className="flex gap-4 justify-end">

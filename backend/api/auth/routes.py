@@ -70,6 +70,29 @@ def logout():
         'message': 'Logout successful'
     }), 200
 
+@auth_bp.route('/logout-all-sessions', methods=['POST'])
+def logout_all_sessions():
+    """Logout from all sessions (force logout everywhere)"""
+    try:
+        # Clear the current session
+        session.clear()
+        
+        # In Flask's default session handling, we can't directly invalidate
+        # other browser sessions without a database-backed session store.
+        # However, clearing the current session and having the frontend
+        # clear localStorage will effectively log out this instance.
+        # The BroadcastChannel will handle notifying other tabs.
+        
+        return jsonify({
+            'message': 'Logged out from all sessions',
+            'success': True
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'error': str(e),
+            'success': False
+        }), 500
+
 @auth_bp.route('/session-status', methods=['GET'])
 def session_status():
     """Check if session is still valid"""
@@ -243,4 +266,65 @@ def refresh_session():
         return jsonify({
             'success': False,
             'message': f'Session refresh error: {str(e)}'
+        }), 500
+
+@auth_bp.route('/heartbeat', methods=['POST'])
+def heartbeat():
+    """Heartbeat endpoint to keep session alive and detect active sessions"""
+    try:
+        # Check if session exists
+        if 'user_id' not in session or 'expires_at' not in session:
+            return jsonify({
+                'success': False,
+                'message': 'No active session'
+            }), 401
+        
+        # Check if session is expired
+        expires_at = datetime.fromisoformat(session['expires_at'])
+        if datetime.now() > expires_at:
+            session.clear()
+            return jsonify({
+                'success': False,
+                'message': 'Session expired'
+            }), 401
+        
+        # Update last heartbeat timestamp
+        session['last_heartbeat'] = datetime.now().isoformat()
+        
+        # Optionally extend session on heartbeat (keep-alive behavior)
+        session_timeout = get_dynamic_session_timeout()
+        session['expires_at'] = (datetime.now() + timedelta(seconds=session_timeout)).isoformat()
+        
+        return jsonify({
+            'success': True,
+            'message': 'Heartbeat received',
+            'expires_at': session['expires_at']
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Heartbeat error: {str(e)}'
+        }), 500
+
+@auth_bp.route('/browser-closed', methods=['POST'])
+def browser_closed():
+    """Notification that browser is closing - cleanup session immediately"""
+    try:
+        # Log the browser close event
+        if 'user_id' in session:
+            print(f"🌐 Browser closed for user: {session.get('user_id')}")
+        
+        # Clear the session immediately
+        session.clear()
+        
+        return jsonify({
+            'success': True,
+            'message': 'Session closed'
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Browser close handler error: {str(e)}'
         }), 500

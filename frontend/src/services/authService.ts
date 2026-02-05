@@ -65,11 +65,31 @@ class AuthService {
         }
     }
 
+    async logoutAllSessions(): Promise<void> {
+        try {
+            await axios.post(`${this.baseUrl}/logout-all-sessions`);
+        } catch (error) {
+            console.error('Logout all sessions error:', error);
+        } finally {
+            this.stopSessionMonitoring();
+            this.clearLocalSession();
+            localStorage.clear(); // Clear everything including single-session key
+        }
+    }
+
     async checkSessionStatus(): Promise<SessionStatusResponse> {
         try {
             const response = await axios.get<SessionStatusResponse>(`${this.baseUrl}/session-status`);
             return response.data;
         } catch (error: any) {
+            // Handle 401 responses (invalid/expired session)
+            if (error.response?.status === 401) {
+                return {
+                    valid: false,
+                    message: error.response?.data?.message || 'No active session'
+                };
+            }
+            // Other errors
             return {
                 valid: false,
                 message: 'Session check failed'

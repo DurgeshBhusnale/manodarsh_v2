@@ -232,6 +232,9 @@ class CRPFSystemLauncher:
             
         self.backend_process = None
         self.frontend_process = None
+        self.browser_process = None  # NEW: Track browser process
+        self.browser_monitor_thread = None  # NEW: Browser monitoring thread
+        self.should_monitor_browser = True  # NEW: Control flag for monitoring
         self.config_file = self.project_root / "deployment" / "config.json"
         self.pid_file = self.project_root / "deployment" / "system.pid"
         
@@ -330,6 +333,8 @@ class CRPFSystemLauncher:
             pids['backend'] = self.backend_process.pid
         if self.frontend_process:
             pids['frontend'] = self.frontend_process.pid
+        if self.browser_process:
+            pids['browser'] = self.browser_process.pid
         
         with open(self.pid_file, 'w') as f:
             json.dump(pids, f)
@@ -528,10 +533,15 @@ class CRPFSystemLauncher:
         if chrome_path:
             try:
                 # Open as standalone app window (no tabs, no address bar)
-                subprocess.Popen([chrome_path, f"--app={url}", "--new-window"])
+                self.browser_process = subprocess.Popen([chrome_path, f"--app={url}", "--new-window"])
                 if not getattr(sys, 'frozen', False):
                     browser_name = "Chrome" if "chrome" in chrome_path.lower() else "Edge"
                     print(f"✅ Opened in {browser_name} app mode (standalone window)")
+                    print(f"🔍 Browser PID: {self.browser_process.pid}")
+                
+                # Start monitoring browser in background thread
+                self._start_browser_monitoring()
+                
                 return True
             except Exception as e:
                 if not getattr(sys, 'frozen', False):
@@ -584,6 +594,55 @@ class CRPFSystemLauncher:
         # Try to open as standalone app, fall back to default browser
         if not self._open_as_standalone_app(url):
             webbrowser.open(url)
+    
+    def _start_browser_monitoring(self):
+        """Start a background thread to monitor browser process"""
+        if self.browser_process is None:
+            return
+        
+        def monitor_browser():
+            """Monitor browser process and shutdown when it closes"""
+            try:
+                browser_pid = self.browser_process.pid
+                if not getattr(sys, 'frozen', False):
+                    print(f"🔍 Started monitoring browser (PID: {browser_pid})")
+                
+                # Check every 5 seconds if browser is still running
+                while self.should_monitor_browser:
+                    try:
+                        # Check if process exists
+                        if not psutil.pid_exists(browser_pid):
+                            # Browser closed - shutdown system
+                            if not getattr(sys, 'frozen', False):
+                                print(f"\n🌐 Browser closed (PID {browser_pid}) - shutting down system...")
+                            else:
+                                print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Browser closed - shutting down system")
+                            
+                            # Stop monitoring
+                            self.should_monitor_browser = False
+                            
+                            # Shutdown backend and frontend
+                            self.stop_system()
+                            
+                            # Exit the launcher
+                            sys.exit(0)
+                        
+                        # Browser still running, check again in 5 seconds
+                        time.sleep(5)
+                        
+                    except Exception as e:
+                        if not getattr(sys, 'frozen', False):
+                            print(f"⚠️  Browser monitoring error: {e}")
+                        time.sleep(5)
+                        
+            except Exception as e:
+                if not getattr(sys, 'frozen', False):
+                    print(f"❌ Browser monitoring thread error: {e}")
+        
+        # Start monitoring in background thread
+        self.browser_monitor_thread = threading.Thread(target=monitor_browser, daemon=True)
+        self.browser_monitor_thread.start()
+    
     
     def start_system(self, loading_window=None):
         """Start the complete CRPF system"""
@@ -651,6 +710,9 @@ class CRPFSystemLauncher:
     
     def stop_system(self):
         """Stop the CRPF system"""
+        # Stop browser monitoring first
+        self.should_monitor_browser = False
+        
         print("=" * 60)
         print("⏹️  STOPPING CRPF MENTAL HEALTH SYSTEM")
         print("=" * 60)

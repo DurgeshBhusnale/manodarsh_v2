@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { router } from './router';
-import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, Box, Spinner, Text, VStack } from '@chakra-ui/react';
 import SystemLoadingScreen from './components/SystemLoadingScreen';
 import SessionConflictModal from './components/SessionConflictModal';
 import { useSingleSession } from './hooks/useSingleSession';
@@ -77,19 +77,46 @@ function App() {
   }
 
   return (
-    <AuthProvider>
-      <ChakraProvider theme={theme}>
-        {/* Session conflict modal - blocks app until resolved */}
-        <SessionConflictModal
-          isOpen={isConflict}
-          onCloseWindow={closeThisWindow}
-          onContinueHere={takeOverSession}
-        />
-        <Box minH="100vh" bg="military.100" p={0}>
-          <RouterProvider router={router} />
-        </Box>
-      </ChakraProvider>
-    </AuthProvider>
+    <ChakraProvider theme={theme}>
+      <AuthProvider>
+        <AppContent isConflict={isConflict} closeThisWindow={closeThisWindow} takeOverSession={takeOverSession} />
+      </AuthProvider>
+    </ChakraProvider>
+  );
+}
+
+// Inner component that can access AuthContext
+function AppContent({ isConflict, closeThisWindow, takeOverSession }: {
+  isConflict: boolean;
+  closeThisWindow: () => void;
+  takeOverSession: () => void;
+}) {
+  const { isValidating } = useAuth();
+
+  // Show loading during session validation
+  if (isValidating) {
+    return (
+      <Box minH="100vh" bg="military.100" display="flex" alignItems="center" justifyContent="center">
+        <VStack spacing={4}>
+          <Spinner size="xl" color="military.600" thickness="4px" />
+          <Text color="gray.600" fontSize="lg">Validating session...</Text>
+        </VStack>
+      </Box>
+    );
+  }
+
+  return (
+    <>
+      {/* Session conflict modal - blocks app until resolved */}
+      <SessionConflictModal
+        isOpen={isConflict}
+        onCloseWindow={closeThisWindow}
+        onContinueHere={takeOverSession}
+      />
+      <Box minH="100vh" bg="military.100" p={0}>
+        <RouterProvider router={router} />
+      </Box>
+    </>
   );
 }
 

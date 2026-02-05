@@ -1,8 +1,8 @@
-# CRPF Mental Health System - User Installation Guide
+# SATHI - User Installation Guide
 
-## 📋 For End Users (CRPF Personnel)
+## 📋 For End Users
 
-This guide is for CRPF personnel who need to install and use the Mental Health & Wellness System.
+This guide is for users who need to install and use SATHI - Mental Health & Wellness System.
 
 ---
 
@@ -27,17 +27,41 @@ This guide is for CRPF personnel who need to install and use the Mental Health &
 
 ---
 
+## ⚠️ Prerequisites
+
+### Before Installing SATHI
+
+**MySQL 8.0 Must Be Installed First!**
+
+SATHI requires MySQL 8.0 to be installed and running on your PC. 
+
+**Ask your IT administrator to:**
+1. Install MySQL 8.0
+2. Create the database
+3. Configure user permissions
+
+**For detailed MySQL setup instructions, see:** `MySQL_Prerequisites.md`
+
+**Verify MySQL is ready:**
+```cmd
+# Open Command Prompt and test:
+mysql -u crpf_user -p
+# If this works, MySQL is ready!
+```
+
+---
+
 ## 📥 Installation Steps
 
 ### Step 1: Download the Installer
 
-1. Obtain `CRPF_System_Setup.exe` from your IT administrator
-2. File size: ~900 MB
+1. Obtain `SATHI_Installer.exe` from your IT administrator
+2. File size: ~750 MB
 3. Save to your Downloads folder or Desktop
 
 ### Step 2: Run the Installer
 
-1. **Right-click** on `CRPF_System_Setup.exe`
+1. **Right-click** on `SATHI_Installer.exe`
 2. Select **"Run as administrator"**
 3. Click **"Yes"** when Windows asks for permission
 
@@ -51,7 +75,7 @@ This guide is for CRPF personnel who need to install and use the Mental Health &
 - Click **"I Agree"** to continue
 
 #### Choose Installation Location
-- **Default**: `C:\Program Files\CRPF_System\`
+- **Default**: `C:\Program Files\SATHI\`
 - **Or**: Click "Browse" to choose different location
 - Ensure you have 2 GB free space
 - Click **"Next"**
@@ -69,11 +93,11 @@ Click **"Next"**
 - Progress bar shows:
   - Extracting files...
   - Installing Python runtime...
-  - Installing database...
+  - Configuring database connection...
   - Configuring system...
 
 #### Completion
-- ☑ **Launch CRPF Mental Health System** (Recommended)
+- ☑ **Launch SATHI** (Recommended)
 - Click **"Finish"**
 
 ---
@@ -83,7 +107,7 @@ Click **"Next"**
 ### Initial Launch
 
 1. **Find the Icon**:
-   - Desktop: Double-click "CRPF Mental Health System"
+   - Desktop: Double-click "SATHI"
    - OR Start Menu: Search for "CRPF"
 
 2. **System Starts** (30-60 seconds):
@@ -105,7 +129,7 @@ Click **"Next"**
 
 ### Normal Users
 
-Regular CRPF personnel will:
+Regular users will:
 1. Receive Force ID from administrator
 2. Receive temporary password
 3. Change password on first login
@@ -143,7 +167,7 @@ Regular CRPF personnel will:
 
 ### System Tray Icon
 
-Look for CRPF icon in system tray (bottom-right, near clock):
+Look for SATHI icon in system tray (bottom-right, near clock):
 
 **Right-click the icon for options:**
 - **Open System** - Opens browser to login page
@@ -191,7 +215,7 @@ If using external USB webcam:
 ### Normal Shutdown
 
 **Option 1: System Tray (Recommended)**
-1. Right-click CRPF icon in system tray
+1. Right-click SATHI icon in system tray
 2. Click "Stop System"
 3. Wait 5 seconds
 4. System closes cleanly
@@ -303,7 +327,7 @@ If using external USB webcam:
 **Solutions**:
 1. Restart system
 2. Check if MySQL is running (Task Manager → Details → mysqld.exe)
-3. Check logs: `C:\Program Files\CRPF_System\logs\`
+3. Check logs: `C:\Program Files\SATHI\logs\`
 4. Contact IT support if persists
 
 ---
@@ -315,7 +339,7 @@ If using external USB webcam:
 1. **Windows Settings**:
    - Open Windows Settings (Win + I)
    - Click "Apps"
-   - Search for "CRPF Mental Health System"
+   - Search for "SATHI"
    - Click on it
    - Click "Uninstall"
    - Click "Yes" to confirm
@@ -327,7 +351,7 @@ If using external USB webcam:
      - **No** = Keep database (can reinstall later)
 
 3. **Manual Cleanup** (if needed):
-   - Delete: `C:\Program Files\CRPF_System\`
+   - Delete: `C:\Program Files\SATHI\`
    - Remove desktop shortcut
    - Remove Start menu entry
 
@@ -336,15 +360,15 @@ If using external USB webcam:
 ## 📂 File Locations
 
 ### Installation Directory
-`C:\Program Files\CRPF_System\`
+`C:\Program Files\SATHI\`
 
 ### Important Folders
-- **Logs**: `C:\Program Files\CRPF_System\logs\`
-- **Database**: `C:\Program Files\CRPF_System\mysql\data\`
-- **Configuration**: `C:\Program Files\CRPF_System\config\`
+- **Logs**: `C:\Program Files\SATHI\logs\`
+- **Database**: `MySQL data directory (external)`
+- **Configuration**: `C:\Program Files\SATHI\config\`
 
 ### Desktop Shortcut
-`C:\Users\[YourName]\Desktop\CRPF Mental Health System.lnk`
+`C:\Users\[YourName]\Desktop\SATHI.lnk`
 
 ---
 
@@ -353,7 +377,7 @@ If using external USB webcam:
 ### Self-Help Resources
 
 1. **Check Logs**:
-   - Go to: `C:\Program Files\CRPF_System\logs\`
+   - Go to: `C:\Program Files\SATHI\logs\`
    - Open: `backend.log`, `mysql.log`, `launcher.log`
    - Look for error messages
 

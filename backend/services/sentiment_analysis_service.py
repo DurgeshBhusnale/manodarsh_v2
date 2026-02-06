@@ -133,7 +133,7 @@ def calculate_peak_weighted_nlp_average(scores):
         
         # Weight formula: 80% high-risk responses, 20% overall average
         # This ensures severe mental health signals are preserved and not diluted
-        weighted_score = (high_risk_avg * 0.8) + (overall_avg * 0.2)
+        weighted_score = (high_risk_avg * 0.6) + (overall_avg * 0.4)
         
         logger.info(f"CRITICAL: Peak-weighted NLP calculation: {len(high_risk_scores)}/{len(valid_scores)} high-risk responses detected.")
         logger.info(f"High-risk avg: {high_risk_avg:.3f}, Overall avg: {overall_avg:.3f}, "

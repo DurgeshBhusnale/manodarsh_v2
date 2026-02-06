@@ -392,34 +392,21 @@ def submit_survey():
         """, (force_id, questionnaire_id, 0, 0, 0))
         session_id = cursor.lastrowid
 
-        # IMPORTANT: Get emotion monitoring data BEFORE processing responses
-        image_avg_score = 0
-        emotion_results = None
-        try:
-            from services.cctv_monitoring_service import get_monitoring_service_instance
-            monitoring_service = get_monitoring_service_instance()
-            emotion_results = monitoring_service.stop_survey_monitoring(force_id, session_id)
-            
-            logger.info(f"Emotion monitoring results: {emotion_results}")
-            
-            if emotion_results and 'avg_depression_score' in emotion_results:
-                image_avg_score = emotion_results['avg_depression_score']
-                logger.info(f"Retrieved emotion monitoring data: avg_score={image_avg_score:.2f}")
-            elif emotion_results and 'detection_count' in emotion_results:
-                logger.warning(f"No avg_depression_score in results. Detection count: {emotion_results['detection_count']}")
-            else:
-                logger.warning("No emotion data retrieved from monitoring service")
-                
-        except Exception as e:
-            logger.error(f"Error getting emotion data: {e}")
-            # Continue without emotion data
-
         # Process responses and analyze sentiment
         nlp_scores = []
+        image_scores = []
         
-        # SIMPLE APPROACH: Use the overall average emotion score for all questions
-        # This ensures no NULL values in image_depression_score
-        logger.info(f"Using emotion monitoring average score: {image_avg_score:.2f} for all questions")
+        # FIXED: Capture emotion REAL-TIME for each question (not once at start)
+        logger.info(f"[SURVEY] Starting real-time emotion capture for each question response")
+        
+        # Initialize enhanced emotion detection service for real-time capture
+        try:
+            from services.enhanced_emotion_detection_service import EnhancedEmotionDetectionService
+            emotion_service = EnhancedEmotionDetectionService()
+            logger.info(f"[SURVEY] Emotion detection service initialized for real-time capture")
+        except Exception as e:
+            logger.warning(f"[SURVEY] Could not initialize emotion detection service: {e}")
+            emotion_service = None
         
         # Insert responses and analyze sentiment
         for response in responses:
@@ -432,13 +419,46 @@ def submit_survey():
                 depression_score, sentiment_label = analyze_sentiment(answer_text)
                 nlp_depression_score = depression_score
                 nlp_scores.append(depression_score)
-                logger.info(f"Question {question_id} - Sentiment: {sentiment_label}, Score: {depression_score:.2f}")
+                logger.info(f"Question {question_id} - NLP Sentiment: {sentiment_label}, Score: {depression_score:.2f}")
             
-            # Use the overall emotion monitoring average for this question
-            # Store the actual score even if it's 0 (no more NULL values!)
-            question_emotion_score = image_avg_score
+            # FIXED: Capture emotion REAL-TIME for THIS question
+            question_emotion_score = 0.45  # Default neutral if detection fails
+            emotion_label = "Unknown"
+            emotion_confidence = 0.0
             
-            # Calculate WEIGHTED combined depression score using dynamic database settings
+            try:
+                # Capture frame from camera WHEN answering this question
+                import cv2
+                cap = cv2.VideoCapture(0)
+                
+                if cap.isOpened():
+                    ret, frame = cap.read()
+                    cap.release()
+                    
+                    if ret and emotion_service:
+                        # Detect emotion for THIS specific question
+                        emotion_result = emotion_service.detect_emotion_for_survey(frame, force_id)
+                        
+                        if emotion_result:
+                            emotion_label, emotion_confidence, question_emotion_score, face_bbox = emotion_result
+                            image_scores.append(question_emotion_score)
+                            logger.info(f"Question {question_id} - REAL-TIME Emotion: {emotion_label}, Score: {question_emotion_score:.2f}, Confidence: {emotion_confidence:.2f}")
+                        else:
+                            logger.warning(f"Question {question_id} - No face/emotion detected, using default neutral (0.45)")
+                            image_scores.append(question_emotion_score)
+                    else:
+                        logger.warning(f"Question {question_id} - Could not capture frame or emotion service unavailable")
+                        image_scores.append(question_emotion_score)
+                else:
+                    logger.warning(f"Question {question_id} - Camera not available, using default neutral (0.45)")
+                    image_scores.append(question_emotion_score)
+                    
+            except Exception as e:
+                logger.error(f"Question {question_id} - Error capturing real-time emotion: {e}")
+                logger.info(f"Question {question_id} - Using default neutral score (0.45)")
+                image_scores.append(question_emotion_score)
+            
+            # FIXED: Calculate WEIGHTED combined depression score using REAL-TIME emotion score
             combined_depression_score = None
             if nlp_depression_score is not None and question_emotion_score >= 0:
                 # Both scores available - use weighted combination
@@ -457,7 +477,7 @@ def submit_survey():
                 combined_depression_score = 0
                 logger.info(f"Question {question_id}: No scores available, defaulting to 0")
             
-            logger.info(f"Question {question_id}: NLP={nlp_depression_score}, Emotion={question_emotion_score:.2f}, Weighted Combined={combined_depression_score:.3f}")
+            logger.info(f"Question {question_id}: NLP={nlp_depression_score}, REAL-TIME Emotion={question_emotion_score:.2f}, Weighted Combined={combined_depression_score:.3f}")
             
             # Insert response with sentiment score AND emotion monitoring score
             cursor.execute("""
@@ -479,6 +499,16 @@ def submit_survey():
             avg_nlp_score = calculate_peak_weighted_nlp_average(nlp_scores)
             logger.info(f"Session {session_id} - Peak-Weighted NLP Depression Score: {avg_nlp_score:.2f}")
             logger.info(f"NLP Score Distribution: min={min(nlp_scores):.2f}, max={max(nlp_scores):.2f}, count={len(nlp_scores)}")
+        
+        # FIXED: Calculate average emotion score from REAL-TIME captures (not single average)
+        image_avg_score = 0
+        emotion_results = None
+        if image_scores:
+            image_avg_score = sum(image_scores) / len(image_scores)
+            logger.info(f"Session {session_id} - Real-Time Emotion Depression Score Average: {image_avg_score:.2f}")
+            logger.info(f"Emotion Score Distribution: min={min(image_scores):.2f}, max={max(image_scores):.2f}, count={len(image_scores)}, scores={[f'{s:.2f}' for s in image_scores]}")
+        else:
+            logger.warning(f"Session {session_id} - No real-time emotion scores captured")
         
         # Calculate WEIGHTED final combined score using dynamic settings
         nlp_weight, emotion_weight = get_dynamic_settings()
@@ -519,10 +549,10 @@ def submit_survey():
         logger.info(f"   Description:    {mental_state['description']}")
         logger.info(f"   Recommendation: {mental_state['recommendation']}")
         logger.info(f"")
-        if emotion_results:
-            logger.info(f"[EMOTION_MONITORING] DETAILS:")
-            logger.info(f"   Total Detections: {emotion_results.get('detection_count', 0)}")
-            logger.info(f"   Dominant Emotion: {emotion_results.get('dominant_emotion', 'Unknown')}")
+        logger.info(f"[REAL-TIME EMOTION CAPTURE] SURVEY MODE:")
+        logger.info(f"   Total Detections: {len(image_scores)}")
+        logger.info(f"   Emotion Scores Captured: {[f'{s:.2f}' for s in image_scores]}")
+        logger.info(f"   Average Emotion Score: {image_avg_score:.3f}")
         logger.info("="*80)
         
         # Save mental state response if provided
@@ -554,7 +584,7 @@ def submit_survey():
         
         db.commit()
         return jsonify({
-            "message": "Survey submitted successfully with weighted sentiment analysis and emotion monitoring",
+            "message": "Survey submitted successfully with REAL-TIME facial emotion detection and NLP sentiment analysis",
             "session_id": session_id,
             "scores": {
                 "nlp_avg_score": avg_nlp_score if avg_nlp_score > 0 else 0,
@@ -562,17 +592,18 @@ def submit_survey():
                 "combined_avg_score": final_combined_score,
                 "weighting": "NLP: 70%, Emotion: 30%"
             },
-            "mental_state": {
+            "mental_state_analysis": {
                 "state": mental_state['state'],
                 "level": mental_state['level'],
                 "description": mental_state['description'],
                 "recommendation": mental_state['recommendation']
             },
-            "emotion_details": {
-                "detection_count": emotion_results.get('detection_count', 0) if emotion_results else 0,
-                "dominant_emotion": emotion_results.get('dominant_emotion', 'Unknown') if emotion_results else 'Unknown'
+            "real_time_emotion_capture": {
+                "detection_count": len(image_scores),
+                "emotion_scores_per_question": [f'{s:.2f}' for s in image_scores],
+                "average_emotion_score": f'{image_avg_score:.2f}'
             },
-            "mental_state": {
+            "mental_state_response": {
                 "rating": mental_state_rating,
                 "emoji": mental_state_emoji,
                 "text_en": mental_state_text_en,

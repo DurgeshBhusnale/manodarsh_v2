@@ -1059,10 +1059,10 @@ def download_soldiers_pdf():
         data = request.json
         soldiers_data = data.get('soldiers', [])
         filters = data.get('filters', {})
-        report_title = data.get('report_title', 'Soldiers Mental Health Report')
+        report_title = data.get('report_title', 'Users Mental Health Report')
         
         if not soldiers_data:
-            return jsonify({'error': 'No soldiers data provided'}), 400
+            return jsonify({'error': 'No Users data provided'}), 400
         
         # Create PDF with enhanced design
         pdf = FPDF()
@@ -1208,7 +1208,7 @@ def download_soldiers_pdf():
         # Total soldiers
         pdf.set_fill_color(240, 248, 255)  # Light blue background
         pdf.rect(10, pdf.get_y(), 190, 6, 'F')
-        pdf.cell(0, 6, f"Total Soldiers: {total_soldiers}", 0, 1)
+        pdf.cell(0, 6, f"Total Users: {total_soldiers}", 0, 1)
         
         # Risk distribution
         pdf.set_font('Arial', '', 10)
@@ -1244,7 +1244,7 @@ def download_soldiers_pdf():
         pdf.set_font('Arial', 'I', 9)
         pdf.set_fill_color(245, 245, 245)  # Light gray background
         pdf.rect(10, pdf.get_y(), 190, 8, 'F')
-        pdf.cell(0, 8, "This report contains sensitive mental health information. Handle with appropriate confidentiality.", 0, 1, 'C')
+        pdf.cell(0, 8, "This report contains sensitive health information. Handle with appropriate confidentiality.", 0, 1, 'C')
         
         # Create in-memory file
         pdf_output = io.BytesIO()
@@ -1256,7 +1256,7 @@ def download_soldiers_pdf():
         
         # Generate filename with timestamp
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"soldiers_report_{timestamp}.pdf"
+        filename = f"Users_report_{timestamp}.pdf"
         
         return send_file(
             pdf_output,
@@ -1281,7 +1281,7 @@ def download_soldiers_csv():
         filters = data.get('filters', {})
         
         if not soldiers_data:
-            return jsonify({'error': 'No soldiers data provided'}), 400
+            return jsonify({'error': 'No Users data provided'}), 400
         
         # Create CSV content with updated field names (removed: name, total_cctv_detections, avg_cctv_score, mental_state, alert_level, recommendation)
         csv_output = io.StringIO()
@@ -1299,7 +1299,7 @@ def download_soldiers_csv():
         for soldier in soldiers_data:
             # Create a clean row with only the required fields
             row = {
-                'force_id': soldier.get('force_id', ''),
+                'user_id': soldier.get('force_id', ''),
                 'risk_level': soldier.get('risk_level', ''),
                 'combined_score': soldier.get('combined_score', 0),
                 'nlp_score': soldier.get('nlp_score', 0),
@@ -1316,7 +1316,7 @@ def download_soldiers_csv():
         
         # Generate filename with timestamp
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"soldiers_report_{timestamp}.csv"
+        filename = f"users_report_{timestamp}.csv"
         
         return send_file(
             csv_bytes,

@@ -22,6 +22,7 @@ const QuestionnairePage: React.FC = () => {
     const [translating, setTranslating] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [allQuestionsEntered, setAllQuestionsEntered] = useState(false);
+    const [showEditButtons, setShowEditButtons] = useState(false);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showErrorModal, setShowErrorModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -41,8 +42,9 @@ const QuestionnairePage: React.FC = () => {
             return;
         }
         try {
-            // Initialize questions array with empty objects
-            setQuestions(Array(numberOfQuestions).fill({ english: '', hindi: '' }));
+            // Initialize questions array with independent empty objects
+            // Use Array.from() to create unique objects instead of fill() which creates references
+            setQuestions(Array.from({ length: numberOfQuestions }, () => ({ english: '', hindi: '' })));
             setStep(2);
         } catch (error) {
             console.error('Failed to initialize questionnaire:', error);
@@ -87,15 +89,19 @@ const QuestionnairePage: React.FC = () => {
             setQuestions(updatedQuestions);
 
             if (!isEditMode && currentQuestionIndex < numberOfQuestions - 1) {
+                // Continue adding questions normally
                 setCurrentQuestionIndex(currentQuestionIndex + 1);
                 setQuestionText(questions[currentQuestionIndex + 1]?.english || '');
                 setQuestionTextHindi(questions[currentQuestionIndex + 1]?.hindi || '');
-            } else {
+            } else if (isEditMode) {
+                // If editing a question, go directly to complete screen
                 setIsEditMode(false);
+                setAllQuestionsEntered(true);
+                setShowEditButtons(false); // Hide edit buttons when returning to complete screen
             }
 
-            // Check if all questions are entered
-            if (currentQuestionIndex === numberOfQuestions - 1) {
+            // Check if all questions are entered (during normal flow)
+            if (!isEditMode && currentQuestionIndex === numberOfQuestions - 1) {
                 setAllQuestionsEntered(true);
             }
         } catch (error: any) {
@@ -349,11 +355,30 @@ const QuestionnairePage: React.FC = () => {
                                         Number of Questions
                                     </label>
                                     <input
-                                        type="number"
-                                        min="1"
-                                        max="50"
-                                        value={numberOfQuestions}
-                                        onChange={(e) => setNumberOfQuestions(parseInt(e.target.value))}
+                                        type="text"
+                                        inputMode="numeric"
+                                        pattern="[0-9]*"
+                                        value={numberOfQuestions === 0 ? '' : numberOfQuestions}
+                                        onChange={(e) => {
+                                            const value = e.target.value;
+                                            // Only allow numeric input
+                                            if (value === '') {
+                                                setNumberOfQuestions(0);
+                                            } else if (/^\d+$/.test(value)) {
+                                                const num = parseInt(value, 10);
+                                                if (num >= 1 && num <= 50) {
+                                                    setNumberOfQuestions(num);
+                                                } else if (num > 50) {
+                                                    setNumberOfQuestions(50);
+                                                }
+                                            }
+                                        }}
+                                        onBlur={() => {
+                                            // Ensure valid number on blur
+                                            if (numberOfQuestions === 0 || numberOfQuestions < 1) {
+                                                setNumberOfQuestions(1);
+                                            }
+                                        }}
                                         className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
                                         required
                                         placeholder="How many questions will this questionnaire have?"
@@ -464,9 +489,6 @@ const QuestionnairePage: React.FC = () => {
                                                     >
                                                         <td className="py-3 px-4 text-sm font-bold text-blue-600">
                                                             Q{index + 1}
-                                                            {index === currentQuestionIndex && (
-                                                                <i className="fas fa-edit ml-2 text-green-500"></i>
-                                                            )}
                                                         </td>
                                                         <td className="py-3 px-4 text-sm text-gray-800">
                                                             {q && q.english ? (
@@ -476,7 +498,7 @@ const QuestionnairePage: React.FC = () => {
                                                             )}
                                                         </td>
                                                         <td className="py-3 px-4 text-center">
-                                                            {q && q.english && (
+                                                            {q && q.english && showEditButtons && (
                                                                 <button
                                                                     onClick={() => {
                                                                         setCurrentQuestionIndex(index);
@@ -606,7 +628,7 @@ const QuestionnairePage: React.FC = () => {
                                                 ) : (
                                                     <>
                                                         <i className={`fas ${isEditMode ? 'fa-save' : 'fa-plus'} mr-2`}></i>
-                                                        {isEditMode ? 'Update Question' : `Add Question ${currentQuestionIndex + 1}`}
+                                                        {isEditMode ? 'Update Question' : 'Add Question'}
                                                     </>
                                                 )}
                                             </button>
@@ -623,7 +645,10 @@ const QuestionnairePage: React.FC = () => {
                                     
                                     <div className="flex space-x-3 justify-center">
                                         <button
-                                            onClick={() => setAllQuestionsEntered(false)}
+                                            onClick={() => {
+                                                setAllQuestionsEntered(false);
+                                                setShowEditButtons(true);
+                                            }}
                                             className="px-4 py-2.5 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] font-medium transition-all duration-200 flex items-center text-sm"
                                         >
                                             <i className="fas fa-edit mr-2"></i>

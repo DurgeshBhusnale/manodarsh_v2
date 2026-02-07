@@ -183,12 +183,7 @@ def verify_soldier():
 
 @auth_bp.route('/validate-session', methods=['GET'])
 def validate_session():
-    """Validate current session and return status"""
-    try:
-        # Check if session exists
-        if 'user_id' not in session or 'expires_at' not in session:
-            return jsonify({
-                'valid': False, - PHASE 1: No expiration checking"""
+    """Validate current session and return status - PHASE 1: No expiration checking"""
     try:
         # Check if session exists
         if 'user_id' not in session:
@@ -208,28 +203,17 @@ def validate_session():
             },
             'phase': 'PHASE_1_MANUAL_LOGOUT_ONLY',
             'message': 'Session valid - manual logout only'
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'valid': False,
             'message': f'Session validation error: {str(e)}'
         }), 500
 
 @auth_bp.route('/refresh-session', methods=['POST'])
 def refresh_session():
-    """Refresh session timeout"""
-    try:
-        # Check if session exists
-        if 'user_id' not in session:
-            return jsonify({
-                'success': False,
-                'message': 'No active session'
-            }), 401
-            
-        # Refresh session with current timeout setting
-        session_timeout = get_dynamic_session_timeout()
-        session['expires_at'] = (datetime.now() + timedelta(seconds=session_timeout)).isoformat()
-        
-        return jsonify({
-            'success': True,
-            'message': 'Session refreshed',
-            'expires_at': sess - PHASE 1: Not needed, always returns success"""
+    """Refresh session timeout - PHASE 1: Not needed, always returns success"""
     try:
         # Check if session exists
         if 'user_id' not in session:
@@ -245,3 +229,10 @@ def refresh_session():
             'success': True,
             'message': 'Session active (Phase 1 - no expiration)',
             'phase': 'PHASE_1_MANUAL_LOGOUT_ONLY'
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Session refresh error: {str(e)}'
+        }), 500

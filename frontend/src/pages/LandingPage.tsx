@@ -41,7 +41,7 @@ const LandingPage = () => (
           SATHI
         </h2>
         <p className="text-xl md:text-2xl mb-10 text-gray-700 font-light leading-relaxed">
-          Support of Artificial , Technological and Human Intelligence
+          Support of Artificial, Technological and Human Intelligence
         </p>
         
         <div className="flex flex-col md:flex-row gap-6 justify-center">

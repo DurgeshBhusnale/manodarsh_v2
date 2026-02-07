@@ -1,5 +1,6 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import { authService } from '../services/authService';
+import { getPhaseFeatures } from '../config/phaseConfig';
 
 // Define types
 export interface User {
@@ -14,8 +15,13 @@ export interface AuthContextType {
     isAuthenticated: boolean;
 }
 
-// PHASE 1: Session timeout disabled - manual logout only
+// PHASE 1: Manual logout only + Single tab + Session clears on browser close
 const SESSION_KEY = 'user_session';
+const SESSION_ID_KEY = 'session_id';
+const phaseFeatures = getPhaseFeatures();
+
+// Use sessionStorage for browser close detection, localStorage for single tab
+const storage = phaseFeatures.USE_SESSION_STORAGE ? sessionStorage : localStorage;
 
 // Create the context with proper type
 export const AuthContext = createContext<AuthContextType>({
@@ -40,28 +46,85 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [user, setUser] = useState<User | null>(() => {
-        // PHASE 1: Simple session restore - no timeout checking
-        const savedUser = localStorage.getItem(SESSION_KEY);
-        return savedUser ? JSON.parse(savedUser) : null;
+        console.log('🔐 AuthProvider initializing with Phase 1 settings');
+        
+        // PHASE 1: Restore session from sessionStorage (clears on browser close)
+        const savedUser = storage.getItem(SESSION_KEY);
+        const savedSessionId = storage.getItem(SESSION_ID_KEY);
+        
+        if (savedUser && savedSessionId) {
+            // Check if this is the same session (single tab enforcement)
+            if (phaseFeatures.MULTI_TAB_DETECTION) {
+                const currentSessionId = localStorage.getItem(SESSION_ID_KEY);
+                if (currentSessionId && currentSessionId !== savedSessionId) {
+                    console.warn('⚠️ Another tab has logged in, clearing this session');
+                    storage.removeItem(SESSION_KEY);
+                    storage.removeItem(SESSION_ID_KEY);
+                    return null;
+                }
+            }
+            return JSON.parse(savedUser);
+        }
+        return null;
     });
 
-    // PHASE 1: No session timeout checking - manual logout only
+    // PHASE 1: Monitor for multi-tab conflicts
+    useEffect(() => {
+        if (!phaseFeatures.MULTI_TAB_DETECTION || !user) return;
+
+        const handleStorageChange = (e: StorageEvent) => {
+            // If session ID changed in localStorage, another tab logged in
+            if (e.key === SESSION_ID_KEY && e.newValue !== storage.getItem(SESSION_ID_KEY)) {
+                console.warn('⚠️ Session conflict detected - logging out this tab');
+                setUser(null);
+                storage.removeItem(SESSION_KEY);
+                storage.removeItem(SESSION_ID_KEY);
+                alert('You have been logged out because another session was started.');
+                window.location.replace('/login');
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
+    }, [user]);
 
     const login = (userData: User, sessionTimeout?: number) => {
-        // PHASE 1: Simple login - no session timeout tracking
+        console.log('✅ User login (Phase 1 - Manual logout, single tab, session storage)');
+        
+        // Generate unique session ID
+        const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        
+        // Store in sessionStorage (clears on browser close)
         setUser(userData);
-        localStorage.setItem(SESSION_KEY, JSON.stringify(userData));
+        storage.setItem(SESSION_KEY, JSON.stringify(userData));
+        storage.setItem(SESSION_ID_KEY, sessionId);
+        
+        // Store session ID in localStorage for multi-tab detection
+        if (phaseFeatures.MULTI_TAB_DETECTION) {
+            localStorage.setItem(SESSION_ID_KEY, sessionId);
+        }
+        
+        // PHASE 2: Would start session monitoring here
+        if (phaseFeatures.SESSION_MONITORING) {
+            console.log('Starting session monitoring (Phase 2)');
+        }
     };
 
     const logout = async () => {
+        console.log('🚪 User logout (Manual)');
+        
         try {
             await authService.logout();
         } catch (error) {
             console.error('Logout error:', error);
         } finally {
+            // Clear all session data
             setUser(null);
-            localStorage.removeItem(SESSION_KEY);
-            localStorage.clear();
+            storage.removeItem(SESSION_KEY);
+            storage.removeItem(SESSION_ID_KEY);
+            localStorage.removeItem(SESSION_ID_KEY);
+            storage.clear();
+            
             window.location.replace('/login');
         }
     };

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { authService } from './authService';
+import { getPhaseFeatures } from '../config/phaseConfig';
 
 // Translate Hindi answer to English
 export interface TranslateAnswerResponse {
@@ -41,13 +42,23 @@ api.interceptors.request.use(
 );
 
 // Add response interceptor to handle authentication errors
+// PHASE 1: Do NOT auto-logout on 401 - manual logout only
 api.interceptors.response.use(
     (response) => response,
     (error) => {
+        const phaseFeatures = getPhaseFeatures();
+        
         if (error.response?.status === 401) {
-            localStorage.removeItem('authToken');
-            // Redirect to login if unauthorized
-            window.location.href = '/login';
+            // PHASE 1: Log warning but do NOT auto-logout
+            if (!phaseFeatures.AUTO_LOGOUT_ON_401) {
+                console.warn('⚠️ 401 Unauthorized - Manual logout required (Phase 1)');
+                // Do NOT clear localStorage or redirect
+                // Components can handle showing "Session expired" message if needed
+            } else {
+                // PHASE 2: Auto-logout enabled
+                localStorage.removeItem('authToken');
+                window.location.href = '/login';
+            }
         }
         return Promise.reject(error);
     }

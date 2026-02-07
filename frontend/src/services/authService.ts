@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getPhaseFeatures } from '../config/phaseConfig';
 
 interface LoginResponse {
     user: {
@@ -7,6 +8,7 @@ interface LoginResponse {
     };
     message: string;
     session_timeout?: number;
+    phase?: string;
 }
 
 interface SessionStatusResponse {
@@ -17,6 +19,7 @@ interface SessionStatusResponse {
     };
     expires_at?: string;
     message?: string;
+    phase?: string;
 }
 
 interface SoldierVerificationResponse {
@@ -28,10 +31,12 @@ interface SoldierVerificationResponse {
 class AuthService {
     private baseUrl = 'http://localhost:5000/api/auth';
     private sessionCheckInterval: NodeJS.Timeout | null = null;
+    private phaseFeatures = getPhaseFeatures();
 
     constructor() {
         // Configure axios to include credentials for session cookies
         axios.defaults.withCredentials = true;
+        console.log('🔐 AuthService initialized - Phase 1: Manual logout only');
     }
 
     async login(forceId: string, password: string): Promise<LoginResponse> {
@@ -41,8 +46,13 @@ class AuthService {
                 password: password
             });
             
-            // Start session monitoring after successful login
-            this.startSessionMonitoring();
+            // PHASE 1: Do NOT start session monitoring
+            if (this.phaseFeatures.SESSION_MONITORING) {
+                console.log('Starting session monitoring (Phase 2)');
+                this.startSessionMonitoring();
+            } else {
+                console.log('✅ Login successful - Session monitoring disabled (Phase 1)');
+            }
             
             return response.data;
         } catch (error: any) {
@@ -57,6 +67,7 @@ class AuthService {
     async logout(): Promise<void> {
         try {
             await axios.post(`${this.baseUrl}/logout`);
+            console.log('✅ Logout successful');
         } catch (error) {
             console.error('Logout error:', error);
         } finally {
@@ -77,8 +88,15 @@ class AuthService {
         }
     }
 
+    // PHASE 1: Session monitoring disabled
     private startSessionMonitoring(): void {
-        // Check session status every 30 seconds
+        if (!this.phaseFeatures.SESSION_MONITORING) {
+            console.log('⚠️ Session monitoring disabled in Phase 1');
+            return;
+        }
+        
+        // PHASE 2: Check session status every 30 seconds
+        console.log('Starting session monitoring (Phase 2)');
         this.sessionCheckInterval = setInterval(async () => {
             const status = await this.checkSessionStatus();
             if (!status.valid) {
@@ -91,19 +109,24 @@ class AuthService {
         if (this.sessionCheckInterval) {
             clearInterval(this.sessionCheckInterval);
             this.sessionCheckInterval = null;
+            console.log('Session monitoring stopped');
         }
     }
 
+    // PHASE 1: This should NOT be called automatically
     private handleSessionExpired(): void {
+        console.warn('⚠️ Session expired handler called (should not happen in Phase 1)');
         this.stopSessionMonitoring();
         this.clearLocalSession();
         
-        // Redirect to login page
-        window.location.href = '/login';
-        
-        // Show notification if available
-        if (window.alert) {
-            window.alert('Your session has expired. Please log in again.');
+        // PHASE 1: Do NOT auto-redirect
+        if (!this.phaseFeatures.MANUAL_LOGOUT_ONLY) {
+            // PHASE 2: Auto-redirect
+            window.location.href = '/login';
+            
+            if (window.alert) {
+                window.alert('Your session has expired. Please log in again.');
+            }
         }
     }
 

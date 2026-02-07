@@ -35,13 +35,15 @@ def login():
                     'error': 'Access denied. Only administrators can login.'
                 }), 403
             
-            # Get dynamic session timeout from database
-            session_timeout = get_dynamic_session_timeout()
+            # PHASE 1: Disable session timeout - set very long duration (365 days)
+            # This effectively disables automatic session expiration
+            session_timeout = 365 * 24 * 60 * 60  # 365 days in seconds
             
             # Set session data
             session['user_id'] = user['force_id']
             session['role'] = user['role']
             session['login_time'] = datetime.now().isoformat()
+            # PHASE 1: Set expiration far in future to prevent auto-logout
             session['expires_at'] = (datetime.now() + timedelta(seconds=session_timeout)).isoformat()
             session.permanent = True
                 
@@ -51,7 +53,8 @@ def login():
                     'force_id': user['force_id'],
                     'role': user['role']
                 },
-                'session_timeout': session_timeout  # Send dynamic timeout to frontend
+                'session_timeout': session_timeout,  # Send timeout to frontend
+                'phase': 'PHASE_1_MANUAL_LOGOUT_ONLY'
             }), 200
         else:
             return jsonify({
@@ -64,45 +67,47 @@ def login():
 
 @auth_bp.route('/logout', methods=['POST'])
 def logout():
-    """Handle logout and clear session"""
-    session.clear()
-    return jsonify({
-        'message': 'Logout successful'
-    }), 200
+    """Handle logout and clear session - PHASE 1: Manual logout only"""
+    try:
+        # Clear all session data
+        session.clear()
+        return jsonify({
+            'message': 'Logout successful',
+            'phase': 'PHASE_1_MANUAL_LOGOUT_ONLY'
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'error': str(e)
+        }), 500
 
 @auth_bp.route('/session-status', methods=['GET'])
 def session_status():
-    """Check if session is still valid"""
-    if 'user_id' not in session or 'expires_at' not in session:
+    """Check if session is still valid - PHASE 1: No expiration checking"""
+    # PHASE 1: Simple check - session exists or not
+    # Do NOT check expiration time
+    if 'user_id' not in session:
         return jsonify({
             'valid': False,
             'message': 'No active session'
         }), 401
     
     try:
-        expires_at = datetime.fromisoformat(session['expires_at'])
-        if datetime.now() > expires_at:
-            session.clear()
-            return jsonify({
-                'valid': False,
-                'message': 'Session expired'
-            }), 401
-        
+        # PHASE 1: Return session info without expiration checking
         return jsonify({
             'valid': True,
             'user': {
                 'force_id': session['user_id'],
                 'role': session['role']
             },
-            'expires_at': session['expires_at']
+            'phase': 'PHASE_1_MANUAL_LOGOUT_ONLY',
+            'message': 'Session valid - manual logout only'
         }), 200
         
     except Exception as e:
-        session.clear()
         return jsonify({
             'valid': False,
-            'message': 'Session error'
-        }), 401
+            'message': f'Session error: {str(e)}'
+        }), 500
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
@@ -183,23 +188,17 @@ def validate_session():
         # Check if session exists
         if 'user_id' not in session or 'expires_at' not in session:
             return jsonify({
+                'valid': False, - PHASE 1: No expiration checking"""
+    try:
+        # Check if session exists
+        if 'user_id' not in session:
+            return jsonify({
                 'valid': False,
                 'message': 'No active session'
             }), 401
             
-        # Check if session has expired
-        expires_at = datetime.fromisoformat(session['expires_at'])
-        if datetime.now() > expires_at:
-            # Clear expired session
-            session.clear()
-            return jsonify({
-                'valid': False,
-                'message': 'Session expired'
-            }), 401
-            
-        # Session is valid - extend it with current timeout setting
-        session_timeout = get_dynamic_session_timeout()
-        session['expires_at'] = (datetime.now() + timedelta(seconds=session_timeout)).isoformat()
+        # PHASE 1: Do NOT check expiration - session is valid if it exists
+        # No session extension, no timeout checking
         
         return jsonify({
             'valid': True,
@@ -207,13 +206,8 @@ def validate_session():
                 'force_id': session['user_id'],
                 'role': session['role']
             },
-            'expires_at': session['expires_at'],
-            'session_timeout': session_timeout
-        }), 200
-        
-    except Exception as e:
-        return jsonify({
-            'valid': False,
+            'phase': 'PHASE_1_MANUAL_LOGOUT_ONLY',
+            'message': 'Session valid - manual logout only'
             'message': f'Session validation error: {str(e)}'
         }), 500
 
@@ -235,12 +229,19 @@ def refresh_session():
         return jsonify({
             'success': True,
             'message': 'Session refreshed',
-            'expires_at': session['expires_at'],
-            'session_timeout': session_timeout
-        }), 200
+            'expires_at': sess - PHASE 1: Not needed, always returns success"""
+    try:
+        # Check if session exists
+        if 'user_id' not in session:
+            return jsonify({
+                'success': False,
+                'message': 'No active session'
+            }), 401
+            
+        # PHASE 1: Session doesn't expire, so refresh is no-op
+        # Just return success
         
-    except Exception as e:
         return jsonify({
-            'success': False,
-            'message': f'Session refresh error: {str(e)}'
-        }), 500
+            'success': True,
+            'message': 'Session active (Phase 1 - no expiration)',
+            'phase': 'PHASE_1_MANUAL_LOGOUT_ONLY'

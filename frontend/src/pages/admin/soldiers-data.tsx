@@ -98,7 +98,7 @@ interface SoldiersResponse {
 const SoldiersData: React.FC = () => {
     const navigate = useNavigate();
     const [filter, setFilter] = useState('all');
-    const [daysFilter, setDaysFilter] = useState('7');
+    const [dateFilter, setDateFilter] = useState(new Date().toISOString().split('T')[0]); // Today's date in YYYY-MM-DD format
     const [forceIdFilter, setForceIdFilter] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [soldiersData, setSoldiersData] = useState<Soldier[]>([]);
@@ -116,7 +116,7 @@ const SoldiersData: React.FC = () => {
             // Fetch paginated data for display
             const response = await apiService.getSoldiersData({
                 risk_level: filter,
-                days: daysFilter,
+                date: dateFilter,
                 force_id: forceIdFilter.trim() || undefined,
                 page: currentPage,
                 per_page: 20
@@ -129,7 +129,7 @@ const SoldiersData: React.FC = () => {
             // Fetch all data for downloads (without pagination)
             const allDataResponse = await apiService.getSoldiersData({
                 risk_level: filter,
-                days: daysFilter,
+                date: dateFilter,
                 force_id: forceIdFilter.trim() || undefined,
                 page: 1,
                 per_page: 10000  // Large number to get all data
@@ -142,19 +142,19 @@ const SoldiersData: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    }, [filter, daysFilter, forceIdFilter, currentPage]);
+    }, [filter, dateFilter, forceIdFilter, currentPage]);
 
     useEffect(() => {
         fetchSoldiersData();
-    }, [filter, daysFilter, forceIdFilter, currentPage, fetchSoldiersData]);
+    }, [filter, dateFilter, forceIdFilter, currentPage, fetchSoldiersData]);
 
     const handleFilterChange = (newFilter: string) => {
         setFilter(newFilter);
         setCurrentPage(1); // Reset to first page when filter changes
     };
 
-    const handleDaysFilterChange = (newDaysFilter: string) => {
-        setDaysFilter(newDaysFilter);
+    const handleDateFilterChange = (newDate: string) => {
+        setDateFilter(newDate);
         setCurrentPage(1); // Reset to first page when filter changes
     };
 
@@ -202,7 +202,7 @@ const SoldiersData: React.FC = () => {
         try {
             const currentFilters = {
                 risk_level: filter,
-                days: daysFilter,
+                date: dateFilter,
                 force_id: forceIdFilter
             };
 
@@ -230,7 +230,7 @@ const SoldiersData: React.FC = () => {
         try {
             const currentFilters = {
                 risk_level: filter,
-                days: daysFilter,
+                date: dateFilter,
                 force_id: forceIdFilter
             };
 
@@ -303,22 +303,18 @@ const SoldiersData: React.FC = () => {
                             </select>
                         </div>
 
-                        {/* Time Period Filter */}
+                        {/* Date Filter */}
                         <div className="space-y-1">
                             <label className="text-sm font-medium text-gray-700 flex items-center">
                                 <i className="fas fa-calendar-alt mr-2 text-blue-500 text-xs"></i>
-                                Time Period
+                                Survey Date
                             </label>
-                            <select
-                                value={daysFilter}
-                                onChange={(e) => handleDaysFilterChange(e.target.value)}
+                            <input
+                                type="date"
+                                value={dateFilter}
+                                onChange={(e) => handleDateFilterChange(e.target.value)}
                                 className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-200 text-sm"
-                            >
-                                <option value="3">Last 3 Days</option>
-                                <option value="7">Last 7 Days</option>
-                                <option value="30">Last 30 Days</option>
-                                <option value="180">Last 6 Months</option>
-                            </select>
+                            />
                         </div>
 
                         {/* User ID Filter */}
@@ -391,7 +387,7 @@ const SoldiersData: React.FC = () => {
                         <button
                             onClick={() => {
                                 setFilter('all');
-                                setDaysFilter('7');
+                                setDateFilter(new Date().toISOString().split('T')[0]);
                                 setForceIdFilter('');
                                 setCurrentPage(1);
                             }}
@@ -434,7 +430,7 @@ const SoldiersData: React.FC = () => {
                                 <span className="text-xs bg-blue-100 px-3 py-1 rounded-full border border-blue-200">
                                     Filters Applied: 
                                     {filter !== 'all' && ` Risk: ${filter.toUpperCase()}`}
-                                    {daysFilter && ` | Period: ${daysFilter} days`}
+                                    {dateFilter && ` | Date: ${dateFilter}`}
                                     {forceIdFilter && ` | User ID: ${forceIdFilter}`}
                                 </span>
                             </div>

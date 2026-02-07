@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import RiskTrendsChart from '../../components/RiskTrendsChart';
 import Sidebar from '../../components/Sidebar';
 import { apiService } from '../../services/api';
 
@@ -96,13 +95,12 @@ const StatCardComponent: React.FC<StatCard> = ({
 const AdminDashboard: React.FC = () => {
     const [stats, setStats] = useState<DashboardStats | null>(null);
     const [loading, setLoading] = useState(true);
-    const [timeframe, setTimeframe] = useState('7d');
 
     const fetchDashboardStats = useCallback(async () => {
         try {
             setLoading(true);
             // Fetch real data from backend
-            const response = await apiService.getDashboardStats(timeframe);
+            const response = await apiService.getDashboardStats();
             
             // Ensure all required properties exist with defaults
             const dashboardData: DashboardStats = {
@@ -202,7 +200,7 @@ const AdminDashboard: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    }, [timeframe]);
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -219,7 +217,7 @@ const AdminDashboard: React.FC = () => {
         return () => {
             clearInterval(statsInterval);
         };
-    }, [timeframe, fetchDashboardStats]); // Now safe to include the memoized function
+    }, [fetchDashboardStats]); // Now safe to include the memoized function
 
     const handleRefresh = () => {
         fetchDashboardStats();
@@ -314,18 +312,6 @@ const AdminDashboard: React.FC = () => {
                                 <p className="text-gray-600 text-sm mt-1">Mental Health Monitoring Overview</p>
                             </div>
                             <div className="flex items-center space-x-3">
-                                {/* Timeframe Selector */}
-                                <select
-                                    value={timeframe}
-                                    onChange={(e) => setTimeframe(e.target.value)}
-                                    className="px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/70 backdrop-blur-sm shadow-md transition-all duration-200 text-sm"
-                                    aria-label="Select timeframe"
-                                >
-                                    <option value="24h">Last 24 Hours</option>
-                                    <option value="7d">Last 7 Days</option>
-                                    <option value="30d">Last 30 Days</option>
-                                    <option value="90d">Last 3 Months</option>
-                                </select>
                                 {/* Refresh Button */}
                                 <button
                                     onClick={handleRefresh}
@@ -341,30 +327,19 @@ const AdminDashboard: React.FC = () => {
 
                     {/* System Health & Webcam Block removed to avoid duplication */}
 
+                    {/* Analytics Title */}
+                    <div className="bg-white/80 backdrop-blur-xl rounded-xl p-4 shadow-lg border border-white/20 mb-6">
+                        <div>
+                            <h2 className="text-lg font-bold text-gray-900">Analytics Overview</h2>
+                            <p className="text-sm text-gray-600">Showing statistics for current active questionnaire: <span className="font-semibold text-blue-600">{stats?.currentSurveyTitle || 'No Active Survey'}</span></p>
+                        </div>
+                    </div>
+
                     {/* Stats Cards Row */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
                         {getStatCards().map((card, index) => (
                             <StatCardComponent key={index} {...card} />
                         ))}
-                    </div>
-
-                    {/* Trends Chart Block - full width */}
-                    <div className="bg-gradient-to-br from-blue-50/80 to-blue-100/80 backdrop-blur-xl rounded-xl shadow-xl p-6 border border-white/20 mb-6">
-                        <h3 className="text-xl font-bold mb-5 flex items-center bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                            <i className="fas fa-chart-line mr-3 text-blue-500"></i>
-                            Risk Level Trends 
-                            <span className="ml-3 text-blue-400 hover:text-blue-600 cursor-help transition-colors" title="Trends in risk levels over time">
-                                <i className="fas fa-info-circle text-sm"></i>
-                            </span>
-                        </h3>
-                        {stats?.trendsData ? (
-                          <RiskTrendsChart labels={stats.trendsData.labels} riskLevels={stats.trendsData.riskLevels} />
-                        ) : (
-                          <div className="text-center py-8 text-gray-500">
-                            <i className="fas fa-chart-line text-3xl mb-3 opacity-50"></i>
-                            <p className="text-lg">No trends data available</p>
-                          </div>
-                        )}
                     </div>
 
                     {/* Analytics Blocks: Risk Distribution & Unit Distribution */}

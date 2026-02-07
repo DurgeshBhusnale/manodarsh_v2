@@ -618,7 +618,7 @@ def get_soldiers_report():
     try:
         # Get query parameters for filtering
         risk_level = request.args.get('risk_level', 'all')  # all, low, mid, high, critical
-        days_filter = request.args.get('days', '7')  # 3, 7, 30, 180
+        date_filter = request.args.get('date', '')  # specific date in YYYY-MM-DD format
         force_id_filter = request.args.get('force_id', '')  # specific force ID filter
         page = int(request.args.get('page', 1))
         per_page = int(request.args.get('per_page', 20))
@@ -626,14 +626,11 @@ def get_soldiers_report():
         # Calculate offset for pagination
         offset = (page - 1) * per_page
         
-        # Build date filter condition
-        date_conditions = {
-            '3': 'ws.completion_timestamp >= DATE_SUB(NOW(), INTERVAL 3 DAY)',
-            '7': 'ws.completion_timestamp >= DATE_SUB(NOW(), INTERVAL 7 DAY)',
-            '30': 'ws.completion_timestamp >= DATE_SUB(NOW(), INTERVAL 30 DAY)',
-            '180': 'ws.completion_timestamp >= DATE_SUB(NOW(), INTERVAL 180 DAY)'
-        }
-        date_condition = date_conditions.get(days_filter, date_conditions['7'])
+        # Build date filter condition - if no date provided, use today's date
+        if date_filter:
+            date_condition = f"DATE(ws.completion_timestamp) = '{date_filter}'"
+        else:
+            date_condition = "DATE(ws.completion_timestamp) = CURDATE()"
         
         # Note: Risk level filtering is now done in Python after data retrieval
         # to ensure consistency with dynamic thresholds from database settings
@@ -663,7 +660,7 @@ def get_soldiers_report():
         for soldier in all_soldiers:
             force_id = soldier[0]
             
-            # Get latest session for this soldier within date range
+            # Get latest session for this soldier on the specified date
             session_query = f"""
             SELECT 
                 ws.session_id,
@@ -761,7 +758,7 @@ def get_soldiers_report():
             },
             "filters": {
                 "risk_level": risk_level,
-                "days": days_filter,
+                "date": date_filter if date_filter else datetime.now().strftime('%Y-%m-%d'),
                 "force_id": force_id_filter
             },
             "message": "Real soldiers data fetched successfully"
@@ -830,6 +827,148 @@ def get_soldier_survey_history(force_id):
         
     except Exception as e:
         logger.error(f"Error fetching survey history for {force_id}: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
+@admin_bp.route('/soldiers/<string:force_id>/survey-history/download-pdf', methods=['GET'])
+def download_soldier_history_pdf(force_id):
+    """Download PDF of soldier's survey history"""
+    db = get_connection()
+    cursor = db.cursor()
+    
+    try:
+        # Get survey history
+        query = """
+        SELECT 
+            ws.completion_timestamp,
+            ws.nlp_avg_score,
+            ws.image_avg_score,
+            ws.combined_avg_score,
+            q.title as questionnaire_title
+        FROM weekly_sessions ws
+        LEFT JOIN questionnaires q ON ws.questionnaire_id = q.questionnaire_id
+        WHERE ws.force_id = %s 
+        AND ws.status = 'completed'
+        AND ws.completion_timestamp IS NOT NULL
+        ORDER BY ws.completion_timestamp DESC
+        """
+        
+        cursor.execute(query, (force_id,))
+        surveys = cursor.fetchall()
+        
+        if not surveys:
+            return jsonify({"error": "No survey history found"}), 404
+        
+        # Create PDF
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font('Arial', 'B', 16)
+        pdf.cell(0, 10, f'Survey History - {force_id}', 0, 1, 'C')
+        pdf.ln(10)
+        
+        # Table header
+        pdf.set_font('Arial', 'B', 10)
+        pdf.cell(45, 10, 'Date', 1)
+        pdf.cell(45, 10, 'Questionnaire', 1)
+        pdf.cell(30, 10, 'Text Score', 1)
+        pdf.cell(35, 10, 'Emotion Score', 1)
+        pdf.cell(35, 10, 'Combined Score', 1)
+        pdf.ln()
+        
+        # Table rows
+        pdf.set_font('Arial', '', 9)
+        for survey in surveys:
+            date_str = survey[0].strftime("%Y-%m-%d %H:%M") if survey[0] else 'N/A'
+            pdf.cell(45, 10, date_str, 1)
+            pdf.cell(45, 10, (survey[4] or 'Unknown')[:20], 1)
+            pdf.cell(30, 10, f"{survey[1]:.1f}" if survey[1] else '0.0', 1)
+            pdf.cell(35, 10, f"{survey[2]:.1f}" if survey[2] else '0.0', 1)
+            pdf.cell(35, 10, f"{survey[3]:.1f}" if survey[3] else '0.0', 1)
+            pdf.ln()
+        
+        # Output PDF to BytesIO
+        pdf_output = io.BytesIO()
+        pdf_bytes = pdf.output()
+        
+        # Handle both bytes and str output
+        if isinstance(pdf_bytes, str):
+            pdf_output.write(pdf_bytes.encode('latin1'))
+        else:
+            pdf_output.write(pdf_bytes)
+        
+        pdf_output.seek(0)
+        
+        return send_file(
+            pdf_output,
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=f'survey_history_{force_id}.pdf'
+        )
+        
+    except Exception as e:
+        logger.error(f"Error generating PDF for {force_id}: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
+@admin_bp.route('/soldiers/<string:force_id>/survey-history/download-csv', methods=['GET'])
+def download_soldier_history_csv(force_id):
+    """Download CSV of soldier's survey history"""
+    db = get_connection()
+    cursor = db.cursor()
+    
+    try:
+        # Get survey history
+        query = """
+        SELECT 
+            ws.completion_timestamp,
+            ws.nlp_avg_score,
+            ws.image_avg_score,
+            ws.combined_avg_score,
+            q.title as questionnaire_title
+        FROM weekly_sessions ws
+        LEFT JOIN questionnaires q ON ws.questionnaire_id = q.questionnaire_id
+        WHERE ws.force_id = %s 
+        AND ws.status = 'completed'
+        AND ws.completion_timestamp IS NOT NULL
+        ORDER BY ws.completion_timestamp DESC
+        """
+        
+        cursor.execute(query, (force_id,))
+        surveys = cursor.fetchall()
+        
+        if not surveys:
+            return jsonify({"error": "No survey history found"}), 404
+        
+        # Create CSV
+        output = io.StringIO()
+        output.write('Date,Questionnaire,Text Score,Emotion Score,Combined Score\n')
+        
+        for survey in surveys:
+            date_str = survey[0].strftime("%Y-%m-%d %H:%M") if survey[0] else 'N/A'
+            questionnaire = (survey[4] or 'Unknown').replace(',', ';')
+            nlp = f"{survey[1]:.1f}" if survey[1] else '0.0'
+            emotion = f"{survey[2]:.1f}" if survey[2] else '0.0'
+            combined = f"{survey[3]:.1f}" if survey[3] else '0.0'
+            output.write(f'{date_str},{questionnaire},{nlp},{emotion},{combined}\n')
+        
+        # Convert to bytes
+        csv_bytes = io.BytesIO(output.getvalue().encode('utf-8'))
+        
+        return send_file(
+            csv_bytes,
+            mimetype='text/csv',
+            as_attachment=True,
+            download_name=f'survey_history_{force_id}.csv'
+        )
+        
+    except Exception as e:
+        logger.error(f"Error generating CSV for {force_id}: {e}")
         return jsonify({"error": str(e)}), 500
     finally:
         cursor.close()

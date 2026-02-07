@@ -27,6 +27,8 @@ const SoldierSurveyHistory: React.FC = () => {
     const [surveyHistory, setSurveyHistory] = useState<SurveyRecord[]>([]);
     const [totalSurveys, setTotalSurveys] = useState(0);
     const [error, setError] = useState<string>('');
+    const [downloadingPDF, setDownloadingPDF] = useState(false);
+    const [downloadingCSV, setDownloadingCSV] = useState(false);
 
     useEffect(() => {
         if (forceId) {
@@ -69,6 +71,47 @@ const SoldierSurveyHistory: React.FC = () => {
         });
     };
 
+    const downloadFile = (blob: Blob, filename: string) => {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+    };
+
+    const handleDownloadPDF = async () => {
+        if (!forceId) return;
+        setDownloadingPDF(true);
+        try {
+            const response = await apiService.downloadSoldierHistoryPDF(forceId);
+            const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+            downloadFile(response.data, `survey_history_${forceId}_${timestamp}.pdf`);
+        } catch (error: any) {
+            console.error('Error downloading PDF:', error);
+            alert('Failed to download PDF report. Please try again.');
+        } finally {
+            setDownloadingPDF(false);
+        }
+    };
+
+    const handleDownloadCSV = async () => {
+        if (!forceId) return;
+        setDownloadingCSV(true);
+        try {
+            const response = await apiService.downloadSoldierHistoryCSV(forceId);
+            const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+            downloadFile(response.data, `survey_history_${forceId}_${timestamp}.csv`);
+        } catch (error: any) {
+            console.error('Error downloading CSV:', error);
+            alert('Failed to download CSV report. Please try again.');
+        } finally {
+            setDownloadingCSV(false);
+        }
+    };
+
     return (
         <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
             <Sidebar />
@@ -104,9 +147,45 @@ const SoldierSurveyHistory: React.FC = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className="bg-gradient-to-r from-blue-100 to-purple-100 px-5 py-3 rounded-xl border border-blue-200">
-                                <span className="text-sm font-semibold text-gray-700">Total Surveys:</span>
-                                <span className="ml-2 text-xl font-bold text-blue-600">{totalSurveys}</span>
+                            <div className="flex gap-3 items-center">
+                                <div className="bg-gradient-to-r from-blue-100 to-purple-100 px-5 py-3 rounded-xl border border-blue-200">
+                                    <span className="text-sm font-semibold text-gray-700">Total Surveys:</span>
+                                    <span className="ml-2 text-xl font-bold text-blue-600">{totalSurveys}</span>
+                                </div>
+                                <button
+                                    onClick={handleDownloadPDF}
+                                    disabled={downloadingPDF || surveyHistory.length === 0}
+                                    className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-2.5 rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center text-sm"
+                                >
+                                    {downloadingPDF ? (
+                                        <>
+                                            <i className="fas fa-spinner fa-spin mr-2"></i>
+                                            Downloading...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <i className="fas fa-file-pdf mr-2"></i>
+                                            Download PDF
+                                        </>
+                                    )}
+                                </button>
+                                <button
+                                    onClick={handleDownloadCSV}
+                                    disabled={downloadingCSV || surveyHistory.length === 0}
+                                    className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2.5 rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center text-sm"
+                                >
+                                    {downloadingCSV ? (
+                                        <>
+                                            <i className="fas fa-spinner fa-spin mr-2"></i>
+                                            Downloading...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <i className="fas fa-file-csv mr-2"></i>
+                                            Download CSV
+                                        </>
+                                    )}
+                                </button>
                             </div>
                         </div>
                     </div>

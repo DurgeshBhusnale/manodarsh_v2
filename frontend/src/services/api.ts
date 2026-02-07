@@ -108,14 +108,14 @@ export const apiService = {
     
     getSoldiersData: (params?: {
         risk_level?: string;
-        days?: string;
+        date?: string;
         force_id?: string;
         page?: number;
         per_page?: number;
     }) => {
         const queryParams = new URLSearchParams();
         if (params?.risk_level) queryParams.append('risk_level', params.risk_level);
-        if (params?.days) queryParams.append('days', params.days);
+        if (params?.date) queryParams.append('date', params.date);
         if (params?.force_id) queryParams.append('force_id', params.force_id);
         if (params?.page) queryParams.append('page', params.page.toString());
         if (params?.per_page) queryParams.append('per_page', params.per_page.toString());
@@ -126,6 +126,18 @@ export const apiService = {
     // Get specific soldier's survey history
     getSoldierSurveyHistory: (forceId: string) =>
         api.get(`/admin/soldiers/${forceId}/survey-history`),
+    
+    // Download soldier survey history as PDF
+    downloadSoldierHistoryPDF: (forceId: string) =>
+        api.get(`/admin/soldiers/${forceId}/survey-history/download-pdf`, {
+            responseType: 'blob'
+        }),
+    
+    // Download soldier survey history as CSV
+    downloadSoldierHistoryCSV: (forceId: string) =>
+        api.get(`/admin/soldiers/${forceId}/survey-history/download-csv`, {
+            responseType: 'blob'
+        }),
     
     getAdminStats: () => 
         api.get('/admin/stats'),

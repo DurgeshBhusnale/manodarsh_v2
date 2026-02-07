@@ -478,6 +478,137 @@ def add_question():
         db.close()
 
 
+@admin_bp.route('/questions/<int:question_id>', methods=['PUT'])
+def update_question(question_id):
+    """Update an existing question (English text and auto-translate to Hindi)"""
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        data = request.json
+        question_text = data.get('question_text', '').strip()
+        
+        if not question_text:
+            return jsonify({"error": "Question text is required"}), 400
+        
+        # Check if question exists and get its questionnaire_id
+        cursor.execute("""
+            SELECT q.question_id, q.questionnaire_id, qn.status 
+            FROM questions q
+            JOIN questionnaires qn ON q.questionnaire_id = qn.questionnaire_id
+            WHERE q.question_id = %s
+        """, (question_id,))
+        
+        question_data = cursor.fetchone()
+        
+        if not question_data:
+            return jsonify({"error": "Question not found"}), 404
+        
+        questionnaire_status = question_data[2]
+        
+        # Check if questionnaire is active (don't allow editing active questionnaire questions)
+        if questionnaire_status == 'Active':
+            return jsonify({
+                "error": "Cannot edit questions from an active questionnaire. Please deactivate it first."
+            }), 400
+        
+        # Auto-translate to Hindi
+        try:
+            question_text_hindi = translate_to_hindi(question_text)
+        except Exception as translation_error:
+            logger.error(f"Translation error during question update: {translation_error}")
+            return jsonify({
+                "error": "Translation service failed. Please try again.",
+                "error_type": "TRANSLATION_ERROR"
+            }), 500
+        
+        # Update the question
+        cursor.execute("""
+            UPDATE questions 
+            SET question_text = %s, question_text_hindi = %s
+            WHERE question_id = %s
+        """, (question_text, question_text_hindi, question_id))
+        
+        db.commit()
+        
+        return jsonify({
+            "message": "Question updated successfully",
+            "id": question_id,
+            "question_text": question_text,
+            "question_text_hindi": question_text_hindi
+        }), 200
+
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error updating question: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
+@admin_bp.route('/questions/<int:question_id>', methods=['DELETE'])
+def delete_question(question_id):
+    """Delete an individual question from a questionnaire"""
+    db = get_connection()
+    cursor = db.cursor()
+
+    try:
+        # Check if question exists and get its questionnaire info
+        cursor.execute("""
+            SELECT q.question_id, q.questionnaire_id, qn.status, qn.total_questions
+            FROM questions q
+            JOIN questionnaires qn ON q.questionnaire_id = qn.questionnaire_id
+            WHERE q.question_id = %s
+        """, (question_id,))
+        
+        question_data = cursor.fetchone()
+        
+        if not question_data:
+            return jsonify({"error": "Question not found"}), 404
+        
+        questionnaire_id = question_data[1]
+        questionnaire_status = question_data[2]
+        total_questions = question_data[3]
+        
+        # Check if questionnaire is active
+        if questionnaire_status == 'Active':
+            return jsonify({
+                "error": "Cannot delete questions from an active questionnaire. Please deactivate it first."
+            }), 400
+        
+        # Prevent deletion if it's the only question
+        if total_questions <= 1:
+            return jsonify({
+                "error": "Cannot delete the only question. A questionnaire must have at least one question."
+            }), 400
+        
+        # Delete the question (CASCADE will handle related responses)
+        cursor.execute("DELETE FROM questions WHERE question_id = %s", (question_id,))
+        
+        # Update the total_questions count in questionnaires table
+        cursor.execute("""
+            UPDATE questionnaires 
+            SET total_questions = total_questions - 1
+            WHERE questionnaire_id = %s
+        """, (questionnaire_id,))
+        
+        db.commit()
+        
+        return jsonify({
+            "message": "Question deleted successfully",
+            "questionnaire_id": questionnaire_id
+        }), 200
+
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error deleting question: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
 @admin_bp.route('/soldiers-report', methods=['GET'])
 def get_soldiers_report():
     """Get real soldiers report data from database with filtering and pagination"""

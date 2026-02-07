@@ -40,8 +40,8 @@ def create_app():
     CORS(app, resources={
         r"/api/*": {
             "origins": [settings.FRONTEND_URL],
-            "methods": ["GET", "POST", "PUT", "DELETE"],
-            "allow_headers": ["Content-Type"],
+            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"],
             "supports_credentials": True  # Enable credentials for session cookies
         }
     })

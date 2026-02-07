@@ -167,6 +167,14 @@ export const apiService = {
     
     translateQuestion,
 
+    // Update individual question
+    updateQuestion: (questionId: number, data: { question_text: string }) =>
+        api.put(`/admin/questions/${questionId}`, data),
+    
+    // Delete individual question
+    deleteQuestion: (questionId: number) =>
+        api.delete(`/admin/questions/${questionId}`),
+
     // Activate questionnaire (only one active at a time)
     activateQuestionnaire: (id: string) =>
         api.post(`/survey/admin/questionnaires/${id}/activate`),

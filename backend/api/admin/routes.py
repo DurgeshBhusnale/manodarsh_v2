@@ -775,6 +775,67 @@ def get_soldiers_report():
         db.close()
 
 
+@admin_bp.route('/soldiers/<string:force_id>/survey-history', methods=['GET'])
+def get_soldier_survey_history(force_id):
+    """Get all survey responses for a specific soldier"""
+    db = get_connection()
+    cursor = db.cursor()
+    
+    try:
+        # Verify soldier exists
+        cursor.execute("SELECT force_id FROM users WHERE force_id = %s", (force_id,))
+        if not cursor.fetchone():
+            return jsonify({"error": "Soldier not found"}), 404
+        
+        # Get all completed surveys for this soldier with questionnaire details
+        query = """
+        SELECT 
+            ws.session_id,
+            ws.completion_timestamp,
+            ws.nlp_avg_score,
+            ws.image_avg_score,
+            ws.combined_avg_score,
+            ws.mental_state_score,
+            q.title as questionnaire_title,
+            q.questionnaire_id
+        FROM weekly_sessions ws
+        LEFT JOIN questionnaires q ON ws.questionnaire_id = q.questionnaire_id
+        WHERE ws.force_id = %s 
+        AND ws.status = 'completed'
+        AND ws.completion_timestamp IS NOT NULL
+        ORDER BY ws.completion_timestamp DESC
+        """
+        
+        cursor.execute(query, (force_id,))
+        surveys = cursor.fetchall()
+        
+        survey_history = []
+        for survey in surveys:
+            survey_history.append({
+                'session_id': survey[0],
+                'completion_date': survey[1].strftime("%Y-%m-%d %H:%M:%S") if survey[1] else None,
+                'nlp_score': round(survey[2], 2) if survey[2] else 0,
+                'emotion_score': round(survey[3], 2) if survey[3] else 0,
+                'combined_score': round(survey[4], 2) if survey[4] else 0,
+                'mental_state_score': survey[5],
+                'questionnaire_title': survey[6] or 'Unknown',
+                'questionnaire_id': survey[7]
+            })
+        
+        return jsonify({
+            'force_id': force_id,
+            'survey_history': survey_history,
+            'total_surveys': len(survey_history)
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Error fetching survey history for {force_id}: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
 @admin_bp.route('/dashboard-stats', methods=['GET'])
 def get_dashboard_stats():
     """Get real dashboard statistics from database"""

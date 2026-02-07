@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
 import { apiService } from '../../services/api';
 
@@ -95,6 +96,7 @@ interface SoldiersResponse {
 }
 
 const SoldiersData: React.FC = () => {
+    const navigate = useNavigate();
     const [filter, setFilter] = useState('all');
     const [daysFilter, setDaysFilter] = useState('7');
     const [forceIdFilter, setForceIdFilter] = useState('');
@@ -501,7 +503,11 @@ const SoldiersData: React.FC = () => {
                                         </tr>
                                     ) : (
                                         soldiersData.map((soldier, index) => (
-                                            <tr key={soldier.force_id} className={`hover:bg-blue-50/50 transition-colors duration-200 ${index % 2 === 0 ? 'bg-white/30' : 'bg-gray-50/30'}`}>
+                                            <tr 
+                                                key={soldier.force_id} 
+                                                onClick={() => navigate(`/admin/soldiers/${soldier.force_id}/history`)}
+                                                className={`hover:bg-blue-50/50 transition-colors duration-200 cursor-pointer ${index % 2 === 0 ? 'bg-white/30' : 'bg-gray-50/30'}`}
+                                            >
                                                 {/* Soldier Info */}
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <div className="flex items-center">

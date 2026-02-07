@@ -123,6 +123,10 @@ export const apiService = {
         return api.get(`/admin/soldiers-report?${queryParams.toString()}`);
     },
     
+    // Get specific soldier's survey history
+    getSoldierSurveyHistory: (forceId: string) =>
+        api.get(`/admin/soldiers/${forceId}/survey-history`),
+    
     getAdminStats: () => 
         api.get('/admin/stats'),
 

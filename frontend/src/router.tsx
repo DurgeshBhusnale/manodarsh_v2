@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import AdminDashboard from './pages/admin/dashboard';
 import AddSoldier from './pages/admin/add-soldier';
 import SoldiersData from './pages/admin/soldiers-data';
+import SoldierSurveyHistory from './pages/admin/soldier-history';
 import QuestionnairePage from './pages/admin/create_questionnaire';
 import AdminQuestionnaires from './pages/admin/questionnaires';
 import AdminSettings from './pages/admin/settings';
@@ -60,6 +61,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute requiredRole="admin">
         <SoldiersData />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/soldiers/:forceId/history',
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <SoldierSurveyHistory />
       </ProtectedRoute>
     ),
   },

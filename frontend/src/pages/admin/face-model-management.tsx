@@ -304,12 +304,13 @@ const FaceModelManagement: React.FC = () => {
                     Delete Selected ({selectedSoldiers.size})
                   </button>
                 )}
-                <button
+                {/* PHASE 1: Export Model button hidden - functionality preserved for future use */}
+                {/* <button
                   onClick={exportModelData}
                   className="px-3 py-2 text-sm bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 font-semibold shadow-md hover:shadow-lg"
                 >
                   Export Model
-                </button>
+                </button> */}
                 <button
                   onClick={fetchSoldiersData}
                   className="px-3 py-2 text-sm bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all duration-200 font-semibold shadow-md hover:shadow-lg"

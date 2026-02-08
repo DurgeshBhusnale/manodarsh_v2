@@ -66,6 +66,16 @@ backend/enhanced_face_recognition_training.log
 # Process ID files
 deployment/system.pid
 
+# PyInstaller build artifacts
+deployment/build/
+deployment/dist/
+deployment/*.spec
+deployment/*.exe
+deployment/*.toc
+deployment/*.pyz
+deployment/*.pkg
+deployment/*.zip
+*.pyc
 
 # IDE specific files
 .idea/

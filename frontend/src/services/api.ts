@@ -139,6 +139,10 @@ export const apiService = {
             responseType: 'blob'
         }),
     
+    // Delete a specific survey session
+    deleteSoldierSession: (forceId: string, sessionId: number) =>
+        api.delete(`/admin/soldiers/${forceId}/sessions/${sessionId}`),
+    
     getAdminStats: () => 
         api.get('/admin/stats'),
 

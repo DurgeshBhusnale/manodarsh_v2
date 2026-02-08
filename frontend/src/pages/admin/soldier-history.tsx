@@ -29,6 +29,9 @@ const SoldierSurveyHistory: React.FC = () => {
     const [error, setError] = useState<string>('');
     const [downloadingPDF, setDownloadingPDF] = useState(false);
     const [downloadingCSV, setDownloadingCSV] = useState(false);
+    const [deletingSessionId, setDeletingSessionId] = useState<number | null>(null);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [deleteError, setDeleteError] = useState<string>('');
 
     useEffect(() => {
         if (forceId) {
@@ -110,6 +113,37 @@ const SoldierSurveyHistory: React.FC = () => {
         } finally {
             setDownloadingCSV(false);
         }
+    };
+
+    const handleDeleteClick = (sessionId: number) => {
+        setDeletingSessionId(sessionId);
+        setShowDeleteConfirm(true);
+        setDeleteError('');
+    };
+
+    const handleDeleteConfirm = async () => {
+        if (!forceId || !deletingSessionId) return;
+        
+        try {
+            await apiService.deleteSoldierSession(forceId, deletingSessionId);
+            
+            // Remove the deleted session from the list
+            setSurveyHistory(prev => prev.filter(s => s.session_id !== deletingSessionId));
+            setTotalSurveys(prev => prev - 1);
+            
+            setShowDeleteConfirm(false);
+            setDeletingSessionId(null);
+            setDeleteError('');
+        } catch (error: any) {
+            console.error('Error deleting session:', error);
+            setDeleteError(error.response?.data?.error || 'Failed to delete survey record');
+        }
+    };
+
+    const handleDeleteCancel = () => {
+        setShowDeleteConfirm(false);
+        setDeletingSessionId(null);
+        setDeleteError('');
     };
 
     return (
@@ -243,6 +277,9 @@ const SoldierSurveyHistory: React.FC = () => {
                                             <th className="px-6 py-4 text-center text-sm font-bold text-gray-700 uppercase tracking-wider">
                                                 Risk Level
                                             </th>
+                                            <th className="px-6 py-4 text-center text-sm font-bold text-gray-700 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white/50 divide-y divide-gray-200">
@@ -307,6 +344,15 @@ const SoldierSurveyHistory: React.FC = () => {
                                                             {riskLevel.label}
                                                         </span>
                                                     </td>
+                                                    <td className="px-6 py-4 text-center">
+                                                        <button
+                                                            onClick={() => handleDeleteClick(survey.session_id)}
+                                                            className="text-red-600 hover:text-red-800 transition-colors"
+                                                            title="Delete Survey Record"
+                                                        >
+                                                            <i className="fas fa-trash text-lg"></i>
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             );
                                         })}
@@ -315,6 +361,45 @@ const SoldierSurveyHistory: React.FC = () => {
                             </div>
                         )}
                     </div>
+
+                    {/* Delete Confirmation Modal */}
+                    {showDeleteConfirm && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                            <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
+                                <div className="text-center">
+                                    <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-4">
+                                        <i className="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">Delete Survey Record</h3>
+                                    <p className="text-gray-600 mb-6">
+                                        Are you sure you want to delete this survey record? This will permanently remove all associated data including responses and cannot be undone.
+                                    </p>
+                                    
+                                    {deleteError && (
+                                        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                                            <p className="text-sm text-red-600">{deleteError}</p>
+                                        </div>
+                                    )}
+
+                                    <div className="flex gap-3 justify-center">
+                                        <button
+                                            onClick={handleDeleteCancel}
+                                            className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+                                        >
+                                            Cancel
+                                        </button>
+                                        <button
+                                            onClick={handleDeleteConfirm}
+                                            className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+                                        >
+                                            <i className="fas fa-trash mr-2"></i>
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

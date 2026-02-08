@@ -975,6 +975,48 @@ def download_soldier_history_csv(force_id):
         db.close()
 
 
+@admin_bp.route('/soldiers/<string:force_id>/sessions/<int:session_id>', methods=['DELETE'])
+def delete_soldier_session(force_id, session_id):
+    """Delete a specific survey session and all related data"""
+    db = get_connection()
+    cursor = db.cursor()
+    
+    try:
+        # Verify the session exists and belongs to this soldier
+        cursor.execute("""
+            SELECT session_id, force_id 
+            FROM weekly_sessions 
+            WHERE session_id = %s AND force_id = %s
+        """, (session_id, force_id))
+        
+        session = cursor.fetchone()
+        
+        if not session:
+            return jsonify({"error": "Session not found or does not belong to this soldier"}), 404
+        
+        # Delete the session - CASCADE will automatically delete:
+        # - question_responses (FK: session_id)
+        # - mental_state_responses (FK: session_id)
+        cursor.execute("DELETE FROM weekly_sessions WHERE session_id = %s", (session_id,))
+        
+        db.commit()
+        
+        logger.info(f"Deleted session {session_id} for soldier {force_id}")
+        
+        return jsonify({
+            "message": "Survey record deleted successfully",
+            "session_id": session_id
+        }), 200
+        
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error deleting session {session_id} for {force_id}: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
+
+
 @admin_bp.route('/dashboard-stats', methods=['GET'])
 def get_dashboard_stats():
     """Get real dashboard statistics from database"""

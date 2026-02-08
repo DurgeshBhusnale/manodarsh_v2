@@ -1,6 +1,5 @@
 """
-SATHI Wellness System Launcher
-Single-click solution for SATHI personnel
+SATHI System Launcher
 """
 
 import subprocess
@@ -295,7 +294,7 @@ class CRPFSystemLauncher:
     def stop_system(self):
         """Stop the SATHI system"""
         print("=" * 60)
-        print("⏹️  STOPPING SATHI SYSTEM")
+        print("⏹️  STOPPING SATHI WELLNESS SYSTEM")
         print("=" * 60)
         
         stopped_any = False

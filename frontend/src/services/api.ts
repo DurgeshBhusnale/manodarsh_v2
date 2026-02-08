@@ -248,7 +248,7 @@ export const apiService = {
         return api.post('/admin/download-soldiers-pdf', {
             soldiers,
             filters,
-            report_title: reportTitle || 'Soldiers Mental Health Report'
+            report_title: reportTitle || 'Users Survey Report'
         }, {
             responseType: 'blob'  // Important for file download
         });

@@ -761,7 +761,7 @@ def get_soldiers_report():
                 "date": date_filter if date_filter else datetime.now().strftime('%Y-%m-%d'),
                 "force_id": force_id_filter
             },
-            "message": "Real soldiers data fetched successfully"
+            "message": "Real users data fetched successfully"
         }), 200
         
     except Exception as e:
@@ -1432,7 +1432,7 @@ def download_soldiers_pdf():
         data = request.json
         soldiers_data = data.get('soldiers', [])
         filters = data.get('filters', {})
-        report_title = data.get('report_title', 'Users Mental Health Report')
+        report_title = data.get('report_title', 'Users Survey Report')
         
         if not soldiers_data:
             return jsonify({'error': 'No Users data provided'}), 400
@@ -1484,8 +1484,8 @@ def download_soldiers_pdf():
         # Table headers with enhanced design
         pdf.set_font('Arial', 'B', 9)
         
-        # Updated header row - removed "Name" and "Mental State", added "Questionnaire", adjusted widths
-        col_widths = [30, 25, 30, 25, 25, 30, 35]  # Adjusted column widths
+        # Updated header row - adjusted widths to fit within page (total = 190)
+        col_widths = [25, 22, 28, 23, 25, 30, 37]  # Total = 190 (fits page width)
         headers = ['User ID', 'Risk Level', 'Combined Score', 'NLP Score', 'Image Score', 'Last Survey', 'Questionnaire']
         
         # Header background
@@ -1504,8 +1504,8 @@ def download_soldiers_pdf():
         
         for i, soldier in enumerate(soldiers_data):
             # Handle potential None values and format data
-            force_id = str(soldier.get('force_id', 'N/A'))[:15]  # Allow more space
-            risk_level = str(soldier.get('risk_level', 'N/A'))
+            force_id = str(soldier.get('force_id', 'N/A'))[:12]  # Fit in 25 width
+            risk_level = str(soldier.get('risk_level', 'N/A'))[:10]  # Fit in 22 width
             
             # Better formatting for combined score with proper wrapping
             combined_score_val = soldier.get('combined_score', 0)
@@ -1514,7 +1514,7 @@ def download_soldiers_pdf():
             nlp_score = f"{soldier.get('nlp_score', 0):.3f}"
             image_score = f"{soldier.get('image_score', 0):.3f}"
             last_survey = str(soldier.get('last_survey_date', 'N/A'))[:12] if soldier.get('last_survey_date') else 'N/A'
-            questionnaire = str(soldier.get('questionnaire_title', 'N/A'))[:20] if soldier.get('questionnaire_title') else 'N/A'
+            questionnaire = str(soldier.get('questionnaire_title', 'N/A'))[:22] if soldier.get('questionnaire_title') else 'N/A'  # Fit in 37 width
             
             # Alternating row colors for better readability
             if i % 2 == 0:

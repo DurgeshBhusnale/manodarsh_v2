@@ -269,8 +269,8 @@ const SoldiersData: React.FC = () => {
                                 </div>
                             </div>
                             <div>
-                                <h1 className="text-2xl font-bold text-black tracking-tight">Users Mental Health Report</h1>
-                                <p className="text-gray-600 text-sm mt-1">Monitor and analyze soldier mental health data</p>
+                                <h1 className="text-2xl font-bold text-black tracking-tight">Users Survey Report</h1>
+                                <p className="text-gray-600 text-sm mt-1">Monitor and analyze user's survey data</p>
                             </div>
                         </div>
                     </div>

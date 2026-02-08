@@ -1,6 +1,6 @@
 """
-CRPF Mental Health System Launcher
-Single-click solution for CRPF personnel
+SATHI Wellness System Launcher
+Single-click solution for SATHI personnel
 """
 
 import subprocess
@@ -182,7 +182,7 @@ class CRPFSystemLauncher:
     
     def start_frontend(self):
         """Start React frontend"""
-        print("🌐 Starting CRPF Frontend...")
+        print("🌐 Starting SATHI Frontend...")
         
         frontend_path = self.project_root / "frontend"
         
@@ -252,15 +252,14 @@ class CRPFSystemLauncher:
     def open_browser(self):
         """Open system in default browser"""
         if self.config['services']['browser']['auto_open']:
-            print("🌍 Opening CRPF Mental Health System...")
+            print("🌍 Opening SATHI System...")
             time.sleep(2)  # Small delay before opening browser
             webbrowser.open(self.config['services']['browser']['url'])
     
     def start_system(self):
-        """Start the complete CRPF system"""
+        """Start the complete SATHI system"""
         print("=" * 60)
-        print("🏛️  CRPF MENTAL HEALTH & WELLNESS SYSTEM")
-        print("    Central Reserve Police Force")
+        print("🏛️  SATHI WELLNESS SYSTEM")
         print("=" * 60)
         print("⚡ Initializing system startup...")
         
@@ -280,9 +279,9 @@ class CRPFSystemLauncher:
             self.open_browser()
             
             print("=" * 60)
-            print("✅ CRPF SYSTEM SUCCESSFULLY STARTED!")
+            print("✅ SATHI SYSTEM SUCCESSFULLY STARTED!")
             print("🌐 Website URL: http://localhost:3000")
-            print("👨‍💼 Ready for CRPF personnel access")
+            print("👨‍💼 Ready for SATHI personnel access")
             print("=" * 60)
             
             # Keep the launcher running with clear instructions
@@ -294,9 +293,9 @@ class CRPFSystemLauncher:
             input("Press Enter to exit...")
     
     def stop_system(self):
-        """Stop the CRPF system"""
+        """Stop the SATHI system"""
         print("=" * 60)
-        print("⏹️  STOPPING CRPF MENTAL HEALTH SYSTEM")
+        print("⏹️  STOPPING SATHI SYSTEM")
         print("=" * 60)
         
         stopped_any = False
@@ -390,7 +389,7 @@ class CRPFSystemLauncher:
         
         if stopped_any:
             print("=" * 60)
-            print("✅ CRPF SYSTEM STOPPED SUCCESSFULLY!")
+            print("✅ SATHI SYSTEM STOPPED SUCCESSFULLY!")
         else:
             print("ℹ️  No running processes found to stop")
         
@@ -429,7 +428,7 @@ class CRPFSystemLauncher:
             # Check if we're running as EXE
             if getattr(sys, 'frozen', False):
                 # EXE mode - show message and auto-close after delay
-                print("💡 CRPF SYSTEM CONTROL:")
+                print("💡 SATHI SYSTEM CONTROL:")
                 print("   ✅ System is running successfully!")
                 print("   🌐 Browser opened at: http://localhost:3000")
                 print("   🔄 To STOP: Double-click the EXE icon again")
@@ -457,7 +456,7 @@ class CRPFSystemLauncher:
                     
                     try:
                         # Simple input wait - user can press ENTER to shutdown gracefully
-                        input("⏳ CRPF System is running. Press ENTER to SHUTDOWN... ")
+                        input("⏳ SATHI System is running. Press ENTER to SHUTDOWN... ")
                         print("\n🛑 Graceful shutdown initiated...")
                         
                     except KeyboardInterrupt:
@@ -465,7 +464,7 @@ class CRPFSystemLauncher:
                 else:
                     # Fallback - just wait and let user kill the process
                     import time
-                    print("CRPF System running. Use Task Manager to stop if needed.")
+                    print("SATHI System running. Use Task Manager to stop if needed.")
                     time.sleep(3600)  # Wait 1 hour before auto-shutdown
         
         except Exception as e:
@@ -481,7 +480,7 @@ class CRPFSystemLauncher:
     def run(self):
         """Main entry point"""
         if self.is_system_running():
-            print("CRPF Mental Health System is currently running.")
+            print("SATHI Wellness System is currently running.")
             
             # For EXE mode, auto-stop after showing message
             if getattr(sys, 'frozen', False):

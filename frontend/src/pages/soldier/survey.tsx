@@ -49,7 +49,7 @@ const SurveyPage: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [loadingProgress, setLoadingProgress] = useState({ step: 'Initializing...', progress: 0 });
     const [isAnswering, setIsAnswering] = useState(false);
-    const [language, setLanguage] = useState<'en' | 'hi'>('en');
+    const [language, setLanguage] = useState<'en' | 'hi'>('hi');
     const [recordedText, setRecordedText] = useState('');
     const [capturedText, setCapturedText] = useState('');
     const [textInput, setTextInput] = useState(''); // Combined text input state

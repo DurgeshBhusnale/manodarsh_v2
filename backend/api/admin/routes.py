@@ -1156,6 +1156,13 @@ def get_dashboard_stats():
                        ROW_NUMBER() OVER (PARTITION BY force_id ORDER BY completion_timestamp DESC) as rn
                 FROM weekly_sessions 
                 WHERE completion_timestamp IS NOT NULL
+                  AND questionnaire_id = (
+                      SELECT questionnaire_id
+                      FROM questionnaires
+                      WHERE status = 'Active'
+                      ORDER BY created_at DESC
+                      LIMIT 1
+                  )
             ) ws ON u.force_id = ws.force_id AND ws.rn = 1
             WHERE u.user_type = 'soldier'
         """)

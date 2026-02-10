@@ -200,6 +200,14 @@ const AdminSettings: React.FC = () => {
         return baseProps;
     };
 
+    const getSettingDescription = (setting: Setting) => {
+        if (!setting.description) return '';
+        if (setting.category === 'scoring' || setting.category === 'risk') {
+            return `${setting.description} Value must be 0-1.`;
+        }
+        return setting.description;
+    };
+
     if (loading) {
         return (
             <div className="flex h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
@@ -381,7 +389,7 @@ const AdminSettings: React.FC = () => {
                                                 <div className="mt-2 p-2 bg-blue-50/80 border border-blue-200 rounded-md">
                                                     <div className="flex items-start">
                                                         <i className="fas fa-info-circle text-blue-600 mr-2 mt-0.5 text-xs"></i>
-                                                        <p className="text-blue-800 text-xs font-medium">{setting.description}</p>
+                                                        <p className="text-blue-800 text-xs font-medium">{getSettingDescription(setting)}</p>
                                                     </div>
                                                 </div>
                                             )}

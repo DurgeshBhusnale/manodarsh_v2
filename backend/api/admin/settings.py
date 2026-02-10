@@ -177,12 +177,6 @@ def get_settings_categories():
             'icon': 'chart-bar'
         },
         {
-            'id': 'security',
-            'name': 'Security & Authentication',
-            'description': 'Session management and security settings',
-            'icon': 'shield-check'
-        },
-        {
             'id': 'camera',
             'name': 'Camera & Detection',
             'description': 'Emotion detection and camera configuration',

@@ -3,7 +3,7 @@ REM ============================================================================
 REM Project Update Script for Client Deployment
 REM ============================================================================
 REM This script automates the update workflow:
-REM 1. Pull latest changes from complete-stable branch
+REM 1. Fetch and switch to the GitHub default branch, then pull latest changes
 REM 2. Build frontend with npm
 REM 3. Clean deployment artifacts
 REM 4. Create executable
@@ -24,9 +24,9 @@ set "PROJECT_ROOT=%~dp0"
 cd /d "%PROJECT_ROOT%"
 
 REM ============================================================================
-REM Step 1: Git Pull from complete-stable Branch
+REM Step 1: Git Fetch and Sync to Default Branch
 REM ============================================================================
-echo [Step 1/4] Pulling latest changes from complete-stable branch...
+echo [Step 1/4] Syncing with default branch...
 echo ----------------------------------------------------------------------------
 
 REM Check if .git directory exists
@@ -36,20 +36,22 @@ if not exist ".git" (
     goto :error
 )
 
-REM Fetch and pull from complete-stable branch
+REM Fetch all commits and metadata
 git fetch origin
 if errorlevel 1 (
     echo ERROR: Failed to fetch from remote repository.
     goto :error
 )
 
-git pull origin complete-stable
-if errorlevel 1 (
-    echo ERROR: Failed to pull changes from complete-stable branch.
-    goto :error
-)
+REM Update origin/HEAD and get default branch name
+git remote set-head origin -a
+for /f "tokens=2 delims=/" %%i in ('git symbolic-ref --short refs/remotes/origin/HEAD') do set DEFAULT_BRANCH=%%i
 
-echo SUCCESS: Code updated successfully.
+REM Switch and pull from default branch
+git switch %DEFAULT_BRANCH%
+git pull
+
+echo SUCCESS: Synced with branch %DEFAULT_BRANCH%.
 echo.
 
 REM ============================================================================
@@ -164,7 +166,7 @@ echo                    UPDATE COMPLETED SUCCESSFULLY!
 echo ============================================================================
 echo.
 echo All steps completed:
-echo   [OK] Git pull from complete-stable branch
+echo   [OK] Synced with default branch
 echo   [OK] Frontend build
 echo   [OK] Deployment artifacts cleaned
 echo   [OK] Executable created

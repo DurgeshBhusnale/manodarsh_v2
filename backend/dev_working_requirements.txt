@@ -52,7 +52,7 @@ importlib_metadata==8.4.0
 itsdangerous==2.2.0
 Jinja2==3.1.6
 joblib==1.4.2
-Keras==2.6.0rc3
+Keras==3.13.2
 Keras-Preprocessing==1.1.2
 llvmlite==0.39.1
 Markdown==3.3.4

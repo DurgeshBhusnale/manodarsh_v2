@@ -12,6 +12,7 @@ interface SurveyRecord {
     mental_state_score: number;
     questionnaire_title: string;
     questionnaire_id: number;
+    risk_level?: string;
 }
 
 interface SurveyHistoryResponse {
@@ -57,9 +58,22 @@ const SoldierSurveyHistory: React.FC = () => {
     };
 
     const getRiskLevel = (score: number): { label: string; color: string } => {
-        if (score >= 70) return { label: 'CRITICAL', color: 'bg-red-100 text-red-800 border-red-200' };
-        if (score >= 50) return { label: 'HIGH', color: 'bg-orange-100 text-orange-800 border-orange-200' };
-        if (score >= 30) return { label: 'MEDIUM', color: 'bg-yellow-100 text-yellow-800 border-yellow-200' };
+        // Support both 0-1 and 0-100 score scales as a fallback
+        const isPercentScale = score > 10;
+        const s = isPercentScale ? score : score * 100;
+
+        if (s >= 70) return { label: 'CRITICAL', color: 'bg-red-100 text-red-800 border-red-200' };
+        if (s >= 50) return { label: 'HIGH', color: 'bg-orange-100 text-orange-800 border-orange-200' };
+        if (s >= 30) return { label: 'MEDIUM', color: 'bg-yellow-100 text-yellow-800 border-yellow-200' };
+        return { label: 'LOW', color: 'bg-green-100 text-green-800 border-green-200' };
+    };
+
+    const mapRiskLabelToBadge = (risk?: string): { label: string; color: string } => {
+        if (!risk) return { label: 'LOW', color: 'bg-green-100 text-green-800 border-green-200' };
+        const r = risk.toUpperCase();
+        if (r === 'CRITICAL') return { label: 'CRITICAL', color: 'bg-red-100 text-red-800 border-red-200' };
+        if (r === 'HIGH') return { label: 'HIGH', color: 'bg-orange-100 text-orange-800 border-orange-200' };
+        if (r === 'MID' || r === 'MEDIUM') return { label: 'MID', color: 'bg-yellow-100 text-yellow-800 border-yellow-200' };
         return { label: 'LOW', color: 'bg-green-100 text-green-800 border-green-200' };
     };
 
@@ -284,7 +298,7 @@ const SoldierSurveyHistory: React.FC = () => {
                                     </thead>
                                     <tbody className="bg-white/50 divide-y divide-gray-200">
                                         {surveyHistory.map((survey, index) => {
-                                            const riskLevel = getRiskLevel(survey.combined_score);
+                                            const riskLevel = survey.risk_level ? mapRiskLabelToBadge(survey.risk_level) : getRiskLevel(survey.combined_score);
                                             return (
                                                 <tr
                                                     key={survey.session_id}

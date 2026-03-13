@@ -808,15 +808,31 @@ def get_soldier_survey_history(force_id):
         
         survey_history = []
         for survey in surveys:
+            # Compute risk level using dynamic thresholds (same logic as soldiers-report)
+            from api.survey.routes import get_dynamic_risk_thresholds
+
+            combined_score_val = survey[4] if survey[4] is not None else 0
+            risk_thresholds = get_dynamic_risk_thresholds()
+
+            if combined_score_val >= risk_thresholds.get('CRITICAL', 0.85):
+                risk_level_calc = 'CRITICAL'
+            elif combined_score_val >= risk_thresholds.get('HIGH', 0.7):
+                risk_level_calc = 'HIGH'
+            elif combined_score_val >= risk_thresholds.get('MEDIUM', 0.5):
+                risk_level_calc = 'MID'
+            else:
+                risk_level_calc = 'LOW'
+
             survey_history.append({
                 'session_id': survey[0],
                 'completion_date': survey[1].strftime("%Y-%m-%d %H:%M:%S") if survey[1] else None,
                 'nlp_score': round(survey[2], 2) if survey[2] else 0,
                 'emotion_score': round(survey[3], 2) if survey[3] else 0,
-                'combined_score': round(survey[4], 2) if survey[4] else 0,
+                'combined_score': round(combined_score_val, 2) if combined_score_val else 0,
                 'mental_state_score': survey[5],
                 'questionnaire_title': survey[6] or 'Unknown',
-                'questionnaire_id': survey[7]
+                'questionnaire_id': survey[7],
+                'risk_level': risk_level_calc
             })
         
         return jsonify({

@@ -273,7 +273,11 @@
  [],
  False,
  False,
+<<<<<<< HEAD
  1770574150,
+=======
+ 1773390870,
+>>>>>>> d280b98949d43300f4e6e9899702a37129708265
  [('run.exe',
    'D:\\Manodarsh\\backend\\venv\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
    'EXECUTABLE')],

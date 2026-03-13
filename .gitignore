@@ -11,6 +11,8 @@
 ## production
 /frontend/build
 /frontend/dist
+/deployment/build
+/deployment/dist
 
 ## misc
 /frontend/.DS_Store

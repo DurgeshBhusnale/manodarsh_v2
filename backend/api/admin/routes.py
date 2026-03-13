@@ -808,15 +808,31 @@ def get_soldier_survey_history(force_id):
         
         survey_history = []
         for survey in surveys:
+            # Compute risk level using dynamic thresholds (same logic as soldiers-report)
+            from api.survey.routes import get_dynamic_risk_thresholds
+
+            combined_score_val = survey[4] if survey[4] is not None else 0
+            risk_thresholds = get_dynamic_risk_thresholds()
+
+            if combined_score_val >= risk_thresholds.get('CRITICAL', 0.85):
+                risk_level_calc = 'CRITICAL'
+            elif combined_score_val >= risk_thresholds.get('HIGH', 0.7):
+                risk_level_calc = 'HIGH'
+            elif combined_score_val >= risk_thresholds.get('MEDIUM', 0.5):
+                risk_level_calc = 'MID'
+            else:
+                risk_level_calc = 'LOW'
+
             survey_history.append({
                 'session_id': survey[0],
                 'completion_date': survey[1].strftime("%Y-%m-%d %H:%M:%S") if survey[1] else None,
                 'nlp_score': round(survey[2], 2) if survey[2] else 0,
                 'emotion_score': round(survey[3], 2) if survey[3] else 0,
-                'combined_score': round(survey[4], 2) if survey[4] else 0,
+                'combined_score': round(combined_score_val, 2) if combined_score_val else 0,
                 'mental_state_score': survey[5],
                 'questionnaire_title': survey[6] or 'Unknown',
-                'questionnaire_id': survey[7]
+                'questionnaire_id': survey[7],
+                'risk_level': risk_level_calc
             })
         
         return jsonify({
@@ -862,32 +878,98 @@ def download_soldier_history_pdf(force_id):
         if not surveys:
             return jsonify({"error": "No survey history found"}), 404
         
-        # Create PDF
+        # Create PDF with enhanced design (match users report styling)
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font('Arial', 'B', 16)
-        pdf.cell(0, 10, f'Survey History - {force_id}', 0, 1, 'C')
+
+        # Header background
+        pdf.set_fill_color(41, 128, 185)  # Professional blue
+        pdf.rect(10, 10, 190, 25, 'F')
+
+        # Title
+        pdf.set_text_color(255, 255, 255)
+        pdf.set_font('Arial', 'B', 18)
+        pdf.set_xy(10, 18)
+        pdf.cell(190, 10, "Survey History Report", 0, 1, 'C')
+
+        # Reset text color
+        pdf.set_text_color(0, 0, 0)
         pdf.ln(10)
-        
-        # Table header
+
+        # Metadata box
         pdf.set_font('Arial', 'B', 10)
-        pdf.cell(45, 10, 'Date', 1)
-        pdf.cell(45, 10, 'Questionnaire', 1)
-        pdf.cell(30, 10, 'Text Score', 1)
-        pdf.cell(35, 10, 'Emotion Score', 1)
-        pdf.cell(35, 10, 'Combined Score', 1)
+        pdf.set_fill_color(245, 245, 245)
+        pdf.rect(10, pdf.get_y(), 190, 15, 'F')
+        pdf.cell(95, 5, f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", 0, 0)
+        pdf.cell(95, 5, f"Total Surveys: {len(surveys)}", 0, 1)
+        pdf.ln(12)
+
+        # Table headers
+        pdf.set_font('Arial', 'B', 9)
+        col_widths = [40, 55, 28, 32, 35]  # Total = 190
+        headers = ['Date', 'Questionnaire', 'Text Score', 'Emotion Score', 'Combined Score']
+
+        pdf.set_fill_color(52, 73, 94)
+        pdf.set_text_color(255, 255, 255)
+        for i, header in enumerate(headers):
+            pdf.cell(col_widths[i], 10, header, 1, 0, 'C', True)
         pdf.ln()
-        
+
+        pdf.set_text_color(0, 0, 0)
+        pdf.set_font('Arial', '', 8)
+
         # Table rows
-        pdf.set_font('Arial', '', 9)
-        for survey in surveys:
+        for i, survey in enumerate(surveys):
             date_str = survey[0].strftime("%Y-%m-%d %H:%M") if survey[0] else 'N/A'
-            pdf.cell(45, 10, date_str, 1)
-            pdf.cell(45, 10, (survey[4] or 'Unknown')[:20], 1)
-            pdf.cell(30, 10, f"{survey[1]:.1f}" if survey[1] else '0.0', 1)
-            pdf.cell(35, 10, f"{survey[2]:.1f}" if survey[2] else '0.0', 1)
-            pdf.cell(35, 10, f"{survey[3]:.1f}" if survey[3] else '0.0', 1)
+            questionnaire = (survey[4] or 'Unknown')[:30]
+            text_score = f"{survey[1]:.2f}" if survey[1] else '0.00'
+            emotion_score = f"{survey[2]:.2f}" if survey[2] else '0.00'
+            combined_score = f"{survey[3]:.2f}" if survey[3] else '0.00'
+
+            # Alternating row colors
+            if i % 2 == 0:
+                pdf.set_fill_color(249, 249, 249)
+            else:
+                pdf.set_fill_color(255, 255, 255)
+
+            row_data = [date_str, questionnaire, text_score, emotion_score, combined_score]
+            for j, cell_data in enumerate(row_data):
+                pdf.cell(col_widths[j], 8, cell_data, 1, 0, 'C', fill=True)
             pdf.ln()
+
+        # Summary section
+        pdf.ln(10)
+        pdf.set_font('Arial', 'B', 14)
+        pdf.set_fill_color(52, 152, 219)
+        pdf.set_text_color(255, 255, 255)
+        pdf.rect(10, pdf.get_y(), 190, 10, 'F')
+        pdf.cell(0, 10, "Summary Statistics", 0, 1, 'C')
+        pdf.set_text_color(0, 0, 0)
+        pdf.ln(2)
+
+        total_surveys = len(surveys)
+        total_combined = 0
+        valid_scores = 0
+        for survey in surveys:
+            combined_val = survey[3]
+            if combined_val:
+                total_combined += combined_val
+                valid_scores += 1
+        avg_combined = total_combined / valid_scores if valid_scores > 0 else 0
+
+        pdf.set_font('Arial', 'B', 11)
+        pdf.set_fill_color(240, 248, 255)
+        pdf.rect(10, pdf.get_y(), 190, 6, 'F')
+        pdf.cell(0, 6, f"User ID: {force_id}", 0, 1)
+
+        pdf.set_font('Arial', '', 10)
+        pdf.set_fill_color(240, 248, 255)
+        pdf.rect(10, pdf.get_y(), 190, 5, 'F')
+        pdf.cell(0, 5, f"Total Surveys: {total_surveys}", 0, 1)
+
+        pdf.set_fill_color(240, 248, 255)
+        pdf.rect(10, pdf.get_y(), 190, 5, 'F')
+        pdf.cell(0, 5, f"Average Combined Score: {avg_combined:.3f}", 0, 1)
         
         # Output PDF to BytesIO
         pdf_output = io.BytesIO()
@@ -1090,6 +1172,13 @@ def get_dashboard_stats():
                        ROW_NUMBER() OVER (PARTITION BY force_id ORDER BY completion_timestamp DESC) as rn
                 FROM weekly_sessions 
                 WHERE completion_timestamp IS NOT NULL
+                  AND questionnaire_id = (
+                      SELECT questionnaire_id
+                      FROM questionnaires
+                      WHERE status = 'Active'
+                      ORDER BY created_at DESC
+                      LIMIT 1
+                  )
             ) ws ON u.force_id = ws.force_id AND ws.rn = 1
             WHERE u.user_type = 'soldier'
         """)
@@ -1659,7 +1748,7 @@ def download_soldiers_csv():
         # Create CSV content with updated field names (removed: name, total_cctv_detections, avg_cctv_score, mental_state, alert_level, recommendation)
         csv_output = io.StringIO()
         fieldnames = [
-            'force_id', 'risk_level', 'combined_score', 'nlp_score', 
+            'user_id', 'risk_level', 'combined_score', 'nlp_score',
             'image_score', 'last_survey_date', 'questionnaire_title'
         ]
         
